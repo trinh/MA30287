@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.2.280">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA30287: Mathematics of Planet Earth - 2&nbsp; Basic energy models</title>
+<title>MA30287: Mathematics of Planet Earth - 3&nbsp; Basic energy models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -50,7 +50,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../part-energy.html" rel="next">
-<link href="../part-intro/intro.html" rel="prev">
+<link href="../part-intro/intro-nondim.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -90,7 +90,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Basic energy models</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Basic energy models</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -118,19 +118,9 @@ div.csl-indent {
   <a href="../index.html" class="sidebar-item-text sidebar-link">Preface</a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../part-intro/intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../part-intro/basic-energy-model.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Basic energy models</span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../part-energy.html" class="sidebar-item-text sidebar-link">Energy usage and energy sources</a>
+            <a href="../part-intro/intro.html" class="sidebar-item-text sidebar-link">Introduction</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -138,29 +128,24 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-energy/mackay-energy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The CO<sub>2</sub> concentration</span></a>
+  <a href="../part-intro/intro-PDEs.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Conservation laws and consitutive laws</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-energy/mackay-units.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Units and physics</span></a>
+  <a href="../part-intro/intro-nondim.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dimensional scaling analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-energy/mackay-consumption.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estimating consumption</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../part-energy/mackay-renewables.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimating power from renawables</span></a>
+  <a href="../part-intro/basic-energy-model.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Basic energy models</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../part-box.html" class="sidebar-item-text sidebar-link">Box models and dynamical systems</a>
+            <a href="../part-energy.html" class="sidebar-item-text sidebar-link">Energy usage and energy sources</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -168,39 +153,29 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-box/box-energy-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Steady-states of the basic energy model I</span></a>
+  <a href="../part-energy/mackay-energy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The CO<sub>2</sub> concentration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-box/box-energy-model2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Steady-states of the basic energy model II</span></a>
+  <a href="../part-energy/mackay-units.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Units and physics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-box/basic-ocean-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Basic models of the ocean</span></a>
+  <a href="../part-energy/mackay-consumption.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimating consumption</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-box/stommel.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Stommel box model</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../lorenz.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Lorenz equations</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../part-box/el-nino.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">El Nino-Southern Oscillation</span></a>
+  <a href="../part-energy/mackay-renewables.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estimating power from renawables</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../part-pde.html" class="sidebar-item-text sidebar-link">PDE models</a>
+            <a href="../part-box.html" class="sidebar-item-text sidebar-link">Box models and dynamical systems</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -208,14 +183,39 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-pde/greenhouse.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">The greenhouse gas effect</span></a>
+  <a href="../part-box/box-energy-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Steady-states of the basic energy model I</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-box/box-energy-model2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Steady-states of the basic energy model II</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-box/basic-ocean-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Basic models of the ocean</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-box/stommel.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Stommel box model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lorenz.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Lorenz equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-box/el-nino.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">El Nino-Southern Oscillation</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../part-techniques/part-techniques.html" class="sidebar-item-text sidebar-link">Mathematical methods</a>
+            <a href="../part-pde.html" class="sidebar-item-text sidebar-link">PDE models</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -223,44 +223,59 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Dynamical systems</span></a>
+  <a href="../part-pde/greenhouse.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">The greenhouse gas effect</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-techniques/part-techniques.html" class="sidebar-item-text sidebar-link">Mathematical methods</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Dynamical systems</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
+  <a href="../part-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-techniques/modelling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Modelling</span></a>
+  <a href="../part-techniques/modelling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Modelling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-techniques/finitedifference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></a>
+  <a href="../part-techniques/finitedifference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-techniques/newtons.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Newton’s method</span></a>
+  <a href="../part-techniques/newtons.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Newton’s method</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-techniques/arclength.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Arclength continuation</span></a>
+  <a href="../part-techniques/arclength.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Arclength continuation</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="../summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectureplan.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Lecture plan</span></a>
+  <a href="../lectureplan.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Lecture plan</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -277,9 +292,8 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-basic-energy-model" id="toc-the-basic-energy-model" class="nav-link active" data-scroll-target="#the-basic-energy-model"><span class="toc-section-number">2.1</span>  The basic energy model</a></li>
-  <li><a href="#the-history-of-global-warming" id="toc-the-history-of-global-warming" class="nav-link" data-scroll-target="#the-history-of-global-warming"><span class="toc-section-number">2.2</span>  The history of global warming</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">2.3</span>  References</a></li>
+  <li><a href="#the-basic-energy-model" id="toc-the-basic-energy-model" class="nav-link active" data-scroll-target="#the-basic-energy-model"><span class="toc-section-number">3.1</span>  The basic energy model</a></li>
+  <li><a href="#the-history-of-global-warming" id="toc-the-history-of-global-warming" class="nav-link" data-scroll-target="#the-history-of-global-warming"><span class="toc-section-number">3.2</span>  The history of global warming</a></li>
   </ul>
 </nav>
     </div>
@@ -288,7 +302,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-basic-energy" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Basic energy models</span></span></h1>
+<h1 class="title"><span id="sec-basic-energy" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Basic energy models</span></span></h1>
 </div>
 
 
@@ -330,12 +344,12 @@ Basic energy balance
 <div class="callout-body-container callout-body">
 <p><span id="eq-basicbalance"><span class="math display">\[
 \text{Change in internal energy of Earth} = E_{\text{in}} - E_{\text{out}},
-\tag{2.1}\]</span></span></p>
+\tag{3.1}\]</span></span></p>
 </div>
 </div>
 <p>where <span class="math inline">\(E_{\text{in}}\)</span> is the incoming energy from the sun and <span class="math inline">\(E_{\text{out}}\)</span> is the energy leaving the Earth. Note that the left hand-side (the internal energy) will depend on the temperature, <span class="math inline">\(T\)</span>.</p>
-<section id="the-basic-energy-model" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="the-basic-energy-model"><span class="header-section-number">2.1</span> The basic energy model</h2>
+<section id="the-basic-energy-model" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="the-basic-energy-model"><span class="header-section-number">3.1</span> The basic energy model</h2>
 <p>The basic model is derived as follows.</p>
 <ol type="1">
 <li>By considering the incoming radiation from the sun, obtain an estimate for the incoming energy, <span class="math inline">\(E_{\text{in}}\)</span>.</li>
@@ -346,7 +360,7 @@ Basic energy balance
 <div id="fig-atmosphere" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="figures/atmosphere.jpg" class="img-fluid figure-img" style="width:80.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.1: Radiation in the atmosphere</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.1: Radiation in the atmosphere</figcaption><p></p>
 </figure>
 </div>
 <p>First we consider incoming energy.</p>
@@ -363,7 +377,7 @@ Energy from the Sun
 <p>First, note that the shortwave radiation (UV and radiation) recieved from the sun is <span class="math inline">\(Q \approx 1370 \text{ W$\cdot$m$^{-2}$}\)</span> (which we consider measured at a point near the planet).</p>
 <p>If we consider only that radiation that is absorbed into the Earth, we have <span id="eq-Ein"><span class="math display">\[
 E_{\mathrm{in}} = \pi R^2 Q (1 - a),
-\tag{2.2}\]</span></span> where <span class="math inline">\(R\)</span> is the Earth’s radius.</p>
+\tag{3.2}\]</span></span> where <span class="math inline">\(R\)</span> is the Earth’s radius.</p>
 <p>In the above formula, we have multiplied the flux, <span class="math inline">\(Q\)</span>, with the visible surface area, <span class="math inline">\(\pi R^2\)</span>. There is an additional multiplication by <span class="math inline">\((1 - a)\)</span> where <span class="math inline">\(a\)</span> is the <em>planetary albedo</em>, which characterises amount of energy reflected due to the surface properties. Light surfaces like snow will have high albedo, <span class="math inline">\(a \approx 0.9\)</span>, while darker surfaces like the ocean have smaller albedo, <span class="math inline">\(a \approx 0.3\)</span>. The global average albedo is <span class="math inline">\(a \approx 0.3\)</span>.</p>
 </div>
 </div>
@@ -380,15 +394,15 @@ Energy from the Earth
 <div class="callout-body-container callout-body">
 <p>We now wish to characterise the energy, <span class="math inline">\(E_{out}\)</span>, and in the case of Earth, this will correspond to longwave radiation (infra-red) emitted into space. All bodies characterised by a temperature, say <span class="math inline">\(T_e\)</span>, will emit radiation, <span class="math inline">\(Q_e\)</span>. As a model, we can consider <span class="math inline">\(Q_e\)</span> to be given by the <a href="https://en.wikipedia.org/wiki/Stefan-Boltzmann_law">Stefan-Boltzmann law</a>, which states that <span id="eq-SBlaw"><span class="math display">\[
 Q_e = \sigma T_e^4,
-\tag{2.3}\]</span></span> where <span class="math inline">\(\sigma \approx 5.67 \times 10^{-8} W m^{-2} K^{-4}\)</span> is the Stefan-Boltzmann constant.</p>
-<p>Now although the Earth’s surface may emit radiation according to (<a href="#eq-SBlaw">Equation&nbsp;<span>2.3</span></a>), some of this radiation will be absorbed by the atmosphere and reflected back. This is the <strong>greenhouse effect</strong>. As a consequence of the greenhouse gas, the surface temperature of the Earth, <span class="math inline">\(T\)</span>, will be larger than the effective emitting temperature, <span class="math inline">\(T_e\)</span>. For the moment, we model this as <span id="eq-greenhousegas"><span class="math display">\[
+\tag{3.3}\]</span></span> where <span class="math inline">\(\sigma \approx 5.67 \times 10^{-8} W m^{-2} K^{-4}\)</span> is the Stefan-Boltzmann constant.</p>
+<p>Now although the Earth’s surface may emit radiation according to (<a href="#eq-SBlaw">Equation&nbsp;<span>3.3</span></a>), some of this radiation will be absorbed by the atmosphere and reflected back. This is the <strong>greenhouse effect</strong>. As a consequence of the greenhouse gas, the surface temperature of the Earth, <span class="math inline">\(T\)</span>, will be larger than the effective emitting temperature, <span class="math inline">\(T_e\)</span>. For the moment, we model this as <span id="eq-greenhousegas"><span class="math display">\[
 T_e = \gamma^{1/4} T_e,
-\tag{2.4}\]</span></span> where <span class="math inline">\(\gamma &lt; 1\)</span> is a greenhouse gas factor, which depends on the properties of the atmosphere.</p>
+\tag{3.4}\]</span></span> where <span class="math inline">\(\gamma &lt; 1\)</span> is a greenhouse gas factor, which depends on the properties of the atmosphere.</p>
 </div>
 </div>
 <p>Now combining the above equations, we have <span id="eq-EinEout"><span class="math display">\[
 E_{\mathrm{in}} - E_{\mathrm{out}} = \pi R^2 Q (1 - a) - 4\pi R^2 \sigma \gamma T^4,
-\tag{2.5}\]</span></span> which gives the incoming energy per unit time.</p>
+\tag{3.5}\]</span></span> which gives the incoming energy per unit time.</p>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -403,17 +417,17 @@ Internal heat energy
 \text{Internal heat energy} = \text{volume} \times (\rho c_p) \times T.
 \]</span> The key quantity is the experimentally determined, <span class="math inline">\(c_p\)</span>, which corresponds to the <a href="https://en.wikipedia.org/wiki/Specific_heat_capacity%20of%20air">specific heat capacity</a>. It is given in the SI units of <span class="math inline">\(\mathrm{J} \cdot \mathrm{kg}^{-1} \cdot \mathrm{K}^{-1}\)</span>, i.e.&nbsp;energy per unit mass per unit temperature. Note that this applied to a shell around the planet of thickness <span class="math inline">\(d\)</span> in the atmosphere, and so the mass is given by <span id="eq-mass"><span class="math display">\[
 \text{mass} = (4 \pi R^2) d \rho
-\tag{2.6}\]</span></span> where <span class="math inline">\(\rho\)</span> is the average density of the atmosphere. Let us imagine the increase in temperature, <span class="math inline">\(\Delta T\)</span>,during an interval of time, <span class="math inline">\(\Delta t\)</span>. You can now verify that <span class="math display">\[
+\tag{3.6}\]</span></span> where <span class="math inline">\(\rho\)</span> is the average density of the atmosphere. Let us imagine the increase in temperature, <span class="math inline">\(\Delta T\)</span>,during an interval of time, <span class="math inline">\(\Delta t\)</span>. You can now verify that <span class="math display">\[
 \Bigl[ (4 \pi R^2) d \rho \Bigr] c_p (\Delta T)
 \]</span> returns the units of Joules—i.e.&nbsp;this is the internal energy produced during the time <span class="math inline">\(\Delta t\)</span>. We then have <span class="math display">\[
 \Bigl[ (4 \pi R^2) d \rho \Bigr] c_p \Delta T =  \Delta t (E_{in} - E_{out}).
-\]</span> Putting in (<a href="#eq-EinEout">Equation&nbsp;<span>2.5</span></a>) and taking the limit of <span class="math inline">\(\Delta t \to 0\)</span>, we finally have a heat equation for the Earth’s temperature given by the following ordinary differential equation (ODE) for <span class="math inline">\(T = T(t)\)</span>,<br>
+\]</span> Putting in (<a href="#eq-EinEout">Equation&nbsp;<span>3.5</span></a>) and taking the limit of <span class="math inline">\(\Delta t \to 0\)</span>, we finally have a heat equation for the Earth’s temperature given by the following ordinary differential equation (ODE) for <span class="math inline">\(T = T(t)\)</span>,<br>
 <span id="eq-heateq-earth"><span class="math display">\[
 c \frac{\mathrm{d}T}{\mathrm{d}t} = \frac{1}{4} Q(1 - a) - \sigma \gamma T^4,
-\tag{2.7}\]</span></span> where we have defined <span class="math inline">\(c = \rho c_p d\)</span> as the heat capacity of the atmosphere.</p>
+\tag{3.7}\]</span></span> where we have defined <span class="math inline">\(c = \rho c_p d\)</span> as the heat capacity of the atmosphere.</p>
 </div>
 </div>
-<p>The above equation <a href="#eq-heateq-earth">Equation&nbsp;<span>2.7</span></a> is time-dependent, but we may consider that the surface temperature, either over long-time or in an averaged sense, is dictated by the steady-state (time-independent) solution. Setting <span class="math inline">\(\mathrm{d}T/\mathrm{d}t\)</span> to zero, we see that there is a unique steady-state given by <span class="math display">\[
+<p>The above equation <a href="#eq-heateq-earth">Equation&nbsp;<span>3.7</span></a> is time-dependent, but we may consider that the surface temperature, either over long-time or in an averaged sense, is dictated by the steady-state (time-independent) solution. Setting <span class="math inline">\(\mathrm{d}T/\mathrm{d}t\)</span> to zero, we see that there is a unique steady-state given by <span class="math display">\[
 T = \left(\frac{Q(1-a)}{4\sigma\gamma}\right)^{1/4}.
 \]</span></p>
 <p>If we take <span class="math inline">\(Q \approx 1370 \,\mathrm{W m}^{-2}\)</span>, <span class="math inline">\(a \approx 0.3\)</span>, <span class="math inline">\(\sigma \approx 5.67 \times 10^{-8} \mathrm{W} \,\mathrm{m}^{-2} \mathrm{K}^{-4}\)</span>, we then get <span class="math display">\[
@@ -421,33 +435,20 @@ T \approx 255 \mathrm{K} = -18^\circ \mathrm{C}.
 \]</span> under the assumption that <span class="math inline">\(\gamma = 1\)</span>. That’s pretty cold! The actual average temperature is around <span class="math inline">\(288 \mathrm{K} \approx 15 ^\circ \mathrm{C}\)</span>.</p>
 <p>The above back-of-the-envelope calculation seems to suggest that the parameter <span class="math inline">\(\gamma &lt; 1\)</span> plays an important role in keeping the Earth warm enough for us to live on, and indeed the value of <span class="math inline">\(\gamma\)</span> inferred by the above is roughly <span class="math inline">\(\gamma \approx 0.61\)</span>. Later on in the course, we will develop a more rigorous model to predict such a <span class="math inline">\(\gamma\)</span> by studying the properties of the atmosphere.</p>
 </section>
-<section id="the-history-of-global-warming" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="the-history-of-global-warming"><span class="header-section-number">2.2</span> The history of global warming</h2>
+<section id="the-history-of-global-warming" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="the-history-of-global-warming"><span class="header-section-number">3.2</span> The history of global warming</h2>
 <p>The history of global warming (and hence the estimation of <span class="math inline">\(\gamma\)</span>) is convoluted, but the origins can be considered as far back as the work of <span class="citation" data-cites="fourier1827memoire">(<a href="../references.html#ref-fourier1827memoire" role="doc-biblioref">Fourier 1827</a>)</span> and <span class="citation" data-cites="pouillet1838memoire">(<a href="../references.html#ref-pouillet1838memoire" role="doc-biblioref">Pouillet 1838</a>)</span>, and is discussed in the work by <span class="citation" data-cites="van2000fourier">(<a href="../references.html#ref-van2000fourier" role="doc-biblioref">Van der Veen 2000</a>)</span>.</p>
 <div id="fig-fourier" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="figures/fourier.jpg" class="img-fluid figure-img" style="width:80.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.2: An illustration of Fourier’s glass box</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.2: An illustration of Fourier’s glass box</figcaption><p></p>
 </figure>
 </div>
-</section>
-<section id="references" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="references"><span class="header-section-number">2.3</span> References</h2>
-<ol type="1">
-<li><p>Chap. 1 of <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span></p></li>
-<li><p>Chap. 2 of <span class="citation" data-cites="fowler_book">(<a href="../references.html#ref-fowler_book" role="doc-biblioref">Fowler 2011</a>)</span></p></li>
-</ol>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
 <div id="ref-fourier1827memoire" class="csl-entry" role="doc-biblioentry">
 Fourier, Joseph. 1827. <span>“M<span>é</span>moire Sur Les Temp<span>é</span>ratures Du Globe Terrestre Et Des Espaces Plan<span>é</span>taires.”</span> <em>M<span>é</span>moires de l’Acad<span>é</span>mie Royale Des Sciences de l’Institut de France</em> 7: 570–604.
-</div>
-<div id="ref-fowler_book" class="csl-entry" role="doc-biblioentry">
-Fowler, Andrew. 2011. <em>Mathematical Geoscience</em>. Vol. 36. Springer.
-</div>
-<div id="ref-kaper_book" class="csl-entry" role="doc-biblioentry">
-Kaper, Hans, and Hans Engler. 2013. <em>Mathematics and Climate</em>. SIAM.
 </div>
 <div id="ref-pouillet1838memoire" class="csl-entry" role="doc-biblioentry">
 Pouillet, Claude Servais Mathias. 1838. <span>“Memoire Sur Le Chaleur Solaire.”</span> <em>Paris</em>.
@@ -594,8 +595,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part-intro/intro.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      <a href="../part-intro/intro-nondim.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dimensional scaling analysis</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
