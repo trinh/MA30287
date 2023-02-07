@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA30287: Mathematics of Planet Earth - 16&nbsp; Vector calculus</title>
+<title>MA30287: Mathematics of Planet Earth - 17&nbsp; Vector calculus</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vector calculus</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Vector calculus</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -219,44 +219,49 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Dynamical systems</span></a>
+  <a href="../part-techniques/asymptotics01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Preliminary asymptotics approximations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
+  <a href="../part-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Dynamical systems</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-techniques/modelling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Modelling</span></a>
+  <a href="../part-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-techniques/finitedifference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></a>
+  <a href="../part-techniques/modelling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Modelling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-techniques/newtons.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Newton’s method</span></a>
+  <a href="../part-techniques/finitedifference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-techniques/arclength.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Arclength continuation</span></a>
+  <a href="../part-techniques/newtons.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Newton’s method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-techniques/arclength.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Arclength continuation</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="../summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectureplan.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Lecture plan</span></a>
+  <a href="../lectureplan.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Lecture plan</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -273,12 +278,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#coordinate-systems" id="toc-coordinate-systems" class="nav-link active" data-scroll-target="#coordinate-systems"><span class="toc-section-number">16.1</span>  Coordinate systems</a>
+  <li><a href="#coordinate-systems" id="toc-coordinate-systems" class="nav-link active" data-scroll-target="#coordinate-systems"><span class="toc-section-number">17.1</span>  Coordinate systems</a>
   <ul class="collapse">
-  <li><a href="#spherical-coordinates" id="toc-spherical-coordinates" class="nav-link" data-scroll-target="#spherical-coordinates"><span class="toc-section-number">16.1.1</span>  Spherical coordinates</a></li>
+  <li><a href="#spherical-coordinates" id="toc-spherical-coordinates" class="nav-link" data-scroll-target="#spherical-coordinates"><span class="toc-section-number">17.1.1</span>  Spherical coordinates</a></li>
   </ul></li>
-  <li><a href="#directional-derivatives" id="toc-directional-derivatives" class="nav-link" data-scroll-target="#directional-derivatives"><span class="toc-section-number">16.2</span>  Directional derivatives</a></li>
-  <li><a href="#integration-in-different-coordinate-systems" id="toc-integration-in-different-coordinate-systems" class="nav-link" data-scroll-target="#integration-in-different-coordinate-systems"><span class="toc-section-number">16.3</span>  Integration in different coordinate systems</a></li>
+  <li><a href="#directional-derivatives" id="toc-directional-derivatives" class="nav-link" data-scroll-target="#directional-derivatives"><span class="toc-section-number">17.2</span>  Directional derivatives</a></li>
+  <li><a href="#integration-in-different-coordinate-systems" id="toc-integration-in-different-coordinate-systems" class="nav-link" data-scroll-target="#integration-in-different-coordinate-systems"><span class="toc-section-number">17.3</span>  Integration in different coordinate systems</a></li>
   </ul>
 </nav>
     </div>
@@ -287,7 +292,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vector calculus</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Vector calculus</span></h1>
 </div>
 
 
@@ -302,22 +307,22 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="coordinate-systems" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="coordinate-systems"><span class="header-section-number">16.1</span> Coordinate systems</h2>
+<section id="coordinate-systems" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="coordinate-systems"><span class="header-section-number">17.1</span> Coordinate systems</h2>
 <ul>
 <li>We need some vector calculus in the section on <a href="../part-pde/greenhouse.html#sec-radiative"><span>Section&nbsp;14.1</span></a> when discussing the radiation integrals.</li>
 </ul>
-<section id="spherical-coordinates" class="level3" data-number="16.1.1">
-<h3 data-number="16.1.1" class="anchored" data-anchor-id="spherical-coordinates"><span class="header-section-number">16.1.1</span> Spherical coordinates</h3>
+<section id="spherical-coordinates" class="level3" data-number="17.1.1">
+<h3 data-number="17.1.1" class="anchored" data-anchor-id="spherical-coordinates"><span class="header-section-number">17.1.1</span> Spherical coordinates</h3>
 <p>In spherical coordinates, …</p>
 </section>
 </section>
-<section id="directional-derivatives" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="directional-derivatives"><span class="header-section-number">16.2</span> Directional derivatives</h2>
+<section id="directional-derivatives" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="directional-derivatives"><span class="header-section-number">17.2</span> Directional derivatives</h2>
 <p>Used in the <a href="../part-pde/greenhouse.html#sec-radiative"><span>Section&nbsp;14.1</span></a>, i.e.&nbsp;<span class="math inline">\(\partial\partial s = \mathbf{\hat{s}} \cdot \nabla_{\mathbf{x}}\)</span>.</p>
 </section>
-<section id="integration-in-different-coordinate-systems" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="integration-in-different-coordinate-systems"><span class="header-section-number">16.3</span> Integration in different coordinate systems</h2>
+<section id="integration-in-different-coordinate-systems" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="integration-in-different-coordinate-systems"><span class="header-section-number">17.3</span> Integration in different coordinate systems</h2>
 <div class="callout-important callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -475,12 +480,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../part-techniques/dynamical-systems.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../part-techniques/modelling.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Modelling</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Modelling</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
