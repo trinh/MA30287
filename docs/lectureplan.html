@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.2.280">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./part-exercises/part-exercises.html" rel="next">
 <link href="./summary.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -263,6 +263,9 @@ ul.task-list li input[type="checkbox"] {
   <a href="./lectureplan.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Lecture plan</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Exercises</span>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
@@ -330,7 +333,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>1</td>
-<td>Introduction to the course; conservation equations</td>
+<td>Introduction to the course; conservation equations and deriving the heat equation</td>
 <td><a href="part-intro/intro-PDEs.html"><span>Chapter&nbsp;1</span></a></td>
 </tr>
 <tr class="odd">
@@ -340,7 +343,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>3</td>
-<td>Derivation of the basic energy model</td>
+<td>More nondimensionalisation; derivation of the basic energy model</td>
 <td><a href="part-intro/basic-energy-model.html"><span>Chapter&nbsp;3</span></a></td>
 </tr>
 <tr class="odd">
@@ -355,8 +358,8 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>6</td>
-<td>Writing</td>
-<td>???</td>
+<td>Problem class</td>
+<td></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -364,18 +367,18 @@ ul.task-list li input[type="checkbox"] {
 <td></td>
 </tr>
 <tr class="odd">
-<td>7</td>
+<td>6</td>
 <td><em>Precursor</em>: Preliminary asymptotic approximations</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>8</td>
+<td>7</td>
 <td><em>Precursor</em>: Series expansions and error propagation</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>9</td>
-<td><em>Precursor</em>: Finite difference approximations</td>
+<td>8</td>
+<td><em>Precursor</em>: Finite difference approximations, Euler’s method</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -384,8 +387,18 @@ ul.task-list li input[type="checkbox"] {
 <td></td>
 </tr>
 <tr class="odd">
+<td>9</td>
+<td>Problem class</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>11</td>
-<td>???</td>
+<td><em>Precursor</em>: Asympotics for ODEs</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td><em>Precursor</em>: Method of multiple scales</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -434,38 +447,28 @@ ul.task-list li input[type="checkbox"] {
 <td></td>
 </tr>
 <tr class="odd">
-<td>20</td>
-<td>Lorenz equations</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>21</td>
 <td>El Nino-Southern Oscillation</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>22</td>
 <td>Zonal energy budget</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>23</td>
 <td>Legendre polynomials and spectral numerics</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>24</td>
 <td>Problem class</td>
 <td></td>
 </tr>
-<tr class="even">
-<td></td>
-<td><strong>Physical models of Planet Earth</strong></td>
-<td></td>
-</tr>
 <tr class="odd">
 <td></td>
-<td>Review of multi-dimensional calculus</td>
+<td><strong>Physical models of Planet Earth</strong></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -505,22 +508,17 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td></td>
-<td>Problem class</td>
+<td>Discussing coursework</td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>Discussing coursework</td>
+<td>Asymptotics for ODEs</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>Asymptotics for ODEs/BVPs I</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Asymptotics for ODEs/BVPS II</td>
+<td>Method of multiple scales</td>
 <td></td>
 </tr>
 </tbody>
@@ -669,8 +667,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./part-exercises/part-exercises.html" class="pagination-link">
+        <span class="nav-page-text">Exercises</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
