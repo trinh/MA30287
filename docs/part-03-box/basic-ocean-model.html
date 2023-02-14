@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>MA30287: Mathematics of Planet Earth - 11&nbsp; Basic models of the ocean</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../part-03-box/stommel.html" rel="next">
+<link href="../part-03-box/box-energy-model2.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic models of the ocean</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">MA30287: Mathematics of Planet Earth</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-01-intro/intro.html" class="sidebar-item-text sidebar-link">Introduction</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-01-intro/intro-PDEs.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Conservation laws and consitutive laws</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-01-intro/intro-nondim.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dimensional scaling analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-01-intro/basic-energy-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Basic energy models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-01-intro/problemclass01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Problem class 1</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-02-energy/part-energy.html" class="sidebar-item-text sidebar-link">Energy usage and energy sources</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-02-energy/mackay-energy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The CO<sub>2</sub> concentration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-02-energy/mackay-units.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Units and physics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-02-energy/mackay-consumption.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estimating consumption</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-02-energy/mackay-renewables.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Estimating power from renawables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-03-box/part-box.html" class="sidebar-item-text sidebar-link">Box models and dynamical systems</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/box-energy-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Steady-states of the basic energy model I</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/box-energy-model2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Steady-states of the basic energy model II</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/basic-ocean-model.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic models of the ocean</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/stommel.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Stommel’s box model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/el-nino.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">El Nino-Southern Oscillation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">part-04-pde.qmd</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-04-pde/greenhouse.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">The greenhouse gas effect</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-05-techniques/part-techniques.html" class="sidebar-item-text sidebar-link">Mathematical methods</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/asymptotics01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Preliminary asymptotics approximations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Dynamical systems</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Modelling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/newtons.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Newton’s method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/arclength.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Arclength continuation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectureplan.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Lecture plan</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-xx-exercises/part-exercises.html" class="sidebar-item-text sidebar-link">Exercises</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Problem set 1</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#terminology-and-context" id="toc-terminology-and-context" class="nav-link active" data-scroll-target="#terminology-and-context"><span class="toc-section-number">11.1</span>  Terminology and context</a></li>
+  <li><a href="#temperature" id="toc-temperature" class="nav-link" data-scroll-target="#temperature"><span class="toc-section-number">11.2</span>  Temperature</a></li>
+  <li><a href="#salinity" id="toc-salinity" class="nav-link" data-scroll-target="#salinity"><span class="toc-section-number">11.3</span>  Salinity</a></li>
+  <li><a href="#two-box-model-of-the-ocean" id="toc-two-box-model-of-the-ocean" class="nav-link" data-scroll-target="#two-box-model-of-the-ocean"><span class="toc-section-number">11.4</span>  Two-box model of the ocean</a></li>
+  <li><a href="#a-one-dimensional-model-constant-temperature" id="toc-a-one-dimensional-model-constant-temperature" class="nav-link" data-scroll-target="#a-one-dimensional-model-constant-temperature"><span class="toc-section-number">11.5</span>  A one-dimensional model (constant temperature)</a></li>
+  <li><a href="#analysis-of-a-1d-model-for-the-salinity" id="toc-analysis-of-a-1d-model-for-the-salinity" class="nav-link" data-scroll-target="#analysis-of-a-1d-model-for-the-salinity"><span class="toc-section-number">11.6</span>  Analysis of a 1D model for the salinity</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">11.7</span>  References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-oceanbox" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic models of the ocean</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+2022-23 note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.</p>
+</div>
+</div>
+<section id="terminology-and-context" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="terminology-and-context"><span class="header-section-number">11.1</span> Terminology and context</h2>
+<p>The ocean plays a significant role in regulating the Earth’s climate, as it acts as a massive heat sink and helps to distribute heat and moisture around the planet. In addition, carbon dioxide is water soluble, and through precipitation and wave motion, is transferred into the oceans. Thus the ocean acts as a sink, absorbing large amounts of this greenhouse gas from the atmosphere.</p>
+<p>The thermohaline circulation (THC), also known as the global ocean conveyor belt, is a complex ocean circulation pattern that is driven by differences in water temperature and salinity. It is an important component of the Earth’s climate system, as it helps to distribute heat and other properties throughout the planet’s oceans.</p>
+<p>The thermohaline circulation is driven by the sinking of cold, dense water in the polar regions, which then spreads out and flows towards the equator. As the water warms and becomes less dense, it rises to the surface and returns to the poles, creating a continuous loop of ocean currents. The role of salinity in driving the thermohaline circulation is due to the fact that the dissolved salts in seawater increase its density.</p>
+<p>This circulation pattern has a significant impact on global climate, as it helps to regulate the exchange of heat and other properties between the oceans and the atmosphere. Changes in the thermohaline circulation, such as those caused by global warming, can have far-reaching effects on the planet’s climate and weather patterns.</p>
+<div id="fig-THC" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/THC.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;11.1: The thermohaline circulation. In the Atlantic, the circulation carries warm water (red) north near the surface and cold deep water (blue) south. Image from NASA/JPL.</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="temperature" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="temperature"><span class="header-section-number">11.2</span> Temperature</h2>
+<p>In regards to the temperature, the ocean can be divided into three layers.</p>
+<ol type="1">
+<li><p>The top layer is thin (on the order of metres) and is heated from the Sun. Mixing is a dominant effect due to wind and waves, and so the temperature in this region is mostly constant.</p></li>
+<li><p>The <em>thermocline region</em> is the intermediate layer. Here, the temperature decreaes approximately linearly.</p></li>
+<li><p>The deep <em>abyssal zone</em> comprises 98% of the total volume of the oceans. The temperature in this region is mostly constant, and a few degrees above freezing.</p></li>
+</ol>
+<p>Within the intermediate region, the temperature can be modelled by an <strong>advection diffusion</strong> equation, <span id="eq-heatocean"><span class="math display">\[
+\frac{\mathrm{\partial}T}{\mathrm{\partial}t} + w \frac{\mathrm{\partial}T}{\mathrm{\partial}z} = \kappa \frac{\mathrm{\partial}^2 T}{\mathrm{\partial}z^2},
+\tag{11.1}\]</span></span> where <span class="math inline">\(w\)</span> is the upswelling velocity and <span class="math inline">\(\kappa\)</span> is the diffusion coefficient of the fluid.</p>
+<p>Let us assume that the temperature in this region is near steady state and that the upwards velocity is constant. Then we integrate the ODE to find <span class="math display">\[
+T(z) = T_0 + T_1 \mathrm{e}^{-z/z^*},
+\]</span> where <span class="math inline">\(T_0\)</span> and <span class="math inline">\(T_1\)</span> are constants. From <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span>, the typical orders for the parameters are <span class="math inline">\(\kappa \sim 10^{-2} \,\mathrm{m}^{2} \,\mathrm{s}^{-1}\)</span> and <span class="math inline">\(z^* \sim 10^2 \, \mathrm{m}\)</span>, so <span class="math inline">\(w \sim 10^{-4} \,\mathrm{m} \,\mathrm{s}^{-1}\)</span>, which is quite slow.</p>
+<div id="fig-oceanslice" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/2023-02-11-01-50-02.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;11.2: Cross section of the Atlantic Ocean, showing the temperature and salinity profiles on the right. Image from <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span>.</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="salinity" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="salinity"><span class="header-section-number">11.3</span> Salinity</h2>
+<p>Salinity is a key component in the oceans since the salts have a large effect on the water density (which consequently drives motion). Salinity is measured in psu or <em>practical salinity units</em>, which is a non-dimensional ratio of conductivities. In the mixed layer, the sainity ranges from 31-39 psu, and is about 35 in the abyssal zone. You can inspect the profile in <a href="#fig-oceanslice">Figure&nbsp;<span>11.2</span></a>.</p>
+<div id="fig-salinity" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/2023-02-11-01-57-26.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;11.3: Image from <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="two-box-model-of-the-ocean" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="two-box-model-of-the-ocean"><span class="header-section-number">11.4</span> Two-box model of the ocean</h2>
+<p>Modelling the THC is a challenging task! In principal, this might involve the solution of multiple coupled PDEs for the flows and temperatures, which would then need to be solved on a very complicated domain. In addition, such models require a number of empirical equations of state (connecting density to temperature and salinity).</p>
+<p>Toy models can be developed much more easily at the ‘systems level’ via box models.</p>
+</section>
+<section id="a-one-dimensional-model-constant-temperature" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="a-one-dimensional-model-constant-temperature"><span class="header-section-number">11.5</span> A one-dimensional model (constant temperature)</h2>
+<p>Construction and assumptions of the box model.</p>
+<ol type="1">
+<li><p>We consider two boxes, labeled ‘1’ and ‘2’, respectively via subscripts. Box 1 corresponds to high latitudes (near poles) and Box 2 to low latitudes (near equator). Each box has a corresponding temperature, <span class="math inline">\(T_i\)</span>, and salinity, <span class="math inline">\(S_i\)</span>.</p></li>
+<li><p>We assume (see above) that the strength of the exchange flow between the boxes is linearly proportional to their differences of temperature and salinity.</p></li>
+<li><p>External wind forces and Coriolis effects are ignored.</p></li>
+<li><p>We assume that in each box, there is an exchange of heat and salinity to the surrounding environment. For instance, salinity will exchange due to evaporation, precipitation, and runoff.</p></li>
+<li><p>We assume that there is a positive salt flux <span class="math inline">\(H\)</span> into Box 2 and a compensating salt flux <span class="math inline">\(-H\)</span> out of Box 1.</p></li>
+</ol>
+<p>An image of the box model is shown below.</p>
+<div id="fig-2box" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/2023-02-11-02-36-47.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;11.4: Two-box model of the North Atlantic with evaporation and precipitation. Image from <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<p>The equations are given as follows.</p>
+<p><span id="eq-2box"><span class="math display">\[
+\begin{align}
+\frac{\mathrm{d}T_1}{\mathrm{d}t} &amp;= c(T_1^* - T_1) + |q|(T_2 - T_1) \\
+\frac{\mathrm{d}T_2}{\mathrm{d}t} &amp;= c(T_2^* - T_2) + |q|(T_1 - T_2) \\
+\frac{\mathrm{d}S_1}{\mathrm{d}t} &amp;= -H + d(S_1^* - S_1) + |q|(S_2 - S_1) \\
+\frac{\mathrm{d}S_2}{\mathrm{d}t} &amp;= H + d(S_2^* - S_2) + |q|(S_1 - S_2)
+\end{align}
+\tag{11.2}\]</span></span></p>
+<p>The symmetry in the above equations suggests we should re-write the temperature and salinity with respect to averaged values. In particular, notice that if we add the two first equations, we see that the steady-state temperatures satisfy <span class="math display">\[
+T_1 + T_2 = T_1^* + T_2^*,
+\]</span> and therefore the average temperature in the two ocean regions will tend to the average of the basin regions. A similar conclusion is made for the salinities. It is then sensible to write all temperature and salinity in terms of this baseline scenario. So let us write <span class="math display">\[\begin{align}
+T_1 &amp;= \frac{1}{2}m + U_1 \\
+T_2 &amp;= \frac{1}{2}m + U_2
+\end{align}\]</span> where <span class="math inline">\(m = T_1^* + T_2^*\)</span>. Then the first equation becomes <span class="math display">\[\begin{align}
+\frac{\mathrm{d}U_1}{\mathrm{d}t} &amp;= c\left(T_1^* - U_1 - \frac{1}{2}m\right) + |q| (U_2 - U_1)\\
+&amp;= c\left(- T^*  - U_1\right) + |q| (U_2 - U_1).
+\end{align}\]</span> where <span class="math inline">\(T^* = \frac{1}{2}(T_2^* - T_1^*)\)</span>.</p>
+<p>The analgous manipulations are done to the quantities for the salinity. In the end, if we (confusingly) re-write <span class="math inline">\(T\)</span> for <span class="math inline">\(U\)</span>, then we obtain <span id="eq-2box-again"><span class="math display">\[
+\begin{align}
+\frac{\mathrm{d}T_1}{\mathrm{d}t} &amp;= c(-T^* - T_1) + |q|(T_2 - T_1) \\
+\frac{\mathrm{d}T_2}{\mathrm{d}t} &amp;= c(T^* - T_2) + |q|(T_1 - T_2) \\
+\frac{\mathrm{d}S_1}{\mathrm{d}t} &amp;= -H + d(-S^* - S_1) + |q|(S_2 - S_1) \\
+\frac{\mathrm{d}S_2}{\mathrm{d}t} &amp;= H + d(S^* - S_2) + |q|(S_1 - S_2)
+\end{align}
+\tag{11.3}\]</span></span></p>
+<p>Comparing the above to <a href="#eq-2box">Equation&nbsp;<span>11.2</span></a>, the main difference is that, in expressing the temperature and salinities with respect to the average values in the basin, we have eliminated two of the constants from the set <span class="math inline">\((T_1^*, T_1^*, S_1^*, S_2^*)\)</span> now only into two constants <span class="math inline">\((T^*, S^*)\)</span>.</p>
+<p>In the situation of zero salt flux. <span class="math inline">\(H = 0\)</span>, the above model reduces to Stommel’s box model studied in <a href="stommel.html"><span>Chapter&nbsp;12</span></a>.</p>
+</section>
+<section id="analysis-of-a-1d-model-for-the-salinity" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="analysis-of-a-1d-model-for-the-salinity"><span class="header-section-number">11.6</span> Analysis of a 1D model for the salinity</h2>
+<p>We make the following assumptions</p>
+<ul>
+<li>We assume that on the timescale of interest in the THC, the temperature of each box equilibrates quickly with the surrounding basin.</li>
+<li>The difference in temperatures between the two boxes is small; together with the top assumption, this implies that <span class="math inline">\(T_1(t) = -T^*\)</span> and <span class="math inline">\(T_2(t) = T^*\)</span>.</li>
+<li>Salinity exchanges by negligible amounts with its surrounding basin, i.e.&nbsp;<span class="math inline">\(d = 0\)</span></li>
+</ul>
+<p>This leaves us with <span class="math display">\[\begin{align}
+\frac{\mathrm{d}S_1}{\mathrm{d}t} &amp;= -H + |q|(S_2 - S_1) \\
+\frac{\mathrm{d}S_2}{\mathrm{d}t} &amp;= H + |q| (S_1 - S_2),
+\end{align}\]</span> where <span class="math inline">\(q = k(2\alpha T^* - \beta(S_2 - S_1))\)</span>.</p>
+<p>Now, the formulation for the salinities can be placed into a single equation for <span class="math inline">\(\Delta S = S_2 - S_1\)</span>, which satisfies <span class="math display">\[
+\frac{\mathrm{d}\Delta S}{\mathrm{d}t} = 2H - 2k|\alpha \Delta T - \beta \Delta S| \Delta S.
+\]</span></p>
+<p>From here…</p>
+<ol type="1">
+<li><p>Non-dimensionalise</p></li>
+<li><p>Study the equilibrium states and their stability</p></li>
+<li><p>Discuss the tipping phenomena</p></li>
+</ol>
+</section>
+<section id="references" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="references"><span class="header-section-number">11.7</span> References</h2>
+<p>This chapter was largely following Chap. 3 of <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span>.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-kaper_book" class="csl-entry" role="doc-biblioentry">
+Kaper, Hans, and Hans Engler. 2013. <em>Mathematics and Climate</em>. SIAM.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../part-03-box/box-energy-model2.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Steady-states of the basic energy model II</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../part-03-box/stommel.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Stommel’s box model</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
