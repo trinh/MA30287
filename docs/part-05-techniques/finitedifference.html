@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.2.280">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -83,25 +83,6 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 
@@ -112,7 +93,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-05-techniques/newtons.html" rel="next">
+<link href="../part-05-techniques/euler.html" rel="next">
 <link href="../part-05-techniques/modelling.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -326,24 +307,29 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/newtons.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Newton’s method</span></a>
+  <a href="../part-05-techniques/euler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Euler’s method and solving IVPs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/arclength.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Arclength continuation</span></a>
+  <a href="../part-05-techniques/newtons.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Newton’s method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/arclength.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Arclength continuation</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="../summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectureplan.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Lecture plan</span></a>
+  <a href="../lectureplan.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Lecture plan</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -356,7 +342,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Problem set 1</span></a>
+  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Problem set 1</span></a>
   </div>
 </li>
       </ul>
@@ -385,7 +371,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></h1>
+<h1 class="title"><span id="sec-FD" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></h1>
 </div>
 
 
@@ -400,19 +386,20 @@ div.csl-indent {
 
 </header>
 
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Reference
+2022-23 note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Some of this material follows from Chap. 5 of <span class="citation" data-cites="sauer_book">(<a href="../references.html#ref-sauer_book" role="doc-biblioref">Sauer 2012</a>)</span>.</p>
+<p>This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.</p>
 </div>
 </div>
+<p>Many of the numerical methods we need will require using numerical approximations for the derivatives of functions. For instance, using Newton’s method to solve for the zeros of a system of equations requires calculating the Jacobian matrix.</p>
 <section id="forwards-backwards-and-centred-differences" class="level2" data-number="19.1">
 <h2 data-number="19.1" class="anchored" data-anchor-id="forwards-backwards-and-centred-differences"><span class="header-section-number">19.1</span> Forwards, backwards, and centred differences</h2>
 <p>We want to learn how to use finite differences in order to approximate derivatives numerically. We know that <span class="math display">\[
@@ -434,7 +421,7 @@ Two-point forward-difference formula
 <div class="callout-body-container callout-body">
 <p><span class="math display">\[
 f'(x) = \frac{f(x + h) - f(x)}{h} - \frac{h}{2} f''(c),
-\]</span> where <span class="math inline">\(c \in [x, x+h]\)</span>.</p>
+\]</span> where <span class="math inline">\(c \in (x, x+h)\)</span>.</p>
 </div>
 </div>
 <p>Notice that the error in using the two-point forward difference approximation is then <span class="math inline">\(\mathcal{O}(h)\)</span>, and this error tends to zero as <span class="math inline">\(h \to 0\)</span> (as long as <span class="math inline">\(f''\)</span> is continuous). We thus call the above formula a first-order finite-difference approximation. If the error is <span class="math inline">\(\mathcal{O}(h^n)\)</span>, we call the corresponding formula an <span class="math inline">\(n\)</span>th-order approximation.</p>
@@ -485,6 +472,24 @@ Example
 </table>
 </div>
 </div>
+<p>Similar formulae can be developed for the backwards difference (send <span class="math inline">\(h \to -h\)</span>).</p>
+<p>A more accurate formula can be developed via subtracting the Taylor series for <span class="math inline">\(f(x - h)\)</span> from that for <span class="math inline">\(f(x + h)\)</span>. This results in:</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Three-point centered-difference formula
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+f'(x) = \frac{f(x + h) - f(x - h)}{2h} - \frac{h^2}{6} f'''(c),
+\]</span> where <span class="math inline">\(c \in (x-h, x+h)\)</span>.</p>
+</div>
+</div>
+<p>Thus we see that the centered difference formula is accurate to <span class="math inline">\(O(h^2)\)</span>.</p>
 </section>
 <section id="jacobian-matrices" class="level2" data-number="19.2">
 <h2 data-number="19.2" class="anchored" data-anchor-id="jacobian-matrices"><span class="header-section-number">19.2</span> Jacobian matrices</h2>
@@ -591,14 +596,17 @@ Output: the (mxn) Jacobian matrix J</code></pre>
        [2., 1.]])</code></pre>
 </div>
 </div>
-<p>https://rh8liuqy.github.io/Finite_Difference.html#ref-finite</p>
+<!-- 
+
+:::{.callout-note}
+## Reference
+
+Some of this material follows from Chap. 5 of [@sauer_book].
+:::
+
+-->
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-sauer_book" class="csl-entry" role="doc-biblioentry">
-Sauer, Timothy. 2012. <em>Numerical Analysis</em>. Pearson.
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->
@@ -742,8 +750,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-05-techniques/newtons.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Newton’s method</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-05-techniques/euler.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Euler’s method and solving IVPs</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

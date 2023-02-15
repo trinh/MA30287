@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA30287: Mathematics of Planet Earth - Box models and dynamical systems</title>
+<title>MA30287: Mathematics of Planet Earth - 20&nbsp; Euler’s method and solving IVPs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 
@@ -49,8 +30,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-03-box/box-energy-model.html" rel="next">
-<link href="../part-02-energy/mackay-renewables.html" rel="prev">
+<link href="../part-05-techniques/newtons.html" rel="next">
+<link href="../part-05-techniques/finitedifference.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -80,7 +61,6 @@ div.csl-indent {
   }
 }</script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -90,7 +70,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Box models and dynamical systems</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Euler’s method and solving IVPs</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -180,7 +160,7 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../part-03-box/part-box.html" class="sidebar-item-text sidebar-link active">Box models and dynamical systems</a>
+            <a href="../part-03-box/part-box.html" class="sidebar-item-text sidebar-link">Box models and dynamical systems</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -263,7 +243,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/euler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Euler’s method and solving IVPs</span></a>
+  <a href="../part-05-techniques/euler.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Euler’s method and solving IVPs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -313,21 +293,14 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#physical-vs.-conceptual-vs.-statistical-models" id="toc-physical-vs.-conceptual-vs.-statistical-models" class="nav-link active" data-scroll-target="#physical-vs.-conceptual-vs.-statistical-models">Physical vs.&nbsp;conceptual vs.&nbsp;statistical models</a></li>
-  <li><a href="#pre-requisites" id="toc-pre-requisites" class="nav-link" data-scroll-target="#pre-requisites">Pre-requisites</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Box models and dynamical systems</h1>
+<h1 class="title"><span id="sec-euler" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Euler’s method and solving IVPs</span></span></h1>
 </div>
 
 
@@ -342,57 +315,8 @@ div.csl-indent {
 
 </header>
 
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-2022-23 note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.</p>
-</div>
-</div>
-<section id="physical-vs.-conceptual-vs.-statistical-models" class="level2">
-<h2 class="anchored" data-anchor-id="physical-vs.-conceptual-vs.-statistical-models">Physical vs.&nbsp;conceptual vs.&nbsp;statistical models</h2>
-<div class="callout-important callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Newton’s law of cooling and similar linear laws
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In the following, we will follow some historical developments of physical box models, which often depend on certain assumed linear relationships. It can be very confusing if you want a derivation, via first-principles, of these relationships since often none will exist. This is an important-enough point to explain by analogy.</p>
-<p>Consider an object of temperature <span class="math inline">\(T\)</span> placed in a room with ambient temperature <span class="math inline">\(T_a\)</span>. A well-known empirical law for the time-evolution of temperature is given by Newton’s Law of Cooling, i.e.&nbsp; <span id="eq-:NLC"><span class="math display">\[
-\frac{\mathrm{d}T}{\mathrm{d}t} = -c(T - T_a).
-\tag{1}\]</span></span> The constant <span class="math inline">\(c &gt; 0\)</span> here has units of <span class="math inline">\(s^{-1}\)</span>.</p>
-<p>However, it is important to understand that the above law is often strictly used without derivation and without justification. It can be interpreted as a one-term Taylor expansion of the heat flux when <span class="math inline">\(T - T_a\)</span> is small but very rarely do people use the expansion under this assumption. There is more discussion of the law and its issues in the work by <span class="citation" data-cites="besson2012history">(<a href="../references.html#ref-besson2012history" role="doc-biblioref">Besson 2012</a>)</span> and also in <a href="https://physics.stackexchange.com/questions/56553/are-newtons-law-of-cooling-and-stefans-law-related">this online discussion</a>.</p>
-<p>I personally think a better way to think of such laws is that they are assumptions that the rate-of-changes are driven by linear gradients.</p>
-</div>
-</div>
-</section>
-<section id="pre-requisites" class="level2">
-<h2 class="anchored" data-anchor-id="pre-requisites">Pre-requisites</h2>
-<p>Before covering the next few chapters, we plan to go through a few methods-based prerequisites.</p>
-<ol type="1">
-<li>Preliminary asymptotics approximations in <a href="../part-05-techniques/asymptotics01.html"><span>Chapter&nbsp;15</span></a>;</li>
-<li>Series expansions and error propagation in …;</li>
-<li>Finite difference approximations in …;</li>
-<li>Bisection, Newton’s and Secant methods, Jacobians in …;</li>
-</ol>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-besson2012history" class="csl-entry" role="doc-biblioentry">
-Besson, Ugo. 2012. <span>“The History of the Cooling Law: When the Search for Simplicity Can Be an Obstacle.”</span> <em>Science &amp; Education</em> 21 (8): 1085–1110.
-</div>
-</div>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -530,13 +454,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part-02-energy/mackay-renewables.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Estimating power from renawables</span></span>
+      <a href="../part-05-techniques/finitedifference.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-03-box/box-energy-model.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Steady-states of the basic energy model I</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-05-techniques/newtons.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Newton’s method</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

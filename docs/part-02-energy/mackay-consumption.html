@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.2.280">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -263,24 +263,29 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/newtons.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Newton’s method</span></a>
+  <a href="../part-05-techniques/euler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Euler’s method and solving IVPs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/arclength.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Arclength continuation</span></a>
+  <a href="../part-05-techniques/newtons.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Newton’s method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/arclength.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Arclength continuation</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="../summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectureplan.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Lecture plan</span></a>
+  <a href="../lectureplan.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Lecture plan</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -293,7 +298,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Problem set 1</span></a>
+  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Problem set 1</span></a>
   </div>
 </li>
       </ul>
@@ -500,6 +505,15 @@ E_\text{coke} \approx 5 \times 0.6 \, \mathrm{kWh} = 3 \, \mathrm{kWh}
 <h2 data-number="7.4" class="anchored" data-anchor-id="energy-usage-of-transportation"><span class="header-section-number">7.4</span> Energy usage of transportation</h2>
 <section id="cars" class="level3" data-number="7.4.1">
 <h3 data-number="7.4.1" class="anchored" data-anchor-id="cars"><span class="header-section-number">7.4.1</span> Cars</h3>
+<p>MacKay uses some interesting nack-of-the-envelope estimates here. First <span class="math display">\[
+\text{energy per day} = \frac{\text{distance travelled per day}}{\text{distance over unit of fuel}} \times \text{energy per unit of fuel}.
+\]</span></p>
+<p>We take about 50km travelled per day, and a typical family car is quoted as 12 km/L.</p>
+<p>In order to estimate the energy per unit (L) of fuel, MacKay notes that automobile fuel is a hydrocarbon and so we can sensibly use butter as an estimate. A packet of butter notes that it contains a calorific value of about 3000 kJ per 100g. We have that 1 kJ is 1/3600 kWh, so this gives (5/6)*10 ~ 8 kWh per kg. To get energy density in terms of volume, we need to know the density of butter. Water has a density of about 1kg/L (nearly by definition). Since butter floats on water, we might take its density to be 0.9kg/L (this is very close). Together this gives an estimate of about 8*0.9 or 7 kWh/L.</p>
+<p>Looking it up in a random <a href="http://www.blewbury.co.uk/energy/facts.htm">reference</a>, though, gives that petrol has about 10kWh/L.</p>
+<p>Thus altogerther, this gives an estimate of <span class="math display">\[
+\text{energy per day} = \frac{50 \mathrm{km}}{12 \mathrm{km/L}} \times 10 \mathrm{kWh/L} \approx 40 \mathrm{kWh/day}
+\]</span> so the equivalent of leaving 40 lightbulbs on for an entire day.</p>
 </section>
 <section id="airplanes" class="level3" data-number="7.4.2">
 <h3 data-number="7.4.2" class="anchored" data-anchor-id="airplanes"><span class="header-section-number">7.4.2</span> Airplanes</h3>

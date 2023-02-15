@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.2.280">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -244,24 +244,29 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/newtons.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Newton’s method</span></a>
+  <a href="../part-05-techniques/euler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Euler’s method and solving IVPs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/arclength.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Arclength continuation</span></a>
+  <a href="../part-05-techniques/newtons.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Newton’s method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/arclength.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Arclength continuation</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="../summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectureplan.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Lecture plan</span></a>
+  <a href="../lectureplan.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Lecture plan</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -274,7 +279,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Problem set 1</span></a>
+  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Problem set 1</span></a>
   </div>
 </li>
       </ul>
@@ -344,7 +349,7 @@ Abstraction
 <p>It may seem strange to study examples from elementary physics in a course that is supposed to be about Planet Earth. But simple examples are the best ways to learn these important techniques. The full climate equations are often very involved. These toy models still nevertheless capture the spirit of what you must do when attacking any scientific problem.</p>
 </div>
 </div>
-<p>In this problem class, we will practice some concepts about non-dimensionalising in preparation for the Problem Set 1 in <a href="../part-xx-exercises/ps01.html"><span>Chapter&nbsp;24</span></a>. We will cover these two strategies in choosing scalings.</p>
+<p>In this problem class, we will practice some concepts about non-dimensionalising in preparation for the Problem Set 1 in <a href="../part-xx-exercises/ps01.html"><span>Chapter&nbsp;25</span></a>. We will cover these two strategies in choosing scalings.</p>
 <div class="callout-important callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -374,7 +379,7 @@ Scaling principle 2
 <p>Here are the problems we shall do in the problem class.</p>
 <section id="projectile-motion" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="projectile-motion"><span class="header-section-number">4.1</span> Projectile motion</h2>
-<p>A projectile of mass <span class="math inline">\(M\)</span> (in kg) is launched vertically with initial velocity <span class="math inline">\(V_0\)</span> (in m/s) from a position <span class="math inline">\(V_0\)</span> (in m) above the surface. Thus the mass’s position, <span class="math inline">\(Y(t)\)</span> is governed by Newton’s second law (applied to the mass and the mass of the Earth) and the set of equations <span class="math display">\[\begin{gather}
+<p>A projectile of mass <span class="math inline">\(M\)</span> (in kg) is launched vertically with initial velocity <span class="math inline">\(V_0\)</span> (in m/s) from a position <span class="math inline">\(Y_0\)</span> (in m) above the surface. Thus the mass’s position, <span class="math inline">\(Y(t)\)</span> is governed by Newton’s second law (applied to the mass and the mass of the Earth) and the set of equations <span class="math display">\[\begin{gather}
 M Y_{tt} = - \frac{g R_E^2 M}{(R_E + Y)^2}, \\
 Y(0) = Y_0,
 \end{gather}\]</span> where <span class="math inline">\(g = 9.81 m/s^2\)</span> and <span class="math inline">\(R_E = 6.4 \times 10^6 m\)</span> is the radius of the Earth.</p>
@@ -382,7 +387,7 @@ Y(0) = Y_0,
 <li><p>Non-dimensionalise the equation using arbitary length and time scales.</p></li>
 <li><p>Identify the non-dimensional constants, <span class="math inline">\(\Pi_i\)</span>.</p></li>
 <li><p>Choose a length scale of <span class="math inline">\(L = Y_0\)</span> and time scale of <span class="math inline">\(T = (L/g)^{1/2}\)</span>. Discuss the resultant equation and the interpretation of choosing these scales.</p></li>
-<li><p>Does your above choice allow you to easily study the limit of R_E $? If the limit can be taken, reduce the governing system to a simpler equation.</p></li>
+<li><p>Does your above choice allow you to easily study the limit of <span class="math inline">\(R_E \to \infty\)</span>? If the limit can be taken, reduce the governing system to a simpler equation.</p></li>
 <li><p>Does your choice in 3. allow you to easily study the limit of <span class="math inline">\(Y_0 \to 0\)</span>? If not, choose an alternative choice of length and time scales and in that case, reduce the set of equations.</p></li>
 </ol>
 </section>
