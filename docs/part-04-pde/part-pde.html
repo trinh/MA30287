@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA30287: Mathematics of Planet Earth - 16&nbsp; Vector calculus</title>
+<title>MA30287: Mathematics of Planet Earth - PDE models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-05-techniques/modelling.html" rel="next">
-<link href="../part-05-techniques/dynamical-systems.html" rel="prev">
+<link href="../part-04-pde/greenhouse.html" rel="next">
+<link href="../part-03-box/el-nino.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -61,7 +61,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -71,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vector calculus</span></h1>
+      <h1 class="quarto-secondary-nav-title">PDE models</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -196,7 +195,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../part-04-pde/part-pde.html" class="sidebar-item-text sidebar-link">PDE models</a>
+            <a href="../part-04-pde/part-pde.html" class="sidebar-item-text sidebar-link active">PDE models</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -229,7 +228,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
+  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -294,25 +293,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#coordinate-systems" id="toc-coordinate-systems" class="nav-link active" data-scroll-target="#coordinate-systems"><span class="toc-section-number">16.1</span>  Coordinate systems</a>
-  <ul class="collapse">
-  <li><a href="#spherical-coordinates" id="toc-spherical-coordinates" class="nav-link" data-scroll-target="#spherical-coordinates"><span class="toc-section-number">16.1.1</span>  Spherical coordinates</a></li>
-  </ul></li>
-  <li><a href="#directional-derivatives" id="toc-directional-derivatives" class="nav-link" data-scroll-target="#directional-derivatives"><span class="toc-section-number">16.2</span>  Directional derivatives</a></li>
-  <li><a href="#integration-in-different-coordinate-systems" id="toc-integration-in-different-coordinate-systems" class="nav-link" data-scroll-target="#integration-in-different-coordinate-systems"><span class="toc-section-number">16.3</span>  Integration in different coordinate systems</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vector calculus</span></h1>
+<h1 class="title d-none d-lg-block">PDE models</h1>
 </div>
 
 
@@ -327,41 +315,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="coordinate-systems" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="coordinate-systems"><span class="header-section-number">16.1</span> Coordinate systems</h2>
-<ul>
-<li>We need some vector calculus in the section on <a href="../part-04-pde/greenhouse.html#sec-radiative"><span>Section&nbsp;13.1</span></a> when discussing the radiation integrals.</li>
-</ul>
-<section id="spherical-coordinates" class="level3" data-number="16.1.1">
-<h3 data-number="16.1.1" class="anchored" data-anchor-id="spherical-coordinates"><span class="header-section-number">16.1.1</span> Spherical coordinates</h3>
-<p>In spherical coordinates, …</p>
-</section>
-</section>
-<section id="directional-derivatives" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="directional-derivatives"><span class="header-section-number">16.2</span> Directional derivatives</h2>
-<p>Used in the <a href="../part-04-pde/greenhouse.html#sec-radiative"><span>Section&nbsp;13.1</span></a>, i.e.&nbsp;<span class="math inline">\(\partial\partial s = \mathbf{\hat{s}} \cdot \nabla_{\mathbf{x}}\)</span>.</p>
-</section>
-<section id="integration-in-different-coordinate-systems" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="integration-in-different-coordinate-systems"><span class="header-section-number">16.3</span> Integration in different coordinate systems</h2>
-<div class="callout-important callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Probably need some homework questions on spherical integration?</p>
-</div>
-</div>
-<p>In <a href="../part-04-pde/greenhouse.html#sec-two-stream"><span>Section&nbsp;13.2</span></a>, we make sure of the surface integral in spherical coordinates. This converts an integral as follows: <span class="math display">\[
-\iint_S I \, \mathrm{d}{S} = \iint_{\theta, \phi} I \, \sin\theta \, \mathrm{d}\theta \, \mathrm{d}\phi.
-\]</span></p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -499,13 +454,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part-05-techniques/dynamical-systems.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span>
+      <a href="../part-03-box/el-nino.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">El Nino-Southern Oscillation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-05-techniques/modelling.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Modelling</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-04-pde/greenhouse.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">The greenhouse gas effect</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
