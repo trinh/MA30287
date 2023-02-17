@@ -322,7 +322,7 @@ div.csl-indent {
   <li><a href="#energy-usage-of-stuff" id="toc-energy-usage-of-stuff" class="nav-link" data-scroll-target="#energy-usage-of-stuff"><span class="toc-section-number">7.3</span>  Energy usage of stuff</a></li>
   <li><a href="#energy-usage-of-transportation" id="toc-energy-usage-of-transportation" class="nav-link" data-scroll-target="#energy-usage-of-transportation"><span class="toc-section-number">7.4</span>  Energy usage of transportation</a>
   <ul class="collapse">
-  <li><a href="#sec-carshort" id="toc-sec-carshort" class="nav-link" data-scroll-target="#sec-carshort"><span class="toc-section-number">7.4.1</span>  Cars</a></li>
+  <li><a href="#cars" id="toc-cars" class="nav-link" data-scroll-target="#cars"><span class="toc-section-number">7.4.1</span>  Cars</a></li>
   </ul></li>
   <li><a href="#in-depth" id="toc-in-depth" class="nav-link" data-scroll-target="#in-depth"><span class="toc-section-number">7.5</span>  In-depth</a>
   <ul class="collapse">
@@ -331,7 +331,6 @@ div.csl-indent {
   <li><a href="#ratio-of-brake-power-to-drag-power" id="toc-ratio-of-brake-power-to-drag-power" class="nav-link" data-scroll-target="#ratio-of-brake-power-to-drag-power"><span class="toc-section-number">7.5.3</span>  Ratio of brake power to drag power</a></li>
   <li><a href="#rolling-resistance" id="toc-rolling-resistance" class="nav-link" data-scroll-target="#rolling-resistance"><span class="toc-section-number">7.5.4</span>  Rolling resistance</a></li>
   <li><a href="#power" id="toc-power" class="nav-link" data-scroll-target="#power"><span class="toc-section-number">7.5.5</span>  Power</a></li>
-  <li><a href="#conclusions-and-caveats" id="toc-conclusions-and-caveats" class="nav-link" data-scroll-target="#conclusions-and-caveats"><span class="toc-section-number">7.5.6</span>  Conclusions and caveats</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">7.6</span>  References</a></li>
   </ul>
@@ -511,8 +510,8 @@ E_\text{coke} \approx 5 \times 0.6 \, \mathrm{kWh} = 3 \, \mathrm{kWh}
 </section>
 <section id="energy-usage-of-transportation" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="energy-usage-of-transportation"><span class="header-section-number">7.4</span> Energy usage of transportation</h2>
-<section id="sec-carshort" class="level3" data-number="7.4.1">
-<h3 data-number="7.4.1" class="anchored" data-anchor-id="sec-carshort"><span class="header-section-number">7.4.1</span> Cars</h3>
+<section id="cars" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="cars"><span class="header-section-number">7.4.1</span> Cars</h3>
 <p>MacKay uses some interesting back-of-the-envelope estimates here. First <span class="math display">\[
 \text{energy per day} = \frac{\text{distance travelled per day}}{\text{distance over unit of fuel}} \times \text{energy per unit of fuel}.
 \]</span></p>
@@ -576,71 +575,8 @@ v = \sqrt{2 \frac{C_{rr} m_c g}{\rho C_D A_f}} = 7m/s = 16 mi/hr.
 <section id="power" class="level3" data-number="7.5.5">
 <h3 data-number="7.5.5" class="anchored" data-anchor-id="power"><span class="header-section-number">7.5.5</span> Power</h3>
 <p>Notice that we can then write the total power as <span class="math display">\[
-P = \sigma \left( \mathcal{A} v + \mathcal{C} v^3\right),
-\]</span> where <span class="math inline">\(\sigma\)</span> is an efficiency parameter that indicates how efficiently chemical energy (petrol) is converted into mechanical energy via the engine and transmission. Much of this is initial energy is ‘lost’ to heat, and MacKay indicates that petrol engines are about 25% efficient. Thus we should set <span class="math inline">\(\sigma = 4\)</span>. Above, note that <span class="math inline">\(\mathcal{A}\)</span> is then associated with the rolling resistance and <span class="math inline">\(\mathcal{C}\)</span> to the drag and braking.</p>
-<p>Previously in <a href="#sec-carshort"><span>Section&nbsp;7.4.1</span></a>, we estimated energy consumption of 80 kWh to drive 100km (note this did not take into account any <em>dynamics</em>, i.e.&nbsp;time); this was a straight approximation based on the energy of petrol.</p>
-<p>From the table below (most figures taken from MacKay but see the footnotes)</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Quantity</th>
-<th>Approximation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(m_c\)</span></td>
-<td>1000kg</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(v\)</span></td>
-<td>110km/h = 31 m/s</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(d\)</span></td>
-<td>10km</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\rho\)</span></td>
-<td>1.3 kg/m^3</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(C_D A_f\)</span><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
-<td>0.7 m^2</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(C_{rr}\)</span></td>
-<td>0.01</td>
-</tr>
-</tbody>
-</table>
-<p>We seem to get the following. <span class="math display">\[\begin{align}
-\text{Power}_{\text{brakes}} &amp;\approx 1500 W \approx 1.5 kW \\
-\text{Power}_{\text{air}} &amp;\approx   13,600 W = 13.6 kW  \\
-\text{Power}_{\text{rolling}} &amp;\approx 3000 W = 3 kW.
-\end{align}\]</span></p>
-<p>We see that by far, the biggest contributor at such speeds is the drag. The above numbers should be multiplied by <span class="math inline">\(\sigma = 4\)</span>. If we ignore all other effects and only consider drag, this gives about 54 kW of power. Hence driving for one hour this is 54 kWh, to be compared with our prior estimate of 80 kWh<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
-</section>
-<section id="conclusions-and-caveats" class="level3" data-number="7.5.6">
-<h3 data-number="7.5.6" class="anchored" data-anchor-id="conclusions-and-caveats"><span class="header-section-number">7.5.6</span> Conclusions and caveats</h3>
-<p>So there are a few interesting conclusions. One conclusion is nicely summarised by this graph, which you can often see in other references.</p>
-<div id="fig-car-energy" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figures/car_energy.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7.1: Car fuel consumption (energy per distance) from p.259 of MacKay</figcaption><p></p>
-</figure>
-</div>
-<p>The key, really, is that energy consumption is largely dominated by the cubic term in the power. MacKay, on p.258, compares the relative energetic consumption due to drag of a cyclist versus a car. If we assume their drag-area values are about the same (cyclists are less aerodynamic but occupy less area), a cyclist travelling at 20 km/h versus a car travelling at 100 km/h would have an energy ratio of <span class="math display">\[
-\frac{\text{Energy per distance of bike}}{\text{Energy per distance of car}} \approx \left(\frac{20 }{100}\right)^2 = 0.04,
-\]</span> i.e.&nbsp;4% of the energy consumption of a car.</p>
-<p>There is one interesting caveat that would have been nice to see more discussion, but there is a commentary on p.260 of MacKay. It is conventional knowledge that cars have a ‘sweet spot’ for fuel consumption, which is often quoted as around the range of 40-60mph<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
-<div id="fig-" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figures/car_gearing.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7.2: Car fuel efficiency versus the approximations developed above</figcaption><p></p>
-</figure>
-</div>
-<p>It seems unclear how the above alternative shape is modeled via the back-of-the-envelope estimates. For instance, can be be modeled by considering an efficiency, <span class="math inline">\(\sigma = \sigma(v)\)</span>, the depends on speed?</p>
+P = \sigma \left( \mathcal{A} v + \mathcal{B} v^2 + \mathcal{C} v^3\right),
+\]</span> where <span class="math inline">\(\sigma\)</span> is an</p>
 </section>
 </section>
 <section id="references" class="level2" data-number="7.6">
@@ -658,9 +594,6 @@ MacKay, D. J. C. 2009. <em>Sustainable Energy – Without the Hot Air</em>. UIT 
 <hr>
 <ol>
 <li id="fn1"><p>This seems to be a simpler explanation than what is written in his textbook<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>The figures on p.256 on MacKay are ambiguous, the second table A.7 seems to be <span class="math inline">\(C_D A\)</span> values. There are many references of this sort online like <a href="http://www.mayfco.com/dragcd~1.htm">here</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>MacKay gets a larger figure of 80 kW on p.256, but this is because of his use of a drag $C_D A_f = 1m^2<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>See the discussion <a href="https://physics.stackexchange.com/questions/12874/why-is-55-60-mph-optimal-for-gas-mileage-of-a-passenger-car">here</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
