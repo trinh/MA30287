@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -169,7 +232,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/asymptotics01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Asymptotics approximations</span></a>
+  <a href="../part-05-techniques/asymptotics01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Asymptotic approximations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -179,7 +242,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/euler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Euler’s method and solving IVPs</span></a>
+  <a href="../part-05-techniques/euler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Euler’s method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/asymptotics03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matched asymptotics</span></a>
   </div>
 </li>
       </ul>
@@ -194,27 +262,27 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/box-energy-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Steady-states of the basic energy model I</span></a>
+  <a href="../part-03-box/box-energy-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Steady-states of the basic energy model I</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/box-energy-model2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Steady-states of the basic energy model II</span></a>
+  <a href="../part-03-box/box-energy-model2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Steady-states of the basic energy model II</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/basic-ocean-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Basic models of the ocean</span></a>
+  <a href="../part-03-box/basic-ocean-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Basic models of the ocean</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/stommel.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Stommel’s box model</span></a>
+  <a href="../part-03-box/stommel.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Stommel’s box model</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/el-nino.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">El Nino-Southern Oscillation</span></a>
+  <a href="../part-03-box/el-nino.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">El Nino-Southern Oscillation</span></a>
   </div>
 </li>
       </ul>
@@ -229,7 +297,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-04-pde/greenhouse.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">The greenhouse gas effect</span></a>
+  <a href="../part-04-pde/greenhouse.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">The greenhouse gas effect</span></a>
   </div>
 </li>
       </ul>
@@ -244,39 +312,39 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Dynamical systems</span></a>
+  <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Dynamical systems</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
+  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Modelling</span></a>
+  <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Modelling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></a>
+  <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/newtons.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Newton’s method</span></a>
+  <a href="../part-05-techniques/newtons.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Newton’s method</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/arclength.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Arclength continuation</span></a>
+  <a href="../part-05-techniques/arclength.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Arclength continuation</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="../summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -289,12 +357,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Problem set 1</span></a>
+  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Problem set 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/thought02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Thinking about your own energy</span></a>
+  <a href="../part-xx-exercises/thought02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Thinking about your own energy</span></a>
   </div>
 </li>
       </ul>
@@ -314,6 +382,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#returning-to-the-projectile-problem" id="toc-returning-to-the-projectile-problem" class="nav-link active" data-scroll-target="#returning-to-the-projectile-problem"><span class="toc-section-number">9.1</span>  Returning to the projectile problem</a></li>
+  <li><a href="#numerical-solutions-of-ivps" id="toc-numerical-solutions-of-ivps" class="nav-link" data-scroll-target="#numerical-solutions-of-ivps"><span class="toc-section-number">9.2</span>  Numerical solutions of IVPs</a></li>
   </ul>
 </nav>
     </div>
@@ -356,18 +425,106 @@ x = x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots
 <p>Again it is best to demonstrate through examples.</p>
 <section id="returning-to-the-projectile-problem" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="returning-to-the-projectile-problem"><span class="header-section-number">9.1</span> Returning to the projectile problem</h2>
-<p>In <a href="../part-01-intro/problemclass01.html"><span>Chapter&nbsp;4</span></a> and <a href="../part-xx-exercises/ps01.html"><span>Chapter&nbsp;24</span></a> you studied the non-dimensionalisation of the projectile problem. Once re-scaled, it takes the following form: <span class="math display">\[\begin{align}
+<p>In <a href="../part-01-intro/problemclass01.html"><span>Chapter&nbsp;4</span></a> and <a href="../part-xx-exercises/ps01.html"><span>Chapter&nbsp;25</span></a> you studied the non-dimensionalisation of the projectile problem. Once re-scaled, it takes the following form: <span id="eq-asymball"><span class="math display">\[
+\begin{align}  
 \frac{\mathrm{d}^2 y}{\mathrm{d}t^2} &amp;= -\frac{1}{(1 + \epsilon y)^2}, \qquad t &gt; 0 \\
-y(0) &amp;= 1, \\
+y(0) &amp;= 0, \\
 y'(0) &amp;= 1.
-\end{align}\]</span> This is a difficult problem without, in fact, any explicit solutions. However, we can estimate the solution in the limit <span class="math inline">\(\epsilon \to 0\)</span>. We expand the solution as <span class="math display">\[
+\end{align}
+\tag{9.1}\]</span></span> This is a difficult problem without, in fact, any explicit solutions. However, we can estimate the solution in the limit <span class="math inline">\(\epsilon \to 0\)</span>. We expand the solution as <span class="math display">\[
 y(t) = y_0(t) + \epsilon y_1(t) + \epsilon^2 y_2(t) + \ldots
 \]</span> In order to expand the denominator, you can use Taylor’s theorem to expand the function <span class="math display">\[
-f(x) = (1 + x)^\alpha = 1 + \alpha x + \ldots
+f(x) = (1 + x)^\alpha = f(0) + f'(0)x + \ldots = 1 + \alpha x + \ldots
 \]</span> around <span class="math inline">\(x = 0\)</span>.</p>
 <p>The differential equation now yields <span class="math display">\[
-y_0'' + \epsilon y_1'' + \epsilon^2 y_2'' + \ldots = -\frac{1}{(1 + \epsilon y)^2}, \qquad t &gt; 0 \\
+y_0'' + \epsilon y_1'' + \epsilon^2 y_2'' + \ldots = -\left[1 - 2\epsilon \left(y_0 + \epsilon y_1 + \ldots\right) + \ldots \right]
+\]</span> so grouping terms together order-by-order yields <span class="math display">\[
+\Bigl[ y_0'' + 1 \Bigr] + \epsilon \Bigl[ y_1'' - 2y_0\Bigr] + \ldots = 0.
 \]</span></p>
+<p>We can similarly substitute the expansion into the initial conditions. Altogether, at leading order, we obtain the following system to solve: <span class="math display">\[\begin{align}
+y_0'' + 1 &amp;= 0, \\
+y_0(0) &amp;= 0, \\
+y_0'(0) &amp;= 1.
+\end{align}\]</span> Integrating twice and applying the boundary conditions gives us <span class="math display">\[
+y_0(t) = -\frac{1}{2}t^2 + t.
+\]</span> In fact, this is simply the parabolic motion you would expect from school Physics. The <span class="math inline">\(\epsilon = 0\)</span> solution corresponds to assuming that the mass at the centre of the planet is dominant and then acceleration is constant.</p>
+<p>However, we can now proceed to higher order and examine the nonlinear effects. Proceeding to <span class="math inline">\(O(\epsilon)\)</span>, we have the following system to solve: <span class="math display">\[\begin{align}
+y_1'' &amp;= 2y_0, \\
+y_1(0) &amp;= 0, \\
+y_1'(0) &amp;= 0.
+\end{align}\]</span> Again this is simple to integrate. Integrating the solution for <span class="math inline">\(y_0\)</span> twice and substitution of the initial conditions yields <span class="math display">\[
+y_1(t) = -\frac{1}{12}t^4 + \frac{1}{3}t^3.
+\]</span> We have thus solved for the asymptotic approximation to two orders. We have <span class="math display">\[
+y(t) \sim \Bigl[ -\frac{1}{2}t^2 + t\Bigr] + \epsilon \Bigl[ -\frac{1}{12}t^4 + \frac{1}{3}t^3\Bigr].
+\]</span> This was quite an accomplishment! We have taken a problem that was not easily solvable in explicit form and through fairly simple integrations, obtained an approximation to two orders in <span class="math inline">\(\epsilon\)</span>. How good is it? Let us solve the problem numerically and compare with the asymptotic approximation.</p>
+</section>
+<section id="numerical-solutions-of-ivps" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="numerical-solutions-of-ivps"><span class="header-section-number">9.2</span> Numerical solutions of IVPs</h2>
+<p>We first demonstrate how to solve ODEs (initial-value-problems, IVPs) using black-box functions in Python. For starters, most numerical formulations for ODEs will require that the problem be posed in terms of a first-order system of equations. To convert (<a href="#eq-asymball">Equation&nbsp;<span>9.1</span></a>) into such a form, create a set of unknowns for the derivatives. Set <span class="math display">\[
+\mathbf{Y}(t) =
+\begin{pmatrix}
+y_1(t) \\
+y_2(t)
+\end{pmatrix}
+= \begin{pmatrix}
+y(t) \\
+y'(t)
+\end{pmatrix}
+\]</span></p>
+<p>Then we have the following first-order system: <span id="eq-asymsys"><span class="math display">\[
+\begin{align}
+\mathbf{Y}'(t) &amp;= \mathbf{F}(t, \mathbf{Y}(t)) = \begin{pmatrix}
+y_1' \\
+- \frac{1}{(1 + \epsilon y_1)^2}
+\end{pmatrix} \\
+\mathbf{Y}(0) &amp;= \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}
+\end{align}
+\tag{9.2}\]</span></span></p>
+<p>You can find a little guide on using solve_ivp in Python <a href="https://ipython-books.github.io/123-simulating-an-ordinary-differential-equation-with-scipy/">here</a>. Here is the Python code to solve the differential equation.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> solve_ivp</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>ep <span class="op">=</span> <span class="fl">0.2</span> <span class="co"># epsilon value</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>tmax <span class="op">=</span> <span class="dv">2</span> <span class="co"># max time</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, tmax, <span class="dv">100</span>) <span class="co"># mesh used for plotting</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Define function for the ODE</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(t, Y):</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    ep <span class="op">=</span> <span class="fl">0.2</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    y, yp <span class="op">=</span> Y</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    ypp <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> ep<span class="op">*</span>y)<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [yp, ypp]</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># define the initial condition</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>Y0 <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>]</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>sol <span class="op">=</span> solve_ivp(f, [<span class="dv">0</span>, tmax], Y0, dense_output<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Prior to plotting, re-interpolate solution on a fine grid</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>yy <span class="op">=</span> sol.sol(t)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Asymptotic solutions</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>y0 <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span><span class="op">*</span>t<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> t</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">12</span><span class="op">*</span>t<span class="op">**</span><span class="dv">4</span> <span class="op">+</span> <span class="dv">1</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>t<span class="op">**</span><span class="dv">3</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot it all</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>plt.plot(t, yy[<span class="dv">0</span>,])</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>plt.plot(t, y0, <span class="st">'--'</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>plt.plot(t, y0 <span class="op">+</span> ep<span class="op">*</span>y1, <span class="st">'--'</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'t'</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y(t)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>Text(0, 0.5, 'y(t)')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="asymptotics02_files/figure-html/cell-2-output-2.png" width="589" height="429"></p>
+</div>
+</div>
+<p>The two-term approximation does beautifully well, even at this moderate value of <span class="math inline">\(\epsilon = 0.2\)</span>.</p>
 
 
 </section>
@@ -509,12 +666,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../part-05-techniques/asymptotics01.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Asymptotics approximations</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Asymptotic approximations</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../part-05-techniques/euler.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Euler’s method and solving IVPs</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Euler’s method</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
