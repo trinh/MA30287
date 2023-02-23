@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA30287: Mathematics of Planet Earth - 9&nbsp; Asymptotic approximations of ODEs</title>
+<title>MA30287: Mathematics of Planet Earth - 8&nbsp; Asymptotic approximations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,8 +93,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-05-techniques/euler.html" rel="next">
-<link href="../part-05-techniques/asymptotics01.html" rel="prev">
+<link href="../part-05-techniques/asymptotics02.html" rel="next">
+<link href="../part-05-techniques/techniques.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -134,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Asymptotic approximations of ODEs</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Asymptotic approximations</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -232,12 +232,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/asymptotics01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Asymptotic approximations</span></a>
+  <a href="../part-05-techniques/asymptotics01.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Asymptotic approximations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/asymptotics02.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Asymptotic approximations of ODEs</span></a>
+  <a href="../part-05-techniques/asymptotics02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Asymptotic approximations of ODEs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -247,17 +247,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/problemclass02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Problem class 2</span></a>
+  <a href="../part-05-techniques/newtons.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Newton’s method</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/newtons.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Newton’s method</span></a>
+  <a href="../part-05-techniques/asymptotics03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Matched asymptotics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/asymptotics03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Matched asymptotics</span></a>
+  <a href="../part-xx-exercises/problemclass02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Problem class 2</span></a>
   </div>
 </li>
       </ul>
@@ -370,16 +370,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../part-xx-exercises/thought02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Thinking about your own energy</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Problem set 2</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps01sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Problem set 1 solutions</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -396,8 +386,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#returning-to-the-projectile-problem" id="toc-returning-to-the-projectile-problem" class="nav-link active" data-scroll-target="#returning-to-the-projectile-problem"><span class="toc-section-number">9.1</span>  Returning to the projectile problem</a></li>
-  <li><a href="#sec-asym2-num" id="toc-sec-asym2-num" class="nav-link" data-scroll-target="#sec-asym2-num"><span class="toc-section-number">9.2</span>  Numerical solutions of IVPs</a></li>
+  <li><a href="#a-simple-quadratic" id="toc-a-simple-quadratic" class="nav-link active" data-scroll-target="#a-simple-quadratic"><span class="toc-section-number">8.1</span>  A simple quadratic</a>
+  <ul class="collapse">
+  <li><a href="#the-singular-root" id="toc-the-singular-root" class="nav-link" data-scroll-target="#the-singular-root"><span class="toc-section-number">8.1.1</span>  The singular root</a></li>
+  </ul></li>
+  <li><a href="#order-notation-and-the-tilde-sign-for-asymptotic" id="toc-order-notation-and-the-tilde-sign-for-asymptotic" class="nav-link" data-scroll-target="#order-notation-and-the-tilde-sign-for-asymptotic"><span class="toc-section-number">8.2</span>  Order notation and the tilde sign for asymptotic</a></li>
   </ul>
 </nav>
     </div>
@@ -406,7 +399,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-asymptotics02" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Asymptotic approximations of ODEs</span></span></h1>
+<h1 class="title"><span id="sec-asymptotics01" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Asymptotic approximations</span></span></h1>
 </div>
 
 
@@ -431,115 +424,290 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Covered in lecture 8.</p>
+<p>Covered in lecture 7.</p>
 </div>
 </div>
-<p>In the previous chapter, we learned about the technique of asymptotic expansions, whereby the solution of an equation is expressed in terms of a series in powers of a small parameter: <span class="math display">\[
+<p>One powerful set of techniques for approximating solutions to equations is called <em>asymptotic analysis</em> or <em>perturbation theory</em>. To begin with, in this chapter, we introduce you to these techniques as a means to approximating the solutions to equations like: <span class="math display">\[
+\epsilon x^2 + x - 1 = 0,
+\]</span> when <span class="math inline">\(\epsilon\)</span> is a small parameter.</p>
+<p>Soon, we apply the techniques to approximating solutions of differential equations.</p>
+<section id="a-simple-quadratic" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="a-simple-quadratic"><span class="header-section-number">8.1</span> A simple quadratic</h2>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+A singular quadratic
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider the solution of <span id="eq-quad"><span class="math display">\[
+\epsilon x^2 + x - 1 = 0,
+\tag{8.1}\]</span></span> where <span class="math inline">\(\epsilon\)</span> is a fixed and very small positive number, say <span class="math inline">\(0.000001\)</span>. Forget that we know how to solve a quadratic equation: is it possible to develop a systematic approximation method?</p>
+</div>
+</div>
+<p>If <span class="math inline">\(\epsilon = 0\)</span>, then <span class="math inline">\(x = 1\)</span>. Moreover, if we substitute <span class="math inline">\(x = 1\)</span> into the equation, then we see that the error is small and proportional to <span class="math inline">\(\epsilon\)</span>. It is natural to seek an approximation in powers of <span class="math inline">\(\epsilon\)</span>. We call this an . We write <span class="math display">\[
 x = x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots
-\]</span> The precise choice of power progression (here integer powers of <span class="math inline">\(\epsilon\)</span> will depend on the particular problem. The same idea can be extended to approximating solutions of differential equations. The upshot of this procedure is that at each order of the scheme, a simpler problem can be studied.</p>
-<p>Again it is best to demonstrate through examples.</p>
-<section id="returning-to-the-projectile-problem" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="returning-to-the-projectile-problem"><span class="header-section-number">9.1</span> Returning to the projectile problem</h2>
-<p>In <a href="../part-01-intro/problemclass01.html"><span>Chapter&nbsp;4</span></a> and <a href="../part-xx-exercises/ps01.html"><span>Chapter&nbsp;26</span></a> you studied the non-dimensionalisation of the projectile problem. Once re-scaled, it takes the following form: <span id="eq-asymball"><span class="math display">\[
-\begin{align}  
-\frac{\mathrm{d}^2 y}{\mathrm{d}t^2} &amp;= -\frac{1}{(1 + \epsilon y)^2}, \qquad t &gt; 0 \\
-y(0) &amp;= 0, \\
-y'(0) &amp;= 1.
-\end{align}
-\tag{9.1}\]</span></span> This is a difficult problem without, in fact, any explicit solutions. However, we can estimate the solution in the limit <span class="math inline">\(\epsilon \to 0\)</span>. We expand the solution as <span class="math display">\[
-y(t) = y_0(t) + \epsilon y_1(t) + \epsilon^2 y_2(t) + \ldots
-\]</span> In order to expand the denominator, you can use Taylor’s theorem to expand the function <span class="math display">\[
-f(x) = (1 + x)^\alpha = f(0) + f'(0)x + \ldots = 1 + \alpha x + \ldots
-\]</span> around <span class="math inline">\(x = 0\)</span>.</p>
-<p>The differential equation now yields <span class="math display">\[
-y_0'' + \epsilon y_1'' + \epsilon^2 y_2'' + \ldots = -\left[1 - 2\epsilon \left(y_0 + \epsilon y_1 + \ldots\right) + \ldots \right]
-\]</span> so grouping terms together order-by-order yields <span class="math display">\[
-\Bigl[ y_0'' + 1 \Bigr] + \epsilon \Bigl[ y_1'' - 2y_0\Bigr] + \ldots = 0.
+\]</span> Substitution into the equation yields <span class="math display">\[
+\epsilon \Bigl(x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots\Bigr)^2 + \Bigl( x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots \Bigr) - 1 = 0.
+\]</span> Expand and collect terms in powers of <span class="math inline">\(\epsilon\)</span>: <span class="math display">\[
+\Bigl( x_0 - 1 \Bigr) + \epsilon\Bigl(x_1 + x_0^2\Bigr) + \epsilon^2\Bigl(x_2 + 2 x_0 x_1\Bigr) + \ldots = 0.
+\]</span> Now we equate coefficients at each order in <span class="math inline">\(\epsilon\)</span>. This gives <span class="math display">\[\begin{align}
+x_0 - 1 &amp;= 0 \Longrightarrow x_0 = 1 \\
+x_1 + x_0^2 &amp;= 0 \Longrightarrow x_1 = -1 \\
+x_2 + 2 x_0 x_1 &amp;= 0 \Longrightarrow x_2 = 2
+\end{align}\]</span> We therefore have obtained the three-term approximation, <span class="math display">\[
+x = 1 - \epsilon + 2\epsilon^2 + \ldots
+\]</span> Clearly we could continue this process <em>ad infinitum</em> obtaining increasingly accurate approximations to one of the roots.</p>
+<section id="the-singular-root" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="the-singular-root"><span class="header-section-number">8.1.1</span> The singular root</h3>
+<p>But where has the other quadratic root gone?</p>
+<p>The problem is that in considering <span class="math inline">\(\epsilon\)</span> to be small, we began by ignoring the leading term, <span class="math inline">\(\epsilon x^2\)</span>. We effectively assumed that the equation was primarily <em>balanced</em> by setting the <span class="math inline">\(x\)</span> term with the <span class="math inline">\(-1\)</span> term, and the sum of the two terms approximately equalling zero.</p>
+<p>But if <span class="math inline">\(|x|\)</span> is large, then clearly our assumption that <span class="math inline">\(\epsilon x^2\)</span> being small may not be necessarily true for it depends on how large <span class="math inline">\(|x|\)</span> is compared to <span class="math inline">\(\epsilon\)</span>. Note that if <span class="math inline">\(|x|\)</span> is large, then necessarily the last term, <span class="math inline">\(-1\)</span>, is negligible in comparison. Therefore, in order for <span class="math inline">\(\epsilon x^2\)</span> to balance <span class="math inline">\(x\)</span>, we see that <span class="math inline">\(|x|\)</span> must be of size <span class="math inline">\(1/\epsilon\)</span>.</p>
+<p>Therefore this suggests that we should re-scale our solution as follows <span class="math display">\[
+x = \frac{X}{\epsilon}.
 \]</span></p>
-<p>We can similarly substitute the expansion into the initial conditions. Altogether, at leading order, we obtain the following system to solve: <span class="math display">\[\begin{align}
-y_0'' + 1 &amp;= 0, \\
-y_0(0) &amp;= 0, \\
-y_0'(0) &amp;= 1.
-\end{align}\]</span> Integrating twice and applying the boundary conditions gives us <span class="math display">\[
-y_0(t) = -\frac{1}{2}t^2 + t.
-\]</span> In fact, this is simply the parabolic motion you would expect from school Physics. The <span class="math inline">\(\epsilon = 0\)</span> solution corresponds to assuming that the mass at the centre of the planet is dominant and then acceleration is constant.</p>
-<p>However, we can now proceed to higher order and examine the nonlinear effects. Proceeding to <span class="math inline">\(O(\epsilon)\)</span>, we have the following system to solve: <span class="math display">\[\begin{align}
-y_1'' &amp;= 2y_0, \\
-y_1(0) &amp;= 0, \\
-y_1'(0) &amp;= 0.
-\end{align}\]</span> Again this is simple to integrate. Integrating the solution for <span class="math inline">\(y_0\)</span> twice and substitution of the initial conditions yields <span class="math display">\[
-y_1(t) = -\frac{1}{12}t^4 + \frac{1}{3}t^3.
-\]</span> We have thus solved for the asymptotic approximation to two orders. We have <span class="math display">\[
-y(t) \sim \Bigl[ -\frac{1}{2}t^2 + t\Bigr] + \epsilon \Bigl[ -\frac{1}{12}t^4 + \frac{1}{3}t^3\Bigr].
-\]</span> This was quite an accomplishment! We have taken a problem that was not easily solvable in explicit form and through fairly simple integrations, obtained an approximation to two orders in <span class="math inline">\(\epsilon\)</span>. How good is it? Let us solve the problem numerically and compare with the asymptotic approximation.</p>
-</section>
-<section id="sec-asym2-num" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="sec-asym2-num"><span class="header-section-number">9.2</span> Numerical solutions of IVPs</h2>
-<p>We first demonstrate how to solve ODEs (initial-value-problems, IVPs) using black-box functions in Python. For starters, most numerical formulations for ODEs will require that the problem be posed in terms of a first-order system of equations. To convert (<a href="#eq-asymball">Equation&nbsp;<span>9.1</span></a>) into such a form, create a set of unknowns for the derivatives. Set <span class="math display">\[
-\mathbf{Y}(t) =
-\begin{pmatrix}
-y_1(t) \\
-y_2(t)
-\end{pmatrix}
-= \begin{pmatrix}
-y(t) \\
-y'(t)
-\end{pmatrix}
+<p>Substitution into the original quadratic now yields <span class="math display">\[
+X^2 + X - \epsilon = 0.
+\]</span> Now notice that <span class="math inline">\(\epsilon = 0\)</span> expresses the correct balance in order to detect that missing root. Again we write <span class="math display">\[
+X = X_0 + \epsilon X_1 + \epsilon^2 X_2 + \ldots
+\]</span> and attempt to solve order by order. Substitution into the equation yields <span class="math display">\[
+\Bigl(X_0 + \epsilon X_1 + \epsilon^2 X_2 + \ldots\Bigr)^2 + \Bigl(X_0 + \epsilon X_1 + \epsilon^2 X_2 + \ldots\Bigr) - \epsilon = 0.
+\]</span> Expand and collect orders of <span class="math inline">\(\epsilon\)</span>: <span class="math display">\[\begin{align}
+X_0^2 + X_0 &amp;= 0 \Longrightarrow X_0 = -1 \\
+2X_0 X_1 + X_1 -1 &amp;= 0 \Longrightarrow X_0 = -1,
+\end{align}\]</span> and thus to two orders, we have <span class="math display">\[
+X = -1 - \epsilon + \ldots \Longrightarrow x = - \frac{1}{\epsilon} - 1 + \ldots
 \]</span></p>
-<p>Then we have the following first-order system: <span id="eq-asymsys"><span class="math display">\[
-\begin{align}
-\mathbf{Y}'(t) &amp;= \mathbf{F}(t, \mathbf{Y}(t)) = \begin{pmatrix}
-y_1' \\
-- \frac{1}{(1 + \epsilon y_1)^2}
-\end{pmatrix} \\
-\mathbf{Y}(0) &amp;= \begin{pmatrix}
-0 \\
-1
-\end{pmatrix}
-\end{align}
-\tag{9.2}\]</span></span></p>
-<p>You can find a little guide on using solve_ivp in Python <a href="https://ipython-books.github.io/123-simulating-an-ordinary-differential-equation-with-scipy/">here</a>. Here is the Python code to solve the differential equation.</p>
+<p>Of course, we have used a very simple example (a solvable quadratic) to illustrate the idea of asymptotic approximations, but you should hopefully see that this method is extensible to much more complicated equations.</p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> solve_ivp</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>ep <span class="op">=</span> <span class="fl">0.2</span> <span class="co"># epsilon value</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>tmax <span class="op">=</span> <span class="dv">2</span> <span class="co"># max time</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, tmax, <span class="dv">100</span>) <span class="co"># mesh used for plotting</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Define function for the ODE</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(t, Y):</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    ep <span class="op">=</span> <span class="fl">0.2</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    y, yp <span class="op">=</span> Y</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    ypp <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> ep<span class="op">*</span>y)<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [yp, ypp]</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># define the initial condition</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>Y0 <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>]</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>sol <span class="op">=</span> solve_ivp(f, [<span class="dv">0</span>, tmax], Y0, dense_output<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Prior to plotting, re-interpolate solution on a fine grid</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>yy <span class="op">=</span> sol.sol(t)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Asymptotic solutions</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>y0 <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span><span class="op">*</span>t<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> t</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">12</span><span class="op">*</span>t<span class="op">**</span><span class="dv">4</span> <span class="op">+</span> <span class="dv">1</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>t<span class="op">**</span><span class="dv">3</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot it all</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>plt.plot(t, yy[<span class="dv">0</span>,])</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>plt.plot(t, y0, <span class="st">'--'</span>)</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>plt.plot(t, y0 <span class="op">+</span> ep<span class="op">*</span>y1, <span class="st">'--'</span>)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'t'</span>)</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y(t)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>Text(0, 0.5, 'y(t)')</code></pre>
-</div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ep <span class="op">=</span> np.linspace(<span class="dv">1</span>,<span class="fl">0.1</span>, <span class="dv">20</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>root1 <span class="op">=</span> (<span class="op">-</span><span class="dv">1</span> <span class="op">+</span> np.sqrt(<span class="dv">1</span><span class="op">-</span><span class="dv">4</span><span class="op">*</span>ep<span class="op">*</span>(<span class="op">-</span><span class="dv">1</span>)))<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>ep)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>root2 <span class="op">=</span> (<span class="op">-</span><span class="dv">1</span> <span class="op">-</span> np.sqrt(<span class="dv">1</span><span class="op">-</span><span class="dv">4</span><span class="op">*</span>ep<span class="op">*</span>(<span class="op">-</span><span class="dv">1</span>)))<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>ep)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>asym1 <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> ep</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>asym2 <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">/</span>ep <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>plt.plot(ep, root1, <span class="st">'o'</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.plot(ep, root2, <span class="st">'o'</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.plot(ep, asym1, <span class="st">'-'</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.plot(ep, asym2, <span class="st">'-'</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="st">'$x_1$'</span>, <span class="st">'$x_2$'</span>, <span class="st">'2-term asymp.'</span>, <span class="st">'2-term asym'</span>])</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'$\epsilon$'</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'x'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="asymptotics02_files/figure-html/cell-2-output-2.png" width="589" height="429"></p>
+<p><img src="asymptotics01_files/figure-html/cell-2-output-1.png" width="596" height="429"></p>
 </div>
 </div>
-<p>The two-term approximation does beautifully well, even at this moderate value of <span class="math inline">\(\epsilon = 0.2\)</span>.</p>
+<!--
+
+We want to now explain the procedure from which we can estimate solutions of equations using an asymptotic approximation.
+
+Let us explain the procedure with a simple example. It is best to select an example from which we already know the solution. We seek solutions of the equation 
+
+::: {.cell execution_count=2}
+``` {.python .cell-code}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def Newton(f, df, x, maxiter=100, tol=1e-12, display=0):
+    i = 0
+    while (abs(f(x) - 0) > tol) and (i < maxiter):
+        err = f(x)
+        x = x - err / df(x)
+        if display == 1:
+            print("f(x) = ", np.abs(err), ", x = ", x)
+        i = i + 1
+    return x, err
+
+lammat = np.linspace(-1, 1.1, 20)
+xmat = 0*lammat
+x = 0.1
+
+for i, lam in enumerate(lammat):
+    f = lambda x: x**2 + lam**2 - 1 
+    df = lambda x: 2*x 
+
+    x, err = Newton(f, df, x, 10, 1e-8, 0)
+    if err > 1e-4:
+        print("Careful no convergence at lambda = ", lam)
+    xmat[i] = x
+# Plots
+plt.plot(lammat, xmat, '-o');
+
+# Plotting a circle
+theta = np.linspace(0, 2*np.pi, 50)
+plt.plot(np.sin(theta), np.cos(theta), 'r--');
+plt.xlabel('lambda');
+plt.ylabel('x');
+plt.xlim([-1.5,1.5])
+plt.ylim([-1.5,1.5])
+plt.gca().set_aspect('equal')
+plt.show()
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+Careful no convergence at lambda =  -0.8894736842105263
+Careful no convergence at lambda =  -0.6684210526315789
+Careful no convergence at lambda =  1.1
+```
+:::
+
+::: {.cell-output .cell-output-display}
+![](asymptotics01_files/figure-html/cell-3-output-2.png){width=459 height=434}
+:::
+:::
+
+
+$$
+\underbrace{\epsilon x^2}_{\text{[1]}} + \underbrace{x}_{\text{[2]}} - \underbrace{1}_{\text{[3]}} = 0, 
+$$ {#eq-asympquad}
+
+when the parameter, $\epsilon$ is a small number. When $\epsilon$ is a small number, we argue that at least two of the three terms must be balanced. The procedure in which we establish which terms are dominant is called the method of dominant balance. 
+
+\begin{itemize}
+\item Case 1: \ding{172} $\sim$ \ding{174} $\gg$ \ding{173}
+
+This yields the balance of $x^2 \sim 1$ and thus $x \sim \pm 1$. 
+
+If it is indeed the case that $x = O(1)$, then we can check that \ding{173} $= O(\epsilon)$ is indeed smaller than \ding{172}, \ding{174}. The balance is therefore consistent.
+
+\item Case 2: \ding{172} $\sim$ \ding{173} $\gg$ \ding{174}
+
+Balancing the first two terms yields {\color{blue}$x = O(\epsilon)$} which is small. 
+
+However, the last term is $O(1)$, which turns out to be larger than \ding{172} or \ding{173}. So this is a contradiction that the first two terms establish the dominant balance.
+
+\item Verify that all remaining cases (of \ding{173} $\sim$ \ding{174} or all three terms in balance) yield contradictions.
+\end{itemize}
+
+The above seems all pretty obvious, but this systematic method will be important for less obvious problems. Once the dominant balance has been established, we can systematically develop approximations. We first set 
+\[
+x = x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots
+\]
+
+Substitute into \eqref{asymp:quad} and collect terms in increasing powers of $\epsilon$. This yields 
+\[
+\biggl[x_0^2 + (2 x_0 x_1)\epsilon + O(\epsilon^2)\biggr] + \epsilon\biggl[x_0 + \ep x_1 + \ldots\biggr] - 1 = 0,
+\]
+%
+for which we solve to get 
+\[
+x_0 = \pm 1 \qquad x_1 = -\frac{1}{2}. 
+\]
+Thus we have to the first two orders of approximation: 
+\[
+x = \pm 1 - \frac{\epsilon}{2} + \ldots
+\]
+
+The above can be verified and contrasted with expansion of the exact solution: 
+\[
+x = \frac{-\ep \pm \sqrt{\ep^2 + 4}}{2} = \frac{-\ep \pm (2 + \ep^2/4 + \ldots)}{2} = \pm 1 - \frac{\ep}{2} + \ldots
+\]
+
+The most important lesson to grasp (beyond following the manipulations above) is that this method of dominant balance, followed by asymptotic approximations, gives you a very powerful and very general way of estimating solutions to problems that you would not ordinarily be able to solve. You will get more practice in the problem set, but the above is sufficient to follow the next chapter.
+-->
+</section>
+</section>
+<section id="order-notation-and-the-tilde-sign-for-asymptotic" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="order-notation-and-the-tilde-sign-for-asymptotic"><span class="header-section-number">8.2</span> Order notation and the tilde sign for asymptotic</h2>
+<p>We define precisely what we mean when we say that two functions, say <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>, exhibit the same behaviour in some limit, say <span class="math inline">\(\epsilon \to 0\)</span> or <span class="math inline">\(x \to x_0\)</span> or <span class="math inline">\(x \to \infty\)</span> and so forth. For instance, we claim that the graphs of <span class="math inline">\(\sin(x)\)</span> and <span class="math inline">\(x\)</span> look very similar as <span class="math inline">\(x \to 0\)</span>. Thus we might write <span id="eq-sin"><span class="math display">\[
+    \sin(x) \sim x \quad \text{as $x \to 0$}.
+\tag{8.2}\]</span></span> This notion of allows us to specify functional behaviours at a deeper level than just limits. As you can see, it is not as useful to specify that <span class="math display">\[
+\lim_{x \to 0} \sin{x} = \lim_{x\to 0} x.
+\]</span> In contrast, (<a href="#eq-sin">Equation&nbsp;<span>8.2</span></a>) is much more prescriptive about the way that the functions are approaching the limit.</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Definition of <span class="math inline">\(\sim\)</span>, <span class="math inline">\(\gg\)</span>, and <span class="math inline">\(\ll\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>First, the notation <span class="math display">\[
+f(x) \ll g(x), \qquad x \to x_0,
+\]</span> is read as “<span class="math inline">\(f(x)\)</span> is much smaller than <span class="math inline">\(g(x)\)</span> as <span class="math inline">\(x \to x_0\)</span>” and means <span class="math display">\[
+\lim_{x\to x_0} \frac{f(x)}{g(x)} = 0.  
+\]</span> We may analogously use <span class="math inline">\(g(x) \gg f(x)\)</span> for “much greater than”.</p>
+<p>Second, the notation <span class="math display">\[
+f(x) \sim g(x), \qquad x \to x_0,
+\]</span> is read as “<span class="math inline">\(f(x)\)</span> is asymptotic to <span class="math inline">\(g(x)\)</span> as <span class="math inline">\(x \to x_0\)</span>”, and means that the error between <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> tends to zero as <span class="math inline">\(x \to x_0\)</span>, or <span class="math display">\[
+\lim_{x\to x_0} \frac{f(x)}{g(x)} = 1.  
+\]</span> We will often say “<span class="math inline">\(f\)</span> is like <span class="math inline">\(g\)</span>” or “<span class="math inline">\(f\)</span> behaves like <span class="math inline">\(g\)</span>”,</p>
+</div>
+</div>
+<p>Here are some examples.</p>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Examples
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="math inline">\(\sin x \sim x \sim \tan x\)</span> as <span class="math inline">\(x \to 0\)</span></li>
+<li><span class="math inline">\(x^2 + x + 1 \sim \dfrac{x^3 + \sin x}{1 + x}\)</span> as <span class="math inline">\(x \to \infty\)</span></li>
+<li><span class="math inline">\(\sin x \ll \cos x\)</span> as <span class="math inline">\(x \to 0\)</span></li>
+</ul>
+</div>
+</div>
+<p>In the examination of limiting processes, often the main issue of consideration is the relative sizes of quantities defined according to their powers. For example, if <span class="math inline">\(x\)</span> is a very small number, with <span class="math inline">\(x = 10^{-5}\)</span>, then <span class="math inline">\(x^5\)</span> is much smaller than <span class="math inline">\(x\)</span> (in terms of our notation, <span class="math inline">\(x^5 \ll x\)</span> as <span class="math inline">\(x \to 0\)</span>). On the other hand, we might not care so much about the difference between <span class="math display">\[
+x^5 \quad \text{vs.} \quad 5 x^5
+\]</span> The point is that the of <span class="math inline">\(x^5\)</span> and <span class="math inline">\(5 x^5\)</span> is the same as <span class="math inline">\(x \to 0\)</span>. The “Big-Oh” notation formalises this distinction.</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Definition of Big-Oh
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We write <span class="math inline">\(f = O(g)\)</span> as <span class="math inline">\(x \to x_0\)</span> to mean that there exists constants <span class="math inline">\(K &gt; 0\)</span> and <span class="math inline">\(x^* &gt; 0\)</span> such that <span class="math display">\[
+|f| &lt; K |g| \quad \text{for all $|x - x_0| &lt; x^*$}.
+\]</span></p>
+</div>
+</div>
+<p>In practice, the use of the order symbol is very natural and you will not need to work with the technical definition. For example, when you derive the terms of the Maclaurin/Taylor series, you are naturally clustering all the terms of the same order (power) together. For us, the <span class="math inline">\(O\)</span> symbol provides a very convenient way of separating terms of different sizes.</p>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Examples
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="math inline">\(2\sin x = O(\tan x)\)</span> as <span class="math inline">\(x \to 0\)</span></li>
+<li><span class="math inline">\(x^2 + x + 1 = O\left(\dfrac{5x^3 + \sin x}{1 + x}\right)\)</span> as <span class="math inline">\(x \to \infty\)</span></li>
+</ul>
+</div>
+</div>
+<p>Let us return to the case of the quadratic example (<a href="#eq-quad">Equation&nbsp;<span>8.1</span></a>). Using the O notation, we can write <span class="math display">\[
+x =
+\begin{cases}
+1 - \epsilon + 2 \epsilon^2 + O(\epsilon^3) \\
+-\frac{1}{\epsilon} - 1 + O(\epsilon^2)
+\end{cases}
+\]</span> for the two roots. Alternatively, we can truncate the expansions and simply using the <span class="math inline">\(\sim\)</span> symbol: <span class="math display">\[
+x \sim
+\begin{cases}
+1 - \epsilon  \\
+-\frac{1}{\epsilon} - 1
+\end{cases}
+\]</span></p>
 
 
 </section>
@@ -680,13 +848,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part-05-techniques/asymptotics01.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Asymptotic approximations</span></span>
+      <a href="../part-05-techniques/techniques.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Practical applied mathematics</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-05-techniques/euler.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Euler’s method</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-05-techniques/asymptotics02.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Asymptotic approximations of ODEs</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
