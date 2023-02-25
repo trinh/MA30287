@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -435,7 +435,7 @@ E_\rm{grav. potential} = mgh
 \]</span> where <span class="math inline">\(h\)</span> is its distance relative to some given point and <span class="math inline">\(g = 9.8 \, \mathrm{m/s^2}\)</span> is the standard gravitational constant on the surface.</p>
 <p>A hot object also possesses heat energy. The heat energy is given by <span class="math display">\[
 E_\mathrm{heat} = c \rho V T
-\]</span> where <span class="math inline">\(c\)</span> is the specific heat capacity, <span class="math inline">\(\rho\)</span> is the density, <span class="math inline">\(V\)</span> is the volume, and <span class="math inline">\(T\)</span> is the temperature. An object can also possess chemical potential energy (for example, we possess such energy when we eat food). And so forth and so on.</p>
+\]</span> where <span class="math inline">\(c\)</span> is the specific heat capacity (J/(kg K)), <span class="math inline">\(\rho\)</span> is the density (kg/m^3), <span class="math inline">\(V\)</span> is the volume (m^3), and <span class="math inline">\(T\)</span> is the temperature (K). An object can also possess chemical potential energy (for example, we possess such energy when we eat food). And so forth and so on.</p>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -463,9 +463,20 @@ Energy in a hot bath
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>To compute the heat energy in taking a hot bath, we take the specific heat capacity of water, <span class="math inline">\(c = 4200 \, \mathrm{J}/(\mathrm{L} \, ^{\circ}\mathrm{C})\)</span>. This multiplies the volume of a bath (50 cm x 15 cm x 150 cm), and the temperature of water minus the temperature of ambient water, estimated at <span class="math inline">\(40^\circ\mathrm{C}\)</span>. This gives <span class="math display">\[
+<p>To compute the heat energy in taking a hot bath, we take the specific heat capacity of water, <span class="math inline">\(\tilde{c} = 4200 \, \mathrm{J}/(\mathrm{L} \, ^{\circ}\mathrm{C})\)</span>. This multiplies the volume of a bath (50 cm x 15 cm x 150 cm), and the temperature of water minus the temperature of ambient water, estimated at <span class="math inline">\(40^\circ\mathrm{C}\)</span>. This gives <span class="math display">\[
 E_\mathrm{hot bath} \approx (4200 \times 110 \times 40) \mathrm{J} \approx 18 \, \mathrm{MJ} \approx 5 \, \mathrm{kWh}.
 \]</span></p>
+<p><strong>After lecture note</strong>: MacKay works with a slightly different convention and writes the specific heat capacity in per L quantities. He also writes his volume in litres. I will show how this is worked out in our typical process.</p>
+<ol type="1">
+<li>density of water is 10^3 kg/m^3</li>
+<li>volume of the bath is 0.1125 m^3</li>
+<li>specific heat is 4.2 x 10^3 J/(kg C) [note K and C convert in one-to-one fashion]</li>
+<li>the weight of water is then 0.1125*10^3 kg or 112.5kg</li>
+<li>converting from litres to water weight is 1L = 1kg; so this is where he pulls 110L from.</li>
+<li>Using our formula, it works out to be the same: <span class="math display">\[
+E_\mathrm{heat} = \rho c V T = 112.5 \cdot 4.2 \times 10^3 \cdot 40^\circ \mathrm{J} = 1.89 \times 10^7 \mathrm{J}.
+\]</span></li>
+</ol>
 </div>
 </div>
 <div class="callout-tip callout callout-style-default no-icon callout-captioned">

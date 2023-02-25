@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -440,8 +440,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="sec-ps2-cubic" class="level2" data-number="28.2">
 <h2 data-number="28.2" class="anchored" data-anchor-id="sec-ps2-cubic"><span class="header-section-number">28.2</span> Testing the solutions of a cubic</h2>
 <p>In this question, you will develop the numerical solutions for the roots of the cubic equation: <span class="math display">\[
-\epsilon x^3 + x - 1 = 0.
+\epsilon x^3 - x + 1 = 0, \qquad \epsilon &gt; 0
 \]</span></p>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>25 Feb 2023: swapped sign of the x term above (from <span class="math inline">\(+x\)</span>)—otherwise negative epsilon values.</p>
+</div>
+</div>
 <p>Type the following code into your Jupyter notebook. This code uses a command, which you will learn in a later week, called <code>fsolve</code>, in order to solve nonlinear equations. When writing the below code, you may want to separate the import commands into their own input field in the notebook.</p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -450,19 +463,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ep <span class="op">=</span> <span class="fl">0.2</span>        <span class="co"># epsilon value</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>xguess <span class="op">=</span> <span class="fl">1.1</span>    <span class="co"># Initial guess of root</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: ep<span class="op">*</span>x<span class="op">**</span><span class="dv">3</span> <span class="op">+</span> x <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: ep<span class="op">*</span>x<span class="op">**</span><span class="dv">3</span> <span class="op">-</span> x <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>xsol <span class="op">=</span> fsolve(f, xguess)</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Solved root at x = "</span>, xsol)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Solved root at x =  [0.86883002]</code></pre>
+<pre><code>Solved root at x =  [1.29103381]</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/usr/local/lib/python3.10/site-packages/scipy/optimize/_minpack_py.py:178: RuntimeWarning: The iteration is not making good progress, as measured by the 
+  improvement from the last ten iterations.
+  warnings.warn(msg, RuntimeWarning)</code></pre>
 </div>
 </div>
 </section>
 <section id="analysis-of-singular-cubic-equation" class="level2" data-number="28.3">
 <h2 data-number="28.3" class="anchored" data-anchor-id="analysis-of-singular-cubic-equation"><span class="header-section-number">28.3</span> Analysis of singular cubic equation</h2>
 <p>Consider the cubic equation <span class="math display">\[
-\epsilon x^3 + x - 1 = 0,
-\]</span> with <span class="math inline">\(\epsilon \ll 1\)</span>.</p>
+\epsilon x^3 - x + 1 = 0,
+\]</span> with <span class="math inline">\(\epsilon \ll 1\)</span> and <span class="math inline">\(\epsilon &gt; 0\)</span>.</p>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>25 Feb 2023: swapped sign of the x term above (from <span class="math inline">\(+x\)</span>)—otherwise negative epsilon values.</p>
+</div>
+</div>
 <ol type="1">
 <li><p>Develop the first three terms of an asymptotic expansion about the root by setting <span class="math display">\[
 x = x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots
