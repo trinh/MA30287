@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA30287: Mathematics of Planet Earth - 14&nbsp; Steady-states of the basic energy model I</title>
+<title>MA30287: Mathematics of Planet Earth - 15&nbsp; The basic energy model (steady-state)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,25 +83,6 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 
@@ -112,7 +93,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-03-box/box-energy-model2.html" rel="next">
+<link href="../part-05-techniques/arclength.html" rel="next">
 <link href="../part-03-box/part-box.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -153,7 +134,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Steady-states of the basic energy model I</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The basic energy model (steady-state)</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -271,12 +252,17 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/newtons.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Newton’s method</span></a>
+  <a href="../part-05-techniques/asymptotics03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Matched asymptotics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/asymptotics03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Matched asymptotics</span></a>
+  <a href="../part-05-techniques/newtons.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Newton’s method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/problemclass03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Problem class 3</span></a>
   </div>
 </li>
       </ul>
@@ -291,27 +277,32 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/box-energy-model.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Steady-states of the basic energy model I</span></a>
+  <a href="../part-03-box/box-energy-model.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The basic energy model (steady-state)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/box-energy-model2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Steady-states of the basic energy model II</span></a>
+  <a href="../part-05-techniques/arclength.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Arclength continuation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/basic-ocean-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Basic models of the ocean</span></a>
+  <a href="../part-03-box/box-energy-model2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">The basic energy model (bifurcations)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/stommel.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Stommel’s box model</span></a>
+  <a href="../part-03-box/basic-ocean-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Basic models of the ocean</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/el-nino.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">El Nino-Southern Oscillation</span></a>
+  <a href="../part-03-box/stommel.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Stommel’s box model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/el-nino.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">El Nino-Southern Oscillation</span></a>
   </div>
 </li>
       </ul>
@@ -326,7 +317,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-04-pde/greenhouse.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">The greenhouse gas effect</span></a>
+  <a href="../part-04-pde/greenhouse.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">The greenhouse gas effect</span></a>
   </div>
 </li>
       </ul>
@@ -341,34 +332,29 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Dynamical systems</span></a>
+  <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Dynamical systems</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
+  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Modelling</span></a>
+  <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Modelling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/arclength.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Arclength continuation</span></a>
+  <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="../summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -381,22 +367,22 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Problem set 1</span></a>
+  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Problem set 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/thought02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Thinking about your own energy</span></a>
+  <a href="../part-xx-exercises/thought02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Thinking about your own energy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Problem set 2</span></a>
+  <a href="../part-xx-exercises/ps02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Problem set 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps01sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Problem set 1 solutions</span></a>
+  <a href="../part-xx-exercises/ps01sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Problem set 1 solutions</span></a>
   </div>
 </li>
       </ul>
@@ -415,8 +401,10 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#steady-state-analysis" id="toc-steady-state-analysis" class="nav-link active" data-scroll-target="#steady-state-analysis"><span class="toc-section-number">14.1</span>  Steady-state analysis</a></li>
-  <li><a href="#newton-solver-for-the-steady-states" id="toc-newton-solver-for-the-steady-states" class="nav-link" data-scroll-target="#newton-solver-for-the-steady-states"><span class="toc-section-number">14.2</span>  Newton solver for the steady states</a></li>
+  <li><a href="#steady-state-analysis" id="toc-steady-state-analysis" class="nav-link active" data-scroll-target="#steady-state-analysis"><span class="toc-section-number">15.1</span>  Steady-state analysis</a></li>
+  <li><a href="#dynamics-and-phase-line-solutions" id="toc-dynamics-and-phase-line-solutions" class="nav-link" data-scroll-target="#dynamics-and-phase-line-solutions"><span class="toc-section-number">15.2</span>  Dynamics and phase line solutions</a></li>
+  <li><a href="#re-scaling-and-budykos-model" id="toc-re-scaling-and-budykos-model" class="nav-link" data-scroll-target="#re-scaling-and-budykos-model"><span class="toc-section-number">15.3</span>  Re-scaling and Budyko’s model</a></li>
+  <li><a href="#poor-persons-numerical-continuation" id="toc-poor-persons-numerical-continuation" class="nav-link" data-scroll-target="#poor-persons-numerical-continuation"><span class="toc-section-number">15.4</span>  Poor person’s numerical continuation</a></li>
   </ul>
 </nav>
     </div>
@@ -425,7 +413,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-box-energy" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Steady-states of the basic energy model I</span></span></h1>
+<h1 class="title"><span id="sec-box-energy" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The basic energy model (steady-state)</span></span></h1>
 </div>
 
 
@@ -453,39 +441,37 @@ div.csl-indent {
 <p>This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.</p>
 </div>
 </div>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Reference
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This chapter follows some developments in Chap. 1 of <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span> though we shall go into much greater detail on some numerical and analytical tools.</p>
-</div>
-</div>
-<p>Recall that we previously introduced the basic energy balance model in <a href="../part-01-intro/basic-energy-model.html"><span>Chapter&nbsp;3</span></a>. There, we derived the basic heat equation model for the Earth’s temperature given by the following ordinary differential equation (ODE) for <span class="math inline">\(T = T(t)\)</span>,<br>
+<p>Recall that we previously introduced the basic energy balance model in <a href="../part-01-intro/basic-energy-model.html"><span>Chapter&nbsp;3</span></a>. There, we derived the basic heat equation model (<a href="../part-01-intro/basic-energy-model.html#eq-heateq-earth">Equation&nbsp;<span>3.7</span></a>) for the Earth’s temperature given by the following ordinary differential equation (ODE) for <span class="math inline">\(T = T(t)\)</span>,<br>
 <span id="eq-heateq_earth"><span class="math display">\[
-c \frac{\mathrm{d}T}{\mathrm{d}t} = \frac{1}{4} Q(1 - a) - \sigma \gamma T^4,
-\tag{14.1}\]</span></span> where we have defined <span class="math inline">\(c = \rho c_p d\)</span> as the heat capacity of the atmosphere.</p>
+C \frac{\mathrm{d}T}{\mathrm{d}t} = \frac{1}{4} Q(1 - a) - \sigma \gamma T^4,
+\tag{15.1}\]</span></span> where we have defined <span class="math inline">\(C = \rho c_p d\)</span> as the heat capacity of the atmosphere. Above, the solar flux, Q is often taken to be <span class="math inline">\(Q = 1370\)</span> W/m<sup>2</sup>, <span class="math inline">\(\sigma = 5.67 \times 10^{-8}\)</span> W/(m<sup>2</sup>K<sup>4</sup>), and <span class="math inline">\(\gamma \leq 1\)</span> is the greenhouse gas factor.</p>
 <p>In this chapter, we discuss some of the numerical and analytical tools at our disposal for studying the above equation.</p>
-<section id="steady-state-analysis" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="steady-state-analysis"><span class="header-section-number">14.1</span> Steady-state analysis</h2>
-<p>Previously, we have assumed that the planetary albedo, <span class="math inline">\(a\)</span>, is constant and independent of temperature. In actuality, water can turn to snow and ice and vice versa, and since snow and ice have much higher albedo than open water, then we should consider <span class="math inline">\(a = a(T)\)</span>.</p>
-<p>We know that there are two relevant ranges to consider: <span class="math display">\[
+<section id="steady-state-analysis" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="steady-state-analysis"><span class="header-section-number">15.1</span> Steady-state analysis</h2>
+<p>Previously, we have assumed that the planetary albedo, <span class="math inline">\(a\)</span>, is constant and independent of temperature. In actuality, water can turn to snow and ice and vice versa; since snow and ice have much higher albedo than open water, then we should consider <span class="math inline">\(a = a(T)\)</span>.</p>
+<p>Let us assume that there are two relevant ranges to consider: T &lt; 150K (cold) and T &gt; 280K (hot). Let us assume that the albedo is, in these two regions: <span class="math display">\[
 a(T) \approx
 \begin{cases}
-0.7 &amp; \mathrm{if }\, T &lt; 150\mathrm{K}, \\
-0.3 &amp; \mathrm{if }T &gt; 280\mathrm{K}.
+0.7 &amp; \mathrm{if }\ T &lt; 150\mathrm{K}, \\
+0.3 &amp; \mathrm{if }\ T &gt; 280\mathrm{K}.
 \end{cases}
-\]</span> Basically, the above guarantees that more energy is reflected if temperatures are low. To model this, we can use a ramp function, <span id="eq-albedokaper"><span class="math display">\[
+\]</span> The above guarantees that more energy is reflected if temperatures are low. To model this process, we can use a ramp function to specify the albedo over all temperatures: <span id="eq-albedokaper"><span class="math display">\[
 a(T) = A - B \mathrm{tanh}\left(k(T - 265)\right).
-\tag{14.2}\]</span></span> where <span class="math inline">\(A = 0.5\)</span>, <span class="math inline">\(B = 0.3\)</span>, <span class="math inline">\(k = 0.1\)</span>, and <span class="math inline">\(T_0 = 265\)</span>.</p>
-<p>Using parameters from <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span> p.16 and p.17, we can study the steady-state solution, which is given by seeking the zeros of <span class="math display">\[
-\frac{1}{4}Q[1 - a(T)] = \sigma \gamma T^4.
-\]</span> Note that <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span> use <span class="math inline">\(Q = 342\)</span> but they do not have the initial pre-factor of <span class="math inline">\(1/4\)</span>. So we shall use <span class="math inline">\(Q = 1370\)</span> (noting <span class="math inline">\(1370/4 = 342.5\)</span>).</p>
+\tag{15.2}\]</span></span> where <span class="math inline">\(A = 0.5\)</span>, <span class="math inline">\(B = 0.3\)</span>, <span class="math inline">\(k = 0.1\)</span>, and <span class="math inline">\(T_0 = 265 \mathrm{K}\)</span>.</p>
+<p>Let us further assume that the system is in steady state, so that the temperature is determined by solving the equation <span class="math display">\[
+f(T) = \frac{1}{4}Q[1 - a(T)] - \sigma \gamma T^4 = 0.
+\]</span></p>
+<!--
+It is convenient for us to re-write this as 
+$$
+\tilde{Q_0}\tilde{Q}'[1 - a(T)] - T^4 = 0.
+$$ 
+where
+$$
+\tilde{Q_0} = \frac{1}{4} \frac{Q}{\sigma_0 \gamma_0} \, K^4 = \frac{1}{4} \frac{1370}{(5.67 \times 10^{-8})(0.6)} = 
+$$ 
+-->
+<p>In the following code, we plot the two terms that make up <span class="math inline">\(f\)</span>, and their intersections indicate roots of <span class="math inline">\(f = 0\)</span>. We then use the Python ‘fsolve’ function to approximate the roots given initial guesses.</p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -524,24 +510,37 @@ T3 = 286.86</code></pre>
 <p><img src="box-energy-model_files/figure-html/cell-2-output-2.png" width="575" height="411"></p>
 </div>
 </div>
-<p>Therefore multiple equilibria are observed. You can argue (how?) that the centre equilbria is unstable while the other two are stable. The higher temperature corresponds to the one that the Earth is currently in, but according to this model, there seems to be the possibility of a colder climate (50 degrees colder) where the Earth is entirely covered with snow and ice.</p>
+<p>Therefore multiple equilibria are observed.</p>
 </section>
-<section id="newton-solver-for-the-steady-states" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="newton-solver-for-the-steady-states"><span class="header-section-number">14.2</span> Newton solver for the steady states</h2>
-<p>In the above code, we used the built-in Python codes (fsolve) to solve for the steady-states. It is a good idea to learn (or review, if you have learned it previously) how to design your own solver. An implementation of Newton’s solver is given by the following pseudo-code:</p>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Pseudocode for Newton’s method
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<pre><code>1. input x0, tolerance, maxiterations, f, df
+<section id="dynamics-and-phase-line-solutions" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="dynamics-and-phase-line-solutions"><span class="header-section-number">15.2</span> Dynamics and phase line solutions</h2>
+<p>The full time-dependent model is given by <span class="math display">\[
+C \frac{\mathrm{d}T}{\mathrm{d}t} = f(T),
+\]</span> so we may use the positivity or negativity of <span class="math inline">\(f\)</span> in order to sketch the time-dependent behaviour of the system.</p>
+<p>It can then be verified that the centre equilbria is unstable while the other two are stable. The higher temperature corresponds to the one that the Earth is currently in, but according to this model, there seems to be the possibility of a colder climate (50 degrees colder) where the Earth is entirely covered with snow and ice.</p>
+<p>Interestingly, there is some evidence that the Earth’s climate may have been in this so-called Snowball Earth state up to four times between 750 million and 580 million years ago (Neoproterozoic age). Observations of geological deposits suggest that the Earth has undergone periods of complete global glaciation where there have been very minimal biological activity. During this period, there is a massive build-up of CO<sub>2</sub> in the atmopshere, leading to huge greenhouse effect. As <span class="math inline">\(\gamma\)</span> decreases in our model, the equilibrium can then shift, suddenly transitioning the Planet into the warm state.</p>
+</section>
+<section id="re-scaling-and-budykos-model" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="re-scaling-and-budykos-model"><span class="header-section-number">15.3</span> Re-scaling and Budyko’s model</h2>
+<p>To model the outgoing radiation, we use the quartic Stefan-Boltzmann law. However, over the range of temperatures we are interested-in, it seems that a simpler approximation is sufficient. In your homework, you will investigate the re-scaling and shifting of temperature, such that <span class="math display">\[
+T = T_0 + [T]\tilde{T},
+\]</span> where <span class="math inline">\(T_0 = 265 \mathrm{K}\)</span>. Then under the assumption that temperatures are not-so-far from <span class="math inline">\(T_0\)</span>, we expand <span class="math display">\[
+(T_0 + [T]\tilde{T})^4 \sim T_0^4 + 4 T_0^3 [T] \tilde{T} =
+C_1 + C_2 \tilde{T}.
+\]</span> This simplifies the model considerably.</p>
+<!-- 
 
-2. repeat while |f(x0)| &gt; tol and iterations &lt; maxiterations
+## Newton solver for the steady states
+
+In the above code, we used the built-in Python codes (fsolve) to solve for the steady-states. It is a good idea to learn (or review, if you have learned it previously) how to design your own solver. An implementation of Newton's solver is given by the following pseudo-code:
+
+:::{.callout-note}
+## Pseudocode for Newton's method
+
+```
+1. input x0, tolerance, maxiterations, f, df
+
+2. repeat while |f(x0)| > tol and iterations < maxiterations
 
     a. set y0 = f(x0)
        set yp = df(x0)
@@ -550,52 +549,131 @@ Pseudocode for Newton’s method
 
     c. print iter #, x1, and f(x1)
 
-    d. set x0 = x1</code></pre>
-</div>
-</div>
-<p>We discuss Newton’s method in <a href="../part-05-techniques/newtons.html"><span>Chapter&nbsp;12</span></a>.</p>
-<p>Using the simplest Newton code there, we can solve for one of the roots.</p>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Newton(f, df, x, maxiter<span class="op">=</span><span class="dv">100</span>, tol<span class="op">=</span><span class="fl">1e-12</span>, display<span class="op">=</span><span class="dv">0</span>):</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (<span class="bu">abs</span>(f(x) <span class="op">-</span> <span class="dv">0</span>) <span class="op">&gt;</span> tol) <span class="kw">and</span> (i <span class="op">&lt;</span> maxiter):</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        err <span class="op">=</span> f(x)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> x <span class="op">-</span> err <span class="op">/</span> df(x)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> display <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">"f(x) = "</span>, np.<span class="bu">abs</span>(err), <span class="st">", x = "</span>, x)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x, err</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>Q <span class="op">=</span> <span class="dv">1370</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> <span class="fl">5.67e-8</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>gamma <span class="op">=</span> <span class="fl">0.62</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="kw">lambda</span> T: <span class="fl">0.5</span> <span class="op">-</span> <span class="fl">0.2</span><span class="op">*</span>np.tanh((T <span class="op">-</span> <span class="dv">265</span>)<span class="op">/</span><span class="dv">10</span>)</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>da <span class="op">=</span> <span class="kw">lambda</span> T: <span class="op">-</span><span class="fl">0.2</span><span class="op">*</span><span class="dv">1</span><span class="op">/</span>np.cosh((T<span class="op">-</span><span class="dv">265</span>)<span class="op">/</span><span class="dv">10</span>)<span class="op">**</span><span class="dv">2</span><span class="op">/</span><span class="dv">10</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> T: Q<span class="op">/</span><span class="dv">4</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>a(T)) <span class="op">-</span> sigma<span class="op">*</span>gamma<span class="op">*</span>T<span class="op">**</span><span class="dv">4</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> <span class="kw">lambda</span> T: <span class="op">-</span>Q<span class="op">/</span><span class="dv">4</span><span class="op">*</span>da(T) <span class="op">-</span> <span class="dv">4</span><span class="op">*</span>sigma<span class="op">*</span>gamma<span class="op">*</span>T<span class="op">**</span><span class="dv">3</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">290</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>x, err <span class="op">=</span> Newton(f, df, x, <span class="dv">10</span>, <span class="fl">1e-8</span>, <span class="dv">1</span>)</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Final approximation = "</span>, x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>f(x) =  9.804483316627028 , x =  286.98075256805225
+    d. set x0 = x1
+```
+:::
+
+
+We discuss Newton's method in @sec-newton. 
+
+Using the simplest Newton code there, we can solve for one of the roots.
+
+::: {.cell execution_count=2}
+``` {.python .cell-code}
+import numpy as np
+
+def Newton(f, df, x, maxiter=100, tol=1e-12, display=0):
+    i = 0
+    while (abs(f(x) - 0) > tol) and (i < maxiter):
+        err = f(x)
+        x = x - err / df(x)
+        if display == 1:
+            print("f(x) = ", np.abs(err), ", x = ", x)
+        i = i + 1
+    return x, err
+
+
+Q = 1370
+sigma = 5.67e-8
+gamma = 0.62
+
+a = lambda T: 0.5 - 0.2*np.tanh((T - 265)/10)
+da = lambda T: -0.2*1/np.cosh((T-265)/10)**2/10
+
+f = lambda T: Q/4*(1-a(T)) - sigma*gamma*T**4
+df = lambda T: -Q/4*da(T) - 4*sigma*gamma*T**3
+
+x = 290
+x, err = Newton(f, df, x, 10, 1e-8, 1)
+print("Final approximation = ", x)
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+f(x) =  9.804483316627028 , x =  286.98075256805225
 f(x) =  0.36161336669368893 , x =  286.85997144120904
 f(x) =  0.000725960590870045 , x =  286.8597279859311
-Final approximation =  286.8597279859311</code></pre>
-</div>
-</div>
+Final approximation =  286.8597279859311
+```
+:::
+:::
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-kaper_book" class="csl-entry" role="doc-biblioentry">
-Kaper, Hans, and Hans Engler. 2013. <em>Mathematics and Climate</em>. SIAM.
+-->
+</section>
+<section id="poor-persons-numerical-continuation" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="poor-persons-numerical-continuation"><span class="header-section-number">15.4</span> Poor person’s numerical continuation</h2>
+<p>We have done a preliminary steady-state analysis of <span class="math display">\[
+\frac{1}{4}Q (1 - a(T)) - \sigma \gamma T^4,
+\]</span> but we would like to better understand how these steady-states may change depending on the parameters. For example, we would like to understand how the solutions vary of the solar constant related to <span class="math inline">\(Q\)</span> varies; or we would like to understand how solutions vary as <span class="math inline">\(\gamma\)</span> varies.</p>
+<p>More specifically, we would like to design some numerical routines that would allow us to (smartly!) solve for the roots of the above equation as the parameters are varied. Although the above problem (roots of a single equation) is simple enough to do this in a manual way, the methods of <em>numerical continuation</em> we learn in this chapter is applicable to much more general set of problems.</p>
+<p>Suppose that we are interested in studying how the steady-states (up to three) change as <span class="math inline">\(Q\)</span> changes. Then we are interested in producing a diagram of <span class="math inline">\(Q\)</span> vs.&nbsp;<span class="math inline">\(T\)</span>. The basic idea is to start with an initial solution at some value of <span class="math inline">\(Q\)</span>, increment <span class="math inline">\(Q\)</span>, then solve for the next value using the previous value as a guess. This involves the following pseudocode:</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Poor person’s numerical continuation
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<pre><code>1. Input guess T0, f, df, parameter Q1
+
+    a. Call Newton's method via Newton(f, df, T0, Q1) 
+    b. Obtain a preliminary solution (T1, Q1)
+
+2. Increment Q1 = Q1 + dQ 
+
+    a. Call Newton's method via Newton(f, df, T1, Q1)
+    b. Obtain a new solution (T1, Q1)
+
+3. Repeat 2 until we reach a desired Q value</code></pre>
+</div>
+</div>
+<p>Unfortunately this does not work as well as we would like.</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> fsolve</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> <span class="fl">5.67e-8</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>gamma <span class="op">=</span> <span class="fl">0.62</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="kw">lambda</span> T: <span class="fl">0.5</span> <span class="op">-</span> <span class="fl">0.2</span><span class="op">*</span>np.tanh((T <span class="op">-</span> <span class="dv">265</span>)<span class="op">/</span><span class="dv">10</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>Q0 <span class="op">=</span> <span class="dv">1370</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>Qmat <span class="op">=</span> np.linspace(<span class="dv">1000</span>, <span class="dv">1800</span>, <span class="dv">30</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>Tmat <span class="op">=</span> <span class="dv">0</span><span class="op">*</span>Qmat</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">220</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, Q <span class="kw">in</span> <span class="bu">enumerate</span>(Qmat):</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    f <span class="op">=</span> <span class="kw">lambda</span> T: Q<span class="op">/</span><span class="dv">4</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>a(T)) <span class="op">-</span> sigma<span class="op">*</span>gamma<span class="op">*</span>T<span class="op">**</span><span class="dv">4</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    x, info, ier, msg  <span class="op">=</span> fsolve(f, x, full_output<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># If solution not found, output error</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> ier <span class="op">!=</span> <span class="dv">1</span>:</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Q/Q0 = "</span>, Q<span class="op">/</span>Q0, <span class="st">": "</span>, msg)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    Tmat[i] <span class="op">=</span> x</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>plt.plot(Qmat<span class="op">/</span><span class="dv">1370</span>, Tmat)<span class="op">;</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Q/Q0'</span>)<span class="op">;</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'T'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Q/Q0 =  1.2735967782532092 :  The iteration is not making good progress, as measured by the 
+  improvement from the last ten iterations.
+Q/Q0 =  1.2937326956959476 :  The iteration is not making good progress, as measured by the 
+  improvement from the last ten iterations.
+Q/Q0 =  1.313868613138686 :  The iteration is not making good progress, as measured by the 
+  improvement from the last ten iterations.</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="box-energy-model_files/figure-html/cell-4-output-2.png" width="593" height="429"></p>
+</div>
+</div>
+<p>Above, we have scaled <span class="math inline">\(Q\)</span> with the reference value of <span class="math inline">\(Q_0 = 1370\)</span>. The problem is that somewhere within <span class="math inline">\(1.2 &lt; Q/Q_0 &lt; 1.3\)</span>, two of the steady-state solutions merge.</p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -739,8 +817,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-03-box/box-energy-model2.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Steady-states of the basic energy model II</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-05-techniques/arclength.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Arclength continuation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
