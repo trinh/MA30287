@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-05-techniques/arclength.html" rel="next">
+<link href="../part-03-box/box-energy-model2.html" rel="next">
 <link href="../part-03-box/part-box.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -282,12 +282,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/arclength.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Arclength continuation</span></a>
+  <a href="../part-03-box/box-energy-model2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">The basic energy model (bifurcations)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/box-energy-model2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">The basic energy model (bifurcations)</span></a>
+  <a href="../part-xx-exercises/problemclass04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Problem class 4</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -297,12 +297,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/stommel.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Stommel’s box model</span></a>
+  <a href="../part-xx-exercises/problemclass05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Problem class 5</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/el-nino.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">El Nino-Southern Oscillation</span></a>
+  <a href="../part-03-box/stommel.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Stommel’s box model</span></a>
   </div>
 </li>
       </ul>
@@ -398,8 +398,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#steady-state-analysis" id="toc-steady-state-analysis" class="nav-link active" data-scroll-target="#steady-state-analysis"><span class="toc-section-number">15.1</span>  Steady-state analysis</a></li>
   <li><a href="#dynamics-and-phase-line-solutions" id="toc-dynamics-and-phase-line-solutions" class="nav-link" data-scroll-target="#dynamics-and-phase-line-solutions"><span class="toc-section-number">15.2</span>  Dynamics and phase line solutions</a></li>
-  <li><a href="#re-scaling-and-budykos-model" id="toc-re-scaling-and-budykos-model" class="nav-link" data-scroll-target="#re-scaling-and-budykos-model"><span class="toc-section-number">15.3</span>  Re-scaling and Budyko’s model</a></li>
-  <li><a href="#poor-persons-numerical-continuation" id="toc-poor-persons-numerical-continuation" class="nav-link" data-scroll-target="#poor-persons-numerical-continuation"><span class="toc-section-number">15.4</span>  Poor person’s numerical continuation</a></li>
+  <li><a href="#numerical-continuation-of-the-steady-states" id="toc-numerical-continuation-of-the-steady-states" class="nav-link" data-scroll-target="#numerical-continuation-of-the-steady-states"><span class="toc-section-number">15.3</span>  Numerical continuation of the steady states</a></li>
   </ul>
 </nav>
     </div>
@@ -452,10 +451,12 @@ a(T) \approx
 \end{cases}
 \]</span> The above guarantees that more energy is reflected if temperatures are low. To model this process, we can use a ramp function to specify the albedo over all temperatures: <span id="eq-albedokaper"><span class="math display">\[
 a(T) = A - B \mathrm{tanh}\left(k(T - 265)\right).
-\tag{15.2}\]</span></span> where <span class="math inline">\(A = 0.5\)</span>, <span class="math inline">\(B = 0.3\)</span>, <span class="math inline">\(k = 0.1\)</span>, and <span class="math inline">\(T_0 = 265 \mathrm{K}\)</span>.</p>
-<p>Let us further assume that the system is in steady state, so that the temperature is determined by solving the equation <span class="math display">\[
-f(T) = \frac{1}{4}Q[1 - a(T)] - \sigma \gamma T^4 = 0.
+\tag{15.2}\]</span></span> where <span class="math inline">\(A = 0.5\)</span>, <span class="math inline">\(B = 0.3\)</span>, <span class="math inline">\(k = 0.1\)</span>, and <span class="math inline">\(T_0 = 265 \mathrm{K}\)</span>. Recall that the tanh function is given by <span class="math display">\[
+\mathrm{tanh}(x) = \frac{\mathrm{sinh}(x)}{\mathrm{cosh}(x)} = \frac{e^x - e^{-x}}{e^x + e^{-x}}.
 \]</span></p>
+<p>Let us further assume that the system is in steady state, so that the temperature is determined by solving the equation <span id="eq-energy-ss"><span class="math display">\[
+f(T) = \frac{1}{4}Q[1 - a(T)] - \sigma \gamma T^4 = 0.
+\tag{15.3}\]</span></span></p>
 <!--
 It is convenient for us to re-write this as 
 $$
@@ -512,17 +513,17 @@ T3 = 286.86</code></pre>
 <p>The full time-dependent model is given by <span class="math display">\[
 C \frac{\mathrm{d}T}{\mathrm{d}t} = f(T),
 \]</span> so we may use the positivity or negativity of <span class="math inline">\(f\)</span> in order to sketch the time-dependent behaviour of the system.</p>
+<p>To see this, we can perform an asymptotic analysis near the fixed points. Let the initial condition be considered near the fixed point: <span class="math display">\[
+T(t = 0) = T^* + \delta,
+\]</span> where <span class="math inline">\(\delta \ll 1\)</span>. Then we expand the solution into an asymptotic expansion, <span class="math display">\[
+T(t) = T^* + \delta T_1(t) + \delta T^2(t) + \ldots
+\]</span> Substitution into the above ODE gives, at <span class="math inline">\(O(\delta)\)</span>, <span class="math display">\[
+C \frac{\mathrm{d}T_1}{\mathrm{d}t} = f'(T_0) T_1,
+\]</span> and hence, with <span class="math inline">\(T_1(0) = 1\)</span>, we have <span class="math display">\[
+T_1(t) = e^{f'(T_0) t/C}.
+\]</span> Therefore, depending on the positivity or negativity of the gradient function, the perturbation will either decay or grow as <span class="math inline">\(t\to\infty\)</span>.</p>
 <p>It can then be verified that the centre equilbria is unstable while the other two are stable. The higher temperature corresponds to the one that the Earth is currently in, but according to this model, there seems to be the possibility of a colder climate (50 degrees colder) where the Earth is entirely covered with snow and ice.</p>
 <p>Interestingly, there is some evidence that the Earth’s climate may have been in this so-called Snowball Earth state up to four times between 750 million and 580 million years ago (Neoproterozoic age). Observations of geological deposits suggest that the Earth has undergone periods of complete global glaciation where there have been very minimal biological activity. During this period, there is a massive build-up of CO<sub>2</sub> in the atmopshere, leading to huge greenhouse effect. As <span class="math inline">\(\gamma\)</span> decreases in our model, the equilibrium can then shift, suddenly transitioning the Planet into the warm state.</p>
-</section>
-<section id="re-scaling-and-budykos-model" class="level2" data-number="15.3">
-<h2 data-number="15.3" class="anchored" data-anchor-id="re-scaling-and-budykos-model"><span class="header-section-number">15.3</span> Re-scaling and Budyko’s model</h2>
-<p>To model the outgoing radiation, we use the quartic Stefan-Boltzmann law. However, over the range of temperatures we are interested-in, it seems that a simpler approximation is sufficient. In your homework, you will investigate the re-scaling and shifting of temperature, such that <span class="math display">\[
-T = T_0 + [T]\tilde{T},
-\]</span> where <span class="math inline">\(T_0 = 265 \mathrm{K}\)</span>. Then under the assumption that temperatures are not-so-far from <span class="math inline">\(T_0\)</span>, we expand <span class="math display">\[
-(T_0 + [T]\tilde{T})^4 \sim T_0^4 + 4 T_0^3 [T] \tilde{T} =
-C_1 + C_2 \tilde{T}.
-\]</span> This simplifies the model considerably.</p>
 <!-- 
 
 ## Newton solver for the steady states
@@ -596,8 +597,8 @@ Final approximation =  286.85972798593116
 
 -->
 </section>
-<section id="poor-persons-numerical-continuation" class="level2" data-number="15.4">
-<h2 data-number="15.4" class="anchored" data-anchor-id="poor-persons-numerical-continuation"><span class="header-section-number">15.4</span> Poor person’s numerical continuation</h2>
+<section id="numerical-continuation-of-the-steady-states" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="numerical-continuation-of-the-steady-states"><span class="header-section-number">15.3</span> Numerical continuation of the steady states</h2>
 <p>We have done a preliminary steady-state analysis of <span class="math display">\[
 \frac{1}{4}Q (1 - a(T)) - \sigma \gamma T^4,
 \]</span> but we would like to better understand how these steady-states may change depending on the parameters. For example, we would like to understand how the solutions vary of the solar constant related to <span class="math inline">\(Q\)</span> varies; or we would like to understand how solutions vary as <span class="math inline">\(\gamma\)</span> varies.</p>
@@ -609,7 +610,7 @@ Final approximation =  286.85972798593116
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Poor person’s numerical continuation
+Numerical continuation
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -626,47 +627,49 @@ Poor person’s numerical continuation
 3. Repeat 2 until we reach a desired Q value</code></pre>
 </div>
 </div>
-<p>Unfortunately this does not work as well as we would like.</p>
+<p>The following code provides continuation for one of the roots.</p>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> fsolve</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> <span class="fl">5.67e-8</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>gamma <span class="op">=</span> <span class="fl">0.62</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="kw">lambda</span> T: <span class="fl">0.5</span> <span class="op">-</span> <span class="fl">0.2</span><span class="op">*</span>np.tanh((T <span class="op">-</span> <span class="dv">265</span>)<span class="op">/</span><span class="dv">10</span>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>Q0 <span class="op">=</span> <span class="dv">1370</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>Qmat <span class="op">=</span> np.linspace(<span class="dv">1000</span>, <span class="dv">1800</span>, <span class="dv">30</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>Tmat <span class="op">=</span> <span class="dv">0</span><span class="op">*</span>Qmat</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">220</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> root</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> <span class="fl">5.67e-8</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>gamma <span class="op">=</span> <span class="fl">0.62</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="kw">lambda</span> T: <span class="fl">0.5</span> <span class="op">-</span> <span class="fl">0.2</span><span class="op">*</span>np.tanh((T <span class="op">-</span> <span class="dv">265</span>)<span class="op">/</span><span class="dv">10</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>Q0 <span class="op">=</span> <span class="dv">1370</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>Qmat <span class="op">=</span> np.linspace(<span class="dv">1000</span>, <span class="dv">1800</span>, <span class="dv">30</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>Tmat <span class="op">=</span> <span class="dv">0</span><span class="op">*</span>Qmat</span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, Q <span class="kw">in</span> <span class="bu">enumerate</span>(Qmat):</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    f <span class="op">=</span> <span class="kw">lambda</span> T: Q<span class="op">/</span><span class="dv">4</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>a(T)) <span class="op">-</span> sigma<span class="op">*</span>gamma<span class="op">*</span>T<span class="op">**</span><span class="dv">4</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    x, info, ier, msg  <span class="op">=</span> fsolve(f, x, full_output<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial guess</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">220</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, Q <span class="kw">in</span> <span class="bu">enumerate</span>(Qmat):</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    f <span class="op">=</span> <span class="kw">lambda</span> T: Q<span class="op">/</span><span class="dv">4</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>a(T)) <span class="op">-</span> sigma<span class="op">*</span>gamma<span class="op">*</span>T<span class="op">**</span><span class="dv">4</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    sol <span class="op">=</span> root(f, x)</span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># If solution not found, output error</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> ier <span class="op">!=</span> <span class="dv">1</span>:</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Q/Q0 = "</span>, Q<span class="op">/</span>Q0, <span class="st">": "</span>, msg)</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    Tmat[i] <span class="op">=</span> x</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> sol.success <span class="op">!=</span> <span class="dv">1</span>:</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Q/Q0 = "</span>, Q<span class="op">/</span>Q0, <span class="st">": "</span>, sol.message)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    Tmat[i] <span class="op">=</span> sol.x</span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>plt.plot(Qmat<span class="op">/</span><span class="dv">1370</span>, Tmat)<span class="op">;</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Q/Q0'</span>)<span class="op">;</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'T'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>plt.plot(Qmat<span class="op">/</span><span class="dv">1370</span>, Tmat, <span class="st">'o'</span>)<span class="op">;</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Q/Q0'</span>)<span class="op">;</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'T'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Q/Q0 =  1.2735967782532092 :  The iteration is not making good progress, as measured by the 
   improvement from the last ten iterations.
 Q/Q0 =  1.2937326956959476 :  The iteration is not making good progress, as measured by the 
   improvement from the last ten iterations.
 Q/Q0 =  1.313868613138686 :  The iteration is not making good progress, as measured by the 
-  improvement from the last ten iterations.</code></pre>
+  improvement from the last five Jacobian evaluations.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="box-energy-model_files/figure-html/cell-4-output-2.png" width="593" height="429"></p>
 </div>
 </div>
-<p>Above, we have scaled <span class="math inline">\(Q\)</span> with the reference value of <span class="math inline">\(Q_0 = 1370\)</span>. The problem is that somewhere within <span class="math inline">\(1.2 &lt; Q/Q_0 &lt; 1.3\)</span>, two of the steady-state solutions merge.</p>
+<p>Above, we have scaled <span class="math inline">\(Q\)</span> with the reference value of <span class="math inline">\(Q_0 = 1370\)</span>.</p>
+<p>In your lecture, problem class, or exercises, you will design continuation on the other branches of solutions, and then study the result and its implications.</p>
 
 
 </section>
@@ -812,8 +815,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-05-techniques/arclength.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Arclength continuation</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-03-box/box-energy-model2.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">The basic energy model (bifurcations)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
