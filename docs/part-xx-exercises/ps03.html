@@ -219,7 +219,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/box-energy-model2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">The basic energy model (bifurcations)</span></a>
+  <a href="../part-03-box/box-energy-model2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">EBM models with latitude dependence</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -302,6 +302,11 @@ ul.task-list li input[type="checkbox"] {
   <a href="../part-xx-exercises/ps02sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Problem set 2 solutions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps03sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Problem set 3 solutions</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -314,7 +319,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Differential equations</span></a>
+  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Differential equations</span></a>
   </div>
 </li>
       </ul>
@@ -372,7 +377,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Hang-in by or on lecture 15 (one week).</p>
+<p>Hand-in by or on lecture 15 (one week).</p>
 </div>
 </div>
 <p>In <a href="../part-05-techniques/asymptotics03.html"><span>Chapter&nbsp;12</span></a> we discussed how the zero-dimensional energy equation occurs in the form of <span class="math display">\[
@@ -390,11 +395,11 @@ T(1) &amp;= 1.
 \tag{26.1}\]</span></span> The challenge is to study the above problem for small values of <span class="math inline">\(\epsilon\)</span>.</p>
 <section id="conversion-to-first-order-system" class="level2" data-number="26.1">
 <h2 data-number="26.1" class="anchored" data-anchor-id="conversion-to-first-order-system"><span class="header-section-number">26.1</span> Conversion to first-order system</h2>
-<p>By using the procedure reviewed in <a href="../part-05-techniques/asymptotics02.html#sec-asym2-num"><span>Section&nbsp;9.2</span></a>, convert (<a href="#eq-ps3-sys">Equation&nbsp;<span>26.1</span></a>) to a first-order system of equations.</p>
+<p>By using the procedure reviewed in <a href="../part-05-techniques/asymptotics02.html#sec-asym2-num"><span>Section&nbsp;9.2</span></a>, convert (<a href="ps03sol.html#eq-ps3-sys">Equation&nbsp;<span>29.1</span></a>) to a first-order system of equations.</p>
 </section>
 <section id="numerical-solutions" class="level2" data-number="26.2">
 <h2 data-number="26.2" class="anchored" data-anchor-id="numerical-solutions"><span class="header-section-number">26.2</span> Numerical solutions</h2>
-<p>The problem <a href="#eq-ps3-sys">Equation&nbsp;<span>26.1</span></a> is a different kind of problem than you may have encountered previously. Previously, you have encountered initial-value problems (IVPs), where the solution is entirely specified by initial conditions at a single point. This is a boundary-value problem (BVP), where the solution is required to satisfy values at multiple points.</p>
+<p>The problem <a href="ps03sol.html#eq-ps3-sys">Equation&nbsp;<span>29.1</span></a> is a different kind of problem than you may have encountered previously. Previously, you have encountered initial-value problems (IVPs), where the solution is entirely specified by initial conditions at a single point. This is a boundary-value problem (BVP), where the solution is required to satisfy values at multiple points.</p>
 <p>During lecture 12/problem class 3, we will describe how the BVP can be solved using the <strong>Shooting Method</strong>. The Shooting Method uses the following algorithm.</p>
 <div class="callout-important callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -414,7 +419,7 @@ Pseudocode for the Shooting Method
 </ol>
 </div>
 </div>
-<p>Write a numerical code to solve (<a href="#eq-ps3-sys">Equation&nbsp;<span>26.1</span></a>) using a Shooting Method. Use your code to investigate the solution profiles for different values of <span class="math inline">\(\epsilon\)</span>.</p>
+<p>Write a numerical code to solve (<a href="ps03sol.html#eq-ps3-sys">Equation&nbsp;<span>29.1</span></a>) using a Shooting Method. Use your code to investigate the solution profiles for different values of <span class="math inline">\(\epsilon\)</span>.</p>
 </section>
 <section id="investigation-of-the-boundary-layer" class="level2" data-number="26.3">
 <h2 data-number="26.3" class="anchored" data-anchor-id="investigation-of-the-boundary-layer"><span class="header-section-number">26.3</span> Investigation of the boundary layer</h2>
@@ -480,6 +485,7 @@ U_0(0) = 0.
 \lim_{s \to \infty} U_0(s) = \lim_{z \to 0} T_0(z),
 \]</span> which imposes that the inner solution, as it leaves the boundary layer, matches the outer solution, it tends into the inner region.</p>
 <p>Solve for <span class="math inline">\(U_0\)</span>.</p>
+<p>o</p>
 
 
 </section>

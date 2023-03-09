@@ -282,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/box-energy-model2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">The basic energy model (bifurcations)</span></a>
+  <a href="../part-03-box/box-energy-model2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">EBM models with latitude dependence</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -365,6 +365,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../part-xx-exercises/ps02sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Problem set 2 solutions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps03sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Problem set 3 solutions</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -377,7 +382,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Differential equations</span></a>
+  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Differential equations</span></a>
   </div>
 </li>
       </ul>
@@ -399,6 +404,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#steady-state-analysis" id="toc-steady-state-analysis" class="nav-link active" data-scroll-target="#steady-state-analysis"><span class="toc-section-number">15.1</span>  Steady-state analysis</a></li>
   <li><a href="#dynamics-and-phase-line-solutions" id="toc-dynamics-and-phase-line-solutions" class="nav-link" data-scroll-target="#dynamics-and-phase-line-solutions"><span class="toc-section-number">15.2</span>  Dynamics and phase line solutions</a></li>
   <li><a href="#numerical-continuation-of-the-steady-states" id="toc-numerical-continuation-of-the-steady-states" class="nav-link" data-scroll-target="#numerical-continuation-of-the-steady-states"><span class="toc-section-number">15.3</span>  Numerical continuation of the steady states</a></li>
+  <li><a href="#sec-budyko" id="toc-sec-budyko" class="nav-link" data-scroll-target="#sec-budyko"><span class="toc-section-number">15.4</span>  Re-scaling and Budyko’s model</a></li>
   </ul>
 </nav>
     </div>
@@ -670,6 +676,15 @@ Q/Q0 =  1.313868613138686 :  The iteration is not making good progress, as measu
 </div>
 <p>Above, we have scaled <span class="math inline">\(Q\)</span> with the reference value of <span class="math inline">\(Q_0 = 1370\)</span>.</p>
 <p>In your lecture, problem class, or exercises, you will design continuation on the other branches of solutions, and then study the result and its implications.</p>
+</section>
+<section id="sec-budyko" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="sec-budyko"><span class="header-section-number">15.4</span> Re-scaling and Budyko’s model</h2>
+<p>To model the outgoing radiation, we use the quartic Stefan-Boltzmann law. However, over the range of temperatures we are interested-in, it seems that a simpler approximation is sufficient. In your homework, you will investigate the re-scaling and shifting of temperature, such that <span class="math display">\[
+T = T_0 + [T]\tilde{T},
+\]</span> where <span class="math inline">\(T_0 = 265 \mathrm{K}\)</span>. Then under the assumption that temperatures are not-so-far from <span class="math inline">\(T_0\)</span>, we expand <span class="math display">\[
+(T_0 + [T]\tilde{T})^4 \sim T_0^4 + 4 T_0^3 [T] \tilde{T} =
+C_1 + C_2 \tilde{T}.
+\]</span> This simplifies the model considerably.</p>
 
 
 </section>
@@ -816,7 +831,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="../part-03-box/box-energy-model2.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">The basic energy model (bifurcations)</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">EBM models with latitude dependence</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
