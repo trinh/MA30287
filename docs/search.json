@@ -438,7 +438,7 @@
     "href": "part-03-box/stommel.html#equilibrium-states",
     "title": "20  Stommel’s box model",
     "section": "Equilibrium states",
-    "text": "Equilibrium states\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport scipy.optimize as sciopt\n\ndef phi(f, delt, R):\n    phi = delt*R/(delt + np.abs(f)) - 1/(1 + np.abs(f))\n    return phi\n\nfmat = np.linspace(-2.5, 2.5, 101)\nplt.plot(fmat, phi(fmat, 1, 2), 'k--', label='$\\lambda = 1$, $R = 2$')\nplt.plot(fmat, phi(fmat, 1/6, 2), 'k', label='$\\lambda = 1/6$, $R = 2$')\nplt.plot(fmat, fmat, 'b--', label='$\\lambda = 1$')\nplt.plot(fmat, 1/6*fmat, 'b', label='$\\lambda = 1/6$' )\nplt.ylim((-1.5,2))\nplt.xlabel(\"$f$\")\nplt.ylabel(\"$\\phi$\")\nplt.legend()\n\n<matplotlib.legend.Legend at 0x1135ff010>\n\n\n\n\n\nAbove, we can see that dependent on the parameter values, there may be one or three possible equilibrum states."
+    "text": "Equilibrium states\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport scipy.optimize as sciopt\n\ndef phi(f, delt, R):\n    phi = delt*R/(delt + np.abs(f)) - 1/(1 + np.abs(f))\n    return phi\n\nfmat = np.linspace(-2.5, 2.5, 101)\nplt.plot(fmat, phi(fmat, 1, 2), 'k--', label='$\\lambda = 1$, $R = 2$')\nplt.plot(fmat, phi(fmat, 1/6, 2), 'k', label='$\\lambda = 1/6$, $R = 2$')\nplt.plot(fmat, fmat, 'b--', label='$\\lambda = 1$')\nplt.plot(fmat, 1/6*fmat, 'b', label='$\\lambda = 1/6$' )\nplt.ylim((-1.5,2))\nplt.xlabel(\"$f$\")\nplt.ylabel(\"$\\phi$\")\nplt.legend()\n\n<matplotlib.legend.Legend at 0x1169e8dd0>\n\n\n\n\n\nAbove, we can see that dependent on the parameter values, there may be one or three possible equilibrum states."
   },
   {
     "objectID": "part-03-box/stommel.html#stability",
