@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA30287: Mathematics of Planet Earth - 16&nbsp; EBM models with latitude dependence</title>
+<title>MA30287: Mathematics of Planet Earth - 16&nbsp; EBM with latitude I</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -30,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-xx-exercises/problemclass04.html" rel="next">
+<link href="../part-03-box/latitude2.html" rel="next">
 <link href="../part-03-box/box-energy-model.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -71,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">EBM models with latitude dependence</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">EBM with latitude I</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -214,32 +277,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/box-energy-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The basic energy model (steady-state)</span></a>
+  <a href="../part-03-box/box-energy-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The basic EBM (steady-state)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/box-energy-model2.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">EBM models with latitude dependence</span></a>
+  <a href="../part-03-box/box-energy-model2.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">EBM with latitude I</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/problemclass04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Problem class 4</span></a>
+  <a href="../part-03-box/latitude2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">EBM with latitude II</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/basic-ocean-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Basic models of the ocean</span></a>
+  <a href="../part-xx-exercises/problemclass04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Problem class 4</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/problemclass05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Problem class 5</span></a>
+  <a href="../part-03-box/basic-ocean-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Basic models of the ocean</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-03-box/stommel.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Stommel’s box model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/problemclass05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Problem class 5</span></a>
   </div>
 </li>
       </ul>
@@ -254,14 +322,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-04-pde/greenhouse.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">The greenhouse gas effect</span></a>
+  <a href="../part-04-pde/greenhouse.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">The greenhouse gas effect</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="../summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -274,37 +342,42 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Problem set 1</span></a>
+  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Problem set 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/thought02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Thinking about your own energy</span></a>
+  <a href="../part-xx-exercises/thought02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Thinking about your own energy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Problem set 2</span></a>
+  <a href="../part-xx-exercises/ps02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Problem set 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Problem set 3</span></a>
+  <a href="../part-xx-exercises/ps03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Problem set 3</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps01sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Problem set 1 solutions</span></a>
+  <a href="../part-xx-exercises/ps04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Problem set 4</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps02sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Problem set 2 solutions</span></a>
+  <a href="../part-xx-exercises/ps01sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Problem set 1 solutions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps03sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Problem set 3 solutions</span></a>
+  <a href="../part-xx-exercises/ps02sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Problem set 2 solutions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps03sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Problem set 3 solutions</span></a>
   </div>
 </li>
       </ul>
@@ -319,7 +392,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Differential equations</span></a>
+  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Differential equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
   </div>
 </li>
       </ul>
@@ -350,7 +428,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-box-energy2" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">EBM models with latitude dependence</span></span></h1>
+<h1 class="title"><span id="sec-box-energy2" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">EBM with latitude I</span></span></h1>
 </div>
 
 
@@ -375,7 +453,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.</p>
+<p>Covered in lectures 16.</p>
 </div>
 </div>
 <!-- 
@@ -392,14 +470,14 @@ instance, for the Northern Hemisphere, [@kaper_book] gives the values of $A = 20
 -->
 <p>We now introduce a model that allows for two additional effects: an albedo that models ice dynamics and latitude variation; and a transport term, which allows for heat movement (primarily convection).</p>
 <p>To begin, let us use a spherical coordinate system where <span class="math inline">\(\varphi\)</span> is the latitude angle, with <span class="math inline">\(\varphi = 0\)</span> at the equator and <span class="math inline">\(\varphi = \pi/2\)</span> at the North Pole. Note that this differs from the <a href="https://en.wikipedia.org/wiki/Spherical_coordinate_system">traditional spherical coordinate system</a> where <span class="math inline">\(\phi\)</span> is the polar angle. It is moreover convenient to use <span class="math display">\[
-y = \sin\varphi, \quad y \in [-1, 1], \, \varphi \in [-\pi/2, \pi/2]
+y = \sin\varphi, \quad y \in [-1, 1], \, \varphi\in [-\pi/2, \pi/2].
 \]</span> Our conservation equation takes the general form for the temperature, <span class="math inline">\(T(y, t)\)</span>: <span id="eq-EBMlat"><span class="math display">\[
 C \frac{\partial T}{\partial t} = E_{\text{in}} - E_{\text{out}} + E_{\text{transport}}, \qquad t &gt; 0
 \tag{16.1}\]</span></span> where we shall use the following: <span id="eq-EBMlatcomp"><span class="math display">\[
 \begin{align}
 E_{\text{in}}(y, t) &amp;= Qs(y)(1 - \alpha(y)), \\
 E_{\text{out}}(y, t) &amp;= A + BT, \\
-E_{\text{transport}}(y, t) &amp;= C(\bar{T} - T),
+E_{\text{transport}}(y, t) &amp;= k(\bar{T} - T),
 \end{align}
 \tag{16.2}\]</span></span> Each of these terms we explain below in turn.</p>
 <p>The above equation will be supplemented with initial conditions: <span class="math display">\[
@@ -407,22 +485,50 @@ T(y, 0) = T_i(y).
 \]</span></p>
 <section id="incoming-energy" class="level2" data-number="16.1">
 <h2 data-number="16.1" class="anchored" data-anchor-id="incoming-energy"><span class="header-section-number">16.1</span> Incoming energy</h2>
-<p>Notice that now, compared to the previous model, we have weighted the incoming solar constant <span class="math inline">\(Q\)</span> with a term <span class="math inline">\(s(y)\)</span> and also our albedo no longer directly depends on temperature but instead depends on the latitude.</p>
-<p>Points on Earth that are closer to the equator receive more direct sunlight and experience more hours of daylight on average. We thus define a function <span class="math inline">\(s(x)\)</span> to account for this and consider the incoming radiation as weighted by <span class="math inline">\(Qs(y)\)</span>.</p>
-<p>Note that the total solar input is calculated by a surface integral: <span class="math display">\[
+<p>We make the following remarks about <span class="math inline">\(E_{\text{in}}\)</span>.</p>
+<ul>
+<li><p>Notice that now, compared to the previous model, we have weighted the incoming solar constant <span class="math inline">\(Q\)</span> with a term <span class="math inline">\(s(y)\)</span> and also our albedo no longer directly depends on temperature but instead depends on the latitude.</p></li>
+<li><p>Points on Earth that are closer to the equator receive more direct sunlight and experience more hours of daylight on average. We thus define a function <span class="math inline">\(s(x)\)</span> to account for this and consider the incoming radiation as weighted by <span class="math inline">\(Qs(y)\)</span>.</p></li>
+<li><p>Note that the total solar input is calculated by a surface integral: <span class="math display">\[
 \int_{\theta = 0}^{\theta = 2\pi} \int_{\varphi = -\pi/2}^{\pi/2} Q s(y = \sin\varphi) (a^2 \cos\varphi) \, \mathrm{d}\varphi \mathrm{d}\theta = 4\pi a^2 Q \int_0^1 s(y) \, \mathrm{d}y = 4\pi a^2 Q,
-\]</span> if the function <span class="math inline">\(s(y)\)</span> has been normalised appropriately so that its integral is equal to one, and furthermore the radiation is assumed symmetric about the equator.</p>
-<p>The above is equal to the solar flux intercepted by an area of the circular disk of the earth seen by the sun, which is <span class="math inline">\(\pi a^2 S\)</span> for <span class="math inline">\(S = 1370 \mathrm{W}/\mathrm{m}^2\)</span>. Therefore <span class="math inline">\(Q = S/4 \approx 343 \mathrm{W}/ \mathrm{m}^2\)</span>.</p>
-<p>Finally the function <span class="math inline">\(s(y)\)</span> is fitted to data. We can assume it to be given by <span class="math display">\[
+\]</span> if the function <span class="math inline">\(s(y)\)</span> has been normalised appropriately so that its integral is equal to one, and furthermore the radiation is assumed symmetric about the equator.</p></li>
+<li><p>The above is equal to the solar flux intercepted by an area of the circular disk of the earth seen by the sun, which is <span class="math inline">\(\pi a^2 S\)</span> for <span class="math inline">\(S = 1370 \mathrm{W}/\mathrm{m}^2\)</span>. Therefore <span class="math inline">\(Q = S/4 \approx 342 \mathrm{W}/ \mathrm{m}^2\)</span>.</p></li>
+</ul>
+<p>Finally the function <span class="math inline">\(s(y)\)</span> is fitted to data. We can assume it to be given by <span id="eq-EBM-s"><span class="math display">\[
 s(y) = 1 - S_2 P_2(y), \qquad S_2 = 0.482, \quad P_2(y) = (3y^2 - 1)/2.
-\]</span></p>
+\tag{16.3}\]</span></span></p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">20</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>plt.plot(y, <span class="dv">1</span> <span class="op">-</span> <span class="fl">0.482</span><span class="op">*</span>(<span class="dv">3</span><span class="op">*</span>y<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'y'</span>)<span class="op">;</span> plt.ylabel(<span class="st">'s(y)'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="box-energy-model2_files/figure-html/cell-2-output-1.png" width="589" height="429"></p>
+</div>
+</div>
 <p>We assume that an ice sheet forms if the temperature is sufficiently low, and <span class="math inline">\(T &lt; T_c = 10^\circ \mathrm{C}\)</span>. The ice forms at an ice line, where <span class="math inline">\(y = y_s\)</span>. We then have the following form form the albedo: <span class="math display">\[
-\alpha(y) = \begin{cases}
-\alpha_2 = 0.62 &amp; y &gt; y_s, \\
-\alpha_1 = 0.32 &amp; y &lt; y_s, \\
-\frac{1}{2}(\alpha_1 + \alpha_2) &amp; y = y_s.
+a(y) = \begin{cases}
+a_i = 0.62 &amp; y &gt; y_s, \\
+a_w = 0.32 &amp; y &lt; y_s, \\
+\frac{1}{2}(a_i + a_w) &amp; y = y_s.
 \end{cases}
 \]</span> Therefore we are using a discontinuous model for the albedo. Note that the ice boundary <span class="math inline">\(y_s\)</span> is an unknown to be determined by the model.</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>ys <span class="op">=</span> <span class="fl">0.7</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.array([<span class="dv">0</span>, ys<span class="op">-</span><span class="fl">0.0001</span>, ys, ys<span class="op">+</span><span class="fl">0.0001</span>, <span class="dv">1</span>])</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>ai <span class="op">=</span> <span class="fl">0.62</span><span class="op">;</span> aw <span class="op">=</span> <span class="fl">0.32</span><span class="op">;</span> </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.piecewise(y, [y <span class="op">&lt;</span> ys, y <span class="op">==</span> ys, y <span class="op">&gt;</span> ys], [aw, <span class="fl">0.5</span><span class="op">*</span>(aw<span class="op">+</span>ai), ai])</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>plt.plot(y, a, <span class="st">'-o'</span>) </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'y'</span>)<span class="op">;</span> plt.ylabel(<span class="st">'a(y)'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="box-energy-model2_files/figure-html/cell-3-output-1.png" width="597" height="429"></p>
+</div>
+</div>
 <p>The above forms what is referred to as a free-boundary problem, as the boundary <span class="math inline">\(y = y_s\)</span> is solved as part of the model. Because <span class="math inline">\(y_s\)</span> is essentially determined by where the temperature reaches the critical value, i.e.&nbsp;<span class="math inline">\(T(y_s, t) = T_c\)</span>, then the above albedo not only depends on latitude, but also on the current temperature distribution as well.</p>
 </section>
 <section id="outgoing-energy" class="level2" data-number="16.2">
@@ -430,19 +536,19 @@ s(y) = 1 - S_2 P_2(y), \qquad S_2 = 0.482, \quad P_2(y) = (3y^2 - 1)/2.
 <p>The outgoing energy is approximated via the linear Budyko approximation discussed in <a href="box-energy-model.html#sec-budyko"><span>Section&nbsp;15.4</span></a>. <span class="math display">\[
 E_{\text{out}} = A + BT,
 \]</span> where <span class="math inline">\(A = 202 \mathrm{W}/ \mathrm{m}^2\)</span> and <span class="math inline">\(B = 1.9 \mathrm{W}/(\mathrm{m}^2 {}^\circ \mathrm{C})\)</span>.</p>
-<p>This completes our review of all the components (<a href="#eq-EBMlatcomp">Equation&nbsp;<span>16.2</span></a>) that make up the EBM model (<a href="#eq-EBMlat">Equation&nbsp;<span>16.1</span></a>).</p>
 </section>
 <section id="transport-energy" class="level2" data-number="16.3">
 <h2 data-number="16.3" class="anchored" data-anchor-id="transport-energy"><span class="header-section-number">16.3</span> Transport energy</h2>
 <p>The next term we should consider is the transport. In the case of this simple model, transport is taken to be modelled via a “Newton law of cooling” type expression. We assume that <span class="math display">\[
-\text{rate of change of heat energy} = D(y) = C(\bar{T} - T),
+\text{rate of change of heat energy} = k(\bar{T} - T),
 \]</span> where it can be verified (exercise) that the global mean temperature is the same as the hemispherically averaged temperature, i.e.&nbsp; <span class="math display">\[
 \bar{T} = \frac{1}{\text{surface area}} \iint T \, \mathrm{S} = \int_0^1 T(y) \, \mathrm{d}y.
-\]</span> Above, we shall use a value of <span class="math inline">\(C = 1.6B\)</span>, again estimated based on data and studies.</p>
+\]</span> Above, we shall use a value of <span class="math inline">\(k = 1.6B\)</span>, again estimated based on data and studies.</p>
+<p>This completes our review of all the components (<a href="latitude2.html#eq-EBMlatcomp">Equation&nbsp;<span>17.2</span></a>) that make up the EBM model (<a href="latitude2.html#eq-EBMlat">Equation&nbsp;<span>17.1</span></a>).</p>
 </section>
 <section id="steady-state-temperature" class="level2" data-number="16.4">
 <h2 data-number="16.4" class="anchored" data-anchor-id="steady-state-temperature"><span class="header-section-number">16.4</span> Steady-state temperature</h2>
-<p>Let <span class="math inline">\(T^*(y)\)</span> be the steady-state temperature and <span class="math inline">\(\bar{T}^*\)</span> be the corresponding global mean temperature. Then from (<a href="#eq-EBMlat">Equation&nbsp;<span>16.1</span></a>) we have the fact that <span class="math inline">\(T^*\)</span> is given by solving the implicit equation <span class="math display">\[
+<p>Let <span class="math inline">\(T^*(y)\)</span> be the steady-state temperature and <span class="math inline">\(\bar{T}^*\)</span> be the corresponding global mean temperature. Then from (<a href="latitude2.html#eq-EBMlat">Equation&nbsp;<span>17.1</span></a>) we have the fact that <span class="math inline">\(T^*\)</span> is given by solving the implicit equation <span class="math display">\[
 T^*(y) = \Phi(T^*) = \frac{C\bar{T}^* + Qs(y)(1 + \alpha(y)) - A}{B + C}.
 \]</span> It is important to remember that the albedo, <span class="math inline">\(\alpha(y)\)</span>, implicitly depends on <span class="math inline">\(T^*\)</span> because at each location <span class="math inline">\(y\)</span>, we must decide if the temperature is less or greater than the threshold <span class="math inline">\(T_c\)</span>, which is the temperature of the ice line.</p>
 <p>The above equation is somewhat tricky because of its implicit nature; it is made even trickier by virtue that multiple equilibria exist at the same parameter values. We will begin studying this problem, but before doing so, let us make a few remarks:</p>
@@ -596,12 +702,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../part-03-box/box-energy-model.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The basic energy model (steady-state)</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The basic EBM (steady-state)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-xx-exercises/problemclass04.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Problem class 4</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-03-box/latitude2.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">EBM with latitude II</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
