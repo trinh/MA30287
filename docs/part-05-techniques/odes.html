@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA30287: Mathematics of Planet Earth - 34&nbsp; Differential equations</title>
+<title>MA30287: Mathematics of Planet Earth - 35&nbsp; Differential equations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Differential equations</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Differential equations</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -327,6 +327,11 @@ ul.task-list li input[type="checkbox"] {
   <a href="../part-xx-exercises/ps03sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Problem set 3 solutions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps04sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Problem set 4 solutions</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -339,12 +344,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Differential equations</span></a>
+  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Differential equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
+  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
   </div>
 </li>
       </ul>
@@ -363,8 +368,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#first-order-linear-differential-equations" id="toc-first-order-linear-differential-equations" class="nav-link active" data-scroll-target="#first-order-linear-differential-equations"><span class="toc-section-number">34.1</span>  First-order linear differential equations</a></li>
-  <li><a href="#second-order-constant-coefficient-odes" id="toc-second-order-constant-coefficient-odes" class="nav-link" data-scroll-target="#second-order-constant-coefficient-odes"><span class="toc-section-number">34.2</span>  Second-order constant coefficient ODEs</a></li>
+  <li><a href="#first-order-linear-differential-equations" id="toc-first-order-linear-differential-equations" class="nav-link active" data-scroll-target="#first-order-linear-differential-equations"><span class="toc-section-number">35.1</span>  First-order linear differential equations</a></li>
+  <li><a href="#second-order-constant-coefficient-odes" id="toc-second-order-constant-coefficient-odes" class="nav-link" data-scroll-target="#second-order-constant-coefficient-odes"><span class="toc-section-number">35.2</span>  Second-order constant coefficient ODEs</a></li>
   </ul>
 </nav>
     </div>
@@ -373,7 +378,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-odes" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Differential equations</span></span></h1>
+<h1 class="title"><span id="sec-odes" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Differential equations</span></span></h1>
 </div>
 
 
@@ -401,8 +406,8 @@ ul.task-list li input[type="checkbox"] {
 <p>I will drop some references here to older techniques that you will have learned (but may have forgotten).</p>
 </div>
 </div>
-<section id="first-order-linear-differential-equations" class="level2" data-number="34.1">
-<h2 data-number="34.1" class="anchored" data-anchor-id="first-order-linear-differential-equations"><span class="header-section-number">34.1</span> First-order linear differential equations</h2>
+<section id="first-order-linear-differential-equations" class="level2" data-number="35.1">
+<h2 data-number="35.1" class="anchored" data-anchor-id="first-order-linear-differential-equations"><span class="header-section-number">35.1</span> First-order linear differential equations</h2>
 <p>First-order linear differential equations are of the form <span class="math display">\[
 y' + q(x) y = r(x).
 \]</span> These are solved by integrating factors. Multiply both sides by <span class="math display">\[
@@ -415,8 +420,8 @@ e^{\int^x q(x') \, \mathrm{d}x'}
 <li><a href="https://tutorial.math.lamar.edu/classes/de/linear.aspx">Paul’s online notes</a></li>
 </ul>
 </section>
-<section id="second-order-constant-coefficient-odes" class="level2" data-number="34.2">
-<h2 data-number="34.2" class="anchored" data-anchor-id="second-order-constant-coefficient-odes"><span class="header-section-number">34.2</span> Second-order constant coefficient ODEs</h2>
+<section id="second-order-constant-coefficient-odes" class="level2" data-number="35.2">
+<h2 data-number="35.2" class="anchored" data-anchor-id="second-order-constant-coefficient-odes"><span class="header-section-number">35.2</span> Second-order constant coefficient ODEs</h2>
 <p>Second-order linear constant-coefficient ODEs are of the form <span class="math display">\[
 y'' + ay' + by = f(x).
 \]</span> With both forced (<span class="math inline">\(f \neq 0\)</span>) and unforced (<span class="math inline">\(f = 0\)</span>) varieties studied. For the unforced variant (homogeneous), you will remember that the equation is solved by attempting the ansatz <span class="math inline">\(y = e^{rx}\)</span> and solving for <span class="math inline">\(r\)</span>.</p>
@@ -571,7 +576,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="../part-05-techniques/vector-calculus.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Vector calculus</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Vector calculus</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

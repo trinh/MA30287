@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA30287: Mathematics of Planet Earth - 28&nbsp; Problem set 2</title>
+<title>MA30287: Mathematics of Planet Earth - 34&nbsp; Problem set 4 solutions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,8 +93,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-xx-exercises/ps03.html" rel="next">
-<link href="../part-xx-exercises/thought02.html" rel="prev">
+<link href="../part-05-techniques/part-techniques.html" rel="next">
+<link href="../part-xx-exercises/ps03sol.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -134,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Problem set 2</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Problem set 4 solutions</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -362,7 +362,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps02.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Problem set 2</span></a>
+  <a href="../part-xx-exercises/ps02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Problem set 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -392,7 +392,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps04sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Problem set 4 solutions</span></a>
+  <a href="../part-xx-exercises/ps04sol.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Problem set 4 solutions</span></a>
   </div>
 </li>
       </ul>
@@ -431,11 +431,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#getting-started-with-jupyter" id="toc-getting-started-with-jupyter" class="nav-link active" data-scroll-target="#getting-started-with-jupyter"><span class="toc-section-number">28.1</span>  Getting started with Jupyter</a></li>
-  <li><a href="#sec-ps2-cubic" id="toc-sec-ps2-cubic" class="nav-link" data-scroll-target="#sec-ps2-cubic"><span class="toc-section-number">28.2</span>  Testing the solutions of a cubic</a></li>
-  <li><a href="#analysis-of-singular-cubic-equation" id="toc-analysis-of-singular-cubic-equation" class="nav-link" data-scroll-target="#analysis-of-singular-cubic-equation"><span class="toc-section-number">28.3</span>  Analysis of singular cubic equation</a></li>
-  <li><a href="#a-damped-projectile-problem" id="toc-a-damped-projectile-problem" class="nav-link" data-scroll-target="#a-damped-projectile-problem"><span class="toc-section-number">28.4</span>  A damped projectile problem</a></li>
-  <li><a href="#ode-solvers-and-eulers-method" id="toc-ode-solvers-and-eulers-method" class="nav-link" data-scroll-target="#ode-solvers-and-eulers-method"><span class="toc-section-number">28.5</span>  ODE solvers and Euler’s method</a></li>
+  <li><a href="#q1-budykos-model" id="toc-q1-budykos-model" class="nav-link active" data-scroll-target="#q1-budykos-model">Q1 Budyko’s model</a></li>
+  <li><a href="#q2.-variable-sun-output" id="toc-q2.-variable-sun-output" class="nav-link" data-scroll-target="#q2.-variable-sun-output">Q2. Variable Sun output</a></li>
+  <li><a href="#q3.-phase-line-analysis" id="toc-q3.-phase-line-analysis" class="nav-link" data-scroll-target="#q3.-phase-line-analysis">Q3. Phase line analysis</a></li>
+  <li><a href="#q4.-evolution" id="toc-q4.-evolution" class="nav-link" data-scroll-target="#q4.-evolution">Q4. Evolution</a></li>
+  <li><a href="#q5.-integral-of-energy-over-the-planet" id="toc-q5.-integral-of-energy-over-the-planet" class="nav-link" data-scroll-target="#q5.-integral-of-energy-over-the-planet">Q5. Integral of energy over the planet</a></li>
+  <li><a href="#q6.-mean-temperature-in-the-latitude-dependent-ebm" id="toc-q6.-mean-temperature-in-the-latitude-dependent-ebm" class="nav-link" data-scroll-target="#q6.-mean-temperature-in-the-latitude-dependent-ebm">Q6. Mean temperature in the latitude-dependent EBM</a></li>
   </ul>
 </nav>
     </div>
@@ -444,7 +445,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-ps2" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Problem set 2</span></span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Problem set 4 solutions</span></h1>
 </div>
 
 
@@ -459,166 +460,238 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
+<section id="q1-budykos-model" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q1-budykos-model">Q1 Budyko’s model</h2>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Hand-in
+Q1a solution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This problem set was released on Lecture 9. If you’d like to get it in for feedback, hand into the 4W pidges before next week (Lecture 12) or alternatively hand-in directly after the 12th lecture.</p>
+<p>Expanding the quartic <span class="math inline">\(\sigma (T_0 + \bar{T})^4 = \sigma T_0^4 + \sigma (4 T_0^3) \bar{T} + \ldots\)</span></p>
+<p>Using the standard value of <span class="math inline">\(\sigma = 5.67\times 10^{-8} \mathrm{W}\, \mathrm{m}^{-2} \mathrm{K}^{-4}\)</span> and <span class="math inline">\(T_0 = 273.15 \mathrm{K}\)</span>, then <span class="math inline">\(\bar{A} = 315.6 \mathrm{W} \, \mathrm{m}^{-2}\)</span> and <span class="math inline">\(\bar{B} = 4.62 \mathrm{W} \, \mathrm{m}^{-2} \, \mathrm{K}^{-1}\)</span>.</p>
 </div>
 </div>
-<p>The intention of this problem set is to practice concepts from <a href="../part-05-techniques/asymptotics01.html"><span>Chapter&nbsp;8</span></a> (asymptotic approximations of algebraic equations) to <a href="../part-05-techniques/euler.html"><span>Chapter&nbsp;10</span></a> (Euler’s method and numerical solutions of differential equations). These techniques form some of the most powerful techniques at your disposal in applied maths.</p>
-<section id="getting-started-with-jupyter" class="level2" data-number="28.1">
-<h2 data-number="28.1" class="anchored" data-anchor-id="getting-started-with-jupyter"><span class="header-section-number">28.1</span> Getting started with Jupyter</h2>
-<p>Go online to the Jupyter hub at <a href="https://maths.jupyterhub.bath.ac.uk">https://maths.jupyterhub.bath.ac.uk</a>.</p>
-<ol type="1">
-<li><p>Navigate to the welcome screen for MA30287 and follow the instructions in order to create your own local directory at <code>/MA30287_workspace/</code></p></li>
-<li><p>Navigate to the workspace folder. Click <code>New -&gt; Notebook</code>. If asked, select the kernel <code>Python 3 (ipykernel)</code>.</p></li>
-<li><p>In the first line of input, select, in toolbar <code>Code -&gt; Markdown</code>. This allows you to annotate your notebook with Markdown-style text input.</p>
-<p>In the first line of input, type <code># Problem set 2</code>. Then either type <code>Shift + Enter</code> or press the play button which will execute the line(s) of input. Your markdown text should render as a nicely formatted entry.</p></li>
-<li><p>Rename the file to something appropriate, like <code>ps02_scripts</code>. You can do this by right-clicking the filename in the file manager and selecting <code>Rename</code>.</p>
-<p>Proceed to the next question.</p></li>
-</ol>
-</section>
-<section id="sec-ps2-cubic" class="level2" data-number="28.2">
-<h2 data-number="28.2" class="anchored" data-anchor-id="sec-ps2-cubic"><span class="header-section-number">28.2</span> Testing the solutions of a cubic</h2>
-<p>In this question, you will develop the numerical solutions for the roots of the cubic equation: <span class="math display">\[
-\epsilon x^3 - x + 1 = 0, \qquad \epsilon &gt; 0
-\]</span></p>
-<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Important
+Q1b solution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>25 Feb 2023: swapped sign of the x term above (from <span class="math inline">\(+x\)</span>)—otherwise negative epsilon values.</p>
+<p>The code is given below. Below, the dashed line is for the Budyko approximation, while the green curve is the Stefan Boltzmann law. The horizontal axis is <span class="math inline">\(\bar{T}\)</span>, so note that the green curve is given by <span class="math inline">\(\sigma \gamma (T_0 + \bar{T})^4\)</span>.</p>
+<p>As can be seen, the linear approximation mostly duplicates the three necessary steady states at the advantage of great analytical simplification. It seems that the hottest state (the one the Earth is presently in) is predicted slightly higher.</p>
 </div>
 </div>
-<p>Type the following code into your Jupyter notebook. This code uses a command, which you will learn in a later week, called <code>fsolve</code>, in order to solve nonlinear equations. When writing the below code, you may want to separate the import commands into their own input field in the notebook.</p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> fsolve</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ep <span class="op">=</span> <span class="fl">0.1</span>        <span class="co"># epsilon value</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>xguess <span class="op">=</span> <span class="fl">1.1</span>    <span class="co"># Initial guess of root</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: ep<span class="op">*</span>x<span class="op">**</span><span class="dv">3</span> <span class="op">-</span> x <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>xsol <span class="op">=</span> fsolve(f, xguess)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Solved root at x = "</span>, xsol)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> root</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Q <span class="op">=</span> <span class="dv">1370</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="kw">lambda</span> T: <span class="fl">0.5</span> <span class="op">-</span> <span class="fl">0.2</span><span class="op">*</span>np.tanh(<span class="fl">0.1</span><span class="op">*</span>(T <span class="op">-</span> <span class="dv">265</span>))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>Tb <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">50</span>, <span class="dv">40</span>, <span class="dv">100</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>T0 <span class="op">=</span> <span class="fl">273.15</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="fl">203.3</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> <span class="fl">2.09</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>sig <span class="op">=</span> <span class="fl">5.67e-8</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>gamma <span class="op">=</span> <span class="fl">0.62</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>LHS <span class="op">=</span> <span class="kw">lambda</span> Tb: Q<span class="op">/</span><span class="dv">4</span><span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span> a(T0 <span class="op">+</span> Tb))</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>RHS <span class="op">=</span> <span class="kw">lambda</span> Tb: A <span class="op">+</span> B<span class="op">*</span>Tb</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plt.plot(Tb, LHS(Tb))</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>plt.plot(Tb, RHS(Tb), <span class="st">'--'</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>plt.plot(Tb, sig<span class="op">*</span>gamma<span class="op">*</span>(T0 <span class="op">+</span> Tb)<span class="op">**</span><span class="dv">4</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="dv">1</span>)<span class="op">;</span> plt.xlabel(<span class="st">'T (barred version)'</span>)<span class="op">;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>sol1 <span class="op">=</span> root(<span class="kw">lambda</span> T: LHS(T) <span class="op">-</span> RHS(T), <span class="op">-</span><span class="dv">50</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>sol2 <span class="op">=</span> root(<span class="kw">lambda</span> T: LHS(T) <span class="op">-</span> RHS(T), <span class="op">-</span><span class="dv">10</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>sol3 <span class="op">=</span> root(<span class="kw">lambda</span> T: LHS(T) <span class="op">-</span> RHS(T), <span class="dv">20</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sol1.x)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sol2.x)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sol3.x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Solved root at x =  [1.15346731]</code></pre>
+<pre><code>[-48.08779045]
+[-4.8266462]
+[17.01567994]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="ps04sol_files/figure-html/cell-2-output-2.png" width="575" height="434"></p>
 </div>
 </div>
 </section>
-<section id="analysis-of-singular-cubic-equation" class="level2" data-number="28.3">
-<h2 data-number="28.3" class="anchored" data-anchor-id="analysis-of-singular-cubic-equation"><span class="header-section-number">28.3</span> Analysis of singular cubic equation</h2>
-<p>Consider the cubic equation <span class="math display">\[
-\epsilon x^3 - x + 1 = 0,
-\]</span> with <span class="math inline">\(\epsilon \ll 1\)</span> and <span class="math inline">\(\epsilon &gt; 0\)</span>.</p>
-<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<section id="q2.-variable-sun-output" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q2.-variable-sun-output">Q2. Variable Sun output</h2>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Important
+Q2a solution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>25 Feb 2023: swapped sign of the x term above (from <span class="math inline">\(+x\)</span>)—otherwise negative epsilon values.</p>
+<p>The variation seems to be very small. Ignoring units, we have <span class="math display">\[
+T = \left(\frac{1-a}{\sigma \gamma}\right)^{1/4} Q^{1/4} \approx 67.3505 \times Q^{1/4}.
+\]</span> Substituting the values of <span class="math inline">\(Q\)</span> given this gives a temperature that ranges from <span class="math inline">\(T = 289.499 \, \mathrm{K}\)</span> to <span class="math inline">\(289.580 \, \mathrm{K}\)</span>. Converting this to Celsius gives <span class="math inline">\(16.35 \, {}^\circ \mathrm{C}\)</span> to <span class="math inline">\(16.43 \, {}^\circ \mathrm{C}\)</span> i.e.&nbsp;a fraction of a degree.</p>
 </div>
 </div>
-<ol type="1">
-<li><p>Develop the first three terms of an asymptotic expansion about the root by setting <span class="math display">\[
-x = x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots
-\]</span></p></li>
-<li><p>Fill out the following table.</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th><span class="math inline">\(\epsilon\)</span></th>
-<th><span class="math inline">\(x_{\text{exact}}\)</span></th>
-<th><span class="math inline">\(x_{\text{exact}} - x_0\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0.1</td>
-<td>–</td>
-<td>–</td>
-</tr>
-<tr class="even">
-<td>0.08</td>
-<td>–</td>
-<td>–</td>
-</tr>
-<tr class="odd">
-<td>0.06</td>
-<td>–</td>
-<td>–</td>
-</tr>
-<tr class="even">
-<td>0.04</td>
-<td>–</td>
-<td>–</td>
-</tr>
-<tr class="odd">
-<td>0.02</td>
-<td>–</td>
-<td>–</td>
-</tr>
-</tbody>
-</table>
-<p>Use your code in <a href="ps02sol.html#sec-ps2-cubic"><span>Section&nbsp;32.2</span></a> to input numerical approximations to the above entries.</p>
-<p>Create a graph <strong>by hand</strong> of the data (it does not have to be extremely accurate), as plotted in the <span class="math inline">\((\epsilon, x_{\text{exact}} - x_0)\)</span>-plane. Fit a line to this graph and estimate the gradient. Is this consistent with what you derived above?</p></li>
-<li><p>By rescaling <span class="math inline">\(x\)</span> appropriately in terms of <span class="math inline">\(\epsilon\)</span>, derive the first three terms of the asymptotic approximations of the remaining roots.</p></li>
-</ol>
-</section>
-<section id="a-damped-projectile-problem" class="level2" data-number="28.4">
-<h2 data-number="28.4" class="anchored" data-anchor-id="a-damped-projectile-problem"><span class="header-section-number">28.4</span> A damped projectile problem</h2>
-<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-2 Mar 2023
+Q2b solution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The question previously asked for two terms. It has been reduced to only one term.</p>
+<p>We obtain the range of approximately <span class="math inline">\(T = 17.06 \, {}^\circ \mathrm{C}\)</span> to <span class="math inline">\(17.19 \, {}^\circ \mathrm{C}\)</span>.</p>
 </div>
 </div>
-<p>In <a href="../part-05-techniques/asymptotics02.html"><span>Chapter&nbsp;9</span></a> you performed the asymptotic analysis for a projectile. The small parameter was <span class="math inline">\(\epsilon\)</span> and represented <span class="math inline">\(v_0^2/(gR_E)\)</span> (a parameter that includes the initial velocity, <span class="math inline">\(v_0\)</span>, gravity <span class="math inline">\(g\)</span>, and the radius of the Earth, <span class="math inline">\(R_E\)</span>.</p>
-<p>If air resistance is included, then the non-dimensional toy model is instead <span id="eq-ps2-air"><span class="math display">\[
-\begin{gather}
-\frac{\mathrm{d}^2 y}{\mathrm{d}t^2} = - \frac{1}{(1 + \epsilon y)^2} - \frac{\alpha}{(1 + \epsilon y)} \frac{\mathrm{d}y}{\mathrm{d}t}, \\
-y(0) = 0, \\
-y'(0) = 1.
-\end{gather}
-\tag{28.1}\]</span></span> where <span class="math inline">\(\alpha \geq 0\)</span> is the parameter that controls air resistance.</p>
-<ol type="1">
-<li><p>Begin by assuming that <span class="math inline">\(\alpha\)</span> is a fixed number and consider the limit where <span class="math inline">\(\epsilon \ll 1\)</span>. Find a <strong>one-term</strong> asymptotic expansion of the solution for small <span class="math inline">\(\epsilon\)</span>.</p></li>
-<li><p>Is the effect of the air resistance to increase or decrease the flight time? Justify based on your analytical solution.</p></li>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Q2c solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are many ways to respond, but one major factor is the oceans, which are ignored in our model. The oceans provide a massive energy sink for the planet, and so we would expect that the minor variations of <span class="math inline">\(Q\)</span> due to the 11-year cycle would be smoothed out by the effects of the oceans.</p>
+</div>
+</div>
+</section>
+<section id="q3.-phase-line-analysis" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q3.-phase-line-analysis">Q3. Phase line analysis</h2>
+<p>Consider the energy balance equation <span id="eq-ps4-main"><span class="math display">\[
+C \frac{\mathrm{d}T}{\mathrm{d}t} = Q(1 - a(T)) - \sigma \gamma T^4 \equiv G(T).
+\tag{34.1}\]</span></span> with <span class="math inline">\(a\)</span> given by (<a href="../part-03-box/box-energy-model.html#eq-albedokaper">Equation&nbsp;<span>15.2</span></a>). Because the differential equation is autonomous, we can apply phase-line analysis in order to qualitatively understand the evolution. Below is a plot of the function <span class="math inline">\(G\)</span>:</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>Q <span class="op">=</span> <span class="dv">342</span><span class="op">;</span> sigma <span class="op">=</span> <span class="fl">5.67e-8</span><span class="op">;</span> gam <span class="op">=</span> <span class="fl">0.6</span><span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="kw">lambda</span> T: <span class="fl">0.5</span> <span class="op">-</span> <span class="fl">0.2</span><span class="op">*</span>np.tanh(<span class="fl">0.1</span><span class="op">*</span>(T<span class="op">-</span><span class="dv">265</span>))<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> np.linspace(<span class="dv">220</span>, <span class="dv">310</span>, <span class="dv">100</span>)<span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> Q<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>a(T)) <span class="op">-</span> sigma<span class="op">*</span>gam<span class="op">*</span>T<span class="op">**</span><span class="dv">4</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>ax.plot(T, G)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>ax.grid()<span class="op">;</span> ax.minorticks_on()<span class="op">;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Customize the major grid</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>ax.grid(which<span class="op">=</span><span class="st">'major'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, linewidth<span class="op">=</span><span class="st">'0.5'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Customize the minor grid</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>ax.grid(which<span class="op">=</span><span class="st">'minor'</span>, linestyle<span class="op">=</span><span class="st">':'</span>, linewidth<span class="op">=</span><span class="st">'0.5'</span>, color<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'T (in Kelvins)'</span>)<span class="op">;</span> plt.ylabel(<span class="st">'G(T)'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ps04sol_files/figure-html/cell-3-output-1.png" width="596" height="429"></p>
+</div>
+</div>
+<ol type="a">
+<li><p>Sketch the solution <span class="math inline">\(T(t)\)</span> of this equation for <span class="math inline">\(t &gt; 0\)</span> if <span class="math inline">\(T(0) = 230, 240, 260, 270\)</span> and <span class="math inline">\(300\)</span>.</p></li>
+<li><p>Sketch the solution <span class="math inline">\(T(t)\)</span> of this equation for <span class="math inline">\(t &gt; 0\)</span> if <span class="math inline">\(T(0) = 285\)</span>. Then sketch the solution of this equation with the same initial data in the same coordinate system if <span class="math inline">\(C\)</span> is twice as large. Explain your answer.</p></li>
+<li><p>If <span class="math inline">\(\gamma\)</span> is decreased due to the increased greenhouse effect, the entire curve is shifted upwards. Sketch the solution if <span class="math inline">\(T(0) = 280\)</span>. Sketch the solution with the same initial data if <span class="math inline">\(\gamma\)</span> is decreased. Explain your answer.</p></li>
 </ol>
 </section>
-<section id="ode-solvers-and-eulers-method" class="level2" data-number="28.5">
-<h2 data-number="28.5" class="anchored" data-anchor-id="ode-solvers-and-eulers-method"><span class="header-section-number">28.5</span> ODE solvers and Euler’s method</h2>
-<p>Return to the setup of the above question.</p>
-<ol type="1">
-<li><p>Modify the script developed in lecture 8 or alternatively copy-and-paste the script shown in <a href="../part-05-techniques/asymptotics02.html#sec-asym2-num"><span>Section&nbsp;9.2</span></a> in order to solve (<a href="#eq-ps2-air">Equation&nbsp;<span>28.1</span></a>) at a prescribed value of <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\alpha\)</span>.</p></li>
-<li><p>Using <strong>a pocket calculator</strong> (or your phone calculator) apply Euler’s method with <span class="math inline">\(\Delta t = 0.2\)</span>, <span class="math inline">\(\epsilon = 0.2\)</span>, and <span class="math inline">\(\alpha = 1\)</span> to determine the position of the projectile at <span class="math inline">\(t = 0.6\)</span>.</p></li>
-<li><p>Compare your hand calculation with the result from the Python output, as well as with your asymptotic approximations.</p></li>
+<section id="q4.-evolution" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q4.-evolution">Q4. Evolution</h2>
+<p>Consider again (<a href="#eq-ps4-main">Equation&nbsp;<span>34.1</span></a>). Let <span class="math inline">\(T^*\)</span> be a steady-state solution and set <span class="math inline">\(T = T^* + u(t)\)</span> where <span class="math inline">\(u(t)\)</span> is a small perturbation from the steady state.</p>
+<ol type="a">
+<li><p>Show that the perturbation satisfies <span class="math display">\[
+C \dot{u} = -D u + O(u^2).
+\]</span> and hence solve for the general solution of the leading-order perturbation (ignoring quadratic terms). What are the conditions on <span class="math inline">\(T^*\)</span> so that the steady state is linearly stable?</p></li>
+<li><p>Assuming <span class="math inline">\(T^*\)</span> is linearly stable, find the typical response time to a perturbation. For instance, what is the time it takes for the perturbation to reach the value <span class="math inline">\(u(t) = 0\)</span> if <span class="math inline">\(u(0) = 1\)</span>? How does this response time change with <span class="math inline">\(C\)</span>? What is the physical interpretation of this regarding the climate?</p></li>
 </ol>
+</section>
+<section id="q5.-integral-of-energy-over-the-planet" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q5.-integral-of-energy-over-the-planet">Q5. Integral of energy over the planet</h2>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Q5 solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is a straightforward calculation without tricks. Since <span class="math inline">\(Q\)</span> is constant, we have <span class="math display">\[
+I = 2\pi R_E^2  Q\int_{\varphi = -\pi/2}^{\pi/2} s(y = \sin\varphi) \cos\varphi \, \mathrm{d}\varphi.
+\]</span> Converting now to integration in <span class="math inline">\(y\)</span>, we have <span class="math display">\[
+I = 2\pi R_E^2  Q\int_{y = -1}^{1} s(y) \, \mathrm{d}y.
+\]</span> Examining the function <span class="math inline">\(s(y)\)</span> in <a href="../part-03-box/box-energy-model2.html#eq-EBM-s">Equation&nbsp;<span>16.3</span></a> we note that it is symmetric in <span class="math inline">\(y\)</span> and has been defined so its integral is one. Thus <span class="math display">\[
+I = 4\pi R_E^2  Q.
+\]</span> This is the solar constant multiplied by the surface area of the planet (a sphere).</p>
+</div>
+</div>
+</section>
+<section id="q6.-mean-temperature-in-the-latitude-dependent-ebm" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q6.-mean-temperature-in-the-latitude-dependent-ebm">Q6. Mean temperature in the latitude-dependent EBM</h2>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Q6a solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We have from integration, <span class="math display">\[
+C \frac{\mathrm{\partial}}{\mathrm{\partial}t} \int_0^1 T \, \mathrm{d}y = Q\int_0^1 s(y) \, \mathrm{d}y - Q \int_0^1 s(y)a(y) \, \mathrm{d}y - (A + B\bar{T}) + k\bar{T} - k\bar{T}.
+\]</span> Simplifying and using the property of <span class="math inline">\(s\)</span> gives <span class="math display">\[
+C \frac{\mathrm{\partial}\bar{T}}{\mathrm{\partial}t} = Q(1 - \bar{a}) - (A + B\bar{T}),
+\]</span> where we have defined <span class="math display">\[
+\bar{a} = \int_0^1 s(y)a(y) \, \mathrm{d}y = \int_0^{y_s} s(y) a_w \, \mathrm{d}y +\int_{y_s}^1 s(y) a_i \, \mathrm{d}y.
+\]</span></p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Q6b solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Again this question is free of tricks and only involves the integration using <span class="math display">\[
+s(y) = 1 - S_2 P_2(y)
+\]</span> where <span class="math inline">\(S_2 = 0.482\)</span> and <span class="math inline">\(P_2(y) = \frac{1}{2}(3y^2 - 1)\)</span>. It is useful to compute the two quantities <span class="math display">\[
+\begin{align}
+\int_0^{y_s} s(y) \, \mathrm{d}y &amp;= y_s - \frac{S_2}{2} \left(y_s^3 - y_s\right), \\
+\int_{y_s}^1 s(y) \, \mathrm{d}y &amp;= 1 - y_s + \frac{S_2}{2} \left(y_s^3 - y_s\right).
+\end{align}
+\]</span> Multiply the first quantity by <span class="math inline">\(a_w\)</span> and add to the second multiplied by <span class="math inline">\(a_i\)</span> and simply to obtain <span class="math display">\[
+\bar{a} = a_i + (a_w - a_i)y_s \left[ 1 - \frac{S_2}{2}(y_s^2 - 1)\right].
+\]</span></p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Q6c and Q6d solutions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Solutions can be found on the <a href="https://maths.jupyterhub.bath.ac.uk/hub/user-redirect/lab/tree/courses/MA30287/notebooks/ps04_solutions.ipynb">Jupyterhub Python sheet</a>.</p>
+</div>
+</div>
 
 
 </section>
@@ -759,13 +832,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part-xx-exercises/thought02.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Thinking about your own energy</span></span>
+      <a href="../part-xx-exercises/ps03sol.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Problem set 3 solutions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-xx-exercises/ps03.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Problem set 3</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-05-techniques/part-techniques.html" class="pagination-link">
+        <span class="nav-page-text">Appendices</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

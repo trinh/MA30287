@@ -61,6 +61,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -326,6 +327,11 @@ ul.task-list li input[type="checkbox"] {
   <a href="../part-xx-exercises/ps03sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Problem set 3 solutions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps04sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Problem set 4 solutions</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -338,12 +344,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Differential equations</span></a>
+  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Differential equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
+  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
   </div>
 </li>
       </ul>
@@ -358,7 +364,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#studying-the-mean-temperature" id="toc-studying-the-mean-temperature" class="nav-link active" data-scroll-target="#studying-the-mean-temperature"><span class="toc-section-number">20.1</span>  Studying the mean temperature</a></li>
+  <li><a href="#stability" id="toc-stability" class="nav-link" data-scroll-target="#stability"><span class="toc-section-number">20.2</span>  Stability</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -390,11 +403,65 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>To be covered in Lecture 20. The note will be entered following the lecture.</p>
+<p>To be covered lecture 21.</p>
 </div>
 </div>
+<section id="studying-the-mean-temperature" class="level2" data-number="20.1">
+<h2 data-number="20.1" class="anchored" data-anchor-id="studying-the-mean-temperature"><span class="header-section-number">20.1</span> Studying the mean temperature</h2>
+<p>Following the previous chapter, we now have a better understanding of the relationship between the ice line, <span class="math inline">\(y_s\)</span>, and the solar forcing, <span class="math inline">\(Q\)</span>. We demonstrated that for the baseline case of <span class="math inline">\(Q = 342\)</span>, (at least) four solutions are possible.</p>
+<div id="fig-iceline" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/2023-03-23-13-06-25.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;20.1: The iceline</figcaption><p></p>
+</figure>
+</div>
+<p>Examination of the root shows that the two non-trivial ice lines are approximately at <span class="math inline">\(y_s = 0.256\)</span> and <span class="math inline">\(y_s = 0.939\)</span> for <span class="math inline">\(Q = 342\)</span>. Using the script developed in lectures, we can study a similar graph of the mean temperature versus the solar forcing. <a href="https://maths.jupyterhub.bath.ac.uk/hub/user-redirect/lab/tree/courses/MA30287/notebooks/lecture19-LatitudeEBM-iceline.ipynb">Jupyter hub link</a>.</p>
+<p>This yields the following picture:</p>
+<div id="fig-Tbar" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/2023-03-23-13-09-37.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;20.2: Mean temperature</figcaption><p></p>
+</figure>
+</div>
+<p>During the lecture, we discussed the so-called <em>Snowball Earth</em> scenario where decreasing the solar constant may cause the stable state of the planet to jump down to the green branch shown above (completely frozen Earth). The solution exhibits <em>hysteresis</em> which describes the non-reversibility shown in the bifurcation diagram. This will be further expounded in the following discussion on stability.</p>
+</section>
+<section id="stability" class="level2" data-number="20.2">
+<h2 data-number="20.2" class="anchored" data-anchor-id="stability"><span class="header-section-number">20.2</span> Stability</h2>
+<p>So far, we have only discussed the steady-state solutions of the latitude-dependent EBM, repeated below: <span class="math display">\[
+C \frac{\mathrm{\partial}T}{\mathrm{\partial}t} = Qs(y)[1 - a(y)] - (A + BT) + k(\bar{T} - T).
+\]</span> What role does time dependence play?</p>
+<p>Let us instead study the equation for the mean temperature, <span class="math inline">\(\bar{T}\)</span>. This was given in <a href="../part-xx-exercises/ps04.html#eq-meanT-evo-ps">Equation&nbsp;<span>30.2</span></a> and repeated below: <span id="eq-meanT-evo"><span class="math display">\[
+C \frac{\mathrm{d}\bar{T}}{\mathrm{d}t} = G(\bar{T}) = Q(1 - \bar{a}) - (A + B\bar{T}),
+\tag{20.1}\]</span></span> The following linearisation argument was presented by Cahalan and North (1979). Let us linearise this about a steady-state solution, writing <span class="math display">\[
+\bar{T} = \bar{T}^* + u(t),
+\]</span> where <span class="math inline">\(u \ll 1\)</span>. By Taylor series, <span class="math display">\[
+G(\bar{T}) = G(\bar{T}^*) + G'(\bar{T}^*)u + O(u^2),
+\]</span> so substitution into the ODE yields the linear equation <span id="eq-linearu"><span class="math display">\[
+C \frac{\mathrm{d}u}{\mathrm{d}t} = G'(\bar{T}^*) u.
+\tag{20.2}\]</span></span> We need to calculate the derivative term on the RHS. First, using the equation for <span class="math inline">\(G\)</span> in <a href="#eq-meanT-evo">Equation&nbsp;<span>20.1</span></a>, we have <span id="eq-Gprime"><span class="math display">\[
+G'(T^*) = -B - Q \frac{\mathrm{d}\bar{a}}{\mathrm{d}\bar{T}}\biggr\rvert_{\bar{T} = \bar{T}^*}.
+\tag{20.3}\]</span></span> The above calculation assumes that <span class="math inline">\(Q\)</span> is a fixed number. Now we need to know the derivative of <span class="math inline">\(\bar{a}\)</span>. The equation that gives the steady-state is <span class="math display">\[
+T^* = \frac{Q(1 - \bar{a}) - A}{B}.
+\]</span> We differentiate this equation with respect to <span class="math inline">\(\bar{T^*}\)</span> and this yields <span id="eq-diffmeaneq"><span class="math display">\[
+1 = \frac{1}{B} \frac{\mathrm{d}Q}{\mathrm{d}\bar{T^*}}(1 - \bar{a}) - \frac{Q}{B} \frac{\mathrm{d}\bar{a}}{\mathrm{d}\bar{T}^*} \Longrightarrow
+B = \frac{\mathrm{d}Q}{\mathrm{d}\bar{T^*}}(1 - \bar{a}) - Q \frac{\mathrm{d}\bar{a}}{\mathrm{d}\bar{T}^*}
+\tag{20.4}\]</span></span></p>
+<p>We substitute the above value of <span class="math inline">\(B\)</span> into (<a href="#eq-Gprime">Equation&nbsp;<span>20.3</span></a>), and then finally into the equation for the linearisation (<a href="#eq-linearu">Equation&nbsp;<span>20.2</span></a>). Then we have <span class="math display">\[
+C \frac{\mathrm{d}u}{\mathrm{d}t} = -\left[(1 - \bar{a}) \frac{\mathrm{d}Q}{\mathrm{d}\bar{T}^*}\right]u(t) = -\gamma u(t),
+\]</span> where the constant <span class="math inline">\(\gamma\)</span> has been defined by the above. Thus, the solution is given by <span class="math display">\[
+u(t) = u(0) e^{-\gamma t/C}.
+\]</span></p>
+<p>Note then that the crucial quantity is <span class="math display">\[
+\gamma \equiv (1 - \bar{a}) \frac{\mathrm{d}Q}{\mathrm{d}\bar{T}^*}.
+\]</span> If <span class="math inline">\(\gamma\)</span> is positive, the equilibrium point is stable, while if <span class="math inline">\(\gamma\)</span> is negative, the equilibrium is unstable. Because <span class="math inline">\((1 - \bar{a}) &gt; 0\)</span>, then this yields the so-called slope-stability theorem coined by <a href="https://doi.org/10.1175/1520-0469(1979)036%3C1178:ASTFEB%3E2.0.CO;2">Cahalan and North (1979)</a>: <span class="math display">\[
+\begin{align}
+\frac{\mathrm{d}Q}{\mathrm{d}\bar{T}^*} &gt; 0 &amp;\Longrightarrow \text{stable}, \\
+\frac{\mathrm{d}Q}{\mathrm{d}\bar{T}^*} &lt; 0 &amp;\Longrightarrow \text{unstable}.
+\end{align}
+\]</span></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
