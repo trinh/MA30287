@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.280">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -595,44 +595,126 @@ Q2c solution
 </section>
 <section id="q3.-phase-line-analysis" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q3.-phase-line-analysis">Q3. Phase line analysis</h2>
-<p>Consider the energy balance equation <span id="eq-ps4-main"><span class="math display">\[
-C \frac{\mathrm{d}T}{\mathrm{d}t} = Q(1 - a(T)) - \sigma \gamma T^4 \equiv G(T).
-\tag{38.1}\]</span></span> with <span class="math inline">\(a\)</span> given by (<a href="../part-03-box/box-energy-model.html#eq-albedokaper">Equation&nbsp;<span>15.2</span></a>). Because the differential equation is autonomous, we can apply phase-line analysis in order to qualitatively understand the evolution. Below is a plot of the function <span class="math inline">\(G\)</span>:</p>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>Q <span class="op">=</span> <span class="dv">342</span><span class="op">;</span> sigma <span class="op">=</span> <span class="fl">5.67e-8</span><span class="op">;</span> gam <span class="op">=</span> <span class="fl">0.6</span><span class="op">;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="kw">lambda</span> T: <span class="fl">0.5</span> <span class="op">-</span> <span class="fl">0.2</span><span class="op">*</span>np.tanh(<span class="fl">0.1</span><span class="op">*</span>(T<span class="op">-</span><span class="dv">265</span>))<span class="op">;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> np.linspace(<span class="dv">220</span>, <span class="dv">310</span>, <span class="dv">100</span>)<span class="op">;</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> Q<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>a(T)) <span class="op">-</span> sigma<span class="op">*</span>gam<span class="op">*</span>T<span class="op">**</span><span class="dv">4</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>ax.plot(T, G)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>ax.grid()<span class="op">;</span> ax.minorticks_on()<span class="op">;</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Customize the major grid</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>ax.grid(which<span class="op">=</span><span class="st">'major'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, linewidth<span class="op">=</span><span class="st">'0.5'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Customize the minor grid</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>ax.grid(which<span class="op">=</span><span class="st">'minor'</span>, linestyle<span class="op">=</span><span class="st">':'</span>, linewidth<span class="op">=</span><span class="st">'0.5'</span>, color<span class="op">=</span><span class="st">'black'</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'T (in Kelvins)'</span>)<span class="op">;</span> plt.ylabel(<span class="st">'G(T)'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ps04sol_files/figure-html/cell-3-output-1.png" width="596" height="429"></p>
-</div>
-</div>
 <ol type="a">
-<li><p>Sketch the solution <span class="math inline">\(T(t)\)</span> of this equation for <span class="math inline">\(t &gt; 0\)</span> if <span class="math inline">\(T(0) = 230, 240, 260, 270\)</span> and <span class="math inline">\(300\)</span>.</p></li>
-<li><p>Sketch the solution <span class="math inline">\(T(t)\)</span> of this equation for <span class="math inline">\(t &gt; 0\)</span> if <span class="math inline">\(T(0) = 285\)</span>. Then sketch the solution of this equation with the same initial data in the same coordinate system if <span class="math inline">\(C\)</span> is twice as large. Explain your answer.</p></li>
-<li><p>If <span class="math inline">\(\gamma\)</span> is decreased due to the increased greenhouse effect, the entire curve is shifted upwards. Sketch the solution if <span class="math inline">\(T(0) = 280\)</span>. Sketch the solution with the same initial data if <span class="math inline">\(\gamma\)</span> is decreased. Explain your answer.</p></li>
+<li>Sketch the solution <span class="math inline">\(T(t)\)</span> of this equation for <span class="math inline">\(t &gt; 0\)</span> if <span class="math inline">\(T(0) = 230, 240, 260, 270\)</span> and <span class="math inline">\(300\)</span>.</li>
 </ol>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Q3a solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You should be able to do this question by hand, but the following graph is generated via the accompanying Jupyter hub script <a href="https://maths.jupyterhub.bath.ac.uk/hub/user-redirect/lab/tree/courses/MA30287/notebooks/ps04_solutions.ipynb">here</a>. The point is that once the steady-state solutions are known (dashed) then each solution given by the different initial condition can be approximated by whether it tends towards or away from the nearest fixed point.</p>
+<div id="fig-q3a" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figures/ps4_q3a.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;38.1: Graphical solution for Q3a</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="2" type="a">
+<li>Sketch the solution <span class="math inline">\(T(t)\)</span> of this equation for <span class="math inline">\(t &gt; 0\)</span> if <span class="math inline">\(T(0) = 285\)</span>. Then sketch the solution of this equation with the same initial data in the same coordinate system if <span class="math inline">\(C\)</span> is twice as large. Explain your answer.</li>
+</ol>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Q3b solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The below numerical solution shows blue for <span class="math inline">\(C = 1\)</span> and orange for <span class="math inline">\(C = 4\)</span>. Notice that increasing <span class="math inline">\(C\)</span> seems to decrease the rate of change of the evolution. Indeed, since <span class="math display">\[
+\frac{\mathrm{\partial}T}{\mathrm{\partial}t} \propto \frac{1}{C},
+\]</span> then multiplying <span class="math inline">\(C\)</span> by factor is equivalent to slowing down the evolution by the inverse of that factor. A factor of <span class="math inline">\(C\)</span> that is twice as large would slow down the evolution by half. Note that the oscillations shown in the graph below are numerical artifacts due to the tolerances on the ODE solver (how do you know this?)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/2023-04-11-02-09-38.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">Graphical solution for Q3b</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="3" type="a">
+<li>If <span class="math inline">\(\gamma\)</span> is decreased due to the increased greenhouse effect, the entire curve is shifted upwards. Sketch the solution if <span class="math inline">\(T(0) = 280\)</span>. Sketch the solution with the same initial data if <span class="math inline">\(\gamma\)</span> is decreased. Explain your answer.</li>
+</ol>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Q3c solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Decreasing <span class="math inline">\(\gamma\)</span> has the effect of shifting the curve upwards. The hottest steady state <span class="math inline">\(T_3\)</span> is consequently increased. There are two main effects. First, the steady-state is much hotter, so the system will tend towards a much hotter state. Second, because decreasing $ $ will increase the rate of change of <span class="math inline">\(T\)</span> (since we are subtracting less via the factor <span class="math inline">\(-\gamma T^4\)</span>), then the evolution towards the hotter state is initially much faster.</p>
+<p>You see that in the following diagram.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/2023-04-11-02-33-47.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">Graphical solution for Q3c</figcaption><p></p>
+</figure>
+</div>
+<p>The above makes sense on a physical level. Decreasing <span class="math inline">\(\gamma\)</span> is equivalent to increasing greenhouse gases. We do expect the system to tend to a hotter state, then.</p>
+</div>
+</div>
 </section>
 <section id="q4.-evolution" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q4.-evolution">Q4. Evolution</h2>
-<p>Consider again (<a href="#eq-ps4-main">Equation&nbsp;<span>38.1</span></a>). Let <span class="math inline">\(T^*\)</span> be a steady-state solution and set <span class="math inline">\(T = T^* + u(t)\)</span> where <span class="math inline">\(u(t)\)</span> is a small perturbation from the steady state.</p>
+<p>Consider again (<a href="ps04.html#eq-ps4-main">Equation&nbsp;<span>33.1</span></a>). Let <span class="math inline">\(T^*\)</span> be a steady-state solution and set <span class="math inline">\(T = T^* + u(t)\)</span> where <span class="math inline">\(u(t)\)</span> is a small perturbation from the steady state.</p>
 <ol type="a">
-<li><p>Show that the perturbation satisfies <span class="math display">\[
+<li>Show that the perturbation satisfies <span class="math display">\[
 C \dot{u} = -D u + O(u^2).
-\]</span> and hence solve for the general solution of the leading-order perturbation (ignoring quadratic terms). What are the conditions on <span class="math inline">\(T^*\)</span> so that the steady state is linearly stable?</p></li>
-<li><p>Assuming <span class="math inline">\(T^*\)</span> is linearly stable, find the typical response time to a perturbation. For instance, what is the time it takes for the perturbation to reach the value <span class="math inline">\(u(t) = 0\)</span> if <span class="math inline">\(u(0) = 1\)</span>? How does this response time change with <span class="math inline">\(C\)</span>? What is the physical interpretation of this regarding the climate?</p></li>
+\]</span> and hence solve for the general solution of the leading-order perturbation (ignoring quadratic terms). What are the conditions on <span class="math inline">\(T^*\)</span> so that the steady state is linearly stable?</li>
 </ol>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Q4a solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We linearise via <span class="math inline">\(T = T^* + u(t)\)</span> where <span class="math inline">\(u \ll 1\)</span>. Then we have <span class="math display">\[
+C \frac{\mathrm{\partial}T}{\mathrm{\partial}t} = G(T^*) + G'(T^*)u(t) + O(u^2).
+\]</span> The first term on the RHS is zero since <span class="math inline">\(T^*\)</span> is a steady state. Ignoring quadratic terms, we see then that <span class="math display">\[
+C \dot{u} = -D u
+\]</span> where <span class="math inline">\(D = -G'(T^*)\)</span>. The solution is thus <span class="math display">\[
+u(t) = A e^{-D t/C},
+\]</span> where <span class="math inline">\(A\)</span> is a constant. In order to be linearly stable, we then need the above to tend to zero as <span class="math inline">\(t \to \infty\)</span>, which is guaranteed if <span class="math inline">\(D/C &gt; 0\)</span>. Since <span class="math inline">\(C &gt; 0\)</span> then we only need <span class="math display">\[
+G(T^*) &lt; 0.
+\]</span></p>
+</div>
+</div>
+<ol start="2" type="a">
+<li>Assuming <span class="math inline">\(T^*\)</span> is linearly stable, find the typical response time to a perturbation. For instance, what is the time it takes for the perturbation to reach the value <span class="math inline">\(u(t) = 0\)</span> if <span class="math inline">\(u(0) = 1\)</span>? How does this response time change with <span class="math inline">\(C\)</span>? What is the physical interpretation of this regarding the climate?</li>
+</ol>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Q4b solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The question is somewhat ill-posed. By the behaviour of the system, we know that it would take infinite time for the perturbation, <span class="math inline">\(u\)</span>, to reach <span class="math inline">\(u = 0\)</span>. However, we can still provide a sensible answer.</p>
+<p>If the system starts from <span class="math inline">\(u(0) = 1\)</span>, then to reach <span class="math inline">\(u = \delta\)</span>, it would need to take the time <span class="math display">\[
+e^{-D t/C} = \delta \Longrightarrow t = -\frac{C}{D} \log \delta = \frac{C}{D} \log(1/\delta).
+\]</span> For instance, to reach <span class="math inline">\(\delta = 1/2\)</span> (half its original perturbation) would take <span class="math inline">\(\log 2 \approx 0.69\)</span> times (C/D).</p>
+<p>This response is proportional to <span class="math inline">\(C\)</span> so for instance, doubling <span class="math inline">\(C\)</span> takes twice as long as before to reach the same value of <span class="math inline">\(\delta\)</span>. One can think of this as equivalent to decreasing the responsiveness of the planet to potential changes of stability.</p>
+</div>
+</div>
 </section>
 <section id="q5.-integral-of-energy-over-the-planet" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q5.-integral-of-energy-over-the-planet">Q5. Integral of energy over the planet</h2>
