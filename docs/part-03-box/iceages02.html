@@ -364,12 +364,17 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Differential equations</span></a>
+  <a href="../scripts.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Listing of numerical scripts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
+  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Differential equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
   </div>
 </li>
       </ul>
@@ -465,7 +470,15 @@ y \equiv \epsilon \frac{\mathrm{d}x}{\mathrm{d}t} + \frac{1}{3} x^3 - x
 </section>
 <section id="an-investigation-in-python" class="level3" data-number="22.1.2">
 <h3 data-number="22.1.2" class="anchored" data-anchor-id="an-investigation-in-python"><span class="header-section-number">22.1.2</span> An investigation in Python</h3>
-<p>The lecture will now investigate the scripts to see the qualitative behaviour of the ODE.</p>
+<p>The lecture will now investigate the scripts to see the qualitative behaviour of the ODE. We will design a phase plane plotter in Python and see why this is called a fast-slow system. The script can be found here: <a href="https://maths.jupyterhub.bath.ac.uk/hub/user-redirect/lab/tree/courses/MA30287/notebooks/lecture23a-typicalphaseplot.ipynb">lecture23a-typicalphaseplot</a> (where we show how to do phase plotting in Python) and then here: <a href="https://maths.jupyterhub.bath.ac.uk/hub/user-redirect/lab/tree/courses/MA30287/notebooks/lecture23b-fastslow.ipynb">lecture23b-fastslow</a>.</p>
+<p>During the lecture, we discussed the following image:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/2023-04-12-10-52-55.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Phase plot of the above system</figcaption><p></p>
+</figure>
+</div>
+<p>We interpreted the dynamics that follow either the slow manifold, <span class="math inline">\(y = S(x)\)</span>, and also the fast transitions that occur between the branches of the cubic. Also shown on the right side of the above plots are the profiles, <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> versus <span class="math inline">\(t\)</span>. In the limit <span class="math inline">\(\epsilon \to 0\)</span>, the transitions begin to resemble shocks.</p>
 
 
 </section>

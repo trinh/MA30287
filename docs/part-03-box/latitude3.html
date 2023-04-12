@@ -427,12 +427,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Differential equations</span></a>
+  <a href="../scripts.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Listing of numerical scripts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
+  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Differential equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
   </div>
 </li>
       </ul>
@@ -490,7 +495,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>To be covered in Lecture 19 and 20.</p>
+<p>Covered in Lectures 19 and 20.</p>
 </div>
 </div>
 <p>We continue our investigation of the latitude-dependent model of <a href="latitude2.html"><span>Chapter&nbsp;17</span></a>.</p>
@@ -525,8 +530,8 @@ Interactive matplotlib plots
 <p>First, note from your problem set <a href="../part-xx-exercises/ps04.html"><span>Chapter&nbsp;33</span></a> you find that it is possible to solve for the steady-state mean temperature, which we write as <span class="math inline">\(\bar{T}^*\)</span>. In your problem set, you will develop the following equation (given by (<a href="../part-xx-exercises/ps04.html#eq-ps4-Tbar">Equation&nbsp;<span>33.4</span></a>)): <span id="eq-meanT-again"><span class="math display">\[
 \bar{T}^* = \frac{Q(1 - \bar{a}) - A}{B}.
 \tag{19.1}\]</span></span> The quantity <span class="math inline">\(\bar{a}\)</span> is given by integrating the albedo as follows: <span class="math display">\[
-\bar{a} = \int_0^1 s(y) a(y) \, \mathrm{d}y = a_i + (a_w + a_i)y_s[1 - 0.241 (y_s^2 - 1)],
-\]</span> which is given by (<a href="../part-xx-exercises/ps04.html#eq-ps4-abar">Equation&nbsp;<span>33.3</span></a>).</p>
+\bar{a} = \int_0^1 s(y) a(y) \, \mathrm{d}y = a_i + (a_w {\color{blue}-} a_i)y_s[1 - 0.241 (y_s^2 - 1)],
+\]</span> which is given by (<a href="../part-xx-exercises/ps04.html#eq-ps4-abar">Equation&nbsp;<span>33.3</span></a>). You may check that the above formula has the right signs by considering either the complete ice case (ice line at the equator <span class="math inline">\(y_s = 0\)</span>) or the complete water/land case (ice line at <span class="math inline">\(y_s = 1\)</span>).</p>
 <p>Now we return to the implicit equation for the temperature, which is given by (<a href="latitude2.html#eq-latitude2-Phieq">Equation&nbsp;<span>17.3</span></a>) and repeated here: <span class="math display">\[
 T^*(y) = \Phi(T^*) = \frac{k\bar{T}^* + Qs(y)(1 + a(y)) - A}{B + k}.
 \]</span> Substitute the mean temperature in, and this now yields <span id="eq-Tstar"><span class="math display">\[

@@ -364,12 +364,17 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Differential equations</span></a>
+  <a href="../scripts.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Listing of numerical scripts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
+  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Differential equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
   </div>
 </li>
       </ul>
@@ -389,6 +394,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#analysis-of-the-slow-manifold" id="toc-analysis-of-the-slow-manifold" class="nav-link active" data-scroll-target="#analysis-of-the-slow-manifold"><span class="toc-section-number">23.1</span>  Analysis of the slow manifold</a></li>
+  <li><a href="#fast-analysis" id="toc-fast-analysis" class="nav-link" data-scroll-target="#fast-analysis"><span class="toc-section-number">23.2</span>  Fast analysis</a></li>
+  <li><a href="#initial-conditions" id="toc-initial-conditions" class="nav-link" data-scroll-target="#initial-conditions"><span class="toc-section-number">23.3</span>  Initial conditions</a></li>
   </ul>
 </nav>
     </div>
@@ -422,25 +429,32 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>To be covered in lecture 24.</p>
+<p>Covered in lecture 24.</p>
 </div>
 </div>
-<p>We have <span class="math display">\[
+<p>In the previous chapter we introduced a canonical model for fast-slow dynamics given by the following system for <span class="math inline">\(x(t)\)</span> and <span class="math inline">\(y(t)\)</span>: <span class="math display">\[
 \begin{align}
 \epsilon \dot{x} &amp;= y - S(x), \\
 \dot{y} &amp;= -x.
 \end{align}
-\]</span></p>
+\]</span> where <span class="math inline">\(\epsilon &gt; 0\)</span> and <span class="math inline">\(\epsilon \to 0\)</span>. This led to our study of then numerical computation of solutions and example graphics like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/2023-04-12-10-52-55.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Phase plot of the above system</figcaption><p></p>
+</figure>
+</div>
+<p>We now show how to perform the asymptotic analysis of the above system. The techniques used relate to the analysis of boundary layers studied in <a href="../part-05-techniques/asymptotics03.html"><span>Chapter&nbsp;12</span></a>.</p>
 <section id="analysis-of-the-slow-manifold" class="level2" data-number="23.1">
 <h2 data-number="23.1" class="anchored" data-anchor-id="analysis-of-the-slow-manifold"><span class="header-section-number">23.1</span> Analysis of the slow manifold</h2>
 <p>Let <span class="math display">\[
-x = x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots, \qquad y = y_0 + \epsilon y_1 + \epsilon^2 y_2 + \ldots
-\]</span> At leading order, we get the following system of equations: <span class="math display">\[
+x(t) = x_0(t) + \epsilon x_1(t) + \epsilon^2 x_2(t) + \ldots, \qquad y(t) = y_0(t) + \epsilon y_1(t) + \epsilon^2 y_2(t) + \ldots
+\]</span> At leading order, we get the following system of equations: <span id="eq-sloweqns"><span class="math display">\[
 \begin{align}
 0 &amp;= y_0 - S(x), \\
 \dot{y_0} &amp;= -x_0.
 \end{align}
-\]</span> First, examine the differential equation on the second line. We can analyse the motion in the phase plane by the following: <span class="math display">\[
+\tag{23.1}\]</span></span> First, examine the differential equation on the second line. We can analyse the motion in the phase plane by the following: <span class="math display">\[
 y_0 \text{ is }
 \begin{cases}
 \text{decreasing} &amp; \text{for $x_0 &lt; 0$} \\
@@ -449,6 +463,68 @@ y_0 \text{ is }
 \]</span> Therefore, we conclude that the <span class="math inline">\(y\)</span> axis is nullcline in this leading-order approximation. The remaining equation restricts the solution to lie along the <strong>slow manifold</strong>, <span class="math display">\[
 y_0 = S(x) = \frac{1}{3}x_0^3 - x_0.
 \]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/2023-04-12-11-20-46.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Illustration of dynamics along the slow manifold</figcaption><p></p>
+</figure>
+</div>
+<p>According to our analysis, we should have both <span class="math inline">\(y \sim S(x)\)</span> as <span class="math inline">\(\epsilon \to 0\)</span> and also <span class="math inline">\(y\)</span> increasing on <span class="math inline">\(x &lt; 0\)</span> while decreasing on <span class="math inline">\(x &gt; 0\)</span>. But this yields an apparent contradiction as <span class="math inline">\(x\to \pm 1\)</span> and <span class="math inline">\(y \to \mp 2/3\)</span>.</p>
+<p>The issue is that, at the critical point(s) where <span class="math inline">\(x \to \pm 1\)</span>, say <span class="math inline">\(t = t^*\)</span>, the solution encounters a shock or boundary layer where the gradient <span class="math inline">\(\dot{x}\)</span> is no longer small. Thus our prior assumption where we neglected <span class="math inline">\(\epsilon \dot{x}\)</span> is invalid.</p>
+</section>
+<section id="fast-analysis" class="level2" data-number="23.2">
+<h2 data-number="23.2" class="anchored" data-anchor-id="fast-analysis"><span class="header-section-number">23.2</span> Fast analysis</h2>
+<p>Near a shock, we re-scale <span class="math display">\[
+T = \frac{t - t^*}{\epsilon^\alpha} \Longrightarrow t = t^* + \epsilon^\alpha T,
+\]</span> and set <span class="math inline">\(x(t) = X(T)\)</span> and <span class="math inline">\(y(t) = Y(T)\)</span> under this new coordinate change. Essentially, this re-scales the coordinate axes, originally in <span class="math inline">\(t\)</span>, near the unknown location of the shock, <span class="math inline">\(t = t^*\)</span>. We can verify that the correct balance for re-scaling is chosen with <span class="math inline">\(\alpha = 1\)</span>. From the chain rule, we convert derivatives as follows: <span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d}t} = \frac{\mathrm{d}T}{\mathrm{d}t} \frac{\mathrm{d}}{\mathrm{d}T} = \frac{1}{\epsilon} \frac{\mathrm{d}}{\mathrm{d}T}.
+\]</span> Then the system becomes <span class="math display">\[
+\begin{align}
+\frac{\mathrm{d}X}{\mathrm{d}T} &amp;= Y - S(X) \\
+\frac{\mathrm{d}Y}{\mathrm{d}T} &amp;= -\epsilon X.
+\end{align}
+\]</span> We expand now in the typical fashion, setting <span class="math display">\[
+\begin{align}
+X &amp;= X_0(T) + \epsilon X_1(T) + \ldots \\
+Y &amp;= Y_0(T) + \epsilon Y_1(T) + \ldots
+\end{align}
+\]</span> At leading order, this now yields <span class="math display">\[
+\begin{align}
+\frac{\mathrm{d}X_0}{\mathrm{d}T} &amp;= Y_0 - S(X_0) \\
+\frac{\mathrm{d}Y_0}{\mathrm{d}T} &amp;= 0.
+\end{align}
+\]</span></p>
+<p>Therefore, from the second equation, we obtain <span class="math display">\[
+Y_0 = \text{constant}
+\]</span> which is to be expected from the phase-plane diagrams we have shown. Since we have established that the max/min of the slow manifold, <span class="math inline">\(S(X)\)</span>, is given by <span class="math inline">\(\pm 2/3\)</span>, then we know that the above constant is this value <em>if the solution had begun from the slow manifold</em> (see comment later about the initial condition).</p>
+<p>Next, the equation for <span class="math inline">\(X_0\)</span> has the form of a first-order nonlinear differential equation that can be studied by phase-line analysis. If the constant <span class="math inline">\(Y_0\)</span> is indeed <span class="math inline">\(\pm 2/3\)</span>, then the differential equation for the other component takes the form <span class="math display">\[
+\frac{\mathrm{d}X_0}{\mathrm{d}T} = Y_0 - S(X_0) = \pm \frac{2}{3} - S(X_0).
+\]</span></p>
+<p>This leads to the following picture.</p>
+<div id="fig-fastasym" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/2023-04-12-13-34-21.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;23.1: Fast dynamics</figcaption><p></p>
+</figure>
+</div>
+<p>To begin, we consider the evolution from the points marked ‘A’ and ‘B’. This occurs along the slow manifold. At the point ‘B’, time reaches the critical point, <span class="math inline">\(t \to t^*\)</span>, and the solutions enter the fast dynamics, following along points ‘B’ to ‘C’. Notice that along this segment in the phase plane, <span class="math display">\[
+\frac{2}{3} - S(X_0) &gt; 0,
+\]</span> therefore <span class="math inline">\(X_0\)</span> must increase during this time. However, upon approaching the point ‘C’, the above LHS tends to zero, and hence <span class="math inline">\(X_0\)</span> slows its increase. This exists the fast dynamics layer and again the solution continues along the slow manifold from ‘C’ to ‘D’. Upon reaching ‘D’, it again enters a stage of fast dynamics (the <span class="math inline">\(t^*\)</span> point here is a new one).</p>
+</section>
+<section id="initial-conditions" class="level2" data-number="23.3">
+<h2 data-number="23.3" class="anchored" data-anchor-id="initial-conditions"><span class="header-section-number">23.3</span> Initial conditions</h2>
+<p>You will notice that above, we have not really discussed the effect of the initial conditions, say, <span class="math display">\[
+\begin{align}
+x(0) &amp;= A, \\
+y(0) &amp;= B.
+\end{align}
+\]</span> Perhaps more specifically, we have performed our asymptotic analysis with the assumption that the solution starts directly on the slow manifold, i.e.&nbsp;<span class="math inline">\(y \sim S(x)\)</span>. Returning to the slow analysis leading to <a href="#eq-sloweqns">Equation&nbsp;<span>23.1</span></a> notice that the above conditions will not in general be compatible with the equations (since ‘A’ and ‘B’ might be chosen completely different from those values where <span class="math inline">\(y = S(x)\)</span>). The conclusion is then that the slow analysis applied cannot be valid near the initial condition.</p>
+<p>This turns out to be very similar to the example studied in <a href="../part-05-techniques/asymptotics03.html"><span>Chapter&nbsp;12</span></a>, which also had a time-dependent problem where the initial condition was incompatible.</p>
+<p>Therefore near <span class="math inline">\(t = 0\)</span>, we must introduce an analogous boundary layer. This analysis will be identical to the above fast-scale dynamics except that <span class="math inline">\(t^* = 0\)</span>. The conclusion is that if we begin off the manifold <span class="math inline">\(y = S(x)\)</span>, the solution will rapidly tend left or right in the phase plane (at near-constant values of <span class="math inline">\(y\)</span>). Once it intersects with the manifold, the trajectories then resume the slow and fast dynamics observed above.</p>
+<p>This is now shown below for the initial condition of <span class="math inline">\(x(0) = 2.5\)</span>, <span class="math inline">\(y(0) = -1.5\)</span> and <span class="math inline">\(\epsilon = 0.05\)</span>.</p>
+<p><img src="img/2023-04-12-13-53-28.png" class="img-fluid"></p>
+<p>Notice the red circle in the left phase plot showing the initial condition. We see that the solutions then exhibit the fast dynamics, with <span class="math inline">\(x\)</span> decreasing, until encountering the slow manifold. Thereafter it follows the standard slow-fast dynamics.</p>
+<p>On the right image, notice the significant shock or boundary layer near <span class="math inline">\(t = 0\)</span>. If desired, we could confirm the size of this boundary-layer regions scales with <span class="math inline">\(\epsilon\)</span>.</p>
 
 
 </section>
