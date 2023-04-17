@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -443,9 +443,9 @@ Latitude-dependent EBM
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Our conservation equation takes the general form for the temperature, <span class="math inline">\(T(y, t)\)</span>: <span id="eq-EBMlat"><span class="math display">\[
+<p>Our conservation equation takes the general form for the temperature, <span class="math inline">\(T(y, t)\)</span>: <span id="eq-EBMlat2"><span class="math display">\[
 C \frac{\partial T}{\partial t} = E_{\text{in}} - E_{\text{out}} + E_{\text{transport}}, \qquad t &gt; 0
-\tag{17.1}\]</span></span> where we shall use the following: <span id="eq-EBMlatcomp"><span class="math display">\[
+\tag{17.1}\]</span></span> where we shall use the following: <span id="eq-EBMlatcomp2"><span class="math display">\[
 \begin{align}
 E_{\text{in}}(y, t) &amp;= Qs(y)(1 - a(y)), \\
 E_{\text{out}}(y, t) &amp;= A + BT, \\
@@ -455,7 +455,7 @@ E_{\text{transport}}(y, t) &amp;= k(\bar{T} - T),
 </div>
 </div>
 <p>Our goal is to study the steady-state solutions, <span class="math inline">\(T = T^*(y)\)</span>, given by solving the implicit equation: <span id="eq-latitude2-Phieq"><span class="math display">\[
-T^*(y) = \Phi(T^*) = \frac{k\bar{T}^* + Qs(y)(1 + a(y)) - A}{B + k}.
+T^*(y) = \Phi(T^*) = \frac{k\bar{T}^* + Qs(y)(1 {\color{blue}-} a(y)) - A}{B + k}.
 \tag{17.3}\]</span></span></p>
 <p>Rather than doing analysis on this problem (which is quite prudent), we will take the sledgehammer approach first: we use the previous techniques of nonlinear root finding to solve the above problem.</p>
 <p>Our algorithm is as follows. (Below, we use <span class="math inline">\(T\)</span> to represent the steady states.)</p>

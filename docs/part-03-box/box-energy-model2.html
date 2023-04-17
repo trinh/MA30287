@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -584,12 +584,12 @@ E_{\text{out}} = A + BT,
 \]</span> where it can be verified (exercise) that the global mean temperature is the same as the hemispherically averaged temperature, i.e.&nbsp; <span class="math display">\[
 \bar{T} = \frac{1}{\text{surface area}} \iint T \, \mathrm{S} = \int_0^1 T(y) \, \mathrm{d}y.
 \]</span> Above, we shall use a value of <span class="math inline">\(k = 1.6B\)</span>, again estimated based on data and studies.</p>
-<p>This completes our review of all the components (<a href="latitude2.html#eq-EBMlatcomp">Equation&nbsp;<span>17.2</span></a>) that make up the EBM model (<a href="latitude2.html#eq-EBMlat">Equation&nbsp;<span>17.1</span></a>).</p>
+<p>This completes our review of all the components (<a href="#eq-EBMlatcomp">Equation&nbsp;<span>16.2</span></a>) that make up the EBM model (<a href="#eq-EBMlat">Equation&nbsp;<span>16.1</span></a>).</p>
 </section>
 <section id="steady-state-temperature" class="level2" data-number="16.4">
 <h2 data-number="16.4" class="anchored" data-anchor-id="steady-state-temperature"><span class="header-section-number">16.4</span> Steady-state temperature</h2>
-<p>Let <span class="math inline">\(T^*(y)\)</span> be the steady-state temperature and <span class="math inline">\(\bar{T}^*\)</span> be the corresponding global mean temperature. Then from (<a href="latitude2.html#eq-EBMlat">Equation&nbsp;<span>17.1</span></a>) we have the fact that <span class="math inline">\(T^*\)</span> is given by solving the implicit equation <span class="math display">\[
-T^*(y) = \Phi(T^*) = \frac{C\bar{T}^* + Qs(y)(1 + \alpha(y)) - A}{B + C}.
+<p>Let <span class="math inline">\(T^*(y)\)</span> be the steady-state temperature and <span class="math inline">\(\bar{T}^*\)</span> be the corresponding global mean temperature. Then from setting the LHS of (<a href="#eq-EBMlat">Equation&nbsp;<span>16.1</span></a>) to zero, we have the fact that <span class="math inline">\(T^*\)</span> is given by solving the implicit equation: <span class="math display">\[
+T^*(y) = \Phi(T^*) = \frac{{\color{blue}k}\bar{T}^* + Qs(y)(1 {\color{blue}-} \alpha(y)) - A}{B + C}.
 \]</span> It is important to remember that the albedo, <span class="math inline">\(\alpha(y)\)</span>, implicitly depends on <span class="math inline">\(T^*\)</span> because at each location <span class="math inline">\(y\)</span>, we must decide if the temperature is less or greater than the threshold <span class="math inline">\(T_c\)</span>, which is the temperature of the ice line.</p>
 <p>The above equation is somewhat tricky because of its implicit nature; it is made even trickier by virtue that multiple equilibria exist at the same parameter values. We will begin studying this problem, but before doing so, let us make a few remarks:</p>
 <ul>
