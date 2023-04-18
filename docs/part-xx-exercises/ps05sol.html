@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA30287: Mathematics of Planet Earth - 37&nbsp; Problem set 2 solutions</title>
+<title>MA30287: Mathematics of Planet Earth - 40&nbsp; Problem set 5 solutions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-xx-exercises/ps03sol.html" rel="next">
-<link href="../part-xx-exercises/ps01sol.html" rel="prev">
+<link href="../part-05-techniques/part-techniques.html" rel="next">
+<link href="../part-xx-exercises/ps04sol.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Problem set 2 solutions</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Problem set 5 solutions</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -344,7 +344,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps02sol.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Problem set 2 solutions</span></a>
+  <a href="../part-xx-exercises/ps02sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Problem set 2 solutions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -359,7 +359,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps05sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Problem set 5 solutions</span></a>
+  <a href="../part-xx-exercises/ps05sol.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Problem set 5 solutions</span></a>
   </div>
 </li>
       </ul>
@@ -403,11 +403,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#getting-started-with-jupyter" id="toc-getting-started-with-jupyter" class="nav-link active" data-scroll-target="#getting-started-with-jupyter"><span class="toc-section-number">37.1</span>  Getting started with Jupyter</a></li>
-  <li><a href="#sec-ps2-cubic" id="toc-sec-ps2-cubic" class="nav-link" data-scroll-target="#sec-ps2-cubic"><span class="toc-section-number">37.2</span>  Testing the solutions of a cubic</a></li>
-  <li><a href="#analysis-of-singular-cubic-equation" id="toc-analysis-of-singular-cubic-equation" class="nav-link" data-scroll-target="#analysis-of-singular-cubic-equation"><span class="toc-section-number">37.3</span>  Analysis of singular cubic equation</a></li>
-  <li><a href="#a-damped-projectile-problem" id="toc-a-damped-projectile-problem" class="nav-link" data-scroll-target="#a-damped-projectile-problem"><span class="toc-section-number">37.4</span>  A damped projectile problem</a></li>
-  <li><a href="#ode-solvers-and-eulers-method" id="toc-ode-solvers-and-eulers-method" class="nav-link" data-scroll-target="#ode-solvers-and-eulers-method"><span class="toc-section-number">37.5</span>  ODE solvers and Euler’s method</a></li>
+  <li><a href="#q2.-a-van-der-pol-equation" id="toc-q2.-a-van-der-pol-equation" class="nav-link active" data-scroll-target="#q2.-a-van-der-pol-equation">Q2. A van der Pol equation</a></li>
   </ul>
 </nav>
     </div>
@@ -416,7 +412,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-ps2sol" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Problem set 2 solutions</span></span></h1>
+<h1 class="title"><span id="sec-ps5sol" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Problem set 5 solutions</span></span></h1>
 </div>
 
 
@@ -431,46 +427,73 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="getting-started-with-jupyter" class="level2" data-number="37.1">
-<h2 data-number="37.1" class="anchored" data-anchor-id="getting-started-with-jupyter"><span class="header-section-number">37.1</span> Getting started with Jupyter</h2>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Note
+2022-23 note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>N/A</p>
+<p>This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.</p>
 </div>
 </div>
-</section>
-<section id="sec-ps2-cubic" class="level2" data-number="37.2">
-<h2 data-number="37.2" class="anchored" data-anchor-id="sec-ps2-cubic"><span class="header-section-number">37.2</span> Testing the solutions of a cubic</h2>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>See <code>notebook/ps2_sol.ipynb</code> notebook for the code.</p>
-</div>
-</div>
-</section>
-<section id="analysis-of-singular-cubic-equation" class="level2" data-number="37.3">
-<h2 data-number="37.3" class="anchored" data-anchor-id="analysis-of-singular-cubic-equation"><span class="header-section-number">37.3</span> Analysis of singular cubic equation</h2>
-<p>Consider the cubic equation <span class="math display">\[
-\epsilon x^3 - x + 1 = 0,
-\]</span> with <span class="math inline">\(\epsilon \ll 1\)</span> and <span class="math inline">\(\epsilon &gt; 0\)</span>.</p>
-<ol type="1">
-<li>Develop the first three terms of an asymptotic expansion about the root by setting <span class="math display">\[
-x = x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots
+<!-- 
+## Q1. Sensitivity of the climate {.unnumbered}
+
+Consider the equation for the global average temperature given in (@eq-meanT-evo-ps):
+$$
+C \frac{\mathrm{d}\bar{T}}{\mathrm{d}t} = Q(1 - \bar{a}) - (A + B\bar{T}).
+$$
+We would like to understand how the climate behaves under a small perturbation in the solar forcing. In general, though, the 'constants', $A$, $B$, and $\bar{a}$ will depend on $T$. For example, their values may have been calibrated under a static situation. Therefore, let $A = A(T)$, $B = B(T)$, and $\bar{a} = \bar{a}(T)$.
+
+Below, we drop all bars for convenience. 
+
+a. Consider a perturbation of the solar radiation, say $Q = Q_0 + \delta$ where $\delta$ is small in comparison to $Q_0$. Expand now the temperature into a series: 
+$$
+T = T_0 + \delta T_1  + \ldots
+$$ 
+Show that at $O(\delta)$, the perturbation is governed by 
+$$
+C \frac{\mathrm{d}T_1}{\mathrm{d}t} = (1 - a(T_0)) - B(T_0) T_1 - A'(T_0) T_1 - T_0 B'(T_0) T_1 - Q_0 a'(T_0) T_1.
+$$ 
+
+b. Consequently, show that the temperature perturbation can be written as 
+$$
+B(T_0) \tau \frac{\mathrm{\partial}T_1}{\mathrm{\partial}t} = [1 - a(T_0)]  - \frac{B(T_0)}{g} T_1,
+$$ {#eq-T1eqpertb}
+where
+$$
+\begin{align}
+\tau &= \frac{C}{B(T_0)} \\
+g &= \frac{1}{1-f} \\
+f &= f_1 + f_2 \\
+f_1 &= \frac{1}{B(T_0)} \left(-T_0 B'(T_0) - A'(T_0)\right),\\
+f_2 &= \frac{1}{B(T_0)} \left(-Q_0 a'(T_0)\right)
+\end{align}
+$$ 
+The parameter $\tau$ measures the time scale of the climate system's thermal inertia. It involves the thermal inertia of the atmosphere and also the much larger inertia of the oceans. The factor $g$ is the climate gain; it amplifies any response to the radiative perturbation by a factor of $g$. Also $f_1$ incorporates the effect of water-vapor feedback and $f_2$ that of ice and snow albedo feedback. 
+
+c. Consider (@eq-T1eqpertb) at steady state, so therefore the perturbed equilibrium temperature is equal to 
+$$
+\delta T_1 =  \frac{[1 - a(T_0)] \delta g}{B(T_0)}.
+$$ 
+If the CO~2~ level in the atmosphere doubles, then the radiative forcing might be adjusted as: 
+$$
+(1 - a(T_0)) \delta = 3.7 \,  \mathrm{W} \cdot \mathrm{m}^{-2}. 
+$$ 
+Assuming that the climate gain is $g = 3$ and $B(T_0) = 1.9 \mathrm{W} \cdot \mathrm{m}^{-2} \cdot ({}^\circ \mathrm{C})^{-1}$, what is the expected increase in temperature? 
+-->
+<section id="q2.-a-van-der-pol-equation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q2.-a-van-der-pol-equation">Q2. A van der Pol equation</h2>
+<ol type="a">
+<li>Determine <span class="math inline">\(f(x)\)</span> so that this equation can be written as a Liénard phase plane system in the form <span class="math display">\[
+\begin{align}
+\epsilon \dot{x} &amp;= f(x) + 4y, \\
+\dot{y} &amp;= -x.
+\end{align}
 \]</span></li>
 </ol>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
@@ -479,25 +502,15 @@ x = x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Q3.1
+Solution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Substitution into the cubic gives <span class="math display">\[
-\epsilon (x_0^3 + 3 x_0 x_1 + \ldots) - (x_0 + \epsilon x_1 + \epsilon^2 x_2) + 1 = 0.
-\]</span> Equating at each order and solving gives <span class="math display">\[
-\begin{gather}
--x_0 + 1 = 0 \Longrightarrow x_0 = 1 \\
-x_0^3 - x_1 = 0 \Longrightarrow x_1 = 1 \\
-3x_0 x_1 - x_2 = 0 \Longrightarrow x_2 = 3
-\end{gather}
-\]</span> So the three-term approximation is <span class="math display">\[
-x \sim 1 + \epsilon + 3 \epsilon^2.
-\]</span></p>
+<p><span class="math inline">\(f(x) = -x^3 + 9x + 3 x^2\)</span>.</p>
 </div>
 </div>
-<ol start="2" type="1">
-<li>Fill out the following table.</li>
+<ol start="2" type="a">
+<li>For fixed <span class="math inline">\(\epsilon &gt; 0\)</span>, find the equilibrium point(s) in the phase plane, find their eigenvalues, and classify their linear stability.</li>
 </ol>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -505,38 +518,15 @@ x \sim 1 + \epsilon + 3 \epsilon^2.
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Q3.2
+Solution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<pre><code>| $\epsilon$ | $x_{\text{exact}}$ | $x_{\text{exact}} - x_0$ |
-| -----------| -------------------|--------------------------|
-| 0.1 | 1.1535 | 0.1535 |
-| 0.08 | 1.1092 | 0.1092 |
-| 0.06 | 1.0744 | 0.0744 |
-| 0.04 | 1.0457 | 0.0457|
-| 0.02 |1.0213 | 0.0213 |</code></pre>
-<p>This is a really excellent demonstration of an ‘organic’ discovery process. Below we plot the errors we found in the above table. I rounded the values to only the first two decimals. It is not so important to be extremely accurate (in fact, this is the point of requiring you to do so by hand!)</p>
-<div id="fig-ps2-hand" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figures/ps2_hand.jpeg" class="img-fluid figure-img" style="width:80.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;37.1: Hand drawn image</figcaption><p></p>
-</figure>
-</div>
-<p>When doing this, I tried to fit to a line because I knew the error was supposed to be <span class="math display">\[
-x - x_0 \sim \epsilon
-\]</span> so was expecting a line of unit gradient. But the gradient estimated above was a bit higher, at 1.6. Returning to Python, we see the problem.</p>
-<div id="fig-ps2-python" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figures/ps2_quad.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;37.2: Python image</figcaption><p></p>
-</figure>
-</div>
-<p>So over the range investigated of <span class="math inline">\(0.02 &lt; \epsilon &lt; 0.1\)</span>, the behaviour is quadratic.This is a nice lesson on how to discover new results based on computation and analysis.</p>
+<p>The only equilibrium point is <span class="math inline">\((x_*, y_*) = (0,0)\)</span>. The eigenvalues from its linear stability are <span class="math inline">\(\lambda = (9 \pm \sqrt{81 - 16\epsilon}/(2\epsilon) &gt; 0\)</span>, so the point is an unstable node.</p>
 </div>
 </div>
-<ol start="3" type="1">
-<li>By rescaling <span class="math inline">\(x\)</span> appropriately in terms of <span class="math inline">\(\epsilon\)</span>, derive the first three terms of the asymptotic approximations of the remaining roots.</li>
+<ol start="3" type="a">
+<li>Use the expansions <span class="math inline">\(x(t) = x_0(t) + \epsilon x_1(t) + O(\epsilon^2)\)</span> to determine the equations for the leading-order slow solution. Sketch the slow manifold, indicate the directions motion on each part, and identify the two attracting points on the curve.</li>
 </ol>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -544,43 +534,16 @@ x - x_0 \sim \epsilon
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Q3.3
+Solution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We expect the critical scaling to balance <span class="math inline">\(\epsilon x^3\)</span> with <span class="math inline">\(x\)</span> since these two will be dominant when <span class="math inline">\(x\)</span> is large. So we set <span class="math display">\[
-x = \frac{X}{\sqrt{\epsilon}}
-\]</span></p>
-<p>Now we have <span class="math display">\[
-X^3 - X + \sqrt{\epsilon} = 0.
-\]</span></p>
-<p>You will notice that the progression here should go in powers of <span class="math inline">\(\epsilon^{1/2}\)</span>. Alternatively set <span class="math inline">\(\delta = \epsilon^{1/2}\)</span> and now the problem is standard in <span class="math inline">\(\delta\)</span>: <span class="math display">\[
-X^3 - X + \delta = 0.
-\]</span> And we expand <span class="math display">\[
-X = X_0 + \delta X_1 + \delta^2 X_2 + \ldots
-\]</span> We get <span class="math display">\[
-\begin{gather}
-X_0^3 - X_0 = 0 \Longrightarrow X_0^2 = 1 \Longrightarrow X_0 = \pm 1 \\
-3 X_0^2 X_1 - X_1 + 1 = 0 \Longrightarrow X_1 = -\frac{1}{2} \\
-3 X_0^2 X_2 + 3 X_0 X_1^2 - X_2 = 0 \Longrightarrow X_2 = \mp \frac{3}{8}.
-\end{gather}
-\]</span> So it seems that the three-term approximation for the other two roots is <span class="math display">\[
-x \sim \frac{1}{\sqrt{\epsilon}} \left(\pm 1 - \sqrt{\epsilon} \frac{1}{2} \mp \epsilon \frac{3}{8}\right).
-\]</span></p>
+<p>The slow manifold is <span class="math inline">\(y_0(x_0) = (x_0^3 - 3 x_0^2 - 9 x_0)/4\)</span>.</p>
 </div>
 </div>
-</section>
-<section id="a-damped-projectile-problem" class="level2" data-number="37.4">
-<h2 data-number="37.4" class="anchored" data-anchor-id="a-damped-projectile-problem"><span class="header-section-number">37.4</span> A damped projectile problem</h2>
-<p>If air resistance is included, then the non-dimensional toy model is instead <span class="math display">\[
-\begin{gather}
-\frac{\mathrm{d}^2 y}{\mathrm{d}t^2} = - \frac{1}{(1 + \epsilon y)^2} - \frac{\alpha}{(1 + \epsilon y)} \frac{\mathrm{d}y}{\mathrm{d}t}, \\
-y(0) = 0, \\
-y'(0) = 1.
-\end{gather}
-\]</span> where <span class="math inline">\(\alpha \geq 0\)</span> is the parameter that controls air resistance.</p>
-<ol type="1">
-<li>Begin by assuming that <span class="math inline">\(\alpha\)</span> is a fixed number and consider the limit where <span class="math inline">\(\epsilon \ll 1\)</span>. Find a two-term asymptotic expansion of the solution for small <span class="math inline">\(\epsilon\)</span>.</li>
+<ol start="4" type="a">
+<li><p>Use the expansions <span class="math inline">\(x(t) = X_0(T) + \epsilon X_1(T) + O(\epsilon^2)\)</span> and <span class="math inline">\(y(t) = Y_0(T) + \epsilon Y_1(T) + O(\epsilon^2)\)</span> with <span class="math inline">\(T = t/\epsilon\)</span> to obtain the leading-order fast solution.</p></li>
+<li><p>Use the phase plane to determine the maximum and minimum values of <span class="math inline">\(x(t)\)</span> during an oscillation. Sketch <span class="math inline">\(x(t)\)</span> as a function of time.</p></li>
 </ol>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -588,39 +551,17 @@ y'(0) = 1.
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Q4.1
+Solution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This question turned out to be a bit more algebraically annoying than expected. In any case, the procedure is as follows.</p>
-<p>First, note that <span class="math display">\[
-(1 + \epsilon y)^{\alpha} = 1 + \alpha (\epsilon y) + O(\epsilon y)^2.
-\]</span></p>
-<p>You will not need more terms than that. Substitute <span class="math inline">\(y = y_0(t) + \epsilon y_1(t) + \ldots\)</span> into the equation. This gives, for the leading terms <span class="math display">\[
-\begin{gather}
-y_0'' = -1 - \alpha y_0' \\
-y_0(0) = 0 \\
-y_0'(0) = 1
-\end{gather}
-\]</span> To solve this, you will need to refresh your memory on second-order differential equations learned in 2nd year. You can see <a href="../part-05-techniques/odes.html"><span>Chapter&nbsp;42</span></a> for references. To solve this set <span class="math inline">\(y_0 = e^{rt}\)</span> and solve for <span class="math inline">\(r\)</span> for the homogeneous equation. You will get <span class="math display">\[
-y_{\text{homogeneous}} = (c_1 + c_2 e^{-\alpha t}).
-\]</span> From here, we need a particular solution. This can be obtained by guessing (also see <a href="https://tutorial.math.lamar.edu/Classes/DE/UndeterminedCoefficients.aspx">this reference</a>). If we guess <span class="math display">\[
-y_p = C t,
-\]</span> we see that <span class="math display">\[
-y_p'' + \alpha y_p' = \alpha C = -1
-\]</span> implies <span class="math inline">\(C = -1/\alpha\)</span>. Therefore the general solution is <span class="math display">\[
-y_0 = (c_1 + c_2 e^{-\alpha t}) - \frac{t}{\alpha}.
-\]</span> We now select the constants to satisfy the initial conditions. This yields <span class="math display">\[
-c_1 + c_2 = 0 \quad \text{and} \quad
--\alpha c_2 - 1/\alpha = 1,
-\]</span> from which the solution can be easily derived. It is <span class="math display">\[
-y(t) \sim \left(\frac{1}{\alpha^2} + \frac{1}{\alpha}\right) - \left(\frac{1}{\alpha^2} + \frac{1}{\alpha}\right)e^{-\alpha t} - \frac{t}{\alpha}.
-\]</span></p>
-<p>The solution of <span class="math inline">\(y_1\)</span> proceeds in the same way, but since we did not anticipate that this question would be so algebraically involved, we will not require solving for <span class="math inline">\(y_1\)</span>. This can be left as an exercise if you so wish.</p>
+<p>The slow manifold has local extrema at <span class="math inline">\((-1, 5/4)\)</span> and <span class="math inline">\((3, 27/4)\)</span>. In the fast evolution stages, <span class="math inline">\(y\)</span> is constant and <span class="math inline">\(x\)</span> evolves from one extrema value to the other on the slow manifold, satisfying <span class="math inline">\(y = S(x)\)</span>.</p>
+<p>Here is a plot of the key points.</p>
+<p><img src="img/2023-04-18-08-35-23.png" class="img-fluid"></p>
 </div>
 </div>
-<ol start="2" type="1">
-<li>Is the effect of the air resistance to increase or decrease the flight time? Justify based on your analytical solution.</li>
+<ol start="6" type="a">
+<li>Using the time required for the slow motions in part c (neglecting the short times for the fast solutions in part d), determine the leading-order estimate for the period <span class="math inline">\(P\)</span> of oscillation for the limit cycle.</li>
 </ol>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -628,132 +569,75 @@ y(t) \sim \left(\frac{1}{\alpha^2} + \frac{1}{\alpha}\right) - \left(\frac{1}{\a
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Q4.2
+Solution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The above solution seems quite strange. After all, when <span class="math inline">\(\alpha = 0\)</span>, we know that parabolic motion is expected. We found previously that <span class="math display">\[
-y_{\alpha = 0}(t) \sim -\frac{1}{2}t^2 + t.
-\]</span> which matches our intuition about the expected flight being parabolic. However, notice that if <span class="math inline">\(\alpha\)</span> is small, we can expand the exponential to show <span class="math display">\[
-y_0 \sim \left(-\frac{1}{2}t^2 + t\right) + \alpha \frac{1}{6} \left(-3t^2 + t^3\right) + O(\alpha^2).
+<p>In essence, we approximate the period only using the time during the slow phases. Begin from the slow manifold, <span class="math display">\[
+y = S(x)
+\]</span> and remembering that both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are functions of time, we differentiate in <span class="math inline">\(t\)</span>. This gives (we drop the subscripts of zero): <span class="math display">\[
+4\dot{y} = \dot{x}(3 x^2 - 6x - 9).
+\]</span> From the second equation, we know <span class="math inline">\(\dot{y} \sim -x\)</span>. Inserting and solving now yields <span class="math display">\[
+\dot{x} = g(x) \equiv - \frac{4x}{4x^2 - 6x - 9}.
+\]</span> This is effectively a single differential equation for <span class="math inline">\(x = x(t)\)</span>.</p>
+<p>Now we can solve for time by separating and integrating. We get <span class="math display">\[
+t = \int^x \frac{dx'}{g(x')}
 \]</span></p>
-<p>This is a fairly sophisticated argument. Instead, you can simply plot the curves and show the difference.</p>
-<div id="fig-para" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figures/ps2_para.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;37.3: With (solid) and without damping (dashed)</figcaption><p></p>
-</figure>
+<p>Therefore, to estimate the time spent during different phases, we only need to substitute in initial and final values of <span class="math inline">\(x\)</span> in the above integral and integrate. The first slow phase starts at <span class="math inline">\(x = 5\)</span> and ends at <span class="math inline">\(x = 3\)</span>. Thus <span class="math display">\[
+T_1 = \frac{1}{4} \int_{5}^3 \left(\frac{9}{x} + 6 - 3x\right) dx = 3 + \frac{9}{4}\log(3/5).
+\]</span> The second slow phase starts at <span class="math inline">\(x = -3\)</span> and ends at <span class="math inline">\(x = -1\)</span>. Thus <span class="math display">\[
+T_2 = \frac{1}{4} \int_{-3}^-1 \left(\frac{9}{x} + 6 - 3x\right) dx = 6 - \frac{9}{4}\log(3).
+\]</span> Adding the two gives that the period is approximately <span class="math inline">\(P \sim 9 - (9/4) \log 5 \approx 5.38\)</span>.</p>
 </div>
 </div>
-</div>
-</section>
-<section id="ode-solvers-and-eulers-method" class="level2" data-number="37.5">
-<h2 data-number="37.5" class="anchored" data-anchor-id="ode-solvers-and-eulers-method"><span class="header-section-number">37.5</span> ODE solvers and Euler’s method</h2>
-<p>Return to the setup of the above question.</p>
-<ol type="1">
-<li>Modify the script developed in lecture 8 or alternatively copy-and-paste the script shown in <a href="../part-05-techniques/asymptotics02.html#sec-asym2-num"><span>Section&nbsp;9.2</span></a> in order to solve (<a href="ps02.html#eq-ps2-air">Equation&nbsp;<span>32.1</span></a>) at a prescribed value of <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\alpha\)</span>.</li>
-</ol>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Q6.1
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This is found in <code>notebooks/sol02_solutions.ipynb</code>.</p>
-</div>
-</div>
-<ol start="2" type="1">
-<li>Using <strong>a pocket calculator</strong> (or your phone calculator) apply Euler’s method with <span class="math inline">\(\Delta t = 0.2\)</span>, <span class="math inline">\(\epsilon = 0.2\)</span>, and <span class="math inline">\(\alpha = 1\)</span> to determine the position of the projectile at <span class="math inline">\(t = 0.6\)</span>.</li>
-</ol>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Q6.2
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Euler’s method is simply <span class="math display">\[
-Y_{n+1} = Y_n + F(t_n, y_n)\Delta t.
-\]</span> Here <span class="math display">\[
-F = \begin{pmatrix}
-y' \\
--\frac{1}{(1 + \epsilon y)^2} - \frac{\alpha}{(1 + \epsilon y)}
-\end{pmatrix}.
-\]</span></p>
-<p>We split the time steps into {0, 0.2, 0.4, 0.6}. We also round to two figures.</p>
-</div>
-</div>
-<table class="table">
-<thead>
-<tr class="header">
-<th>t</th>
-<th>Y</th>
-<th><span class="math inline">\(1 + \epsilon y\)</span></th>
-<th>F</th>
-<th><span class="math inline">\(F \Delta t\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td>(0, 1)</td>
-<td>1</td>
-<td>(1, -2)</td>
-<td>(0.2, -0.4)</td>
-</tr>
-<tr class="even">
-<td>0.2</td>
-<td>(0.2, 0.6)</td>
-<td>1.04</td>
-<td>(0.6, -1.5)</td>
-<td>(0.12, -0.3)</td>
-</tr>
-<tr class="odd">
-<td>0.4</td>
-<td>(0.32, 0.3)</td>
-<td>1.06</td>
-<td>(0.3, -1.16)</td>
-<td>(0.06, -0.23)</td>
-</tr>
-<tr class="even">
-<td>0.6</td>
-<td>(0.38, 0.07)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>After three iterations, we get a value of <span class="math inline">\(y(0.6) \approx 0.38\)</span>.</p>
-<ol start="3" type="1">
-<li>Compare your hand calculation with the result from the Python output, as well as with your asymptotic approximations.</li>
-</ol>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Q6.3
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>We have (rounded to two digits) <span class="math display">\[
-\begin{align}
-y_{\text{exact numerical}} \approx 0.31 \\
-y_{\text{euler}} \approx 0.38 \\
-y_{\text{asym}} \approx 0.30
-\end{align}
-\]</span></p>
-</div>
-</div>
+
+<!--
+## Q3. Fast-slow dynamics with three variables {.unnumbered}
+
+Consider the limit of $\epsilon \ll 1$ for each of the following cases. 
+
+a. For the system 
+$$
+\begin{aligned}[c]
+\dot{x} &= 2 - y, \\
+\dot{y} &= x-z, \\
+\epsilon\dot{z} &= y - y^2 + \frac{1}{3}y^3 - z, 
+\end{aligned}
+$$ 
+with the initial conditions of $x(0) = 1$, $y(0) = 3$, and $z(0) = 0$. 
+
+Identify the surface $z = S(x, y)$ that defines the slow manifold. Find the equilibrium point of the leading=order slow phase plane system and show that it is asymptotically stable for $t \to \infty$. Also determine the form of the initial layer that describes the transition from the initial conditions to the slow manifold.
+
+a. For the system 
+$$
+\begin{aligned}[c]
+\dot{x} &= 2 - y, \\
+\epsilon\dot{y} &= x-z, \\
+\dot{z} &= y - y^2 + \frac{1}{3}y^3 - z, 
+\end{aligned}
+$$ 
+with the initial conditions of $x(0) = 0$, $y(0) = 3$, and $z(0) = 1$. 
+
+Show that the slow manifold reduces to a curve that could be written in parametric form as $x = x(z), y = y(z), z = z$. Determine the asymptotic solution for $t \to \infty$. Also determine the form of the initial layer that describes the transition from initial conditions to the slow manifold.
+
+-->
+<!--
+1. Derive the advection-diffusion equation
+
+2. Wine problem?
+
+
+1. Develop asymptotic approximations of the steady state temperatures (three roots) in the limits of large and small $k$ in @eq-albedokaper.
+ 
+ This problem set is on Stommel's box model and Zonal energy budget
+
+
+* Verify the calculation of $A$, $D$, and $T$ in the stability calculation.
+* Study the phase plane classification in order to classify the fixed points
+* Implement a Newton-solving routine to study the bifurcation behaviour
+* Implement an arclength continuation routine to study the bifurcation behavour
+* Use perturbation theory in order to reduce the analysis
+-->
 
 
 </section>
@@ -894,13 +778,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part-xx-exercises/ps01sol.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Problem set 1 solutions</span></span>
+      <a href="../part-xx-exercises/ps04sol.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Problem set 4 solutions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-xx-exercises/ps03sol.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Problem set 3 solutions</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-05-techniques/part-techniques.html" class="pagination-link">
+        <span class="nav-page-text">Appendices</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
