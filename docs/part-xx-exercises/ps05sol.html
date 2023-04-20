@@ -403,7 +403,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#q2.-a-van-der-pol-equation" id="toc-q2.-a-van-der-pol-equation" class="nav-link active" data-scroll-target="#q2.-a-van-der-pol-equation">Q2. A van der Pol equation</a></li>
+  <li><a href="#q1.-sensitivity-of-the-climate" id="toc-q1.-sensitivity-of-the-climate" class="nav-link active" data-scroll-target="#q1.-sensitivity-of-the-climate">Q1. Sensitivity of the climate</a></li>
   </ul>
 </nav>
     </div>
@@ -440,54 +440,53 @@ ul.task-list li input[type="checkbox"] {
 <p>This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.</p>
 </div>
 </div>
-<!-- 
-## Q1. Sensitivity of the climate {.unnumbered}
-
-Consider the equation for the global average temperature given in (@eq-meanT-evo-ps):
-$$
-C \frac{\mathrm{d}\bar{T}}{\mathrm{d}t} = Q(1 - \bar{a}) - (A + B\bar{T}).
-$$
-We would like to understand how the climate behaves under a small perturbation in the solar forcing. In general, though, the 'constants', $A$, $B$, and $\bar{a}$ will depend on $T$. For example, their values may have been calibrated under a static situation. Therefore, let $A = A(T)$, $B = B(T)$, and $\bar{a} = \bar{a}(T)$.
-
-Below, we drop all bars for convenience. 
-
-a. Consider a perturbation of the solar radiation, say $Q = Q_0 + \delta$ where $\delta$ is small in comparison to $Q_0$. Expand now the temperature into a series: 
-$$
+<section id="q1.-sensitivity-of-the-climate" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q1.-sensitivity-of-the-climate">Q1. Sensitivity of the climate</h2>
+<ol type="a">
+<li>Consider a perturbation of the solar radiation, say <span class="math inline">\(Q = Q_0 + \delta\)</span> where <span class="math inline">\(\delta\)</span> is small in comparison to <span class="math inline">\(Q_0\)</span>. Expand now the temperature into a series: <span class="math display">\[
 T = T_0 + \delta T_1  + \ldots
-$$ 
-Show that at $O(\delta)$, the perturbation is governed by 
-$$
+\]</span> Show that at <span class="math inline">\(O(\delta)\)</span>, the perturbation is governed by <span class="math display">\[
 C \frac{\mathrm{d}T_1}{\mathrm{d}t} = (1 - a(T_0)) - B(T_0) T_1 - A'(T_0) T_1 - T_0 B'(T_0) T_1 - Q_0 a'(T_0) T_1.
-$$ 
-
-b. Consequently, show that the temperature perturbation can be written as 
-$$
+\]</span></li>
+</ol>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Each of the functions should be expanded in the usual way. For example, from Taylor series we have <span class="math display">\[
+A(T) = A(T_0) + A'(T_0)(T - T_0) + O(T - T_0)^2.
+\]</span> Then using <span class="math inline">\(T = T_0 + \delta T_1 + \ldots\)</span>, we have <span class="math display">\[
+A(T) = A(T_0) + \delta A'(T_0) T_1 + O(\delta)^2.
+\]</span></p>
+</div>
+</div>
+<ol start="2" type="a">
+<li><p>Consequently, show that the temperature perturbation can be written as <span id="eq-T1eqpertb"><span class="math display">\[
 B(T_0) \tau \frac{\mathrm{\partial}T_1}{\mathrm{\partial}t} = [1 - a(T_0)]  - \frac{B(T_0)}{g} T_1,
-$$ {#eq-T1eqpertb}
-where
-$$
+\tag{40.1}\]</span></span> where <span class="math display">\[
 \begin{align}
-\tau &= \frac{C}{B(T_0)} \\
-g &= \frac{1}{1-f} \\
-f &= f_1 + f_2 \\
-f_1 &= \frac{1}{B(T_0)} \left(-T_0 B'(T_0) - A'(T_0)\right),\\
-f_2 &= \frac{1}{B(T_0)} \left(-Q_0 a'(T_0)\right)
+\tau &amp;= \frac{C}{B(T_0)} \\
+g &amp;= \frac{1}{1-f} \\
+f &amp;= f_1 + f_2 \\
+f_1 &amp;= \frac{1}{B(T_0)} \left(-T_0 B'(T_0) - A'(T_0)\right),\\
+f_2 &amp;= \frac{1}{B(T_0)} \left(-Q_0 a'(T_0)\right)
 \end{align}
-$$ 
-The parameter $\tau$ measures the time scale of the climate system's thermal inertia. It involves the thermal inertia of the atmosphere and also the much larger inertia of the oceans. The factor $g$ is the climate gain; it amplifies any response to the radiative perturbation by a factor of $g$. Also $f_1$ incorporates the effect of water-vapor feedback and $f_2$ that of ice and snow albedo feedback. 
-
-c. Consider (@eq-T1eqpertb) at steady state, so therefore the perturbed equilibrium temperature is equal to 
-$$
+\]</span> The parameter <span class="math inline">\(\tau\)</span> measures the time scale of the climate system’s thermal inertia. It involves the thermal inertia of the atmosphere and also the much larger inertia of the oceans. The factor <span class="math inline">\(g\)</span> is the climate gain; it amplifies any response to the radiative perturbation by a factor of <span class="math inline">\(g\)</span>. Also <span class="math inline">\(f_1\)</span> incorporates the effect of water-vapor feedback and <span class="math inline">\(f_2\)</span> that of ice and snow albedo feedback.</p></li>
+<li><p>Consider (<a href="#eq-T1eqpertb">Equation&nbsp;<span>40.1</span></a>) at steady state, so therefore the perturbed equilibrium temperature is equal to <span class="math display">\[
 \delta T_1 =  \frac{[1 - a(T_0)] \delta g}{B(T_0)}.
-$$ 
-If the CO~2~ level in the atmosphere doubles, then the radiative forcing might be adjusted as: 
-$$
-(1 - a(T_0)) \delta = 3.7 \,  \mathrm{W} \cdot \mathrm{m}^{-2}. 
-$$ 
-Assuming that the climate gain is $g = 3$ and $B(T_0) = 1.9 \mathrm{W} \cdot \mathrm{m}^{-2} \cdot ({}^\circ \mathrm{C})^{-1}$, what is the expected increase in temperature? 
--->
-<section id="q2.-a-van-der-pol-equation" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="q2.-a-van-der-pol-equation">Q2. A van der Pol equation</h2>
+\]</span> If the CO<sub>2</sub> level in the atmosphere doubles, then the radiative forcing might be adjusted as: <span class="math display">\[
+(1 - a(T_0)) \delta = 3.7 \,  \mathrm{W} \cdot \mathrm{m}^{-2}.
+\]</span> Assuming that the climate gain is <span class="math inline">\(g = 3\)</span> and <span class="math inline">\(B(T_0) = 1.9 \mathrm{W} \cdot \mathrm{m}^{-2} \cdot ({}^\circ \mathrm{C})^{-1}\)</span>, what is the expected increase in temperature?</p></li>
+</ol>
+<ol start="2" type="1">
+<li>A van der Pol equation {.unnumbered}</li>
+</ol>
 <ol type="a">
 <li>Determine <span class="math inline">\(f(x)\)</span> so that this equation can be written as a Liénard phase plane system in the form <span class="math display">\[
 \begin{align}
