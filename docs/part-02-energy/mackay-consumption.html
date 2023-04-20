@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA30287: Mathematics of Planet Earth - 40&nbsp; Problem set 5 solutions</title>
+<title>MA30287: Mathematics of Planet Earth - 7&nbsp; Estimating consumption</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -30,8 +49,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-05-techniques/part-techniques.html" rel="next">
-<link href="../part-xx-exercises/ps04sol.html" rel="prev">
+<link href="../part-05-techniques/techniques.html" rel="next">
+<link href="../part-02-energy/mackay-units.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -71,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Problem set 5 solutions</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estimating consumption</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -154,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-02-energy/mackay-consumption.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estimating consumption</span></a>
+  <a href="../part-02-energy/mackay-consumption.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estimating consumption</span></a>
   </div>
 </li>
       </ul>
@@ -359,7 +378,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps05sol.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Problem set 5 solutions</span></a>
+  <a href="../part-xx-exercises/ps05sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Problem set 5 solutions</span></a>
   </div>
 </li>
       </ul>
@@ -403,8 +422,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#q1.-sensitivity-of-the-climate" id="toc-q1.-sensitivity-of-the-climate" class="nav-link active" data-scroll-target="#q1.-sensitivity-of-the-climate">Q1. Sensitivity of the climate</a></li>
-  <li><a href="#q2.-a-van-der-pol-equation" id="toc-q2.-a-van-der-pol-equation" class="nav-link" data-scroll-target="#q2.-a-van-der-pol-equation">Q2. A van der Pol equation</a></li>
+  <li><a href="#tips-for-estimates" id="toc-tips-for-estimates" class="nav-link active" data-scroll-target="#tips-for-estimates"><span class="toc-section-number">7.1</span>  Tips for estimates</a></li>
+  <li><a href="#heating-and-cooling" id="toc-heating-and-cooling" class="nav-link" data-scroll-target="#heating-and-cooling"><span class="toc-section-number">7.2</span>  Heating and cooling</a></li>
+  <li><a href="#energy-usage-of-stuff" id="toc-energy-usage-of-stuff" class="nav-link" data-scroll-target="#energy-usage-of-stuff"><span class="toc-section-number">7.3</span>  Energy usage of stuff</a></li>
+  <li><a href="#energy-usage-of-transportation" id="toc-energy-usage-of-transportation" class="nav-link" data-scroll-target="#energy-usage-of-transportation"><span class="toc-section-number">7.4</span>  Energy usage of transportation</a>
+  <ul class="collapse">
+  <li><a href="#sec-carshort" id="toc-sec-carshort" class="nav-link" data-scroll-target="#sec-carshort"><span class="toc-section-number">7.4.1</span>  Cars</a></li>
+  </ul></li>
+  <li><a href="#in-depth" id="toc-in-depth" class="nav-link" data-scroll-target="#in-depth"><span class="toc-section-number">7.5</span>  In-depth</a>
+  <ul class="collapse">
+  <li><a href="#brakes" id="toc-brakes" class="nav-link" data-scroll-target="#brakes"><span class="toc-section-number">7.5.1</span>  Brakes</a></li>
+  <li><a href="#air-resistance" id="toc-air-resistance" class="nav-link" data-scroll-target="#air-resistance"><span class="toc-section-number">7.5.2</span>  Air resistance</a></li>
+  <li><a href="#ratio-of-brake-power-to-drag-power" id="toc-ratio-of-brake-power-to-drag-power" class="nav-link" data-scroll-target="#ratio-of-brake-power-to-drag-power"><span class="toc-section-number">7.5.3</span>  Ratio of brake power to drag power</a></li>
+  <li><a href="#rolling-resistance" id="toc-rolling-resistance" class="nav-link" data-scroll-target="#rolling-resistance"><span class="toc-section-number">7.5.4</span>  Rolling resistance</a></li>
+  <li><a href="#power" id="toc-power" class="nav-link" data-scroll-target="#power"><span class="toc-section-number">7.5.5</span>  Power</a></li>
+  <li><a href="#conclusions-and-caveats" id="toc-conclusions-and-caveats" class="nav-link" data-scroll-target="#conclusions-and-caveats"><span class="toc-section-number">7.5.6</span>  Conclusions and caveats</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">7.6</span>  References</a></li>
   </ul>
 </nav>
     </div>
@@ -413,7 +447,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-ps5sol" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Problem set 5 solutions</span></span></h1>
+<h1 class="title"><span id="sec-mackay-consumption" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estimating consumption</span></span></h1>
 </div>
 
 
@@ -438,247 +472,312 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.</p>
+<p>Covered in Lecture 6.</p>
 </div>
 </div>
-<section id="q1.-sensitivity-of-the-climate" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="q1.-sensitivity-of-the-climate">Q1. Sensitivity of the climate</h2>
-<ol type="a">
-<li>Consider a perturbation of the solar radiation, say <span class="math inline">\(Q = Q_0 + \delta\)</span> where <span class="math inline">\(\delta\)</span> is small in comparison to <span class="math inline">\(Q_0\)</span>. Expand now the temperature into a series: <span class="math display">\[
-T = T_0 + \delta T_1  + \ldots
-\]</span> Show that at <span class="math inline">\(O(\delta)\)</span>, the perturbation is governed by <span class="math display">\[
-C \frac{\mathrm{d}T_1}{\mathrm{d}t} = (1 - a(T_0)) - B(T_0) T_1 - A'(T_0) T_1 - T_0 B'(T_0) T_1 - Q_0 a'(T_0) T_1.
-\]</span></li>
-</ol>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Solution
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Each of the functions should be expanded in the usual way. For example, from Taylor series we have <span class="math display">\[
-A(T) = A(T_0) + A'(T_0)(T - T_0) + O(T - T_0)^2.
-\]</span> Then using <span class="math inline">\(T = T_0 + \delta T_1 + \ldots\)</span>, we have <span class="math display">\[
-A(T) = A(T_0) + \delta A'(T_0) T_1 + O(\delta)^2.
-\]</span> Do the same for both <span class="math inline">\(a(T)\)</span> and <span class="math inline">\(B(T)\)</span>. Then substituting into the equation gives (remember to drop bars): <span class="math display">\[
-\text{LHS} = \delta C \frac{\mathrm{d}T_1}{\mathrm{d}t} + O(\delta^2)
-\]</span> while for the right hand-side <span class="math display">\[
-\begin{align}
-\text{RHS} &amp;= Q_0(1 - a(T_0)) - (A(T_0) + B(T_0) T_0) \\
-&amp; \quad + \delta \left[(1 - a(T_0)) - Q_0 a'(T_0)T_1  - A'(T_0)T_1 - B'(T_0)T_0 T_1 - B(T_0) T_1\right] + O(\delta)^2.
-\end{align}
-\]</span> Now the first, <span class="math inline">\(O(1)\)</span>, grouping of terms above is zero by assumption that <span class="math inline">\(T_0\)</span> is steady-state. So considering only those terms that are multiplied by <span class="math inline">\(\delta\)</span>, we have <span class="math display">\[
-C \frac{\mathrm{d}T_1}{\mathrm{d}t} = (1 - a(T_0)) - B(T_0) T_1 - A'(T_0) T_1 - T_0 B'(T_0) T_1 - Q_0 a'(T_0) T_1.
-\]</span></p>
+<p>This lecture will follow the presentation of energy estimates for consumption in Part I of <span class="citation" data-cites="mackay_book">(<a href="../references.html#ref-mackay_book" role="doc-biblioref">MacKay 2009</a>)</span>, with additional details found in the technical chapters of Part III.</p>
 </div>
 </div>
-<ol start="2" type="a">
-<li>Consequently, show that the temperature perturbation can be written as <span id="eq-T1eqpertb"><span class="math display">\[
-B(T_0) \tau \frac{\mathrm{\partial}T_1}{\mathrm{\partial}t} = [1 - a(T_0)]  - \frac{B(T_0)}{g} T_1,
-\tag{40.1}\]</span></span> where <span class="math display">\[
-\begin{align}
-\tau &amp;= \frac{C}{B(T_0)} \\
-g &amp;= \frac{1}{1-f} \\
-f &amp;= f_1 + f_2 \\
-f_1 &amp;= \frac{1}{B(T_0)} \left(-T_0 B'(T_0) - A'(T_0)\right),\\
-f_2 &amp;= \frac{1}{B(T_0)} \left(-Q_0 a'(T_0)\right)
-\end{align}
-\]</span> The parameter <span class="math inline">\(\tau\)</span> measures the time scale of the climate system’s thermal inertia. It involves the thermal inertia of the atmosphere and also the much larger inertia of the oceans. The factor <span class="math inline">\(g\)</span> is the climate gain; it amplifies any response to the radiative perturbation by a factor of <span class="math inline">\(g\)</span>. Also <span class="math inline">\(f_1\)</span> incorporates the effect of water-vapor feedback and <span class="math inline">\(f_2\)</span> that of ice and snow albedo feedback.</li>
-</ol>
+<p>The goal of the next lecture is to teach you some of the mathematical modelling and mathematical arguments that lead to estimating energy consumption and energy generation. It is important to note, at this point, tha the style of the presentation must naturally stray further away from the rigorous axiomatic demonstrations you have encountered in other core mathematics models. The emphasis is in the usage of core physical arguments (conservation of energy, for instance) to produce systematic approximations of real-life questions of usage. Our goal is to estimate, for example, the energy consumption of heating and cooling, of driving a car, or flying on a plane.</p>
+<section id="tips-for-estimates" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="tips-for-estimates"><span class="header-section-number">7.1</span> Tips for estimates</h2>
+<ul>
+<li><strong>Use appropriate conversion of units.</strong></li>
+</ul>
+<p>For example, even though you may not know what <em>specific heat</em> means (see below question about the bath hot water usage), examining the units of Joules/(Litre x Celcius) should tell you that this quantity corresponds to energy per unit volume per unit degree Celcius. Specific heat is a quantity associated with certain materials that describe the energy requred to increase its volume by one degree.</p>
+<ul>
+<li><strong>Manipulate different forms of energy</strong></li>
+</ul>
+<p>An object of mass <span class="math inline">\(m\)</span> moving at speed <span class="math inline">\(v\)</span> possesses <em>kinetic energy</em> given by <span class="math display">\[
+E_\mathrm{kinetic} = \frac{1}{2} mv^2.
+\]</span> An object can also possess different kinds of potential energy. For example, an object of mass <span class="math inline">\(m\)</span> that will fall when released possesses <em>gravitational potential energy</em> given by <span class="math display">\[
+E_\rm{grav. potential} = mgh
+\]</span> where <span class="math inline">\(h\)</span> is its distance relative to some given point and <span class="math inline">\(g = 9.8 \, \mathrm{m/s^2}\)</span> is the standard gravitational constant on the surface.</p>
+<p>A hot object also possesses heat energy. The heat energy is given by <span class="math display">\[
+E_\mathrm{heat} = c \rho V T
+\]</span> where <span class="math inline">\(c\)</span> is the specific heat capacity (J/(kg K)), <span class="math inline">\(\rho\)</span> is the density (kg/m^3), <span class="math inline">\(V\)</span> is the volume (m^3), and <span class="math inline">\(T\)</span> is the temperature (K). An object can also possess chemical potential energy (for example, we possess such energy when we eat food). And so forth and so on.</p>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Solution
+Checking energies
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>There is nothing tricky about this, but it just requires keeping track of bookwork. On the right hand-side, separate those terms proportional to <span class="math inline">\(T_1\)</span> and write it in the desired form.</p>
-</div>
-</div>
-<ol start="3" type="a">
-<li>Consider (<a href="#eq-T1eqpertb">Equation&nbsp;<span>40.1</span></a>) at steady state, so therefore the perturbed equilibrium temperature is equal to <span class="math display">\[
-\delta T_1 =  \frac{[1 - a(T_0)] \delta g}{B(T_0)}.
-\]</span> If the CO<sub>2</sub> level in the atmosphere doubles, then the radiative forcing might be adjusted as: <span class="math display">\[
-(1 - a(T_0)) \delta = 3.7 \,  \mathrm{W} \cdot \mathrm{m}^{-2}.
-\]</span> Assuming that the climate gain is <span class="math inline">\(g = 3\)</span> and <span class="math inline">\(B(T_0) = 1.9 \mathrm{W} \cdot \mathrm{m}^{-2} \cdot ({}^\circ \mathrm{C})^{-1}\)</span>, what is the expected increase in temperature?</li>
-</ol>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>So we know that <span class="math inline">\((1 - a)\delta = 3.7 W/m^2\)</span>. So according to the equation, we have the fact that <span class="math display">\[
-\delta T_1 = 3.7 \frac{3}{1.9} \approx 1.9^\circ C.
-\]</span> So this is the expected increase in temperature. The range of current model predictions, in fact, is about 1.5 to 4.5 degrees so this is not bad.</p>
+<p>It is a good idea to check that all the above units make sense and the right hand-sides return the expected unit of energy.</p>
 </div>
 </div>
 </section>
-<section id="q2.-a-van-der-pol-equation" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="q2.-a-van-der-pol-equation">Q2. A van der Pol equation</h2>
-<ol type="a">
-<li>Determine <span class="math inline">\(f(x)\)</span> so that this equation can be written as a Liénard phase plane system in the form <span class="math display">\[
-\begin{align}
-\epsilon \dot{x} &amp;= f(x) + 4y, \\
-\dot{y} &amp;= -x.
-\end{align}
+<section id="heating-and-cooling" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="heating-and-cooling"><span class="header-section-number">7.2</span> Heating and cooling</h2>
+<p>We would like to develop estimates of energy usage in heating and cooling.</p>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Energy in a hot bath
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To compute the heat energy in taking a hot bath, we take the specific heat capacity of water, <span class="math inline">\(\tilde{c} = 4200 \, \mathrm{J}/(\mathrm{L} \, ^{\circ}\mathrm{C})\)</span>. This multiplies the volume of a bath (50 cm x 15 cm x 150 cm), and the temperature of water minus the temperature of ambient water, estimated at <span class="math inline">\(40^\circ\mathrm{C}\)</span>. This gives <span class="math display">\[
+E_\mathrm{hot bath} \approx (4200 \times 110 \times 40) \mathrm{J} \approx 18 \, \mathrm{MJ} \approx 5 \, \mathrm{kWh}.
+\]</span></p>
+<p><strong>After lecture note</strong>: MacKay works with a slightly different convention and writes the specific heat capacity in per L quantities. He also writes his volume in litres. I will show how this is worked out in our typical process.</p>
+<ol type="1">
+<li>density of water is 10^3 kg/m^3</li>
+<li>volume of the bath is 0.1125 m^3</li>
+<li>specific heat is 4.2 x 10^3 J/(kg C) [note K and C convert in one-to-one fashion]</li>
+<li>the weight of water is then 0.1125*10^3 kg or 112.5kg</li>
+<li>converting from litres to water weight is 1L = 1kg; so this is where he pulls 110L from.</li>
+<li>Using our formula, it works out to be the same: <span class="math display">\[
+E_\mathrm{heat} = \rho c V T = 112.5 \cdot 4.2 \times 10^3 \cdot 40^\circ \mathrm{J} = 1.89 \times 10^7 \mathrm{J}.
 \]</span></li>
 </ol>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+</div>
+</div>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Solution
+Energy in appliances
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\(f(x) = -x^3 + 9x + 3 x^2\)</span>.</p>
-</div>
-</div>
-<ol start="2" type="a">
-<li>For fixed <span class="math inline">\(\epsilon &gt; 0\)</span>, find the equilibrium point(s) in the phase plane, find their eigenvalues, and classify their linear stability.</li>
-</ol>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The only equilibrium point is <span class="math inline">\((x_*, y_*) = (0,0)\)</span>. The eigenvalues from its linear stability are <span class="math inline">\(\lambda = (9 \pm \sqrt{81 - 16\epsilon}/(2\epsilon) &gt; 0\)</span>, so the point is an unstable node.</p>
-</div>
-</div>
-<ol start="3" type="a">
-<li>Use the expansions <span class="math inline">\(x(t) = x_0(t) + \epsilon x_1(t) + O(\epsilon^2)\)</span> to determine the equations for the leading-order slow solution. Sketch the slow manifold, indicate the directions motion on each part, and identify the two attracting points on the curve.</li>
-</ol>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The slow manifold is <span class="math inline">\(y_0(x_0) = (x_0^3 - 3 x_0^2 - 9 x_0)/4\)</span>.</p>
-</div>
-</div>
-<ol start="4" type="a">
-<li><p>Use the expansions <span class="math inline">\(x(t) = X_0(T) + \epsilon X_1(T) + O(\epsilon^2)\)</span> and <span class="math inline">\(y(t) = Y_0(T) + \epsilon Y_1(T) + O(\epsilon^2)\)</span> with <span class="math inline">\(T = t/\epsilon\)</span> to obtain the leading-order fast solution.</p></li>
-<li><p>Use the phase plane to determine the maximum and minimum values of <span class="math inline">\(x(t)\)</span> during an oscillation. Sketch <span class="math inline">\(x(t)\)</span> as a function of time.</p></li>
-</ol>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The slow manifold has local extrema at <span class="math inline">\((-1, 5/4)\)</span> and <span class="math inline">\((3, 27/4)\)</span>. In the fast evolution stages, <span class="math inline">\(y\)</span> is constant and <span class="math inline">\(x\)</span> evolves from one extrema value to the other on the slow manifold, satisfying <span class="math inline">\(y = S(x)\)</span>.</p>
-<p>Here is a plot of the key points.</p>
-<p><img src="img/2023-04-18-08-35-23.png" class="img-fluid"></p>
-</div>
-</div>
-<ol start="6" type="a">
-<li>Using the time required for the slow motions in part c (neglecting the short times for the fast solutions in part d), determine the leading-order estimate for the period <span class="math inline">\(P\)</span> of oscillation for the limit cycle.</li>
-</ol>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In essence, we approximate the period only using the time during the slow phases. Begin from the slow manifold, <span class="math display">\[
-y = S(x)
-\]</span> and remembering that both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are functions of time, we differentiate in <span class="math inline">\(t\)</span>. This gives (we drop the subscripts of zero): <span class="math display">\[
-4\dot{y} = \dot{x}(3 x^2 - 6x - 9).
-\]</span> From the second equation, we know <span class="math inline">\(\dot{y} \sim -x\)</span>. Inserting and solving now yields <span class="math display">\[
-\dot{x} = g(x) \equiv - \frac{4x}{4x^2 - 6x - 9}.
-\]</span> This is effectively a single differential equation for <span class="math inline">\(x = x(t)\)</span>.</p>
-<p>Now we can solve for time by separating and integrating. We get <span class="math display">\[
-t = \int^x \frac{dx'}{g(x')}
+<p>For example, consider a kettle with a voltage of <span class="math inline">\(V = 230V\)</span> and a max amperage of <span class="math inline">\(I = 13A\)</span>. Voltage measures the potential difference of electricity, and amperage measures the current. If you multiply the two together, <span class="math inline">\(VI = P\)</span>, you get power, <span class="math inline">\(P\)</span>. So this kettle has power <span class="math inline">\(P = 3\mathrm{kW}\)</span>.</p>
+<p>To estimate usage, we must estimate how often the kettle is used and for how long. Considering 20 minutes per household of two people, this then requires <span class="math display">\[
+E_\mathrm{kettle} \approx (3 \mathrm{kW}) \times \left(20 \, \mathrm{min} \times \frac{\mathrm{hrs}}{60\mathrm{min}}\right) = 1 \mathrm{kWh}.
 \]</span></p>
-<p>Therefore, to estimate the time spent during different phases, we only need to substitute in initial and final values of <span class="math inline">\(x\)</span> in the above integral and integrate. The first slow phase starts at <span class="math inline">\(x = 5\)</span> and ends at <span class="math inline">\(x = 3\)</span>. Thus <span class="math display">\[
-T_1 = \frac{1}{4} \int_{5}^3 \left(\frac{9}{x} + 6 - 3x\right) dx = 3 + \frac{9}{4}\log(3/5).
-\]</span> The second slow phase starts at <span class="math inline">\(x = -3\)</span> and ends at <span class="math inline">\(x = -1\)</span>. Thus <span class="math display">\[
-T_2 = \frac{1}{4} \int_{-3}^-1 \left(\frac{9}{x} + 6 - 3x\right) dx = 6 - \frac{9}{4}\log(3).
-\]</span> Adding the two gives that the period is approximately <span class="math inline">\(P \sim 9 - (9/4) \log 5 \approx 5.38\)</span>.</p>
+<p>You may also be interested in MacKay’s estimates for microwave ovens (0.5 kWh/day), regular ovens (1.5 kWh/day), and clothes washers (1 kWh/day).</p>
 </div>
 </div>
+<p>Following <span class="citation" data-cites="mackay_book">(<a href="../references.html#ref-mackay_book" role="doc-biblioref">MacKay 2009</a>)</span>, you can also follow similar estimates of using space heaters, refrigerators, and air conditioners.</p>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hot air and cooling
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Mackay develops the following estimates of energy usage (per day per person). Considering space heaters run during the colder months, he develops</p>
+<p><span class="math display">\[
+E_\text{hot air} \approx 24\,\text{kWh}.
+\]</span> while considering the refrigerator and air condition usage, he approximates <span class="math display">\[
+E_\text{heat + cooling} \approx 1.5 \, \mathrm{kWh}.
+\]</span></p>
+</div>
+</div>
+<p>Note that the above estimates are for average domestic consumption, and hence this does not include the significant energy usages of the service and workplace industries. The total estimate from this chapter is as follows.</p>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Total heating and cooling estimate
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>MacKay estimates (p.&nbsp;53) that the total energy one (domestic) person spends on heating and cooling, including home, workplace, and cooking, is 37 kWh per day per person (12 for hot water, 24 for hot air, and 1 for cooling). He notes that this seems to be close to the typical figures quoted (45 kWh/d per person) if you make use of some national tables (and some liberties—like using the University of Cambridge’s energy estimates).</p>
+</div>
+</div>
+</section>
+<section id="energy-usage-of-stuff" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="energy-usage-of-stuff"><span class="header-section-number">7.3</span> Energy usage of stuff</h2>
+<p>A significant amount of energy is expended on:</p>
+<ol type="1">
+<li>production of raw materials</li>
+<li>production on stuff and transportation of such</li>
+<li>use of stuff</li>
+<li>disposal and recycling of stuff</li>
+</ol>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Energy usage in a soda addict
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider someone who has a coca-cola addiction and drinks five cans of coke a day. What is their energy usage in this regard? On the assumption that the raw aluminium material phase dominates (production of metals is intensive), MacKay notes that one can needs about 0.6kWh of energy. Thus <span class="math display">\[
+E_\text{coke} \approx 5 \times 0.6 \, \mathrm{kWh} = 3 \, \mathrm{kWh}
+\]</span> as the per day per person figure.</p>
+</div>
+</div>
+</section>
+<section id="energy-usage-of-transportation" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="energy-usage-of-transportation"><span class="header-section-number">7.4</span> Energy usage of transportation</h2>
+<section id="sec-carshort" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="sec-carshort"><span class="header-section-number">7.4.1</span> Cars</h3>
+<p>MacKay uses some interesting back-of-the-envelope estimates here. First <span class="math display">\[
+\text{energy per day} = \frac{\text{distance travelled per day}}{\text{distance over unit of fuel}} \times \text{energy per unit of fuel}.
+\]</span></p>
+<p>We take about 50km travelled per day, and a typical family car is quoted as 12 km/L.</p>
+<p>In order to estimate the energy per unit (L) of fuel, MacKay notes that automobile fuel is a hydrocarbon and so we can sensibly use butter as an estimate. A packet of butter informs that it contains a calorific value of about 3000 kJ per 100g. We have that 1 kJ is 1/3600 kWh, so this gives (5/6)*10 ~ 8 kWh per kg. To get energy density in terms of volume, we need to know the density of butter. Water has a density of about 1kg/L (nearly by definition). Since butter floats on water, we might take its density to be 0.9kg/L (this is very close). Together this gives an estimate of about 8*0.9 or 7 kWh/L.</p>
+<p>Looking it up in a random <a href="http://www.blewbury.co.uk/energy/facts.htm">reference</a>, though, gives that petrol has about 10kWh/L.</p>
+<p>Thus altogether, this gives an estimate of <span class="math display">\[
+\text{energy per day} = \frac{50 \mathrm{km}}{12 \mathrm{km/L}} \times 10 \mathrm{kWh/L} \approx 40 \mathrm{kWh/day}
+\]</span> so the equivalent of leaving 40 lightbulbs on for an entire day.</p>
+</section>
+</section>
+<section id="in-depth" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="in-depth"><span class="header-section-number">7.5</span> In-depth</h2>
+<p>MacKay provides a more in-depth calculation for car transport in the Appendix A.</p>
+<p>The energy in a fossil-fuel car goes into four main categories.</p>
+<ol type="1">
+<li>Speeding-up and slowing down using the brakes;</li>
+<li>air resistance;</li>
+<li>rolling resistance;</li>
+<li>heat – about 75% of the energy is thrown away as heat</li>
+</ol>
+<section id="brakes" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="brakes"><span class="header-section-number">7.5.1</span> Brakes</h3>
+<ul>
+<li><p>Assume a car of mass <span class="math inline">\(m_c\)</span> accelerates rapidly to a constant speed, <span class="math inline">\(v\)</span>, and maintains this speed for a distance <span class="math inline">\(d\)</span>, at which point the driver brakes rapidly to a stop.</p></li>
+<li><p>Assume that the kinetic energy is transferred into the brakes. We can estimate <span class="math display">\[
+\text{Power in brakes} = \frac{ \text{kinetic energy}}{ \text{time between braking events}} = \frac{\frac{1}{2}m_c v^2}{(d/v)} = \frac{1}{2} \frac{m_c v^3}{d}.
+\]</span></p></li>
+</ul>
+</section>
+<section id="air-resistance" class="level3" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="air-resistance"><span class="header-section-number">7.5.2</span> Air resistance</h3>
+<p>Drag is the most important aerodynamic force in cars at highway speeds. In order to calculate the exact drag, we would essentially need to integrate forces around the car in a fluid dynamics model. However, drag is usually approximated by the force<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, <span class="math display">\[
+F_d = \frac{1}{2} \rho C_D A_f v^2,
+\]</span> where <span class="math inline">\(\rho\)</span> is the density of air, <span class="math inline">\(A_f\)</span> is the frontal cross-sectional area of the car, and <span class="math inline">\(C_D\)</span> is the drag coefficient, a non-dimensional number that encodes all of the complicated fluid dynamics. Then we know that <span class="math display">\[
+\text{Power in drag} = \frac{ \text{Force . distance}}{ \text{time between braking}} =  \frac{1}{2} \rho C_D A_f v^3.
+\]</span></p>
+</section>
+<section id="ratio-of-brake-power-to-drag-power" class="level3" data-number="7.5.3">
+<h3 data-number="7.5.3" class="anchored" data-anchor-id="ratio-of-brake-power-to-drag-power"><span class="header-section-number">7.5.3</span> Ratio of brake power to drag power</h3>
+<p>Recalling our discussion of non-dimensionalisation, we can form a non-dimensional number representing the ratio of the two above powers:</p>
+<p><span class="math display">\[
+\Pi = \frac{\text{Power in brakes}}{\text{Power in drag}} = \frac{m_c}{d(\rho C_D A_f)}.
+\]</span> Verify that the units are sensible. Note that when <span class="math inline">\(\Pi &gt; 1\)</span>, then braking effects are more dominant, and if <span class="math inline">\(\Pi &lt; 1\)</span>, then drag effects are more dominant. In order to examine the threshold, set <span class="math inline">\(\Pi = 1\)</span> and solve for <span class="math inline">\(d\)</span>, <span class="math display">\[
+d_{\text{crit}} = \frac{m_c}{\rho C_D A_f}.
+\]</span></p>
+<p>We use the following approximations: <span class="math inline">\(m_c = 1000 kg\)</span>, <span class="math inline">\(\rho = 1.3 kg/m^3\)</span>, <span class="math inline">\(C_D = 1/3\)</span>, <span class="math inline">\(A_f = 3 m^2\)</span>. This gives a critical distance of <span class="math display">\[
+d_{ \text{crit}} = 750m.
+\]</span> Therefore, when travelling more than about a 1km, much of your energy expenditure between these two items is largely going into drag, while for less than 1km, more energy is going into your brakes. In order to save energy, you can (i) drive more slowly; (ii) reduce the mass of your car; (iii) get better brakes (regenerative brakes); (iv) reduce your car’s drag coefficient or reduce its cross sectional area.</p>
+</section>
+<section id="rolling-resistance" class="level3" data-number="7.5.4">
+<h3 data-number="7.5.4" class="anchored" data-anchor-id="rolling-resistance"><span class="header-section-number">7.5.4</span> Rolling resistance</h3>
+<p>Rolling resistance involves the energy consumed in the tyres and bearings of the car, the energy going into the noise of the wheels against the ground, the energy of grinding rubber off the tyres, the energy in the wheel vibrating the ground, etc. The standard model assumes that the rolling resistance force is <span class="math display">\[
+F = C_{rr} m_c g,
+\]</span> where car rubber tyres are given in MacKay’s book as having a coefficient <span class="math inline">\(C_{rr} = 0.01\)</span>. Again, we can compare the threshold where rolling resistance is equal to drag via <span class="math display">\[
+C_{rr} m_c g = \frac{1}{2} \rho C_D A_f v^2,
+\]</span> which gives a critical speed of <span class="math display">\[
+v = \sqrt{2 \frac{C_{rr} m_c g}{\rho C_D A_f}} = 7m/s = 16 mi/hr.
+\]</span></p>
+</section>
+<section id="power" class="level3" data-number="7.5.5">
+<h3 data-number="7.5.5" class="anchored" data-anchor-id="power"><span class="header-section-number">7.5.5</span> Power</h3>
+<p>Notice that we can then write the total power as <span class="math display">\[
+P = \sigma \left( \mathcal{A} v + \mathcal{C} v^3\right),
+\]</span> where <span class="math inline">\(\sigma\)</span> is an efficiency parameter that indicates how efficiently chemical energy (petrol) is converted into mechanical energy via the engine and transmission. Much of this is initial energy is ‘lost’ to heat, and MacKay indicates that petrol engines are about 25% efficient. Thus we should set <span class="math inline">\(\sigma = 4\)</span>. Above, note that <span class="math inline">\(\mathcal{A}\)</span> is then associated with the rolling resistance and <span class="math inline">\(\mathcal{C}\)</span> to the drag and braking.</p>
+<p>Previously in <a href="#sec-carshort"><span>Section&nbsp;7.4.1</span></a>, we estimated energy consumption of 80 kWh to drive 100km (note this did not take into account any <em>dynamics</em>, i.e.&nbsp;time); this was a straight approximation based on the energy of petrol.</p>
+<p>From the table below (most figures taken from MacKay but see the footnotes)</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th>Approximation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(m_c\)</span></td>
+<td>1000kg</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(v\)</span></td>
+<td>110km/h = 31 m/s</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(d\)</span></td>
+<td>10km</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\rho\)</span></td>
+<td>1.3 kg/m^3</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(C_D A_f\)</span><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
+<td>0.7 m^2</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(C_{rr}\)</span></td>
+<td>0.01</td>
+</tr>
+</tbody>
+</table>
+<p>We seem to get the following. <span class="math display">\[\begin{align}
+\text{Power}_{\text{brakes}} &amp;\approx 1500 W \approx 1.5 kW \\
+\text{Power}_{\text{air}} &amp;\approx   13,600 W = 13.6 kW  \\
+\text{Power}_{\text{rolling}} &amp;\approx 3000 W = 3 kW.
+\end{align}\]</span></p>
+<p>We see that by far, the biggest contributor at such speeds is the drag. The above numbers should be multiplied by <span class="math inline">\(\sigma = 4\)</span>. If we ignore all other effects and only consider drag, this gives about 54 kW of power. Hence driving for one hour this is 54 kWh, to be compared with our prior estimate of 80 kWh<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+</section>
+<section id="conclusions-and-caveats" class="level3" data-number="7.5.6">
+<h3 data-number="7.5.6" class="anchored" data-anchor-id="conclusions-and-caveats"><span class="header-section-number">7.5.6</span> Conclusions and caveats</h3>
+<p>So there are a few interesting conclusions. One conclusion is nicely summarised by this graph, which you can often see in other references.</p>
+<div id="fig-car-energy" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figures/car_energy.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;7.1: Car fuel consumption (energy per distance) from p.259 of MacKay</figcaption><p></p>
+</figure>
+</div>
+<p>The key, really, is that energy consumption is largely dominated by the cubic term in the power. MacKay, on p.258, compares the relative energetic consumption due to drag of a cyclist versus a car. If we assume their drag-area values are about the same (cyclists are less aerodynamic but occupy less area), a cyclist travelling at 20 km/h versus a car travelling at 100 km/h would have an energy ratio of <span class="math display">\[
+\frac{\text{Energy per distance of bike}}{\text{Energy per distance of car}} \approx \left(\frac{20 }{100}\right)^2 = 0.04,
+\]</span> i.e.&nbsp;4% of the energy consumption of a car.</p>
+<p>There is one interesting caveat that would have been nice to see more discussion, but there is a commentary on p.260 of MacKay. It is conventional knowledge that cars have a ‘sweet spot’ for fuel consumption, which is often quoted as around the range of 40-60mph<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
+<div id="fig-" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figures/car_gearing.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;7.2: Car fuel efficiency versus the approximations developed above</figcaption><p></p>
+</figure>
+</div>
+<p>It seems unclear how the above alternative shape is modeled via the back-of-the-envelope estimates. For instance, can be be modeled by considering an efficiency, <span class="math inline">\(\sigma = \sigma(v)\)</span>, the depends on speed?</p>
+</section>
+</section>
+<section id="references" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="references"><span class="header-section-number">7.6</span> References</h2>
+<p><a href="http://www.thecartech.com/subjects/auto_eng/road_loads.htm">A good reference on the so-called road load equation</a></p>
 
-<!--
-## Q3. Fast-slow dynamics with three variables {.unnumbered}
 
-Consider the limit of $\epsilon \ll 1$ for each of the following cases. 
-
-a. For the system 
-$$
-\begin{aligned}[c]
-\dot{x} &= 2 - y, \\
-\dot{y} &= x-z, \\
-\epsilon\dot{z} &= y - y^2 + \frac{1}{3}y^3 - z, 
-\end{aligned}
-$$ 
-with the initial conditions of $x(0) = 1$, $y(0) = 3$, and $z(0) = 0$. 
-
-Identify the surface $z = S(x, y)$ that defines the slow manifold. Find the equilibrium point of the leading=order slow phase plane system and show that it is asymptotically stable for $t \to \infty$. Also determine the form of the initial layer that describes the transition from the initial conditions to the slow manifold.
-
-a. For the system 
-$$
-\begin{aligned}[c]
-\dot{x} &= 2 - y, \\
-\epsilon\dot{y} &= x-z, \\
-\dot{z} &= y - y^2 + \frac{1}{3}y^3 - z, 
-\end{aligned}
-$$ 
-with the initial conditions of $x(0) = 0$, $y(0) = 3$, and $z(0) = 1$. 
-
-Show that the slow manifold reduces to a curve that could be written in parametric form as $x = x(z), y = y(z), z = z$. Determine the asymptotic solution for $t \to \infty$. Also determine the form of the initial layer that describes the transition from initial conditions to the slow manifold.
-
--->
-<!--
-1. Derive the advection-diffusion equation
-
-2. Wine problem?
-
-
-1. Develop asymptotic approximations of the steady state temperatures (three roots) in the limits of large and small $k$ in @eq-albedokaper.
- 
- This problem set is on Stommel's box model and Zonal energy budget
-
-
-* Verify the calculation of $A$, $D$, and $T$ in the stability calculation.
-* Study the phase plane classification in order to classify the fixed points
-* Implement a Newton-solving routine to study the bifurcation behaviour
-* Implement an arclength continuation routine to study the bifurcation behavour
-* Use perturbation theory in order to reduce the analysis
--->
-
-
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-mackay_book" class="csl-entry" role="doc-biblioentry">
+MacKay, D. J. C. 2009. <em>Sustainable Energy – Without the Hot Air</em>. UIT Cambridge Ltd.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>This seems to be a simpler explanation than what is written in his textbook<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>The figures on p.256 on MacKay are ambiguous, the second table A.7 seems to be <span class="math inline">\(C_D A\)</span> values. There are many references of this sort online like <a href="http://www.mayfco.com/dragcd~1.htm">here</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>MacKay gets a larger figure of 80 kW on p.256, but this is because of his use of a drag $C_D A_f = 1m^2<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>See the discussion <a href="https://physics.stackexchange.com/questions/12874/why-is-55-60-mph-optimal-for-gas-mileage-of-a-passenger-car">here</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -817,13 +916,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part-xx-exercises/ps04sol.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Problem set 4 solutions</span></span>
+      <a href="../part-02-energy/mackay-units.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Units and physics</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-05-techniques/part-techniques.html" class="pagination-link">
-        <span class="nav-page-text">Appendices</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-05-techniques/techniques.html" class="pagination-link">
+        <span class="nav-page-text">Practical applied mathematics</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
