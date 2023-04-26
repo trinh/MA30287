@@ -517,7 +517,7 @@ div.csl-indent {
 
 </header>
 
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -527,10 +527,11 @@ div.csl-indent {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.</p>
+<p>Covered in lecture 29-30.</p>
 </div>
 </div>
-<p>In his work <span class="citation" data-cites="stommel1961thermohaline">(<a href="../references.html#ref-stommel1961thermohaline" role="doc-biblioref">Stommel 1961</a>)</span> did not account for evaporation or precipitation, so there is no virtual salt flux, <span class="math inline">\(H = 0\)</span>, but each box does exchange salinity with its surrounding environment, so <span class="math inline">\(d &gt; 0\)</span>. The set of four differential equations presented in <a href="basic-ocean-model.html"><span>Chapter&nbsp;25</span></a> (<a href="basic-ocean-model.html#eq-2box">Equation&nbsp;<span>25.5</span></a>) can be reduced two coupled differental equations for the mean temperature and salinity <span id="eq-stommelpre"><span class="math display">\[
+<p>In addition to the model studied in <a href="basic-ocean-model.html#sec-ocean-toysalinity"><span>Section&nbsp;25.7</span></a>, there is another kind of reduced model that is examined in this chapter.</p>
+<p>In his work <span class="citation" data-cites="stommel1961thermohaline">(<a href="../references.html#ref-stommel1961thermohaline" role="doc-biblioref">Stommel 1961</a>)</span> did not account for evaporation or precipitation, so there is no virtual salt flux, <span class="math inline">\(H = 0\)</span>, but each box does exchange salinity with its surrounding environment, so <span class="math inline">\(d &gt; 0\)</span>. The set of four differential equations presented in <a href="basic-ocean-model.html"><span>Chapter&nbsp;25</span></a> (<a href="basic-ocean-model.html#eq-2box-again">Equation&nbsp;<span>25.6</span></a>) can be reduced two coupled differential equations for the mean temperature and salinity. We notice that if we subtract the pairs of equations, then we can write <span id="eq-stommelpre"><span class="math display">\[
 \begin{align}
 \frac{\mathrm{d}\Delta T}{\mathrm{d}t} = c(\Delta T^* - \Delta T) - 2|q|\Delta T, \\
 \frac{\mathrm{d}\Delta S}{\mathrm{d}t} = c(\Delta S^* - \Delta S) - 2|q|\Delta S,
@@ -583,7 +584,7 @@ R &amp;= \beta \Delta S^*/(\alpha \Delta T^*).
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"$\phi$"</span>)</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>&lt;matplotlib.legend.Legend at 0x111bbf550&gt;</code></pre>
+<pre><code>&lt;matplotlib.legend.Legend at 0x115c63f50&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="stommel_files/figure-html/cell-2-output-2.png" width="602" height="434"></p>
@@ -614,7 +615,7 @@ T &amp;= -(1 + \delta + 3 |f^*|), \\
 D &amp;= (\delta + 2|f^*|)(1 + |f^*|) \pm (1 - \delta) \frac{y^*}{\lambda}.
 \end{align}
 \]</span> Using the above, we can analytically calculate the key discriminant expression of <span class="math inline">\(T^2 - 4D\)</span> (or numerically) in order to verify stability.</p>
-<p>In lectures and in your assignments, you will be asked to verify the stability and phase-plane analyses. As an example test point, try <span class="math inline">\(R = 2\)</span>, <span class="math inline">\(\delta = 1/6\)</span>, and <span class="math inline">\(\lambda = 1/5\)</span>.</p>
+<p>Using additional numerical and analytical analysis, you can verify the stability and phase-plane analyses. As an example test point, try <span class="math inline">\(R = 2\)</span>, <span class="math inline">\(\delta = 1/6\)</span>, and <span class="math inline">\(\lambda = 1/5\)</span>.</p>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
