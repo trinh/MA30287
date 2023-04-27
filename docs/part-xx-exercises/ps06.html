@@ -389,7 +389,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
+  <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Dynamical systems</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
   </div>
 </li>
       </ul>
@@ -409,6 +414,9 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#q1.-non-dimensionalisation-of-the-ocean-model" id="toc-q1.-non-dimensionalisation-of-the-ocean-model" class="nav-link active" data-scroll-target="#q1.-non-dimensionalisation-of-the-ocean-model">Q1. Non-dimensionalisation of the ocean model</a></li>
+  <li><a href="#q2.-steady-states-of-the-reduced-model" id="toc-q2.-steady-states-of-the-reduced-model" class="nav-link" data-scroll-target="#q2.-steady-states-of-the-reduced-model">Q2. Steady states of the reduced model</a></li>
+  <li><a href="#q3.-bifurcation-diagram-for-the-reduced-ocean-model" id="toc-q3.-bifurcation-diagram-for-the-reduced-ocean-model" class="nav-link" data-scroll-target="#q3.-bifurcation-diagram-for-the-reduced-ocean-model">Q3. Bifurcation diagram for the reduced ocean model</a></li>
+  <li><a href="#q4.-non-dimensionalisation-of-the-stommel-box-model" id="toc-q4.-non-dimensionalisation-of-the-stommel-box-model" class="nav-link" data-scroll-target="#q4.-non-dimensionalisation-of-the-stommel-box-model">Q4. Non-dimensionalisation of the Stommel box model</a></li>
   </ul>
 </nav>
     </div>
@@ -450,10 +458,33 @@ ul.task-list li input[type="checkbox"] {
 <p>Take the ocean model from (<a href="../part-03-box/basic-ocean-model.html#eq-ocean-final-dimensional">Equation&nbsp;<span>25.7</span></a>). Re-scale the salinity and time via <span class="math display">\[
 \Delta S = [\Delta S]x \quad \text{and} \quad
 t = [t]t'.
-\]</span> By choosing appropriate scales, show that the equation can be reduced to the form <span class="math display">\[
+\]</span> By choosing appropriate scales, show that the equation can be reduced to the form <span id="eq-ps6-xeqn"><span class="math display">\[
 \dot{x} = \lambda - |1 - x|x
-\]</span> for the parameter <span class="math inline">\(\lambda\)</span> which you should define. Note that the above quantity <span class="math inline">\(\dot{x}\)</span> refers to differentiation in <span class="math inline">\(t'\)</span>.</p>
+\tag{34.1}\]</span></span> for the parameter <span class="math inline">\(\lambda\)</span> which you should define. Note that the above quantity <span class="math inline">\(\dot{x}\)</span> refers to differentiation in <span class="math inline">\(t'\)</span>.</p>
 <p>Provide an intuitive interpretation of the parameter <span class="math inline">\(\lambda\)</span>.</p>
+</section>
+<section id="q2.-steady-states-of-the-reduced-model" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q2.-steady-states-of-the-reduced-model">Q2. Steady states of the reduced model</h2>
+<p>Consider now the reduced model (<a href="#eq-ps6-xeqn">Equation&nbsp;<span>34.1</span></a>) and solve for the steady-state solutions (or equilibrium solutions). Assume that <span class="math inline">\(\lambda &gt; 0\)</span> and consider the two cases of <span class="math inline">\(1 - x \geq 0\)</span> and <span class="math inline">\(1 - x &lt; 0\)</span>. Show that there are up to three steady states given by <span class="math display">\[
+\begin{align}
+x_1^* &amp;= \frac{1}{2}(1 + \sqrt{1 + 4 \lambda}, \\
+x_{2,3}^* &amp;= \frac{1}{2}(1 \pm \sqrt{1 - 4\lambda},
+\end{align}
+\]</span> and derive conditions for each point to exist.</p>
+<p>Next, set <span class="math inline">\(x = x^* + y\)</span> where <span class="math inline">\(x^*\)</span> is one of the three possible steady-state solutions. Show that the perturbation is governed by <span class="math display">\[
+\dot{y} = \pm (2x^* - 1)y, \qquad x^* \lessgtr 1.
+\]</span> Conclude that <span class="math inline">\(x_1^*\)</span> is stable, <span class="math inline">\(x_2^*\)</span> is unstable, and <span class="math inline">\(x_3^*\)</span> is stable.</p>
+</section>
+<section id="q3.-bifurcation-diagram-for-the-reduced-ocean-model" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q3.-bifurcation-diagram-for-the-reduced-ocean-model">Q3. Bifurcation diagram for the reduced ocean model</h2>
+<p>Based on your work in Q2, plot a bifurcation diagram in the <span class="math inline">\((\lambda, x^*)\)</span>-plane. Use solid and dashed curves to indicate stability.</p>
+<p>Does the bifurcation diagram indicate the possibility of tipping points and hysteresis? By considering the interpretation of <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(x^*\)</span>, discuss the physical consequences of such behaviour as it relates to the Ocean model.</p>
+<p>How does this bifurcation diagram compare to the typical bifurcation diagrams studied in the Energy Balance module, such as the one studied in <a href="../part-03-box/latitude4.html"><span>Chapter&nbsp;20</span></a> ?</p>
+</section>
+<section id="q4.-non-dimensionalisation-of-the-stommel-box-model" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q4.-non-dimensionalisation-of-the-stommel-box-model">Q4. Non-dimensionalisation of the Stommel box model</h2>
+<p>Consider the Stommel box model given in (<a href="../part-03-box/stommel.html#eq-stommelpre">Equation&nbsp;<span>26.1</span></a>). Non-dimensionalise the model in order to produce the set of equations given in (<a href="../part-03-box/stommel.html#eq-stommelsys">Equation&nbsp;<span>26.2</span></a>).</p>
+<p>Provide a brief description of the physical interpretations of the parameters <span class="math inline">\(\lambda\)</span>,<span class="math inline">\(\delta\)</span>, and <span class="math inline">\(R\)</span>.</p>
 
 
 </section>

@@ -471,7 +471,12 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
+  <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Dynamical systems</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
   </div>
 </li>
       </ul>
@@ -494,6 +499,7 @@ div.csl-indent {
   <li><a href="#equilibrium-states" id="toc-equilibrium-states" class="nav-link" data-scroll-target="#equilibrium-states"><span class="toc-section-number">26.2</span>  Equilibrium states</a></li>
   <li><a href="#stability" id="toc-stability" class="nav-link" data-scroll-target="#stability"><span class="toc-section-number">26.3</span>  Stability</a></li>
   <li><a href="#bifurcation-diagrams" id="toc-bifurcation-diagrams" class="nav-link" data-scroll-target="#bifurcation-diagrams"><span class="toc-section-number">26.4</span>  Bifurcation diagrams</a></li>
+  <li><a href="#stommels-conclusion" id="toc-stommels-conclusion" class="nav-link" data-scroll-target="#stommels-conclusion"><span class="toc-section-number">26.5</span>  Stommel’s conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -562,35 +568,63 @@ f(x, y; R, \lambda) = \frac{1}{\lambda}(Rx - y),
 R &amp;= \beta \Delta S^*/(\alpha \Delta T^*).
 \end{align}
 \]</span> Together <a href="#eq-stommelsys">Equation&nbsp;<span>26.2</span></a> and <a href="#eq-stommelf">Equation&nbsp;<span>26.3</span></a> form a system of equations for <span class="math inline">\((x(t), y(t))\)</span>, with parameters <span class="math inline">\(\delta\)</span>, <span class="math inline">\(\lambda\)</span>, and <span class="math inline">\(R\)</span>.</p>
+<p>Although there are many parameters, it is important to note that the quantity <span class="math inline">\(f\)</span> is crucial since it corresponds to the direction of flow in the bottom pipe of the Ocean model. By convention, the system was set up so that <span class="math inline">\(f &gt; 0\)</span> corresponds to flow through the bottom pipe goes in the direction of the equator (Box 1) as a result of higher densities at the high latitudes. We are subsequently interested in whether it is possible for <span class="math inline">\(f\)</span> to switch sign, which would correspond to a bottom flow going from equator to poles, and the entire system switching direction.</p>
 </section>
 <section id="equilibrium-states" class="level2" data-number="26.2">
 <h2 data-number="26.2" class="anchored" data-anchor-id="equilibrium-states"><span class="header-section-number">26.2</span> Equilibrium states</h2>
+<p>Let the equilibrium states be given by <span class="math inline">\((x^*, y^*)\)</span> with <span class="math inline">\(f(x^*, y^*) = f^*\)</span>. Then setting the right hand sides of (<a href="#eq-stommelsys">Equation&nbsp;<span>26.2</span></a>) to zero and solving, we find <span id="eq-stommel-xsys"><span class="math display">\[
+x^* = \frac{\delta}{\delta + |f^*|} \quad \text{and} \quad
+y^* = \frac{1}{1 + |f^*|}.
+\tag{26.4}\]</span></span> We can solve for <span class="math inline">\(f^*\)</span> in both equations and equate the result to one another. This gives <span class="math display">\[
+\delta \frac{1-x^*}{x^*} = \frac{1 - y^*}{y^*} = |f^*|.
+\]</span> Therefore the equilibrium points lie along the above curve. Let us generate different values of <span class="math inline">\(f^*\)</span> and plot the combination.</p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.optimize <span class="im">as</span> sciopt</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> phi(f, delt, R):</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    phi <span class="op">=</span> delt<span class="op">*</span>R<span class="op">/</span>(delt <span class="op">+</span> np.<span class="bu">abs</span>(f)) <span class="op">-</span> <span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.<span class="bu">abs</span>(f))</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> phi</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>fmat <span class="op">=</span> np.linspace(<span class="op">-</span><span class="fl">2.5</span>, <span class="fl">2.5</span>, <span class="dv">101</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.plot(fmat, phi(fmat, <span class="dv">1</span>, <span class="dv">2</span>), <span class="st">'k--'</span>, label<span class="op">=</span><span class="st">'$\lambda = 1$, $R = 2$'</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.plot(fmat, phi(fmat, <span class="dv">1</span><span class="op">/</span><span class="dv">6</span>, <span class="dv">2</span>), <span class="st">'k'</span>, label<span class="op">=</span><span class="st">'$\lambda = 1/6$, $R = 2$'</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.plot(fmat, fmat, <span class="st">'b--'</span>, label<span class="op">=</span><span class="st">'$\lambda = 1$'</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>plt.plot(fmat, <span class="dv">1</span><span class="op">/</span><span class="dv">6</span><span class="op">*</span>fmat, <span class="st">'b'</span>, label<span class="op">=</span><span class="st">'$\lambda = 1/6$'</span> )</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.ylim((<span class="op">-</span><span class="fl">1.5</span>,<span class="dv">2</span>))</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"$f$"</span>)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"$\phi$"</span>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>&lt;matplotlib.legend.Legend at 0x115c63f50&gt;</code></pre>
-</div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>delt <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="dv">6</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>fmat <span class="op">=</span> np.linspace(<span class="fl">1e-3</span>, <span class="dv">10</span>, <span class="dv">101</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> delt<span class="op">/</span>(delt <span class="op">+</span> np.<span class="bu">abs</span>(fmat))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>ys <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.<span class="bu">abs</span>(fmat))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>plt.plot(xs, ys, <span class="st">'.-'</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>plt.xlim((<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.ylim((<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"$x^*$"</span>)<span class="op">;</span> plt.ylabel(<span class="st">"$y^*$"</span>)<span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="stommel_files/figure-html/cell-2-output-2.png" width="602" height="434"></p>
+<p><img src="stommel_files/figure-html/cell-2-output-1.png" width="604" height="436"></p>
 </div>
 </div>
-<p>Above, we can see that dependent on the parameter values, there may be one or three possible equilibrum states.</p>
+<p>The above shows the steady-state values at <span class="math inline">\(\delta = 1/6\)</span>. Each point refers to a different value of <span class="math inline">\(|f^*|\)</span>. Note that as <span class="math inline">\(|f^*| \to \infty\)</span>, then <span class="math inline">\((x^*, y^*) \to (0, 0)\)</span> while as <span class="math inline">\(|f^*| \to 0\)</span>, then <span class="math inline">\((x^*, y^*) \to (1,1)\)</span>.</p>
+<p>Now the above does not tell us what equilibrium states will exist at a specific value of <span class="math inline">\(\delta\)</span> since it requires information about <span class="math inline">\(f^*\)</span>. We take (<a href="#eq-stommelf">Equation&nbsp;<span>26.3</span></a>) and combine with (<a href="#eq-stommel-xsys">Equation&nbsp;<span>26.4</span></a>). We conclude that the equilibrium points must satisfy <span class="math display">\[
+\lambda f^* = \phi(f^*),
+\]</span> where we have defined the function <span class="math inline">\(\phi\)</span> according to <span class="math display">\[
+\phi(f^*) = \frac{\delta R}{\delta + |f^*|} - \frac{1}{1 + |f^*|}.
+\]</span> Therefore, for each combination of the parameters <span class="math inline">\((\lambda, \delta, R)\)</span>, we must solve <span class="math inline">\(\delta f^* = \phi(f^*)\)</span> to determine <span class="math inline">\(f^*\)</span>. Once the values of <span class="math inline">\(f^*\)</span> are known, then the steady-states <span class="math inline">\((x^*, y^*)\)</span> are also known. Here is a typical graph showing the potential intersections at the values of <span class="math inline">\(\lambda = 1/5\)</span>, <span class="math inline">\(\delta = 1/6\)</span> and <span class="math inline">\(R = 2\)</span>.</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.optimize <span class="im">as</span> sciopt</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>lam <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="dv">5</span><span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>delt <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="dv">6</span><span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> np.linspace(<span class="op">-</span><span class="fl">2.5</span>, <span class="fl">2.5</span>, <span class="dv">101</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>phi <span class="op">=</span> delt<span class="op">*</span>R<span class="op">/</span>(delt <span class="op">+</span> np.<span class="bu">abs</span>(f)) <span class="op">-</span> <span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.<span class="bu">abs</span>(f))</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.plot(f, phi, <span class="st">'k'</span>, label<span class="op">=</span><span class="st">'$\phi$'</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>plt.plot(f, lam<span class="op">*</span>f, <span class="st">'b'</span>, label<span class="op">=</span><span class="st">'$\lambda f$'</span> )</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>plt.ylim((<span class="op">-</span><span class="fl">1.5</span>,<span class="dv">2</span>))</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"$f$"</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"$\phi$"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="stommel_files/figure-html/cell-3-output-1.png" width="602" height="434"></p>
+</div>
+</div>
+<p>Although there are many parameters that can alter the shape of the overall graphs, note that if <span class="math inline">\(\lambda\)</span> is increased from its current value of <span class="math inline">\(\lambda = 1/6\)</span>, then two of the left roots will disappear, leaving only a single root.</p>
 </section>
 <section id="stability" class="level2" data-number="26.3">
 <h2 data-number="26.3" class="anchored" data-anchor-id="stability"><span class="header-section-number">26.3</span> Stability</h2>
@@ -609,35 +643,52 @@ A =
 \mp \frac{Ry^*}{\lambda} &amp; -(1 + |f^*|) \pm \frac{y^*}{\lambda}
 \end{pmatrix}
 \]</span> if <span class="math inline">\(f^* \gtrless 0\)</span>.</p>
-<p>We can then calculate the trace and determinant, giving <span class="math display">\[
+<p>There are two ways or proceeding. We can numerically substitute the fixed points into the above matrix for <span class="math inline">\(A\)</span> and then calculate the eigenvalues (numerically or otherwise). Or we can directly proceed analytically.</p>
+<p>If proceeding analytically, we can then calculate the trace and determinant, giving <span class="math display">\[
 \begin{align}
 T &amp;= -(1 + \delta + 3 |f^*|), \\
 D &amp;= (\delta + 2|f^*|)(1 + |f^*|) \pm (1 - \delta) \frac{y^*}{\lambda}.
 \end{align}
-\]</span> Using the above, we can analytically calculate the key discriminant expression of <span class="math inline">\(T^2 - 4D\)</span> (or numerically) in order to verify stability.</p>
-<p>Using additional numerical and analytical analysis, you can verify the stability and phase-plane analyses. As an example test point, try <span class="math inline">\(R = 2\)</span>, <span class="math inline">\(\delta = 1/6\)</span>, and <span class="math inline">\(\lambda = 1/5\)</span>.</p>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>delt <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="dv">6</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>lam <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="dv">5</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>xx, yy <span class="op">=</span> np.meshgrid(np.arange(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.05</span>), np.arange(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.05</span>))</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> (R<span class="op">*</span>xx<span class="op">-</span>yy)<span class="op">/</span>lam</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>xdot <span class="op">=</span> delt<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span> xx)<span class="op">-</span> np.<span class="bu">abs</span>(f)<span class="op">*</span>xx</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>ydot <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> yy <span class="op">-</span> np.<span class="bu">abs</span>(f)<span class="op">*</span>yy</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>plt.streamplot(xx,yy,xdot,ydot, density<span class="op">=</span><span class="dv">2</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="stommel_files/figure-html/cell-3-output-1.png" width="571" height="411"></p>
-</div>
+\]</span> Using the above, we can analytically calculate the key discriminant expression of <span class="math inline">\(T^2 - 4D\)</span> (or numerically) in order to verify stability. The details of the classification scheme is given in the appendix <a href="../part-05-techniques/dynamical-systems.html"><span>Chapter&nbsp;42</span></a>.</p>
+<p>For our purposes, we will mainly proceed using numerics, and bypass the need to study the above results analytically.</p>
+<p><a href="https://maths.jupyterhub.bath.ac.uk/hub/user-redirect/lab/tree/courses/MA30287/notebooks/lecture29-StommelPhasePlane.ipynb">In the accompanying lecture script</a>, we will obtain the eigenvalues numerically, and generate the phase plane. At the test point <span class="math inline">\(R = 2\)</span>, <span class="math inline">\(\delta = 1/6\)</span>, and <span class="math inline">\(\lambda = 1/5\)</span>, we generate the following phase plane picture.</p>
+<div id="fig-stommel-phase" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/2023-04-27-11-17-43.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;26.1: Phase plane for <span class="math inline">\(R = 2\)</span>, <span class="math inline">\(\lambda = 1/5\)</span> and <span class="math inline">\(\delta = 1/6\)</span>. The blue, red, and green fixed points correspond to <span class="math inline">\(f_1\)</span>, <span class="math inline">\(f_2\)</span>, and <span class="math inline">\(f_3\)</span> in order. The blue point is a stable node, the red point is an unstable saddle, and the green point is a stable spiral.</figcaption><p></p>
+</figure>
 </div>
 </section>
 <section id="bifurcation-diagrams" class="level2" data-number="26.4">
 <h2 data-number="26.4" class="anchored" data-anchor-id="bifurcation-diagrams"><span class="header-section-number">26.4</span> Bifurcation diagrams</h2>
-<p>You will study the generation of the bifurcation diagrams, e.g.&nbsp;<span class="math inline">\(\lambda\)</span> vs.&nbsp;<span class="math inline">\(f^*\)</span>. This will be done using techniques in numerical continuation.</p>
+<p>Once the above stability analysis, it is possible to sketch the final bifurcation diagram. During the lecture, we will study the bifurcation diagram in <span class="math inline">\((\lambda, f^*)\)</span>. An image will appear below once this is done.</p>
+</section>
+<section id="stommels-conclusion" class="level2" data-number="26.5">
+<h2 data-number="26.5" class="anchored" data-anchor-id="stommels-conclusion"><span class="header-section-number">26.5</span> Stommel’s conclusion</h2>
+<p>So what is the final takeaway message(s)?</p>
+<ol type="1">
+<li><p>It is possible to pose a conceptual model of the ocean and the thermohaline circulation, which governs the exchange of hot-and-cold waters and salty waters from equatorial-to-pole zones.</p></li>
+<li><p>This conceptual model suggests that tipping points and hysteresis is possible in such systems. In particular, it is possible, according to these models, for the flow directions to entirely change!</p></li>
+</ol>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+As noted by <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span>:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>“Clearly, two-box models are only a caricature of the THC. At best, they account for the pole-to-equator ciruclation in single ocean basin (the North Atlantic). They certainly do not account for the fact that all the Earth’s ocens are connected, nor for the fact that the oceans are coupled to the asmophere and other components of the climate system. Nevertheless, the finding that such simple models predict the possibility of two distinct stable modes of circulation and that transitions from one more to another can be induced by changing the forcing parameters has had a significant impact in oceanography and climate science.”</p>
+</div>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-kaper_book" class="csl-entry" role="doc-biblioentry">
+Kaper, Hans, and Hans Engler. 2013. <em>Mathematics and Climate</em>. SIAM.
+</div>
 <div id="ref-stommel1961thermohaline" class="csl-entry" role="doc-biblioentry">
 Stommel, Henry. 1961. <span>“Thermohaline Convection with Two Stable Regimes of Flow.”</span> <em>Tellus</em> 13 (2): 224–30.
 </div>

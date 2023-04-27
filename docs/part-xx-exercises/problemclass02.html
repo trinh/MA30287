@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA30287: Mathematics of Planet Earth - Practical applied mathematics</title>
+<title>MA30287: Mathematics of Planet Earth - 11&nbsp; Problem class 2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-05-techniques/asymptotics01.html" rel="next">
-<link href="../part-02-energy/mackay-consumption.html" rel="prev">
+<link href="../part-05-techniques/asymptotics03.html" rel="next">
+<link href="../part-05-techniques/euler.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Practical applied mathematics</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Problem class 2</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -161,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../part-05-techniques/techniques.html" class="sidebar-item-text sidebar-link active">Practical applied mathematics</a>
+            <a href="../part-05-techniques/techniques.html" class="sidebar-item-text sidebar-link">Practical applied mathematics</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -184,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/problemclass02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Problem class 2</span></a>
+  <a href="../part-xx-exercises/problemclass02.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Problem class 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -416,7 +416,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Practical applied mathematics</h1>
+<h1 class="title"><span id="sec-pclass2" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Problem class 2</span></span></h1>
 </div>
 
 
@@ -431,20 +431,26 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>As we go deeper into formulating the equations that model or govern aspects of Planet Earth, we will quickly come to the realisation that many such equations, even for the simplest minimal models, are not exactly solvable.</p>
-<p>For example, in <a href="../part-03-box/stommel.html"><span>Chapter&nbsp;26</span></a> we develop the following “simple” model for the temperature in the ocean: <span class="math display">\[\begin{align}
-\frac{\mathrm{d}x}{\mathrm{d}t} &amp;= \delta(1 - x) - |f(x, y)|x, \\
-\frac{\mathrm{d}y}{\mathrm{d}t} &amp;= 1 - y - |f(x, y)|y,
-\end{align}\]</span> where we have introduced the function, <span class="math display">\[
-f(x, y; R, \lambda) = \frac{1}{\lambda}(Rx - y),
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+2022-23 note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Covered Lecture 9.</p>
+</div>
+</div>
+<p>In this problem class, we reviewed the week’s methods. We then studied the problem of solving <span class="math display">\[
+x^2 - 2 x + \epsilon \sin x = 0,
+\]</span> for <span class="math inline">\(\epsilon &gt; 0\)</span> and <span class="math inline">\(\epsilon \ll 1\)</span>. We developed the roots of this equation using asymptotic expansions.</p>
+<p>We then asked how to perform asymptotic analysis in the other limit of <span class="math inline">\(\epsilon \to \infty\)</span>. In this limit, we can set <span class="math display">\[
+\delta = \frac{1}{\epsilon} \to 0.
 \]</span></p>
-<p>This is quite a difficult problem! This is essentially a set of two nonlinear differential equations for two unknowns and three parameters. What kind of practical applied mathematics can we apply to study such problems?</p>
-<p>The intention of this part is to introduce (and in some cases, review) three key concepts:</p>
-<ol type="1">
-<li><p>Asymptotic approximations.</p></li>
-<li><p>Numerical solutions of differential equations.</p></li>
-<li><p>Numerical solutions of nonlinear equations (Newton’s method).</p></li>
-</ol>
+<p>The discussion can be found in the lecture visualiser notes.</p>
 
 
 
@@ -584,13 +590,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part-02-energy/mackay-consumption.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estimating consumption</span></span>
+      <a href="../part-05-techniques/euler.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Euler’s method</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-05-techniques/asymptotics01.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Asymptotic approximations</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-05-techniques/asymptotics03.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Matched asymptotics</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
