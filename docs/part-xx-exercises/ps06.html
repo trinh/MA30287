@@ -417,6 +417,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#q2.-steady-states-of-the-reduced-model" id="toc-q2.-steady-states-of-the-reduced-model" class="nav-link" data-scroll-target="#q2.-steady-states-of-the-reduced-model">Q2. Steady states of the reduced model</a></li>
   <li><a href="#q3.-bifurcation-diagram-for-the-reduced-ocean-model" id="toc-q3.-bifurcation-diagram-for-the-reduced-ocean-model" class="nav-link" data-scroll-target="#q3.-bifurcation-diagram-for-the-reduced-ocean-model">Q3. Bifurcation diagram for the reduced ocean model</a></li>
   <li><a href="#q4.-non-dimensionalisation-of-the-stommel-box-model" id="toc-q4.-non-dimensionalisation-of-the-stommel-box-model" class="nav-link" data-scroll-target="#q4.-non-dimensionalisation-of-the-stommel-box-model">Q4. Non-dimensionalisation of the Stommel box model</a></li>
+  <li><a href="#q4.-investigations-for-r" id="toc-q4.-investigations-for-r" class="nav-link" data-scroll-target="#q4.-investigations-for-r">Q4. Investigations for <span class="math inline">\(R\)</span></a></li>
+  <li><a href="#q5.-alternative-scalings-of-the-stommel-box-model" id="toc-q5.-alternative-scalings-of-the-stommel-box-model" class="nav-link" data-scroll-target="#q5.-alternative-scalings-of-the-stommel-box-model">Q5. Alternative scalings of the Stommel box model</a></li>
   </ul>
 </nav>
     </div>
@@ -440,19 +442,6 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-2022-23 note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.</p>
-</div>
-</div>
 <section id="q1.-non-dimensionalisation-of-the-ocean-model" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q1.-non-dimensionalisation-of-the-ocean-model">Q1. Non-dimensionalisation of the ocean model</h2>
 <p>Take the ocean model from (<a href="../part-03-box/basic-ocean-model.html#eq-ocean-final-dimensional">Equation&nbsp;<span>25.7</span></a>). Re-scale the salinity and time via <span class="math display">\[
@@ -467,8 +456,8 @@ t = [t]t'.
 <h2 class="unnumbered anchored" data-anchor-id="q2.-steady-states-of-the-reduced-model">Q2. Steady states of the reduced model</h2>
 <p>Consider now the reduced model (<a href="#eq-ps6-xeqn">Equation&nbsp;<span>34.1</span></a>) and solve for the steady-state solutions (or equilibrium solutions). Assume that <span class="math inline">\(\lambda &gt; 0\)</span> and consider the two cases of <span class="math inline">\(1 - x \geq 0\)</span> and <span class="math inline">\(1 - x &lt; 0\)</span>. Show that there are up to three steady states given by <span class="math display">\[
 \begin{align}
-x_1^* &amp;= \frac{1}{2}(1 + \sqrt{1 + 4 \lambda}, \\
-x_{2,3}^* &amp;= \frac{1}{2}(1 \pm \sqrt{1 - 4\lambda},
+x_1^* &amp;= \frac{1}{2}(1 + \sqrt{1 + 4 \lambda}), \\
+x_{2,3}^* &amp;= \frac{1}{2}(1 \pm \sqrt{1 - 4\lambda}),
 \end{align}
 \]</span> and derive conditions for each point to exist.</p>
 <p>Next, set <span class="math inline">\(x = x^* + y\)</span> where <span class="math inline">\(x^*\)</span> is one of the three possible steady-state solutions. Show that the perturbation is governed by <span class="math display">\[
@@ -483,8 +472,32 @@ x_{2,3}^* &amp;= \frac{1}{2}(1 \pm \sqrt{1 - 4\lambda},
 </section>
 <section id="q4.-non-dimensionalisation-of-the-stommel-box-model" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q4.-non-dimensionalisation-of-the-stommel-box-model">Q4. Non-dimensionalisation of the Stommel box model</h2>
-<p>Consider the Stommel box model given in (<a href="../part-03-box/stommel.html#eq-stommelpre">Equation&nbsp;<span>26.1</span></a>). Non-dimensionalise the model in order to produce the set of equations given in (<a href="../part-03-box/stommel.html#eq-stommelsys">Equation&nbsp;<span>26.2</span></a>).</p>
+<p>Consider the Stommel box model given in (<a href="../part-03-box/stommel.html#eq-stommelpre">Equation&nbsp;<span>26.1</span></a>). Non-dimensionalise the model in order to produce the set of equations given in (<a href="../part-03-box/stommel.html#eq-stommelsys">Equation&nbsp;<span>26.2</span></a>), repeated here: <span id="eq-ps6-stommelsys"><span class="math display">\[
+\begin{align}
+\frac{\mathrm{d}x}{\mathrm{d}t} &amp;= \delta(1 - x) - |f(x, y)|x, \\
+\frac{\mathrm{d}y}{\mathrm{d}t} &amp;= 1 - y - |f(x, y)|y,
+\end{align}
+\tag{34.2}\]</span></span> where we have introduced the function, <span id="eq-ps6-stommelf"><span class="math display">\[
+f(x, y; R, \lambda) = \frac{1}{\lambda}(Rx - y),
+\tag{34.3}\]</span></span></p>
 <p>Provide a brief description of the physical interpretations of the parameters <span class="math inline">\(\lambda\)</span>,<span class="math inline">\(\delta\)</span>, and <span class="math inline">\(R\)</span>.</p>
+</section>
+<section id="q4.-investigations-for-r" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q4.-investigations-for-r">Q4. Investigations for <span class="math inline">\(R\)</span></h2>
+<p>Using the script available on the Jupyter hub, investigate the behaviour of the system (<a href="#eq-ps6-stommelsys">Equation&nbsp;<span>34.2</span></a>) under changing values of <span class="math inline">\(R\)</span> and fixed values of the other parameters. Based on your intuition, what do you expect to be the features of the bifurcation diagram, as shown in the <span class="math inline">\((R, f^*)\)</span>-plane?</p>
+</section>
+<section id="q5.-alternative-scalings-of-the-stommel-box-model" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q5.-alternative-scalings-of-the-stommel-box-model">Q5. Alternative scalings of the Stommel box model</h2>
+<p>It is possible to scale the problem differently, and this may allow for simpler analysis. Consider the set of equations (<a href="#eq-ps6-stommelsys">Equation&nbsp;<span>34.2</span></a>). Write instead <span class="math display">\[
+x = [x] s, \qquad y = [y] \theta, \qquad t = [t] t',
+\]</span> Choose the correct scalings, <span class="math inline">\([x]\)</span>, <span class="math inline">\([y]\)</span>, and <span class="math inline">\([t]\)</span>, so that we obtain a re-scaled version: <span class="math display">\[
+\begin{align}
+\frac{\mathrm{d}s}{\mathrm{d}t'} &amp;= 1 - (\epsilon + |q|) s, \\
+\frac{\mathrm{d}\theta}{\mathrm{d}t'} &amp;= 1 - (\mu + |q|)\theta,
+\end{align}
+\]</span> where now the flow term is given by <span class="math display">\[
+q = \kappa(-\theta + \tilde{R}s).
+\]</span> In addition to the choice of scalings, you will need to describe how the new parameters, <span class="math inline">\(\epsilon\)</span>, <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\kappa\)</span>, and <span class="math inline">\(\tilde{R}\)</span>, are related to the older parameters.</p>
 
 
 </section>

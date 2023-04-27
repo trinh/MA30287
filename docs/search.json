@@ -263,7 +263,7 @@
     "href": "part-05-techniques/newtons.html#demo-of-newtons-method-for-scalar-equations",
     "title": "13  Newton’s method",
     "section": "13.1 Demo of Newton’s method for scalar equations",
-    "text": "13.1 Demo of Newton’s method for scalar equations\nHere is a simple demonstration of Newton’s method in order to solve for one of the roots of the following: \\[\nf(x) = x^3 + x - 1.\n\\]\nWe will start with the initial guess of \\(x_0 = 0\\). We can do this by hand in lectures using a pocket calculator. The solution is \\(x^* \\approx 0.6823278..\\)\n\n\n\ni\nxi\nf(xi)\nf’(xi)\n-f(xi)/f’(xi)\nerror\n\n\n\n\n0\n\n\n\n\n\n\n\n1\n\n\n\n\n\n\n\n2\n\n\n\n\n\n\n\n\n\nimport numpy as np\n\nx0 = 0\nN = 10\n\ndef Newton(f, df, x, maxiter=10):\n    i = 0\n    while (i < maxiter):\n        err = f(x)\n        x = x - err / df(x)\n        print(\"f(x) = \", np.abs(err), \", x = \", x)\n        i = i + 1\n    return x, err\n\nf = lambda x: x**3 + x - 1\ndf = lambda x: 3*x**2 + 1\n\nx, err = Newton(f, df, x0, N)\nprint(\"Final approximation = \", x)\n\nf(x) =  1 , x =  1.0\nf(x) =  1.0 , x =  0.75\nf(x) =  0.171875 , x =  0.686046511627907\nf(x) =  0.008941036638283384 , x =  0.6823395825973142\nf(x) =  2.823062168566537e-05 , x =  0.6823278039465127\nf(x) =  2.839946056099052e-10 , x =  0.6823278038280194\nf(x) =  2.220446049250313e-16 , x =  0.6823278038280193\nf(x) =  1.1102230246251565e-16 , x =  0.6823278038280193\nf(x) =  1.1102230246251565e-16 , x =  0.6823278038280193\nf(x) =  1.1102230246251565e-16 , x =  0.6823278038280193\nFinal approximation =  0.6823278038280193\n\n\n\nIt is a good idea to also learn how to do this using built-in packages. The ‘fsolve’ function provides a Newton-like nonlinear solver. In fact, it can estimate the Jacobian (derivative), so only the function values need to be provided.\n\nimport numpy as np\nfrom scipy.optimize import fsolve\n\nf = lambda x: x**3 + x - 1\n\nx0 = 1\nx, info, ier, msg = fsolve(f, x0, full_output=True)\n\nprint(msg)\nprint(x)\n\nThe solution converged.\n[0.6823278]"
+    "text": "13.1 Demo of Newton’s method for scalar equations\nHere is a simple demonstration of Newton’s method in order to solve for one of the roots of the following: \\[\nf(x) = x^3 + x - 1.\n\\]\nWe will start with the initial guess of \\(x_0 = 0\\). We can do this by hand in lectures using a pocket calculator. The solution is \\(x^* \\approx 0.6823278..\\)\n\n\n\ni\nxi\nf(xi)\nf’(xi)\n-f(xi)/f’(xi)\nerror\n\n\n\n\n0\n\n\n\n\n\n\n\n1\n\n\n\n\n\n\n\n2\n\n\n\n\n\n\n\n\n\nimport numpy as np\n\nx0 = 0\nN = 10\n\ndef Newton(f, df, x, maxiter=10):\n    i = 0\n    while (i < maxiter):\n        err = f(x)\n        x = x - err / df(x)\n        print(\"f(x) = \", np.abs(err), \", x = \", x)\n        i = i + 1\n    return x, err\n\nf = lambda x: x**3 + x - 1\ndf = lambda x: 3*x**2 + 1\n\nx, err = Newton(f, df, x0, N)\nprint(\"Final approximation = \", x)\n\nf(x) =  1 , x =  1.0\nf(x) =  1.0 , x =  0.75\nf(x) =  0.171875 , x =  0.686046511627907\nf(x) =  0.008941036638283384 , x =  0.6823395825973142\nf(x) =  2.823062168566537e-05 , x =  0.6823278039465127\nf(x) =  2.839946056099052e-10 , x =  0.6823278038280194\nf(x) =  2.220446049250313e-16 , x =  0.6823278038280193\nf(x) =  1.1102230246251565e-16 , x =  0.6823278038280193\nf(x) =  1.1102230246251565e-16 , x =  0.6823278038280193\nf(x) =  1.1102230246251565e-16 , x =  0.6823278038280193\nFinal approximation =  0.6823278038280193\n\n\n\nIt is a good idea to also learn how to do this using built-in packages. The ‘fsolve’ function provides a Newton-like nonlinear solver. In fact, it can estimate the Jacobian (derivative), so only the function values need to be provided.\n\nimport numpy as np\nfrom scipy.optimize import fsolve\n\nf = lambda x: x**3 + x - 1\n\nx0 = 1\nx, info, ier, msg = fsolve(f, x0, full_output=True)\n\nprint(msg)\nprint(x)\n\nThe solution converged.\n\n\n\n[0.6823278]"
   },
   {
     "objectID": "part-05-techniques/newtons.html#newtons-method-for-systems-of-nonlinear-equations",
@@ -784,6 +784,41 @@
     "text": "Q1. Non-dimensionalisation of the ocean model\nTake the ocean model from (Equation 25.7). Re-scale the salinity and time via \\[\n\\Delta S = [\\Delta S]x \\quad \\text{and} \\quad\nt = [t]t'.\n\\] By choosing appropriate scales, show that the equation can be reduced to the form \\[\n\\dot{x} = \\lambda - |1 - x|x\n\\tag{34.1}\\] for the parameter \\(\\lambda\\) which you should define. Note that the above quantity \\(\\dot{x}\\) refers to differentiation in \\(t'\\).\nProvide an intuitive interpretation of the parameter \\(\\lambda\\)."
   },
   {
+    "objectID": "part-xx-exercises/ps06.html#q2.-steady-states-of-the-reduced-model",
+    "href": "part-xx-exercises/ps06.html#q2.-steady-states-of-the-reduced-model",
+    "title": "34  Problem set 6",
+    "section": "Q2. Steady states of the reduced model",
+    "text": "Q2. Steady states of the reduced model\nConsider now the reduced model (Equation 34.1) and solve for the steady-state solutions (or equilibrium solutions). Assume that \\(\\lambda > 0\\) and consider the two cases of \\(1 - x \\geq 0\\) and \\(1 - x < 0\\). Show that there are up to three steady states given by \\[\n\\begin{align}\nx_1^* &= \\frac{1}{2}(1 + \\sqrt{1 + 4 \\lambda}), \\\\\nx_{2,3}^* &= \\frac{1}{2}(1 \\pm \\sqrt{1 - 4\\lambda}),\n\\end{align}\n\\] and derive conditions for each point to exist.\nNext, set \\(x = x^* + y\\) where \\(x^*\\) is one of the three possible steady-state solutions. Show that the perturbation is governed by \\[\n\\dot{y} = \\pm (2x^* - 1)y, \\qquad x^* \\lessgtr 1.\n\\] Conclude that \\(x_1^*\\) is stable, \\(x_2^*\\) is unstable, and \\(x_3^*\\) is stable."
+  },
+  {
+    "objectID": "part-xx-exercises/ps06.html#q3.-bifurcation-diagram-for-the-reduced-ocean-model",
+    "href": "part-xx-exercises/ps06.html#q3.-bifurcation-diagram-for-the-reduced-ocean-model",
+    "title": "34  Problem set 6",
+    "section": "Q3. Bifurcation diagram for the reduced ocean model",
+    "text": "Q3. Bifurcation diagram for the reduced ocean model\nBased on your work in Q2, plot a bifurcation diagram in the \\((\\lambda, x^*)\\)-plane. Use solid and dashed curves to indicate stability.\nDoes the bifurcation diagram indicate the possibility of tipping points and hysteresis? By considering the interpretation of \\(\\lambda\\) and \\(x^*\\), discuss the physical consequences of such behaviour as it relates to the Ocean model.\nHow does this bifurcation diagram compare to the typical bifurcation diagrams studied in the Energy Balance module, such as the one studied in Chapter 20 ?"
+  },
+  {
+    "objectID": "part-xx-exercises/ps06.html#q4.-non-dimensionalisation-of-the-stommel-box-model",
+    "href": "part-xx-exercises/ps06.html#q4.-non-dimensionalisation-of-the-stommel-box-model",
+    "title": "34  Problem set 6",
+    "section": "Q4. Non-dimensionalisation of the Stommel box model",
+    "text": "Q4. Non-dimensionalisation of the Stommel box model\nConsider the Stommel box model given in (Equation 26.1). Non-dimensionalise the model in order to produce the set of equations given in (Equation 26.2), repeated here: \\[\n\\begin{align}\n\\frac{\\mathrm{d}x}{\\mathrm{d}t} &= \\delta(1 - x) - |f(x, y)|x, \\\\\n\\frac{\\mathrm{d}y}{\\mathrm{d}t} &= 1 - y - |f(x, y)|y,\n\\end{align}\n\\tag{34.2}\\] where we have introduced the function, \\[\nf(x, y; R, \\lambda) = \\frac{1}{\\lambda}(Rx - y),\n\\tag{34.3}\\]\nProvide a brief description of the physical interpretations of the parameters \\(\\lambda\\),\\(\\delta\\), and \\(R\\)."
+  },
+  {
+    "objectID": "part-xx-exercises/ps06.html#q4.-investigations-for-r",
+    "href": "part-xx-exercises/ps06.html#q4.-investigations-for-r",
+    "title": "34  Problem set 6",
+    "section": "Q4. Investigations for \\(R\\)",
+    "text": "Q4. Investigations for \\(R\\)\nUsing the script available on the Jupyter hub, investigate the behaviour of the system (Equation 34.2) under changing values of \\(R\\) and fixed values of the other parameters. Based on your intuition, what do you expect to be the features of the bifurcation diagram, as shown in the \\((R, f^*)\\)-plane?"
+  },
+  {
+    "objectID": "part-xx-exercises/ps06.html#q5.-alternative-scalings-of-the-stommel-box-model",
+    "href": "part-xx-exercises/ps06.html#q5.-alternative-scalings-of-the-stommel-box-model",
+    "title": "34  Problem set 6",
+    "section": "Q5. Alternative scalings of the Stommel box model",
+    "text": "Q5. Alternative scalings of the Stommel box model\nIt is possible to scale the problem differently, and this may allow for simpler analysis. Consider the set of equations (Equation 34.2). Write instead \\[\nx = [x] s, \\qquad y = [y] \\theta, \\qquad t = [t] t',\n\\] Choose the correct scalings, \\([x]\\), \\([y]\\), and \\([t]\\), so that we obtain a re-scaled version: \\[\n\\begin{align}\n\\frac{\\mathrm{d}s}{\\mathrm{d}t'} &= 1 - (\\epsilon + |q|) s, \\\\\n\\frac{\\mathrm{d}\\theta}{\\mathrm{d}t'} &= 1 - (\\mu + |q|)\\theta,\n\\end{align}\n\\] where now the flow term is given by \\[\nq = \\kappa(-\\theta + \\tilde{R}s).\n\\] In addition to the choice of scalings, you will need to describe how the new parameters, \\(\\epsilon\\), \\(\\mu\\), \\(\\kappa\\), and \\(\\tilde{R}\\), are related to the older parameters."
+  },
+  {
     "objectID": "part-xx-exercises/ps01sol.html#a-source-in-the-heat-equation",
     "href": "part-xx-exercises/ps01sol.html#a-source-in-the-heat-equation",
     "title": "35  Problem set 1 solutions",
@@ -992,33 +1027,5 @@
     "title": "References",
     "section": "",
     "text": "Arrhenius, Svante. 1896. “XXXI. On the Influence of Carbonic Acid\nin the Air Upon the Temperature of the Ground.” The London,\nEdinburgh, and Dublin Philosophical Magazine and Journal of Science\n41 (251): 237–76.\n\n\nCharney, Jule G, Akio Arakawa, D James Baker, Bert Bolin, Robert E\nDickinson, Richard M Goody, Cecil E Leith, Henry M Stommel, and Carl I\nWunsch. 1979. Carbon Dioxide and Climate: A Scientific\nAssessment. National Academy of Sciences, Washington, DC.\n\n\nFourier, Joseph. 1827. “Mémoire Sur Les\nTempératures Du Globe Terrestre Et Des Espaces\nPlanétaires.” Mémoires de\nl’Académie Royale Des Sciences de l’Institut de France\n7: 570–604.\n\n\nFowler, Andrew. 2011. Mathematical Geoscience. Vol. 36.\nSpringer.\n\n\nKaper, Hans, and Hans Engler. 2013. Mathematics and Climate.\nSIAM.\n\n\nMacKay, D. J. C. 2009. Sustainable Energy – Without the Hot\nAir. UIT Cambridge Ltd.\n\n\nPouillet, Claude Servais Mathias. 1838. “Memoire Sur Le Chaleur\nSolaire.” Paris.\n\n\nStommel, Henry. 1961. “Thermohaline Convection with Two Stable\nRegimes of Flow.” Tellus 13 (2): 224–30.\n\n\nVan der Veen, CJ. 2000. “Fourier and the ‘Greenhouse\nEffect’.” Polar Geography 24 (2): 132–52."
-  },
-  {
-    "objectID": "part-xx-exercises/ps06.html#q2.-steady-states-of-the-reduced-model",
-    "href": "part-xx-exercises/ps06.html#q2.-steady-states-of-the-reduced-model",
-    "title": "34  Problem set 6",
-    "section": "Q2. Steady states of the reduced model",
-    "text": "Q2. Steady states of the reduced model\nConsider now the reduced model (Equation 34.1) and solve for the steady-state solutions (or equilibrium solutions). Assume that \\(\\lambda > 0\\) and consider the two cases of \\(1 - x \\geq 0\\) and \\(1 - x < 0\\). Show that there are up to three steady states given by \\[\n\\begin{align}\nx_1^* &= \\frac{1}{2}(1 + \\sqrt{1 + 4 \\lambda}, \\\\\nx_{2,3}^* &= \\frac{1}{2}(1 \\pm \\sqrt{1 - 4\\lambda},\n\\end{align}\n\\] and derive conditions for each point to exist.\nNext, set \\(x = x^* + y\\) where \\(x^*\\) is one of the three possible steady-state solutions. Show that the perturbation is governed by \\[\n\\dot{y} = \\pm (2x^* - 1)y, \\qquad x^* \\lessgtr 1.\n\\] Conclude that \\(x_1^*\\) is stable, \\(x_2^*\\) is unstable, and \\(x_3^*\\) is stable."
-  },
-  {
-    "objectID": "part-xx-exercises/ps06.html#q3.-bifurcation-diagram-for-the-reduced-ocean-model",
-    "href": "part-xx-exercises/ps06.html#q3.-bifurcation-diagram-for-the-reduced-ocean-model",
-    "title": "34  Problem set 6",
-    "section": "Q3. Bifurcation diagram for the reduced ocean model",
-    "text": "Q3. Bifurcation diagram for the reduced ocean model\nBased on your work in Q2, plot a bifurcation diagram in the \\((\\lambda, x^*)\\)-plane. Use solid and dashed curves to indicate stability.\nDoes the bifurcation diagram indicate the possibility of tipping points and hysteresis? By considering the interpretation of \\(\\lambda\\) and \\(x^*\\), discuss the physical consequences of such behaviour as it relates to the Ocean model.\nHow does this bifurcation diagram compare to the typical bifurcation diagrams studied in the Energy Balance module, such as the one studied in Chapter 20 ?"
-  },
-  {
-    "objectID": "part-xx-exercises/ps06.html#non-dimensionalisation-of-the-stommel-box-model",
-    "href": "part-xx-exercises/ps06.html#non-dimensionalisation-of-the-stommel-box-model",
-    "title": "34  Problem set 6",
-    "section": "Non-dimensionalisation of the Stommel box model",
-    "text": "Non-dimensionalisation of the Stommel box model\nConsider the Stommel box model given in (Equation 26.1). Non-dimensionalise the model in order to produce the set of equations given in (Equation 26.2).\nProvide a brief description of the physical interpretations of the parameters \\(\\lambda\\),\\(\\delta\\), and \\(R\\)."
-  },
-  {
-    "objectID": "part-xx-exercises/ps06.html#q4.-non-dimensionalisation-of-the-stommel-box-model",
-    "href": "part-xx-exercises/ps06.html#q4.-non-dimensionalisation-of-the-stommel-box-model",
-    "title": "34  Problem set 6",
-    "section": "Q4. Non-dimensionalisation of the Stommel box model",
-    "text": "Q4. Non-dimensionalisation of the Stommel box model\nConsider the Stommel box model given in (Equation 26.1). Non-dimensionalise the model in order to produce the set of equations given in (Equation 26.2).\nProvide a brief description of the physical interpretations of the parameters \\(\\lambda\\),\\(\\delta\\), and \\(R\\)."
   }
 ]
