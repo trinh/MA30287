@@ -479,10 +479,9 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="20.2" class="anchored" data-anchor-id="stability"><span class="header-section-number">20.2</span> Stability</h2>
 <p>So far, we have only discussed the steady-state solutions of the latitude-dependent EBM, repeated below: <span class="math display">\[
 C \frac{\mathrm{\partial}T}{\mathrm{\partial}t} = Qs(y)[1 - a(y)] - (A + BT) + k(\bar{T} - T).
-\]</span> What role does time dependence play?</p>
-<p>Let us instead study the equation for the mean temperature, <span class="math inline">\(\bar{T}\)</span>. This was given in <a href="../part-xx-exercises/ps04.html#eq-meanT-evo-ps">Equation&nbsp;<span>31.2</span></a> and repeated below: <span id="eq-meanT-evo"><span class="math display">\[
-C \frac{\mathrm{d}\bar{T}}{\mathrm{d}t} = G(\bar{T}) = Q(1 - \bar{a}) - (A + B\bar{T}),
-\tag{20.1}\]</span></span> The following linearisation argument was presented by Cahalan and North (1979). Let us linearise this about a steady-state solution, writing <span class="math display">\[
+\]</span> In this section, we investigate the stability analysis for the mean temperature, <span class="math inline">\(\bar{T}\)</span>. This was given in <a href="../part-xx-exercises/ps04.html#eq-meanT-evo-ps">Equation&nbsp;<span>31.2</span></a> and repeated below: <span id="eq-meanT-evo"><span class="math display">\[
+C \frac{\mathrm{d}\bar{T}}{\mathrm{d}t} = G(\bar{T}) \equiv Q(1 - \bar{a}) - (A + B\bar{T}),
+\tag{20.1}\]</span></span> The following linearisation argument was presented by <a href="https://moodle.bath.ac.uk/pluginfile.php/2213909/mod_resource/content/0/Cahalan_North_1979.pdf">Cahalan and North (1979)</a>, with some additional details to avoid confusion. Let us linearise this about a steady-state solution, writing <span class="math display">\[
 \bar{T} = \bar{T}^* + u(t),
 \]</span> where <span class="math inline">\(u \ll 1\)</span>. By Taylor series, <span class="math display">\[
 G(\bar{T}) = G(\bar{T}^*) + G'(\bar{T}^*)u + O(u^2),
@@ -490,9 +489,30 @@ G(\bar{T}) = G(\bar{T}^*) + G'(\bar{T}^*)u + O(u^2),
 C \frac{\mathrm{d}u}{\mathrm{d}t} = G'(\bar{T}^*) u.
 \tag{20.2}\]</span></span> We need to calculate the derivative term on the RHS. First, using the equation for <span class="math inline">\(G\)</span> in <a href="#eq-meanT-evo">Equation&nbsp;<span>20.1</span></a>, we have <span id="eq-Gprime"><span class="math display">\[
 G'(T^*) = -B - Q \frac{\mathrm{d}\bar{a}}{\mathrm{d}\bar{T}}\biggr\rvert_{\bar{T} = \bar{T}^*}.
-\tag{20.3}\]</span></span> The above calculation assumes that <span class="math inline">\(Q\)</span> is a fixed number. Now we need to know the derivative of <span class="math inline">\(\bar{a}\)</span>. The equation that gives the steady-state is <span class="math display">\[
+\tag{20.3}\]</span></span> The above calculation assumes that <span class="math inline">\(Q\)</span> is a fixed number, as it should, since <span class="math inline">\(Q\)</span> is regarded as a parameter (we choose a value of <span class="math inline">\(Q\)</span>, then this allows us to evolve the ODE).</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Calahan &amp; North’s “trick”
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The following presentation took about 3 lines of text in the presentation of Cahalan &amp; North (1979), between eqns (1.2) and (1.3) in the image below. Students have inquired about the manipulations.</p>
+<div id="fig-cn79" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/2023-05-02-17-45-45.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;20.3: From Cahalan &amp; North, p.1179</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span style="color:blue;">The problem is what to do with the derivative of <span class="math inline">\(\bar{a}\)</span> that appears in (<a href="#eq-Gprime">Equation&nbsp;<span>20.3</span></a>). This is a strange quantity, since <span class="math inline">\(\bar{a}\)</span> does not explicitly depend on <span class="math inline">\(\bar{T}\)</span>, and is given in (<a href="latitude3.html#eq-abar-again">Equation&nbsp;<span>19.2</span></a>). The issue is that there is a hidden dependence: <span class="math inline">\(\bar{a}\)</span> depends on the ice line, <span class="math inline">\(y_s\)</span>, which depends on not only <span class="math inline">\(Q\)</span>, but is multivalued as well! </span></p>
+<p>Cahalan &amp; North, whether knowingly or unknowingly, applied a trick, which is to consider that <span class="math inline">\(Q\)</span> is not a parameter, but that it can be viewed as depending on <span class="math inline">\(\bar{T}^*\)</span>, the steady state (this dependence is shown in <a href="#fig-Tbar">Figure&nbsp;<span>20.2</span></a>). Therefore, Cahalan &amp; North returned to the equation (<a href="latitude3.html#eq-meanT-again">Equation&nbsp;<span>19.1</span></a>) that gives the steady-state: <span class="math display">\[
 T^* = \frac{Q(1 - \bar{a}) - A}{B}.
-\]</span> We differentiate this equation with respect to <span class="math inline">\(\bar{T^*}\)</span> and this yields <span id="eq-diffmeaneq"><span class="math display">\[
+\]</span> We differentiate this equation with respect to <span class="math inline">\(\bar{T^*}\)</span>, but now assume both <span class="math inline">\(Q\)</span> and <span class="math inline">\(\bar{a}\)</span> depend on <span class="math inline">\(\bar{T^*}\)</span>. This yields <span id="eq-diffmeaneq"><span class="math display">\[
 1 = \frac{1}{B} \frac{\mathrm{d}Q}{\mathrm{d}\bar{T^*}}(1 - \bar{a}) - \frac{Q}{B} \frac{\mathrm{d}\bar{a}}{\mathrm{d}\bar{T}^*} \Longrightarrow
 B = \frac{\mathrm{d}Q}{\mathrm{d}\bar{T^*}}(1 - \bar{a}) - Q \frac{\mathrm{d}\bar{a}}{\mathrm{d}\bar{T}^*}
 \tag{20.4}\]</span></span></p>
@@ -509,6 +529,19 @@ u(t) = u(0) e^{-\gamma t/C}.
 \frac{\mathrm{d}Q}{\mathrm{d}\bar{T}^*} &lt; 0 &amp;\Longrightarrow \text{unstable}.
 \end{align}
 \]</span></p>
+<p>We may now plot the bifurcation diagram, shown in <span class="math inline">\((Q, \bar{T})\)</span>-space. First, return to <a href="#fig-Tbar">Figure&nbsp;<span>20.2</span></a>. In lecture 21, we drew the following picture:</p>
+<div id="fig-CNbif" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/2023-05-02-18-06-12.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;20.4: Bifurcation diagram for <span class="math inline">\((Q, \bar{T})\)</span></figcaption><p></p>
+</figure>
+</div>
+<p>Note the following characteristics.</p>
+<ol type="1">
+<li><p>There are up to four steady states (green, orange, two blacks).</p></li>
+<li><p>Those branches with positive gradient are stable; there is only one branch with a negative gradient and it is thus unstable. In the image, these are shown solid for stable and dashed for unstable.</p></li>
+<li><p>The diagram indicates tipping points and hysteresis. As explained in the lectures, one can encounter a situation where, beginning from the upper orange branches, the solar radiation is decreased past the tipping point. The solution must then evolve to the lowermost stable state (green). However, increasing <span class="math inline">\(Q\)</span> does not return us to the original non-frozen state—unless <span class="math inline">\(Q\)</span> is increased by a massive amount. This ‘hysteresis’ loop is shown with the maroon colours in the image above.</p></li>
+</ol>
 
 
 </section>

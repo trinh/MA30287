@@ -501,7 +501,7 @@ div.csl-indent {
    
   <ul>
   <li><a href="#non-dimensionalisation" id="toc-non-dimensionalisation" class="nav-link active" data-scroll-target="#non-dimensionalisation"><span class="toc-section-number">26.1</span>  Non-dimensionalisation</a></li>
-  <li><a href="#equilibrium-states" id="toc-equilibrium-states" class="nav-link" data-scroll-target="#equilibrium-states"><span class="toc-section-number">26.2</span>  Equilibrium states</a></li>
+  <li><a href="#sec-ocean2-equil" id="toc-sec-ocean2-equil" class="nav-link" data-scroll-target="#sec-ocean2-equil"><span class="toc-section-number">26.2</span>  Equilibrium states</a></li>
   <li><a href="#stability" id="toc-stability" class="nav-link" data-scroll-target="#stability"><span class="toc-section-number">26.3</span>  Stability</a></li>
   <li><a href="#bifurcation-diagrams" id="toc-bifurcation-diagrams" class="nav-link" data-scroll-target="#bifurcation-diagrams"><span class="toc-section-number">26.4</span>  Bifurcation diagrams</a></li>
   <li><a href="#stommels-conclusion" id="toc-stommels-conclusion" class="nav-link" data-scroll-target="#stommels-conclusion"><span class="toc-section-number">26.5</span>  Stommel’s conclusion</a></li>
@@ -575,8 +575,8 @@ R &amp;= \beta \Delta S^*/(\alpha \Delta T^*).
 \]</span> Together <a href="#eq-stommelsys">Equation&nbsp;<span>26.2</span></a> and <a href="#eq-stommelf">Equation&nbsp;<span>26.3</span></a> form a system of equations for <span class="math inline">\((x(t), y(t))\)</span>, with parameters <span class="math inline">\(\delta\)</span>, <span class="math inline">\(\lambda\)</span>, and <span class="math inline">\(R\)</span>.</p>
 <p>Although there are many parameters, it is important to note that the quantity <span class="math inline">\(f\)</span> is crucial since it corresponds to the direction of flow in the bottom pipe of the Ocean model. By convention, the system was set up so that <span class="math inline">\(f &gt; 0\)</span> corresponds to flow through the bottom pipe goes in the direction of the equator (Box 1) as a result of higher densities at the high latitudes. We are subsequently interested in whether it is possible for <span class="math inline">\(f\)</span> to switch sign, which would correspond to a bottom flow going from equator to poles, and the entire system switching direction.</p>
 </section>
-<section id="equilibrium-states" class="level2" data-number="26.2">
-<h2 data-number="26.2" class="anchored" data-anchor-id="equilibrium-states"><span class="header-section-number">26.2</span> Equilibrium states</h2>
+<section id="sec-ocean2-equil" class="level2" data-number="26.2">
+<h2 data-number="26.2" class="anchored" data-anchor-id="sec-ocean2-equil"><span class="header-section-number">26.2</span> Equilibrium states</h2>
 <p>Let the equilibrium states be given by <span class="math inline">\((x^*, y^*)\)</span> with <span class="math inline">\(f(x^*, y^*) = f^*\)</span>. Then setting the right hand sides of (<a href="#eq-stommelsys">Equation&nbsp;<span>26.2</span></a>) to zero and solving, we find <span id="eq-stommel-xsys"><span class="math display">\[
 x^* = \frac{\delta}{\delta + |f^*|} \quad \text{and} \quad
 y^* = \frac{1}{1 + |f^*|}.
@@ -666,14 +666,43 @@ D &amp;= (\delta + 2|f^*|)(1 + |f^*|) \pm (1 - \delta) \frac{y^*}{\lambda}.
 </section>
 <section id="bifurcation-diagrams" class="level2" data-number="26.4">
 <h2 data-number="26.4" class="anchored" data-anchor-id="bifurcation-diagrams"><span class="header-section-number">26.4</span> Bifurcation diagrams</h2>
-<p>Once the above stability analysis, it is possible to sketch the final bifurcation diagram. During the lecture, we will study the bifurcation diagram in <span class="math inline">\((\lambda, f^*)\)</span>. An image will appear below once this is done.</p>
+<p>Once the above stability analysis, it is possible to sketch the final bifurcation diagram.</p>
+<p>First, we can note that as <span class="math inline">\(\lambda\)</span> increases, the graph in <a href="#sec-ocean2-equil"><span>Section&nbsp;26.2</span></a> indicates that there may either be three intersections (as shown) or if <span class="math inline">\(\lambda\)</span> increases then two of the intersections may disappear. We can note that:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(f_i^*\)</span></th>
+<th><span class="math inline">\(\lambda \to 0^+\)</span></th>
+<th><span class="math inline">\(\lambda \to \infty\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(f_1^*\)</span></td>
+<td><span class="math inline">\(-\infty\)</span></td>
+<td>none</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(f_2^*\)</span></td>
+<td>fixed point &lt; 0</td>
+<td>none</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(f_3^*\)</span></td>
+<td>fixed point &gt; 0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>We can also ascertain that there should be a point, say <span class="math inline">\(\lambda = \lambda^*\)</span> where the two roots coalesce, <span class="math inline">\(f_1^* = f_2^*\)</span>, and thereafter disappear. This allows us to now plot the bifurcation <span class="math inline">\((\lambda, f^*)\)</span>-plane:</p>
+<p><img src="img/2023-05-02-12-22-41.png" id="fig-ocean2-bif" class="img-fluid"></p>
 </section>
 <section id="stommels-conclusion" class="level2" data-number="26.5">
 <h2 data-number="26.5" class="anchored" data-anchor-id="stommels-conclusion"><span class="header-section-number">26.5</span> Stommel’s conclusion</h2>
-<p>So what is the final takeaway message(s)?</p>
+<p>What is the final takeaway message(s)?</p>
 <ol type="1">
 <li><p>It is possible to pose a conceptual model of the ocean and the thermohaline circulation, which governs the exchange of hot-and-cold waters and salty waters from equatorial-to-pole zones.</p></li>
-<li><p>This conceptual model suggests that tipping points and hysteresis is possible in such systems. In particular, it is possible, according to these models, for the flow directions to entirely change!</p></li>
+<li><p>This conceptual model suggests that tipping points and hysteresis are possible in such systems. In particular, it is possible, according to these models, for the flow directions to entirely change!</p></li>
 </ol>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -685,7 +714,7 @@ As noted by <span class="citation" data-cites="kaper_book">(<a href="../referenc
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>“Clearly, two-box models are only a caricature of the THC. At best, they account for the pole-to-equator ciruclation in single ocean basin (the North Atlantic). They certainly do not account for the fact that all the Earth’s ocens are connected, nor for the fact that the oceans are coupled to the asmophere and other components of the climate system. Nevertheless, the finding that such simple models predict the possibility of two distinct stable modes of circulation and that transitions from one more to another can be induced by changing the forcing parameters has had a significant impact in oceanography and climate science.”</p>
+<p>“Clearly, two-box models are only a caricature of the THC. At best, they account for the pole-to-equator circulation in single ocean basin (the North Atlantic). They certainly do not account for the fact that all the Earth’s oceans are connected, nor for the fact that the oceans are coupled to the atmosphere and other components of the climate system. Nevertheless, the finding that such simple models predict the possibility of two distinct stable modes of circulation, and that transitions from one more to another can be induced by changing the forcing parameters [–] has had a significant impact in oceanography and climate science.”</p>
 </div>
 </div>
 

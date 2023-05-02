@@ -554,14 +554,14 @@ Interactive matplotlib plots
 <p>It turns out to be possible to develop an equation for the ice line.</p>
 <p>First, note from your problem set <a href="../part-xx-exercises/ps04.html"><span>Chapter&nbsp;31</span></a> you find that it is possible to solve for the steady-state mean temperature, which we write as <span class="math inline">\(\bar{T}^*\)</span>. In your problem set, you will develop the following equation (given by (<a href="../part-xx-exercises/ps04.html#eq-ps4-Tbar">Equation&nbsp;<span>31.4</span></a>)): <span id="eq-meanT-again"><span class="math display">\[
 \bar{T}^* = \frac{Q(1 - \bar{a}) - A}{B}.
-\tag{19.1}\]</span></span> The quantity <span class="math inline">\(\bar{a}\)</span> is given by integrating the albedo as follows: <span class="math display">\[
+\tag{19.1}\]</span></span> The quantity <span class="math inline">\(\bar{a}\)</span> is given by integrating the albedo as follows: <span id="eq-abar-again"><span class="math display">\[
 \bar{a} = \int_0^1 s(y) a(y) \, \mathrm{d}y = a_i + (a_w {\color{blue}-} a_i)y_s[1 - 0.241 (y_s^2 - 1)],
-\]</span> which is given by (<a href="../part-xx-exercises/ps04.html#eq-ps4-abar">Equation&nbsp;<span>31.3</span></a>). You may check that the above formula has the right signs by considering either the complete ice case (ice line at the equator <span class="math inline">\(y_s = 0\)</span>) or the complete water/land case (ice line at <span class="math inline">\(y_s = 1\)</span>).</p>
+\tag{19.2}\]</span></span> which is given by (<a href="../part-xx-exercises/ps04.html#eq-ps4-abar">Equation&nbsp;<span>31.3</span></a>). You may check that the above formula has the right signs by considering either the complete ice case (ice line at the equator <span class="math inline">\(y_s = 0\)</span>) or the complete water/land case (ice line at <span class="math inline">\(y_s = 1\)</span>).</p>
 <p>Now we return to the implicit equation for the temperature, which is given by (<a href="latitude2.html#eq-latitude2-Phieq">Equation&nbsp;<span>17.3</span></a>) and repeated here: <span class="math display">\[
 T^*(y) = \Phi(T^*) = \frac{k\bar{T}^* + Qs(y)(1 {\color{red}-} a(y)) - A}{B + k}.
 \]</span> Substitute the mean temperature in, and this now yields <span id="eq-Tstar"><span class="math display">\[
 T^*(y) = \frac{Q}{B + k} \left[ s(y) [1 - a(y)] + \frac{k}{B}(1 - \bar{a})\right] - \frac{A}{B}.
-\tag{19.2}\]</span></span> This ice line is then found by setting <span class="math inline">\(T = T_C\)</span> at <span class="math inline">\(y = y_s\)</span> in the above formula. Notice, though, that since <span class="math inline">\(s(y)\)</span> is a cubic function, then we would need to solve a cubic equation in general.</p>
+\tag{19.3}\]</span></span> This ice line is then found by setting <span class="math inline">\(T = T_C\)</span> at <span class="math inline">\(y = y_s\)</span> in the above formula. Notice, though, that since <span class="math inline">\(s(y)\)</span> is a cubic function, then we would need to solve a cubic equation in general.</p>
 </section>
 <section id="a-word-about-the-parameter-space" class="level2" data-number="19.3">
 <h2 data-number="19.3" class="anchored" data-anchor-id="a-word-about-the-parameter-space"><span class="header-section-number">19.3</span> A word about the parameter space</h2>
@@ -574,7 +574,7 @@ T = T(t, y) = G(y; A, b, k, C, Q, a_i, a_w).
 <section id="a-bifurcation-diagram-for-q-vs-y_s" class="level2" data-number="19.4">
 <h2 data-number="19.4" class="anchored" data-anchor-id="a-bifurcation-diagram-for-q-vs-y_s"><span class="header-section-number">19.4</span> A bifurcation diagram for <span class="math inline">\(Q\)</span> vs <span class="math inline">\(y_s\)</span></h2>
 <p>Returning to the ice line, we are interested in keeping all other parameters fixed, and then attempting to understand how the ice line evolves as the solar constant <span class="math inline">\(Q\)</span> is changed. For example, we might believe that as <span class="math inline">\(Q\)</span> increases (and hence temperatures rise), the ice line will move towards the North Pole. And as <span class="math inline">\(Q\)</span> decreases, the ice line moves towards the equator.</p>
-<p>We return to (<a href="#eq-Tstar">Equation&nbsp;<span>19.2</span></a>) and consider inverting the formulation. For each given ice line location, <span class="math inline">\(y_s \in (0, 1)\)</span>, we solve for the <span class="math inline">\(Q\)</span> value. This gives <span class="math display">\[
+<p>We return to (<a href="#eq-Tstar">Equation&nbsp;<span>19.3</span></a>) and consider inverting the formulation. For each given ice line location, <span class="math inline">\(y_s \in (0, 1)\)</span>, we solve for the <span class="math inline">\(Q\)</span> value. This gives <span class="math display">\[
 Q = \frac{\left(T_C + \frac{A}{B}\right)(B + k)}{s(y_s)[1 - \frac{1}{2}(a_i + a_w)] + \frac{k}{B}(1 - \bar{a})}.
 \]</span> Above, we have used the fact that <span class="math inline">\(a(y_s) = \frac{1}{2}(a_i + a_w)\)</span>. This can now be plotted in Python, either in the notebook written during lectures, or via the code below.</p>
 <div class="cell" data-execution_count="1">
@@ -611,7 +611,7 @@ Q = \frac{\left(T_C + \frac{A}{B}\right)(B + k)}{s(y_s)[1 - \frac{1}{2}(a_i + a_
 </section>
 <section id="ice-free-state" class="level2" data-number="19.5">
 <h2 data-number="19.5" class="anchored" data-anchor-id="ice-free-state"><span class="header-section-number">19.5</span> Ice-free state</h2>
-<p>The ice-free state is the state for which <span class="math inline">\(a = a_w = \bar{a}\)</span> for all <span class="math inline">\(y \in [0, 1)\)</span>. In this case, the solution can be directly calculated from <a href="#eq-Tstar">Equation&nbsp;<span>19.2</span></a>. It would then be given by <span class="math display">\[
+<p>The ice-free state is the state for which <span class="math inline">\(a = a_w = \bar{a}\)</span> for all <span class="math inline">\(y \in [0, 1)\)</span>. In this case, the solution can be directly calculated from <a href="#eq-Tstar">Equation&nbsp;<span>19.3</span></a>. It would then be given by <span class="math display">\[
 T^*(y) = \frac{Q(1 - a_w)}{B + k}\left[s(y) + \frac{k}{B}\right] - \frac{A}{B}.
 \]</span> This solution has a requirement, which is that when considering the solar constant <span class="math inline">\(Q\)</span>, the solar constant cannot be so weak so that an ice line appears for <span class="math inline">\(y &lt; 1\)</span>. The minimum value of <span class="math inline">\(Q\)</span> is therefore determined by pinning the ice line right at the North Pole. Thus <span class="math display">\[
 Q &gt; \frac{(B + k)(T_C + A/B)}{(1 - a_w)[s(1) + k/B]} \approx 330 \mathrm{W} \, \mathrm{m}^{-2}.
