@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA30287: Mathematics of Planet Earth - Introduction</title>
+<title>MA30287: Mathematics of Planet Earth - 39&nbsp; Problem set 6 solutions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 
@@ -49,8 +30,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-01-intro/intro-PDEs.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../part-05-techniques/part-techniques.html" rel="next">
+<link href="../part-xx-exercises/ps05sol.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -80,6 +61,7 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -89,7 +71,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Introduction</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Problem set 6 solutions</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -124,7 +106,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../part-01-intro/intro.html" class="sidebar-item-text sidebar-link active">Introduction</a>
+            <a href="../part-01-intro/intro.html" class="sidebar-item-text sidebar-link">Introduction</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -382,7 +364,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps06sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Problem set 6 solutions</span></a>
+  <a href="../part-xx-exercises/ps06sol.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Problem set 6 solutions</span></a>
   </div>
 </li>
       </ul>
@@ -432,14 +414,25 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#q1.-non-dimensionalisation-of-the-ocean-model" id="toc-q1.-non-dimensionalisation-of-the-ocean-model" class="nav-link active" data-scroll-target="#q1.-non-dimensionalisation-of-the-ocean-model">Q1. Non-dimensionalisation of the ocean model</a></li>
+  <li><a href="#q2.-steady-states-of-the-reduced-model" id="toc-q2.-steady-states-of-the-reduced-model" class="nav-link" data-scroll-target="#q2.-steady-states-of-the-reduced-model">Q2. Steady states of the reduced model</a></li>
+  <li><a href="#q3.-bifurcation-diagram-for-the-reduced-ocean-model" id="toc-q3.-bifurcation-diagram-for-the-reduced-ocean-model" class="nav-link" data-scroll-target="#q3.-bifurcation-diagram-for-the-reduced-ocean-model">Q3. Bifurcation diagram for the reduced ocean model</a></li>
+  <li><a href="#q4.-non-dimensionalisation-of-the-stommel-box-model" id="toc-q4.-non-dimensionalisation-of-the-stommel-box-model" class="nav-link" data-scroll-target="#q4.-non-dimensionalisation-of-the-stommel-box-model">Q4. Non-dimensionalisation of the Stommel box model</a></li>
+  <li><a href="#q4.-investigations-for-r" id="toc-q4.-investigations-for-r" class="nav-link" data-scroll-target="#q4.-investigations-for-r">Q4. Investigations for <span class="math inline">\(R\)</span></a></li>
+  <li><a href="#q5.-alternative-scalings-of-the-stommel-box-model" id="toc-q5.-alternative-scalings-of-the-stommel-box-model" class="nav-link" data-scroll-target="#q5.-alternative-scalings-of-the-stommel-box-model">Q5. Alternative scalings of the Stommel box model</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-intro" class="quarto-section-identifier d-none d-lg-block">Introduction</span></h1>
+<h1 class="title"><span id="sec-ps6" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Problem set 6 solutions</span></span></h1>
 </div>
 
 
@@ -454,46 +447,177 @@ div.csl-indent {
 
 </header>
 
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<section id="q1.-non-dimensionalisation-of-the-ocean-model" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q1.-non-dimensionalisation-of-the-ocean-model">Q1. Non-dimensionalisation of the ocean model</h2>
+<p>Take the ocean model from (<a href="../part-03-box/basic-ocean-model.html#eq-ocean-final-dimensional">Equation&nbsp;<span>25.7</span></a>). Re-scale the salinity and time via <span class="math display">\[
+\Delta S = [\Delta S]x \quad \text{and} \quad
+t = [t]t'.
+\]</span> By choosing appropriate scales, show that the equation can be reduced to the form <span class="math display">\[
+\dot{x} = \lambda - |1 - x|x
+\]</span> for the parameter <span class="math inline">\(\lambda\)</span> which you should define. Note that the above quantity <span class="math inline">\(\dot{x}\)</span> refers to differentiation in <span class="math inline">\(t'\)</span>.</p>
+<p>Provide an intuitive interpretation of the parameter <span class="math inline">\(\lambda\)</span>.</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-2022-23 note
+Solution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Covered in lecture 1.</p>
+<p>You can verify that the scales should be chosen according to <span class="math display">\[
+[\Delta S] = \frac{\alpha \Delta T}{\beta}, \qquad [t] = \frac{1}{2\alpha k |\Delta T|}, \qquad \lambda = \frac{\beta H}{\alpha^2 k \Delta T|\Delta T|}.
+\]</span> The parameter <span class="math inline">\(\lambda\)</span> measures the balance between virtual salt flux (measured by <span class="math inline">\(H\)</span>) and the flux through the capillary pipe connecting boxes (measured via <span class="math inline">\(k\alpha\)</span>).</p>
+<p>Note that under the assumption that <span class="math inline">\(\Delta T = T_2 - T_1 &gt; 0\)</span> (the low latitudes is warmer), then <span class="math inline">\(\lambda &gt; 0\)</span>.</p>
 </div>
 </div>
-<p>Mathematics of Planet Earth seems like an incredibly broad description for a course, but perhaps in order to give a rough idea of what such a course might include, we can consider the following diagram, which illustrates different categories and subject areas that are involved in the modelling of a full Earth system.</p>
-<div id="fig-natureESM" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figures/NatureESM.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: The many components of a full Earth System Model (image from Nature; citation needed</figcaption><p></p>
-</figure>
+</section>
+<section id="q2.-steady-states-of-the-reduced-model" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q2.-steady-states-of-the-reduced-model">Q2. Steady states of the reduced model</h2>
+<p>Consider now the reduced model (<a href="ps06.html#eq-ps6-xeqn">Equation&nbsp;<span>33.1</span></a>) and solve for the steady-state solutions (or equilibrium solutions). Assume that <span class="math inline">\(\lambda &gt; 0\)</span> and consider the two cases of <span class="math inline">\(1 - x \geq 0\)</span> and <span class="math inline">\(1 - x &lt; 0\)</span>. Show that there are up to three steady states given by <span class="math display">\[
+\begin{align}
+x_1^* &amp;= \frac{1}{2}(1 + \sqrt{1 + 4 \lambda}), \\
+x_{2,3}^* &amp;= \frac{1}{2}(1 \pm \sqrt{1 - 4\lambda}),
+\end{align}
+\]</span> and derive conditions for each point to exist.</p>
+<p>Next, set <span class="math inline">\(x = x^* + y\)</span> where <span class="math inline">\(x^*\)</span> is one of the three possible steady-state solutions. Show that the perturbation is governed by <span class="math display">\[
+\dot{y} = \pm (2x^* - 1)y, \qquad x^* \lessgtr 1.
+\]</span> Conclude that <span class="math inline">\(x_1^*\)</span> is stable, <span class="math inline">\(x_2^*\)</span> is unstable, and <span class="math inline">\(x_3^*\)</span> is stable.</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<p>It would be possible to spend a lifetime studying any one aspects of the above categories, and they span many different areas of study, including: (i) engineering (civil, fluids, mechanical, etc.); (ii) physics (geosciences, mechanics); (iii) Earth sciences; (iv) policy and health; and so forth and so on. As mathematicians, we also have a unique perspective, and applied mathematics plays important roles in many of the above categories.</p>
-<p>In essence, this course will divide into three themes, each theme centred upon a different style of study. All of these themes are united by aspects of <strong>mathematical modelling</strong> and <strong>mathematical analysis</strong> and this is what distinguishes our style of study from adjacent areas of science and social science.</p>
-<ol type="1">
-<li><p>In the first part of the course, we will use back-of-the-envelope mathematics, and conservation-style arguments to study various aspects of energy consumption and energy renewal. This involves, for example, estimating your own energy usage, and developing a basic understanding of the mechanics of some renewable technologies. The source for this part of the course will be <span class="citation" data-cites="mackay_book">(<a href="../references.html#ref-mackay_book" role="doc-biblioref">MacKay 2009</a>)</span>.</p></li>
-<li><p>In the second part of the course, we will study so-called conceptual or box models of the climate. This involves some of the blue elements of <a href="#fig-natureESM">Figure&nbsp;<span>1</span></a>, and thus we use coarse-grained models of describing the climate. This will involve applying some of the dynamical systems (phase-plane analysis of ODEs) you have learned previously, along with new methods of computation and analysis. The source for this part of the course will be <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span>.</p></li>
-<li><p>Finally, the last part of the course will involve more in-depth analysis of the physical models that govern the blue elements of <a href="#fig-natureESM">Figure&nbsp;<span>1</span></a>. This moves us from the toy box models studied above to digging into the underlying physics—this also falls into the category of Mathematical Geoscience. For example, we will use partial differential equations to study the atmosphere and develop a deeper understanding of greenhouse gases. The source for this part of the course will be <span class="citation" data-cites="fowler_book">(<a href="../references.html#ref-fowler_book" role="doc-biblioref">Fowler 2011</a>)</span>.</p></li>
-</ol>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>According to the above, we assume that <span class="math inline">\(\lambda &gt; 0\)</span> and so it must be the case that <span class="math inline">\(x &gt; 0\)</span> (it is not hard to relax this assumption and study all possibilities).</p>
+<p>First consider <span class="math inline">\(1 - x &lt; 0\)</span> or <span class="math inline">\(x &gt; 1\)</span>. The equation to solve is <span class="math inline">\(-x(1-x) = \lambda\)</span>. Of the two roots, only the one <span class="math display">\[
+x_1^* = \frac{1}{2}(1 + \sqrt{1 + 4\lambda}), \qquad \text{for all $\lambda &gt; 0$}
+\]</span> is relevant since the other root has <span class="math inline">\(x &lt; 0\)</span>.</p>
+<p>Next consider <span class="math inline">\(1 - x \geq 0\)</span> or <span class="math inline">\(x \leq 1\)</span>. So that the equation to solve is <span class="math inline">\(x(1-x) = \lambda\)</span>. This yields <span class="math display">\[
+x_{2,3}^* = \frac{1}{2}(1 \pm \sqrt{1 - 4\lambda}), \qquad \text{for $0 &lt; \lambda \leq 1/4$}.
+\]</span></p>
+<p>For the stability analysis, it is useful firstly to write <span class="math inline">\(|1 - x| = c (1 - x)\)</span> for <span class="math inline">\(x \lessgtr 1\)</span> where <span class="math inline">\(c = \pm 1\)</span>. Then we can write <span class="math display">\[
+\dot{x} = f(x), \qquad f(x) = \lambda - c(1-x)x.
+\]</span> Linearisation then means that we can expand <span class="math inline">\(f(x) = f(x^*) + f'(x^*)(x - x^*) + \ldots\)</span>. The linearised system is <span class="math display">\[
+\dot{y} = f'(x^*)y = c(2x^* - 1) y \equiv Ay,
+\]</span> once <span class="math inline">\(f'(x^*)\)</span> has been calculated and simplified.</p>
+<p>To check stability, we need only check the sign of <span class="math inline">\(A\)</span>. For <span class="math inline">\(x^* &gt; 1\)</span>, we have <span class="math display">\[
+A = -(2x_1^* - 1) = -\sqrt{1 + 4\lambda} &lt; 0,
+\]</span> so the <span class="math inline">\(x_1^*\)</span> point is linearly stable (since it is associated with exponential decay and <span class="math inline">\(y \to 0\)</span> as <span class="math inline">\(t \to \infty\)</span>). Similarly, for the other two, <span class="math display">\[
+A = (2x^* - 1) = \pm \sqrt{1 - 4\lambda}.
+\]</span> The top sign corresponds to <span class="math inline">\(x_2^*\)</span> and since <span class="math inline">\(y \to \infty\)</span> as <span class="math inline">\(t \to \infty\)</span> this point is unstable. However, <span class="math inline">\(x_3^*\)</span> has <span class="math inline">\(A &lt; 0\)</span> so it is stable.</p>
+</div>
+</div>
+</section>
+<section id="q3.-bifurcation-diagram-for-the-reduced-ocean-model" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q3.-bifurcation-diagram-for-the-reduced-ocean-model">Q3. Bifurcation diagram for the reduced ocean model</h2>
+<p>Based on your work in Q2, plot a bifurcation diagram in the <span class="math inline">\((\lambda, x^*)\)</span>-plane. Use solid and dashed curves to indicate stability.</p>
+<p>Does the bifurcation diagram indicate the possibility of tipping points and hysteresis? By considering the interpretation of <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(x^*\)</span>, discuss the physical consequences of such behaviour as it relates to the Ocean model.</p>
+<p>How does this bifurcation diagram compare to the typical bifurcation diagrams studied in the Energy Balance module, such as the one studied in <a href="../part-03-box/latitude4.html"><span>Chapter&nbsp;20</span></a> ?</p>
+</section>
+<section id="q4.-non-dimensionalisation-of-the-stommel-box-model" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q4.-non-dimensionalisation-of-the-stommel-box-model">Q4. Non-dimensionalisation of the Stommel box model</h2>
+<p>Consider the Stommel box model given in (<a href="../part-03-box/stommel.html#eq-stommelpre">Equation&nbsp;<span>26.1</span></a>). Non-dimensionalise the model in order to produce the set of equations given in (<a href="../part-03-box/stommel.html#eq-stommelsys">Equation&nbsp;<span>26.2</span></a>), repeated here: <span class="math display">\[
+\begin{align}
+\frac{\mathrm{d}x}{\mathrm{d}t} &amp;= \delta(1 - x) - |f(x, y)|x, \\
+\frac{\mathrm{d}y}{\mathrm{d}t} &amp;= 1 - y - |f(x, y)|y,
+\end{align}
+\]</span> where we have introduced the function, <span class="math display">\[
+f(x, y; R, \lambda) = \frac{1}{\lambda}(Rx - y),
+\]</span></p>
+<p>Provide a brief description of the physical interpretations of the parameters <span class="math inline">\(\lambda\)</span>,<span class="math inline">\(\delta\)</span>, and <span class="math inline">\(R\)</span>.</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This was done during the lecture 30, so please refer to the visualiser notes. The final parameters were established by <span class="math display">\[
+\delta = \frac{d}{c}, \qquad \lambda = \frac{c}{2\alpha k \Delta T^*}, \qquad R = \frac{\beta \Delta S^*}{\alpha \Delta T^*}.
+\]</span> Their interpretations are as follows: <span class="math inline">\(\delta\)</span> measures the relative relaxation temporal rates of the salt-basin exchange and the temperature-basin exchange. Since thermal energy turns out to exchange on a faster time scale than salinity, then we are typically interested in <span class="math inline">\(\delta \ll 1\)</span>.</p>
+<p>The parameter <span class="math inline">\(\lambda\)</span> is a measure of the strength of the THC. For example, with <span class="math inline">\(k\)</span> large, this corresponds to significant flow through the pipes connecting the boxes, and so <span class="math inline">\(\lambda \to 0\)</span> corresponds to strong THC.</p>
+<p>Finally <span class="math inline">\(R\)</span> allows us to compare the relative effects of temperature and salinity differences between the external basins. Salinity differences dominate if <span class="math inline">\(R &gt; 1\)</span> and temperature differences dominate if <span class="math inline">\(R &lt; 1\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="q4.-investigations-for-r" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q4.-investigations-for-r">Q4. Investigations for <span class="math inline">\(R\)</span></h2>
+<p>Using the script available on the Jupyter hub, investigate the behaviour of the system (<a href="ps06.html#eq-ps6-stommelsys">Equation&nbsp;<span>33.2</span></a>) under changing values of <span class="math inline">\(R\)</span> and fixed values of the other parameters. Based on your intuition, what do you expect to be the features of the bifurcation diagram, as shown in the <span class="math inline">\((R, f^*)\)</span>-plane?</p>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</section>
+<section id="q5.-alternative-scalings-of-the-stommel-box-model" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q5.-alternative-scalings-of-the-stommel-box-model">Q5. Alternative scalings of the Stommel box model</h2>
+<p>It is possible to scale the problem differently, and this may allow for simpler analysis. Consider the set of equations (<a href="ps06.html#eq-ps6-stommelsys">Equation&nbsp;<span>33.2</span></a>). Write instead <span class="math display">\[
+x = [x] s, \qquad y = [y] \theta, \qquad t = [t] t',
+\]</span> Choose the correct scalings, <span class="math inline">\([x]\)</span>, <span class="math inline">\([y]\)</span>, and <span class="math inline">\([t]\)</span>, so that we obtain a re-scaled version: <span class="math display">\[
+\begin{align}
+\frac{\mathrm{d}s}{\mathrm{d}t'} &amp;= 1 - (\epsilon + |q|) s, \\
+\frac{\mathrm{d}\theta}{\mathrm{d}t'} &amp;= 1 - (\mu + |q|)\theta,
+\end{align}
+\]</span> where now the flow term is given by <span class="math display">\[
+q = \kappa(-\theta + \tilde{R}s).
+\]</span> In addition to the choice of scalings, you will need to describe how the new parameters, <span class="math inline">\(\epsilon\)</span>, <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\kappa\)</span>, and <span class="math inline">\(\tilde{R}\)</span>, are related to the older parameters.</p>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Putting in the scalings, <span class="math display">\[
+\begin{align}
+\frac{[x]}{[t]}\frac{\mathrm{d}s}{\mathrm{d}t'} &amp;= \delta(1 - [x]s) - [x]|f(x, y)|s, \\
+\frac{[y]}{[t]}\frac{\mathrm{d}\theta}{\mathrm{d}t'} &amp;= 1 - [y]\theta - |f(x, y)|\theta.
+\end{align}
+\]</span> Comparing the equations, we see that we should choose <span class="math display">\[
+[x] = \epsilon, \qquad \frac{\delta [t]}{[t]} = 1, \qquad [t] = \mu, \qquad [y] = [t] = \mu.
+\]</span> Under this choice, <span class="math display">\[
+\begin{align}
+\frac{\mathrm{d}s}{\mathrm{d}t'} &amp;= 1 - s - [t]|f(x, y)|s, \\
+\frac{\mathrm{d}\theta}{\mathrm{d}t'} &amp;= 1 - \mu\theta - [t]|f(x, y)|\theta.
+\end{align}
+\]</span> The latter quantity is <span class="math display">\[
+\mu f = \frac{\mu[y]}{\lambda}\left(-\theta + \frac{R[x]}{[y]}s\right).
+\]</span> We there write <span class="math display">\[
+\kappa =  \frac{\mu[y]}{\lambda}, \qquad \tilde{R} + \frac{R[x]}{[y]}
+\]</span></p>
+<p>Thus we have produced <span class="math display">\[
+\begin{align}
+\frac{\mathrm{d}s}{\mathrm{d}t'} &amp;= 1 - s - |q|s, \\
+\frac{\mathrm{d}\theta}{\mathrm{d}t'} &amp;= 1 - \mu\theta - |q|\theta.
+\end{align}
+\]</span> where <span class="math display">\[
+q = \kappa(-\theta + \tilde{R}s).
+\]</span></p>
+</div>
+</div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-fowler_book" class="csl-entry" role="doc-biblioentry">
-Fowler, Andrew. 2011. <em>Mathematical Geoscience</em>. Vol. 36. Springer.
-</div>
-<div id="ref-kaper_book" class="csl-entry" role="doc-biblioentry">
-Kaper, Hans, and Hans Engler. 2013. <em>Mathematics and Climate</em>. SIAM.
-</div>
-<div id="ref-mackay_book" class="csl-entry" role="doc-biblioentry">
-MacKay, D. J. C. 2009. <em>Sustainable Energy – Without the Hot Air</em>. UIT Cambridge Ltd.
-</div>
-</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -631,13 +755,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="../part-xx-exercises/ps05sol.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Problem set 5 solutions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-01-intro/intro-PDEs.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Conservation laws and consitutive laws</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-05-techniques/part-techniques.html" class="pagination-link">
+        <span class="nav-page-text">Appendices</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
