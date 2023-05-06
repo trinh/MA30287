@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -598,7 +598,7 @@ a_w = 0.32 &amp; y &lt; y_s, \\
 </section>
 <section id="outgoing-energy" class="level2" data-number="16.2">
 <h2 data-number="16.2" class="anchored" data-anchor-id="outgoing-energy"><span class="header-section-number">16.2</span> Outgoing energy</h2>
-<p>The outgoing energy is approximated via the linear Budyko approximation discussed in <a href="box-energy-model.html#sec-budyko"><span>Section&nbsp;15.4</span></a>. <span class="math display">\[
+<p>The outgoing energy is approximated via the linear Budyko approximation discussed in <a href="#sec-budyko"><span class="quarto-unresolved-ref">sec-budyko</span></a>. <span class="math display">\[
 E_{\text{out}} = A + BT,
 \]</span> where <span class="math inline">\(A = 202 \mathrm{W}/ \mathrm{m}^2\)</span> and <span class="math inline">\(B = 1.9 \mathrm{W}/(\mathrm{m}^2 {}^\circ \mathrm{C})\)</span>. These figures are taken from a 1993 paper by <a href="https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/92JD02666">Graves, Lee, and North</a>.</p>
 </section>
@@ -609,11 +609,11 @@ E_{\text{out}} = A + BT,
 \]</span> where it can be verified (exercise) that the global mean temperature is the same as the hemispherically averaged temperature, i.e.&nbsp; <span class="math display">\[
 \bar{T} = \frac{1}{\text{surface area}} \iint T \, \mathrm{S} = \int_0^1 T(y) \, \mathrm{d}y.
 \]</span> Above, we shall use a value of <span class="math inline">\(k = 1.6B\)</span>, again estimated based on data and studies.</p>
-<p>This completes our review of all the components (<a href="#eq-EBMlatcomp">Equation&nbsp;<span>16.2</span></a>) that make up the EBM model (<a href="#eq-EBMlat">Equation&nbsp;<span>16.1</span></a>).</p>
+<p>This completes our review of all the components (<a href="#eq-EBMlatcomp">Equation&nbsp;<span class="quarto-unresolved-ref">eq-EBMlatcomp</span></a>) that make up the EBM model (<a href="#eq-EBMlat">Equation&nbsp;<span class="quarto-unresolved-ref">eq-EBMlat</span></a>).</p>
 </section>
 <section id="steady-state-temperature" class="level2" data-number="16.4">
 <h2 data-number="16.4" class="anchored" data-anchor-id="steady-state-temperature"><span class="header-section-number">16.4</span> Steady-state temperature</h2>
-<p>Let <span class="math inline">\(T^*(y)\)</span> be the steady-state temperature and <span class="math inline">\(\bar{T}^*\)</span> be the corresponding global mean temperature. Then from setting the LHS of (<a href="#eq-EBMlat">Equation&nbsp;<span>16.1</span></a>) to zero, we have the fact that <span class="math inline">\(T^*\)</span> is given by solving the implicit equation: <span class="math display">\[
+<p>Let <span class="math inline">\(T^*(y)\)</span> be the steady-state temperature and <span class="math inline">\(\bar{T}^*\)</span> be the corresponding global mean temperature. Then from setting the LHS of (<a href="#eq-EBMlat">Equation&nbsp;<span class="quarto-unresolved-ref">eq-EBMlat</span></a>) to zero, we have the fact that <span class="math inline">\(T^*\)</span> is given by solving the implicit equation: <span class="math display">\[
 T^*(y) = \Phi(T^*) = \frac{{\color{blue}k}\bar{T}^* + Qs(y)(1 {\color{blue}-} \alpha(y)) - A}{B + C}.
 \]</span> It is important to remember that the albedo, <span class="math inline">\(\alpha(y)\)</span>, implicitly depends on <span class="math inline">\(T^*\)</span> because at each location <span class="math inline">\(y\)</span>, we must decide if the temperature is less or greater than the threshold <span class="math inline">\(T_c\)</span>, which is the temperature of the ice line.</p>
 <p>The above equation is somewhat tricky because of its implicit nature; it is made even trickier by virtue that multiple equilibria exist at the same parameter values. We will begin studying this problem, but before doing so, let us make a few remarks:</p>

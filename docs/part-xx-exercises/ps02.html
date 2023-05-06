@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -522,7 +522,7 @@ Hand-in
 <p>This problem set was released on Lecture 9. If you’d like to get it in for feedback, hand into the 4W pidges before next week (Lecture 12) or alternatively hand-in directly after the 12th lecture.</p>
 </div>
 </div>
-<p>The intention of this problem set is to practice concepts from <a href="../part-05-techniques/asymptotics01.html"><span>Chapter&nbsp;8</span></a> (asymptotic approximations of algebraic equations) to <a href="../part-05-techniques/euler.html"><span>Chapter&nbsp;10</span></a> (Euler’s method and numerical solutions of differential equations). These techniques form some of the most powerful techniques at your disposal in applied maths.</p>
+<p>The intention of this problem set is to practice concepts from <a href="#sec-asymptotics01"><span class="quarto-unresolved-ref">sec-asymptotics01</span></a> (asymptotic approximations of algebraic equations) to <a href="#sec-euler"><span class="quarto-unresolved-ref">sec-euler</span></a> (Euler’s method and numerical solutions of differential equations). These techniques form some of the most powerful techniques at your disposal in applied maths.</p>
 <section id="getting-started-with-jupyter" class="level2" data-number="29.1">
 <h2 data-number="29.1" class="anchored" data-anchor-id="getting-started-with-jupyter"><span class="header-section-number">29.1</span> Getting started with Jupyter</h2>
 <p>Go online to the Jupyter hub at <a href="https://maths.jupyterhub.bath.ac.uk">https://maths.jupyterhub.bath.ac.uk</a>.</p>
@@ -628,7 +628,7 @@ x = x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots
 </tr>
 </tbody>
 </table>
-<p>Use your code in <a href="ps02sol.html#sec-ps2-cubic"><span>Section&nbsp;35.2</span></a> to input numerical approximations to the above entries.</p>
+<p>Use your code in <a href="#sec-ps2-cubic"><span class="quarto-unresolved-ref">sec-ps2-cubic</span></a> to input numerical approximations to the above entries.</p>
 <p>Create a graph <strong>by hand</strong> of the data (it does not have to be extremely accurate), as plotted in the <span class="math inline">\((\epsilon, x_{\text{exact}} - x_0)\)</span>-plane. Fit a line to this graph and estimate the gradient. Is this consistent with what you derived above?</p></li>
 <li><p>By rescaling <span class="math inline">\(x\)</span> appropriately in terms of <span class="math inline">\(\epsilon\)</span>, derive the first three terms of the asymptotic approximations of the remaining roots.</p></li>
 </ol>
@@ -648,7 +648,7 @@ x = x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots
 <p>The question previously asked for two terms. It has been reduced to only one term.</p>
 </div>
 </div>
-<p>In <a href="../part-05-techniques/asymptotics02.html"><span>Chapter&nbsp;9</span></a> you performed the asymptotic analysis for a projectile. The small parameter was <span class="math inline">\(\epsilon\)</span> and represented <span class="math inline">\(v_0^2/(gR_E)\)</span> (a parameter that includes the initial velocity, <span class="math inline">\(v_0\)</span>, gravity <span class="math inline">\(g\)</span>, and the radius of the Earth, <span class="math inline">\(R_E\)</span>.</p>
+<p>In <a href="#sec-asymptotics02"><span class="quarto-unresolved-ref">sec-asymptotics02</span></a> you performed the asymptotic analysis for a projectile. The small parameter was <span class="math inline">\(\epsilon\)</span> and represented <span class="math inline">\(v_0^2/(gR_E)\)</span> (a parameter that includes the initial velocity, <span class="math inline">\(v_0\)</span>, gravity <span class="math inline">\(g\)</span>, and the radius of the Earth, <span class="math inline">\(R_E\)</span>.</p>
 <p>If air resistance is included, then the non-dimensional toy model is instead <span id="eq-ps2-air"><span class="math display">\[
 \begin{gather}
 \frac{\mathrm{d}^2 y}{\mathrm{d}t^2} = - \frac{1}{(1 + \epsilon y)^2} - \frac{\alpha}{(1 + \epsilon y)} \frac{\mathrm{d}y}{\mathrm{d}t}, \\
@@ -665,7 +665,7 @@ y'(0) = 1.
 <h2 data-number="29.5" class="anchored" data-anchor-id="ode-solvers-and-eulers-method"><span class="header-section-number">29.5</span> ODE solvers and Euler’s method</h2>
 <p>Return to the setup of the above question.</p>
 <ol type="1">
-<li><p>Modify the script developed in lecture 8 or alternatively copy-and-paste the script shown in <a href="../part-05-techniques/asymptotics02.html#sec-asym2-num"><span>Section&nbsp;9.2</span></a> in order to solve (<a href="#eq-ps2-air">Equation&nbsp;<span>29.1</span></a>) at a prescribed value of <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\alpha\)</span>.</p></li>
+<li><p>Modify the script developed in lecture 8 or alternatively copy-and-paste the script shown in <a href="#sec-asym2-num"><span class="quarto-unresolved-ref">sec-asym2-num</span></a> in order to solve (<a href="#eq-ps2-air">Equation&nbsp;<span class="quarto-unresolved-ref">eq-ps2-air</span></a>) at a prescribed value of <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\alpha\)</span>.</p></li>
 <li><p>Using <strong>a pocket calculator</strong> (or your phone calculator) apply Euler’s method with <span class="math inline">\(\Delta t = 0.2\)</span>, <span class="math inline">\(\epsilon = 0.2\)</span>, and <span class="math inline">\(\alpha = 1\)</span> to determine the position of the projectile at <span class="math inline">\(t = 0.6\)</span>.</p></li>
 <li><p>Compare your hand calculation with the result from the Python output, as well as with your asymptotic approximations.</p></li>
 </ol>

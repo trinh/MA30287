@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -617,7 +617,7 @@ y_0'' = -1 - \alpha y_0' \\
 y_0(0) = 0 \\
 y_0'(0) = 1
 \end{gather}
-\]</span> To solve this, you will need to refresh your memory on second-order differential equations learned in 2nd year. You can see <a href="../part-05-techniques/odes.html"><span>Chapter&nbsp;42</span></a> for references. To solve this set <span class="math inline">\(y_0 = e^{rt}\)</span> and solve for <span class="math inline">\(r\)</span> for the homogeneous equation. You will get <span class="math display">\[
+\]</span> To solve this, you will need to refresh your memory on second-order differential equations learned in 2nd year. You can see <a href="#sec-odes"><span class="quarto-unresolved-ref">sec-odes</span></a> for references. To solve this set <span class="math inline">\(y_0 = e^{rt}\)</span> and solve for <span class="math inline">\(r\)</span> for the homogeneous equation. You will get <span class="math display">\[
 y_{\text{homogeneous}} = (c_1 + c_2 e^{-\alpha t}).
 \]</span> From here, we need a particular solution. This can be obtained by guessing (also see <a href="https://tutorial.math.lamar.edu/Classes/DE/UndeterminedCoefficients.aspx">this reference</a>). If we guess <span class="math display">\[
 y_p = C t,
@@ -666,7 +666,7 @@ y_0 \sim \left(-\frac{1}{2}t^2 + t\right) + \alpha \frac{1}{6} \left(-3t^2 + t^3
 <h2 data-number="35.5" class="anchored" data-anchor-id="ode-solvers-and-eulers-method"><span class="header-section-number">35.5</span> ODE solvers and Euler’s method</h2>
 <p>Return to the setup of the above question.</p>
 <ol type="1">
-<li>Modify the script developed in lecture 8 or alternatively copy-and-paste the script shown in <a href="../part-05-techniques/asymptotics02.html#sec-asym2-num"><span>Section&nbsp;9.2</span></a> in order to solve (<a href="ps02.html#eq-ps2-air">Equation&nbsp;<span>29.1</span></a>) at a prescribed value of <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\alpha\)</span>.</li>
+<li>Modify the script developed in lecture 8 or alternatively copy-and-paste the script shown in <a href="#sec-asym2-num"><span class="quarto-unresolved-ref">sec-asym2-num</span></a> in order to solve (<a href="#eq-ps2-air">Equation&nbsp;<span class="quarto-unresolved-ref">eq-ps2-air</span></a>) at a prescribed value of <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\alpha\)</span>.</li>
 </ol>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">

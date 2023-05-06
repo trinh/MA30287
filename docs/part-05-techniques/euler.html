@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -513,7 +513,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>In the previous section, we used built-in ODE solvers to develop numerical solutions. It is important to gain an understanding how a simple ODE solver works. The simplest scheme is called <a href="https://en.wikipedia.org/wiki/Euler_method">Euler’s method</a>, and this we now explain.</p>
-<p>Begin from the system (<a href="asymptotics02.html#eq-asymsys">Equation&nbsp;<span>9.2</span></a>). We assume that the solution is represented by a discrete set of points, <span class="math inline">\(\mathbf{Y}_n = \mathbf{Y}(t_n)\)</span> at the times <span class="math inline">\(t_0 = 0\)</span>, <span class="math inline">\(t_1 = \Delta t\)</span>, <span class="math inline">\(t_2 = 2\Delta t\)</span>, and so on. The time derivative is written as a discrete derivative while we approximate the right hand side by its value at the nth time step: <span class="math display">\[
+<p>Begin from the system (<a href="#eq-asymsys">Equation&nbsp;<span class="quarto-unresolved-ref">eq-asymsys</span></a>). We assume that the solution is represented by a discrete set of points, <span class="math inline">\(\mathbf{Y}_n = \mathbf{Y}(t_n)\)</span> at the times <span class="math inline">\(t_0 = 0\)</span>, <span class="math inline">\(t_1 = \Delta t\)</span>, <span class="math inline">\(t_2 = 2\Delta t\)</span>, and so on. The time derivative is written as a discrete derivative while we approximate the right hand side by its value at the nth time step: <span class="math display">\[
 \frac{\mathbf{Y}_{n+1} - \mathbf{Y}_{n}}{\Delta t} = \mathbf{F}(t_n, \mathbf{Y}_n)
 \]</span></p>
 <p>Rearranging yields a very simple algorithm for solving the ODE: <span class="math display">\[

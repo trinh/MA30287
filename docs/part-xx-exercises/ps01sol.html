@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -447,7 +447,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="a-source-in-the-heat-equation" class="level2" data-number="34.1">
 <h2 data-number="34.1" class="anchored" data-anchor-id="a-source-in-the-heat-equation"><span class="header-section-number">34.1</span> A source in the heat equation</h2>
-<p>Consider the same heat experiment discussed in <a href="../part-01-intro/intro-PDEs.html"><span>Chapter&nbsp;1</span></a> but now consider a bar that has an internal source or sink generating or removing heat, such as the case of a boiler with an internal heating element. By adapting a similar derivation to the one presented, explain why the modified conservation of heat equation is <span class="math display">\[
+<p>Consider the same heat experiment discussed in <a href="#sec-intro-PDEs"><span class="quarto-unresolved-ref">sec-intro-PDEs</span></a> but now consider a bar that has an internal source or sink generating or removing heat, such as the case of a boiler with an internal heating element. By adapting a similar derivation to the one presented, explain why the modified conservation of heat equation is <span class="math display">\[
 \frac{\mathrm{\partial}}{\mathrm{\partial}t} \int_a^b \rho c T \, \mathrm{d}x = q(x = b, t) - q(x = a, t) + \int_a^b R(x, t) \, \mathrm{d}x.
 \]</span></p>
 <p>In addition:</p>
@@ -595,8 +595,8 @@ Solution
 </section>
 <section id="the-unique-timescale-in-the-heat-equation" class="level2" data-number="34.3">
 <h2 data-number="34.3" class="anchored" data-anchor-id="the-unique-timescale-in-the-heat-equation"><span class="header-section-number">34.3</span> The unique timescale in the heat equation</h2>
-<p>During our investigation of the heat equation, we found that it was possible to scale time so as to scale out the only non-dimensional parameter that appears in the PDE (the Peclet number). This produced (<a href="../part-01-intro/intro-nondim.html#eq-heatintro-noscale">Equation&nbsp;<span>2.3</span></a>). As explained in lectures, the disappearance of all non-dimensional parameters is due to the fact that only a single sensible timescale exists.</p>
-<p>By adjusting the boundary conditions, we may create a new problem involving heat flow where a unique ‘special’ timescale in (<a href="../part-01-intro/intro-nondim.html#eq-specialtime">Equation&nbsp;<span>2.2</span></a>) can no longer be chosen.</p>
+<p>During our investigation of the heat equation, we found that it was possible to scale time so as to scale out the only non-dimensional parameter that appears in the PDE (the Peclet number). This produced (<a href="#eq-heatintro-noscale">Equation&nbsp;<span class="quarto-unresolved-ref">eq-heatintro-noscale</span></a>). As explained in lectures, the disappearance of all non-dimensional parameters is due to the fact that only a single sensible timescale exists.</p>
+<p>By adjusting the boundary conditions, we may create a new problem involving heat flow where a unique ‘special’ timescale in (<a href="#eq-specialtime">Equation&nbsp;<span class="quarto-unresolved-ref">eq-specialtime</span></a>) can no longer be chosen.</p>
 <p>Consider a system where one side of the rod is heated in some periodic fashion, e.g.&nbsp;set the initial and boundary conditions to be <span class="math display">\[\begin{align}
 T(x, 0) &amp;= T_0 \\
 T(0, t) &amp;= T_a \cos (\omega t), \\
@@ -664,7 +664,7 @@ Solution
 </section>
 <section id="timescale-in-the-surface-energy" class="level2" data-number="34.4">
 <h2 data-number="34.4" class="anchored" data-anchor-id="timescale-in-the-surface-energy"><span class="header-section-number">34.4</span> Timescale in the surface energy</h2>
-<p>Take the basic zero-dimensional energy model studied in (<a href="../part-01-intro/basic-energy-model.html#eq-heateq-earth">Equation&nbsp;<span>3.7</span></a>) for the temperature of the troposphere: <span class="math display">\[
+<p>Take the basic zero-dimensional energy model studied in (<a href="#eq-heateq-earth">Equation&nbsp;<span class="quarto-unresolved-ref">eq-heateq-earth</span></a>) for the temperature of the troposphere: <span class="math display">\[
 c \frac{\mathrm{d}T}{\mathrm{d}t} = \frac{1}{4} Q(1 - a) - \sigma \gamma T^4.
 \]</span></p>
 <ol type="a">
@@ -724,7 +724,7 @@ Solution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Below (<a href="../part-01-intro/basic-energy-model.html#eq-heateq-earth">Equation&nbsp;<span>3.7</span></a>), we defined <span class="math inline">\(C = \rho c_p d\)</span>. So the scaling on time is (put in the scaling for [T]): <span class="math display">\[
+<p>Below (<a href="#eq-heateq-earth">Equation&nbsp;<span class="quarto-unresolved-ref">eq-heateq-earth</span></a>), we defined <span class="math inline">\(C = \rho c_p d\)</span>. So the scaling on time is (put in the scaling for [T]): <span class="math display">\[
 [t] = \left(\frac{4}{(1-a)}\right)^{3/4} \left(\frac{C}{(\sigma \gamma)^{1/4} Q^{3/4}}\right).
 \]</span></p>
 <p>So we know that <span class="math inline">\(\sigma = 5.67 \times 10^{-8}\)</span> J/(m^2 s K^4), <span class="math inline">\(Q = 1.38 \times 10^3\)</span> J/(m^2 s). We can also calculate <span class="math display">\[

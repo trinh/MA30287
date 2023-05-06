@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -480,7 +480,7 @@ div.csl-indent {
 <p>Covered in Lecture 2.</p>
 </div>
 </div>
-<p>Putting a mathematical model into non-dimensional form is fundamental <span class="citation" data-cites="fowler_book">(<a href="../references.html#ref-fowler_book" role="doc-biblioref">Fowler 2011</a>)</span>. When we refer to a “back-of-the-envelope calculation”, we often mean simple algebraic calculations that still nevertheless provide enormous insight on problems. Such analyses are often based on dimensional analysis, which identifies the relationships between the different quantities involved in the problem.</p>
+<p>Putting a mathematical model into non-dimensional form is fundamental <span class="citation" data-cites="fowler_book">(<a href="#ref-fowler_book" role="doc-biblioref">Fowler 2011</a>)</span>. When we refer to a “back-of-the-envelope calculation”, we often mean simple algebraic calculations that still nevertheless provide enormous insight on problems. Such analyses are often based on dimensional analysis, which identifies the relationships between the different quantities involved in the problem.</p>
 <section id="dimensional-quantities" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="dimensional-quantities"><span class="header-section-number">2.1</span> Dimensional quantities</h2>
 <p>Every physical quantity, say Q, can be expressed as a product of a dimensional unit, denoted [Q], and a magnitude, say Q’. Thus we write <span class="math display">\[
@@ -517,7 +517,7 @@ F = m \frac{\mathrm{d}^2x}{\mathrm{d}t^2}
 </section>
 <section id="returning-to-the-heat-equation" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="returning-to-the-heat-equation"><span class="header-section-number">2.3</span> Returning to the heat equation</h2>
-<p>Exact units are not relevant for dynamics, and it is instead the ratio of units that we care about. To apply this principle, let us non-dimensionalise the equation <a href="intro-PDEs.html#eq-heatintro">Equation&nbsp;<span>1.1</span></a>. We introduce typical scales for each of the variables. For example, we non-dimensionalise the temperature and distance by setting <span class="math display">\[
+<p>Exact units are not relevant for dynamics, and it is instead the ratio of units that we care about. To apply this principle, let us non-dimensionalise the equation <a href="#eq-heatintro">Equation&nbsp;<span class="quarto-unresolved-ref">eq-heatintro</span></a>. We introduce typical scales for each of the variables. For example, we non-dimensionalise the temperature and distance by setting <span class="math display">\[
 T = T_0 T' \quad \text{and} \quad x = L x',
 \]</span> where primes now denote non-dimensional quantities. Since it is not clear how to scale time, we set <span class="math inline">\(t = [t] t;'\)</span> and choose the scale later. Substitution into the equation now yields <span class="math display">\[\begin{gather}
 \frac{\rho c T_0}{[t]}\frac{\mathrm{\partial}T'}{\mathrm{\partial}t'} = \frac{kT_0}{L^2} \frac{\mathrm{\partial}^2 T'}{\mathrm{\partial}x'^2}, \\
@@ -548,7 +548,7 @@ T'(1, 0) = B.
 \tag{2.3}\]</span></span></p>
 <p>We have gone from a system where we needed to consider six parameters to one where we only need to specify two (essentially, the ratio of the initial heat to the boundary values). Imagine you are an engineer at a thermal company, and asked to study the different possible configurations of heat in the above setup. If you were to blindly perform numerical computations, you would have had to set specific values for each of the six parameters.</p>
 <p>Instead, some mathematical analysis has demonstrated that the six-dimensional space of parameters can be simplified to a two-dimensional one—this is an enormous simplification.</p>
-<p>Your analysis has further identified the key non-dimensional parameter that appears in <a href="#eq-heat-Pe">Equation&nbsp;<span>2.1</span></a>. This demonstrates that it is not the individual values of <span class="math inline">\(k\)</span>, <span class="math inline">\(\rho\)</span>, <span class="math inline">\(c\)</span>, … that matter, but rather their specific combination in the form of the Peclet number.</p>
+<p>Your analysis has further identified the key non-dimensional parameter that appears in <a href="#eq-heat-Pe">Equation&nbsp;<span class="quarto-unresolved-ref">eq-heat-Pe</span></a>. This demonstrates that it is not the individual values of <span class="math inline">\(k\)</span>, <span class="math inline">\(\rho\)</span>, <span class="math inline">\(c\)</span>, … that matter, but rather their specific combination in the form of the Peclet number.</p>
 </section>
 <section id="gi-taylor-and-the-atomic-bomb" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="gi-taylor-and-the-atomic-bomb"><span class="header-section-number">2.4</span> GI Taylor and the atomic bomb</h2>
@@ -567,7 +567,7 @@ T'(1, 0) = B.
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-fowler_book" class="csl-entry" role="doc-biblioentry">
 Fowler, Andrew. 2011. <em>Mathematical Geoscience</em>. Vol. 36. Springer.
 </div>

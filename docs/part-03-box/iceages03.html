@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -469,7 +469,7 @@ ul.task-list li input[type="checkbox"] {
 <p></p><figcaption class="figure-caption">Phase plot of the above system</figcaption><p></p>
 </figure>
 </div>
-<p>We now show how to perform the asymptotic analysis of the above system. The techniques used relate to the analysis of boundary layers studied in <a href="../part-05-techniques/asymptotics03.html"><span>Chapter&nbsp;12</span></a>.</p>
+<p>We now show how to perform the asymptotic analysis of the above system. The techniques used relate to the analysis of boundary layers studied in <a href="#sec-asymptotics03"><span class="quarto-unresolved-ref">sec-asymptotics03</span></a>.</p>
 <section id="analysis-of-the-slow-manifold" class="level2" data-number="23.1">
 <h2 data-number="23.1" class="anchored" data-anchor-id="analysis-of-the-slow-manifold"><span class="header-section-number">23.1</span> Analysis of the slow manifold</h2>
 <p>Let <span class="math display">\[
@@ -543,8 +543,8 @@ Y_0 = \text{constant}
 x(0) &amp;= A, \\
 y(0) &amp;= B.
 \end{align}
-\]</span> Perhaps more specifically, we have performed our asymptotic analysis with the assumption that the solution starts directly on the slow manifold, i.e.&nbsp;<span class="math inline">\(y \sim S(x)\)</span>. Returning to the slow analysis leading to <a href="#eq-sloweqns">Equation&nbsp;<span>23.1</span></a> notice that the above conditions will not in general be compatible with the equations (since ‘A’ and ‘B’ might be chosen completely different from those values where <span class="math inline">\(y = S(x)\)</span>). The conclusion is then that the slow analysis applied cannot be valid near the initial condition.</p>
-<p>This turns out to be very similar to the example studied in <a href="../part-05-techniques/asymptotics03.html"><span>Chapter&nbsp;12</span></a>, which also had a time-dependent problem where the initial condition was incompatible.</p>
+\]</span> Perhaps more specifically, we have performed our asymptotic analysis with the assumption that the solution starts directly on the slow manifold, i.e.&nbsp;<span class="math inline">\(y \sim S(x)\)</span>. Returning to the slow analysis leading to <a href="#eq-sloweqns">Equation&nbsp;<span class="quarto-unresolved-ref">eq-sloweqns</span></a> notice that the above conditions will not in general be compatible with the equations (since ‘A’ and ‘B’ might be chosen completely different from those values where <span class="math inline">\(y = S(x)\)</span>). The conclusion is then that the slow analysis applied cannot be valid near the initial condition.</p>
+<p>This turns out to be very similar to the example studied in <a href="#sec-asymptotics03"><span class="quarto-unresolved-ref">sec-asymptotics03</span></a>, which also had a time-dependent problem where the initial condition was incompatible.</p>
 <p>Therefore near <span class="math inline">\(t = 0\)</span>, we must introduce an analogous boundary layer. This analysis will be identical to the above fast-scale dynamics except that <span class="math inline">\(t^* = 0\)</span>. The conclusion is that if we begin off the manifold <span class="math inline">\(y = S(x)\)</span>, the solution will rapidly tend left or right in the phase plane (at near-constant values of <span class="math inline">\(y\)</span>). Once it intersects with the manifold, the trajectories then resume the slow and fast dynamics observed above.</p>
 <p>This is now shown below for the initial condition of <span class="math inline">\(x(0) = 2.5\)</span>, <span class="math inline">\(y(0) = -1.5\)</span> and <span class="math inline">\(\epsilon = 0.05\)</span>.</p>
 <p><img src="img/2023-04-12-13-53-28.png" class="img-fluid"></p>

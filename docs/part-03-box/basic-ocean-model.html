@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -519,22 +519,22 @@ Extra content
 \tag{25.1}\]</span></span> where <span class="math inline">\(w\)</span> is the upswelling velocity and <span class="math inline">\(\kappa\)</span> is the diffusion coefficient of the fluid.</p>
 <p>Let us assume that the temperature in this region is near steady state and that the upwards velocity is constant. Then we integrate the ODE to find <span class="math display">\[
 T(z) = T_0 + T_1 \mathrm{e}^{-z/z^*},
-\]</span> where <span class="math inline">\(T_0\)</span> and <span class="math inline">\(T_1\)</span> are constants. From <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span>, the typical orders for the parameters are <span class="math inline">\(\kappa \sim 10^{-2} \,\mathrm{m}^{2} \,\mathrm{s}^{-1}\)</span> and <span class="math inline">\(z^* \sim 10^2 \, \mathrm{m}\)</span>, so <span class="math inline">\(w \sim 10^{-4} \,\mathrm{m} \,\mathrm{s}^{-1}\)</span>, which is quite slow.</p>
+\]</span> where <span class="math inline">\(T_0\)</span> and <span class="math inline">\(T_1\)</span> are constants. From <span class="citation" data-cites="kaper_book">(<a href="#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span>, the typical orders for the parameters are <span class="math inline">\(\kappa \sim 10^{-2} \,\mathrm{m}^{2} \,\mathrm{s}^{-1}\)</span> and <span class="math inline">\(z^* \sim 10^2 \, \mathrm{m}\)</span>, so <span class="math inline">\(w \sim 10^{-4} \,\mathrm{m} \,\mathrm{s}^{-1}\)</span>, which is quite slow.</p>
 <div id="fig-oceanslice" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="img/2023-02-11-01-50-02.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;25.2: Cross section of the Atlantic Ocean, showing the temperature and salinity profiles on the right. Image from <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span>.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;25.2: Cross section of the Atlantic Ocean, showing the temperature and salinity profiles on the right. Image from <span class="citation" data-cites="kaper_book">(<a href="#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span>.</figcaption><p></p>
 </figure>
 </div>
 </section>
 <section id="salinity-and-density" class="level2" data-number="25.3">
 <h2 data-number="25.3" class="anchored" data-anchor-id="salinity-and-density"><span class="header-section-number">25.3</span> Salinity and density</h2>
-<p>Salinity is a key component in the oceans since the salts have a large effect on the water density (which consequently drives motion). Salinity is measured in psu or <em>practical salinity units</em>, which is a non-dimensional ratio of conductivities. In the mixed layer, the sainity ranges from 31-39 psu, and is about 35 in the abyssal zone. You can inspect the profile in <a href="#fig-oceanslice">Figure&nbsp;<span>25.2</span></a>.</p>
+<p>Salinity is a key component in the oceans since the salts have a large effect on the water density (which consequently drives motion). Salinity is measured in psu or <em>practical salinity units</em>, which is a non-dimensional ratio of conductivities. In the mixed layer, the sainity ranges from 31-39 psu, and is about 35 in the abyssal zone. You can inspect the profile in <a href="#fig-oceanslice">Figure&nbsp;<span class="quarto-unresolved-ref">fig-oceanslice</span></a>.</p>
 <p>Below in the study of the ocean, we will need a so-called <em>equation of state</em>, which connects the density, <span class="math inline">\(\rho\)</span>, with the salinity, say <span class="math inline">\(S\)</span>, and temperature, say <span class="math inline">\(T\)</span>. Here is a typical graph of the relationship.</p>
 <div id="fig-salinity" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="img/2023-02-11-01-57-26.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;25.3: Image from <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;25.3: Image from <span class="citation" data-cites="kaper_book">(<a href="#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span></figcaption><p></p>
 </figure>
 </div>
 </section>
@@ -553,9 +553,9 @@ T(z) = T_0 + T_1 \mathrm{e}^{-z/z^*},
 q = k \frac{\rho_1 - \rho_2}{\rho_0},
 \tag{25.2}\]</span></span> where <span class="math inline">\(k\)</span> is the hydraulic constant and takes the typical value of <span class="math inline">\(k = 1.5 \cdot 10^{-6} \, \mathrm{s}^{-1}\)</span>. The reference density <span class="math inline">\(\rho_0\)</span> is defined in conjunction with the equation of state.</p>
 <p>In the normal state of the planet, <span class="math inline">\(q &gt; 0\)</span> when the flow through the capillary goes in the direction of the equator as a result of higher densities at high latitudes.</p></li>
-<li><p>We need an equation of state that connects the densities, <span class="math inline">\(\rho\)</span>, with the temperature and salinities. This concerns the figure <a href="#fig-salinity">Figure&nbsp;<span>25.3</span></a>. We assume that <span id="eq-ocean-state"><span class="math display">\[
+<li><p>We need an equation of state that connects the densities, <span class="math inline">\(\rho\)</span>, with the temperature and salinities. This concerns the figure <a href="#fig-salinity">Figure&nbsp;<span class="quarto-unresolved-ref">fig-salinity</span></a>. We assume that <span id="eq-ocean-state"><span class="math display">\[
 \rho = \rho_0(1 - \alpha(T - T_0) + \beta(S - S_0)),
-\tag{25.3}\]</span></span> where <span class="math inline">\(T_0\)</span> and <span class="math inline">\(S_0\)</span> are average values of temperature and salinity; <span class="math inline">\(\rho_0\)</span> is the density if <span class="math inline">\(T = T_0\)</span> and <span class="math inline">\(S = S_0\)</span>; <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are constants with typical values <span class="math inline">\(\alpha = 1.5 \times 10^{-4} \mathrm{deg}^{-1}\)</span> and <span class="math inline">\(\beta = 8 \times 10^{-4} \mathrm{psu}^{-1}\)</span>. Combining (<a href="#eq-ocean-q">Equation&nbsp;<span>25.2</span></a>) with (<a href="#eq-ocean-state">Equation&nbsp;<span>25.3</span></a>) gives <span id="eq-ocean-qfinal"><span class="math display">\[
+\tag{25.3}\]</span></span> where <span class="math inline">\(T_0\)</span> and <span class="math inline">\(S_0\)</span> are average values of temperature and salinity; <span class="math inline">\(\rho_0\)</span> is the density if <span class="math inline">\(T = T_0\)</span> and <span class="math inline">\(S = S_0\)</span>; <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are constants with typical values <span class="math inline">\(\alpha = 1.5 \times 10^{-4} \mathrm{deg}^{-1}\)</span> and <span class="math inline">\(\beta = 8 \times 10^{-4} \mathrm{psu}^{-1}\)</span>. Combining (<a href="#eq-ocean-q">Equation&nbsp;<span class="quarto-unresolved-ref">eq-ocean-q</span></a>) with (<a href="#eq-ocean-state">Equation&nbsp;<span class="quarto-unresolved-ref">eq-ocean-state</span></a>) gives <span id="eq-ocean-qfinal"><span class="math display">\[
 q = k[ \alpha(T_2 - T_1) - \beta(S_2 - S_1)].
 \tag{25.4}\]</span></span></p></li>
 <li><p>External wind forces and Coriolis effects are ignored.</p></li>
@@ -568,7 +568,7 @@ q = k[ \alpha(T_2 - T_1) - \beta(S_2 - S_1)].
 <div id="fig-2box" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="img/2023-02-11-02-36-47.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;25.4: Two-box model of the North Atlantic with evaporation and precipitation. Image from <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;25.4: Two-box model of the North Atlantic with evaporation and precipitation. Image from <span class="citation" data-cites="kaper_book">(<a href="#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span></figcaption><p></p>
 </figure>
 </div>
 <p>The equations are given as follows.</p>
@@ -581,7 +581,7 @@ q = k[ \alpha(T_2 - T_1) - \beta(S_2 - S_1)].
 \end{align}
 \tag{25.5}\]</span></span></p>
 <p>Note that in the exchange terms corresponding to the flow <span class="math inline">\(q\)</span> in the capillary pipes, we use an absolute value since it does not matter (flows are exchanged in both lower and upper pipes).</p>
-<p>Note also that <span class="math inline">\(q = q(T_1, T_2, S_1, S_2)\)</span> as given in (<a href="#eq-ocean-qfinal">Equation&nbsp;<span>25.4</span></a>).</p>
+<p>Note also that <span class="math inline">\(q = q(T_1, T_2, S_1, S_2)\)</span> as given in (<a href="#eq-ocean-qfinal">Equation&nbsp;<span class="quarto-unresolved-ref">eq-ocean-qfinal</span></a>).</p>
 </section>
 <section id="reducing-the-equations-via-symmetry" class="level2" data-number="25.6">
 <h2 data-number="25.6" class="anchored" data-anchor-id="reducing-the-equations-via-symmetry"><span class="header-section-number">25.6</span> Reducing the equations via symmetry</h2>
@@ -593,7 +593,7 @@ T_1 + T_2 = T_1^* + T_2^*,
 $$
 and therefore the average temperature in the two ocean regions will tend to the average of the basin regions. A similar conclusion is made for the salinities. 
 -->
-<p>By adding the equations (<a href="#eq-2box">Equation&nbsp;<span>25.5</span></a>), it can be verified that in the limit <span class="math inline">\(t \to \infty\)</span>, the average temperature in the system, <span class="math inline">\(1/2(T_1 + T_2)\)</span> tends to the average temperature in the surrounding basins <span class="math inline">\(1/2(T_1^* + T_2^*)\)</span>. The same conclusion can be drawn for the corresponding salinities.</p>
+<p>By adding the equations (<a href="#eq-2box">Equation&nbsp;<span class="quarto-unresolved-ref">eq-2box</span></a>), it can be verified that in the limit <span class="math inline">\(t \to \infty\)</span>, the average temperature in the system, <span class="math inline">\(1/2(T_1 + T_2)\)</span> tends to the average temperature in the surrounding basins <span class="math inline">\(1/2(T_1^* + T_2^*)\)</span>. The same conclusion can be drawn for the corresponding salinities.</p>
 <p>It is then sensible to write all temperature and salinity in terms of this baseline scenario. So let us write <span class="math display">\[\begin{align}
 T_1 &amp;= \frac{1}{2}m + U_1, \\
 T_2 &amp;= \frac{1}{2}m + U_2,
@@ -609,12 +609,12 @@ T_2 &amp;= \frac{1}{2}m + U_2,
 \frac{\mathrm{d}S_2}{\mathrm{d}t} &amp;= H + d(S^* - S_2) + |q|(S_1 - S_2)
 \end{align}
 \tag{25.6}\]</span></span></p>
-<p>Comparing the above to <a href="#eq-2box">Equation&nbsp;<span>25.5</span></a>, the main difference is that, in expressing the temperature and salinities with respect to the average values in the basin, we have eliminated two of the constants from the set <span class="math inline">\((T_1^*, T_1^*, S_1^*, S_2^*)\)</span> now only into two constants <span class="math inline">\((T^*, S^*)\)</span>.</p>
-<p>In the situation of zero salt flux. <span class="math inline">\(H = 0\)</span>, the above model reduces to Stommel’s box model studied in <a href="stommel.html"><span>Chapter&nbsp;26</span></a>.</p>
+<p>Comparing the above to <a href="#eq-2box">Equation&nbsp;<span class="quarto-unresolved-ref">eq-2box</span></a>, the main difference is that, in expressing the temperature and salinities with respect to the average values in the basin, we have eliminated two of the constants from the set <span class="math inline">\((T_1^*, T_1^*, S_1^*, S_2^*)\)</span> now only into two constants <span class="math inline">\((T^*, S^*)\)</span>.</p>
+<p>In the situation of zero salt flux. <span class="math inline">\(H = 0\)</span>, the above model reduces to Stommel’s box model studied in <a href="#sec-stommel"><span class="quarto-unresolved-ref">sec-stommel</span></a>.</p>
 </section>
 <section id="sec-ocean-toysalinity" class="level2" data-number="25.7">
 <h2 data-number="25.7" class="anchored" data-anchor-id="sec-ocean-toysalinity"><span class="header-section-number">25.7</span> Analysis of a reduced 1D model for the salinity</h2>
-<p>It is possible to do some analysis on the system (<a href="#eq-2box-again">Equation&nbsp;<span>25.6</span></a>), though we may prefer to simply move on to study the more historically well-known reduction called <em>Stommel’s box model</em> in <a href="stommel.html"><span>Chapter&nbsp;26</span></a>.</p>
+<p>It is possible to do some analysis on the system (<a href="#eq-2box-again">Equation&nbsp;<span class="quarto-unresolved-ref">eq-2box-again</span></a>), though we may prefer to simply move on to study the more historically well-known reduction called <em>Stommel’s box model</em> in <a href="#sec-stommel"><span class="quarto-unresolved-ref">sec-stommel</span></a>.</p>
 <p>We make the following assumptions:</p>
 <ul>
 <li>We assume that on the timescale of interest in the THC, the temperature of each box equilibrates quickly with the surrounding basin. Therefore the system can be regarded as being in steady state.<br>
@@ -643,7 +643,7 @@ From here...
 -->
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-kaper_book" class="csl-entry" role="doc-biblioentry">
 Kaper, Hans, and Hans Engler. 2013. <em>Mathematics and Climate</em>. SIAM.
 </div>
