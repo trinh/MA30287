@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -529,7 +529,14 @@ Solution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This question to be done on Lecture 31. We will update this entry once the lecture is complete with the image done there.</p>
+<p>The bifurcation diagram is shown below. Stable solutions are shown solid and unstable dashed. We see that two of the branches only exist for <span class="math inline">\(0 &lt; \lambda &lt; 1/4\)</span>, while the topmost branch exists for all <span class="math inline">\(\lambda &gt; 0\)</span>. The point <span class="math inline">\(\lambda = 1/4\)</span> corresponds to the tipping point. Indeed, we see hysteresis or non-reversability in the diagram, indicated by the path in red going from A to B to C.</p>
+<div id="fig-ps6-bif" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/2023-05-06-10-20-13.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;39.1: Bifurcation diagram</figcaption><p></p>
+</figure>
+</div>
+<p>Interestingly, unlike the bifurcation diagrams shown in previous chapters, the path shown in red indicates that once the top branch is reached, it is not possible to return to the lowermost branch (unless we relax the condition that <span class="math inline">\(\lambda &lt; 0\)</span>.</p>
 </div>
 </div>
 </section>
@@ -556,7 +563,8 @@ Solution
 <div class="callout-body-container callout-body">
 <p>This was done during the lecture 30, so please refer to the visualiser notes. The final parameters were established by <span class="math display">\[
 \delta = \frac{d}{c}, \qquad \lambda = \frac{c}{2\alpha k \Delta T^*}, \qquad R = \frac{\beta \Delta S^*}{\alpha \Delta T^*}.
-\]</span> Their interpretations are as follows: <span class="math inline">\(\delta\)</span> measures the relative relaxation temporal rates of the salt-basin exchange and the temperature-basin exchange. Since thermal energy turns out to exchange on a faster time scale than salinity, then we are typically interested in <span class="math inline">\(\delta \ll 1\)</span>.</p>
+\]</span></p>
+<p>Their interpretations are as follows: <span class="math inline">\(\delta\)</span> measures the relative relaxation temporal rates of the salt-basin exchange and the temperature-basin exchange. Since thermal energy turns out to exchange on a faster time scale than salinity, then we are typically interested in <span class="math inline">\(\delta \ll 1\)</span>.</p>
 <p>The parameter <span class="math inline">\(\lambda\)</span> is a measure of the strength of the THC. For example, with <span class="math inline">\(k\)</span> large, this corresponds to significant flow through the pipes connecting the boxes, and so <span class="math inline">\(\lambda \to 0\)</span> corresponds to strong THC.</p>
 <p>Finally <span class="math inline">\(R\)</span> allows us to compare the relative effects of temperature and salinity differences between the external basins. Salinity differences dominate if <span class="math inline">\(R &gt; 1\)</span> and temperature differences dominate if <span class="math inline">\(R &lt; 1\)</span>.</p>
 </div>
@@ -565,6 +573,36 @@ Solution
 <section id="q4.-investigations-for-r" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q4.-investigations-for-r">Q4. Investigations for <span class="math inline">\(R\)</span></h2>
 <p>Using the script available on the Jupyter hub, investigate the behaviour of the system (<a href="ps06.html#eq-ps6-stommelsys">Equation&nbsp;<span>33.2</span></a>) under changing values of <span class="math inline">\(R\)</span> and fixed values of the other parameters. Based on your intuition, what do you expect to be the features of the bifurcation diagram, as shown in the <span class="math inline">\((R, f^*)\)</span>-plane?</p>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember that the steady states are found by examining the intersections of the curves <span class="math inline">\(\lambda f = \phi\)</span>. From (<a href="../part-03-box/stommel.html#eq-stommel-phi">Equation&nbsp;<span>26.5</span></a>), we have <span class="math display">\[
+\phi(f^*) = \frac{\delta R}{\delta + |f^*|} - \frac{1}{1 + |f^*|}.
+\]</span> so essentially the effect of changing <span class="math inline">\(R\)</span> is to multiply the curve <span class="math inline">\(\phi\)</span> by a multiplier. Using the <a href="https://maths.jupyterhub.bath.ac.uk/hub/user-redirect/lab/tree/courses/MA30287/notebooks/ps06_solution.ipynb">code on the JupyterHub</a> we obtain the following graph for different values of <span class="math inline">\(R\)</span>.</p>
+<div id="fig-ps6-stommelint" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/2023-05-06-10-45-41.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;39.2: Steady state intersections for Stommel’s box model</figcaption><p></p>
+</figure>
+</div>
+<p>For the smallest values of <span class="math inline">\(R\)</span>, note that only the lowermost steady state will be present. As <span class="math inline">\(R\)</span> crosses the critical value of <span class="math inline">\(R = 1\)</span>, two intersections are borne at <span class="math inline">\(\phi = 0\)</span>. Eventually <span class="math inline">\(R\)</span> crosses another critical value, and the two leftmost intersections merge then disappear, leaving only the largest steady-state.</p>
+<p>Because the stability of the solution is essentially given by the ordering of the curves (if the curve <span class="math inline">\(\lambda f\)</span> is larger than the curve <span class="math inline">\(\phi\)</span> on the left of the steady-states), then we can see that, as typical for stability in this course, the first and third steady states are stable, and the middle one unstable.</p>
+<p>We can now plot a bifurcation diagram using the above information.</p>
+<div id="fig-ps6-R" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/2023-05-06-10-54-41.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;39.3: Bifurcation diagram for <span class="math inline">\(R\)</span> vs <span class="math inline">\(f^*\)</span></figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="q5.-alternative-scalings-of-the-stommel-box-model" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q5.-alternative-scalings-of-the-stommel-box-model">Q5. Alternative scalings of the Stommel box model</h2>
