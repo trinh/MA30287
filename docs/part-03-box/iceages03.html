@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>MA30287: Mathematics of Planet Earth - 23&nbsp; Ice ages III: analysis of the van der Pol equation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../part-03-box/iceages04.html" rel="next">
+<link href="../part-03-box/iceages02.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Ice ages III: analysis of the van der Pol equation</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">MA30287: Mathematics of Planet Earth</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectureplan.html" class="sidebar-item-text sidebar-link">Lecture plan</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-01-intro/intro.html" class="sidebar-item-text sidebar-link">Introduction</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-01-intro/intro-PDEs.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Conservation laws and consitutive laws</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-01-intro/intro-nondim.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dimensional scaling analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-01-intro/basic-energy-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Basic energy models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-01-intro/problemclass01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Problem class 1</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-02-energy/part-energy.html" class="sidebar-item-text sidebar-link">Energy usage and energy sources</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-02-energy/mackay-energy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The CO<sub>2</sub> concentration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-02-energy/mackay-units.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Units and physics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-02-energy/mackay-consumption.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estimating consumption</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-05-techniques/techniques.html" class="sidebar-item-text sidebar-link">Practical applied mathematics</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/asymptotics01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Asymptotic approximations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/asymptotics02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Asymptotic approximations of ODEs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/euler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Euler’s method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/problemclass02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Problem class 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/asymptotics03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Matched asymptotics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/newtons.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Newton’s method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/problemclass03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Problem class 3</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-03-box/part-box.html" class="sidebar-item-text sidebar-link">Energy balance models</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/box-energy-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The basic EBM (steady-state)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/box-energy-model2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">EBM with latitude I</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/latitude2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">EBM with latitude II</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/problemclass04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Problem class 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/latitude3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">EBM with latitude III</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/latitude4.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">EBM with latitude IV</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-03-box/part-morebox.html" class="sidebar-item-text sidebar-link">Ice ages and fast-slow dynamics</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/iceages01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Ice ages I: an introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/iceages02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Ice ages II: a model for fast-slow dynamics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/iceages03.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Ice ages III: analysis of the van der Pol equation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/iceages04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Fast-slow dynamics for higher-order systems</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-03-box/part-ocean.html" class="sidebar-item-text sidebar-link">Box models of the ocean</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/basic-ocean-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Basic models of the ocean</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/stommel.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Stommel’s box model</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-xx-exercises/part-exercises.html" class="sidebar-item-text sidebar-link">Exercises</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Problem set 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/thought02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Thinking about your own energy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Problem set 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Problem set 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Problem set 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Problem set 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps06.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Problem set 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps01sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Problem set 1 solutions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps02sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Problem set 2 solutions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps03sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Problem set 3 solutions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps04sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Problem set 4 solutions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps05sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Problem set 5 solutions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps06sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Problem set 6 solutions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examguide.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Exam guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-05-techniques/part-techniques.html" class="sidebar-item-text sidebar-link">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../scripts.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Listing of numerical scripts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Differential equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Dynamical systems</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#analysis-of-the-slow-manifold" id="toc-analysis-of-the-slow-manifold" class="nav-link active" data-scroll-target="#analysis-of-the-slow-manifold"><span class="toc-section-number">23.1</span>  Analysis of the slow manifold</a></li>
+  <li><a href="#fast-analysis" id="toc-fast-analysis" class="nav-link" data-scroll-target="#fast-analysis"><span class="toc-section-number">23.2</span>  Fast analysis</a></li>
+  <li><a href="#initial-conditions" id="toc-initial-conditions" class="nav-link" data-scroll-target="#initial-conditions"><span class="toc-section-number">23.3</span>  Initial conditions</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-ice3" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Ice ages III: analysis of the van der Pol equation</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+2022-23 note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Covered in lecture 24.</p>
+</div>
+</div>
+<p>In the previous chapter we introduced a canonical model for fast-slow dynamics given by the following system for <span class="math inline">\(x(t)\)</span> and <span class="math inline">\(y(t)\)</span>: <span class="math display">\[
+\begin{align}
+\epsilon \dot{x} &amp;= y - S(x), \\
+\dot{y} &amp;= -x.
+\end{align}
+\]</span> where <span class="math inline">\(\epsilon &gt; 0\)</span> and <span class="math inline">\(\epsilon \to 0\)</span>. This led to our study of then numerical computation of solutions and example graphics like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/2023-04-12-10-52-55.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Phase plot of the above system</figcaption><p></p>
+</figure>
+</div>
+<p>We now show how to perform the asymptotic analysis of the above system. The techniques used relate to the analysis of boundary layers studied in <a href="../part-05-techniques/asymptotics03.html"><span>Chapter&nbsp;12</span></a>.</p>
+<section id="analysis-of-the-slow-manifold" class="level2" data-number="23.1">
+<h2 data-number="23.1" class="anchored" data-anchor-id="analysis-of-the-slow-manifold"><span class="header-section-number">23.1</span> Analysis of the slow manifold</h2>
+<p>Let <span class="math display">\[
+x(t) = x_0(t) + \epsilon x_1(t) + \epsilon^2 x_2(t) + \ldots, \qquad y(t) = y_0(t) + \epsilon y_1(t) + \epsilon^2 y_2(t) + \ldots
+\]</span> At leading order, we get the following system of equations: <span id="eq-sloweqns"><span class="math display">\[
+\begin{align}
+0 &amp;= y_0 - S(x), \\
+\dot{y_0} &amp;= -x_0.
+\end{align}
+\tag{23.1}\]</span></span> First, examine the differential equation on the second line. Since the rate-of-change of <span class="math inline">\(y\)</span> is equal to <span class="math inline">\(-x\)</span>, we can analyse the motion in the phase plane by the following cases: <span class="math display">\[
+y_0 \text{ is }
+\begin{cases}
+\text{decreasing} &amp; \text{for $x_0 &gt; 0$} \\
+\text{increasing} &amp; \text{for $x_0 &lt; 0$}
+\end{cases}.
+\]</span> Therefore, we conclude that the <span class="math inline">\(y\)</span> axis is nullcline in this leading-order approximation. The remaining equation restricts the solution to lie along the <strong>slow manifold</strong>, <span class="math display">\[
+y_0 = S(x) = \frac{1}{3}x_0^3 - x_0.
+\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/2023-04-12-11-20-46.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Illustration of dynamics along the slow manifold</figcaption><p></p>
+</figure>
+</div>
+<p>According to our analysis, we should have both <span class="math inline">\(y \sim S(x)\)</span> as <span class="math inline">\(\epsilon \to 0\)</span> and also <span class="math inline">\(y\)</span> increasing on <span class="math inline">\(x &lt; 0\)</span> while decreasing on <span class="math inline">\(x &gt; 0\)</span>. But this yields an apparent contradiction as <span class="math inline">\(x\to \pm 1\)</span> and <span class="math inline">\(y \to \mp 2/3\)</span>.</p>
+<p>The issue is that, at the critical point(s) where <span class="math inline">\(x \to \pm 1\)</span>, say <span class="math inline">\(t = t^*\)</span>, the solution encounters a shock or boundary layer where the gradient <span class="math inline">\(\dot{x}\)</span> is no longer small. Thus our prior assumption where we neglected <span class="math inline">\(\epsilon \dot{x}\)</span> is invalid.</p>
+</section>
+<section id="fast-analysis" class="level2" data-number="23.2">
+<h2 data-number="23.2" class="anchored" data-anchor-id="fast-analysis"><span class="header-section-number">23.2</span> Fast analysis</h2>
+<p>Near a shock, we re-scale <span class="math display">\[
+T = \frac{t - t^*}{\epsilon^\alpha} \Longrightarrow t = t^* + \epsilon^\alpha T,
+\]</span> and set <span class="math inline">\(x(t) = X(T)\)</span> and <span class="math inline">\(y(t) = Y(T)\)</span> under this new coordinate change. Essentially, this re-scales the coordinate axes, originally in <span class="math inline">\(t\)</span>, near the unknown location of the shock, <span class="math inline">\(t = t^*\)</span>. We can verify that the correct balance for re-scaling is chosen with <span class="math inline">\(\alpha = 1\)</span>. From the chain rule, we convert derivatives as follows: <span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d}t} = \frac{\mathrm{d}T}{\mathrm{d}t} \frac{\mathrm{d}}{\mathrm{d}T} = \frac{1}{\epsilon} \frac{\mathrm{d}}{\mathrm{d}T}.
+\]</span> Then the system becomes <span class="math display">\[
+\begin{align}
+\frac{\mathrm{d}X}{\mathrm{d}T} &amp;= Y - S(X) \\
+\frac{\mathrm{d}Y}{\mathrm{d}T} &amp;= -\epsilon X.
+\end{align}
+\]</span> We expand now in the typical fashion, setting <span class="math display">\[
+\begin{align}
+X &amp;= X_0(T) + \epsilon X_1(T) + \ldots \\
+Y &amp;= Y_0(T) + \epsilon Y_1(T) + \ldots
+\end{align}
+\]</span> At leading order, this now yields <span class="math display">\[
+\begin{align}
+\frac{\mathrm{d}X_0}{\mathrm{d}T} &amp;= Y_0 - S(X_0) \\
+\frac{\mathrm{d}Y_0}{\mathrm{d}T} &amp;= 0.
+\end{align}
+\]</span></p>
+<p>Therefore, from the second equation, we obtain <span class="math display">\[
+Y_0 = \text{constant}
+\]</span> which is to be expected from the phase-plane diagrams we have shown. Since we have established that the max/min of the slow manifold, <span class="math inline">\(S(X)\)</span>, is given by <span class="math inline">\(\pm 2/3\)</span>, then we know that the above constant is this value <em>if the solution had begun from the slow manifold</em> (see comment later about the initial condition).</p>
+<p>Next, the equation for <span class="math inline">\(X_0\)</span> has the form of a first-order nonlinear differential equation that can be studied by phase-line analysis. If the constant <span class="math inline">\(Y_0\)</span> is indeed <span class="math inline">\(\pm 2/3\)</span>, then the differential equation for the other component takes the form <span class="math display">\[
+\frac{\mathrm{d}X_0}{\mathrm{d}T} = Y_0 - S(X_0) = \pm \frac{2}{3} - S(X_0).
+\]</span></p>
+<p>This leads to the following picture.</p>
+<div id="fig-fastasym" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/2023-04-12-13-34-21.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;23.1: Fast dynamics</figcaption><p></p>
+</figure>
+</div>
+<p>To begin, we consider the evolution from the points marked ‘A’ and ‘B’. This occurs along the slow manifold. At the point ‘B’, time reaches the critical point, <span class="math inline">\(t \to t^*\)</span>, and the solutions enter the fast dynamics, following along points ‘B’ to ‘C’. Notice that along this segment in the phase plane, <span class="math display">\[
+\frac{2}{3} - S(X_0) &gt; 0,
+\]</span> therefore <span class="math inline">\(X_0\)</span> must increase during this time. However, upon approaching the point ‘C’, the above LHS tends to zero, and hence <span class="math inline">\(X_0\)</span> slows its increase. This exists the fast dynamics layer and again the solution continues along the slow manifold from ‘C’ to ‘D’. Upon reaching ‘D’, it again enters a stage of fast dynamics (the <span class="math inline">\(t^*\)</span> point here is a new one).</p>
+</section>
+<section id="initial-conditions" class="level2" data-number="23.3">
+<h2 data-number="23.3" class="anchored" data-anchor-id="initial-conditions"><span class="header-section-number">23.3</span> Initial conditions</h2>
+<p>You will notice that above, we have not really discussed the effect of the initial conditions, say, <span class="math display">\[
+\begin{align}
+x(0) &amp;= A, \\
+y(0) &amp;= B.
+\end{align}
+\]</span> Perhaps more specifically, we have performed our asymptotic analysis with the assumption that the solution starts directly on the slow manifold, i.e.&nbsp;<span class="math inline">\(y \sim S(x)\)</span>. Returning to the slow analysis leading to <a href="#eq-sloweqns">Equation&nbsp;<span>23.1</span></a> notice that the above conditions will not in general be compatible with the equations (since ‘A’ and ‘B’ might be chosen completely different from those values where <span class="math inline">\(y = S(x)\)</span>). The conclusion is then that the slow analysis applied cannot be valid near the initial condition.</p>
+<p>This turns out to be very similar to the example studied in <a href="../part-05-techniques/asymptotics03.html"><span>Chapter&nbsp;12</span></a>, which also had a time-dependent problem where the initial condition was incompatible.</p>
+<p>Therefore near <span class="math inline">\(t = 0\)</span>, we must introduce an analogous boundary layer. This analysis will be identical to the above fast-scale dynamics except that <span class="math inline">\(t^* = 0\)</span>. The conclusion is that if we begin off the manifold <span class="math inline">\(y = S(x)\)</span>, the solution will rapidly tend left or right in the phase plane (at near-constant values of <span class="math inline">\(y\)</span>). Once it intersects with the manifold, the trajectories then resume the slow and fast dynamics observed above.</p>
+<p>This is now shown below for the initial condition of <span class="math inline">\(x(0) = 2.5\)</span>, <span class="math inline">\(y(0) = -1.5\)</span> and <span class="math inline">\(\epsilon = 0.05\)</span>.</p>
+<p><img src="img/2023-04-12-13-53-28.png" class="img-fluid"></p>
+<p>Notice the red circle in the left phase plot showing the initial condition. We see that the solutions then exhibit the fast dynamics, with <span class="math inline">\(x\)</span> decreasing, until encountering the slow manifold. Thereafter it follows the standard slow-fast dynamics.</p>
+<p>On the right image, notice the significant shock or boundary layer near <span class="math inline">\(t = 0\)</span>. If desired, we could confirm the size of this boundary-layer regions scales with <span class="math inline">\(\epsilon\)</span>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../part-03-box/iceages02.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Ice ages II: a model for fast-slow dynamics</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../part-03-box/iceages04.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Fast-slow dynamics for higher-order systems</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

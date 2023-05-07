@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>MA30287: Mathematics of Planet Earth - 19&nbsp; EBM with latitude III</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../part-03-box/latitude4.html" rel="next">
+<link href="../part-xx-exercises/problemclass04.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">EBM with latitude III</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">MA30287: Mathematics of Planet Earth</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectureplan.html" class="sidebar-item-text sidebar-link">Lecture plan</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-01-intro/intro.html" class="sidebar-item-text sidebar-link">Introduction</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-01-intro/intro-PDEs.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Conservation laws and consitutive laws</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-01-intro/intro-nondim.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dimensional scaling analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-01-intro/basic-energy-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Basic energy models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-01-intro/problemclass01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Problem class 1</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-02-energy/part-energy.html" class="sidebar-item-text sidebar-link">Energy usage and energy sources</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-02-energy/mackay-energy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The CO<sub>2</sub> concentration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-02-energy/mackay-units.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Units and physics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-02-energy/mackay-consumption.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estimating consumption</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-05-techniques/techniques.html" class="sidebar-item-text sidebar-link">Practical applied mathematics</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/asymptotics01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Asymptotic approximations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/asymptotics02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Asymptotic approximations of ODEs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/euler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Euler’s method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/problemclass02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Problem class 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/asymptotics03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Matched asymptotics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/newtons.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Newton’s method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/problemclass03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Problem class 3</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-03-box/part-box.html" class="sidebar-item-text sidebar-link">Energy balance models</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/box-energy-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The basic EBM (steady-state)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/box-energy-model2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">EBM with latitude I</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/latitude2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">EBM with latitude II</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/problemclass04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Problem class 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/latitude3.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">EBM with latitude III</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/latitude4.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">EBM with latitude IV</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-03-box/part-morebox.html" class="sidebar-item-text sidebar-link">Ice ages and fast-slow dynamics</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/iceages01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Ice ages I: an introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/iceages02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Ice ages II: a model for fast-slow dynamics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/iceages03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Ice ages III: analysis of the van der Pol equation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/iceages04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Fast-slow dynamics for higher-order systems</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-03-box/part-ocean.html" class="sidebar-item-text sidebar-link">Box models of the ocean</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/basic-ocean-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Basic models of the ocean</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/stommel.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Stommel’s box model</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-xx-exercises/part-exercises.html" class="sidebar-item-text sidebar-link">Exercises</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Problem set 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/thought02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Thinking about your own energy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Problem set 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Problem set 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Problem set 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Problem set 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps06.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Problem set 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps01sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Problem set 1 solutions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps02sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Problem set 2 solutions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps03sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Problem set 3 solutions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps04sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Problem set 4 solutions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps05sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Problem set 5 solutions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps06sol.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Problem set 6 solutions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examguide.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Exam guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-05-techniques/part-techniques.html" class="sidebar-item-text sidebar-link">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../scripts.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Listing of numerical scripts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Differential equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Dynamical systems</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Vector calculus</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#placement-of-the-ice-line" id="toc-placement-of-the-ice-line" class="nav-link active" data-scroll-target="#placement-of-the-ice-line"><span class="toc-section-number">19.1</span>  Placement of the ice line</a></li>
+  <li><a href="#development-of-an-equation-for-the-ice-line" id="toc-development-of-an-equation-for-the-ice-line" class="nav-link" data-scroll-target="#development-of-an-equation-for-the-ice-line"><span class="toc-section-number">19.2</span>  Development of an equation for the ice line</a></li>
+  <li><a href="#a-word-about-the-parameter-space" id="toc-a-word-about-the-parameter-space" class="nav-link" data-scroll-target="#a-word-about-the-parameter-space"><span class="toc-section-number">19.3</span>  A word about the parameter space</a></li>
+  <li><a href="#a-bifurcation-diagram-for-q-vs-y_s" id="toc-a-bifurcation-diagram-for-q-vs-y_s" class="nav-link" data-scroll-target="#a-bifurcation-diagram-for-q-vs-y_s"><span class="toc-section-number">19.4</span>  A bifurcation diagram for <span class="math inline">\(Q\)</span> vs <span class="math inline">\(y_s\)</span></a></li>
+  <li><a href="#ice-free-state" id="toc-ice-free-state" class="nav-link" data-scroll-target="#ice-free-state"><span class="toc-section-number">19.5</span>  Ice-free state</a></li>
+  <li><a href="#ice-covered-state" id="toc-ice-covered-state" class="nav-link" data-scroll-target="#ice-covered-state"><span class="toc-section-number">19.6</span>  Ice-covered state</a></li>
+  <li><a href="#partially-ice-covered-states" id="toc-partially-ice-covered-states" class="nav-link" data-scroll-target="#partially-ice-covered-states"><span class="toc-section-number">19.7</span>  Partially ice-covered states</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-latitude3" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">EBM with latitude III</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+2022-23 note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Covered in Lectures 19 and 20.</p>
+</div>
+</div>
+<p>We continue our investigation of the latitude-dependent model of <a href="latitude2.html"><span>Chapter&nbsp;17</span></a>.</p>
+<section id="placement-of-the-ice-line" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="placement-of-the-ice-line"><span class="header-section-number">19.1</span> Placement of the ice line</h2>
+<p>Using Newton’s method, we previously solved for a complete solution by starting off with a ‘lucky’ initial guess. For example, starting with a linear temperature distribution set to <span class="math inline">\(T(0) = 20\)</span> and <span class="math inline">\(T(1) = -20\)</span> we were able to converge to the profile shown below.</p>
+<div id="fig-exampleT" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/2023-03-21-08-18-15.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;19.1: Temperature distribution</figcaption><p></p>
+</figure>
+</div>
+<p>It is seen in the image that the ice line lies roughly at <span class="math inline">\(y_s = 0.85\)</span>. Actually, this turns out to be <em>wrong</em> because the numerical method we applied previously in <a href="latitude2.html"><span>Chapter&nbsp;17</span></a> was flawed in a very subtle way. We will eventually come to this realisation after the material from this chapter.</p>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Interactive matplotlib plots
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that it is now possible to gain interactivity with your <code>matplotlib</code> plots by inserting the magic command <code>matplotlib ipympl</code> at the top of your notebook files. The kernel will need to be restarted for this to take effect.</p>
+</div>
+</div>
+<p>We want to know whether other solutions exist with ice lines at <span class="math inline">\(y_s \in [0, 1]\)</span>.</p>
+</section>
+<section id="development-of-an-equation-for-the-ice-line" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="development-of-an-equation-for-the-ice-line"><span class="header-section-number">19.2</span> Development of an equation for the ice line</h2>
+<p>It turns out to be possible to develop an equation for the ice line.</p>
+<p>First, note from your problem set <a href="../part-xx-exercises/ps04.html"><span>Chapter&nbsp;31</span></a> you find that it is possible to solve for the steady-state mean temperature, which we write as <span class="math inline">\(\bar{T}^*\)</span>. In your problem set, you will develop the following equation (given by (<a href="../part-xx-exercises/ps04.html#eq-ps4-Tbar">Equation&nbsp;<span>31.4</span></a>)): <span id="eq-meanT-again"><span class="math display">\[
+\bar{T}^* = \frac{Q(1 - \bar{a}) - A}{B}.
+\tag{19.1}\]</span></span> The quantity <span class="math inline">\(\bar{a}\)</span> is given by integrating the albedo as follows: <span id="eq-abar-again"><span class="math display">\[
+\bar{a} = \int_0^1 s(y) a(y) \, \mathrm{d}y = a_i + (a_w {\color{blue}-} a_i)y_s[1 - 0.241 (y_s^2 - 1)],
+\tag{19.2}\]</span></span> which is given by (<a href="../part-xx-exercises/ps04.html#eq-ps4-abar">Equation&nbsp;<span>31.3</span></a>). You may check that the above formula has the right signs by considering either the complete ice case (ice line at the equator <span class="math inline">\(y_s = 0\)</span>) or the complete water/land case (ice line at <span class="math inline">\(y_s = 1\)</span>).</p>
+<p>Now we return to the implicit equation for the temperature, which is given by (<a href="latitude2.html#eq-latitude2-Phieq">Equation&nbsp;<span>17.3</span></a>) and repeated here: <span class="math display">\[
+T^*(y) = \Phi(T^*) = \frac{k\bar{T}^* + Qs(y)(1 {\color{red}-} a(y)) - A}{B + k}.
+\]</span> Substitute the mean temperature in, and this now yields <span id="eq-Tstar"><span class="math display">\[
+T^*(y) = \frac{Q}{B + k} \left[ s(y) [1 - a(y)] + \frac{k}{B}(1 - \bar{a})\right] - \frac{A}{B}.
+\tag{19.3}\]</span></span> This ice line is then found by setting <span class="math inline">\(T = T_C\)</span> at <span class="math inline">\(y = y_s\)</span> in the above formula. Notice, though, that since <span class="math inline">\(s(y)\)</span> is a cubic function, then we would need to solve a cubic equation in general.</p>
+</section>
+<section id="a-word-about-the-parameter-space" class="level2" data-number="19.3">
+<h2 data-number="19.3" class="anchored" data-anchor-id="a-word-about-the-parameter-space"><span class="header-section-number">19.3</span> A word about the parameter space</h2>
+<p>Solutions to our latitude-dependent EBM can be symbolically written as follows: <span class="math display">\[
+T = T(t, y) = G(y; A, b, k, C, Q, a_i, a_w).
+\]</span> As you can see, even though it is a relatively simple equation in the sense it is only an ODE in time (and does not involve any spatial derivatives in <span class="math inline">\(y\)</span>), is still complicated because the behaviour of the system can depend in a non-trivial way on all the parameters.</p>
+<p>You can schematically think of the solution space as a being plotted in 8-dimensional space (or even higher, since the albedo <span class="math inline">\(a\)</span> can be specified more generally). So for instance, bifurcation diagrams can then be plotted for some norm of the solution, say <span class="math inline">\(\bar{T}\)</span> versus the seven other parameters.</p>
+<p>There are other representations of the bifurcation diagram(s). For example, you might plot <span class="math inline">\(y_s\)</span> vs <span class="math inline">\(Q\)</span> or <span class="math inline">\(\bar{T}\)</span> vs <span class="math inline">\(A\)</span>, and so forth.</p>
+</section>
+<section id="a-bifurcation-diagram-for-q-vs-y_s" class="level2" data-number="19.4">
+<h2 data-number="19.4" class="anchored" data-anchor-id="a-bifurcation-diagram-for-q-vs-y_s"><span class="header-section-number">19.4</span> A bifurcation diagram for <span class="math inline">\(Q\)</span> vs <span class="math inline">\(y_s\)</span></h2>
+<p>Returning to the ice line, we are interested in keeping all other parameters fixed, and then attempting to understand how the ice line evolves as the solar constant <span class="math inline">\(Q\)</span> is changed. For example, we might believe that as <span class="math inline">\(Q\)</span> increases (and hence temperatures rise), the ice line will move towards the North Pole. And as <span class="math inline">\(Q\)</span> decreases, the ice line moves towards the equator.</p>
+<p>We return to (<a href="#eq-Tstar">Equation&nbsp;<span>19.3</span></a>) and consider inverting the formulation. For each given ice line location, <span class="math inline">\(y_s \in (0, 1)\)</span>, we solve for the <span class="math inline">\(Q\)</span> value. This gives <span class="math display">\[
+Q = \frac{\left(T_C + \frac{A}{B}\right)(B + k)}{s(y_s)[1 - \frac{1}{2}(a_i + a_w)] + \frac{k}{B}(1 - \bar{a})}.
+\]</span> Above, we have used the fact that <span class="math inline">\(a(y_s) = \frac{1}{2}(a_i + a_w)\)</span>. This can now be plotted in Python, either in the notebook written during lectures, or via the code below.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">202</span> <span class="co"># outgoing radiation</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> <span class="fl">1.9</span> <span class="co"># outgoing radiation</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">1.6</span><span class="op">*</span>B <span class="co"># transport parameter</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="kw">lambda</span> y: <span class="dv">1</span> <span class="op">-</span> <span class="fl">0.482</span><span class="op">*</span>(<span class="dv">3</span><span class="op">*</span>y<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span> <span class="co"># solar weighting</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>aw <span class="op">=</span> <span class="fl">0.32</span> <span class="co"># water albedo</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ai <span class="op">=</span> <span class="fl">0.62</span> <span class="co"># ice albedo</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Tc <span class="op">=</span> <span class="op">-</span><span class="fl">10.0</span> <span class="co"># critical temperature for ice formation</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>Q0 <span class="op">=</span> <span class="fl">342.0</span> <span class="co"># solar constant (1370 W/m^2 divided by 4)</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Note version in lectures was a 1/2 factor off on the second grouping of terms; </span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># now corrected to match Q6 of PS4</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>abar <span class="op">=</span> <span class="kw">lambda</span> ys: ai <span class="op">+</span> (aw <span class="op">-</span> ai)<span class="op">*</span>ys<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span> <span class="fl">0.241</span><span class="op">*</span>(ys<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">1</span>))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>Qfunc <span class="op">=</span> <span class="kw">lambda</span> ys: (Tc <span class="op">+</span> A<span class="op">/</span>B)<span class="op">*</span>(B<span class="op">+</span>k)<span class="op">/</span>(s(ys)<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span> (ai<span class="op">+</span>aw)<span class="op">/</span><span class="dv">2</span>) <span class="op">+</span> k<span class="op">/</span>B<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span> abar(ys)))</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Solve for the ice line</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>ys <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">100</span>)<span class="op">;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>Qs <span class="op">=</span> Qfunc(ys)<span class="op">;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>plt.plot(Qs, ys, <span class="st">'k'</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>plt.plot([Q0, Q0], [<span class="dv">0</span>, <span class="dv">1</span>], <span class="st">'--'</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Q'</span>)<span class="op">;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'ys'</span>)<span class="op">;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="latitude3_files/figure-html/cell-2-output-1.png" width="589" height="429"></p>
+</div>
+</div>
+<p>On the above graph, we have plotted the reference line, which is at <span class="math inline">\(Q = 342\)</span> W-m-sq. So amazingly, there are two intersections with the black curve, which in fact indicates that two ice lines seem to be possible. One ice line as <span class="math inline">\(y_s\)</span> near <span class="math inline">\(0.95\)</span> and the other has <span class="math inline">\(y_s\)</span> much lower down and near the equator.</p>
+<p>Moreover, the above graph is not complete! When we computed it, we specified that <span class="math inline">\(a(y_s) = \frac{1}{2}(a_i + a_w)\)</span> but this would not be true if there were no ice line, or equivalently if the ice line is located directly at <span class="math inline">\(y = 1\)</span> or <span class="math inline">\(y = 0\)</span>. These yield the so-called ice-free states and ice-covered states, respectively.</p>
+</section>
+<section id="ice-free-state" class="level2" data-number="19.5">
+<h2 data-number="19.5" class="anchored" data-anchor-id="ice-free-state"><span class="header-section-number">19.5</span> Ice-free state</h2>
+<p>The ice-free state is the state for which <span class="math inline">\(a = a_w = \bar{a}\)</span> for all <span class="math inline">\(y \in [0, 1)\)</span>. In this case, the solution can be directly calculated from <a href="#eq-Tstar">Equation&nbsp;<span>19.3</span></a>. It would then be given by <span class="math display">\[
+T^*(y) = \frac{Q(1 - a_w)}{B + k}\left[s(y) + \frac{k}{B}\right] - \frac{A}{B}.
+\]</span> This solution has a requirement, which is that when considering the solar constant <span class="math inline">\(Q\)</span>, the solar constant cannot be so weak so that an ice line appears for <span class="math inline">\(y &lt; 1\)</span>. The minimum value of <span class="math inline">\(Q\)</span> is therefore determined by pinning the ice line right at the North Pole. Thus <span class="math display">\[
+Q &gt; \frac{(B + k)(T_C + A/B)}{(1 - a_w)[s(1) + k/B]} \approx 330 \mathrm{W} \, \mathrm{m}^{-2}.
+\]</span> It is of interest to verify that the global mean temperature for a system in this state is a warm <span class="math inline">\(16\)</span> degrees Celsius. According to this model, then, if the mean temperature is above this value, it is possible to have a state where there is no ice anywhere!</p>
+</section>
+<section id="ice-covered-state" class="level2" data-number="19.6">
+<h2 data-number="19.6" class="anchored" data-anchor-id="ice-covered-state"><span class="header-section-number">19.6</span> Ice-covered state</h2>
+<p>A similar argument applies setting <span class="math inline">\(a = a_i = \bar{a}\)</span> for all <span class="math inline">\(y\in (0, 1]\)</span>. In this case, <span class="math display">\[
+T^*(y) = \frac{Q(1 - a_i)}{B + k}\left[s(y) + \frac{k}{B}\right] - \frac{A}{B}.
+\]</span> This time, there is a maximal condition on <span class="math inline">\(Q\)</span> such that any higher value would require an ice line somewhere within the domain, i.e.&nbsp;<span class="math inline">\(y &gt; 0\)</span>. Thus <span class="math display">\[
+Q &lt; \frac{(B + k)(T_C + A/B)}{(1 - a_i)[s(0) + k/B]} \approx 441 \mathrm{W} \, \mathrm{m}^{-2}.
+\]</span> Again we may verify that this corresponds to a mean temperature of <span class="math inline">\(-38\)</span> degrees Celsius.</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">202</span> <span class="co"># outgoing radiation</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> <span class="fl">1.9</span> <span class="co"># outgoing radiation</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">1.6</span><span class="op">*</span>B <span class="co"># transport parameter</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="kw">lambda</span> y: <span class="dv">1</span> <span class="op">-</span> <span class="fl">0.482</span><span class="op">*</span>(<span class="dv">3</span><span class="op">*</span>y<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span> <span class="co"># solar weighting</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>aw <span class="op">=</span> <span class="fl">0.32</span> <span class="co"># water albedo</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>ai <span class="op">=</span> <span class="fl">0.62</span> <span class="co"># ice albedo</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>Tc <span class="op">=</span> <span class="op">-</span><span class="fl">10.0</span> <span class="co"># critical temperature for ice formation</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>Q0 <span class="op">=</span> <span class="fl">342.0</span> <span class="co"># solar constant (1370 W/m^2 divided by 4)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>Qmin <span class="op">=</span> ((B<span class="op">+</span>k)<span class="op">*</span>(Tc <span class="op">+</span> A<span class="op">/</span>B))<span class="op">/</span>((<span class="dv">1</span><span class="op">-</span>aw)<span class="op">*</span>(s(<span class="dv">1</span>)<span class="op">+</span>k<span class="op">/</span>B)) </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>Qmax <span class="op">=</span> ((B<span class="op">+</span>k)<span class="op">*</span>(Tc <span class="op">+</span> A<span class="op">/</span>B))<span class="op">/</span>((<span class="dv">1</span><span class="op">-</span>ai)<span class="op">*</span>(s(<span class="dv">0</span>)<span class="op">+</span>k<span class="op">/</span>B))</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Minimal Q for ice-free state = "</span>, Qmin)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Max Q for ice-covered state = "</span>, Qmax)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Note version in lectures was a 1/2 factor off on the second grouping of terms; </span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># now corrected to match Q6 of PS4</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>abar <span class="op">=</span> <span class="kw">lambda</span> ys: ai <span class="op">+</span> (aw <span class="op">-</span> ai)<span class="op">*</span>ys<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span> <span class="fl">0.241</span><span class="op">*</span>(ys<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">1</span>))</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>Qfunc <span class="op">=</span> <span class="kw">lambda</span> ys: (Tc <span class="op">+</span> A<span class="op">/</span>B)<span class="op">*</span>(B<span class="op">+</span>k)<span class="op">/</span>(s(ys)<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span> (ai<span class="op">+</span>aw)<span class="op">/</span><span class="dv">2</span>) <span class="op">+</span> k<span class="op">/</span>B<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span> abar(ys)))</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Solve for the ice line</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>ys <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">100</span>)<span class="op">;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>Qs <span class="op">=</span> Qfunc(ys)<span class="op">;</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>plt.plot(Qs, ys, <span class="st">'k'</span>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>plt.plot([Q0, Q0], [<span class="dv">0</span>, <span class="dv">1</span>], <span class="st">'--'</span>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">250</span>, Qmax], [<span class="dv">0</span>, <span class="dv">0</span>], <span class="st">'b'</span>)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>plt.plot([Qmin, <span class="dv">550</span>], [<span class="dv">1</span>, <span class="dv">1</span>], <span class="st">'b'</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Q'</span>)<span class="op">;</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'ys'</span>)<span class="op">;</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Minimal Q for ice-free state =  330.3616063989335
+Max Q for ice-covered state =  440.72694936919913</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="latitude3_files/figure-html/cell-3-output-2.png" width="589" height="429"></p>
+</div>
+</div>
+</section>
+<section id="partially-ice-covered-states" class="level2" data-number="19.7">
+<h2 data-number="19.7" class="anchored" data-anchor-id="partially-ice-covered-states"><span class="header-section-number">19.7</span> Partially ice-covered states</h2>
+<p>In lectures, we demonstrated, via the code <a href="https://maths.jupyterhub.bath.ac.uk/hub/user-redirect/lab/tree/courses/MA30287/notebooks/lecture21-LatitudeEBM_proper.ipynb">here</a> the four possible solutions of the latitude EBM. Two of the solutions, developed above, correspond to completely covered ice-state and ice-free states. The other two solutions are partially-iced states.</p>
+<div id="fig-4ice" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/2023-05-04-14-22-16.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;19.2: The four possible solutions; orange and blue show the completely-ice and ice-free states; red and green show the partial ice-covered state. These are shown for <span class="math inline">\(A = 202\)</span>, <span class="math inline">\(B = 1.9\)</span>, <span class="math inline">\(k = 1.6 B\)</span>, and <span class="math inline">\(Q\)</span> = 342$</figcaption><p></p>
+</figure>
+</div>
+<p>In the next chapter, we will examine the stability of these four states.</p>
+<!-- 
+**Below notes to be finished following lecture**
+
+To do list: 
+
+1. State the result of the mean temperature (this is PS4 question) and get $\bar{a}$ and $\bar{T}^*$. 
+
+2. Derive the following formula for $T(y)$ dependent on ice-line location 
+$$
+T^*(y) = \Psi(y; y_s) = \frac{Q}{B + k}\left[ s(y)(1 - a(y)) + \frac{k}{B}(1 - \bar{a})\right] - \frac{A}{B}.
+$$ 
+
+3. Use the above in a numerical routine to find the $Q$ vs $y_s$ relationship. 
+
+4. Investigate the potential of ice-free and ice-covered globes. 
+
+5. Update the graph to present an accurate picture of the bifurcation diagram.
+
+6. Plot a graph of mean $T$ vs $Q$.
+
+7. Investigate issues of stability.
+-->
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../part-xx-exercises/problemclass04.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Problem class 4</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../part-03-box/latitude4.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">EBM with latitude IV</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
