@@ -690,7 +690,7 @@ J(\mathbf{x}) = \nabla \mathbf{F}(\mathbf{x}) =
 \frac{\mathrm{\partial}F_n}{\mathrm{\partial}x_n}
 \end{pmatrix}.
 \]</span> Therefore, Newton’s method forms the iterates of <span class="math display">\[
-\mathbf{x}_{i+1} = \mathbf{x}_i + J^{-1}(\mathbf{x}_i) \mathbf{F}(\mathbf{x}_i),
+\mathbf{x}_{i+1} = \mathbf{x}_i {\color{blue}-} J^{-1}(\mathbf{x}_i) \mathbf{F}(\mathbf{x}_i),
 \]</span> which takes a very similar form to the scalar case.</p>
 <p>However, solution of the inverse of <span class="math inline">\(J\)</span> is typically inefficient, and it is better to instead solve for <span class="math inline">\(\delta_{i+1} = \mathbf{x}_{i+1} - \mathbf{x}_i\)</span> via <span class="math display">\[
 J(\mathbf{x}_i) \delta_{i+1} = - \mathbf{F}(\mathbf{x}_i),
