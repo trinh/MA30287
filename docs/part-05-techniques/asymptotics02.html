@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA30287: Mathematics of Planet Earth - 1&nbsp; Conservation laws and consitutive laws</title>
+<title>MA30287: Mathematics of Planet Earth - 9&nbsp; Asymptotic approximations of ODEs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -49,8 +93,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-01-intro/intro-nondim.html" rel="next">
-<link href="../part-01-intro/intro.html" rel="prev">
+<link href="../part-05-techniques/euler.html" rel="next">
+<link href="../part-05-techniques/asymptotics01.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -90,7 +134,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Conservation laws and consitutive laws</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Asymptotic approximations of ODEs</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -133,7 +177,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-01-intro/intro-PDEs.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Conservation laws and consitutive laws</span></a>
+  <a href="../part-01-intro/intro-PDEs.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Conservation laws and consitutive laws</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -193,7 +237,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/asymptotics02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Asymptotic approximations of ODEs</span></a>
+  <a href="../part-05-techniques/asymptotics02.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Asymptotic approximations of ODEs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -433,14 +477,21 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#returning-to-the-projectile-problem" id="toc-returning-to-the-projectile-problem" class="nav-link active" data-scroll-target="#returning-to-the-projectile-problem"><span class="toc-section-number">9.1</span>  Returning to the projectile problem</a></li>
+  <li><a href="#sec-asym2-num" id="toc-sec-asym2-num" class="nav-link" data-scroll-target="#sec-asym2-num"><span class="toc-section-number">9.2</span>  Numerical solutions of IVPs</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-intro-PDEs" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Conservation laws and consitutive laws</span></span></h1>
+<h1 class="title"><span id="sec-asymptotics02" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Asymptotic approximations of ODEs</span></span></h1>
 </div>
 
 
@@ -465,109 +516,118 @@ div.csl-indent {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Covered in lecture 1.</p>
+<p>Covered in lecture 8.</p>
 </div>
 </div>
-<p>In the first chapter of <span class="citation" data-cites="fowler_book">(<a href="../references.html#ref-fowler_book" role="doc-biblioref">Fowler 2011</a>)</span>, there is a concise introduction to the different categories of techniques and approaches that you might use when doing mathematical modelling in the real world. Some of these ideas will be introduced to you in this course.</p>
-<p>Here, we provide a brief intro to the highlights, involving the use of conservation laws (and PDEs) and also the concept of non-dimensionalisation (which you would have encountered previously), studied in <a href="intro-nondim.html"><span>Chapter&nbsp;2</span></a>.</p>
-<div class="callout-important callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Vectors and PDEs
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Vectors and PDEs is not a prerequisite for this course, but naturally in studying anything related to the physical real world, we must discuss partial differential equations. The hope is that the necessary theory for PDEs will be presented to you as this course evolves, so that it can appreciated by both newcomers and experienced readers.</p>
-</div>
-</div>
-<p>Conservation laws can be expressed as mathematical equations that represent the idea that some quantity is conserved. In processes governing the planet, these might correspond to conservation of heat, of water, of air, of momentum, etc.</p>
-<p>In <a href="basic-energy-model.html"><span>Chapter&nbsp;3</span></a>, we will develop the simplest possible model governing the temperature on the surface of the Earth. It is a conservation equation for energy and is zero-dimensional (does not involve time and does not involve spatial variation).</p>
-<p>In order to demonstrate some of the basic principles of this course, let us demonstrate the derivation of the heat equation. We are interested in modelling the heat in a volume, <span class="math inline">\(V\)</span>, which, for the sake of concreteness is given by a long cylinder with its axis along <span class="math inline">\(x \in [0, L]\)</span>. We assume that the side walls of the cylinder are insulated and the temperature only varies along the <span class="math inline">\(x\)</span> direction.</p>
-<p>At any point along this rod, the internal heat is given by <span class="math inline">\(\rho c T(x, t)\)</span>, where <span class="math inline">\(\rho\)</span> is the density of the material (kg/m<sup>3</sup>), <span class="math inline">\(c\)</span> is the specific heat capacity (J/(kg K)), and <span class="math inline">\(T\)</span> is the temperature (K). Therefore, the heat energy along any segment in the rod is calculated from</p>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Internal heat energy
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><span class="math display">\[
-\text{heat energy in $[a, b]$} = \int_a^b \rho c T \, \mathrm{d}x.
+<p>In the previous chapter, we learned about the technique of asymptotic expansions, whereby the solution of an equation is expressed in terms of a series in powers of a small parameter: <span class="math display">\[
+x = x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots
+\]</span> The precise choice of power progression (here integer powers of <span class="math inline">\(\epsilon\)</span> will depend on the particular problem. The same idea can be extended to approximating solutions of differential equations. The upshot of this procedure is that at each order of the scheme, a simpler problem can be studied.</p>
+<p>Again it is best to demonstrate through examples.</p>
+<section id="returning-to-the-projectile-problem" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="returning-to-the-projectile-problem"><span class="header-section-number">9.1</span> Returning to the projectile problem</h2>
+<p>In <a href="../part-01-intro/problemclass01.html"><span>Chapter&nbsp;4</span></a> and <a href="../part-xx-exercises/ps01.html"><span>Chapter&nbsp;27</span></a> you studied the non-dimensionalisation of the projectile problem. Once re-scaled, it takes the following form: <span id="eq-asymball"><span class="math display">\[
+\begin{align}  
+\frac{\mathrm{d}^2 y}{\mathrm{d}t^2} &amp;= -\frac{1}{(1 + \epsilon y)^2}, \qquad t &gt; 0 \\
+y(0) &amp;= 0, \\
+y'(0) &amp;= 1.
+\end{align}
+\tag{9.1}\]</span></span> This is a difficult problem without, in fact, any explicit solutions. However, we can estimate the solution in the limit <span class="math inline">\(\epsilon \to 0\)</span>. We expand the solution as <span class="math display">\[
+y(t) = y_0(t) + \epsilon y_1(t) + \epsilon^2 y_2(t) + \ldots
+\]</span> In order to expand the denominator, you can use Taylor’s theorem to expand the function <span class="math display">\[
+f(x) = (1 + x)^\alpha = f(0) + f'(0)x + \ldots = 1 + \alpha x + \ldots
+\]</span> around <span class="math inline">\(x = 0\)</span>.</p>
+<p>The differential equation now yields <span class="math display">\[
+y_0'' + \epsilon y_1'' + \epsilon^2 y_2'' + \ldots = -\left[1 - 2\epsilon \left(y_0 + \epsilon y_1 + \ldots\right) + \ldots \right]
+\]</span> so grouping terms together order-by-order yields <span class="math display">\[
+\Bigl[ y_0'' + 1 \Bigr] + \epsilon \Bigl[ y_1'' - 2y_0\Bigr] + \ldots = 0.
 \]</span></p>
-</div>
-</div>
-<p>If the heat changes, then the rate of change of heat energy is given the time derivative of the above quantity. By conservation of energy, any change of the internal energy must be equal to the inflow or outflow of heat at the ends, <span class="math inline">\(x = a\)</span> or <span class="math inline">\(x = b\)</span>. We therefore write <span class="math inline">\(q\)</span> for the flux (or flow) of heat.</p>
-<p>We need a <strong>constitutive law</strong> that dictates how energy is exchanged at the boundaries. Based on intuition, it is sensible to assume that the flow of heat proceeds from hot to cold. For example, hot air rises towards cool air; or heat from a hot mug of tea flows and diffuses outwards into a cold room. Therefore, we write this as</p>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Fourier’s law
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Fourier’s law in 1D specifies that the heat flux is given by <span class="math display">\[
-q(x, t) = -k \frac{\mathrm{\partial}T}{\mathrm{\partial}x}.
+<p>We can similarly substitute the expansion into the initial conditions. Altogether, at leading order, we obtain the following system to solve: <span class="math display">\[\begin{align}
+y_0'' + 1 &amp;= 0, \\
+y_0(0) &amp;= 0, \\
+y_0'(0) &amp;= 1.
+\end{align}\]</span> Integrating twice and applying the boundary conditions gives us <span class="math display">\[
+y_0(t) = -\frac{1}{2}t^2 + t.
+\]</span> In fact, this is simply the parabolic motion you would expect from school Physics. The <span class="math inline">\(\epsilon = 0\)</span> solution corresponds to assuming that the mass at the centre of the planet is dominant and then acceleration is constant.</p>
+<p>However, we can now proceed to higher order and examine the nonlinear effects. Proceeding to <span class="math inline">\(O(\epsilon)\)</span>, we have the following system to solve: <span class="math display">\[\begin{align}
+y_1'' &amp;= 2y_0, \\
+y_1(0) &amp;= 0, \\
+y_1'(0) &amp;= 0.
+\end{align}\]</span> Notice the boundary conditions come from the fact there are no <span class="math inline">\(\epsilon\)</span> corrections in the original boundary conditions, so <span class="math inline">\(y_n(0) = y_n'(0) = 0\)</span> for all <span class="math inline">\(n &gt; 0\)</span>. Again this system is simple to integrate. Integrating the solution for <span class="math inline">\(y_0\)</span> twice and substitution of the initial conditions yields <span class="math display">\[
+y_1(t) = -\frac{1}{12}t^4 + \frac{1}{3}t^3.
+\]</span> We have thus solved for the asymptotic approximation to two orders. We have <span class="math display">\[
+y(t) \sim \Bigl[ -\frac{1}{2}t^2 + t\Bigr] + \epsilon \Bigl[ -\frac{1}{12}t^4 + \frac{1}{3}t^3\Bigr].
+\]</span> This was quite an accomplishment! We have taken a problem that was not easily solvable in explicit form and through fairly simple integrations, obtained an approximation to two orders in <span class="math inline">\(\epsilon\)</span>. How good is it? Let us solve the problem numerically and compare with the asymptotic approximation.</p>
+</section>
+<section id="sec-asym2-num" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="sec-asym2-num"><span class="header-section-number">9.2</span> Numerical solutions of IVPs</h2>
+<p>We first demonstrate how to solve ODEs (initial-value-problems, IVPs) using black-box functions in Python. For starters, most numerical formulations for ODEs will require that the problem be posed in terms of a first-order system of equations. To convert (<a href="#eq-asymball">Equation&nbsp;<span>9.1</span></a>) into such a form, create a set of unknowns for the derivatives. Set <span class="math display">\[
+\mathbf{Y}(t) =
+\begin{pmatrix}
+y_1(t) \\
+y_2(t)
+\end{pmatrix}
+= \begin{pmatrix}
+y(t) \\
+y'(t)
+\end{pmatrix}
 \]</span></p>
+<p>Then we have the following first-order system: <span id="eq-asymsys"><span class="math display">\[
+\begin{align}
+\mathbf{Y}'(t) &amp;= \mathbf{F}(t, \mathbf{Y}(t)) = \begin{pmatrix}
+y_1' \\
+- \frac{1}{(1 + \epsilon y_1)^2}
+\end{pmatrix} \\
+\mathbf{Y}(0) &amp;= \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}
+\end{align}
+\tag{9.2}\]</span></span></p>
+<p>You can find a little guide on using solve_ivp in Python <a href="https://ipython-books.github.io/123-simulating-an-ordinary-differential-equation-with-scipy/">here</a>. Here is the Python code to solve the differential equation.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> solve_ivp</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>ep <span class="op">=</span> <span class="fl">0.2</span> <span class="co"># epsilon value</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>tmax <span class="op">=</span> <span class="dv">2</span> <span class="co"># max time</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, tmax, <span class="dv">100</span>) <span class="co"># mesh used for plotting</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Define function for the ODE</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(t, Y):</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    ep <span class="op">=</span> <span class="fl">0.2</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    y, yp <span class="op">=</span> Y</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    ypp <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> ep<span class="op">*</span>y)<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [yp, ypp]</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># define the initial condition</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>Y0 <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>]</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>sol <span class="op">=</span> solve_ivp(f, [<span class="dv">0</span>, tmax], Y0, dense_output<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Prior to plotting, re-interpolate solution on a fine grid</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>yy <span class="op">=</span> sol.sol(t)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Asymptotic solutions</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>y0 <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span><span class="op">*</span>t<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> t</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">12</span><span class="op">*</span>t<span class="op">**</span><span class="dv">4</span> <span class="op">+</span> <span class="dv">1</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>t<span class="op">**</span><span class="dv">3</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot it all</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>plt.plot(t, yy[<span class="dv">0</span>,])</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>plt.plot(t, y0, <span class="st">'--'</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>plt.plot(t, y0 <span class="op">+</span> ep<span class="op">*</span>y1, <span class="st">'--'</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'t'</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y(t)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>Text(0, 0.5, 'y(t)')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="asymptotics02_files/figure-html/cell-2-output-2.png" width="589" height="429"></p>
 </div>
 </div>
-<p>This is known as Fourier’s law. The quantity <span class="math inline">\(k\)</span> is the thermal conductivity, and its units are W/(m K). Because a Watt is a Joule/s, you can also see that the units of <span class="math inline">\(k\)</span> are J/(m K s). The quantity <span class="math inline">\(q\)</span> is the flux, and you can verify that it is given in units of J/(m<sup>2</sup> s).</p>
-<p>Therefore by energy conservation, we have <span class="math display">\[
-\frac{\mathrm{d}}{\mathrm{d}t}  \int_a^b \rho c T \, \mathrm{d}x = q(x = b, t) - q(x = a, t),
-\]</span> i.e.&nbsp;the change in internal heat is equal to the flow through the ends. Substitution Fourier’s law, we can then write <span class="math display">\[
-\int_a^b \rho c \frac{\mathrm{\partial}T}{\mathrm{\partial}t} \, \mathrm{d}x = \int_a^b k \frac{\mathrm{\partial}^2 T}{\mathrm{\partial}x^2} \, \mathrm{d}x.
-\]</span> We then argue that because the above needs to be true for all segments [a, b] within the rod, then it must be true everywhere. Therefore we are left with the classic heat equation.</p>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Heat equation
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><span id="eq-heatintro"><span class="math display">\[
-\rho c\frac{\mathrm{\partial}T}{\mathrm{\partial}t} = k \frac{\mathrm{\partial}^2 T}{\mathrm{\partial}x^2}.
-\tag{1.1}\]</span></span></p>
-</div>
-</div>
-<p>In order to produce a sensible physical solution, the above equation is typically supplemented by initial conditions and boundary conditions. An example might be</p>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Initial and boundary conditions
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><span class="math display">\[
-\begin{gather}
-T(x, 0) = T_0 \\
-T(0, 0) = T_a \\
-T(L, 0) = T_b
-\end{gather}
-\]</span></p>
-</div>
-</div>
-<p>which expresses, respectively, that the temperature starts from a constant temperature, <span class="math inline">\(T_0\)</span>, and where the ends of the rod are kept at temperature <span class="math inline">\(T_a\)</span> and <span class="math inline">\(T_b\)</span>. In courses like MA20223, you may have learned how to solve the above equation.</p>
+<p>The two-term approximation does beautifully well, even at this moderate value of <span class="math inline">\(\epsilon = 0.2\)</span>.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-fowler_book" class="csl-entry" role="doc-biblioentry">
-Fowler, Andrew. 2011. <em>Mathematical Geoscience</em>. Vol. 36. Springer.
-</div>
-</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -705,13 +765,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part-01-intro/intro.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
+      <a href="../part-05-techniques/asymptotics01.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Asymptotic approximations</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-01-intro/intro-nondim.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dimensional scaling analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-05-techniques/euler.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Euler’s method</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
