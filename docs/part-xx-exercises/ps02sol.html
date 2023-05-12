@@ -595,7 +595,7 @@ y'(0) = 1.
 \end{gather}
 \]</span> where <span class="math inline">\(\alpha \geq 0\)</span> is the parameter that controls air resistance.</p>
 <ol type="1">
-<li>Begin by assuming that <span class="math inline">\(\alpha\)</span> is a fixed number and consider the limit where <span class="math inline">\(\epsilon \ll 1\)</span>. Find a two-term asymptotic expansion of the solution for small <span class="math inline">\(\epsilon\)</span>.</li>
+<li>Begin by assuming that <span class="math inline">\(\alpha\)</span> is a fixed number and consider the limit where <span class="math inline">\(\epsilon \ll 1\)</span>. Find a one-term asymptotic expansion of the solution for small <span class="math inline">\(\epsilon\)</span>.</li>
 </ol>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -607,7 +607,6 @@ Q4.1
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This question turned out to be a bit more algebraically annoying than expected. In any case, the procedure is as follows.</p>
 <p>First, note that <span class="math display">\[
 (1 + \epsilon y)^{\alpha} = 1 + \alpha (\epsilon y) + O(\epsilon y)^2.
 \]</span></p>
@@ -635,7 +634,7 @@ y(t) \sim \left(\frac{1}{\alpha^2} + \frac{1}{\alpha}\right) - \left(\frac{1}{\a
 </div>
 </div>
 <ol start="2" type="1">
-<li>Is the effect of the air resistance to increase or decrease the flight time? Justify based on your analytical solution.</li>
+<li>(<strong>Challenging</strong>) Is the effect of the air resistance to increase or decrease the flight time? Justify based on your analytical solution.</li>
 </ol>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -649,7 +648,7 @@ Q4.2
 <div class="callout-body-container callout-body">
 <p>The above solution seems quite strange. After all, when <span class="math inline">\(\alpha = 0\)</span>, we know that parabolic motion is expected. We found previously that <span class="math display">\[
 y_{\alpha = 0}(t) \sim -\frac{1}{2}t^2 + t.
-\]</span> which matches our intuition about the expected flight being parabolic. However, notice that if <span class="math inline">\(\alpha\)</span> is small, we can expand the exponential to show <span class="math display">\[
+\]</span> which matches our intuition about the expected flight being parabolic. However, notice that if <span class="math inline">\(\alpha\)</span> is small, we can expand the exponential, <span class="math inline">\(e^{-\alpha t} = 1 - \alpha t + \ldots\)</span> to show <span class="math display">\[
 y_0 \sim \left(-\frac{1}{2}t^2 + t\right) + \alpha \frac{1}{6} \left(-3t^2 + t^3\right) + O(\alpha^2).
 \]</span></p>
 <p>This is a fairly sophisticated argument. Instead, you can simply plot the curves and show the difference.</p>

@@ -554,11 +554,11 @@ Solution
 </div>
 <div class="callout-body-container callout-body">
 <p>Start from the ODE and re-write <span class="math display">\[
-\frac{\mathrm{d}}{\mathrm{d}t} \left[\epsilon \dot{x} + (x^3 - 6x^2 - 9x)\right] = - 4x.
+\frac{\mathrm{d}}{\mathrm{d}t} \left[\epsilon \dot{x} + (x^3 - 3x^2 - 9x)\right] = - 4x.
 \]</span> Double check that the derivative of the LHS returns the original problem. Now set the quantity in brackets equal to one unknown: <span class="math display">\[
-\tilde{y} = \epsilon \dot{x} + (x^3 - 6x^2 - 9x),
+\tilde{y} = \epsilon \dot{x} + (x^3 - 3x^2 - 9x),
 \]</span> and solve for the derivative: <span class="math display">\[
-\epsilon \dot{x} = \tilde{y} - (x^3 - 6x^2 - 9x).
+\epsilon \dot{x} = \tilde{y} - (x^3 - 3x^2 - 9x).
 \]</span> The remaining equation is <span class="math display">\[
 \dot{\tilde{y}} = -4x.
 \]</span></p>
@@ -585,12 +585,12 @@ Solution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The only equilibrium point is <span class="math inline">\((x_*, y_*) = (0,0)\)</span>. The linear matrix is given by ignoring the higher-order powers. It is: <span class="math display">\[
+<p>The only equilibrium point is <span class="math inline">\((x_*, y_*) = (0,0)\)</span>. Because the equilibrium point is at the origin, we can obtain the linear matrix by ignoring the higher-order powers in the differential equations. The matrix is <span class="math display">\[
 A = \begin{pmatrix}
 \frac{9}{\epsilon} &amp; \frac{4}{\epsilon} \\
--4 &amp; 0
+-1 &amp; 0
 \end{pmatrix}.
-\]</span> Subtract <span class="math inline">\(\lambda\)</span> from the diagonal elements and solve the quadratic equation to see that the eigenvalues are then <span class="math inline">\(\lambda = (9 \pm \sqrt{81 - 16\epsilon}/(2\epsilon) &gt; 0\)</span>, so the point is an unstable node.</p>
+\]</span> Subtract <span class="math inline">\(\lambda\)</span> from the diagonal elements and solve the resultant quadratic equation <span class="math inline">\(\lambda(\lambda - 9/\epsilon) + 4/\epsilon = 0\)</span> to see that the eigenvalues are <span class="math inline">\(\lambda = (9 \pm \sqrt{81 - 16\epsilon}/(2\epsilon) &gt; 0\)</span>, so the point is an unstable node.</p>
 </div>
 </div>
 <ol start="3" type="a">
