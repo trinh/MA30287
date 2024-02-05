@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA30287: Mathematics of Planet Earth - 14&nbsp; Dynamical systems</title>
+<title>MA30287: Mathematics of Planet Earth - 12&nbsp; Problem set 1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -50,8 +30,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-05-techniques/vector-calculus.html" rel="next">
-<link href="../part-05-techniques/odes.html" rel="prev">
+<link href="../part-05-techniques/part-techniques.html" rel="next">
+<link href="../part-xx-exercises/part-exercises.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -130,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-05-techniques/part-techniques.html">Appendices</a></li><li class="breadcrumb-item"><a href="../part-05-techniques/dynamical-systems.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Dynamical systems</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-xx-exercises/part-exercises.html">Exercises</a></li><li class="breadcrumb-item"><a href="../part-xx-exercises/ps01.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Problem set 1</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -271,7 +251,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link">
+  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Problem set 1</span></span></a>
   </div>
 </li>
@@ -294,7 +274,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link active">
+  <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
   </div>
 </li>
@@ -334,16 +314,19 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#stability-analysis-for-2x2-systems" id="toc-stability-analysis-for-2x2-systems" class="nav-link active" data-scroll-target="#stability-analysis-for-2x2-systems"><span class="header-section-number">14.1</span> Stability analysis for 2x2 systems</a></li>
+  <li><a href="#a-source-in-the-heat-equation" id="toc-a-source-in-the-heat-equation" class="nav-link active" data-scroll-target="#a-source-in-the-heat-equation"><span class="header-section-number">12.1</span> A source in the heat equation</a></li>
+  <li><a href="#choice-of-scalings" id="toc-choice-of-scalings" class="nav-link" data-scroll-target="#choice-of-scalings"><span class="header-section-number">12.2</span> Choice of scalings</a></li>
+  <li><a href="#the-unique-timescale-in-the-heat-equation" id="toc-the-unique-timescale-in-the-heat-equation" class="nav-link" data-scroll-target="#the-unique-timescale-in-the-heat-equation"><span class="header-section-number">12.3</span> The unique timescale in the heat equation</a></li>
+  <li><a href="#timescale-in-the-surface-energy" id="toc-timescale-in-the-surface-energy" class="nav-link" data-scroll-target="#timescale-in-the-surface-energy"><span class="header-section-number">12.4</span> Timescale in the surface energy</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-05-techniques/part-techniques.html">Appendices</a></li><li class="breadcrumb-item"><a href="../part-05-techniques/dynamical-systems.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Dynamical systems</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-xx-exercises/part-exercises.html">Exercises</a></li><li class="breadcrumb-item"><a href="../part-xx-exercises/ps01.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Problem set 1</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-appendix-dyn" class="quarto-section-identifier"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></h1>
+<h1 class="title"><span id="sec-PS1" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Problem set 1</span></span></h1>
 </div>
 
 
@@ -360,42 +343,85 @@ window.Quarto = {
 </header>
 
 
-<p>We will need some of the theory from your prior ODEs and Modelling and Dynamics courses as related to the solution of 2x2 linear systems of the form <span class="math display">\[
-\mathbf{Y}'(t) = \mathbf{A}(t) \mathbf{Y},
-\]</span> where <span class="math display">\[
-\mathbf{Y}(t) = \begin{pmatrix}
-x(t) \\
-y(t)
-\end{pmatrix}, \quad \text{and} \quad
-\mathbf{A} = \begin{pmatrix}
-a &amp; b \\
-c &amp; d
-\end{pmatrix}.
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For feedback, hand into pidgeonholes by Friday Week 2.</p>
+</div>
+</div>
+<p>The intention of this problem set is to practice concepts from material related to conservation laws and non-dimensionalisation. Although these concepts seem quite separate from “Maths of Planet Earth”, actually, they form important pillars of mathematical modelling.</p>
+<section id="a-source-in-the-heat-equation" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="a-source-in-the-heat-equation"><span class="header-section-number">12.1</span> A source in the heat equation</h2>
+<p>Consider the same heat experiment discused in <a href="../part-01-intro/intro-PDEs.html" class="quarto-xref"><span>Chapter 1</span></a> but now consider a bar that has an internal source or sink generating or removing heat, such as the case of a boiler with an internal heating element. By adapting a similar derivation to the one presented, explain why the modified conservation of heat equation is <span class="math display">\[
+\frac{\mathrm{\partial}}{\mathrm{\partial}t} \int_a^b \rho c T \, \mathrm{d}x = q(x = b, t) - q(x = a, t) + \int_a^b R(x, t) \, \mathrm{d}x.
 \]</span></p>
-<p>If you need a refresher, refer to your old notes; there is also a good review on <a href="https://www.ndsu.edu/pubweb/~novozhil/Teaching/266%20Data/lecture_23.pdf">these notes</a> and also <a href="https://tutorial.math.lamar.edu/Classes/DE/SystemsIntro.aspx">these notes</a>.</p>
-<section id="stability-analysis-for-2x2-systems" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="stability-analysis-for-2x2-systems"><span class="header-section-number">14.1</span> Stability analysis for 2x2 systems</h2>
-<p>In the case of 2x2 systems, there is a useful classification and shortcut. The eigenvalues, <span class="math inline">\(\lambda_1\)</span> and <span class="math inline">\(\lambda_2\)</span> are given by <span class="math display">\[
-\lambda_{1,2} = \frac{1}{2} (T \pm \sqrt{T^2 - 4D}),
-\]</span> where <span class="math inline">\(T = \mathrm{tr}(A) = a + d\)</span> and <span class="math inline">\(D = \mathrm{det}(A) = ad - bc\)</span>. Once <span class="math inline">\(T\)</span> and <span class="math inline">\(D\)</span> are known, then the fixed points can be classified based on the following diagram.</p>
-<div id="fig-phaseclassify" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-phaseclassify-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="img/2023-04-27-11-26-26.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-phaseclassify-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14.1: Classification diagram from <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span>
-</figcaption>
-</figure>
-</div>
-<p>Above, the critical parabola is where <span class="math inline">\(T^2 - 4D = 0\)</span>.</p>
+<p>In addition:</p>
+<ol type="a">
+<li><p>By studying the dimensions of the other terms in the above equation, find what the dimensions of <span class="math inline">\(R\)</span> are. What does <span class="math inline">\(R &gt; 0\)</span> mean and <span class="math inline">\(R &lt; 0\)</span>?</p></li>
+<li><p>Hence derive the partial differential equation that governs the temperature <span class="math inline">\(T\)</span>.</p></li>
+<li><p>By introducing the appropriate scalings on each of the variables, <span class="math inline">\(x\)</span>, <span class="math inline">\(t\)</span>, and <span class="math inline">\(T\)</span>, non-dimensionalise the PDE and discuss the non-dimensional parameters (there will be two).</p></li>
+</ol>
+</section>
+<section id="choice-of-scalings" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="choice-of-scalings"><span class="header-section-number">12.2</span> Choice of scalings</h2>
+<p>Consider the dimensional problem for the motion of a projectile launched from close to the surface of the Earth. The dimensional height of the projectile, <span class="math inline">\(y(t)\)</span>, is given by <span class="math display">\[\begin{align}
+\frac{\mathrm{d}^2 y}{\mathrm{d}t^2} &amp;= - \frac{GM}{(R+y)^2}, \\
+y(0) &amp;= 2 \, \mathrm{m}, \\
+y'(0) &amp;= -V_0 \, \mathrm{m/s}.
+\end{align}\]</span> Assume that the Earth is spherical and of uniform density, with its mass given by <span class="math inline">\(M = (4/3) \pi R^3 \rho\)</span>. Non-dimensionalise the height using <span class="math inline">\(y = L \tilde{y}\)</span> and time using <span class="math inline">\(t = T\tilde{t}\)</span>. Consider the following cases:</p>
+<ol type="i">
+<li><span class="math inline">\(R\)</span> fixed, <span class="math inline">\(V_0 \to \infty\)</span>, <span class="math inline">\(\rho\)</span> fixed;</li>
+<li><span class="math inline">\(R\)</span> fixed, <span class="math inline">\(V_0\)</span> fixed, <span class="math inline">\(\rho \to \infty\)</span>;</li>
+<li><span class="math inline">\(R\)</span> fixed, <span class="math inline">\(V_0\)</span> fixed, <span class="math inline">\(\rho \to 0\)</span>;</li>
+<li><span class="math inline">\(R \to 0\)</span>, <span class="math inline">\(V_0\)</span> fixed, <span class="math inline">\(M\)</span> fixed.</li>
+</ol>
+<p>For each case:</p>
+<ol type="a">
+<li>Explain the physical interpretation of the limits.</li>
+<li>Choose the scalings <span class="math inline">\(L\)</span> and <span class="math inline">\(T\)</span> to normalise as many terms as possible.</li>
+<li>Choose the scalins so that the time it takes for the projectile to fall should be finite for the given limit, and for the speed, acceleration, and initial height to be well behaved (finite).</li>
+<li>Write out the scaled problem and identify all remaining nondimensional parameters.</li>
+<li>Identify the limiting small parameter for each case. Write out the problem (leading-order problem) when the parameter is set to zero.</li>
+</ol>
+</section>
+<section id="the-unique-timescale-in-the-heat-equation" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="the-unique-timescale-in-the-heat-equation"><span class="header-section-number">12.3</span> The unique timescale in the heat equation</h2>
+<p>During our investigation of the heat equation, we found that it was possible to scale time so as to scale out the only non-dimensional parameter that appears in the PDE (the Peclet number). This produced (<a href="../part-01-intro/intro-nondim.html#eq-heatintro-noscale" class="quarto-xref">Equation&nbsp;<span>2.3</span></a>). As explained in lectures, the disappearance of all non-dimensional parameters is due to the fact that only a single sensible timescale exists.</p>
+<p>By adjusting the boundary conditions, we may create a new problem involving heat flow where a unique ‘special’ timescale in (<a href="../part-01-intro/intro-nondim.html#eq-specialtime" class="quarto-xref">Equation&nbsp;<span>2.2</span></a>) can no longer be chosen.</p>
+<p>Consider a system where one side of the rod is heated in some periodic fashion, e.g.&nbsp;set the initial and boundary conditions to be <span class="math display">\[\begin{align}
+T(x, 0) &amp;= T_0 \\
+T(0, t) &amp;= T_a \cos (\omega t), \\
+T(L, t) &amp;= T_b.
+\end{align}\]</span></p>
+<ol type="a">
+<li><p>What must the units of <span class="math inline">\(\omega\)</span> be?</p></li>
+<li><p>Non-dimensionalise as usual and, without selecting the timescale, <span class="math inline">\([t]\)</span>, identify the key non-dimensional parameters that remain. Write a brief sentence to describe their physical interpretation.</p></li>
+<li><p>There are two sensible choices for setting the timescale, <span class="math inline">\([t]\)</span>. Identify the two choices and present the reduced set of equations in each case.</p></li>
+</ol>
+</section>
+<section id="timescale-in-the-surface-energy" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="timescale-in-the-surface-energy"><span class="header-section-number">12.4</span> Timescale in the surface energy</h2>
+<p>Take the basic zero-dimensional energy model studied in (<a href="../part-01-intro/basic-energy-model.html#eq-heateq-earth" class="quarto-xref">Equation&nbsp;<span>3.7</span></a>) for the temperature of the troposphere: <span class="math display">\[
+C \frac{\mathrm{d}T}{\mathrm{d}t} = \frac{1}{4} Q(1 - a) - \sigma \gamma T^4.
+\]</span></p>
+<ol type="a">
+<li><p>Non-dimensionalise the model by choosing <span class="math inline">\(T = [T]T'\)</span>, <span class="math inline">\(t = [t]t'\)</span>, and <span class="math inline">\(Q = [Q]Q'\)</span>. Show that it is possible to select the scalings on the temperature and time so as to completely remove all constants from the problem when <span class="math inline">\(Q\)</span> is assumed to be constant.</p></li>
+<li><p>Thus, show that the analysis of the above equation is equivalent to studying <span class="math display">\[
+\frac{\mathrm{d}T}{\mathrm{d}t} = 1 - T^4,
+\]</span> where we have dropped the primes and assumed that the albedo is such that <span class="math inline">\(1 - a \neq 0\)</span>.</p></li>
+<li><p>From your choice of <span class="math inline">\([t]\)</span>, estimate the typical dimensional value using <span class="math inline">\(d \approx 10 \mathrm{km}\)</span>, <span class="math inline">\(\rho \approx 1 \mathrm{kg} \,\mathrm{m}^{-3}\)</span>, <span class="math inline">\(c_p \approx 10^3 \mathrm{J} \,\mathrm{kg}^{-1} \,\mathrm{K}^{-1}\)</span>.<br>
+<br>
+Use a pocket calculator to verify your calculations and conclude that this time-scale is on the order of a month. What is the relevance of this approximation as it concerns the steady-state solution?</p></li>
+</ol>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-kaper_book" class="csl-entry" role="listitem">
-Kaper, Hans, and Hans Engler. 2013. <em>Mathematics and Climate</em>. SIAM.
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->
@@ -788,13 +814,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part-05-techniques/odes.html" class="pagination-link  aria-label=" &lt;span="" equations&lt;="" span&gt;"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Differential equations</span></span>
+      <a href="../part-xx-exercises/part-exercises.html" class="pagination-link  aria-label=" exercises"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Exercises</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-05-techniques/vector-calculus.html" class="pagination-link" aria-label="<span class='chapter-number'>15</span>&nbsp; <span class='chapter-title'>Vector calculus</span>">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Vector calculus</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-05-techniques/part-techniques.html" class="pagination-link" aria-label="Appendices">
+        <span class="nav-page-text">Appendices</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
