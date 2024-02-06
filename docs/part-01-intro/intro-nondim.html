@@ -173,7 +173,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-01-intro/intro-PDEs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Conservation laws and consitutive laws</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Conservation laws and constitutive laws</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -239,8 +239,8 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../part-03-box/part-ocean.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Box models of the ocean</span></a>
+            <a href="../part-xx-exercises/part-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercises</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -248,72 +248,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/basic-ocean-model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Basic models of the ocean</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../part-03-box/stommel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Stommel’s box model</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../part-xx-exercises/part-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercises</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Problem set 1</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../part-05-techniques/part-techniques.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Problem set 1</span></span></a>
   </div>
 </li>
       </ul>
@@ -423,14 +359,12 @@ T(L, 0) = \frac{T_b}{T_0}.
 <p>We can now choose the temporal scale so as to simplify the equation. Let us choose <span id="eq-specialtime"><span class="math display">\[
 [t] = \frac{L}{U} = \frac{\rho c L^2}{k}.
 \tag{2.2}\]</span></span></p>
-<p>Now the system simplifies. We can now write <span id="eq-heatintro-noscale"><span class="math display">\[
-\begin{gather}
+<p>Now the system simplifies. We can now write <span class="math display">\[\begin{gather}
 \frac{\mathrm{\partial}T'}{\mathrm{\partial}t'} = \frac{\mathrm{\partial}^2 T'}{\mathrm{\partial}x'^2} \\
 T'(x', 0) = 1 \\
 T'(0, 0) = A, \\
 T'(1, 0) = B.
-\end{gather}
-\tag{2.3}\]</span></span></p>
+\end{gather}\]</span> {#eq-heatintro-noscale}</p>
 <p>We have gone from a system where we needed to consider six parameters to one where we only need to specify two (essentially, the ratio of the initial heat to the boundary values). Imagine you are an engineer at a thermal company, and asked to study the different possible configurations of heat in the above setup. If you were to blindly perform numerical computations, you would have had to set specific values for each of the six parameters.</p>
 <p>Instead, some mathematical analysis has demonstrated that the six-dimensional space of parameters can be simplified to a two-dimensional one—this is an enormous simplification.</p>
 <p>Your analysis has further identified the key non-dimensional parameter that appears in <a href="#eq-heat-Pe" class="quarto-xref">Equation&nbsp;<span>2.1</span></a>. This demonstrates that it is not the individual values of <span class="math inline">\(k\)</span>, <span class="math inline">\(\rho\)</span>, <span class="math inline">\(c\)</span>, … that matter, but rather their specific combination in the form of the Peclet number.</p>
@@ -838,8 +772,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part-01-intro/intro-PDEs.html" class="pagination-link  aria-label=" &lt;span="" laws="" and="" consitutive="" laws&lt;="" span&gt;"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Conservation laws and consitutive laws</span></span>
+      <a href="../part-01-intro/intro-PDEs.html" class="pagination-link  aria-label=" &lt;span="" laws="" and="" constitutive="" laws&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Conservation laws and constitutive laws</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

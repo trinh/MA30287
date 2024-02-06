@@ -187,7 +187,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-01-intro/intro-PDEs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Conservation laws and consitutive laws</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Conservation laws and constitutive laws</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -253,8 +253,8 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../part-03-box/part-ocean.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Box models of the ocean</span></a>
+            <a href="../part-xx-exercises/part-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercises</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -262,72 +262,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/basic-ocean-model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Basic models of the ocean</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../part-03-box/stommel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Stommel’s box model</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../part-xx-exercises/part-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercises</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Problem set 1</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../part-05-techniques/part-techniques.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Problem set 1</span></span></a>
   </div>
 </li>
       </ul>
@@ -369,7 +305,7 @@ window.Quarto = {
 
 
 <p>In the previous section, we used built-in ODE solvers to develop numerical solutions. It is important to gain an understanding how a simple ODE solver works. The simplest scheme is called <a href="https://en.wikipedia.org/wiki/Euler_method">Euler’s method</a>, and this we now explain.</p>
-<p>Begin from the system (<a href="asymptotics02.html#eq-asymsys" class="quarto-xref">Equation&nbsp;<span>6.2</span></a>). We assume that the solution is represented by a discrete set of points, <span class="math inline">\(\mathbf{Y}_n = \mathbf{Y}(t_n)\)</span> at the times <span class="math inline">\(t_0 = 0\)</span>, <span class="math inline">\(t_1 = \Delta t\)</span>, <span class="math inline">\(t_2 = 2\Delta t\)</span>, and so on. The time derivative is written as a discrete derivative while we approximate the right hand side by its value at the nth time step: <span class="math display">\[
+<p>Begin from the system (<span class="quarto-unresolved-ref">?eq-asymsys</span>). We assume that the solution is represented by a discrete set of points, <span class="math inline">\(\mathbf{Y}_n = \mathbf{Y}(t_n)\)</span> at the times <span class="math inline">\(t_0 = 0\)</span>, <span class="math inline">\(t_1 = \Delta t\)</span>, <span class="math inline">\(t_2 = 2\Delta t\)</span>, and so on. The time derivative is written as a discrete derivative while we approximate the right hand side by its value at the nth time step: <span class="math display">\[
 \frac{\mathbf{Y}_{n+1} - \mathbf{Y}_{n}}{\Delta t} = \mathbf{F}(t_n, \mathbf{Y}_n)
 \]</span></p>
 <p>Rearranging yields a very simple algorithm for solving the ODE: <span class="math display">\[
@@ -400,7 +336,7 @@ Euler’s method
 </div>
 </div>
 <p>Euler’s method is conceptually simple but quite inaccurate. But in this case, we see that it works fairly well in comparison to the built-in solvers.</p>
-<div id="fc2c6cfe" class="cell" data-execution_count="1">
+<div id="ee5e8d40" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> solve_ivp</span>
