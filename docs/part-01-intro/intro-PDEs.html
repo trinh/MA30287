@@ -270,7 +270,11 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#derivation-of-the-1d-heat-equation" id="toc-derivation-of-the-1d-heat-equation" class="nav-link active" data-scroll-target="#derivation-of-the-1d-heat-equation"><span class="header-section-number">1.1</span> Derivation of the 1D heat equation</a></li>
+  <li><a href="#derivation-of-the-1d-heat-equation" id="toc-derivation-of-the-1d-heat-equation" class="nav-link active" data-scroll-target="#derivation-of-the-1d-heat-equation"><span class="header-section-number">1.1</span> Derivation of the 1D heat equation</a>
+  <ul class="collapse">
+  <li><a href="#steady-states-and-long-time-behaviours" id="toc-steady-states-and-long-time-behaviours" class="nav-link" data-scroll-target="#steady-states-and-long-time-behaviours"><span class="header-section-number">1.1.1</span> Steady states and long-time behaviours</a></li>
+  </ul></li>
+  <li><a href="#deriving-the-1d-transport-continuity-equation" id="toc-deriving-the-1d-transport-continuity-equation" class="nav-link" data-scroll-target="#deriving-the-1d-transport-continuity-equation"><span class="header-section-number">1.2</span> Deriving the 1D transport (continuity) equation</a></li>
   </ul>
 </nav>
     </div>
@@ -370,14 +374,14 @@ Heat equation
 \tag{1.1}\]</span></span></p>
 </div>
 </div>
-<p>In order to produce a sensible physical solution, the above equation is typically supplemented by initial conditions and boundary conditions. An example might be</p>
+<p>In order to produce a sensible physical solution, partial differential equations are typically supplemented by initial conditions and boundary conditions. The <strong>initial condition</strong> prescribes the state of the function at some initial time, typically <span class="math inline">\(t = 0\)</span>. <strong>Boundary conditions</strong> prescribe how the function behaves on the boundary of its domain, which in this case is <span class="math inline">\(x = 0\)</span> and <span class="math inline">\(x = L\)</span>. An example might be</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Initial and boundary conditions
+Initial conditions (IC) and boundary conditions (BC)
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -388,13 +392,110 @@ T(L, 0) = T_b
 \end{gather}\]</span></p>
 </div>
 </div>
-<p>which expresses, respectively, that the temperature starts from a constant temperature, <span class="math inline">\(T_0\)</span>, and where the ends of the rod are kept at temperature <span class="math inline">\(T_a\)</span> and <span class="math inline">\(T_b\)</span>. In courses like MA20223, you may have learned how to solve the above equation.</p>
-<!-- ## Deriving the 1D transport (continuity) equation -->
-<!-- Consider the mass transport of some substance with density $\rho(x, t)$, along a one-dimensional line in $x$. If desired, you may consider the substance as existing in three-dimensional space, and propagating along the $x$-direction, with its behaviour independent of $y$ and $z$. Initially, when considered at time $t = 0$, the mass of the substance between two points, $a$, and $b$, is: -->
-<!-- $$ -->
-<!-- m_\text{blob}(t = 0) = \int_{a(0)}^{b(0)} \rho (x, 0) \, \mathrm{d}x. -->
-<!-- $$ -->
-<!-- As time increases, if we were to track the mass of the blob, assuming the particles of the substance are fixed, this would lead to deriving the quantity $m_\text{blob}(t)$. In particular, we are interested in the quantity -->
+<p>which expresses, respectively, that the temperature starts from a constant temperature, <span class="math inline">\(T_0\)</span>, and where the ends of the rod are kept at temperature <span class="math inline">\(T_a\)</span> and <span class="math inline">\(T_b\)</span>.</p>
+<section id="steady-states-and-long-time-behaviours" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="steady-states-and-long-time-behaviours"><span class="header-section-number">1.1.1</span> Steady states and long-time behaviours</h3>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+2024 note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This was a new addition in 2024.</p>
+</div>
+</div>
+<p>When we refer to a <strong>steady-state</strong> solution, we are typically referring to a time-independent solution.</p>
+<div id="def-steady" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.1 (Steady-state solutions)</strong></span> Given an evolving system described by a functio, say <span class="math inline">\(f(x, t)\)</span>, defined on some spatial domain and with <span class="math inline">\(t &gt; 0\)</span>, the steady-state solution refers to time-independent solutions with <span class="math display">\[
+\frac{\mathrm{\partial} f}{\mathrm{\partial}t} = 0.
+\]</span></p>
+</div>
+<p>One can envisage that as the system evolves with <span class="math inline">\(t \to \infty\)</span>, it reaches a state that is independent of time. However, not all systems will approach a steady state. Moreover, not all steady states are stable or attractive (and might never be reacheable in a real-life experiment).</p>
+<p>For the case of heat flow, such a steady-state solution would be <span class="math inline">\(T(x, t) = T(x)\)</span>. In this case, <span class="math display">\[
+\frac{\mathrm{\partial}T}{\mathrm{\partial}t} = 0 \Longrightarrow
+k \frac{\mathrm{\partial}^2 T}{\mathrm{\partial}x^2} = 0.
+\]</span></p>
+<p>Therefore, for the heatflow along a segment of length <span class="math inline">\(L\)</span> with left boundary held at <span class="math inline">\(T_a\)</span> and right boundary held at <span class="math inline">\(T_b\)</span> we have <span class="math display">\[
+T_\text{steady}(x) = \left(\frac{T_b - T_a}{L}\right) x + T_a.
+\]</span></p>
+</section>
+</section>
+<section id="deriving-the-1d-transport-continuity-equation" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="deriving-the-1d-transport-continuity-equation"><span class="header-section-number">1.2</span> Deriving the 1D transport (continuity) equation</h2>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+2024 note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This was a new addition in 2024.</p>
+</div>
+</div>
+<p>Consider the mass transport of some substance with density <span class="math inline">\(\rho(x, t)\)</span>, immersed in a fluid, along a one-dimensional line in <span class="math inline">\(x\)</span>. If desired, you may consider the substance as existing in three-dimensional space, and propagating along the <span class="math inline">\(x\)</span>-direction, with its behaviour independent of <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span>. Initially, when considered at time <span class="math inline">\(t\)</span>, the mass of the substance between two points, <span class="math inline">\(a\)</span>, and <span class="math inline">\(b\)</span>, is:</p>
+<p><span class="math display">\[
+m_\text{blob}(t) = \int_{a(t)}^{b(t)} \rho (x, t) \, \mathrm{d}x.
+\]</span></p>
+<p>As time increases the particles of the substance will move due to the fluid moving; at the same time, the fluid volume which is initially contained in <span class="math inline">\(x\in [a(0), b(0)]\)</span> will also move. We want to find how the mass of the blob changes in time, and hence consider the quantity <span class="math display">\[
+\frac{\mathrm{d}m_\text{blob}}{\mathrm{d}t}  = \int_a^b \frac{\mathrm{\partial}\rho}{\mathrm{\partial}t} \, \mathrm{d}x + \rho(b, t) \frac{\mathrm{d}b}{\mathrm{d}t} - \rho(a, t) \frac{\mathrm{d}a}{\mathrm{d}t}.
+\]</span></p>
+<p>The above considers the intrinsic rate of change of the function within the integrand, but then adds the extra mass due to the right boundary shifting rightwards (<span class="math inline">\(b\)</span>) and subtracts the mass due to the left boundary shifting rightwards (<span class="math inline">\(a\)</span>). It is known as the <a href="https://en.wikipedia.org/wiki/Leibniz_integral_rule">Leibniz integral rule</a>. We can thus write this within the integral as</p>
+<p><span class="math display">\[
+\frac{\mathrm{d}m_\text{blob}}{\mathrm{d}t}  = \int_a^b \left[ \frac{\mathrm{\partial}\rho}{\mathrm{\partial}t} + \frac{\mathrm{\partial}}{\mathrm{\partial}x} \left(\rho(x, t) \frac{\mathrm{d}x}{\mathrm{d}t}\right) \right] \, \mathrm{d}x.
+\]</span></p>
+<p>However, the quantity <span class="math display">\[
+\frac{\mathrm{d}x}{\mathrm{d}t} \equiv u(x, t)
+\]</span></p>
+<p>represents the velocity of the fluid (which for the moment we assume to be a known and provided quantity). Therefore we can write the mass change as</p>
+<p><span class="math display">\[
+\frac{\mathrm{d}m_\text{blob}}{\mathrm{d}t}  = \int_a^b \left[ \frac{\mathrm{\partial}\rho}{\mathrm{\partial}t} + \frac{\mathrm{\partial}}{\mathrm{\partial}x} \left(\rho u\right) \right] \, \mathrm{d}x.
+\]</span></p>
+<p>This result, which explains how to pass a derivative through an integral express mass of a substance within a flow is known as the <em>Reynolds Transport Theorem</em>. We have just derived it in 1D.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Reynolds Transport Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(\rho = \rho(x, t)\)</span> be some quantity (such as density) that is advected along a one-dimensional line in <span class="math inline">\(x\)</span> due to a fluid with velocity <span class="math inline">\(u(x, t)\)</span>. Then <span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d}t} \int_{a(t)}^{b(t)} \rho \, \mathrm{d}x = \int_{a(t)}^{b(t)} \left[ \frac{\mathrm{\partial}\rho}{\mathrm{\partial}t} + \frac{\mathrm{\partial}}{\mathrm{\partial}x}(\rho u)\right] \mathrm{d}x.
+\]</span></p>
+</div>
+</div>
+<p>We may now consider the substance being transported along the <span class="math inline">\(x\)</span>-direction. If there is no interior creation or destruction of the source, then by conservation of mass, it must be the case that <span class="math display">\[
+\frac{\mathrm{d}m_\text{blob}}{\mathrm{d}t} = 0.
+\]</span></p>
+<p>Thus, again since the above integral identity applies to all possible values of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, it must be the case that the integrand is zero. Thus we conclude with the so-called tranport equation.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+One-dimensional transport equation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The transport of a substance described by <span class="math inline">\(\rho(x, t)\)</span> advected along a one-dimensional line in <span class="math inline">\(x\)</span> due to a fluid with velocity <span class="math inline">\(u(x, t)\)</span> is given by <span class="math display">\[
+\frac{\mathrm{\partial}\rho}{\mathrm{\partial}t} + \frac{\mathrm{\partial}}{\mathrm{\partial}x}(\rho u) = 0.
+\]</span></p>
+</div>
+</div>
+<p>Again, we must consider the above problem in combination with potential initial conditions and boundary conditions. For instance, we might specify that the substance begins from some initial state, say <span class="math display">\[
+\rho(x, 0) = \rho_0(x).
+\]</span></p>
+<p>The boundary conditions are more subtle. It is not always obvious what the boundary conditions should be on a problem.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
