@@ -359,12 +359,15 @@ T(L, 0) = \frac{T_b}{T_0}.
 <p>We can now choose the temporal scale so as to simplify the equation. Let us choose <span id="eq-specialtime"><span class="math display">\[
 [t] = \frac{L}{U} = \frac{\rho c L^2}{k}.
 \tag{2.2}\]</span></span></p>
-<p>Now the system simplifies. We can now write <span class="math display">\[\begin{gather}
+<p>Now the system simplifies. We can now write</p>
+<p><span id="eq-heatintro-noscale"><span class="math display">\[
+\begin{gathered}
 \frac{\mathrm{\partial}T'}{\mathrm{\partial}t'} = \frac{\mathrm{\partial}^2 T'}{\mathrm{\partial}x'^2} \\
 T'(x', 0) = 1 \\
 T'(0, 0) = A, \\
 T'(1, 0) = B.
-\end{gather}\]</span> {#eq-heatintro-noscale}</p>
+\end{gathered}
+\tag{2.3}\]</span></span></p>
 <p>We have gone from a system where we needed to consider six parameters to one where we only need to specify two (essentially, the ratio of the initial heat to the boundary values). Imagine you are an engineer at a thermal company, and asked to study the different possible configurations of heat in the above setup. If you were to blindly perform numerical computations, you would have had to set specific values for each of the six parameters.</p>
 <p>Instead, some mathematical analysis has demonstrated that the six-dimensional space of parameters can be simplified to a two-dimensional one—this is an enormous simplification.</p>
 <p>Your analysis has further identified the key non-dimensional parameter that appears in <a href="#eq-heat-Pe" class="quarto-xref">Equation&nbsp;<span>2.1</span></a>. This demonstrates that it is not the individual values of <span class="math inline">\(k\)</span>, <span class="math inline">\(\rho\)</span>, <span class="math inline">\(c\)</span>, … that matter, but rather their specific combination in the form of the Peclet number.</p>

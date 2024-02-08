@@ -349,7 +349,7 @@ Fourier’s law
 </div>
 <div class="callout-body-container callout-body">
 <p>Fourier’s law in 1D specifies that the heat flux is given by <span class="math display">\[
-q(x, t) = -k \frac{\mathrm{\partial}T}{\mathrm{\partial}x}.
+q(x, t) = -k \frac{{\partial}T}{{\partial}x}.
 \]</span></p>
 </div>
 </div>
@@ -357,7 +357,7 @@ q(x, t) = -k \frac{\mathrm{\partial}T}{\mathrm{\partial}x}.
 <p>Therefore by energy conservation, we have <span class="math display">\[
 \frac{\mathrm{d}}{\mathrm{d}t}  \int_a^b \rho c T \, \mathrm{d}x = q(x = b, t) - q(x = a, t),
 \]</span> i.e.&nbsp;the change in internal heat is equal to the flow through the ends. Substitution Fourier’s law, we can then write <span class="math display">\[
-\int_a^b \rho c \frac{\mathrm{\partial}T}{\mathrm{\partial}t} \, \mathrm{d}x = \int_a^b k \frac{\mathrm{\partial}^2 T}{\mathrm{\partial}x^2} \, \mathrm{d}x.
+\int_a^b \rho c \frac{{\partial}T}{{\partial}t} \, \mathrm{d}x = \int_a^b k \frac{{\partial}^2 T}{{\partial}x^2} \, \mathrm{d}x.
 \]</span> Because the above integral identity needs to be true for all possible values of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, then it must be true everywhere (this is sometimes referred to as the <em>du Bois-Reymond lemma</em> or the <em>bump lemma</em>. Therefore we are left with the classic heat equation.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -370,7 +370,7 @@ Heat equation
 </div>
 <div class="callout-body-container callout-body">
 <p><span id="eq-heatintro"><span class="math display">\[
-\rho c\frac{\mathrm{\partial}T}{\mathrm{\partial}t} = k \frac{\mathrm{\partial}^2 T}{\mathrm{\partial}x^2}.
+\rho c\frac{{\partial}T}{{\partial}t} = k \frac{{\partial}^2 T}{{\partial}x^2}.
 \tag{1.1}\]</span></span></p>
 </div>
 </div>
@@ -411,13 +411,13 @@ T(L, 0) = T_b
 <p>When we refer to a <strong>steady-state</strong> solution, we are typically referring to a time-independent solution.</p>
 <div id="def-steady" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1.1 (Steady-state solutions)</strong></span> Given an evolving system described by a functio, say <span class="math inline">\(f(x, t)\)</span>, defined on some spatial domain and with <span class="math inline">\(t &gt; 0\)</span>, the steady-state solution refers to time-independent solutions with <span class="math display">\[
-\frac{\mathrm{\partial} f}{\mathrm{\partial}t} = 0.
+\frac{{\partial} f}{{\partial}t} = 0.
 \]</span></p>
 </div>
 <p>One can envisage that as the system evolves with <span class="math inline">\(t \to \infty\)</span>, it reaches a state that is independent of time. However, not all systems will approach a steady state. Moreover, not all steady states are stable or attractive (and might never be reacheable in a real-life experiment).</p>
 <p>For the case of heat flow, such a steady-state solution would be <span class="math inline">\(T(x, t) = T(x)\)</span>. In this case, <span class="math display">\[
-\frac{\mathrm{\partial}T}{\mathrm{\partial}t} = 0 \Longrightarrow
-k \frac{\mathrm{\partial}^2 T}{\mathrm{\partial}x^2} = 0.
+\frac{{\partial}T}{{\partial}t} = 0 \Longrightarrow
+k \frac{{\partial}^2 T}{{\partial}x^2} = 0.
 \]</span></p>
 <p>Therefore, for the heatflow along a segment of length <span class="math inline">\(L\)</span> with left boundary held at <span class="math inline">\(T_a\)</span> and right boundary held at <span class="math inline">\(T_b\)</span> we have <span class="math display">\[
 T_\text{steady}(x) = \left(\frac{T_b - T_a}{L}\right) x + T_a.
@@ -444,18 +444,18 @@ T_\text{steady}(x) = \left(\frac{T_b - T_a}{L}\right) x + T_a.
 m_\text{blob}(t) = \int_{a(t)}^{b(t)} \rho (x, t) \, \mathrm{d}x.
 \]</span></p>
 <p>As time increases the particles of the substance will move due to the fluid moving; at the same time, the fluid volume which is initially contained in <span class="math inline">\(x\in [a(0), b(0)]\)</span> will also move. We want to find how the mass of the blob changes in time, and hence consider the quantity <span class="math display">\[
-\frac{\mathrm{d}m_\text{blob}}{\mathrm{d}t}  = \int_a^b \frac{\mathrm{\partial}\rho}{\mathrm{\partial}t} \, \mathrm{d}x + \rho(b, t) \frac{\mathrm{d}b}{\mathrm{d}t} - \rho(a, t) \frac{\mathrm{d}a}{\mathrm{d}t}.
+\frac{\mathrm{d}m_\text{blob}}{\mathrm{d}t}  = \int_a^b \frac{{\partial}\rho}{{\partial}t} \, \mathrm{d}x + \rho(b, t) \frac{\mathrm{d}b}{\mathrm{d}t} - \rho(a, t) \frac{\mathrm{d}a}{\mathrm{d}t}.
 \]</span></p>
 <p>The above considers the intrinsic rate of change of the function within the integrand, but then adds the extra mass due to the right boundary shifting rightwards (<span class="math inline">\(b\)</span>) and subtracts the mass due to the left boundary shifting rightwards (<span class="math inline">\(a\)</span>). It is known as the <a href="https://en.wikipedia.org/wiki/Leibniz_integral_rule">Leibniz integral rule</a>. We can thus write this within the integral as</p>
 <p><span class="math display">\[
-\frac{\mathrm{d}m_\text{blob}}{\mathrm{d}t}  = \int_a^b \left[ \frac{\mathrm{\partial}\rho}{\mathrm{\partial}t} + \frac{\mathrm{\partial}}{\mathrm{\partial}x} \left(\rho(x, t) \frac{\mathrm{d}x}{\mathrm{d}t}\right) \right] \, \mathrm{d}x.
+\frac{\mathrm{d}m_\text{blob}}{\mathrm{d}t}  = \int_a^b \left[ \frac{{\partial}\rho}{{\partial}t} + \frac{{\partial}}{{\partial}x} \left(\rho(x, t) \frac{\mathrm{d}x}{\mathrm{d}t}\right) \right] \, \mathrm{d}x.
 \]</span></p>
 <p>However, the quantity <span class="math display">\[
 \frac{\mathrm{d}x}{\mathrm{d}t} \equiv u(x, t)
 \]</span></p>
 <p>represents the velocity of the fluid (which for the moment we assume to be a known and provided quantity). Therefore we can write the mass change as</p>
 <p><span class="math display">\[
-\frac{\mathrm{d}m_\text{blob}}{\mathrm{d}t}  = \int_a^b \left[ \frac{\mathrm{\partial}\rho}{\mathrm{\partial}t} + \frac{\mathrm{\partial}}{\mathrm{\partial}x} \left(\rho u\right) \right] \, \mathrm{d}x.
+\frac{\mathrm{d}m_\text{blob}}{\mathrm{d}t}  = \int_a^b \left[ \frac{{\partial}\rho}{{\partial}t} + \frac{{\partial}}{{\partial}x} \left(\rho u\right) \right] \, \mathrm{d}x.
 \]</span></p>
 <p>This result, which explains how to pass a derivative through an integral express mass of a substance within a flow is known as the <em>Reynolds Transport Theorem</em>. We have just derived it in 1D.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -469,7 +469,7 @@ Reynolds Transport Theorem
 </div>
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\(\rho = \rho(x, t)\)</span> be some quantity (such as density) that is advected along a one-dimensional line in <span class="math inline">\(x\)</span> due to a fluid with velocity <span class="math inline">\(u(x, t)\)</span>. Then <span class="math display">\[
-\frac{\mathrm{d}}{\mathrm{d}t} \int_{a(t)}^{b(t)} \rho \, \mathrm{d}x = \int_{a(t)}^{b(t)} \left[ \frac{\mathrm{\partial}\rho}{\mathrm{\partial}t} + \frac{\mathrm{\partial}}{\mathrm{\partial}x}(\rho u)\right] \mathrm{d}x.
+\frac{\mathrm{d}}{\mathrm{d}t} \int_{a(t)}^{b(t)} \rho \, \mathrm{d}x = \int_{a(t)}^{b(t)} \left[ \frac{{\partial}\rho}{{\partial}t} + \frac{{\partial}}{{\partial}x}(\rho u)\right] \mathrm{d}x.
 \]</span></p>
 </div>
 </div>
@@ -488,7 +488,7 @@ One-dimensional transport equation
 </div>
 <div class="callout-body-container callout-body">
 <p>The transport of a substance described by <span class="math inline">\(\rho(x, t)\)</span> advected along a one-dimensional line in <span class="math inline">\(x\)</span> due to a fluid with velocity <span class="math inline">\(u(x, t)\)</span> is given by <span class="math display">\[
-\frac{\mathrm{\partial}\rho}{\mathrm{\partial}t} + \frac{\mathrm{\partial}}{\mathrm{\partial}x}(\rho u) = 0.
+\frac{{\partial}\rho}{{\partial}t} + \frac{{\partial}}{{\partial}x}(\rho u) = 0.
 \]</span></p>
 </div>
 </div>
@@ -496,6 +496,45 @@ One-dimensional transport equation
 \rho(x, 0) = \rho_0(x).
 \]</span></p>
 <p>The boundary conditions are more subtle. It is not always obvious what the boundary conditions should be on a problem.</p>
+<p>Here is an example of a solution of such a problem.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Linear advection equation with constant speed
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Solve the problem given by <span class="math display">\[
+\frac{{\partial}\rho}{{\partial}t} + c\frac{{\partial}\rho}{{\partial}x} = 0,
+\]</span> where the velocity <span class="math inline">\(u = c\)</span> is constant. You may assume the initial condition is given by <span class="math display">\[
+\rho(x, 0) = \rho_0(x) = e^{-x^2}.
+\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The general solution is given by <span class="math display">\[
+\rho(x, t) = F(x - ct),
+\]</span> where <span class="math inline">\(F\)</span> is an arbitrary (differentiable) function. You can verify this via the chain rule, noting that <span class="math display">\[
+\frac{\partial F}{\partial t} = -c F'(x - ct) \quad \text{and} \quad
+\frac{\partial F}{\partial x} = F'(x - ct).
+\]</span> Applying the initial condition at <span class="math inline">\(t = 0\)</span> gives <span class="math inline">\(F(x) = \rho_0(x)\)</span> and thus <span class="math display">\[
+\rho(x, t) = e^{-(x - ct)^2}.
+\]</span></p>
+<p>You may plot this to discover that it is, as perhaps expected, a Gaussian profile moving to the right at constant speed (for <span class="math inline">\(c &gt; 0\)</span>).</p>
+</div>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
