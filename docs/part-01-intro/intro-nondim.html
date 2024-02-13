@@ -322,6 +322,10 @@ window.Quarto = {
   </ul></li>
   <li><a href="#dimensional-homogeneity-and-non-dimensionalisation" id="toc-dimensional-homogeneity-and-non-dimensionalisation" class="nav-link" data-scroll-target="#dimensional-homogeneity-and-non-dimensionalisation"><span class="header-section-number">2.2</span> Dimensional homogeneity and non-dimensionalisation</a></li>
   <li><a href="#returning-to-the-heat-equation" id="toc-returning-to-the-heat-equation" class="nav-link" data-scroll-target="#returning-to-the-heat-equation"><span class="header-section-number">2.3</span> Returning to the heat equation</a></li>
+  <li><a href="#choice-of-units" id="toc-choice-of-units" class="nav-link" data-scroll-target="#choice-of-units"><span class="header-section-number">2.4</span> Choice of units</a>
+  <ul class="collapse">
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation"><span class="header-section-number">2.4.1</span> Interpretation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -384,39 +388,122 @@ F = m \frac{\mathrm{d}^2x}{\mathrm{d}t^2}
 </section>
 <section id="returning-to-the-heat-equation" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="returning-to-the-heat-equation"><span class="header-section-number">2.3</span> Returning to the heat equation</h2>
-<p>Exact units are not relevant for dynamics, and it is instead the ratio of units that we care about. To apply this principle, let us non-dimensionalise the equation <a href="intro-PDEs.html#eq-heatintro" class="quarto-xref">Equation&nbsp;<span>1.1</span></a>. We introduce typical scales for each of the variables. For example, we non-dimensionalise the temperature and distance by setting <span class="math display">\[
-T = T_0 T' \quad \text{and} \quad x = L x',
-\]</span> where primes now denote non-dimensional quantities. Since it is not clear how to scale time, we set <span class="math inline">\(t = [t] t;'\)</span> and choose the scale later. Substitution into the equation now yields <span class="math display">\[\begin{gather}
-\frac{\rho c T_0}{[t]}\frac{\mathrm{\partial}T'}{\mathrm{\partial}t'} = \frac{kT_0}{L^2} \frac{\mathrm{\partial}^2 T'}{\mathrm{\partial}x'^2}, \\
-T(x, 0) = 1 \\
-T(0, 0) = \frac{T_a}{T_0}, \\
-T(L, 0) = \frac{T_b}{T_0}.
-\end{gather}\]</span></p>
-<p>It is useful to think of time in terms of velocity and distance. Let us then write <span class="math display">\[
-[t] = L/U,
-\]</span> where <span class="math inline">\(U\)</span> is a typical velocity scale (which again, we shall specify later). Then note that the heat equation can be written as <span class="math display">\[
-\frac{\rho c}{(L/U)} \frac{\mathrm{\partial}T'}{\mathrm{\partial}t'} = \frac{k}{L^2}\frac{\mathrm{\partial}^2 T'}{\mathrm{\partial}x'^2}.
-\]</span> We can move all the units to one side and then write <span id="eq-heat-Pe"><span class="math display">\[
-\frac{\mathrm{\partial}T'}{\mathrm{\partial}t'} =\text{Pe} \frac{\mathrm{\partial}^2 T'}{\mathrm{\partial}x'^2}.
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+2023-24 note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The below has been cleaned up to match the notation on the 13 Feb 2023 delivery.</p>
+</div>
+</div>
+<p>Exact units are not relevant for dynamics, and it is instead the ratio of units that we care about. To apply this principle, let us non-dimensionalise the equation <a href="intro-PDEs.html#eq-heatintro" class="quarto-xref">Equation&nbsp;<span>1.1</span></a>. Let us consider the heat equation as given by the system <span class="math display">\[\begin{equation}
+\begin{aligned}
+\frac{\partial T}{\partial t} &amp;= \kappa \frac{\partial^2 T}{\partial x^2} \\
+T(x, 0) &amp;= T_\text{init} \\
+T(0, t) &amp;= T_a \\
+T(L, t) &amp;= T_b.
+\end{aligned}
+\end{equation}\]</span></p>
+<p>Note that the constant <span class="math inline">\(\kappa\)</span> is known as the thermal diffusivity, and is given by <span class="math display">\[
+\kappa = \frac{k}{\rho c},
+\]</span> which were the units previously introduced.</p>
+<p>We introduce typical scales for each of the variables. For example, we non-dimensionalise the temperature, distance, and time by setting <span class="math display">\[
+T = [T] T', \qquad x = [x] x', \qquad t = [t] t'.
+\]</span></p>
+<p>Substitution into the equation now yields <span class="math display">\[\begin{equation}
+\begin{aligned}
+\frac{\partial T'}{\partial t'} &amp;= \frac{\kappa[t]}{[x]^2}\frac{\partial^2 T}{\partial x^2} \\
+T'(x', 0) &amp;= T_\text{init} \\
+T'(0, t') &amp;= \frac{T_a}{[T]} \\
+T'(L/[x], t') &amp;= \frac{T_b}{[T]}.
+\end{aligned}
+\end{equation}\]</span></p>
+<p>Be sure to work out the above for yourself. For example, notice that the previous boundary at <span class="math inline">\(x = L\)</span> is now sent to <span class="math inline">\(x' = L/[x]\)</span>. Now we see that the final equation is beautifully simple: At this point, we can identify a crucial non-dimensional parameter given by <span class="math display">\[
+\Pi = \frac{\kappa [t]}{[x]^2} = \frac{k [t]}{\rho c [x]^2}.
+\]</span></p>
+<p>Although this looks quite complicated, you can test that this parameter is indeed non-dimensional by looking up the units for thermal conductivity, <span class="math inline">\(k\)</span>, density <span class="math inline">\(\rho\)</span>, and specific heat <span class="math inline">\(c\)</span>, and verifying that indeed <span class="math inline">\(\Pi\)</span> is non-dimensional.</p>
+</section>
+<section id="choice-of-units" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="choice-of-units"><span class="header-section-number">2.4</span> Choice of units</h2>
+<p>It is important to remember that there are technically no wrong choices for the scales [x], [T], and [t], as long as they yield consistent balances. However, some choices are better than others for the context of the problem. Let us select: <span class="math display">\[
+[x] = L \qquad [T] = T_\text{init}.
+\]</span></p>
+<p>This means our unit of length is “one pipe” (if this is indeed a pipe), and our unit of temperature is whatever the initial temperature was set to be. The choice of time is free at the moment, and therefore we can select time as <span class="math display">\[
+\Pi = \frac{\kappa [t]}{[x]^2} = 1 \Longrightarrow [t] = \frac{L^2}{k}.
+\]</span></p>
+<p>Now we see that the final equation is beautifully simple: <span id="eq-heat-nondim"><span class="math display">\[
+\begin{aligned}
+\frac{\partial T'}{\partial t'} &amp;= \frac{\partial^2 T}{\partial x^2} \\
+T'(x', 0) &amp;= 1 \\
+T'(0, t') &amp;= \frac{T_a}{T_\text{init}} \equiv A, \\
+T'(1, t') &amp;= \frac{T_b}{T_\text{init}} \equiv B.
+\end{aligned}
 \tag{2.1}\]</span></span></p>
-<p>We can verify that the quantity <span class="math display">\[
-\mathrm{Pe} =  \frac{k/(\rho c L^2)}{U/L} = \frac{\text{diffusive timescale}}{\text{advective timescale}}.
-\]</span> known as the Peclet number is entirely non-dimensional. This number essentially charactises the balance between diffusive effects (which causes heat to spread out) versus advective effects (the transport of the heat). In the case of our problem, there is no obvious source of advection. Another way to see this is that the temporal or velocity scale is entirely free for us to select.</p>
-<p>We can now choose the temporal scale so as to simplify the equation. Let us choose <span id="eq-specialtime"><span class="math display">\[
-[t] = \frac{L}{U} = \frac{\rho c L^2}{k}.
-\tag{2.2}\]</span></span></p>
-<p>Now the system simplifies. We can now write</p>
-<p><span id="eq-heatintro-noscale"><span class="math display">\[
-\begin{gathered}
-\frac{\mathrm{\partial}T'}{\mathrm{\partial}t'} = \frac{\mathrm{\partial}^2 T'}{\mathrm{\partial}x'^2} \\
-T'(x', 0) = 1 \\
-T'(0, 0) = A, \\
-T'(1, 0) = B.
-\end{gathered}
-\tag{2.3}\]</span></span></p>
-<p>We have gone from a system where we needed to consider six parameters to one where we only need to specify two (essentially, the ratio of the initial heat to the boundary values). Imagine you are an engineer at a thermal company, and asked to study the different possible configurations of heat in the above setup. If you were to blindly perform numerical computations, you would have had to set specific values for each of the six parameters.</p>
-<p>Instead, some mathematical analysis has demonstrated that the six-dimensional space of parameters can be simplified to a two-dimensional one—this is an enormous simplification.</p>
-<p>Your analysis has further identified the key non-dimensional parameter that appears in <a href="#eq-heat-Pe" class="quarto-xref">Equation&nbsp;<span>2.1</span></a>. This demonstrates that it is not the individual values of <span class="math inline">\(k\)</span>, <span class="math inline">\(\rho\)</span>, <span class="math inline">\(c\)</span>, … that matter, but rather their specific combination in the form of the Peclet number.</p>
+<section id="interpretation" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="interpretation"><span class="header-section-number">2.4.1</span> Interpretation</h3>
+<p>What is the whole point of the above exercise?</p>
+<p>In the original problem, there were five parameters: <span class="math display">\[
+\kappa, \qquad T_\text{init}, \qquad T_a, \qquad T_b, \qquad L.
+\]</span></p>
+<p>Imagine a situation where you are performing an analysis of heat spread in different pipes of different materials (characterised by <span class="math inline">\(\kappa\)</span>) and lengths (<span class="math inline">\(L\)</span>), with different initial and boundary temperatures. That is potentially a highly complicated parameter space to search (five-dimensional).</p>
+<p>Rather than solving the problem again and again for each change in parameters, what the analysis yielding (<a href="#eq-heat-nondim" class="quarto-xref">Equation&nbsp;<span>2.1</span></a>) reveals is that the parameter space only needs to be two-dimensional, for parameters <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. Therefore, by solving the problem at many different values of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, the solution space can be completely mapped.</p>
+<p>Here is an example. Consider heat diffusion through common <a href="https://www.engineersedge.com/heat_transfer/thermal_diffusivity_table_13953.htm">brick</a>, which possesses a thermal diffusivity of <span class="math display">\[
+\kappa = 5.2 \times 10^{-7} \mathrm{m}^2/\mathrm{s}.
+\]</span> Therefore a brick that is about L = 10cm = 0.1m in size has a typical timescale of <span class="math display">\[
+[t] = \frac{L^2}{\kappa} \approx 1.9 \times 10^4 \mathrm{s} \approx 5 \mathrm{hrs}.
+\]</span></p>
+<p>The above choice of [t] is representative of the typical timescale you can expect for heat to diffuse through the brick. As you can see it’s very long.</p>
+<!-- Suppose you needed to determine the temperature of a $L = 1$m long pipe with $\kappa = 237$ Watt/(metre Kelvin) (aluminium) at $t = 10$s. This corresponds to non-dimensional time -->
+<!-- $$ -->
+<!-- t' = \frac{10 \mathrm{s}}{[t]} = -->
+<!-- $$ -->
+<!-- \begin{gather} -->
+<!-- \frac{\rho c T_0}{[t]}\frac{\mathrm{\partial}T'}{\mathrm{\partial}t'} = \frac{kT_0}{L^2} \frac{\mathrm{\partial}^2 T'}{\mathrm{\partial}x'^2}, \\ -->
+<!-- T(x, 0) = 1 \\ -->
+<!-- T(0, 0) = \frac{T_a}{T_0}, \\ -->
+<!-- T(L, 0) = \frac{T_b}{T_0}. -->
+<!-- \end{gather} -->
+<!-- It is useful to think of time in terms of velocity and distance. Let us then write -->
+<!-- $$ -->
+<!-- [t] = L/U, -->
+<!-- $$ -->
+<!-- where $U$ is a typical velocity scale (which again, we shall specify later). Then note that the heat equation can be written as -->
+<!-- $$ -->
+<!-- \frac{\rho c}{(L/U)} \frac{\mathrm{\partial}T'}{\mathrm{\partial}t'} = \frac{k}{L^2}\frac{\mathrm{\partial}^2 T'}{\mathrm{\partial}x'^2}. -->
+<!-- $$ -->
+<!-- We can move all the units to one side and then write -->
+<!-- $$ -->
+<!-- \frac{\mathrm{\partial}T'}{\mathrm{\partial}t'} =\text{Pe} \frac{\mathrm{\partial}^2 T'}{\mathrm{\partial}x'^2}. -->
+<!-- $$ {#eq-heat-Pe} -->
+<!-- We can verify that the quantity -->
+<!-- $$ -->
+<!-- \mathrm{Pe} =  \frac{k/(\rho c L^2)}{U/L} = \frac{\text{diffusive timescale}}{\text{advective timescale}}. -->
+<!-- $$ -->
+<!-- known as the Peclet number is entirely non-dimensional. This number essentially charactises the balance between diffusive effects (which causes heat to spread out) versus advective effects (the transport of the heat). In the case of our problem, there is no obvious source of advection. Another way to see this is that the temporal or velocity scale is entirely free for us to select. -->
+<!-- We can now choose the temporal scale so as to simplify the equation. Let us choose -->
+<!-- $$ -->
+<!-- [t] = \frac{L}{U} = \frac{\rho c L^2}{k}. -->
+<!-- $$ {#eq-specialtime} -->
+<!-- Now the system simplifies. We can now write -->
+<!-- $$ -->
+<!-- \begin{gathered} -->
+<!-- \frac{\mathrm{\partial}T'}{\mathrm{\partial}t'} = \frac{\mathrm{\partial}^2 T'}{\mathrm{\partial}x'^2} \\ -->
+<!-- T'(x', 0) = 1 \\ -->
+<!-- T'(0, 0) = A, \\ -->
+<!-- T'(1, 0) = B. -->
+<!-- \end{gathered} -->
+<!-- $$ {#eq-heatintro-noscale} -->
+<p>In summary, we have gone from a system where we needed to consider five parameters to a system where we only need to specify two (essentially, the ratio of the initial heat to the boundary values). This is an enormous simplification.</p>
+<p>Moreover, your analysis has further identified the key non-dimensional parameters that appear, including: <span class="math display">\[
+\Pi = \frac{\kappa [t]}{[x]^2}, \qquad A = \frac{T_a}{T_\mathrm{init}}, \qquad B = \frac{T_b}{T_\text{init}}, \qquad \frac{L}{[x]}
+\]</span></p>
+<p>In this particular problem, you had the freedom to choose <span class="math inline">\(L\)</span> to remove one parameter (the ratio of lengths), and time could be chosen to set <span class="math inline">\(\Pi = 1\)</span>.</p>
+<!-- in @eq-heat-Pe. This demonstrates that it is not the individual values of $k$, $\rho$, $c$, ... that matter, but rather their specific combination in the form of the Peclet number. -->
 <!-- ## GI Taylor and the atomic bomb -->
 <!-- :::{.callout-note} -->
 <!-- ## 2022-23 note -->
@@ -429,6 +516,7 @@ T'(1, 0) = B.
 Fowler, Andrew. 2011. <em>Mathematical Geoscience</em>. Vol. 36. Springer.
 </div>
 </div>
+</section>
 </section>
 
 </main> <!-- /main -->
