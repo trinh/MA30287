@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA30287: Mathematics of Planet Earth - 7&nbsp; Euler’s method</title>
+<title>MA30287: Mathematics of Planet Earth - 13&nbsp; Stommel’s box model</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -64,8 +84,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-05-techniques/asymptotics03.html" rel="next">
-<link href="../part-05-techniques/asymptotics02.html" rel="prev">
+<link href="../part-xx-exercises/part-exercises.html" rel="next">
+<link href="../part-03-box/basic-ocean-model.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -144,7 +164,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-05-techniques/techniques.html">Practical applied mathematics</a></li><li class="breadcrumb-item"><a href="../part-05-techniques/euler.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Euler’s method</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-03-box/part-ocean.html">Box models of the ocean</a></li><li class="breadcrumb-item"><a href="../part-03-box/stommel.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Stommel’s box model</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -233,7 +253,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/euler.html" class="sidebar-item-text sidebar-link active">
+  <a href="../part-05-techniques/euler.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Euler’s method</span></span></a>
   </div>
 </li>
@@ -291,7 +311,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/stommel.html" class="sidebar-item-text sidebar-link">
+  <a href="../part-03-box/stommel.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Stommel’s box model</span></span></a>
   </div>
 </li>
@@ -326,14 +346,24 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#non-dimensionalisation" id="toc-non-dimensionalisation" class="nav-link active" data-scroll-target="#non-dimensionalisation"><span class="header-section-number">13.1</span> Non-dimensionalisation</a></li>
+  <li><a href="#sec-ocean2-equil" id="toc-sec-ocean2-equil" class="nav-link" data-scroll-target="#sec-ocean2-equil"><span class="header-section-number">13.2</span> Equilibrium states</a></li>
+  <li><a href="#stability" id="toc-stability" class="nav-link" data-scroll-target="#stability"><span class="header-section-number">13.3</span> Stability</a></li>
+  <li><a href="#bifurcation-diagrams" id="toc-bifurcation-diagrams" class="nav-link" data-scroll-target="#bifurcation-diagrams"><span class="header-section-number">13.4</span> Bifurcation diagrams</a></li>
+  <li><a href="#stommels-conclusion" id="toc-stommels-conclusion" class="nav-link" data-scroll-target="#stommels-conclusion"><span class="header-section-number">13.5</span> Stommel’s conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-05-techniques/techniques.html">Practical applied mathematics</a></li><li class="breadcrumb-item"><a href="../part-05-techniques/euler.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Euler’s method</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-03-box/part-ocean.html">Box models of the ocean</a></li><li class="breadcrumb-item"><a href="../part-03-box/stommel.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Stommel’s box model</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-euler" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Euler’s method</span></span></h1>
+<h1 class="title"><span id="sec-stommel" class="quarto-section-identifier"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Stommel’s box model</span></span></h1>
 </div>
 
 
@@ -350,82 +380,214 @@ window.Quarto = {
 </header>
 
 
-<p>In the previous section, we used built-in ODE solvers to develop numerical solutions. It is important to gain an understanding how a simple ODE solver works. The simplest scheme is called <a href="https://en.wikipedia.org/wiki/Euler_method">Euler’s method</a>, and this we now explain.</p>
-<p>Begin from the system (<span class="quarto-unresolved-ref">?eq-asymsys</span>). We assume that the solution is represented by a discrete set of points, <span class="math inline">\(\mathbf{Y}_n = \mathbf{Y}(t_n)\)</span> at the times <span class="math inline">\(t_0 = 0\)</span>, <span class="math inline">\(t_1 = \Delta t\)</span>, <span class="math inline">\(t_2 = 2\Delta t\)</span>, and so on. The time derivative is written as a discrete derivative while we approximate the right hand side by its value at the nth time step: <span class="math display">\[
-\frac{\mathbf{Y}_{n+1} - \mathbf{Y}_{n}}{\Delta t} = \mathbf{F}(t_n, \mathbf{Y}_n)
+<p>In addition to the model studied in <a href="basic-ocean-model.html#sec-ocean-toysalinity" class="quarto-xref"><span>Section 12.7</span></a>, there is another kind of reduced model that is examined in this chapter.</p>
+<p>In his work <span class="citation" data-cites="stommel1961thermohaline">(<a href="../references.html#ref-stommel1961thermohaline" role="doc-biblioref">Stommel 1961</a>)</span> did not account for evaporation or precipitation, so there is no virtual salt flux, <span class="math inline">\(H = 0\)</span>, but each box does exchange salinity with its surrounding environment, so <span class="math inline">\(d &gt; 0\)</span>. The set of four differential equations presented in <a href="basic-ocean-model.html" class="quarto-xref"><span>Chapter 12</span></a> (<span class="quarto-unresolved-ref">?eq-2box-again</span>) can be reduced two coupled differential equations for the mean temperature and salinity. We notice that if we subtract the pairs of equations, then we can write <span class="math display">\[\begin{equation}
+\begin{aligned}
+\frac{\mathrm{d}\Delta T}{\mathrm{d}t} = c(\Delta T^* - \Delta T) - 2|q|\Delta T, \\
+\frac{\mathrm{d}\Delta S}{\mathrm{d}t} = d(\Delta S^* - \Delta S) - 2|q|\Delta S,
+\end{aligned}
+\end{equation}\]</span> {#eq-stommelpre}</p>
+<p>where <span class="math inline">\(\Delta T^* = 2T^*\)</span>, <span class="math inline">\(\Delta S^* = 2S^*\)</span>, and we have defined the two new unknowns,</p>
+<p><span class="math display">\[\begin{align}
+\Delta T &amp;= T_2 - T_1, \\
+\Delta S &amp;= S_2 - S_1,
+\end{align}\]</span></p>
+<p>and now, the flow <span class="math inline">\(q\)</span> is given by <span class="math display">\[
+q = k(\alpha \Delta T - \beta \Delta S).
 \]</span></p>
-<p>Rearranging yields a very simple algorithm for solving the ODE: <span class="math display">\[
-\mathbf{Y}_{n} = \mathbf{Y}_{n-1} + \mathbf{F}(t_{n-1}, \mathbf{Y}_{n-1}) \Delta t
-\]</span> for <span class="math inline">\(n = 1, 2, 3, \ldots\)</span></p>
-<p>This would be implemented via the following pseudocode:</p>
+<section id="non-dimensionalisation" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="non-dimensionalisation"><span class="header-section-number">13.1</span> Non-dimensionalisation</h2>
+<p>We can then nondimensionalise the system by setting <span class="math display">\[
+x = \frac{\Delta S}{\Delta S^*}, \quad y = \frac{\Delta T}{\Delta T^*}, \quad t' = ct,
+\]</span> where <span class="math inline">\(t'\)</span> is nondimensional time. Dropping the primes henceforth, we have the following set of non-dimensional equations to study for the unknowns, <span class="math inline">\(x = x(t)\)</span>, and <span class="math inline">\(y = y(t)\)</span>:</p>
+<p><span class="math display">\[\begin{align}
+\frac{\mathrm{d}x}{\mathrm{d}t} &amp;= \delta(1 - x) - |f(x, y)|x, \\
+\frac{\mathrm{d}y}{\mathrm{d}t} &amp;= 1 - y - |f(x, y)|y,
+\end{align}\]</span> {#eq-stommelsys} where we have introduced the function, <span id="eq-stommelf"><span class="math display">\[
+f(x, y; R, \lambda) = \frac{1}{\lambda}(Rx - y),
+\tag{13.1}\]</span></span> where there are now three non-dimensional parameters given by</p>
+<p><span class="math display">\[\begin{align}
+\delta &amp;= d/c, \\
+\lambda &amp;= c/(2\alpha k \Delta T^*), \\
+R &amp;= \beta \Delta S^*/(\alpha \Delta T^*).
+\end{align}\]</span></p>
+<p>Together <span class="quarto-unresolved-ref">?eq-stommelsys</span> and <a href="#eq-stommelf" class="quarto-xref">Equation&nbsp;<span>13.1</span></a> form a system of equations for <span class="math inline">\((x(t), y(t))\)</span>, with parameters <span class="math inline">\(\delta\)</span>, <span class="math inline">\(\lambda\)</span>, and <span class="math inline">\(R\)</span>.</p>
+<p>Although there are many parameters, it is important to note that the quantity <span class="math inline">\(f\)</span> is crucial since it corresponds to the direction of flow in the bottom pipe of the Ocean model. By convention, the system was set up so that <span class="math inline">\(f &gt; 0\)</span> corresponds to flow through the bottom pipe goes in the direction of the equator (Box 1) as a result of higher densities at the high latitudes. We are subsequently interested in whether it is possible for <span class="math inline">\(f\)</span> to switch sign, which would correspond to a bottom flow going from equator to poles, and the entire system switching direction.</p>
+</section>
+<section id="sec-ocean2-equil" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="sec-ocean2-equil"><span class="header-section-number">13.2</span> Equilibrium states</h2>
+<p>Let the equilibrium states be given by <span class="math inline">\((x^*, y^*)\)</span> with <span class="math inline">\(f(x^*, y^*) = f^*\)</span>. Then setting the right hand sides of (<span class="quarto-unresolved-ref">?eq-stommelsys</span>) to zero and solving, we find <span id="eq-stommel-xsys"><span class="math display">\[
+x^* = \frac{\delta}{\delta + |f^*|} \quad \text{and} \quad
+y^* = \frac{1}{1 + |f^*|}.
+\tag{13.2}\]</span></span> We can solve for <span class="math inline">\(f^*\)</span> in both equations and equate the result to one another. This gives <span class="math display">\[
+\delta \frac{1-x^*}{x^*} = \frac{1 - y^*}{y^*} = |f^*|.
+\]</span> Therefore the equilibrium points lie along the above curve. Let us generate different values of <span class="math inline">\(f^*\)</span> and plot the combination.</p>
+<div id="f792613b" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>delt <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="dv">6</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>fmat <span class="op">=</span> np.linspace(<span class="fl">1e-3</span>, <span class="dv">10</span>, <span class="dv">101</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> delt<span class="op">/</span>(delt <span class="op">+</span> np.<span class="bu">abs</span>(fmat))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>ys <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.<span class="bu">abs</span>(fmat))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>plt.plot(xs, ys, <span class="st">'.-'</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>plt.xlim((<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.ylim((<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"$x^*$"</span>)<span class="op">;</span> plt.ylabel(<span class="st">"$y^*$"</span>)<span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="stommel_files/figure-html/cell-2-output-1.png" width="604" height="436" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The above shows the steady-state values at <span class="math inline">\(\delta = 1/6\)</span>. Each point refers to a different value of <span class="math inline">\(|f^*|\)</span>. Note that as <span class="math inline">\(|f^*| \to \infty\)</span>, then <span class="math inline">\((x^*, y^*) \to (0, 0)\)</span> while as <span class="math inline">\(|f^*| \to 0\)</span>, then <span class="math inline">\((x^*, y^*) \to (1,1)\)</span>.</p>
+<p>Now the above does not tell us what equilibrium states will exist at a specific value of <span class="math inline">\(\delta\)</span> since it requires information about <span class="math inline">\(f^*\)</span>. We take (<a href="#eq-stommelf" class="quarto-xref">Equation&nbsp;<span>13.1</span></a>) and combine with (<a href="#eq-stommel-xsys" class="quarto-xref">Equation&nbsp;<span>13.2</span></a>). We conclude that the equilibrium points must satisfy <span class="math display">\[
+\lambda f^* = \phi(f^*),
+\]</span> where we have defined the function <span class="math inline">\(\phi\)</span> according to <span id="eq-stommel-phi"><span class="math display">\[
+\phi(f^*) = \frac{\delta R}{\delta + |f^*|} - \frac{1}{1 + |f^*|}.
+\tag{13.3}\]</span></span> Therefore, for each combination of the parameters <span class="math inline">\((\lambda, \delta, R)\)</span>, we must solve <span class="math inline">\(\delta f^* = \phi(f^*)\)</span> to determine <span class="math inline">\(f^*\)</span>. Once the values of <span class="math inline">\(f^*\)</span> are known, then the steady-states <span class="math inline">\((x^*, y^*)\)</span> are also known. Here is a typical graph showing the potential intersections at the values of <span class="math inline">\(\lambda = 1/5\)</span>, <span class="math inline">\(\delta = 1/6\)</span> and <span class="math inline">\(R = 2\)</span>.</p>
+<div id="4037edc6" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.optimize <span class="im">as</span> sciopt</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>lam <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="dv">5</span><span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>delt <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="dv">6</span><span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> np.linspace(<span class="op">-</span><span class="fl">2.5</span>, <span class="fl">2.5</span>, <span class="dv">101</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>phi <span class="op">=</span> delt<span class="op">*</span>R<span class="op">/</span>(delt <span class="op">+</span> np.<span class="bu">abs</span>(f)) <span class="op">-</span> <span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.<span class="bu">abs</span>(f))</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.plot(f, phi, <span class="st">'k'</span>, label<span class="op">=</span><span class="st">'$\phi$'</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>plt.plot(f, lam<span class="op">*</span>f, <span class="st">'b'</span>, label<span class="op">=</span><span class="st">'$\lambda f$'</span> )</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>plt.ylim((<span class="op">-</span><span class="fl">1.5</span>,<span class="dv">2</span>))</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"$f$"</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"$\phi$"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="stommel_files/figure-html/cell-3-output-1.png" width="602" height="434" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Although there are many parameters that can alter the shape of the overall graphs, note that if <span class="math inline">\(\lambda\)</span> is increased from its current value of <span class="math inline">\(\lambda = 1/6\)</span>, then two of the left roots will disappear, leaving only a single root.</p>
+</section>
+<section id="stability" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="stability"><span class="header-section-number">13.3</span> Stability</h2>
+<p>We let <span class="math inline">\(x = x^* + \xi\)</span> and <span class="math inline">\(y = y^* + \eta\)</span> and linearise the system about the fixed points. This gives <span class="math display">\[
+\begin{pmatrix}
+\dot{\xi} \\
+\dot{\eta}
+\end{pmatrix} = A
+\begin{pmatrix}
+\xi \\ \eta
+\end{pmatrix},
+\]</span> where the matrix <span class="math inline">\(A\)</span> is given by <span class="math display">\[
+A =
+\begin{pmatrix}
+-(\delta + |f^*|) \mp \frac{Rx^*}{\lambda} &amp; \pm \frac{x^*}{\lambda} \\
+\mp \frac{Ry^*}{\lambda} &amp; -(1 + |f^*|) \pm \frac{y^*}{\lambda}
+\end{pmatrix}
+\]</span> if <span class="math inline">\(f^* \gtrless 0\)</span>.</p>
+<p>There are two ways or proceeding. We can numerically substitute the fixed points into the above matrix for <span class="math inline">\(A\)</span> and then calculate the eigenvalues (numerically or otherwise). Or we can directly proceed analytically.</p>
+<p>If proceeding analytically, we can then calculate the trace and determinant, giving</p>
+<p><span class="math display">\[\begin{align}
+T &amp;= -(1 + \delta + 3 |f^*|), \\
+D &amp;= (\delta + 2|f^*|)(1 + |f^*|) \pm (1 - \delta) \frac{y^*}{\lambda}.
+\end{align}\]</span></p>
+<p>Using the above, we can analytically calculate the key discriminant expression of <span class="math inline">\(T^2 - 4D\)</span> (or numerically) in order to verify stability. The details of the classification scheme is given in the appendix <span class="quarto-unresolved-ref">?sec-appendix-dyn</span>.</p>
+<p>For our purposes, we will mainly proceed using numerics, and bypass the need to study the above results analytically.</p>
+<p><a href="https://maths.jupyterhub.bath.ac.uk/hub/user-redirect/lab/tree/courses/MA30287/notebooks/lecture29-StommelPhasePlane.ipynb">In the accompanying lecture script</a>, we will obtain the eigenvalues numerically, and generate the phase plane. At the test point <span class="math inline">\(R = 2\)</span>, <span class="math inline">\(\delta = 1/6\)</span>, and <span class="math inline">\(\lambda = 1/5\)</span>, we generate the following phase plane picture.</p>
+<div id="fig-stommel-phase" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-stommel-phase-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/2023-04-27-11-17-43.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stommel-phase-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.1: Phase plane for <span class="math inline">\(R = 2\)</span>, <span class="math inline">\(\lambda = 1/5\)</span> and <span class="math inline">\(\delta = 1/6\)</span>. The blue, red, and green fixed points correspond to <span class="math inline">\(f_1\)</span>, <span class="math inline">\(f_2\)</span>, and <span class="math inline">\(f_3\)</span> in order. The blue point is a stable node, the red point is an unstable saddle, and the green point is a stable spiral.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="bifurcation-diagrams" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="bifurcation-diagrams"><span class="header-section-number">13.4</span> Bifurcation diagrams</h2>
+<p>Once the above stability analysis, it is possible to sketch the final bifurcation diagram.</p>
+<p>First, we can note that as <span class="math inline">\(\lambda\)</span> increases, the graph in <a href="#sec-ocean2-equil" class="quarto-xref"><span>Section 13.2</span></a> indicates that there may either be three intersections (as shown) or if <span class="math inline">\(\lambda\)</span> increases then two of the intersections may disappear. We can note that:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(f_i^*\)</span></th>
+<th><span class="math inline">\(\lambda \to 0^+\)</span></th>
+<th><span class="math inline">\(\lambda \to \infty\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(f_1^*\)</span></td>
+<td><span class="math inline">\(-\infty\)</span></td>
+<td>none</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(f_2^*\)</span></td>
+<td>fixed point &lt; 0</td>
+<td>none</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(f_3^*\)</span></td>
+<td>fixed point &gt; 0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>We can also ascertain that there should be a point, say <span class="math inline">\(\lambda = \lambda^*\)</span> where the two roots coalesce, <span class="math inline">\(f_1^* = f_2^*\)</span>, and thereafter disappear. This allows us to now plot the bifurcation <span class="math inline">\((\lambda, f^*)\)</span>-plane:</p>
+<div id="fig-ocean2-bif" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ocean2-bif-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/2023-05-02-12-22-41.png" id="fig-ocean2-bif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-ocean2-bif-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.2
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="stommels-conclusion" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="stommels-conclusion"><span class="header-section-number">13.5</span> Stommel’s conclusion</h2>
+<p>What is the final takeaway message(s)?</p>
+<ol type="1">
+<li><p>It is possible to pose a conceptual model of the ocean and the thermohaline circulation, which governs the exchange of hot-and-cold waters and salty waters from equatorial-to-pole zones.</p></li>
+<li><p>This conceptual model suggests that tipping points and hysteresis are possible in such systems. In particular, it is possible, according to these models, for the flow directions to entirely change!</p></li>
+</ol>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Euler’s method
+As noted by <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span>:
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<pre><code>1. Input: function f(t, Y)  
-            time step, dt
-            initial condition, Y0
-
-2. Set initial condition Y = Y0
-
-2. Take one Euler step and overwrite previous value
-
-                 Y = Y + f(t, Y)
-
-3. Increment t by dt and goto 2</code></pre>
-</div>
-</div>
-<p>Euler’s method is conceptually simple but quite inaccurate. But in this case, we see that it works fairly well in comparison to the built-in solvers.</p>
-<div id="03cfc29f" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> solve_ivp</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>ep <span class="op">=</span> <span class="fl">0.2</span>            <span class="co"># epsilon value</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>tmax <span class="op">=</span> <span class="dv">2</span>            <span class="co"># max time</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">20</span>              <span class="co"># number of steps</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, tmax, N) <span class="co"># mesh used for plotting</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> t[<span class="dv">1</span>] <span class="op">-</span> t[<span class="dv">0</span>]</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Define function for the ODE</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(t, Y, ep):</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    y, yp <span class="op">=</span> Y</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    ypp <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> ep<span class="op">*</span>y)<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([yp, ypp])</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># define the initial condition</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> [<span class="fl">0.0</span>, <span class="fl">1.0</span>]</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>ti <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># define the solution vector</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, N):</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    ti <span class="op">=</span> ti <span class="op">+</span> dt  <span class="co"># Increment time</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    Y <span class="op">=</span> Y <span class="op">+</span> f(ti, Y, ep)<span class="op">*</span>dt <span class="co"># Euler step</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    plt.plot(ti, Y[<span class="dv">0</span>], <span class="st">'k.'</span>)</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Asymptotic solutions</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>y0 <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span><span class="op">*</span>t<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> t</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">12</span><span class="op">*</span>t<span class="op">**</span><span class="dv">4</span> <span class="op">+</span> <span class="dv">1</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>t<span class="op">**</span><span class="dv">3</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>plt.plot(t, y0, <span class="st">'--'</span>)</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>plt.plot(t, y0 <span class="op">+</span> ep<span class="op">*</span>y1, <span class="st">'--'</span>)</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'t'</span>)<span class="op">;</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="euler_files/figure-html/cell-2-output-1.png" width="589" height="429" class="figure-img"></p>
-</figure>
-</div>
+<p>“Clearly, two-box models are only a caricature of the THC. At best, they account for the pole-to-equator circulation in single ocean basin (the North Atlantic). They certainly do not account for the fact that all the Earth’s oceans are connected, nor for the fact that the oceans are coupled to the atmosphere and other components of the climate system. Nevertheless, the finding that such simple models predict the possibility of two distinct stable modes of circulation, and that transitions from one more to another can be induced by changing the forcing parameters [–] has had a significant impact in oceanography and climate science.”</p>
 </div>
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-kaper_book" class="csl-entry" role="listitem">
+Kaper, Hans, and Hans Engler. 2013. <em>Mathematics and Climate</em>. SIAM.
+</div>
+<div id="ref-stommel1961thermohaline" class="csl-entry" role="listitem">
+Stommel, Henry. 1961. <span>“Thermohaline Convection with Two Stable Regimes of Flow.”</span> <em>Tellus</em> 13 (2): 224–30.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -817,13 +979,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part-05-techniques/asymptotics02.html" class="pagination-link  aria-label=" &lt;span="" approximations="" of="" odes&lt;="" span&gt;"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Asymptotic approximations of ODEs</span></span>
+      <a href="../part-03-box/basic-ocean-model.html" class="pagination-link  aria-label=" &lt;span="" models="" of="" the="" ocean&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Basic models of the ocean</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-05-techniques/asymptotics03.html" class="pagination-link" aria-label="<span class='chapter-number'>8</span>&nbsp; <span class='chapter-title'>Matched asymptotics</span>">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Matched asymptotics</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-xx-exercises/part-exercises.html" class="pagination-link" aria-label="Exercises">
+        <span class="nav-page-text">Exercises</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

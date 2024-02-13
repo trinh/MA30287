@@ -239,8 +239,8 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../part-xx-exercises/part-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercises</span></a>
+            <a href="../part-03-box/part-box.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Energy balance models</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -248,8 +248,54 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../part-03-box/box-energy-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The basic EBM (steady-state)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/box-energy-model2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">EBM with latitude I</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-03-box/part-ocean.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Box models of the ocean</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/basic-ocean-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Basic models of the ocean</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/stommel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Stommel’s box model</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-xx-exercises/part-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercises</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Problem set 1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Problem set 1</span></span></a>
   </div>
 </li>
       </ul>
@@ -355,8 +401,11 @@ q(x, t) = -k \frac{{\partial}T}{{\partial}x}.
 </div>
 <p>This is known as Fourier’s law. The quantity <span class="math inline">\(k\)</span> is the thermal conductivity, and its units are W/(m K). Because a Watt is a Joule/s, you can also see that the units of <span class="math inline">\(k\)</span> are J/(m K s). The quantity <span class="math inline">\(q\)</span> is the flux, and you can verify that it is given in units of J/(m<sup>2</sup> s).</p>
 <p>Therefore by energy conservation, we have <span class="math display">\[
-\frac{\mathrm{d}}{\mathrm{d}t}  \int_a^b \rho c T \, \mathrm{d}x = q(x = b, t) - q(x = a, t),
-\]</span> i.e.&nbsp;the change in internal heat is equal to the flow through the ends. Substitution Fourier’s law, we can then write <span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d}t}  \int_a^b \rho c T \, \mathrm{d}x = {\color{blue}q(x = a, t) - q(x = b, t)},
+\]</span> i.e.&nbsp;the change in internal heat is equal to the flow through the ends. Note that we have added-in the heat flux due to <span class="math inline">\(x = a\)</span> assuming positive <span class="math inline">\(q\)</span> refers to heat moving from left-to-right. Conversely, we subtract it away from <span class="math inline">\(x = b\)</span>. We can alternatively write this as <span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d}t}  \int_a^b \rho c T \, \mathrm{d}x = {\color{blue} -\int_a^b \frac{\partial q}{\partial x} \, \mathrm{d}x}.
+\]</span></p>
+<p>Substitution Fourier’s law, we can then write <span class="math display">\[
 \int_a^b \rho c \frac{{\partial}T}{{\partial}t} \, \mathrm{d}x = \int_a^b k \frac{{\partial}^2 T}{{\partial}x^2} \, \mathrm{d}x.
 \]</span> Because the above integral identity needs to be true for all possible values of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, then it must be true everywhere (this is sometimes referred to as the <em>du Bois-Reymond lemma</em> or the <em>bump lemma</em>. Therefore we are left with the classic heat equation.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
