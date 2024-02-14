@@ -300,6 +300,47 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-05-techniques/part-techniques.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../references.html" class="sidebar-item-text sidebar-link">
@@ -318,6 +359,7 @@ window.Quarto = {
   <ul>
   <li><a href="#the-basic-energy-model" id="toc-the-basic-energy-model" class="nav-link active" data-scroll-target="#the-basic-energy-model"><span class="header-section-number">3.1</span> The basic energy model</a></li>
   <li><a href="#the-history-of-global-warming" id="toc-the-history-of-global-warming" class="nav-link" data-scroll-target="#the-history-of-global-warming"><span class="header-section-number">3.2</span> The history of global warming</a></li>
+  <li><a href="#next-in-the-study-of-energy-balance-models" id="toc-next-in-the-study-of-energy-balance-models" class="nav-link" data-scroll-target="#next-in-the-study-of-energy-balance-models"><span class="header-section-number">3.3</span> Next in the study of energy balance models?</a></li>
   </ul>
 </nav>
     </div>
@@ -480,6 +522,18 @@ Figure&nbsp;3.2: An illustration of Fourier’s glass box
 </figcaption>
 </figure>
 </div>
+</section>
+<section id="next-in-the-study-of-energy-balance-models" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="next-in-the-study-of-energy-balance-models"><span class="header-section-number">3.3</span> Next in the study of energy balance models?</h2>
+<p>At this stage, the basic energy balance model studied in this chapter can be made more complex and realistic through many different extensions. For instance:</p>
+<ul>
+<li>Consider the effects of a non-constant and nonlinear albedo. Since the albedo depends on the material property (water vs.&nbsp;ice vs.&nbsp;land), we can incorporate a toy model for spatial variability by allowing the albedo to depend on temperature, <span class="math inline">\(a = a(T)\)</span>.</li>
+<li>Consider the time-dependence. What happens if the system starts out of the steady state? Does it tend to relax to its equilibrium profile? Can we analyse the temporal properties of the solutions?</li>
+<li>Can we incorporate latitude (or longitudinal) dependence into the model. For instance, should the albedo and solar radiation be considered as functions of the latitude?</li>
+<li>Should we incorporate the effects of diffusion (heat spreading out) or convection (heat transported with flows)?</li>
+<li>To what extent should we consider the effects of the atmosphere on the absorption and reflection properties of the incoming (and outgoing) energy?</li>
+</ul>
+<p>Many of these questions are much more involve, as they require differential or partial differential equations. Therefore in the next few chapters, we will discuss, in a very general way, the collection of applied and numerical mathematics techniques that can be used when studying problems in the physical sciences.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">

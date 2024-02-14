@@ -194,7 +194,18 @@
     "href": "part-01-intro/basic-energy-model.html#the-history-of-global-warming",
     "title": "3  Basic energy models",
     "section": "3.2 The history of global warming",
-    "text": "3.2 The history of global warming\nThe history of global warming (and hence the estimation of \\(\\gamma\\)) is convoluted, but the origins can be considered as far back as the work of (Fourier 1827) and (Pouillet 1838), and is discussed in the work by (Van der Veen 2000).\n\n\n\n\n\n\nFigure 3.2: An illustration of Fourier’s glass box\n\n\n\n\n\n\n\nFourier, Joseph. 1827. “Mémoire Sur Les Températures Du Globe Terrestre Et Des Espaces Planétaires.” Mémoires de l’Académie Royale Des Sciences de l’Institut de France 7: 570–604.\n\n\nPouillet, Claude Servais Mathias. 1838. “Memoire Sur Le Chaleur Solaire.” Paris.\n\n\nVan der Veen, CJ. 2000. “Fourier and the ‘Greenhouse Effect’.” Polar Geography 24 (2): 132–52.",
+    "text": "3.2 The history of global warming\nThe history of global warming (and hence the estimation of \\(\\gamma\\)) is convoluted, but the origins can be considered as far back as the work of (Fourier 1827) and (Pouillet 1838), and is discussed in the work by (Van der Veen 2000).\n\n\n\n\n\n\nFigure 3.2: An illustration of Fourier’s glass box",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Basic energy models</span>"
+    ]
+  },
+  {
+    "objectID": "part-01-intro/basic-energy-model.html#next-in-the-study-of-energy-balance-models",
+    "href": "part-01-intro/basic-energy-model.html#next-in-the-study-of-energy-balance-models",
+    "title": "3  Basic energy models",
+    "section": "3.3 Next in the study of energy balance models?",
+    "text": "3.3 Next in the study of energy balance models?\nAt this stage, the basic energy balance model studied in this chapter can be made more complex and realistic through many different extensions. For instance:\n\nConsider the effects of a non-constant and nonlinear albedo. Since the albedo depends on the material property (water vs. ice vs. land), we can incorporate a toy model for spatial variability by allowing the albedo to depend on temperature, \\(a = a(T)\\).\nConsider the time-dependence. What happens if the system starts out of the steady state? Does it tend to relax to its equilibrium profile? Can we analyse the temporal properties of the solutions?\nCan we incorporate latitude (or longitudinal) dependence into the model. For instance, should the albedo and solar radiation be considered as functions of the latitude?\nShould we incorporate the effects of diffusion (heat spreading out) or convection (heat transported with flows)?\nTo what extent should we consider the effects of the atmosphere on the absorption and reflection properties of the incoming (and outgoing) energy?\n\nMany of these questions are much more involve, as they require differential or partial differential equations. Therefore in the next few chapters, we will discuss, in a very general way, the collection of applied and numerical mathematics techniques that can be used when studying problems in the physical sciences.\n\n\n\n\nFourier, Joseph. 1827. “Mémoire Sur Les Températures Du Globe Terrestre Et Des Espaces Planétaires.” Mémoires de l’Académie Royale Des Sciences de l’Institut de France 7: 570–604.\n\n\nPouillet, Claude Servais Mathias. 1838. “Memoire Sur Le Chaleur Solaire.” Paris.\n\n\nVan der Veen, CJ. 2000. “Fourier and the ‘Greenhouse Effect’.” Polar Geography 24 (2): 132–52.",
     "crumbs": [
       "Introduction",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Basic energy models</span>"
@@ -402,7 +413,7 @@
     "href": "part-03-box/box-energy-model.html#numerical-continuation-of-the-steady-states",
     "title": "10  The basic EBM (steady-state)",
     "section": "10.3 Numerical continuation of the steady states",
-    "text": "10.3 Numerical continuation of the steady states\nWe have done a preliminary steady-state analysis of \\[\nQ (1 - a(T)) - \\sigma \\gamma T^4,\n\\] but we would like to better understand how these steady-states may change depending on the parameters. For example, we would like to understand how the solutions vary of the solar constant related to \\(Q\\) varies; or we would like to understand how solutions vary as \\(\\gamma\\) varies.\nMore specifically, we would like to design some numerical routines that would allow us to (smartly!) solve for the roots of the above equation as the parameters are varied. Although the above problem (roots of a single equation) is simple enough to do this in a manual way, the methods of numerical continuation we learn in this chapter is applicable to much more general set of problems.\nSuppose that we are interested in studying how the steady-states (up to three) change as \\(Q\\) changes. Then we are interested in producing a diagram of \\(Q\\) vs. \\(T\\). The basic idea is to start with an initial solution at some value of \\(Q\\), increment \\(Q\\), then solve for the next value using the previous value as a guess. This involves the following pseudocode:\n\n\n\n\n\n\nNumerical continuation\n\n\n\n1. Input guess T0, f, df, parameter Q1\n\n    a. Call Newton's method via Newton(f, df, T0, Q1) \n    b. Obtain a preliminary solution (T1, Q1)\n\n2. Increment Q1 = Q1 + dQ \n\n    a. Call Newton's method via Newton(f, df, T1, Q1)\n    b. Obtain a new solution (T1, Q1)\n\n3. Repeat 2 until we reach a desired Q value\n\n\nThe following code provides continuation for one of the roots.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.optimize import fsolve\nfrom scipy.optimize import root\n\nsigma = 5.67e-8\ngamma = 0.62\na = lambda T: 0.5 - 0.2*np.tanh((T - 265)/10)\n\nQ0 = 342\nQmat = np.linspace(250, 450, 30)\nTmat = 0*Qmat\n\n# Initial guess\nx = 220\nfor i, Q in enumerate(Qmat):\n    f = lambda T: Q*(1-a(T)) - sigma*gamma*T**4\n    sol = root(f, x)\n    # If solution not found, output error\n    if sol.success != 1:\n        print(\"Q/Q0 = \", Q/Q0, \": \", sol.message)\n    Tmat[i] = sol.x\n\nplt.plot(Qmat/Q0, Tmat, 'o');\n\nplt.xlabel('Q/Q0');\nplt.ylabel('T');\n\nQ/Q0 =  1.2754587618471467 :  The iteration is not making good progress, as measured by the \n  improvement from the last ten iterations.\nQ/Q0 =  1.2956241177656787 :  The iteration is not making good progress, as measured by the \n  improvement from the last ten iterations.\nQ/Q0 =  1.3157894736842106 :  The iteration is not making good progress, as measured by the \n  improvement from the last five Jacobian evaluations.\n\n\n/var/folders/26/pd267j_136sfv9lw7lc9rcm40000gp/T/ipykernel_78749/2481211673.py:22: DeprecationWarning: Conversion of an array with ndim &gt; 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)\n  Tmat[i] = sol.x\n\n\n\n\n\n\n\n\n\nAbove, we have scaled \\(Q\\) with the reference value of \\(Q_0 = 342\\).\nIn your lecture, problem class, or exercises, you will design continuation on the other branches of solutions, and then study the result and its implications. During the lecture, we studied MA30287/notebooks/lecture13_EBM.ipynb which can be found at this link.",
+    "text": "10.3 Numerical continuation of the steady states\nWe have done a preliminary steady-state analysis of \\[\nQ (1 - a(T)) - \\sigma \\gamma T^4,\n\\] but we would like to better understand how these steady-states may change depending on the parameters. For example, we would like to understand how the solutions vary of the solar constant related to \\(Q\\) varies; or we would like to understand how solutions vary as \\(\\gamma\\) varies.\nMore specifically, we would like to design some numerical routines that would allow us to (smartly!) solve for the roots of the above equation as the parameters are varied. Although the above problem (roots of a single equation) is simple enough to do this in a manual way, the methods of numerical continuation we learn in this chapter is applicable to much more general set of problems.\nSuppose that we are interested in studying how the steady-states (up to three) change as \\(Q\\) changes. Then we are interested in producing a diagram of \\(Q\\) vs. \\(T\\). The basic idea is to start with an initial solution at some value of \\(Q\\), increment \\(Q\\), then solve for the next value using the previous value as a guess. This involves the following pseudocode:\n\n\n\n\n\n\nNumerical continuation\n\n\n\n1. Input guess T0, f, df, parameter Q1\n\n    a. Call Newton's method via Newton(f, df, T0, Q1) \n    b. Obtain a preliminary solution (T1, Q1)\n\n2. Increment Q1 = Q1 + dQ \n\n    a. Call Newton's method via Newton(f, df, T1, Q1)\n    b. Obtain a new solution (T1, Q1)\n\n3. Repeat 2 until we reach a desired Q value\n\n\nThe following code provides continuation for one of the roots.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.optimize import fsolve\nfrom scipy.optimize import root\n\nsigma = 5.67e-8\ngamma = 0.62\na = lambda T: 0.5 - 0.2*np.tanh((T - 265)/10)\n\nQ0 = 342\nQmat = np.linspace(250, 450, 30)\nTmat = 0*Qmat\n\n# Initial guess\nx = 220\nfor i, Q in enumerate(Qmat):\n    f = lambda T: Q*(1-a(T)) - sigma*gamma*T**4\n    sol = root(f, x)\n    # If solution not found, output error\n    if sol.success != 1:\n        print(\"Q/Q0 = \", Q/Q0, \": \", sol.message)\n    Tmat[i] = sol.x\n\nplt.plot(Qmat/Q0, Tmat, 'o');\n\nplt.xlabel('Q/Q0');\nplt.ylabel('T');\n\nQ/Q0 =  1.2754587618471467 :  The iteration is not making good progress, as measured by the \n  improvement from the last ten iterations.\nQ/Q0 =  1.2956241177656787 :  The iteration is not making good progress, as measured by the \n  improvement from the last ten iterations.\nQ/Q0 =  1.3157894736842106 :  The iteration is not making good progress, as measured by the \n  improvement from the last five Jacobian evaluations.\n\n\n/var/folders/26/pd267j_136sfv9lw7lc9rcm40000gp/T/ipykernel_4133/2481211673.py:22: DeprecationWarning: Conversion of an array with ndim &gt; 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)\n  Tmat[i] = sol.x\n\n\n\n\n\n\n\n\n\nAbove, we have scaled \\(Q\\) with the reference value of \\(Q_0 = 342\\).\nIn your lecture, problem class, or exercises, you will design continuation on the other branches of solutions, and then study the result and its implications. During the lecture, we studied MA30287/notebooks/lecture13_EBM.ipynb which can be found at this link.",
     "crumbs": [
       "Energy balance models",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>The basic EBM (steady-state)</span>"
@@ -600,7 +611,7 @@
     "href": "part-03-box/stommel.html#stability",
     "title": "13  Stommel’s box model",
     "section": "13.3 Stability",
-    "text": "13.3 Stability\nWe let \\(x = x^* + \\xi\\) and \\(y = y^* + \\eta\\) and linearise the system about the fixed points. This gives \\[\n\\begin{pmatrix}\n\\dot{\\xi} \\\\\n\\dot{\\eta}\n\\end{pmatrix} = A\n\\begin{pmatrix}\n\\xi \\\\ \\eta\n\\end{pmatrix},\n\\] where the matrix \\(A\\) is given by \\[\nA =\n\\begin{pmatrix}\n-(\\delta + |f^*|) \\mp \\frac{Rx^*}{\\lambda} & \\pm \\frac{x^*}{\\lambda} \\\\\n\\mp \\frac{Ry^*}{\\lambda} & -(1 + |f^*|) \\pm \\frac{y^*}{\\lambda}\n\\end{pmatrix}\n\\] if \\(f^* \\gtrless 0\\).\nThere are two ways or proceeding. We can numerically substitute the fixed points into the above matrix for \\(A\\) and then calculate the eigenvalues (numerically or otherwise). Or we can directly proceed analytically.\nIf proceeding analytically, we can then calculate the trace and determinant, giving\n\\[\\begin{align}\nT &= -(1 + \\delta + 3 |f^*|), \\\\\nD &= (\\delta + 2|f^*|)(1 + |f^*|) \\pm (1 - \\delta) \\frac{y^*}{\\lambda}.\n\\end{align}\\]\nUsing the above, we can analytically calculate the key discriminant expression of \\(T^2 - 4D\\) (or numerically) in order to verify stability. The details of the classification scheme is given in the appendix ?sec-appendix-dyn.\nFor our purposes, we will mainly proceed using numerics, and bypass the need to study the above results analytically.\nIn the accompanying lecture script, we will obtain the eigenvalues numerically, and generate the phase plane. At the test point \\(R = 2\\), \\(\\delta = 1/6\\), and \\(\\lambda = 1/5\\), we generate the following phase plane picture.\n\n\n\n\n\n\nFigure 13.1: Phase plane for \\(R = 2\\), \\(\\lambda = 1/5\\) and \\(\\delta = 1/6\\). The blue, red, and green fixed points correspond to \\(f_1\\), \\(f_2\\), and \\(f_3\\) in order. The blue point is a stable node, the red point is an unstable saddle, and the green point is a stable spiral.",
+    "text": "13.3 Stability\nWe let \\(x = x^* + \\xi\\) and \\(y = y^* + \\eta\\) and linearise the system about the fixed points. This gives \\[\n\\begin{pmatrix}\n\\dot{\\xi} \\\\\n\\dot{\\eta}\n\\end{pmatrix} = A\n\\begin{pmatrix}\n\\xi \\\\ \\eta\n\\end{pmatrix},\n\\] where the matrix \\(A\\) is given by \\[\nA =\n\\begin{pmatrix}\n-(\\delta + |f^*|) \\mp \\frac{Rx^*}{\\lambda} & \\pm \\frac{x^*}{\\lambda} \\\\\n\\mp \\frac{Ry^*}{\\lambda} & -(1 + |f^*|) \\pm \\frac{y^*}{\\lambda}\n\\end{pmatrix}\n\\] if \\(f^* \\gtrless 0\\).\nThere are two ways or proceeding. We can numerically substitute the fixed points into the above matrix for \\(A\\) and then calculate the eigenvalues (numerically or otherwise). Or we can directly proceed analytically.\nIf proceeding analytically, we can then calculate the trace and determinant, giving\n\\[\\begin{align}\nT &= -(1 + \\delta + 3 |f^*|), \\\\\nD &= (\\delta + 2|f^*|)(1 + |f^*|) \\pm (1 - \\delta) \\frac{y^*}{\\lambda}.\n\\end{align}\\]\nUsing the above, we can analytically calculate the key discriminant expression of \\(T^2 - 4D\\) (or numerically) in order to verify stability. The details of the classification scheme is given in the appendix Chapter 16.\nFor our purposes, we will mainly proceed using numerics, and bypass the need to study the above results analytically.\nIn the accompanying lecture script, we will obtain the eigenvalues numerically, and generate the phase plane. At the test point \\(R = 2\\), \\(\\delta = 1/6\\), and \\(\\lambda = 1/5\\), we generate the following phase plane picture.\n\n\n\n\n\n\nFigure 13.1: Phase plane for \\(R = 2\\), \\(\\lambda = 1/5\\) and \\(\\delta = 1/6\\). The blue, red, and green fixed points correspond to \\(f_1\\), \\(f_2\\), and \\(f_3\\) in order. The blue point is a stable node, the red point is an unstable saddle, and the green point is a stable spiral.",
     "crumbs": [
       "Box models of the ocean",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Stommel's box model</span>"
@@ -691,6 +702,116 @@
     "crumbs": [
       "Exercises",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Problem set 1</span>"
+    ]
+  },
+  {
+    "objectID": "part-05-techniques/odes.html",
+    "href": "part-05-techniques/odes.html",
+    "title": "15  Differential equations",
+    "section": "",
+    "text": "15.1 First-order linear differential equations\nFirst-order linear differential equations are of the form \\[\ny' + q(x) y = r(x).\n\\] These are solved by integrating factors. Multiply both sides by \\[\ne^{\\int^x q(x') \\, \\mathrm{d}x'}\n\\] so that the equation can be placed in the form \\[\n\\frac{\\mathrm{d}}{\\mathrm{d}x} \\left(y e^{\\int^x q(x') \\, \\mathrm{d}x'}\\right) = r(x) e^{\\int^x q(x') \\, \\mathrm{d}x'}\n\\] Then integrate and solve for \\(y\\).\nReferences",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Differential equations</span>"
+    ]
+  },
+  {
+    "objectID": "part-05-techniques/odes.html#first-order-linear-differential-equations",
+    "href": "part-05-techniques/odes.html#first-order-linear-differential-equations",
+    "title": "15  Differential equations",
+    "section": "",
+    "text": "Paul’s online notes",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Differential equations</span>"
+    ]
+  },
+  {
+    "objectID": "part-05-techniques/odes.html#second-order-constant-coefficient-odes",
+    "href": "part-05-techniques/odes.html#second-order-constant-coefficient-odes",
+    "title": "15  Differential equations",
+    "section": "15.2 Second-order constant coefficient ODEs",
+    "text": "15.2 Second-order constant coefficient ODEs\nSecond-order linear constant-coefficient ODEs are of the form \\[\ny'' + ay' + by = f(x).\n\\] With both forced (\\(f \\neq 0\\)) and unforced (\\(f = 0\\)) varieties studied. For the unforced variant (homogeneous), you will remember that the equation is solved by attempting the ansatz \\(y = e^{rx}\\) and solving for \\(r\\).\nThere are many references on this topic since it is the standard second-order theory learned in most initial differential equations courses.\nReferences:\n\nPaul’s online notes",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Differential equations</span>"
+    ]
+  },
+  {
+    "objectID": "part-05-techniques/dynamical-systems.html",
+    "href": "part-05-techniques/dynamical-systems.html",
+    "title": "16  Dynamical systems",
+    "section": "",
+    "text": "16.1 Stability analysis for 2x2 systems\nIn the case of 2x2 systems, there is a useful classification and shortcut. The eigenvalues, \\(\\lambda_1\\) and \\(\\lambda_2\\) are given by \\[\n\\lambda_{1,2} = \\frac{1}{2} (T \\pm \\sqrt{T^2 - 4D}),\n\\] where \\(T = \\mathrm{tr}(A) = a + d\\) and \\(D = \\mathrm{det}(A) = ad - bc\\). Once \\(T\\) and \\(D\\) are known, then the fixed points can be classified based on the following diagram.\nAbove, the critical parabola is where \\(T^2 - 4D = 0\\).",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Dynamical systems</span>"
+    ]
+  },
+  {
+    "objectID": "part-05-techniques/dynamical-systems.html#stability-analysis-for-2x2-systems",
+    "href": "part-05-techniques/dynamical-systems.html#stability-analysis-for-2x2-systems",
+    "title": "16  Dynamical systems",
+    "section": "",
+    "text": "Figure 16.1: Classification diagram from (Kaper and Engler 2013)\n\n\n\n\n\n\n\n\nKaper, Hans, and Hans Engler. 2013. Mathematics and Climate. SIAM.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Dynamical systems</span>"
+    ]
+  },
+  {
+    "objectID": "part-05-techniques/vector-calculus.html",
+    "href": "part-05-techniques/vector-calculus.html",
+    "title": "17  Vector calculus",
+    "section": "",
+    "text": "17.1 Surface integrals\nSurface integrals are generalisations of the concept of a multiple integrals to integrals over surfaces. For example, consider a flat plate of area \\(A\\) heated to a certain temperature, and thus emits a certain amount of energy, \\(E\\), per unit area (per unit time). The total energy emitted per unit time would then be \\(E A\\).\nIf we want to consider the same problem, but now posed on a general surface, say the planet \\(S\\), and where \\(E\\) varies along the surface, then we must consider adding together \\(E(\\mathbf{x}) \\mathrm{d}{S}\\). We thus chop our surface into smaller pieces, each with area \\(\\mathrm{d}S\\), multiply each piece with its corresponding energy, and then sum the result.\nThe result is the surface integral \\[\n\\iint_S E(\\mathbf{x}) \\, \\mathrm{d}S.\n\\] A tutorial for computing surface integrals can be found here.\nYou will not need to know how to calculate surface integrals in general in the course.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Vector calculus</span>"
+    ]
+  },
+  {
+    "objectID": "part-05-techniques/modelling.html",
+    "href": "part-05-techniques/modelling.html",
+    "title": "18  Modelling",
+    "section": "",
+    "text": "Appendices\n\n\n\nThese appendices may contain material that is added during the term, dependent on student enquiries and need.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Modelling</span>"
+    ]
+  },
+  {
+    "objectID": "part-05-techniques/finitedifference.html",
+    "href": "part-05-techniques/finitedifference.html",
+    "title": "19  Finite difference approximations",
+    "section": "",
+    "text": "19.1 Forwards, backwards, and centred differences\nWe want to learn how to use finite differences in order to approximate derivatives numerically. We know that \\[\nf'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h},\n\\] provided the limit exists. Therefore, a simple idea to approximating the value of \\(f'(x)\\) is to use a small numerical value for \\(h\\), and calculate (the gradient of the secant line), \\[\nf'(x) \\approx \\frac{f(x + h) - f(x)}{h},\n\\] where \\(h\\) is a specified small number. The above is known as the two-point forward-difference formula. In fact, we can determine exactly the error of such an approximation via Taylor’s theorem. If \\(f\\) is twice continuously differentiable, then \\[\nf(x + h) = f(x) + h f'(x) + \\frac{h^2}{2} f''(c),\n\\] for some point \\(c\\in [x, x+h]\\). Therefore by re-arrangement, we see the following.\nNotice that the error in using the two-point forward difference approximation is then \\(\\mathcal{O}(h)\\), and this error tends to zero as \\(h \\to 0\\) (as long as \\(f''\\) is continuous). We thus call the above formula a first-order finite-difference approximation. If the error is \\(\\mathcal{O}(h^n)\\), we call the corresponding formula an \\(n\\)th-order approximation.\nSimilar formulae can be developed for the backwards difference (send \\(h \\to -h\\)).\nA more accurate formula can be developed via subtracting the Taylor series for \\(f(x - h)\\) from that for \\(f(x + h)\\). This results in:\nThus we see that the centered difference formula is accurate to \\(O(h^2)\\).",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Finite difference approximations</span>"
+    ]
+  },
+  {
+    "objectID": "part-05-techniques/finitedifference.html#forwards-backwards-and-centred-differences",
+    "href": "part-05-techniques/finitedifference.html#forwards-backwards-and-centred-differences",
+    "title": "19  Finite difference approximations",
+    "section": "",
+    "text": "Two-point forward-difference formula\n\n\n\n\\[\nf'(x) = \\frac{f(x + h) - f(x)}{h} - \\frac{h}{2} f''(c),\n\\] where \\(c \\in (x, x+h)\\).\n\n\n\n\n\n\n\n\n\nExample\n\n\n\nUse the two-point forward difference formula with different values of \\(h\\) in order to approximate the derivative of \\(f(x) = 1/x\\) at \\(x = 2\\).\n\n\n\n\\(f(x)\\)\n\\(f(x + h)\\)\n\\(h\\)\n\\(f'(x)\\)\nError\n\n\n\n\n…\n…\n…\n…\n…\n\n\n…\n…\n…\n…\n…\n\n\n…\n…\n…\n…\n…\n\n\n\n\n\n\n\n\n\n\n\n\n\nThree-point centered-difference formula\n\n\n\n\\[\nf'(x) = \\frac{f(x + h) - f(x - h)}{2h} - \\frac{h^2}{6} f'''(c),\n\\] where \\(c \\in (x-h, x+h)\\).",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Finite difference approximations</span>"
+    ]
+  },
+  {
+    "objectID": "part-05-techniques/finitedifference.html#jacobian-matrices",
+    "href": "part-05-techniques/finitedifference.html#jacobian-matrices",
+    "title": "19  Finite difference approximations",
+    "section": "19.2 Jacobian matrices",
+    "text": "19.2 Jacobian matrices\n\n\n\n\n\n\nReference\n\n\n\nYou will have encountered the Jacobian, firstly in your first-year Methods courses when performing change-of-coordinates in integration formulae, and secondly in your second-year Modelling and Dynamics courses when studying differential equations. It also comes up in the second-year Vectors and PDEs course.\n\n\nThe Jacobian matrix, \\(\\mathbf{J}\\), of a vector function, \\(\\mathbf{F}: \\mathbb{R}^n \\to \\mathbb{R}^m\\), \\[\n\\mathbf{F}(\\mathbf{x}) = \\begin{pmatrix}\nf_1(\\mathbf{x}) \\\\\nf_2(\\mathbf{x}) \\\\\n\\vdots \\\\\nf_m(\\mathbf{x})\n\\end{pmatrix},\n\\] is the matrix of all its first-order partial derivatives, \\[\n\\mathbf{J}(\\mathbf{x}) = \\begin{pmatrix}\n\\frac{\\mathrm{\\partial}f_1}{\\mathrm{\\partial}x_2} & \\cdots &\n\\frac{\\mathrm{\\partial}f_1}{\\mathrm{\\partial}x_n} \\\\\n\\vdots & \\ddots & \\vdots \\\\\n\\frac{\\mathrm{\\partial}f_m}{\\mathrm{\\partial}x_1} & \\cdots &\n\\frac{\\mathrm{\\partial}f_m}{\\mathrm{\\partial}x_n}\n\\end{pmatrix}\n= \\begin{pmatrix}\n\\nabla f_1(\\mathbf{x})^T \\\\\n\\vdots \\\\\n\\nabla f_n(\\mathbf{x})^T\n\\end{pmatrix}.\n\\] We can essentially think of the Jacobian as the multi-dimensional extension of the basic derivative. It encodes all of the (first-order) information about the rate-of-change of the function.\nIt is interesting and important to consider the numerical evaluation of the Jacobian, in the event that the function \\(\\mathbf{F}\\) cannot be easily differentiated exactly. The simplest algorithm is based on approximating each entry of the matrix by a finite difference.\nFor example, let us consider approximating \\[\n\\frac{\\mathrm{\\partial}f_i}{\\mathrm{\\partial}x_j}(\\mathbf{x}_0).\n\\] We define the \\(j\\)th unit vector by \\(\\mathbf{e}_j = [0 \\, 0 \\, \\cdots \\, 1 \\, \\cdots \\, 0]\\), which the \\(j\\)th entry being one and all entries being zero. Then we can approximate the derivative by a central difference, \\[\n\\frac{\\mathrm{\\partial}f_i}{\\mathrm{\\partial}x_j}(\\mathbf{x}_0) \\approx \\frac{f_i(\\mathbf{x}_0 + \\mathbf{e}_j h) - f_i(\\mathbf{x}_0 - \\mathbf{e}_j h)}{2h},\n\\] where \\(h\\) is a small step size.\nLet us test this by calculating the Jacobian for \\[\n\\mathbf{F}(\\mathbf{x}) = \\begin{pmatrix}\nx_1^2 \\\\\nx_2^2 \\\\\nx_1 x_2\n\\end{pmatrix}.\n\\] The pseudocode for this looks like this\n\n\n\n\n\n\nPseudocode for numerical Jacobian\n\n\n\nInput: function F (size m), point x (size n), step size h\n1. Create an (m x n) matrix, J\n2. a. Loop through all the rows indexed by i\n      b. Loop through all the columns indexed by j\n             Create the ej unit vector\n         Calculate the difference of F_i(x + h e_j) - F_i(x - h e_j)\n         Divide by 2h\n         Assign this value to the (i,j)th value of the Jacobian\n\nOutput: the (mxn) Jacobian matrix J\n\n\nHere is a code that puts it into practice.\n\nimport numpy as np\n\ndef jacobian(func,initial,delta=1e-3):\n  f = func\n  nrow = len(f(initial))\n  ncol = len(initial)\n  output = np.zeros(nrow*ncol)\n  output = output.reshape(nrow,ncol)\n  for i in range(nrow):\n    for j in range(ncol):\n      ej = np.zeros(ncol)\n      ej[j] = 1\n      dij = (f(initial+ delta * ej)[i] - f(initial- delta * ej)[i])/(2*delta)\n      output[i,j] = dij\n  return output\n  \ndef myf(x):\n  x1 = x[0]\n  x2 = x[1]\n  output = np.zeros(3)\n  output[0] = x[0]**2\n  output[1] = x[1]**2\n  output[2] = x[0]*x[1]\n  return output\n  \njacobian(myf,[1,2])\n\narray([[2., 0.],\n       [0., 4.],\n       [2., 1.]])",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Finite difference approximations</span>"
     ]
   },
   {

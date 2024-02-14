@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA30287: Mathematics of Planet Earth - Practical applied mathematics</title>
+<title>MA30287: Mathematics of Planet Earth - 19&nbsp; Finite difference approximations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-05-techniques/asymptotics01.html" rel="next">
-<link href="../part-01-intro/problemclass01.html" rel="prev">
+<link href="../references.html" rel="next">
+<link href="../part-05-techniques/modelling.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -110,7 +144,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-05-techniques/techniques.html">Practical applied mathematics</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-05-techniques/part-techniques.html">Appendices</a></li><li class="breadcrumb-item"><a href="../part-05-techniques/finitedifference.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -178,7 +212,7 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../part-05-techniques/techniques.html" class="sidebar-item-text sidebar-link active">
+            <a href="../part-05-techniques/techniques.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Practical applied mathematics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -315,7 +349,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
+  <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
@@ -333,14 +367,21 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#forwards-backwards-and-centred-differences" id="toc-forwards-backwards-and-centred-differences" class="nav-link active" data-scroll-target="#forwards-backwards-and-centred-differences"><span class="header-section-number">19.1</span> Forwards, backwards, and centred differences</a></li>
+  <li><a href="#jacobian-matrices" id="toc-jacobian-matrices" class="nav-link" data-scroll-target="#jacobian-matrices"><span class="header-section-number">19.2</span> Jacobian matrices</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-05-techniques/part-techniques.html">Appendices</a></li><li class="breadcrumb-item"><a href="../part-05-techniques/finitedifference.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Practical applied mathematics</h1>
+<h1 class="title"><span id="sec-FD" class="quarto-section-identifier"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></h1>
 </div>
 
 
@@ -357,22 +398,228 @@ window.Quarto = {
 </header>
 
 
-<p>As we go deeper into formulating the equations that model or govern aspects of Planet Earth, we will quickly come to the realisation that many such equations, even for the simplest minimal models, are not exactly solvable.</p>
-<p>For example, in the analysis of the Ocean models later in the course, we develop the following “simple” model for the temperature in the ocean: <span class="math display">\[\begin{align}
-\frac{\mathrm{d}x}{\mathrm{d}t} &amp;= \delta(1 - x) - |f(x, y)|x, \\
-\frac{\mathrm{d}y}{\mathrm{d}t} &amp;= 1 - y - |f(x, y)|y,
-\end{align}\]</span> where we have introduced the function, <span class="math display">\[
-f(x, y; R, \lambda) = \frac{1}{\lambda}(Rx - y),
-\]</span></p>
-<p>This is quite a difficult problem! This is essentially a set of two nonlinear differential equations for two unknowns and three parameters. What kind of practical applied mathematics can we apply to study such problems?</p>
-<p>The intention of this part is to introduce (and in some cases, review) three key concepts:</p>
-<ol type="1">
-<li><p>Asymptotic approximations.</p></li>
-<li><p>Numerical solutions of differential equations.</p></li>
-<li><p>Numerical solutions of nonlinear equations (Newton’s method).</p></li>
-</ol>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Appendices
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These appendices may contain material that is added during the term, dependent on student enquiries and need.</p>
+</div>
+</div>
+<p>Many of the numerical methods we need will require using numerical approximations for the derivatives of functions. For instance, using Newton’s method to solve for the zeros of a system of equations requires calculating the Jacobian matrix.</p>
+<section id="forwards-backwards-and-centred-differences" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="forwards-backwards-and-centred-differences"><span class="header-section-number">19.1</span> Forwards, backwards, and centred differences</h2>
+<p>We want to learn how to use finite differences in order to approximate derivatives numerically. We know that <span class="math display">\[
+f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h},
+\]</span> provided the limit exists. Therefore, a simple idea to approximating the value of <span class="math inline">\(f'(x)\)</span> is to use a small numerical value for <span class="math inline">\(h\)</span>, and calculate (the gradient of the secant line), <span class="math display">\[
+f'(x) \approx \frac{f(x + h) - f(x)}{h},
+\]</span> where <span class="math inline">\(h\)</span> is a specified small number. The above is known as the <strong>two-point forward-difference formula</strong>. In fact, we can determine exactly the error of such an approximation via Taylor’s theorem. If <span class="math inline">\(f\)</span> is twice continuously differentiable, then <span class="math display">\[
+f(x + h) = f(x) + h f'(x) + \frac{h^2}{2} f''(c),
+\]</span> for some point <span class="math inline">\(c\in [x, x+h]\)</span>. Therefore by re-arrangement, we see the following.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Two-point forward-difference formula
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+f'(x) = \frac{f(x + h) - f(x)}{h} - \frac{h}{2} f''(c),
+\]</span> where <span class="math inline">\(c \in (x, x+h)\)</span>.</p>
+</div>
+</div>
+<p>Notice that the error in using the two-point forward difference approximation is then <span class="math inline">\(\mathcal{O}(h)\)</span>, and this error tends to zero as <span class="math inline">\(h \to 0\)</span> (as long as <span class="math inline">\(f''\)</span> is continuous). We thus call the above formula a first-order finite-difference approximation. If the error is <span class="math inline">\(\mathcal{O}(h^n)\)</span>, we call the corresponding formula an <span class="math inline">\(n\)</span>th-order approximation.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use the two-point forward difference formula with different values of <span class="math inline">\(h\)</span> in order to approximate the derivative of <span class="math inline">\(f(x) = 1/x\)</span> at <span class="math inline">\(x = 2\)</span>.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(f(x)\)</span></th>
+<th><span class="math inline">\(f(x + h)\)</span></th>
+<th><span class="math inline">\(h\)</span></th>
+<th><span class="math inline">\(f'(x)\)</span></th>
+<th>Error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Similar formulae can be developed for the backwards difference (send <span class="math inline">\(h \to -h\)</span>).</p>
+<p>A more accurate formula can be developed via subtracting the Taylor series for <span class="math inline">\(f(x - h)\)</span> from that for <span class="math inline">\(f(x + h)\)</span>. This results in:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Three-point centered-difference formula
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+f'(x) = \frac{f(x + h) - f(x - h)}{2h} - \frac{h^2}{6} f'''(c),
+\]</span> where <span class="math inline">\(c \in (x-h, x+h)\)</span>.</p>
+</div>
+</div>
+<p>Thus we see that the centered difference formula is accurate to <span class="math inline">\(O(h^2)\)</span>.</p>
+</section>
+<section id="jacobian-matrices" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="jacobian-matrices"><span class="header-section-number">19.2</span> Jacobian matrices</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Reference
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You will have encountered the Jacobian, firstly in your first-year Methods courses when performing change-of-coordinates in integration formulae, and secondly in your second-year Modelling and Dynamics courses when studying differential equations. It also comes up in the second-year Vectors and PDEs course.</p>
+</div>
+</div>
+<p>The Jacobian matrix, <span class="math inline">\(\mathbf{J}\)</span>, of a vector function, <span class="math inline">\(\mathbf{F}: \mathbb{R}^n \to \mathbb{R}^m\)</span>, <span class="math display">\[
+\mathbf{F}(\mathbf{x}) = \begin{pmatrix}
+f_1(\mathbf{x}) \\
+f_2(\mathbf{x}) \\
+\vdots \\
+f_m(\mathbf{x})
+\end{pmatrix},
+\]</span> is the matrix of all its first-order partial derivatives, <span class="math display">\[
+\mathbf{J}(\mathbf{x}) = \begin{pmatrix}
+\frac{\mathrm{\partial}f_1}{\mathrm{\partial}x_2} &amp; \cdots &amp;
+\frac{\mathrm{\partial}f_1}{\mathrm{\partial}x_n} \\
+\vdots &amp; \ddots &amp; \vdots \\
+\frac{\mathrm{\partial}f_m}{\mathrm{\partial}x_1} &amp; \cdots &amp;
+\frac{\mathrm{\partial}f_m}{\mathrm{\partial}x_n}
+\end{pmatrix}
+= \begin{pmatrix}
+\nabla f_1(\mathbf{x})^T \\
+\vdots \\
+\nabla f_n(\mathbf{x})^T
+\end{pmatrix}.
+\]</span> We can essentially think of the Jacobian as the multi-dimensional extension of the basic derivative. It encodes all of the (first-order) information about the rate-of-change of the function.</p>
+<p>It is interesting and important to consider the numerical evaluation of the Jacobian, in the event that the function <span class="math inline">\(\mathbf{F}\)</span> cannot be easily differentiated exactly. The simplest algorithm is based on approximating each entry of the matrix by a finite difference.</p>
+<p>For example, let us consider approximating <span class="math display">\[
+\frac{\mathrm{\partial}f_i}{\mathrm{\partial}x_j}(\mathbf{x}_0).
+\]</span> We define the <span class="math inline">\(j\)</span>th unit vector by <span class="math inline">\(\mathbf{e}_j = [0 \, 0 \, \cdots \, 1 \, \cdots \, 0]\)</span>, which the <span class="math inline">\(j\)</span>th entry being one and all entries being zero. Then we can approximate the derivative by a central difference, <span class="math display">\[
+\frac{\mathrm{\partial}f_i}{\mathrm{\partial}x_j}(\mathbf{x}_0) \approx \frac{f_i(\mathbf{x}_0 + \mathbf{e}_j h) - f_i(\mathbf{x}_0 - \mathbf{e}_j h)}{2h},
+\]</span> where <span class="math inline">\(h\)</span> is a small step size.</p>
+<p>Let us test this by calculating the Jacobian for <span class="math display">\[
+\mathbf{F}(\mathbf{x}) = \begin{pmatrix}
+x_1^2 \\
+x_2^2 \\
+x_1 x_2
+\end{pmatrix}.
+\]</span> The pseudocode for this looks like this</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pseudocode for numerical Jacobian
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Input: function F (size m), point x (size n), step size h</p>
+<pre><code>1. Create an (m x n) matrix, J
+2. a. Loop through all the rows indexed by i
+      b. Loop through all the columns indexed by j
+             Create the ej unit vector
+         Calculate the difference of F_i(x + h e_j) - F_i(x - h e_j)
+         Divide by 2h
+         Assign this value to the (i,j)th value of the Jacobian
+
+Output: the (mxn) Jacobian matrix J</code></pre>
+</div>
+</div>
+<p>Here is a code that puts it into practice.</p>
+<div id="68ce0c33" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> jacobian(func,initial,delta<span class="op">=</span><span class="fl">1e-3</span>):</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  f <span class="op">=</span> func</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  nrow <span class="op">=</span> <span class="bu">len</span>(f(initial))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  ncol <span class="op">=</span> <span class="bu">len</span>(initial)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  output <span class="op">=</span> np.zeros(nrow<span class="op">*</span>ncol)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  output <span class="op">=</span> output.reshape(nrow,ncol)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(nrow):</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(ncol):</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      ej <span class="op">=</span> np.zeros(ncol)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>      ej[j] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>      dij <span class="op">=</span> (f(initial<span class="op">+</span> delta <span class="op">*</span> ej)[i] <span class="op">-</span> f(initial<span class="op">-</span> delta <span class="op">*</span> ej)[i])<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>delta)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>      output[i,j] <span class="op">=</span> dij</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> output</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> myf(x):</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  x1 <span class="op">=</span> x[<span class="dv">0</span>]</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  x2 <span class="op">=</span> x[<span class="dv">1</span>]</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  output <span class="op">=</span> np.zeros(<span class="dv">3</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  output[<span class="dv">0</span>] <span class="op">=</span> x[<span class="dv">0</span>]<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  output[<span class="dv">1</span>] <span class="op">=</span> x[<span class="dv">1</span>]<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  output[<span class="dv">2</span>] <span class="op">=</span> x[<span class="dv">0</span>]<span class="op">*</span>x[<span class="dv">1</span>]</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> output</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>jacobian(myf,[<span class="dv">1</span>,<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>array([[2., 0.],
+       [0., 4.],
+       [2., 1.]])</code></pre>
+</div>
+</div>
+<!-- 
+
+:::{.callout-note}
+## Reference
+
+Some of this material follows from Chap. 5 of [@sauer_book].
+:::
+
+-->
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -764,13 +1011,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part-01-intro/problemclass01.html" class="pagination-link  aria-label=" &lt;span="" 1&lt;="" span&gt;"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Problem class 1</span></span>
+      <a href="../part-05-techniques/modelling.html" class="pagination-link  aria-label=" &lt;span="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Modelling</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-05-techniques/asymptotics01.html" class="pagination-link" aria-label="<span class='chapter-number'>5</span>&nbsp; <span class='chapter-title'>Asymptotic approximations</span>">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Asymptotic approximations</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

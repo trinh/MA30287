@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA30287: Mathematics of Planet Earth - Practical applied mathematics</title>
+<title>MA30287: Mathematics of Planet Earth - 15&nbsp; Differential equations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-05-techniques/asymptotics01.html" rel="next">
-<link href="../part-01-intro/problemclass01.html" rel="prev">
+<link href="../part-05-techniques/dynamical-systems.html" rel="next">
+<link href="../part-05-techniques/part-techniques.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -110,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-05-techniques/techniques.html">Practical applied mathematics</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-05-techniques/part-techniques.html">Appendices</a></li><li class="breadcrumb-item"><a href="../part-05-techniques/odes.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Differential equations</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -178,7 +178,7 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../part-05-techniques/techniques.html" class="sidebar-item-text sidebar-link active">
+            <a href="../part-05-techniques/techniques.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Practical applied mathematics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -291,7 +291,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
+  <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
   </div>
 </li>
@@ -333,14 +333,21 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#first-order-linear-differential-equations" id="toc-first-order-linear-differential-equations" class="nav-link active" data-scroll-target="#first-order-linear-differential-equations"><span class="header-section-number">15.1</span> First-order linear differential equations</a></li>
+  <li><a href="#second-order-constant-coefficient-odes" id="toc-second-order-constant-coefficient-odes" class="nav-link" data-scroll-target="#second-order-constant-coefficient-odes"><span class="header-section-number">15.2</span> Second-order constant coefficient ODEs</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-05-techniques/part-techniques.html">Appendices</a></li><li class="breadcrumb-item"><a href="../part-05-techniques/odes.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Differential equations</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Practical applied mathematics</h1>
+<h1 class="title"><span id="sec-odes" class="quarto-section-identifier"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Differential equations</span></span></h1>
 </div>
 
 
@@ -357,22 +364,46 @@ window.Quarto = {
 </header>
 
 
-<p>As we go deeper into formulating the equations that model or govern aspects of Planet Earth, we will quickly come to the realisation that many such equations, even for the simplest minimal models, are not exactly solvable.</p>
-<p>For example, in the analysis of the Ocean models later in the course, we develop the following “simple” model for the temperature in the ocean: <span class="math display">\[\begin{align}
-\frac{\mathrm{d}x}{\mathrm{d}t} &amp;= \delta(1 - x) - |f(x, y)|x, \\
-\frac{\mathrm{d}y}{\mathrm{d}t} &amp;= 1 - y - |f(x, y)|y,
-\end{align}\]</span> where we have introduced the function, <span class="math display">\[
-f(x, y; R, \lambda) = \frac{1}{\lambda}(Rx - y),
-\]</span></p>
-<p>This is quite a difficult problem! This is essentially a set of two nonlinear differential equations for two unknowns and three parameters. What kind of practical applied mathematics can we apply to study such problems?</p>
-<p>The intention of this part is to introduce (and in some cases, review) three key concepts:</p>
-<ol type="1">
-<li><p>Asymptotic approximations.</p></li>
-<li><p>Numerical solutions of differential equations.</p></li>
-<li><p>Numerical solutions of nonlinear equations (Newton’s method).</p></li>
-</ol>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Appendices
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These appendices may contain material that is added during the term, dependent on student enquiries and need.</p>
+</div>
+</div>
+<section id="first-order-linear-differential-equations" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="first-order-linear-differential-equations"><span class="header-section-number">15.1</span> First-order linear differential equations</h2>
+<p>First-order linear differential equations are of the form <span class="math display">\[
+y' + q(x) y = r(x).
+\]</span> These are solved by integrating factors. Multiply both sides by <span class="math display">\[
+e^{\int^x q(x') \, \mathrm{d}x'}
+\]</span> so that the equation can be placed in the form <span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d}x} \left(y e^{\int^x q(x') \, \mathrm{d}x'}\right) = r(x) e^{\int^x q(x') \, \mathrm{d}x'}
+\]</span> Then integrate and solve for <span class="math inline">\(y\)</span>.</p>
+<p>References</p>
+<ul>
+<li><a href="https://tutorial.math.lamar.edu/classes/de/linear.aspx">Paul’s online notes</a></li>
+</ul>
+</section>
+<section id="second-order-constant-coefficient-odes" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="second-order-constant-coefficient-odes"><span class="header-section-number">15.2</span> Second-order constant coefficient ODEs</h2>
+<p>Second-order linear constant-coefficient ODEs are of the form <span class="math display">\[
+y'' + ay' + by = f(x).
+\]</span> With both forced (<span class="math inline">\(f \neq 0\)</span>) and unforced (<span class="math inline">\(f = 0\)</span>) varieties studied. For the unforced variant (homogeneous), you will remember that the equation is solved by attempting the ansatz <span class="math inline">\(y = e^{rx}\)</span> and solving for <span class="math inline">\(r\)</span>.</p>
+<p>There are many references on this topic since it is the standard second-order theory learned in most initial differential equations courses.</p>
+<p>References:</p>
+<ul>
+<li><a href="https://tutorial.math.lamar.edu/Classes/DE/IntroSecondOrder.aspx">Paul’s online notes</a></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -764,13 +795,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part-01-intro/problemclass01.html" class="pagination-link  aria-label=" &lt;span="" 1&lt;="" span&gt;"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Problem class 1</span></span>
+      <a href="../part-05-techniques/part-techniques.html" class="pagination-link  aria-label=" appendices"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Appendices</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-05-techniques/asymptotics01.html" class="pagination-link" aria-label="<span class='chapter-number'>5</span>&nbsp; <span class='chapter-title'>Asymptotic approximations</span>">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Asymptotic approximations</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-05-techniques/dynamical-systems.html" class="pagination-link" aria-label="<span class='chapter-number'>16</span>&nbsp; <span class='chapter-title'>Dynamical systems</span>">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
