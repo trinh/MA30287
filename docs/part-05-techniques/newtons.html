@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA30287: Mathematics of Planet Earth - 8&nbsp; Matched asymptotics</title>
+<title>MA30287: Mathematics of Planet Earth - 9&nbsp; Newton’s method</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-05-techniques/newtons.html" rel="next">
-<link href="../part-05-techniques/euler.html" rel="prev">
+<link href="../part-03-box/part-box.html" rel="next">
+<link href="../part-05-techniques/asymptotics03.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -144,7 +144,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-05-techniques/techniques.html">Practical applied mathematics</a></li><li class="breadcrumb-item"><a href="../part-05-techniques/asymptotics03.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Matched asymptotics</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-05-techniques/techniques.html">Practical applied mathematics</a></li><li class="breadcrumb-item"><a href="../part-05-techniques/newtons.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Newton’s method</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -239,13 +239,13 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/asymptotics03.html" class="sidebar-item-text sidebar-link active">
+  <a href="../part-05-techniques/asymptotics03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Matched asymptotics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/newtons.html" class="sidebar-item-text sidebar-link">
+  <a href="../part-05-techniques/newtons.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Newton’s method</span></span></a>
   </div>
 </li>
@@ -377,21 +377,18 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#boundary-layer-theory" id="toc-boundary-layer-theory" class="nav-link active" data-scroll-target="#boundary-layer-theory"><span class="header-section-number">8.1</span> Boundary layer theory</a>
-  <ul class="collapse">
-  <li><a href="#the-inner-scaling" id="toc-the-inner-scaling" class="nav-link" data-scroll-target="#the-inner-scaling"><span class="header-section-number">8.1.1</span> The inner scaling</a></li>
-  <li><a href="#the-inner-equation" id="toc-the-inner-equation" class="nav-link" data-scroll-target="#the-inner-equation"><span class="header-section-number">8.1.2</span> The inner equation</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">8.1.3</span> Summary</a></li>
-  </ul></li>
+  <li><a href="#demo-of-newtons-method-for-scalar-equations" id="toc-demo-of-newtons-method-for-scalar-equations" class="nav-link active" data-scroll-target="#demo-of-newtons-method-for-scalar-equations"><span class="header-section-number">9.1</span> Demo of Newton’s method for scalar equations</a></li>
+  <li><a href="#newtons-method-for-systems-of-nonlinear-equations" id="toc-newtons-method-for-systems-of-nonlinear-equations" class="nav-link" data-scroll-target="#newtons-method-for-systems-of-nonlinear-equations"><span class="header-section-number">9.2</span> Newton’s method for systems of nonlinear equations</a></li>
+  <li><a href="#secant-method" id="toc-secant-method" class="nav-link" data-scroll-target="#secant-method"><span class="header-section-number">9.3</span> Secant method</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-05-techniques/techniques.html">Practical applied mathematics</a></li><li class="breadcrumb-item"><a href="../part-05-techniques/asymptotics03.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Matched asymptotics</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-05-techniques/techniques.html">Practical applied mathematics</a></li><li class="breadcrumb-item"><a href="../part-05-techniques/newtons.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Newton’s method</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-asymptotics03" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Matched asymptotics</span></span></h1>
+<h1 class="title"><span id="sec-newton" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Newton’s method</span></span></h1>
 </div>
 
 
@@ -408,144 +405,209 @@ window.Quarto = {
 </header>
 
 
-<p>In <a href="asymptotics02.html" class="quarto-xref"><span>Chapter 6</span></a>, we studied how asymptotic expansions can be used to approximate equations like <span class="math display">\[
-\frac{\mathrm{d}^2 y}{\mathrm{d}t^2} = -\frac{1}{(1 + \epsilon y)^2}
-\]</span> by expanding the solution as <span class="math inline">\(y(t) = y_0(t) + \epsilon y_1(t) + \ldots\)</span>. These are known as <em>regular</em> problems because a small perturbation, <span class="math inline">\(\epsilon\)</span>, does not seem to fundamentally change the <span class="math inline">\(\epsilon = 0\)</span> solution beyond a small perturbation. This is not always the case. In <em>singular</em> problems, the situation of <span class="math inline">\(\epsilon \neq 0\)</span> is fundamentally different than the situation from <span class="math inline">\(\epsilon = 0\)</span>. You have already seen such an example in <a href="asymptotics01.html" class="quarto-xref"><span>Chapter 5</span></a>. The equation <span class="math display">\[
-\epsilon x^2 + x - 1 = 0
-\]</span> has one root for <span class="math inline">\(\epsilon = 0\)</span> and two roots for non-zero small <span class="math inline">\(\epsilon\)</span>—even infinitesimally small values! This is quite interesting. From a wider scientific perspective, you may wonder what other problems in nature possess such singular effects.</p>
-<p>The point of this lecture is study a technique known as <em>matched asymptotics</em>. These matched asymptotics are often necessary for singularly perturbed differential equations.</p>
-<p>Previously in <a href="../part-01-intro/basic-energy-model.html" class="quarto-xref"><span>Chapter 3</span></a>, we derived a basic equation that governs the temperature on the surface of the planet. This equation had the following form: <span class="math display">\[
-(\rho c_p V) \frac{\mathrm{d}T}{\mathrm{d}t} = E_{\text{in}}(t, T) - E_{\text{out}}(t, T).
+<p>Before we move on back to the subject of applications, it is worth providing an introduction to methods for solving nonlinear equations. Many problems you will encounter in applications, including for ordinary or partial differential equations, can be re-formulated as the solution of a nonlinear system of equations.</p>
+<p>Newton’s method is the most well-known scheme for solving nonlinear equations. Suppose we wish to solve the scalar equation, <span class="math display">\[
+f(x) = 0,
+\]</span> given some initial guess, <span class="math inline">\(x = x_0\)</span>, of the root. Suppose the root lies at <span class="math inline">\(x = x^*\)</span>. Then by Taylor’s theorem, <span class="math display">\[
+f(x^*) = f(x_0) + f'(x_0)(x^* - x_0) + O(f''(x_0)(x - x_0)^2).
+\]</span> If we assume the quadratic terms are negligible then solve for <span class="math inline">\(x^*\)</span> this gives <span class="math display">\[
+x^* \approx x_0 - \frac{f(x_0)}{f'(x_0)}.
+\]</span> There is a geometrical interpretation of the above. Essentially, in order to estimate the root of <span class="math inline">\(f(x) = 0\)</span>, we have used the tangent line at the point <span class="math inline">\(x = x_0\)</span>, and used the intersection of this tangent line with the axis as the approximation. This procedure can then be iterated.</p>
+<p>Thus, provided that the desired root, <span class="math inline">\(x^*\)</span>, is such that <span class="math inline">\(f'(x^*) \neq 0\)</span>, and <span class="math inline">\(x_0\)</span> is sufficiently close to <span class="math inline">\(x^*\)</span>, then the following iterates converge to the root: <span class="math display">\[
+x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}.
 \]</span></p>
-<p>For the purpose of this section, let us make up a toy model. We suggest, in non-dimensional form, <span class="math display">\[\begin{align}
-\epsilon \frac{\mathrm{d}T}{\mathrm{d}t} &amp;= R(t) - T, \quad t \geq 0 \\
-T(0) &amp;= T^*,
-\end{align}\]</span> {#eq-matched-T} where we consider <span class="math inline">\(\epsilon &gt; 0\)</span> and <span class="math inline">\(\epsilon \ll 1\)</span>. You can think of the above model as modelling the temperature on a substance that radiates heat in a fashion proportional to itself (-T) and is being subjected to an (incoming) heat source, <span class="math inline">\(R\)</span>. Let us take as an example, <span class="math display">\[
-R(t) = 1 + A \cos(t).
-\]</span> Our choice for <span class="math inline">\(R\)</span> is not so important. This equation is, in fact, solvable in closed form (how?) but let us get additional practice solving numerically.</p>
-<div id="e59ac608" class="cell" data-execution_count="1">
+<section id="demo-of-newtons-method-for-scalar-equations" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="demo-of-newtons-method-for-scalar-equations"><span class="header-section-number">9.1</span> Demo of Newton’s method for scalar equations</h2>
+<p>Here is a simple demonstration of Newton’s method in order to solve for one of the roots of the following: <span class="math display">\[
+f(x) = x^3 + x - 1.
+\]</span></p>
+<p>We will start with the initial guess of <span class="math inline">\(x_0 = 0\)</span>. We can do this by hand in lectures using a pocket calculator. The solution is <span class="math inline">\(x^* \approx 0.6823278..\)</span></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>i</th>
+<th>xi</th>
+<th>f(xi)</th>
+<th>f’(xi)</th>
+<th>-f(xi)/f’(xi)</th>
+<th>error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="53cd5b9b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> solve_ivp</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Ts <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>ep <span class="op">=</span> <span class="fl">0.2</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="fl">0.1</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> t, T: <span class="dv">1</span><span class="op">/</span>ep<span class="op">*</span>(<span class="dv">1</span> <span class="op">+</span> A<span class="op">*</span>np.cos(t) <span class="op">-</span> T)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>tmax <span class="op">=</span> <span class="dv">50</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>sol <span class="op">=</span> solve_ivp(f, [<span class="dv">0</span>, tmax], [Ts], dense_output<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, tmax, <span class="dv">1000</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> sol.sol(t)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>plt.plot(t, y[<span class="dv">0</span>])</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>plt.plot(t, <span class="dv">1</span> <span class="op">+</span> A<span class="op">*</span>np.cos(t), <span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="asymptotics03_files/figure-html/cell-2-output-1.png" width="571" height="411" class="figure-img"></p>
-</figure>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x0 <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Newton(f, df, x, maxiter<span class="op">=</span><span class="dv">10</span>):</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (i <span class="op">&lt;</span> maxiter):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        err <span class="op">=</span> f(x)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> x <span class="op">-</span> err <span class="op">/</span> df(x)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"f(x) = "</span>, np.<span class="bu">abs</span>(err), <span class="st">", x = "</span>, x)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x, err</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">3</span> <span class="op">+</span> x <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> <span class="kw">lambda</span> x: <span class="dv">3</span><span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>x, err <span class="op">=</span> Newton(f, df, x0, N)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Final approximation = "</span>, x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>f(x) =  1 , x =  1.0
+f(x) =  1.0 , x =  0.75
+f(x) =  0.171875 , x =  0.686046511627907
+f(x) =  0.008941036638283384 , x =  0.6823395825973142
+f(x) =  2.823062168566537e-05 , x =  0.6823278039465127
+f(x) =  2.839946056099052e-10 , x =  0.6823278038280194
+f(x) =  2.220446049250313e-16 , x =  0.6823278038280193
+f(x) =  1.1102230246251565e-16 , x =  0.6823278038280193
+f(x) =  1.1102230246251565e-16 , x =  0.6823278038280193
+f(x) =  1.1102230246251565e-16 , x =  0.6823278038280193
+Final approximation =  0.6823278038280193</code></pre>
 </div>
 </div>
+<!--
+
+::: {#8998525b .cell execution_count=2}
+``` {.python .cell-code}
+import numpy as np
+
+def Newton(f, df, x, maxiter=100, tol=1e-12, display=0):
+    i = 0
+    while (abs(f(x) - 0) > tol) and (i < maxiter):
+        err = f(x)
+        x = x - err / df(x)
+        if display == 1:
+            print("f(x) = ", np.abs(err), ", x = ", x)
+        i = i + 1
+    return x, err
+
+f = lambda x: x**3 + x - 1
+df = lambda x: 3*x**2 + 1
+
+x = 0
+x, err = Newton(f, df, x, 10, 1e-8, 1)
+print("Final approximation = ", x)
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+f(x) =  1 , x =  1.0
+f(x) =  1.0 , x =  0.75
+f(x) =  0.171875 , x =  0.686046511627907
+f(x) =  0.008941036638283384 , x =  0.6823395825973142
+f(x) =  2.823062168566537e-05 , x =  0.6823278039465127
+Final approximation =  0.6823278039465127
+```
+:::
+:::
+
+
+-->
+<p>It is a good idea to also learn how to do this using built-in packages. The ‘fsolve’ function provides a Newton-like nonlinear solver. In fact, it can estimate the Jacobian (derivative), so only the function values need to be provided.</p>
+<div id="8abe5e61" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> fsolve</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">3</span> <span class="op">+</span> x <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>x0 <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>x, info, ier, msg <span class="op">=</span> fsolve(f, x0, full_output<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(msg)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The solution converged.
+[0.6823278]</code></pre>
 </div>
-<p>What do we observe? If <span class="math inline">\(\epsilon = 0\)</span>, then we expect the solution <span class="math inline">\(T \sim R(t)\)</span>. This is shown with the dashed line. However, this solution does not satisfy the necessary initial condition. We observe that near <span class="math inline">\(t = 0\)</span>, the exact solution seems to very rapidly diverge from the approximation in order to satisfy the proper boundary condition. The region in <span class="math inline">\(t\)</span> where this rapid change occurs is called a <em>boundary layer</em>.</p>
-<p>If we repeat the experiment with an even smaller value of <span class="math inline">\(\epsilon\)</span>, we would observe that the size of this boundary layer seems to tends to zero as <span class="math inline">\(\epsilon \to 0\)</span>. This numerical experiment thus inspires the following method.</p>
-<section id="boundary-layer-theory" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="boundary-layer-theory"><span class="header-section-number">8.1</span> Boundary layer theory</h2>
-<p>We seek a method that will allow us to develop a uniformly valid approximation, i.e.&nbsp;an approximation that is good everywhere in the relevant domain, <span class="math inline">\(t \geq 0\)</span>. Begin by performing the usual asymptotic approximation: <span class="math display">\[
-T(t) = T_0(t) + \epsilon T_1(t) + \epsilon^2 T_2(t) + \ldots
-\]</span> Substitution into the ODE (<span class="quarto-unresolved-ref">?eq-matched-T</span>) yields at leading order, <span class="math display">\[
-0 = R(t) - T_0(t) \Longrightarrow T_0(t) = R(t) = 1 + A \cos(t).
-\]</span> As we have noted, this approximation fails to satisfy the initial condition, <span class="math inline">\(T(0) = T^*\)</span> in general. It is possible to go to higher order but this is not so important at the moment. So for now, we have obtained: <span class="math display">\[
-T_{\text{outer}} \sim \Bigl[ 1 + A\cos t\Bigr].
-\]</span> We have chosen to refer to this as the <code>outer</code> solution for reasons that will be abundantly clear. But rather than satisfying <span class="math inline">\(T(0) = T^*\)</span>, this approximation has the limiting behaviour of <span class="math display">\[
-\lim_{t \to 0} T_{\text{outer}} \sim \Bigl[ 1 + A\Bigr]
-\]</span> Above, we have only included the leading term in the limit expression.</p>
-<section id="the-inner-scaling" class="level3" data-number="8.1.1">
-<h3 data-number="8.1.1" class="anchored" data-anchor-id="the-inner-scaling"><span class="header-section-number">8.1.1</span> The inner scaling</h3>
-<p>Our intuition follows a very similar logic to the examination of the singular root in <a href="asymptotics01.html#sec-asym1-singular" class="quarto-xref"><span>Section 5.1.1</span></a>. Above, our naive assumption was that <span class="math inline">\(\epsilon T'(t)\)</span> could be ignored since <span class="math inline">\(\epsilon\)</span> is a small number. However, this may not be the case if the gradient is very large.</p>
-<p>Our intuition further suggests that the boundary layer occurs near <span class="math inline">\(t = 0\)</span> and that it scales in size with <span class="math inline">\(\epsilon\)</span>. Therefore, let us set <span class="math display">\[
-t = \epsilon^{\alpha} s,
-\]</span> as a change of coordinates. We expect <span class="math inline">\(\alpha &gt; 0\)</span> (otherwise <span class="math inline">\(t\)</span> is not small), and within this region, we expect the new coordinate, <span class="math inline">\(s\)</span>, to be <span class="math inline">\(O(1)\)</span> (of moderate size). We then transform the unknown function: <span class="math display">\[
-T(t) = T(\epsilon s) = U(s),
-\]</span> and seek a new differential equation for <span class="math inline">\(U\)</span>. By the chain rule, <span class="math display">\[
-\frac{\mathrm{d}T}{\mathrm{d}t} = \epsilon^{-\alpha} \frac{\mathrm{d}U}{\mathrm{d}s}.
-\]</span> Before substituting into the equation, we are prudent to examine the behaviour of <span class="math inline">\(R(t)\)</span> near <span class="math inline">\(t = 0\)</span>. We know by Taylor’s theorem that <span class="math display">\[
-R(t) = 1 + A \left(1 - \frac{t^2}{2} + \ldots \right).
-\]</span> Therefore, under the substitution, we may approximate <span class="math inline">\(R\)</span> by its leading terms: <span class="math display">\[
-R( \epsilon^{\alpha} s) \sim 1 + A.
-\]</span> For now, we will not need more terms than this. Substituting into the ODE now gives <span class="math display">\[
-\epsilon^{1-\alpha} \frac{\mathrm{d}U}{\mathrm{d}s} \sim \Bigl[1 + A\Bigr] - U.
-\]</span> Now in order to involve the first term, it is sensible to select <span class="math display">\[
-1 - \alpha = 0 \Longrightarrow \alpha = 1.
-\]</span></p>
+</div>
 </section>
-<section id="the-inner-equation" class="level3" data-number="8.1.2">
-<h3 data-number="8.1.2" class="anchored" data-anchor-id="the-inner-equation"><span class="header-section-number">8.1.2</span> The inner equation</h3>
-<p>Therefore, the correct coordinate re-scaling was the ‘obvious’ one: <span class="math display">\[
-t = \epsilon s.
+<section id="newtons-method-for-systems-of-nonlinear-equations" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="newtons-method-for-systems-of-nonlinear-equations"><span class="header-section-number">9.2</span> Newton’s method for systems of nonlinear equations</h2>
+<p>Newton’s method generalises naturally to the case of a system of equations. Suppose we wish to solve for the <span class="math inline">\(n\)</span> unknowns <span class="math inline">\(\mathbf{x} = (x_1, \ldots, x_n)\)</span> via <span class="math display">\[
+\mathbf{F(\mathbf{x}}) =
+\begin{pmatrix}
+F_1(\mathbf{x}) \\
+F_2(\mathbf{x}) \\
+\ldots \\
+F_n(\mathbf{x})
+\end{pmatrix} = 0.
 \]</span></p>
-<p>Substituting this again in (<span class="quarto-unresolved-ref">?eq-matched-T</span>): <span class="math display">\[\begin{align}
-\frac{\mathrm{d}U}{\mathrm{d}s} &amp;= 1 + A\cos(\epsilon s) - U, \\
-U(0) &amp;= T^*.
-\end{align}\]</span></p>
-<p>The procedure is now exactly the same. We expand <span class="math display">\[
-U(s) = U_0(s) + \epsilon U_1(s) + \epsilon^2 U_2(s) + \ldots
-\]</span> At leading order, we get <span class="math display">\[\begin{align}
-U_0' &amp;= 1 + A - U_0 \\
-U_0(0) &amp;= T^*.
-\end{align}\]</span></p>
-<p>The above ODE can be solved by integrating factors. Multiplying both sides be <span class="math inline">\(e^s\)</span>, we have <span class="math display">\[
-(U_0 e^s)' = (1 + A)e^s.
-\]</span> Integrate and use the initial condition: <span class="math display">\[
-U_0(s) = (1 + A) + (T^* - (1 +A))e^{-s}.
-\]</span> This is exactly what we expect. Notice that <span id="eq-matched-matchingcond"><span class="math display">\[
-\lim_{s \to \infty} U_0(s) = \lim_{t \to 0} T_{\text{outer}}
-\tag{8.1}\]</span></span> therefore the outer limit of our inner solution matches the inner limit of our outer solution. In terms of outer coordinates, our inner solution is approximated as follows: <span class="math display">\[
-T_{\text{inner}} \sim (1 + A) + (T^* - (1 +A))e^{-t/\epsilon}.
-\]</span></p>
-<p>Let’s finally plot this with our previous curves:</p>
-<div id="86bed4f2" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> solve_ivp</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Ts <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>ep <span class="op">=</span> <span class="fl">0.2</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="fl">0.1</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> t, T: <span class="dv">1</span><span class="op">/</span>ep<span class="op">*</span>(<span class="dv">1</span> <span class="op">+</span> A<span class="op">*</span>np.cos(t) <span class="op">-</span> T)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>tmax <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>sol <span class="op">=</span> solve_ivp(f, [<span class="dv">0</span>, tmax], [Ts], dense_output<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, tmax, <span class="dv">1000</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> sol.sol(t)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>plt.plot(t, y[<span class="dv">0</span>])</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>plt.plot(t, <span class="dv">1</span> <span class="op">+</span> A<span class="op">*</span>np.cos(t), <span class="st">'--'</span>)</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>plt.plot(t, (<span class="dv">1</span> <span class="op">+</span> A) <span class="op">+</span> (Ts <span class="op">-</span> (<span class="dv">1</span> <span class="op">+</span> A))<span class="op">*</span>np.exp(<span class="op">-</span>t<span class="op">/</span>ep), <span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="asymptotics03_files/figure-html/cell-3-output-1.png" width="571" height="411" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>It works beautifully!</p>
+<p>We have, via Taylor’s formula, <span class="math display">\[
+\mathbf{F}(\mathbf{x}_{i+1}) \sim  \mathbf{F(\mathbf{x}_i}) + J(\mathbf{x}_i)(\mathbf{x}_{i+1} - \mathbf{x}_i) + \mathcal{O}(||\mathbf{x}_{i+1} - \mathbf{x}_i||^2),
+\]</span> where <span class="math inline">\(J\)</span> is the Jacobian matrix <span class="math display">\[
+J(\mathbf{x}) = \nabla \mathbf{F}(\mathbf{x}) =
+\begin{pmatrix}
+\frac{\mathrm{\partial}F_1}{\mathrm{\partial}x_1} &amp;
+\cdots &amp;
+\frac{\mathrm{\partial}F_1}{\mathrm{\partial}x_n} \\
+\vdots &amp; \ddots &amp; \vdots \\
+\frac{\mathrm{\partial}F_n}{\mathrm{\partial}x_1} &amp;
+\cdots &amp;
+\frac{\mathrm{\partial}F_n}{\mathrm{\partial}x_n}
+\end{pmatrix}.
+\]</span> Therefore, Newton’s method forms the iterates of <span class="math display">\[
+\mathbf{x}_{i+1} = \mathbf{x}_i {\color{blue}-} J^{-1}(\mathbf{x}_i) \mathbf{F}(\mathbf{x}_i),
+\]</span> which takes a very similar form to the scalar case.</p>
+<p>However, solution of the inverse of <span class="math inline">\(J\)</span> is typically inefficient, and it is better to instead solve for <span class="math inline">\(\delta_{i+1} = \mathbf{x}_{i+1} - \mathbf{x}_i\)</span> via <span class="math display">\[
+J(\mathbf{x}_i) \delta_{i+1} = - \mathbf{F}(\mathbf{x}_i),
+\]</span> and then calculate <span class="math inline">\(\mathbf{x}_{i+1} = \mathbf{x}_i + \delta_{i+1}\)</span>. There are many ways of solving the above matrix problem efficiently using built-in routines that perform, e.g.&nbsp;Gaussian elimination.</p>
 </section>
-<section id="summary" class="level3" data-number="8.1.3">
-<h3 data-number="8.1.3" class="anchored" data-anchor-id="summary"><span class="header-section-number">8.1.3</span> Summary</h3>
-<p>Let us summarise the procedure of matched asymptotics.</p>
+<section id="secant-method" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="secant-method"><span class="header-section-number">9.3</span> Secant method</h2>
+<p>In many situations, evaluation of the Jacobian (or derivative) is the most time-consuming or difficult part of a nonlinear solver. Built-in solvers like ‘fsolve’, in fact, have the ability to approximate the derivative numerically.</p>
+<p>The Secant Method is similar to Newton’s Method but replaces the derivative by a finite difference. Geometrically, the tangent line is replaced with a line through the two last known guesses. The algorithm goes as follows.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Secant method
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>Expand the solution of the differential equation naively in the typical asymptotic expansion (e.g.&nbsp;in powers of <span class="math inline">\(\epsilon\)</span>).</p></li>
-<li><p>Notice that the approximation does not satisfy certain boundary conditions.</p></li>
-<li><p>Re-scale the coordinates in the ‘inner’ regions.</p></li>
-<li><p>Develop an inner solution that satisfies the boundary condition. Ensure it matches the outer solution.</p></li>
+<li><p>Develop two initial guesses to the solution, x0 and x1</p></li>
+<li><p>Compute <span class="math display">\[
+x_{n+1} = x_n - \frac{f(x_n)}{\frac{f(x_n) - f(x_{n-1})}{x_n - x_{n-1}}} =  x_n - \frac{f(x_n)(x_n - x_{n-1})}{f(x_n) - f(x_{n-1})}.
+\]</span></p></li>
 </ol>
-<p>You will get more practice of this procedure in the problem sets.</p>
+</div>
+</div>
+<!-- 
+http://hplgit.github.io/prog4comp/doc/pub/._p4c-solarized-Python031.html
+-->
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -938,13 +1000,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part-05-techniques/euler.html" class="pagination-link  aria-label=" &lt;span="" method&lt;="" span&gt;"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Euler’s method</span></span>
+      <a href="../part-05-techniques/asymptotics03.html" class="pagination-link  aria-label=" &lt;span="" asymptotics&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Matched asymptotics</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-05-techniques/newtons.html" class="pagination-link" aria-label="<span class='chapter-number'>9</span>&nbsp; <span class='chapter-title'>Newton's method</span>">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Newton’s method</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-03-box/part-box.html" class="pagination-link" aria-label="Energy balance models">
+        <span class="nav-page-text">Energy balance models</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
