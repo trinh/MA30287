@@ -518,28 +518,28 @@ F = m \frac{\mathrm{d}^2x}{\mathrm{d}t^2}
 <p>The below has been cleaned up to match the notation on the 13 Feb 2023 delivery.</p>
 </div>
 </div>
-<p>Exact units are not relevant for dynamics, and it is instead the ratio of units that we care about. To apply this principle, let us non-dimensionalise the equation <a href="intro-PDEs.html#eq-heatintro" class="quarto-xref">Equation&nbsp;<span>1.1</span></a>. Let us consider the heat equation as given by the system <span class="math display">\[\begin{equation}
+<p>Exact units are not relevant for dynamics, and it is instead the ratio of units that we care about. To apply this principle, let us non-dimensionalise the equation <a href="intro-PDEs.html#eq-heatintro" class="quarto-xref">Equation&nbsp;<span>1.1</span></a>. Let us consider the heat equation as given by the system <span class="math display">\[
 \begin{aligned}
 \frac{\partial T}{\partial t} &amp;= \kappa \frac{\partial^2 T}{\partial x^2} \\
 T(x, 0) &amp;= T_\text{init} \\
 T(0, t) &amp;= T_a \\
 T(L, t) &amp;= T_b.
 \end{aligned}
-\end{equation}\]</span></p>
+\]</span></p>
 <p>Note that the constant <span class="math inline">\(\kappa\)</span> is known as the thermal diffusivity, and is given by <span class="math display">\[
 \kappa = \frac{k}{\rho c},
 \]</span> which were the units previously introduced.</p>
 <p>We introduce typical scales for each of the variables. For example, we non-dimensionalise the temperature, distance, and time by setting <span class="math display">\[
 T = [T] T', \qquad x = [x] x', \qquad t = [t] t'.
 \]</span></p>
-<p>Substitution into the equation now yields <span class="math display">\[\begin{equation}
+<p>Substitution into the equation now yields <span class="math display">\[
 \begin{aligned}
 \frac{\partial T'}{\partial t'} &amp;= \frac{\kappa[t]}{[x]^2}\frac{\partial^2 T}{\partial x^2} \\
 T'(x', 0) &amp;= T_\text{init} \\
 T'(0, t') &amp;= \frac{T_a}{[T]} \\
 T'(L/[x], t') &amp;= \frac{T_b}{[T]}.
 \end{aligned}
-\end{equation}\]</span></p>
+\]</span></p>
 <p>Be sure to work out the above for yourself. For example, notice that the previous boundary at <span class="math inline">\(x = L\)</span> is now sent to <span class="math inline">\(x' = L/[x]\)</span>. Now we see that the final equation is beautifully simple: At this point, we can identify a crucial non-dimensional parameter given by <span class="math display">\[
 \Pi = \frac{\kappa [t]}{[x]^2} = \frac{k [t]}{\rho c [x]^2}.
 \]</span></p>
