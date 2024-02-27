@@ -392,6 +392,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -446,16 +452,19 @@ window.Quarto = {
 <p>If <span class="math inline">\(\int_a^b g(x) \, \mathrm{d}x = 0\)</span> for all <span class="math inline">\(a\)</span> and <span class="math inline">\(b \in [0, 1]\)</span>, then <span class="math inline">\(g(x) \equiv 0\)</span> for all <span class="math inline">\(x\in [0, 1]\)</span>.</p>
 <p><em>Hint:</em> think of a proof by contradiction.</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Assume by contradiction that <span class="math inline">\(f(x) \neq 0\)</span> between two arbitrary points, say <span class="math inline">\(x_0\)</span> and <span class="math inline">\(x_1\)</span>, both in the interval <span class="math inline">\([a, b]\)</span>. Then <span class="math inline">\(\int_{x_0}^{x_1} f(x) \mathrm{d}x \neq 0\)</span>. This assumes some degree of smoothness and integrability (as long as <span class="math inline">\(f\)</span> is not too pathological).</p>
+</div>
 </div>
 </div>
 </section>
@@ -470,14 +479,16 @@ Solution
 <li>By studying the dimensions of the other terms in the above equation, find what the dimensions of <span class="math inline">\(R\)</span> are. What does <span class="math inline">\(R &gt; 0\)</span> mean and <span class="math inline">\(R &lt; 0\)</span>?</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>On the left, density has units kg/m^3, specific heat J/(kg K), and temperature K. But then dx has units of m. And d/dt has units of 1/s. So altogether, we have the following SI units on the left: <span class="math display">\[
 \frac{J}{m^2 \cdot s}
@@ -489,36 +500,42 @@ Solution
 <p>R &gt; 0 means heat is added into the system (source). R &lt; 0 means heat is removed from the system (sink).</p>
 </div>
 </div>
+</div>
 <ol start="2" type="a">
 <li>Hence derive the partial differential equation that governs the temperature <span class="math inline">\(T\)</span>.</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The derivation follows exactly as in the notes, except you have an additional term on the RHS. Use Fourier’s law to convert <span class="math inline">\(q = -k \partial T/\partial x\)</span>. Write everything under the integral and this yields: <span class="math display">\[
 \rho c \frac{\mathrm{\partial}T}{\mathrm{\partial}t} = k \frac{\mathrm{\partial}^2 T}{\mathrm{\partial}x^2} + R.
 \]</span></p>
 </div>
 </div>
+</div>
 <ol start="3" type="a">
 <li>By introducing the appropriate scalings on each of the variables, <span class="math inline">\(x\)</span>, <span class="math inline">\(t\)</span>, and <span class="math inline">\(T\)</span>, non-dimensionalise the PDE and discuss the non-dimensional parameters (there will be two).</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Same derivation as in the notes. Let <span class="math display">\[
 x = L x', T = [T]T' \quad \text{and} \quad t = [t]t'.
@@ -535,6 +552,7 @@ R = [R]R'.
 \end{align}\]</span></p>
 <p>If you want, you can write it in the alternative form by taking the time scaling to be <span class="math inline">\([t] = L/U\)</span>, where <span class="math inline">\(U\)</span> is some unspecified velocity scale.</p>
 <p>For the interpretation, you can simply take <span class="math inline">\(\Pi_1\)</span> to be a measure of diffusive effects (heat spreading out) and <span class="math inline">\(\Pi_2\)</span> to be a measure of source strength. Note that this problem can be simplified even further by choosing the time scale so as to set <span class="math inline">\(\Pi_1 = 1\)</span>. If you do this, you will be left with a single non-dimensional parameter that balances diffusion with the strength of the source.</p>
+</div>
 </div>
 </div>
 </section>
@@ -570,14 +588,16 @@ NB!
 <li>Explain the physical interpretation of the limits.</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="i">
 <li>Very fast initial velocity</li>
@@ -587,6 +607,7 @@ Solution
 </ol>
 </div>
 </div>
+</div>
 <ol start="2" type="a">
 <li>Choose the scalings <span class="math inline">\(L\)</span> and <span class="math inline">\(T\)</span> to normalise as many terms as possible.</li>
 <li>Choose the scalings so that the time it takes for the projectile to fall should be finite for the given limit, and for the speed, acceleration, and initial height to be well behaved (finite).</li>
@@ -594,17 +615,20 @@ Solution
 <li>Identify the limiting small parameter for each case. Write out the problem (leading-order problem) when the parameter is set to zero.</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The solution for parts (b) to (d) is given below. The solution for part (e) is simply setting <span class="math inline">\(\epsilon = 0\)</span> in each case.</p>
 <p><img src="figures/witelski_Q4.png" class="img-fluid"></p>
+</div>
 </div>
 </div>
 </section>
@@ -622,30 +646,35 @@ T(L, t) &amp;= T_b.
 <li>What must the units of <span class="math inline">\(\omega\)</span> be?</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Note <span class="math inline">\(\omega t\)</span> must be unitless. Therefore <span class="math inline">\([\omega] = 1/s\)</span>.</p>
+</div>
 </div>
 </div>
 <ol start="2" type="a">
 <li>Non-dimensionalise as usual and, without selecting the timescale, <span class="math inline">\([t]\)</span>, identify the key non-dimensional parameters that remain. Write a brief sentence to describe their physical interpretation.</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>This is exactly the same as in the above heat question. You will still obtain</p>
 <p><span class="math display">\[
@@ -654,27 +683,35 @@ Solution
 \]</span> where the non-dimensional parameters is the Peclet number introduced in lectures: <span class="math display">\[
 \Pi_1 = \left(\frac{k[t]}{L^2 \rho c}\right).
 \]</span></p>
-<p>The main difference is that now, your boundary condition is <span class="math display">\[
-T'(0, t') = \frac{T_a}{T_0} \cos (\Pi_2 t'),
+<p>The main difference is that now, your boundary conditions are <span class="math display">\[
+T'(0, t') = \Pi_3 \cos (\Pi_2 t') \quad \text{and} \quad
+T'(1, t') = \Pi_4
 \]</span> where <span class="math display">\[
-\Pi_2 = \omega [t].
+\Pi_2 = \omega [t], \qquad \Pi_3 = \frac{T_a}{T_0}, \qquad Pi_4 = T_b/T_0.
 \]</span></p>
+<p>The scaling on the temperature was taken to be such that the final initial condition is set to unity: <span class="math display">\[
+T'(x', 0) = 1.
+\]</span></p>
+</div>
 </div>
 </div>
 <ol start="3" type="a">
 <li>There are two sensible choices for setting the timescale, <span class="math inline">\([t]\)</span>. Identify the two choices and present the reduced set of equations in each case.</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>So there are now two ways of choosing the time scale. Either choose it to set <span class="math inline">\(\Pi_1 = 1\)</span> or choose it to set <span class="math inline">\(\Pi_2 = 1\)</span>. In the former choice, you are choosing to set time according to the diffusive rate. In the latter, you are setting time according to how the boundary is heated.</p>
+</div>
 </div>
 </div>
 </section>
@@ -688,14 +725,16 @@ c \frac{\mathrm{d}T}{\mathrm{d}t} = \frac{1}{4} Q(1 - a) - \sigma \gamma T^4.
 <li>Non-dimensionalise the model by choosing <span class="math inline">\(T = [T]T'\)</span>, <span class="math inline">\(t = [t]t'\)</span>, and <span class="math inline">\(Q = [Q]Q'\)</span>. Show that it is possible to select the scalings on the temperature and time so as to completely remove all constants from the problem when <span class="math inline">\(Q\)</span> is assumed to be constant.</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The question’s suggestion of setting <span class="math inline">\(Q = [Q]Q'\)</span> was excessive since <span class="math inline">\(Q\)</span> is just a constant in this case. So proceeding as usual:</p>
 <p>Set in the scalings. This time it is easier to balance the right had-side first. <span class="math display">\[
@@ -708,22 +747,26 @@ c \frac{[T]}{[t]} = \sigma \gamma [T]^4 \Longrightarrow
 \]</span> Once you have done this, the equation transforms to the one given in part b.</p>
 </div>
 </div>
+</div>
 <ol start="2" type="a">
 <li>Thus, show that the analysis of the above equation is equivalent to studying <span class="math display">\[
 \frac{\mathrm{d}T}{\mathrm{d}t} = 1 - T^4,
 \]</span> where we have dropped the primes and assumed that the albedo is such that <span class="math inline">\(1 - a \neq 0\)</span>.</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Done above.</p>
+</div>
 </div>
 </div>
 <ol start="3" type="a">
@@ -732,14 +775,16 @@ Solution
 Use a pocket calculator to verify your calculations and conclude that this time-scale is on the order of a month. What is the relevance of this approximation as it concerns the steady-state solution?</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Below (<a href="../part-01-intro/basic-energy-model.html#eq-heateq-earth" class="quarto-xref">Equation&nbsp;<span>3.7</span></a>), we defined <span class="math inline">\(C = \rho c_p d\)</span>. So the scaling on time is (put in the scaling for [T]): <span class="math display">\[
 [t] = \left(\frac{4}{(1-a)}\right)^{3/4} \left(\frac{C}{(\sigma \gamma)^{1/4} Q^{3/4}}\right).
@@ -755,6 +800,7 @@ C = \rho c_p d = 10^7 J/(K \cdot m^2).
 \]</span> To convert to days, note 1 day = 24 hours = 24<em>60 minutes = 24</em>60*60 seconds. This is then <span class="math display">\[
 [t] = \frac{1.65 \times 10^7}{8.64 \times 10^4} \text{days} = 0.19 \times 10^3 \text{days} = 190 \text{days}.
 \]</span> So on the order of 6 months. Any answer you get that’s roughly on the order of months sounds about right. This is the rough approximation of how long time-scale effects take to appear.</p>
+</div>
 </div>
 </div>
 

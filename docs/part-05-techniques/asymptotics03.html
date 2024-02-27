@@ -426,6 +426,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -484,13 +490,15 @@ window.Quarto = {
 <p>Previously in <a href="../part-01-intro/basic-energy-model.html" class="quarto-xref"><span>Chapter 3</span></a>, we derived a basic equation that governs the temperature on the surface of the planet. This equation had the following form: <span class="math display">\[
 (\rho c_p V) \frac{\mathrm{d}T}{\mathrm{d}t} = E_{\text{in}}(t, T) - E_{\text{out}}(t, T).
 \]</span></p>
-<p>For the purpose of this section, let us make up a toy model. We suggest, in non-dimensional form, <span class="math display">\[\begin{align}
+<p>For the purpose of this section, let us make up a toy model. We suggest, in non-dimensional form, <span id="eq-matched-T"><span class="math display">\[
+\begin{aligned}
 \epsilon \frac{\mathrm{d}T}{\mathrm{d}t} &amp;= R(t) - T, \quad t \geq 0 \\
 T(0) &amp;= T^*,
-\end{align}\]</span> {#eq-matched-T} where we consider <span class="math inline">\(\epsilon &gt; 0\)</span> and <span class="math inline">\(\epsilon \ll 1\)</span>. You can think of the above model as modelling the temperature on a substance that radiates heat in a fashion proportional to itself (-T) and is being subjected to an (incoming) heat source, <span class="math inline">\(R\)</span>. Let us take as an example, <span class="math display">\[
+\end{aligned}
+\tag{9.1}\]</span></span> where we consider <span class="math inline">\(\epsilon &gt; 0\)</span> and <span class="math inline">\(\epsilon \ll 1\)</span>. You can think of the above model as modelling the temperature on a substance that radiates heat in a fashion proportional to itself (<span class="math inline">\(-T\)</span>) and is being subjected to an (incoming) heat source, <span class="math inline">\(R\)</span>. Let us take as an example, <span class="math display">\[
 R(t) = 1 + A \cos(t).
 \]</span> Our choice for <span class="math inline">\(R\)</span> is not so important. This equation is, in fact, solvable in closed form (how?) but let us get additional practice solving numerically.</p>
-<div id="874c0b9e" class="cell" data-execution_count="1">
+<div id="e5168bb5" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> solve_ivp</span>
@@ -521,7 +529,7 @@ R(t) = 1 + A \cos(t).
 <h2 data-number="9.1" class="anchored" data-anchor-id="boundary-layer-theory"><span class="header-section-number">9.1</span> Boundary layer theory</h2>
 <p>We seek a method that will allow us to develop a uniformly valid approximation, i.e.&nbsp;an approximation that is good everywhere in the relevant domain, <span class="math inline">\(t \geq 0\)</span>. Begin by performing the usual asymptotic approximation: <span class="math display">\[
 T(t) = T_0(t) + \epsilon T_1(t) + \epsilon^2 T_2(t) + \ldots
-\]</span> Substitution into the ODE (<span class="quarto-unresolved-ref">?eq-matched-T</span>) yields at leading order, <span class="math display">\[
+\]</span> Substitution into the ODE (<a href="#eq-matched-T" class="quarto-xref">Equation&nbsp;<span>9.1</span></a>) yields at leading order, <span class="math display">\[
 0 = R(t) - T_0(t) \Longrightarrow T_0(t) = R(t) = 1 + A \cos(t).
 \]</span> As we have noted, this approximation fails to satisfy the initial condition, <span class="math inline">\(T(0) = T^*\)</span> in general. It is possible to go to higher order but this is not so important at the moment. So for now, we have obtained: <span class="math display">\[
 T_{\text{outer}} \sim \Bigl[ 1 + A\cos t\Bigr].
@@ -554,27 +562,31 @@ R( \epsilon^{\alpha} s) \sim 1 + A.
 <p>Therefore, the correct coordinate re-scaling was the ‘obvious’ one: <span class="math display">\[
 t = \epsilon s.
 \]</span></p>
-<p>Substituting this again in (<span class="quarto-unresolved-ref">?eq-matched-T</span>): <span class="math display">\[\begin{align}
+<p>Substituting this again in (<a href="#eq-matched-T" class="quarto-xref">Equation&nbsp;<span>9.1</span></a>): <span class="math display">\[
+\begin{aligned}
 \frac{\mathrm{d}U}{\mathrm{d}s} &amp;= 1 + A\cos(\epsilon s) - U, \\
 U(0) &amp;= T^*.
-\end{align}\]</span></p>
+\end{aligned}
+\]</span></p>
 <p>The procedure is now exactly the same. We expand <span class="math display">\[
 U(s) = U_0(s) + \epsilon U_1(s) + \epsilon^2 U_2(s) + \ldots
-\]</span> At leading order, we get <span class="math display">\[\begin{align}
+\]</span> At leading order, we get <span class="math display">\[
+\begin{aligned}
 U_0' &amp;= 1 + A - U_0 \\
 U_0(0) &amp;= T^*.
-\end{align}\]</span></p>
+\end{aligned}
+\]</span></p>
 <p>The above ODE can be solved by integrating factors. Multiplying both sides be <span class="math inline">\(e^s\)</span>, we have <span class="math display">\[
 (U_0 e^s)' = (1 + A)e^s.
 \]</span> Integrate and use the initial condition: <span class="math display">\[
 U_0(s) = (1 + A) + (T^* - (1 +A))e^{-s}.
 \]</span> This is exactly what we expect. Notice that <span id="eq-matched-matchingcond"><span class="math display">\[
 \lim_{s \to \infty} U_0(s) = \lim_{t \to 0} T_{\text{outer}}
-\tag{9.1}\]</span></span> therefore the outer limit of our inner solution matches the inner limit of our outer solution. In terms of outer coordinates, our inner solution is approximated as follows: <span class="math display">\[
+\tag{9.2}\]</span></span> therefore the outer limit of our inner solution matches the inner limit of our outer solution. In terms of outer coordinates, our inner solution is approximated as follows: <span class="math display">\[
 T_{\text{inner}} \sim (1 + A) + (T^* - (1 +A))e^{-t/\epsilon}.
 \]</span></p>
 <p>Let’s finally plot this with our previous curves:</p>
-<div id="6d6e501b" class="cell" data-execution_count="2">
+<div id="e3a9bbb8" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> solve_ivp</span>

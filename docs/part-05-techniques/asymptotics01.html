@@ -426,6 +426,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -501,11 +507,13 @@ x = x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots
 \epsilon \Bigl(x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots\Bigr)^2 + \Bigl( x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots \Bigr) - 1 = 0.
 \]</span> Expand and collect terms in powers of <span class="math inline">\(\epsilon\)</span>: <span class="math display">\[
 \Bigl( x_0 - 1 \Bigr) + \epsilon\Bigl(x_1 + x_0^2\Bigr) + \epsilon^2\Bigl(x_2 + 2 x_0 x_1\Bigr) + \ldots = 0.
-\]</span> Now we equate coefficients at each order in <span class="math inline">\(\epsilon\)</span>. This gives <span class="math display">\[\begin{align}
+\]</span> Now we equate coefficients at each order in <span class="math inline">\(\epsilon\)</span>. This gives <span class="math display">\[
+\begin{aligned}
 x_0 - 1 &amp;= 0 \Longrightarrow x_0 = 1 \\
 x_1 + x_0^2 &amp;= 0 \Longrightarrow x_1 = -1 \\
 x_2 + 2 x_0 x_1 &amp;= 0 \Longrightarrow x_2 = 2
-\end{align}\]</span> We therefore have obtained the three-term approximation, <span class="math display">\[
+\end{aligned}
+\]</span> We therefore have obtained the three-term approximation, <span class="math display">\[
 x = 1 - \epsilon + 2\epsilon^2 + \ldots
 \]</span> Clearly we could continue this process <em>ad infinitum</em> obtaining increasingly accurate approximations to one of the roots.</p>
 <section id="sec-asym1-singular" class="level3" data-number="5.1.1">
@@ -523,14 +531,16 @@ X^2 + X - \epsilon = 0.
 X = X_0 + \epsilon X_1 + \epsilon^2 X_2 + \ldots
 \]</span> and attempt to solve order by order. Substitution into the equation yields <span class="math display">\[
 \Bigl(X_0 + \epsilon X_1 + \epsilon^2 X_2 + \ldots\Bigr)^2 + \Bigl(X_0 + \epsilon X_1 + \epsilon^2 X_2 + \ldots\Bigr) - \epsilon = 0.
-\]</span> Expand and collect orders of <span class="math inline">\(\epsilon\)</span>: <span class="math display">\[\begin{align}
+\]</span> Expand and collect orders of <span class="math inline">\(\epsilon\)</span>: <span class="math display">\[
+\begin{aligned}
 X_0^2 + X_0 &amp;= 0 \Longrightarrow X_0 = -1 \\
 2X_0 X_1 + X_1 -1 &amp;= 0 \Longrightarrow X_0 = -1,
-\end{align}\]</span> and thus to two orders, we have <span class="math display">\[
+\end{aligned}
+\]</span> and thus to two orders, we have <span class="math display">\[
 X = -1 - \epsilon + \ldots \Longrightarrow x = - \frac{1}{\epsilon} - 1 + \ldots
 \]</span></p>
 <p>Of course, we have used a very simple example (a solvable quadratic) to illustrate the idea of asymptotic approximations, but you should hopefully see that this method is extensible to much more complicated equations.</p>
-<div id="ce30b5eb" class="cell" data-execution_count="1">
+<div id="59c1a6b6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -560,7 +570,7 @@ We want to now explain the procedure from which we can estimate solutions of equ
 
 Let us explain the procedure with a simple example. It is best to select an example from which we already know the solution. We seek solutions of the equation 
 
-::: {#1caa67ef .cell execution_count=2}
+::: {#20b8415f .cell execution_count=2}
 ``` {.python .cell-code}
 import numpy as np
 import matplotlib.pyplot as plt
@@ -668,11 +678,12 @@ The most important lesson to grasp (beyond following the manipulations above) is
 <section id="order-notation-and-the-tilde-sign-for-asymptotic" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="order-notation-and-the-tilde-sign-for-asymptotic"><span class="header-section-number">5.2</span> Order notation and the tilde sign for asymptotic</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>We define precisely what we mean when we say that two functions, say <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>, exhibit the same behaviour in some limit, say <span class="math inline">\(\epsilon \to 0\)</span> or <span class="math inline">\(x \to x_0\)</span> or <span class="math inline">\(x \to \infty\)</span> and so forth. For instance, we claim that the graphs of <span class="math inline">\(\sin(x)\)</span> and <span class="math inline">\(x\)</span> look very similar as <span class="math inline">\(x \to 0\)</span>. Thus we might write <span class="math display">\[\begin{equation}\label{eq-sin}
-    \sin(x) \sim x \quad \text{as $x \to 0$}.
-\end{equation}\]</span> This notion of allows us to specify functional behaviours at a deeper level than just limits. As you can see, it is not as useful to specify that <span class="math display">\[
+<p>We define precisely what we mean when we say that two functions, say <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>, exhibit the same behaviour in some limit, say <span class="math inline">\(\epsilon \to 0\)</span> or <span class="math inline">\(x \to x_0\)</span> or <span class="math inline">\(x \to \infty\)</span> and so forth. For instance, we claim that the graphs of <span class="math inline">\(\sin(x)\)</span> and <span class="math inline">\(x\)</span> look very similar as <span class="math inline">\(x \to 0\)</span>. Thus we might write <span id="eq-sin"><span class="math display">\[
+    \sin(x) \sim x \quad \text{as $x \to 0$.}
+\tag{5.2}\]</span></span></p>
+<p>This notation of similarity allows us to specify functional behaviours at a deeper level than just limits. As you can see, it is not as useful to specify that <span class="math display">\[
 \lim_{x \to 0} \sin{x} = \lim_{x\to 0} x.
-\]</span> In contrast, (<span class="quarto-unresolved-ref">?eq-sin</span>) is much more prescriptive about the way that the functions are approaching the limit.</p>
+\]</span> In contrast, the asymptotic relation is much more prescriptive about the way that the functions are approaching the limit.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

@@ -412,6 +412,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -531,6 +537,8 @@ T(L, t) &amp;= T_b.
 \]</span> which were the units previously introduced.</p>
 <p>We introduce typical scales for each of the variables. For example, we non-dimensionalise the temperature, distance, and time by setting <span class="math display">\[
 T = [T] T', \qquad x = [x] x', \qquad t = [t] t'.
+\]</span> Remember that via the chain rule, we have that <span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d}x} = \frac{\mathrm{d}x'}{\mathrm{d}x} \frac{\mathrm{d}}{\mathrm{d}x'} = \frac{1}{[x]} \frac{\mathrm{d}}{\mathrm{d}x'}.
 \]</span></p>
 <p>Substitution into the equation now yields <span class="math display">\[
 \begin{aligned}
