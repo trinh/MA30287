@@ -320,531 +320,509 @@
     ]
   },
   {
-    "objectID": "part-xx-exercises/problemclass02.html",
-    "href": "part-xx-exercises/problemclass02.html",
-    "title": "7  Problem class 2",
-    "section": "",
-    "text": "This problem class will be covered in Monday Week 4.",
-    "crumbs": [
-      "Practical applied mathematics",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Problem class 2</span>"
-    ]
-  },
-  {
     "objectID": "part-05-techniques/euler.html",
     "href": "part-05-techniques/euler.html",
-    "title": "8  Numerical solutions of IVPs",
+    "title": "7  Numerical solutions of IVPs",
     "section": "",
     "text": "In the previous section, we used built-in ODE solvers to develop numerical solutions. It is important to gain an understanding how a simple ODE solver works. The simplest scheme is called Euler’s method, and this we now explain.\nBegin from the system (Equation 6.2). We assume that the solution is represented by a discrete set of points, \\(\\mathbf{Y}_n = \\mathbf{Y}(t_n)\\) at the times \\(t_0 = 0\\), \\(t_1 = \\Delta t\\), \\(t_2 = 2\\Delta t\\), and so on. The time derivative is written as a discrete derivative while we approximate the right hand side by its value at the nth time step: \\[\n\\frac{\\mathbf{Y}_{n+1} - \\mathbf{Y}_{n}}{\\Delta t} = \\mathbf{F}(t_n, \\mathbf{Y}_n)\n\\]\nRearranging yields a very simple algorithm for solving the ODE: \\[\n\\mathbf{Y}_{n} = \\mathbf{Y}_{n-1} + \\mathbf{F}(t_{n-1}, \\mathbf{Y}_{n-1}) \\Delta t\n\\] for \\(n = 1, 2, 3, \\ldots\\)\nThis would be implemented via the following pseudocode:\n\n\n\n\n\n\nEuler’s method\n\n\n\n1. Input: function f(t, Y)  \n            time step, dt\n            initial condition, Y0\n\n2. Set initial condition Y = Y0\n\n2. Take one Euler step and overwrite previous value\n\n                 Y = Y + f(t, Y)\n\n3. Increment t by dt and goto 2\n\n\nEuler’s method is conceptually simple but quite inaccurate. But in this case, we see that it works fairly well in comparison to the built-in solvers.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.integrate import solve_ivp\n\nep = 0.2            # epsilon value\ntmax = 2            # max time\nN = 20              # number of steps\nt = np.linspace(0, tmax, N) # mesh used for plotting\ndt = t[1] - t[0]\n\n# Define function for the ODE\ndef f(t, Y, ep):\n    y, yp = Y\n    ypp = -1/(1 + ep*y)**2\n    return np.array([yp, ypp])\n\n# define the initial condition\nY = [0.0, 1.0]\nti = 0\n\n# define the solution vector\nfor i in range(1, N):\n    ti = ti + dt  # Increment time\n    Y = Y + f(ti, Y, ep)*dt # Euler step\n    plt.plot(ti, Y[0], 'k.')\n\n# Asymptotic solutions\ny0 = -1/2*t**2 + t\ny1 = -1/12*t**4 + 1/3*t**3\nplt.plot(t, y0, '--')\nplt.plot(t, y0 + ep*y1, '--')\nplt.xlabel('t');\nplt.ylabel('y');",
     "crumbs": [
       "Practical applied mathematics",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Numerical solutions of IVPs</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Numerical solutions of IVPs</span>"
     ]
   },
   {
     "objectID": "part-05-techniques/asymptotics03.html",
     "href": "part-05-techniques/asymptotics03.html",
-    "title": "9  Asymptotic approximations III",
+    "title": "8  Asymptotic approximations III",
     "section": "",
-    "text": "9.1 Boundary layer theory\nWe seek a method that will allow us to develop a uniformly valid approximation, i.e. an approximation that is good everywhere in the relevant domain, \\(t \\geq 0\\). Begin by performing the usual asymptotic approximation: \\[\nT(t) = T_0(t) + \\epsilon T_1(t) + \\epsilon^2 T_2(t) + \\ldots\n\\] Substitution into the ODE (Equation 9.1) yields at leading order, \\[\n0 = R(t) - T_0(t) \\Longrightarrow T_0(t) = R(t) = 1 + A \\cos(t).\n\\] As we have noted, this approximation fails to satisfy the initial condition, \\(T(0) = T^*\\) in general. It is possible to go to higher order but this is not so important at the moment. So for now, we have obtained: \\[\nT_{\\text{outer}} \\sim \\Bigl[ 1 + A\\cos t\\Bigr].\n\\] We have chosen to refer to this as the outer solution for reasons that will be abundantly clear. But rather than satisfying \\(T(0) = T^*\\), this approximation has the limiting behaviour of \\[\n\\lim_{t \\to 0} T_{\\text{outer}} \\sim \\Bigl[ 1 + A\\Bigr]\n\\] Above, we have only included the leading term in the limit expression.",
+    "text": "8.1 Boundary layer theory\nWe seek a method that will allow us to develop a uniformly valid approximation, i.e. an approximation that is good everywhere in the relevant domain, \\(t \\geq 0\\). Begin by performing the usual asymptotic approximation: \\[\nT(t) = T_0(t) + \\epsilon T_1(t) + \\epsilon^2 T_2(t) + \\ldots\n\\] Substitution into the ODE (Equation 8.1) yields at leading order, \\[\n0 = R(t) - T_0(t) \\Longrightarrow T_0(t) = R(t) = 1 + A \\cos(t).\n\\] As we have noted, this approximation fails to satisfy the initial condition, \\(T(0) = T^*\\) in general. It is possible to go to higher order but this is not so important at the moment. So for now, we have obtained: \\[\nT_{\\text{outer}} \\sim \\Bigl[ 1 + A\\cos t\\Bigr].\n\\] We have chosen to refer to this as the outer solution for reasons that will be abundantly clear. But rather than satisfying \\(T(0) = T^*\\), this approximation has the limiting behaviour of \\[\n\\lim_{t \\to 0} T_{\\text{outer}} \\sim \\Bigl[ 1 + A\\Bigr]\n\\] Above, we have only included the leading term in the limit expression.",
     "crumbs": [
       "Practical applied mathematics",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Asymptotic approximations III</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Asymptotic approximations III</span>"
     ]
   },
   {
     "objectID": "part-05-techniques/asymptotics03.html#boundary-layer-theory",
     "href": "part-05-techniques/asymptotics03.html#boundary-layer-theory",
-    "title": "9  Asymptotic approximations III",
+    "title": "8  Asymptotic approximations III",
     "section": "",
-    "text": "9.1.1 The inner scaling\n\\(\\nextSection\\)\nOur intuition follows a very similar logic to the examination of the singular root in Section 5.1.1. Above, our naive assumption was that \\(\\epsilon T'(t)\\) could be ignored since \\(\\epsilon\\) is a small number. However, this may not be the case if the gradient is very large.\nOur intuition further suggests that the boundary layer occurs near \\(t = 0\\) and that it scales in size with \\(\\epsilon\\). Therefore, let us set \\[\nt = \\epsilon^{\\alpha} s,\n\\] as a change of coordinates. We expect \\(\\alpha &gt; 0\\) (otherwise \\(t\\) is not small), and within this region, we expect the new coordinate, \\(s\\), to be \\(O(1)\\) (of moderate size). We then transform the unknown function: \\[\nT(t) = T(\\epsilon s) = U(s),\n\\] and seek a new differential equation for \\(U\\). By the chain rule, \\[\n\\frac{\\mathrm{d}T}{\\mathrm{d}t} = \\epsilon^{-\\alpha} \\frac{\\mathrm{d}U}{\\mathrm{d}s}.\n\\] Before substituting into the equation, we are prudent to examine the behaviour of \\(R(t)\\) near \\(t = 0\\). We know by Taylor’s theorem that \\[\nR(t) = 1 + A \\left(1 - \\frac{t^2}{2} + \\ldots \\right).\n\\] Therefore, under the substitution, we may approximate \\(R\\) by its leading terms: \\[\nR( \\epsilon^{\\alpha} s) \\sim 1 + A.\n\\] For now, we will not need more terms than this. Substituting into the ODE now gives \\[\n\\epsilon^{1-\\alpha} \\frac{\\mathrm{d}U}{\\mathrm{d}s} \\sim \\Bigl[1 + A\\Bigr] - U.\n\\] Now in order to involve the first term, it is sensible to select \\[\n1 - \\alpha = 0 \\Longrightarrow \\alpha = 1.\n\\]\n\n\n9.1.2 The inner equation\n\\(\\nextSection\\)\nTherefore, the correct coordinate re-scaling was the ‘obvious’ one: \\[\nt = \\epsilon s.\n\\]\nSubstituting this again in (Equation 9.1): \\[\n\\begin{aligned}\n\\frac{\\mathrm{d}U}{\\mathrm{d}s} &= 1 + A\\cos(\\epsilon s) - U, \\\\\nU(0) &= T^*.\n\\end{aligned}\n\\]\nThe procedure is now exactly the same. We expand \\[\nU(s) = U_0(s) + \\epsilon U_1(s) + \\epsilon^2 U_2(s) + \\ldots\n\\] At leading order, we get \\[\n\\begin{aligned}\nU_0' &= 1 + A - U_0 \\\\\nU_0(0) &= T^*.\n\\end{aligned}\n\\]\nThe above ODE can be solved by integrating factors. Multiplying both sides be \\(e^s\\), we have \\[\n(U_0 e^s)' = (1 + A)e^s.\n\\] Integrate and use the initial condition: \\[\nU_0(s) = (1 + A) + (T^* - (1 +A))e^{-s}.\n\\] This is exactly what we expect. Notice that \\[\n\\lim_{s \\to \\infty} U_0(s) = \\lim_{t \\to 0} T_{\\text{outer}}\n\\tag{9.2}\\] therefore the outer limit of our inner solution matches the inner limit of our outer solution. In terms of outer coordinates, our inner solution is approximated as follows: \\[\nT_{\\text{inner}} \\sim (1 + A) + (T^* - (1 +A))e^{-t/\\epsilon}.\n\\]\nLet’s finally plot this with our previous curves:\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.integrate import solve_ivp\n\nTs = 0\nep = 0.2\nA = 0.1\nf = lambda t, T: 1/ep*(1 + A*np.cos(t) - T)\n\ntmax = 20\nsol = solve_ivp(f, [0, tmax], [Ts], dense_output=True)\n\nt = np.linspace(0, tmax, 1000)\ny = sol.sol(t)\nplt.plot(t, y[0])\nplt.plot(t, 1 + A*np.cos(t), '--')\nplt.plot(t, (1 + A) + (Ts - (1 + A))*np.exp(-t/ep), '--')\n\n\n\n\n\n\n\n\nIt works beautifully!\n\n\n9.1.3 Summary\n\\(\\nextSection\\)\nLet us summarise the procedure of matched asymptotics.\n\nExpand the solution of the differential equation naively in the typical asymptotic expansion (e.g. in powers of \\(\\epsilon\\)).\nNotice that the approximation does not satisfy certain boundary conditions.\nRe-scale the coordinates in the ‘inner’ regions.\nDevelop an inner solution that satisfies the boundary condition. Ensure it matches the outer solution.\n\nYou will get more practice of this procedure in the problem sets.",
+    "text": "8.1.1 The inner scaling\n\\(\\nextSection\\)\nOur intuition follows a very similar logic to the examination of the singular root in Section 5.1.1. Above, our naive assumption was that \\(\\epsilon T'(t)\\) could be ignored since \\(\\epsilon\\) is a small number. However, this may not be the case if the gradient is very large.\nOur intuition further suggests that the boundary layer occurs near \\(t = 0\\) and that it scales in size with \\(\\epsilon\\). Therefore, let us set \\[\nt = \\epsilon^{\\alpha} s,\n\\] as a change of coordinates. We expect \\(\\alpha &gt; 0\\) (otherwise \\(t\\) is not small), and within this region, we expect the new coordinate, \\(s\\), to be \\(O(1)\\) (of moderate size). We then transform the unknown function: \\[\nT(t) = T(\\epsilon s) = U(s),\n\\] and seek a new differential equation for \\(U\\). By the chain rule, \\[\n\\frac{\\mathrm{d}T}{\\mathrm{d}t} = \\epsilon^{-\\alpha} \\frac{\\mathrm{d}U}{\\mathrm{d}s}.\n\\] Before substituting into the equation, we are prudent to examine the behaviour of \\(R(t)\\) near \\(t = 0\\). We know by Taylor’s theorem that \\[\nR(t) = 1 + A \\left(1 - \\frac{t^2}{2} + \\ldots \\right).\n\\] Therefore, under the substitution, we may approximate \\(R\\) by its leading terms: \\[\nR( \\epsilon^{\\alpha} s) \\sim 1 + A.\n\\] For now, we will not need more terms than this. Substituting into the ODE now gives \\[\n\\epsilon^{1-\\alpha} \\frac{\\mathrm{d}U}{\\mathrm{d}s} \\sim \\Bigl[1 + A\\Bigr] - U.\n\\] Now in order to involve the first term, it is sensible to select \\[\n1 - \\alpha = 0 \\Longrightarrow \\alpha = 1.\n\\]\n\n\n8.1.2 The inner equation\n\\(\\nextSection\\)\nTherefore, the correct coordinate re-scaling was the ‘obvious’ one: \\[\nt = \\epsilon s.\n\\]\nSubstituting this again in (Equation 8.1): \\[\n\\begin{aligned}\n\\frac{\\mathrm{d}U}{\\mathrm{d}s} &= 1 + A\\cos(\\epsilon s) - U, \\\\\nU(0) &= T^*.\n\\end{aligned}\n\\]\nThe procedure is now exactly the same. We expand \\[\nU(s) = U_0(s) + \\epsilon U_1(s) + \\epsilon^2 U_2(s) + \\ldots\n\\] At leading order, we get \\[\n\\begin{aligned}\nU_0' &= 1 + A - U_0 \\\\\nU_0(0) &= T^*.\n\\end{aligned}\n\\]\nThe above ODE can be solved by integrating factors. Multiplying both sides be \\(e^s\\), we have \\[\n(U_0 e^s)' = (1 + A)e^s.\n\\] Integrate and use the initial condition: \\[\nU_0(s) = (1 + A) + (T^* - (1 +A))e^{-s}.\n\\] This is exactly what we expect. Notice that \\[\n\\lim_{s \\to \\infty} U_0(s) = \\lim_{t \\to 0} T_{\\text{outer}}\n\\tag{8.2}\\] therefore the outer limit of our inner solution matches the inner limit of our outer solution. In terms of outer coordinates, our inner solution is approximated as follows: \\[\nT_{\\text{inner}} \\sim (1 + A) + (T^* - (1 +A))e^{-t/\\epsilon}.\n\\]\nLet’s finally plot this with our previous curves:\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.integrate import solve_ivp\n\nTs = 0\nep = 0.2\nA = 0.1\nf = lambda t, T: 1/ep*(1 + A*np.cos(t) - T)\n\ntmax = 20\nsol = solve_ivp(f, [0, tmax], [Ts], dense_output=True)\n\nt = np.linspace(0, tmax, 1000)\ny = sol.sol(t)\nplt.plot(t, y[0])\nplt.plot(t, 1 + A*np.cos(t), '--')\nplt.plot(t, (1 + A) + (Ts - (1 + A))*np.exp(-t/ep), '--')\n\n\n\n\n\n\n\n\nIt works beautifully!\n\n\n8.1.3 Summary\n\\(\\nextSection\\)\nLet us summarise the procedure of matched asymptotics.\n\nExpand the solution of the differential equation naively in the typical asymptotic expansion (e.g. in powers of \\(\\epsilon\\)).\nNotice that the approximation does not satisfy certain boundary conditions.\nRe-scale the coordinates in the ‘inner’ regions.\nDevelop an inner solution that satisfies the boundary condition. Ensure it matches the outer solution.\n\nYou will get more practice of this procedure in the problem sets.",
     "crumbs": [
       "Practical applied mathematics",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Asymptotic approximations III</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Asymptotic approximations III</span>"
     ]
   },
   {
     "objectID": "part-05-techniques/newtons.html",
     "href": "part-05-techniques/newtons.html",
-    "title": "10  Newton’s method",
+    "title": "10  Nonlinear root finding",
     "section": "",
     "text": "10.1 Demo of Newton’s method for scalar equations\nHere is a simple demonstration of Newton’s method in order to solve for one of the roots of the following: \\[\nf(x) = x^3 + x - 1.\n\\]\nWe will start with the initial guess of \\(x_0 = 0\\). We can do this by hand in lectures using a pocket calculator. The solution is \\(x^* \\approx 0.6823278..\\)\nimport numpy as np\n\nx0 = 0\nN = 10\n\ndef Newton(f, df, x, maxiter=10):\n    i = 0\n    while (i &lt; maxiter):\n        err = f(x)\n        x = x - err / df(x)\n        print(\"f(x) = \", np.abs(err), \", x = \", x)\n        i = i + 1\n    return x, err\n\nf = lambda x: x**3 + x - 1\ndf = lambda x: 3*x**2 + 1\n\nx, err = Newton(f, df, x0, N)\nprint(\"Final approximation = \", x)\n\nf(x) =  1 , x =  1.0\nf(x) =  1.0 , x =  0.75\nf(x) =  0.171875 , x =  0.686046511627907\nf(x) =  0.008941036638283384 , x =  0.6823395825973142\nf(x) =  2.823062168566537e-05 , x =  0.6823278039465127\nf(x) =  2.839946056099052e-10 , x =  0.6823278038280194\nf(x) =  2.220446049250313e-16 , x =  0.6823278038280193\nf(x) =  1.1102230246251565e-16 , x =  0.6823278038280193\nf(x) =  1.1102230246251565e-16 , x =  0.6823278038280193\nf(x) =  1.1102230246251565e-16 , x =  0.6823278038280193\nFinal approximation =  0.6823278038280193\nIt is a good idea to also learn how to do this using built-in packages. The ‘fsolve’ function provides a Newton-like nonlinear solver. In fact, it can estimate the Jacobian (derivative), so only the function values need to be provided.\nimport numpy as np\nfrom scipy.optimize import fsolve\n\nf = lambda x: x**3 + x - 1\n\nx0 = 1\nx, info, ier, msg = fsolve(f, x0, full_output=True)\n\nprint(msg)\nprint(x)\n\nThe solution converged.\n[0.6823278]",
     "crumbs": [
       "Practical applied mathematics",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Newton's method</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Nonlinear root finding</span>"
     ]
   },
   {
     "objectID": "part-05-techniques/newtons.html#demo-of-newtons-method-for-scalar-equations",
     "href": "part-05-techniques/newtons.html#demo-of-newtons-method-for-scalar-equations",
-    "title": "10  Newton’s method",
+    "title": "10  Nonlinear root finding",
     "section": "",
     "text": "i\nxi\nf(xi)\nf’(xi)\n-f(xi)/f’(xi)\nerror\n\n\n\n\n0\n\n\n\n\n\n\n\n1\n\n\n\n\n\n\n\n2",
     "crumbs": [
       "Practical applied mathematics",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Newton's method</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Nonlinear root finding</span>"
     ]
   },
   {
     "objectID": "part-05-techniques/newtons.html#newtons-method-for-systems-of-nonlinear-equations",
     "href": "part-05-techniques/newtons.html#newtons-method-for-systems-of-nonlinear-equations",
-    "title": "10  Newton’s method",
+    "title": "10  Nonlinear root finding",
     "section": "10.2 Newton’s method for systems of nonlinear equations",
     "text": "10.2 Newton’s method for systems of nonlinear equations\n\\(\\nextSection\\)\nNewton’s method generalises naturally to the case of a system of equations. Suppose we wish to solve for the \\(n\\) unknowns \\(\\mathbf{x} = (x_1, \\ldots, x_n)\\) via \\[\n\\mathbf{F(\\mathbf{x}}) =\n\\begin{pmatrix}\nF_1(\\mathbf{x}) \\\\\nF_2(\\mathbf{x}) \\\\\n\\ldots \\\\\nF_n(\\mathbf{x})\n\\end{pmatrix} = 0.\n\\]\nWe have, via Taylor’s formula, \\[\n\\mathbf{F}(\\mathbf{x}_{i+1}) \\sim  \\mathbf{F(\\mathbf{x}_i}) + J(\\mathbf{x}_i)(\\mathbf{x}_{i+1} - \\mathbf{x}_i) + \\mathcal{O}(||\\mathbf{x}_{i+1} - \\mathbf{x}_i||^2),\n\\] where \\(J\\) is the Jacobian matrix \\[\nJ(\\mathbf{x}) = \\nabla \\mathbf{F}(\\mathbf{x}) =\n\\begin{pmatrix}\n\\frac{\\mathrm{\\partial}F_1}{\\mathrm{\\partial}x_1} &\n\\cdots &\n\\frac{\\mathrm{\\partial}F_1}{\\mathrm{\\partial}x_n} \\\\\n\\vdots & \\ddots & \\vdots \\\\\n\\frac{\\mathrm{\\partial}F_n}{\\mathrm{\\partial}x_1} &\n\\cdots &\n\\frac{\\mathrm{\\partial}F_n}{\\mathrm{\\partial}x_n}\n\\end{pmatrix}.\n\\] Therefore, Newton’s method forms the iterates of \\[\n\\mathbf{x}_{i+1} = \\mathbf{x}_i {\\color{blue}-} J^{-1}(\\mathbf{x}_i) \\mathbf{F}(\\mathbf{x}_i),\n\\] which takes a very similar form to the scalar case.\nHowever, solution of the inverse of \\(J\\) is typically inefficient, and it is better to instead solve for \\(\\delta_{i+1} = \\mathbf{x}_{i+1} - \\mathbf{x}_i\\) via \\[\nJ(\\mathbf{x}_i) \\delta_{i+1} = - \\mathbf{F}(\\mathbf{x}_i),\n\\] and then calculate \\(\\mathbf{x}_{i+1} = \\mathbf{x}_i + \\delta_{i+1}\\). There are many ways of solving the above matrix problem efficiently using built-in routines that perform, e.g. Gaussian elimination.",
     "crumbs": [
       "Practical applied mathematics",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Newton's method</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Nonlinear root finding</span>"
     ]
   },
   {
     "objectID": "part-05-techniques/newtons.html#secant-method",
     "href": "part-05-techniques/newtons.html#secant-method",
-    "title": "10  Newton’s method",
+    "title": "10  Nonlinear root finding",
     "section": "10.3 Secant method",
     "text": "10.3 Secant method\n\\(\\nextSection\\)\nIn many situations, evaluation of the Jacobian (or derivative) is the most time-consuming or difficult part of a nonlinear solver. Built-in solvers like ‘fsolve’, in fact, have the ability to approximate the derivative numerically.\nThe Secant Method is similar to Newton’s Method but replaces the derivative by a finite difference. Geometrically, the tangent line is replaced with a line through the two last known guesses. The algorithm goes as follows.\n\n\n\n\n\n\nSecant method\n\n\n\n\nDevelop two initial guesses to the solution, x0 and x1\nCompute \\[\nx_{n+1} = x_n - \\frac{f(x_n)}{\\frac{f(x_n) - f(x_{n-1})}{x_n - x_{n-1}}} =  x_n - \\frac{f(x_n)(x_n - x_{n-1})}{f(x_n) - f(x_{n-1})}.\n\\]",
     "crumbs": [
       "Practical applied mathematics",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Newton's method</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Nonlinear root finding</span>"
     ]
   },
   {
-    "objectID": "part-xx-exercises/problemclass03.html",
-    "href": "part-xx-exercises/problemclass03.html",
-    "title": "11  Problem class 3",
+    "objectID": "part-05-techniques/numericalpde.html",
+    "href": "part-05-techniques/numericalpde.html",
+    "title": "11  Numerical solutions of PDEs",
     "section": "",
-    "text": "The problem class will cover matched asymptotics and Newton’s method. We will focus on getting you started on Problem Set 3, Chapter 23. In particular, we will focus on learning how to solve boundary-value problems using a combination of solve_ivp and fsolve learned in the previous two chapters.",
+    "text": "New material on solving PDEs in Python.",
     "crumbs": [
       "Practical applied mathematics",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Problem class 3</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Numerical solutions of PDEs</span>"
     ]
   },
   {
     "objectID": "part-03-box/box-energy-model.html",
     "href": "part-03-box/box-energy-model.html",
-    "title": "12  The basic EBM (steady-state)",
+    "title": "13  The basic EBM (steady-state)",
     "section": "",
-    "text": "12.1 Steady-state analysis\nPreviously, we have assumed that the planetary albedo, \\(a\\), is constant and independent of temperature. In actuality, water can turn to snow and ice and vice versa; since snow and ice have much higher albedo than open water, then we should consider \\(a = a(T)\\).\nLet us assume that there are two relevant ranges to consider: T &lt; 150K (cold) and T &gt; 280K (hot). Let us assume that the albedo is, in these two regions: \\[\na(T) \\approx\n\\begin{cases}\n0.7 & \\mathrm{if }\\ T &lt; 150\\mathrm{K}, \\\\\n0.3 & \\mathrm{if }\\ T &gt; 280\\mathrm{K}.\n\\end{cases}\n\\] The above guarantees that more energy is reflected if temperatures are low. To model this process, we can use a ramp function to specify the albedo over all temperatures: \\[\na(T) = A - B \\mathrm{tanh}\\left(k(T - 265)\\right).\n\\tag{12.2}\\] where \\(A = 0.5\\), \\(B = {\\color{blue}0.2}\\), \\(k = 0.1\\), and \\(T_0 = 265 \\mathrm{K}\\). Recall that the tanh function is given by \\[\n\\mathrm{tanh}(x) = \\frac{\\mathrm{sinh}(x)}{\\mathrm{cosh}(x)} = \\frac{e^x - e^{-x}}{e^x + e^{-x}}.\n\\]\nLet us further assume that the system is in steady state, so that the temperature is determined by solving the equation \\[\nf(T) = Q[1 - a(T)] - \\sigma \\gamma T^4 = 0.\n\\tag{12.3}\\]\nIn the following code, we plot the two terms that make up \\(f\\), and their intersections indicate roots of \\(f = 0\\). We then use the Python ‘fsolve’ function to approximate the roots given initial guesses.\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport scipy.optimize as sciopt\n\nQ = 342\nsigma = 5.67e-8 \ngamma = 0.62\n\nTT = np.linspace(220,310,50)\n\ndef fun(T):\n    a = 0.5 - 0.2*np.tanh((T - 265)/10)\n    x = (1-a)*Q\n    return x\nLHS = fun(TT)\n\nplt.plot(TT, LHS)\nplt.plot(TT, gamma*sigma*TT**4, 'k--')\n\ndef eq(T):\n    x = fun(T) - gamma*sigma*T**4\n    return x\nT1 = sciopt.fsolve(eq, 230)\nT2 = sciopt.fsolve(eq, 265)\nT3 = sciopt.fsolve(eq, 290)\nprint(\"T1 = {:.2f}\".format(T1[0]))\nprint(\"T2 = {:.2f}\".format(T2[0]))\nprint(\"T3 = {:.2f}\".format(T3[0]))\n\nT1 = 232.55\nT2 = 265.56\nT3 = 286.74\nTherefore multiple equilibria are observed.",
+    "text": "13.1 Steady-state analysis\nPreviously, we have assumed that the planetary albedo, \\(a\\), is constant and independent of temperature. In actuality, water can turn to snow and ice and vice versa; since snow and ice have much higher albedo than open water, then we should consider \\(a = a(T)\\).\nLet us assume that there are two relevant ranges to consider: T &lt; 150K (cold) and T &gt; 280K (hot). Let us assume that the albedo is, in these two regions: \\[\na(T) \\approx\n\\begin{cases}\n0.7 & \\mathrm{if }\\ T &lt; 150\\mathrm{K}, \\\\\n0.3 & \\mathrm{if }\\ T &gt; 280\\mathrm{K}.\n\\end{cases}\n\\] The above guarantees that more energy is reflected if temperatures are low. To model this process, we can use a ramp function to specify the albedo over all temperatures: \\[\na(T) = A - B \\mathrm{tanh}\\left(k(T - 265)\\right).\n\\tag{13.2}\\] where \\(A = 0.5\\), \\(B = {\\color{blue}0.2}\\), \\(k = 0.1\\), and \\(T_0 = 265 \\mathrm{K}\\). Recall that the tanh function is given by \\[\n\\mathrm{tanh}(x) = \\frac{\\mathrm{sinh}(x)}{\\mathrm{cosh}(x)} = \\frac{e^x - e^{-x}}{e^x + e^{-x}}.\n\\]\nLet us further assume that the system is in steady state, so that the temperature is determined by solving the equation \\[\nf(T) = Q[1 - a(T)] - \\sigma \\gamma T^4 = 0.\n\\tag{13.3}\\]\nIn the following code, we plot the two terms that make up \\(f\\), and their intersections indicate roots of \\(f = 0\\). We then use the Python ‘fsolve’ function to approximate the roots given initial guesses.\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport scipy.optimize as sciopt\n\nQ = 342\nsigma = 5.67e-8 \ngamma = 0.62\n\nTT = np.linspace(220,310,50)\n\ndef fun(T):\n    a = 0.5 - 0.2*np.tanh((T - 265)/10)\n    x = (1-a)*Q\n    return x\nLHS = fun(TT)\n\nplt.plot(TT, LHS)\nplt.plot(TT, gamma*sigma*TT**4, 'k--')\n\ndef eq(T):\n    x = fun(T) - gamma*sigma*T**4\n    return x\nT1 = sciopt.fsolve(eq, 230)\nT2 = sciopt.fsolve(eq, 265)\nT3 = sciopt.fsolve(eq, 290)\nprint(\"T1 = {:.2f}\".format(T1[0]))\nprint(\"T2 = {:.2f}\".format(T2[0]))\nprint(\"T3 = {:.2f}\".format(T3[0]))\n\nT1 = 232.55\nT2 = 265.56\nT3 = 286.74\nTherefore multiple equilibria are observed.",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>The basic EBM (steady-state)</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The basic EBM (steady-state)</span>"
     ]
   },
   {
     "objectID": "part-03-box/box-energy-model.html#dynamics-and-phase-line-solutions",
     "href": "part-03-box/box-energy-model.html#dynamics-and-phase-line-solutions",
-    "title": "12  The basic EBM (steady-state)",
-    "section": "12.2 Dynamics and phase line solutions",
-    "text": "12.2 Dynamics and phase line solutions\n\\(\\nextSection\\)\nThe full time-dependent model is given by \\[\nC \\frac{\\mathrm{d}T}{\\mathrm{d}t} = f(T),\n\\] so we may use the positivity or negativity of \\(f\\) in order to sketch the time-dependent behaviour of the system.\nTo see this, we can perform an asymptotic analysis near the fixed points. Let the initial condition be considered near the fixed point: \\[\nT(t = 0) = T^* + \\delta,\n\\] where \\(\\delta \\ll 1\\). Then we expand the solution into an asymptotic expansion, \\[\nT(t) = T^* + \\delta T_1(t) + \\delta T^2(t) + \\ldots\n\\] Substitution into the above ODE gives, at \\(O(\\delta)\\), \\[\nC \\frac{\\mathrm{d}T_1}{\\mathrm{d}t} = f'(T_0) T_1,\n\\] and hence, with \\(T_1(0) = 1\\), we have \\[\nT_1(t) = e^{f'(T_0) t/C}.\n\\] Therefore, depending on the positivity or negativity of the gradient function, the perturbation will either decay or grow as \\(t\\to\\infty\\).\nIt can then be verified that the centre equilbria is unstable while the other two are stable. The higher temperature corresponds to the one that the Earth is currently in, but according to this model, there seems to be the possibility of a colder climate (50 degrees colder) where the Earth is entirely covered with snow and ice.\nInterestingly, there is some evidence that the Earth’s climate may have been in this so-called state up to four times between 750 million and 580 million years ago (Neoproterozoic age). Observations of geological deposits suggest that the Earth has undergone periods of complete global glaciation where there have been very minimal biological activity. During this period, there is a massive build-up of CO2 in the atmopshere, leading to huge greenhouse effect. As \\(\\gamma\\) decreases in our model, the equilibrium can then shift, suddenly transitioning the Planet into the warm state.",
+    "title": "13  The basic EBM (steady-state)",
+    "section": "13.2 Dynamics and phase line solutions",
+    "text": "13.2 Dynamics and phase line solutions\n\\(\\nextSection\\)\nThe full time-dependent model is given by \\[\nC \\frac{\\mathrm{d}T}{\\mathrm{d}t} = f(T),\n\\] so we may use the positivity or negativity of \\(f\\) in order to sketch the time-dependent behaviour of the system.\nTo see this, we can perform an asymptotic analysis near the fixed points. Let the initial condition be considered near the fixed point: \\[\nT(t = 0) = T^* + \\delta,\n\\] where \\(\\delta \\ll 1\\). Then we expand the solution into an asymptotic expansion, \\[\nT(t) = T^* + \\delta T_1(t) + \\delta T^2(t) + \\ldots\n\\] Substitution into the above ODE gives, at \\(O(\\delta)\\), \\[\nC \\frac{\\mathrm{d}T_1}{\\mathrm{d}t} = f'(T_0) T_1,\n\\] and hence, with \\(T_1(0) = 1\\), we have \\[\nT_1(t) = e^{f'(T_0) t/C}.\n\\] Therefore, depending on the positivity or negativity of the gradient function, the perturbation will either decay or grow as \\(t\\to\\infty\\).\nIt can then be verified that the centre equilbria is unstable while the other two are stable. The higher temperature corresponds to the one that the Earth is currently in, but according to this model, there seems to be the possibility of a colder climate (50 degrees colder) where the Earth is entirely covered with snow and ice.\nInterestingly, there is some evidence that the Earth’s climate may have been in this so-called state up to four times between 750 million and 580 million years ago (Neoproterozoic age). Observations of geological deposits suggest that the Earth has undergone periods of complete global glaciation where there have been very minimal biological activity. During this period, there is a massive build-up of CO2 in the atmopshere, leading to huge greenhouse effect. As \\(\\gamma\\) decreases in our model, the equilibrium can then shift, suddenly transitioning the Planet into the warm state.",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>The basic EBM (steady-state)</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The basic EBM (steady-state)</span>"
     ]
   },
   {
     "objectID": "part-03-box/box-energy-model.html#numerical-continuation-of-the-steady-states",
     "href": "part-03-box/box-energy-model.html#numerical-continuation-of-the-steady-states",
-    "title": "12  The basic EBM (steady-state)",
-    "section": "12.3 Numerical continuation of the steady states",
-    "text": "12.3 Numerical continuation of the steady states\n\\(\\nextSection\\)\nWe have done a preliminary steady-state analysis of \\[\nQ (1 - a(T)) - \\sigma \\gamma T^4,\n\\] but we would like to better understand how these steady-states may change depending on the parameters. For example, we would like to understand how the solutions vary of the solar constant related to \\(Q\\) varies; or we would like to understand how solutions vary as \\(\\gamma\\) varies.\nMore specifically, we would like to design some numerical routines that would allow us to (smartly!) solve for the roots of the above equation as the parameters are varied. Although the above problem (roots of a single equation) is simple enough to do this in a manual way, the methods of numerical continuation we learn in this chapter is applicable to much more general set of problems.\nSuppose that we are interested in studying how the steady-states (up to three) change as \\(Q\\) changes. Then we are interested in producing a diagram of \\(Q\\) vs. \\(T\\). The basic idea is to start with an initial solution at some value of \\(Q\\), increment \\(Q\\), then solve for the next value using the previous value as a guess. This involves the following pseudocode:\n\n\n\n\n\n\nNumerical continuation\n\n\n\n1. Input guess T0, f, df, parameter Q1\n\n    a. Call Newton's method via Newton(f, df, T0, Q1) \n    b. Obtain a preliminary solution (T1, Q1)\n\n2. Increment Q1 = Q1 + dQ \n\n    a. Call Newton's method via Newton(f, df, T1, Q1)\n    b. Obtain a new solution (T1, Q1)\n\n3. Repeat 2 until we reach a desired Q value\n\n\nThe following code provides continuation for one of the roots.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.optimize import fsolve\nfrom scipy.optimize import root\n\nsigma = 5.67e-8\ngamma = 0.62\na = lambda T: 0.5 - 0.2*np.tanh((T - 265)/10)\n\nQ0 = 342\nQmat = np.linspace(250, 450, 30)\nTmat = 0*Qmat\n\n# Initial guess\nx = 220\nfor i, Q in enumerate(Qmat):\n    f = lambda T: Q*(1-a(T)) - sigma*gamma*T**4\n    sol = root(f, x)\n    # If solution not found, output error\n    if sol.success != 1:\n        print(\"Q/Q0 = \", Q/Q0, \": \", sol.message)\n    Tmat[i] = sol.x\n\nplt.plot(Qmat/Q0, Tmat, 'o');\n\nplt.xlabel('Q/Q0');\nplt.ylabel('T');\n\nQ/Q0 =  1.2754587618471467 :  The iteration is not making good progress, as measured by the \n  improvement from the last ten iterations.\nQ/Q0 =  1.2956241177656787 :  The iteration is not making good progress, as measured by the \n  improvement from the last ten iterations.\nQ/Q0 =  1.3157894736842106 :  The iteration is not making good progress, as measured by the \n  improvement from the last five Jacobian evaluations.\n\n\n/var/folders/26/pd267j_136sfv9lw7lc9rcm40000gp/T/ipykernel_15377/2481211673.py:22: DeprecationWarning: Conversion of an array with ndim &gt; 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)\n  Tmat[i] = sol.x\n\n\n\n\n\n\n\n\n\nAbove, we have scaled \\(Q\\) with the reference value of \\(Q_0 = 342\\).\nIn your lecture, problem class, or exercises, you will design continuation on the other branches of solutions, and then study the result and its implications. During the lecture, we studied MA30287/notebooks/lecture13_EBM.ipynb which can be found at this link.",
+    "title": "13  The basic EBM (steady-state)",
+    "section": "13.3 Numerical continuation of the steady states",
+    "text": "13.3 Numerical continuation of the steady states\n\\(\\nextSection\\)\nWe have done a preliminary steady-state analysis of \\[\nQ (1 - a(T)) - \\sigma \\gamma T^4,\n\\] but we would like to better understand how these steady-states may change depending on the parameters. For example, we would like to understand how the solutions vary of the solar constant related to \\(Q\\) varies; or we would like to understand how solutions vary as \\(\\gamma\\) varies.\nMore specifically, we would like to design some numerical routines that would allow us to (smartly!) solve for the roots of the above equation as the parameters are varied. Although the above problem (roots of a single equation) is simple enough to do this in a manual way, the methods of numerical continuation we learn in this chapter is applicable to much more general set of problems.\nSuppose that we are interested in studying how the steady-states (up to three) change as \\(Q\\) changes. Then we are interested in producing a diagram of \\(Q\\) vs. \\(T\\). The basic idea is to start with an initial solution at some value of \\(Q\\), increment \\(Q\\), then solve for the next value using the previous value as a guess. This involves the following pseudocode:\n\n\n\n\n\n\nNumerical continuation\n\n\n\n1. Input guess T0, f, df, parameter Q1\n\n    a. Call Newton's method via Newton(f, df, T0, Q1) \n    b. Obtain a preliminary solution (T1, Q1)\n\n2. Increment Q1 = Q1 + dQ \n\n    a. Call Newton's method via Newton(f, df, T1, Q1)\n    b. Obtain a new solution (T1, Q1)\n\n3. Repeat 2 until we reach a desired Q value\n\n\nThe following code provides continuation for one of the roots.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.optimize import fsolve\nfrom scipy.optimize import root\n\nsigma = 5.67e-8\ngamma = 0.62\na = lambda T: 0.5 - 0.2*np.tanh((T - 265)/10)\n\nQ0 = 342\nQmat = np.linspace(250, 450, 30)\nTmat = 0*Qmat\n\n# Initial guess\nx = 220\nfor i, Q in enumerate(Qmat):\n    f = lambda T: Q*(1-a(T)) - sigma*gamma*T**4\n    sol = root(f, x)\n    # If solution not found, output error\n    if sol.success != 1:\n        print(\"Q/Q0 = \", Q/Q0, \": \", sol.message)\n    Tmat[i] = sol.x\n\nplt.plot(Qmat/Q0, Tmat, 'o');\n\nplt.xlabel('Q/Q0');\nplt.ylabel('T');\n\nQ/Q0 =  1.2754587618471467 :  The iteration is not making good progress, as measured by the \n  improvement from the last ten iterations.\nQ/Q0 =  1.2956241177656787 :  The iteration is not making good progress, as measured by the \n  improvement from the last ten iterations.\nQ/Q0 =  1.3157894736842106 :  The iteration is not making good progress, as measured by the \n  improvement from the last five Jacobian evaluations.\n\n\n\n\n\n\n\n\n\nAbove, we have scaled \\(Q\\) with the reference value of \\(Q_0 = 342\\).\nIn your lecture, problem class, or exercises, you will design continuation on the other branches of solutions, and then study the result and its implications. During the lecture, we studied MA30287/notebooks/lecture13_EBM.ipynb which can be found at this link.",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>The basic EBM (steady-state)</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The basic EBM (steady-state)</span>"
     ]
   },
   {
     "objectID": "part-03-box/box-energy-model.html#bifurcation-diagram",
     "href": "part-03-box/box-energy-model.html#bifurcation-diagram",
-    "title": "12  The basic EBM (steady-state)",
-    "section": "12.4 Bifurcation diagram",
-    "text": "12.4 Bifurcation diagram\n\\(\\nextSection\\)\nIn reference to the above note, the following diagram was drawn and discussed in Lecture 15.\n\n\n\n\n\n\nFigure 12.1: Bifurcation diagram of \\(Q/Q_0\\) vs \\(T^*\\)\n\n\n\nWe noted the following:\n\nThe system has three steady states, given by the green, red, and blue curves.\nThe middle state is unstable (shown dashed).\nThe system exhibits hysteresis. Note that if we decrease \\(Q/Q_0\\) past the tipping point, marked \\(Q_{T1}\\) in the image, then we would evolve to the lower stable steady state (which is the ice state). However, while we are in the ice stated, if we were to attempt to increase the solar radiation to return to the green branch, we would need to arrive at \\(Q_{T2}\\) to do so; this irreversibility is known as hysteresis.",
+    "title": "13  The basic EBM (steady-state)",
+    "section": "13.4 Bifurcation diagram",
+    "text": "13.4 Bifurcation diagram\n\\(\\nextSection\\)\nIn reference to the above note, the following diagram was drawn and discussed in Lecture 15.\n\n\n\n\n\n\nFigure 13.1: Bifurcation diagram of \\(Q/Q_0\\) vs \\(T^*\\)\n\n\n\nWe noted the following:\n\nThe system has three steady states, given by the green, red, and blue curves.\nThe middle state is unstable (shown dashed).\nThe system exhibits hysteresis. Note that if we decrease \\(Q/Q_0\\) past the tipping point, marked \\(Q_{T1}\\) in the image, then we would evolve to the lower stable steady state (which is the ice state). However, while we are in the ice stated, if we were to attempt to increase the solar radiation to return to the green branch, we would need to arrive at \\(Q_{T2}\\) to do so; this irreversibility is known as hysteresis.",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>The basic EBM (steady-state)</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The basic EBM (steady-state)</span>"
     ]
   },
   {
     "objectID": "part-03-box/box-energy-model.html#sec-budyko",
     "href": "part-03-box/box-energy-model.html#sec-budyko",
-    "title": "12  The basic EBM (steady-state)",
-    "section": "12.5 Re-scaling and Budyko’s model",
-    "text": "12.5 Re-scaling and Budyko’s model\n\\(\\nextSection\\)\nTo model the outgoing radiation, we use the quartic Stefan-Boltzmann law. However, over the range of temperatures we are interested-in, it seems that a simpler approximation is sufficient. In your homework, you will investigate the re-scaling and shifting of temperature, such that \\[\nT = T_0 + [T]\\tilde{T},\n\\] where \\(T_0 = 265 \\mathrm{K}\\). Then under the assumption that temperatures are not-so-far from \\(T_0\\), we expand \\[\n(T_0 + [T]\\tilde{T})^4 \\sim T_0^4 + 4 T_0^3 [T] \\tilde{T} =\nC_1 + C_2 \\tilde{T}.\n\\] This simplifies the model considerably.",
+    "title": "13  The basic EBM (steady-state)",
+    "section": "13.5 Re-scaling and Budyko’s model",
+    "text": "13.5 Re-scaling and Budyko’s model\n\\(\\nextSection\\)\nTo model the outgoing radiation, we use the quartic Stefan-Boltzmann law. However, over the range of temperatures we are interested-in, it seems that a simpler approximation is sufficient. In your homework, you will investigate the re-scaling and shifting of temperature, such that \\[\nT = T_0 + [T]\\tilde{T},\n\\] where \\(T_0 = 265 \\mathrm{K}\\). Then under the assumption that temperatures are not-so-far from \\(T_0\\), we expand \\[\n(T_0 + [T]\\tilde{T})^4 \\sim T_0^4 + 4 T_0^3 [T] \\tilde{T} =\nC_1 + C_2 \\tilde{T}.\n\\] This simplifies the model considerably.",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>The basic EBM (steady-state)</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The basic EBM (steady-state)</span>"
     ]
   },
   {
     "objectID": "part-03-box/box-energy-model2.html",
     "href": "part-03-box/box-energy-model2.html",
-    "title": "13  EBM with latitude I",
+    "title": "14  EBM with latitude I",
     "section": "",
-    "text": "13.1 Incoming energy\nWe make the following remarks about \\(E_{\\text{in}}\\).\nFinally the function \\(s(y)\\) is fitted to data. We can assume it to be given by \\[\ns(y) = 1 - S_2 P_2(y), \\qquad S_2 = 0.482, \\quad P_2(y) = (3y^2 - 1)/2.\n\\tag{13.2}\\]\nimport numpy as np\nimport matplotlib.pyplot as plt\n\ny = np.linspace(0, 1, 20)\nplt.plot(y, 1 - 0.482*(3*y**2 - 1)/2)\nplt.xlabel('y'); plt.ylabel('s(y)');\nWe assume that an ice sheet forms if the temperature is sufficiently low, and \\(T &lt; T_c = 10^\\circ \\mathrm{C}\\). The ice forms at an ice line, where \\(y = y_s\\). We then have the following form form the albedo: \\[\na(y) = \\begin{cases}\na_i = 0.62 & y &gt; y_s, \\\\\na_w = 0.32 & y &lt; y_s, \\\\\n\\frac{1}{2}(a_i + a_w) & y = y_s.\n\\end{cases}\n\\] Therefore we are using a discontinuous model for the albedo. Note that the ice boundary \\(y_s\\) is an unknown to be determined by the model.\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nys = 0.7\ny = np.array([0, ys-0.0001, ys, ys+0.0001, 1])\nai = 0.62; aw = 0.32; \na = np.piecewise(y, [y &lt; ys, y == ys, y &gt; ys], [aw, 0.5*(aw+ai), ai])\nplt.plot(y, a, '-o') \nplt.xlabel('y'); plt.ylabel('a(y)');\nThe above forms what is referred to as a free-boundary problem, as the boundary \\(y = y_s\\) is solved as part of the model. Because \\(y_s\\) is essentially determined by where the temperature reaches the critical value, i.e. \\(T(y_s, t) = T_c\\), then the above albedo not only depends on latitude, but also on the current temperature distribution as well.",
+    "text": "14.1 Incoming energy\nWe make the following remarks about \\(E_{\\text{in}}\\).\nFinally the function \\(s(y)\\) is fitted to data. We can assume it to be given by \\[\ns(y) = 1 - S_2 P_2(y), \\qquad S_2 = 0.482, \\quad P_2(y) = (3y^2 - 1)/2.\n\\tag{14.2}\\]\nimport numpy as np\nimport matplotlib.pyplot as plt\n\ny = np.linspace(0, 1, 20)\nplt.plot(y, 1 - 0.482*(3*y**2 - 1)/2)\nplt.xlabel('y'); plt.ylabel('s(y)');\nWe assume that an ice sheet forms if the temperature is sufficiently low, and \\(T &lt; T_c = 10^\\circ \\mathrm{C}\\). The ice forms at an ice line, where \\(y = y_s\\). We then have the following form form the albedo: \\[\na(y) = \\begin{cases}\na_i = 0.62 & y &gt; y_s, \\\\\na_w = 0.32 & y &lt; y_s, \\\\\n\\frac{1}{2}(a_i + a_w) & y = y_s.\n\\end{cases}\n\\] Therefore we are using a discontinuous model for the albedo. Note that the ice boundary \\(y_s\\) is an unknown to be determined by the model.\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nys = 0.7\ny = np.array([0, ys-0.0001, ys, ys+0.0001, 1])\nai = 0.62; aw = 0.32; \na = np.piecewise(y, [y &lt; ys, y == ys, y &gt; ys], [aw, 0.5*(aw+ai), ai])\nplt.plot(y, a, '-o') \nplt.xlabel('y'); plt.ylabel('a(y)');\nThe above forms what is referred to as a free-boundary problem, as the boundary \\(y = y_s\\) is solved as part of the model. Because \\(y_s\\) is essentially determined by where the temperature reaches the critical value, i.e. \\(T(y_s, t) = T_c\\), then the above albedo not only depends on latitude, but also on the current temperature distribution as well.",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>EBM with latitude I</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>EBM with latitude I</span>"
     ]
   },
   {
     "objectID": "part-03-box/box-energy-model2.html#incoming-energy",
     "href": "part-03-box/box-energy-model2.html#incoming-energy",
-    "title": "13  EBM with latitude I",
+    "title": "14  EBM with latitude I",
     "section": "",
     "text": "Notice that now, compared to the previous model, we have weighted the incoming solar constant \\(Q\\) with a term \\(s(y)\\) and also our albedo no longer directly depends on temperature but instead depends on the latitude.\nPoints on Earth that are closer to the equator receive more direct sunlight and experience more hours of daylight on average. We thus define a function \\(s(x)\\) to account for this and consider the incoming radiation as weighted by \\(Qs(y)\\).\nNote that the total solar input is calculated by a surface integral: \\[\n\\int_{\\theta = 0}^{\\theta = 2\\pi} \\int_{\\varphi = -\\pi/2}^{\\pi/2} Q s(y = \\sin\\varphi) (a^2 \\cos\\varphi) \\, \\mathrm{d}\\varphi \\mathrm{d}\\theta = 4\\pi a^2 Q \\int_0^1 s(y) \\, \\mathrm{d}y = 4\\pi a^2 Q,\n\\] if the function \\(s(y)\\) has been normalised appropriately so that its integral is equal to one, and furthermore the radiation is assumed symmetric about the equator.\nThe above is equal to the solar flux intercepted by an area of the circular disk of the earth seen by the sun, which is \\(\\pi a^2 S\\) for \\(S = 1370 \\mathrm{W}/\\mathrm{m}^2\\). Therefore \\(Q = S/4 \\approx 342 \\mathrm{W}/ \\mathrm{m}^2\\).",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>EBM with latitude I</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>EBM with latitude I</span>"
     ]
   },
   {
     "objectID": "part-03-box/box-energy-model2.html#outgoing-energy",
     "href": "part-03-box/box-energy-model2.html#outgoing-energy",
-    "title": "13  EBM with latitude I",
-    "section": "13.2 Outgoing energy",
-    "text": "13.2 Outgoing energy\n\\(\\nextSection\\)\nThe outgoing energy is approximated via the linear Budyko approximation discussed in Section 12.5. \\[\nE_{\\text{out}} = A + BT,\n\\] where \\(A = 202 \\mathrm{W}/ \\mathrm{m}^2\\) and \\(B = 1.9 \\mathrm{W}/(\\mathrm{m}^2 {}^\\circ \\mathrm{C})\\). These figures are taken from a 1993 paper by Graves, Lee, and North.",
+    "title": "14  EBM with latitude I",
+    "section": "14.2 Outgoing energy",
+    "text": "14.2 Outgoing energy\n\\(\\nextSection\\)\nThe outgoing energy is approximated via the linear Budyko approximation discussed in Section 13.5. \\[\nE_{\\text{out}} = A + BT,\n\\] where \\(A = 202 \\mathrm{W}/ \\mathrm{m}^2\\) and \\(B = 1.9 \\mathrm{W}/(\\mathrm{m}^2 {}^\\circ \\mathrm{C})\\). These figures are taken from a 1993 paper by Graves, Lee, and North.",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>EBM with latitude I</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>EBM with latitude I</span>"
     ]
   },
   {
     "objectID": "part-03-box/box-energy-model2.html#transport-energy",
     "href": "part-03-box/box-energy-model2.html#transport-energy",
-    "title": "13  EBM with latitude I",
-    "section": "13.3 Transport energy",
-    "text": "13.3 Transport energy\n\\(\\nextSection\\)\nThe next term we should consider is the transport. In the case of this simple model, transport is taken to be modelled via a “Newton law of cooling” type expression. We assume that \\[\n\\text{rate of change of heat energy} = k(\\bar{T} - T),\n\\] where it can be verified (exercise) that the global mean temperature is the same as the hemispherically averaged temperature, i.e.  \\[\n\\bar{T} = \\frac{1}{\\text{surface area}} \\iint T \\, \\mathrm{S} = \\int_0^1 T(y) \\, \\mathrm{d}y.\n\\] Above, we shall use a value of \\(k = 1.6B\\), again estimated based on data and studies.\nThis completes our review of all the components (?eq-EBMlatcomp) that make up the EBM model (Equation 13.1).",
+    "title": "14  EBM with latitude I",
+    "section": "14.3 Transport energy",
+    "text": "14.3 Transport energy\n\\(\\nextSection\\)\nThe next term we should consider is the transport. In the case of this simple model, transport is taken to be modelled via a “Newton law of cooling” type expression. We assume that \\[\n\\text{rate of change of heat energy} = k(\\bar{T} - T),\n\\] where it can be verified (exercise) that the global mean temperature is the same as the hemispherically averaged temperature, i.e.  \\[\n\\bar{T} = \\frac{1}{\\text{surface area}} \\iint T \\, \\mathrm{S} = \\int_0^1 T(y) \\, \\mathrm{d}y.\n\\] Above, we shall use a value of \\(k = 1.6B\\), again estimated based on data and studies.\nThis completes our review of all the components (?eq-EBMlatcomp) that make up the EBM model (Equation 14.1).",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>EBM with latitude I</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>EBM with latitude I</span>"
     ]
   },
   {
     "objectID": "part-03-box/box-energy-model2.html#steady-state-temperature",
     "href": "part-03-box/box-energy-model2.html#steady-state-temperature",
-    "title": "13  EBM with latitude I",
-    "section": "13.4 Steady-state temperature",
-    "text": "13.4 Steady-state temperature\n\\(\\nextSection\\)\nLet \\(T^*(y)\\) be the steady-state temperature and \\(\\bar{T}^*\\) be the corresponding global mean temperature. Then from setting the LHS of (Equation 13.1) to zero, we have the fact that \\(T^*\\) is given by solving the implicit equation: \\[\nT^*(y) = \\Phi(T^*) = \\frac{{\\color{blue}k}\\bar{T}^* + Qs(y)(1 {\\color{blue}-} \\alpha(y)) - A}{B + C}.\n\\] It is important to remember that the albedo, \\(\\alpha(y)\\), implicitly depends on \\(T^*\\) because at each location \\(y\\), we must decide if the temperature is less or greater than the threshold \\(T_c\\), which is the temperature of the ice line.\nThe above equation is somewhat tricky because of its implicit nature; it is made even trickier by virtue that multiple equilibria exist at the same parameter values. We will begin studying this problem, but before doing so, let us make a few remarks:\n\nIt is possible to solve for the steady-state global mean, \\(\\bar{T}^*\\) as a function of the ice line location, \\(y_s\\).\nIt is possible to solve for the ice line location, \\(y_s\\), although not entirely explicitly. Up to four solutions are possible.\nOnce the ice line is known it is possible to solve for the steady-state.\n\nHowever:\n\nA numerical solution can be developed without the need to go through the above procedures.",
+    "title": "14  EBM with latitude I",
+    "section": "14.4 Steady-state temperature",
+    "text": "14.4 Steady-state temperature\n\\(\\nextSection\\)\nLet \\(T^*(y)\\) be the steady-state temperature and \\(\\bar{T}^*\\) be the corresponding global mean temperature. Then from setting the LHS of (Equation 14.1) to zero, we have the fact that \\(T^*\\) is given by solving the implicit equation: \\[\nT^*(y) = \\Phi(T^*) = \\frac{{\\color{blue}k}\\bar{T}^* + Qs(y)(1 {\\color{blue}-} \\alpha(y)) - A}{B + C}.\n\\] It is important to remember that the albedo, \\(\\alpha(y)\\), implicitly depends on \\(T^*\\) because at each location \\(y\\), we must decide if the temperature is less or greater than the threshold \\(T_c\\), which is the temperature of the ice line.\nThe above equation is somewhat tricky because of its implicit nature; it is made even trickier by virtue that multiple equilibria exist at the same parameter values. We will begin studying this problem, but before doing so, let us make a few remarks:\n\nIt is possible to solve for the steady-state global mean, \\(\\bar{T}^*\\) as a function of the ice line location, \\(y_s\\).\nIt is possible to solve for the ice line location, \\(y_s\\), although not entirely explicitly. Up to four solutions are possible.\nOnce the ice line is known it is possible to solve for the steady-state.\n\nHowever:\n\nA numerical solution can be developed without the need to go through the above procedures.",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>EBM with latitude I</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>EBM with latitude I</span>"
     ]
   },
   {
     "objectID": "part-03-box/latitude2.html",
     "href": "part-03-box/latitude2.html",
-    "title": "14  EBM with latitude II",
+    "title": "15  EBM with latitude II",
     "section": "",
-    "text": "14.1 Numerical quadrature\nAbove, one step that requires a comment is the integration for \\(\\bar{T}\\). There is a name for the long list of techniques of numerically calculating integrals: numerical quadrature. For our purposes, it is sufficient to go with a very simple approximation. In order to estimate the integral \\[\n\\bar{T} = \\int_0^1 T(y) \\, \\mathrm{d}y.\n\\] we estimate its value by a Riemann sum, i.e. a sum of rectangles approximating the area: \\[\n\\bar{T} \\approx \\sum_{i=0}^{N-2} T(y_i)(y_{i+1} - y_i).\n\\]",
+    "text": "15.1 Numerical quadrature\nAbove, one step that requires a comment is the integration for \\(\\bar{T}\\). There is a name for the long list of techniques of numerically calculating integrals: numerical quadrature. For our purposes, it is sufficient to go with a very simple approximation. In order to estimate the integral \\[\n\\bar{T} = \\int_0^1 T(y) \\, \\mathrm{d}y.\n\\] we estimate its value by a Riemann sum, i.e. a sum of rectangles approximating the area: \\[\n\\bar{T} \\approx \\sum_{i=0}^{N-2} T(y_i)(y_{i+1} - y_i).\n\\]",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>EBM with latitude II</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>EBM with latitude II</span>"
     ]
   },
   {
     "objectID": "part-03-box/latitude2.html#latitude-vs.-temperature-dependent-albedo",
     "href": "part-03-box/latitude2.html#latitude-vs.-temperature-dependent-albedo",
-    "title": "14  EBM with latitude II",
-    "section": "14.2 Latitude vs. temperature-dependent albedo",
-    "text": "14.2 Latitude vs. temperature-dependent albedo\n\\(\\nextSection\\)\nDuring the lecture, we will also discuss the two different albedos that have been introduced, namely, the latitude-dependent version, \\[\na(y) =\n\\begin{cases}\na_i & y &gt; y_s, \\\\\na_w & y &lt; y_s, \\\\\n\\frac{1}{2}(a_i + a_w) & y = y_s.\n\\end{cases}\n\\] which depends on the specification of a single ice sheet location, \\(y = y_s\\), where \\(T = T_C\\). This is to be compared with the alternative definition: \\[\na(T) =\n\\begin{cases}\na_i & T &lt; T_C, \\\\\na_w & T &gt; T_C, \\\\\n\\frac{1}{2}(a_w + a_w) & T = T_C.\n\\end{cases}\n\\] It seems that the first definition is inferior since the second allows for multiple transitions.",
+    "title": "15  EBM with latitude II",
+    "section": "15.2 Latitude vs. temperature-dependent albedo",
+    "text": "15.2 Latitude vs. temperature-dependent albedo\n\\(\\nextSection\\)\nDuring the lecture, we will also discuss the two different albedos that have been introduced, namely, the latitude-dependent version, \\[\na(y) =\n\\begin{cases}\na_i & y &gt; y_s, \\\\\na_w & y &lt; y_s, \\\\\n\\frac{1}{2}(a_i + a_w) & y = y_s.\n\\end{cases}\n\\] which depends on the specification of a single ice sheet location, \\(y = y_s\\), where \\(T = T_C\\). This is to be compared with the alternative definition: \\[\na(T) =\n\\begin{cases}\na_i & T &lt; T_C, \\\\\na_w & T &gt; T_C, \\\\\n\\frac{1}{2}(a_w + a_w) & T = T_C.\n\\end{cases}\n\\] It seems that the first definition is inferior since the second allows for multiple transitions.",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>EBM with latitude II</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>EBM with latitude II</span>"
     ]
   },
   {
     "objectID": "part-03-box/latitude2.html#numerical-implementation-via-newtons-method",
     "href": "part-03-box/latitude2.html#numerical-implementation-via-newtons-method",
-    "title": "14  EBM with latitude II",
-    "section": "14.3 Numerical implementation via Newton’s method",
-    "text": "14.3 Numerical implementation via Newton’s method\n\\(\\nextSection\\)\nThe remainder of the lecture is devoted to following the code written in MA30287/notebooks/lecture17-latitudeEBM_newton.ipynb which you can find here.\nThe result is a graph of \\(T(y)\\) vs \\(y\\) for a set of parameters.\n\n\n\n\n\n\nFigure 14.1: Temperature distribution",
+    "title": "15  EBM with latitude II",
+    "section": "15.3 Numerical implementation via Newton’s method",
+    "text": "15.3 Numerical implementation via Newton’s method\n\\(\\nextSection\\)\nThe remainder of the lecture is devoted to following the code written in MA30287/notebooks/lecture17-latitudeEBM_newton.ipynb which you can find here.\nThe result is a graph of \\(T(y)\\) vs \\(y\\) for a set of parameters.\n\n\n\n\n\n\nFigure 15.1: Temperature distribution",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>EBM with latitude II</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>EBM with latitude II</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/problemclass04.html",
     "href": "part-xx-exercises/problemclass04.html",
-    "title": "15  Problem class 4",
+    "title": "16  Problem class 4",
     "section": "",
-    "text": "This problem class will be devoted to getting started on problems from Problem Set 4 Chapter 24.",
+    "text": "This problem class will be devoted to getting started on problems from Problem Set 4 ?sec-ps4.",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Problem class 4</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Problem class 4</span>"
     ]
   },
   {
     "objectID": "part-03-box/latitude3.html",
     "href": "part-03-box/latitude3.html",
-    "title": "16  EBM with latitude III",
+    "title": "17  EBM with latitude III",
     "section": "",
-    "text": "16.1 Placement of the ice line\nUsing Newton’s method, we previously solved for a complete solution by starting off with a ‘lucky’ initial guess. For example, starting with a linear temperature distribution set to \\(T(0) = 20\\) and \\(T(1) = -20\\) we were able to converge to the profile shown below.\nIt is seen in the image that the ice line lies roughly at \\(y_s = 0.85\\). Actually, this turns out to be wrong because the numerical method we applied previously in Chapter 14 was flawed in a very subtle way. We will eventually come to this realisation after the material from this chapter.\nWe want to know whether other solutions exist with ice lines at \\(y_s \\in [0, 1]\\).",
+    "text": "17.1 Placement of the ice line\nUsing Newton’s method, we previously solved for a complete solution by starting off with a ‘lucky’ initial guess. For example, starting with a linear temperature distribution set to \\(T(0) = 20\\) and \\(T(1) = -20\\) we were able to converge to the profile shown below.\nIt is seen in the image that the ice line lies roughly at \\(y_s = 0.85\\). Actually, this turns out to be wrong because the numerical method we applied previously in Chapter 15 was flawed in a very subtle way. We will eventually come to this realisation after the material from this chapter.\nWe want to know whether other solutions exist with ice lines at \\(y_s \\in [0, 1]\\).",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>EBM with latitude III</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>EBM with latitude III</span>"
     ]
   },
   {
     "objectID": "part-03-box/latitude3.html#placement-of-the-ice-line",
     "href": "part-03-box/latitude3.html#placement-of-the-ice-line",
-    "title": "16  EBM with latitude III",
+    "title": "17  EBM with latitude III",
     "section": "",
-    "text": "Figure 16.1: Temperature distribution\n\n\n\n\n\n\n\n\n\n\nInteractive matplotlib plots\n\n\n\nNote that it is now possible to gain interactivity with your matplotlib plots by inserting the magic command matplotlib ipympl at the top of your notebook files. The kernel will need to be restarted for this to take effect.",
+    "text": "Figure 17.1: Temperature distribution\n\n\n\n\n\n\n\n\n\n\nInteractive matplotlib plots\n\n\n\nNote that it is now possible to gain interactivity with your matplotlib plots by inserting the magic command matplotlib ipympl at the top of your notebook files. The kernel will need to be restarted for this to take effect.",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>EBM with latitude III</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>EBM with latitude III</span>"
     ]
   },
   {
     "objectID": "part-03-box/latitude3.html#development-of-an-equation-for-the-ice-line",
     "href": "part-03-box/latitude3.html#development-of-an-equation-for-the-ice-line",
-    "title": "16  EBM with latitude III",
-    "section": "16.2 Development of an equation for the ice line",
-    "text": "16.2 Development of an equation for the ice line\n\\(\\nextSection\\)\nIt turns out to be possible to develop an equation for the ice line.\nFirst, note from your problem set Chapter 24 you find that it is possible to solve for the steady-state mean temperature, which we write as \\(\\bar{T}^*\\). In your problem set, you will develop the following equation (given by (Equation 24.4)): \\[\n\\bar{T}^* = \\frac{Q(1 - \\bar{a}) - A}{B}.\n\\tag{16.1}\\] The quantity \\(\\bar{a}\\) is given by integrating the albedo as follows: \\[\n\\bar{a} = \\int_0^1 s(y) a(y) \\, \\mathrm{d}y = a_i + (a_w {\\color{blue}-} a_i)y_s[1 - 0.241 (y_s^2 - 1)],\n\\tag{16.2}\\] which is given by (Equation 24.3). You may check that the above formula has the right signs by considering either the complete ice case (ice line at the equator \\(y_s = 0\\)) or the complete water/land case (ice line at \\(y_s = 1\\)).\nNow we return to the implicit equation for the temperature, which is given by (Equation 14.2) and repeated here: \\[\nT^*(y) = \\Phi(T^*) = \\frac{k\\bar{T}^* + Qs(y)(1 {\\color{red}-} a(y)) - A}{B + k}.\n\\] Substitute the mean temperature in, and this now yields \\[\nT^*(y) = \\frac{Q}{B + k} \\left[ s(y) [1 - a(y)] + \\frac{k}{B}(1 - \\bar{a})\\right] - \\frac{A}{B}.\n\\tag{16.3}\\] This ice line is then found by setting \\(T = T_C\\) at \\(y = y_s\\) in the above formula. Notice, though, that since \\(s(y)\\) is a cubic function, then we would need to solve a cubic equation in general.",
+    "title": "17  EBM with latitude III",
+    "section": "17.2 Development of an equation for the ice line",
+    "text": "17.2 Development of an equation for the ice line\n\\(\\nextSection\\)\nIt turns out to be possible to develop an equation for the ice line.\nFirst, note from your problem set ?sec-ps4 you find that it is possible to solve for the steady-state mean temperature, which we write as \\(\\bar{T}^*\\). In your problem set, you will develop the following equation (given by (?eq-ps4-Tbar)): \\[\n\\bar{T}^* = \\frac{Q(1 - \\bar{a}) - A}{B}.\n\\tag{17.1}\\] The quantity \\(\\bar{a}\\) is given by integrating the albedo as follows: \\[\n\\bar{a} = \\int_0^1 s(y) a(y) \\, \\mathrm{d}y = a_i + (a_w {\\color{blue}-} a_i)y_s[1 - 0.241 (y_s^2 - 1)],\n\\tag{17.2}\\] which is given by (?eq-ps4-abar). You may check that the above formula has the right signs by considering either the complete ice case (ice line at the equator \\(y_s = 0\\)) or the complete water/land case (ice line at \\(y_s = 1\\)).\nNow we return to the implicit equation for the temperature, which is given by (Equation 15.2) and repeated here: \\[\nT^*(y) = \\Phi(T^*) = \\frac{k\\bar{T}^* + Qs(y)(1 {\\color{red}-} a(y)) - A}{B + k}.\n\\] Substitute the mean temperature in, and this now yields \\[\nT^*(y) = \\frac{Q}{B + k} \\left[ s(y) [1 - a(y)] + \\frac{k}{B}(1 - \\bar{a})\\right] - \\frac{A}{B}.\n\\tag{17.3}\\] This ice line is then found by setting \\(T = T_C\\) at \\(y = y_s\\) in the above formula. Notice, though, that since \\(s(y)\\) is a cubic function, then we would need to solve a cubic equation in general.",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>EBM with latitude III</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>EBM with latitude III</span>"
     ]
   },
   {
     "objectID": "part-03-box/latitude3.html#a-word-about-the-parameter-space",
     "href": "part-03-box/latitude3.html#a-word-about-the-parameter-space",
-    "title": "16  EBM with latitude III",
-    "section": "16.3 A word about the parameter space",
-    "text": "16.3 A word about the parameter space\n\\(\\nextSection\\)\nSolutions to our latitude-dependent EBM can be symbolically written as follows: \\[\nT = T(t, y) = G(y; A, b, k, C, Q, a_i, a_w).\n\\] As you can see, even though it is a relatively simple equation in the sense it is only an ODE in time (and does not involve any spatial derivatives in \\(y\\)), is still complicated because the behaviour of the system can depend in a non-trivial way on all the parameters.\nYou can schematically think of the solution space as a being plotted in 8-dimensional space (or even higher, since the albedo \\(a\\) can be specified more generally). So for instance, bifurcation diagrams can then be plotted for some norm of the solution, say \\(\\bar{T}\\) versus the seven other parameters.\nThere are other representations of the bifurcation diagram(s). For example, you might plot \\(y_s\\) vs \\(Q\\) or \\(\\bar{T}\\) vs \\(A\\), and so forth.",
+    "title": "17  EBM with latitude III",
+    "section": "17.3 A word about the parameter space",
+    "text": "17.3 A word about the parameter space\n\\(\\nextSection\\)\nSolutions to our latitude-dependent EBM can be symbolically written as follows: \\[\nT = T(t, y) = G(y; A, b, k, C, Q, a_i, a_w).\n\\] As you can see, even though it is a relatively simple equation in the sense it is only an ODE in time (and does not involve any spatial derivatives in \\(y\\)), is still complicated because the behaviour of the system can depend in a non-trivial way on all the parameters.\nYou can schematically think of the solution space as a being plotted in 8-dimensional space (or even higher, since the albedo \\(a\\) can be specified more generally). So for instance, bifurcation diagrams can then be plotted for some norm of the solution, say \\(\\bar{T}\\) versus the seven other parameters.\nThere are other representations of the bifurcation diagram(s). For example, you might plot \\(y_s\\) vs \\(Q\\) or \\(\\bar{T}\\) vs \\(A\\), and so forth.",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>EBM with latitude III</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>EBM with latitude III</span>"
     ]
   },
   {
     "objectID": "part-03-box/latitude3.html#a-bifurcation-diagram-for-q-vs-y_s",
     "href": "part-03-box/latitude3.html#a-bifurcation-diagram-for-q-vs-y_s",
-    "title": "16  EBM with latitude III",
-    "section": "16.4 A bifurcation diagram for \\(Q\\) vs \\(y_s\\)",
-    "text": "16.4 A bifurcation diagram for \\(Q\\) vs \\(y_s\\)\n\\(\\nextSection\\)\nReturning to the ice line, we are interested in keeping all other parameters fixed, and then attempting to understand how the ice line evolves as the solar constant \\(Q\\) is changed. For example, we might believe that as \\(Q\\) increases (and hence temperatures rise), the ice line will move towards the North Pole. And as \\(Q\\) decreases, the ice line moves towards the equator.\nWe return to (Equation 16.3) and consider inverting the formulation. For each given ice line location, \\(y_s \\in (0, 1)\\), we solve for the \\(Q\\) value. This gives \\[\nQ = \\frac{\\left(T_C + \\frac{A}{B}\\right)(B + k)}{s(y_s)[1 - \\frac{1}{2}(a_i + a_w)] + \\frac{k}{B}(1 - \\bar{a})}.\n\\] Above, we have used the fact that \\(a(y_s) = \\frac{1}{2}(a_i + a_w)\\). This can now be plotted in Python, either in the notebook written during lectures, or via the code below.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nA = 202 # outgoing radiation\nB = 1.9 # outgoing radiation\nk = 1.6*B # transport parameter\ns = lambda y: 1 - 0.482*(3*y**2 - 1)/2 # solar weighting\naw = 0.32 # water albedo\nai = 0.62 # ice albedo\nTc = -10.0 # critical temperature for ice formation\nQ0 = 342.0 # solar constant (1370 W/m^2 divided by 4)\n\n# Note version in lectures was a 1/2 factor off on the second grouping of terms; \n# now corrected to match Q6 of PS4\nabar = lambda ys: ai + (aw - ai)*ys*(1 - 0.241*(ys**2 - 1))\nQfunc = lambda ys: (Tc + A/B)*(B+k)/(s(ys)*(1 - (ai+aw)/2) + k/B*(1 - abar(ys)))\n\n# Solve for the ice line\nys = np.linspace(0, 1, 100);\nQs = Qfunc(ys);\nplt.plot(Qs, ys, 'k')\nplt.plot([Q0, Q0], [0, 1], '--')\nplt.xlabel('Q');\nplt.ylabel('ys');\nplt.grid(1)\n\n\n\n\n\n\n\n\nOn the above graph, we have plotted the reference line, which is at \\(Q = 342\\) W-m-sq. So amazingly, there are two intersections with the black curve, which in fact indicates that two ice lines seem to be possible. One ice line as \\(y_s\\) near \\(0.95\\) and the other has \\(y_s\\) much lower down and near the equator.\nMoreover, the above graph is not complete! When we computed it, we specified that \\(a(y_s) = \\frac{1}{2}(a_i + a_w)\\) but this would not be true if there were no ice line, or equivalently if the ice line is located directly at \\(y = 1\\) or \\(y = 0\\). These yield the so-called ice-free states and ice-covered states, respectively.",
+    "title": "17  EBM with latitude III",
+    "section": "17.4 A bifurcation diagram for \\(Q\\) vs \\(y_s\\)",
+    "text": "17.4 A bifurcation diagram for \\(Q\\) vs \\(y_s\\)\n\\(\\nextSection\\)\nReturning to the ice line, we are interested in keeping all other parameters fixed, and then attempting to understand how the ice line evolves as the solar constant \\(Q\\) is changed. For example, we might believe that as \\(Q\\) increases (and hence temperatures rise), the ice line will move towards the North Pole. And as \\(Q\\) decreases, the ice line moves towards the equator.\nWe return to (Equation 17.3) and consider inverting the formulation. For each given ice line location, \\(y_s \\in (0, 1)\\), we solve for the \\(Q\\) value. This gives \\[\nQ = \\frac{\\left(T_C + \\frac{A}{B}\\right)(B + k)}{s(y_s)[1 - \\frac{1}{2}(a_i + a_w)] + \\frac{k}{B}(1 - \\bar{a})}.\n\\] Above, we have used the fact that \\(a(y_s) = \\frac{1}{2}(a_i + a_w)\\). This can now be plotted in Python, either in the notebook written during lectures, or via the code below.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nA = 202 # outgoing radiation\nB = 1.9 # outgoing radiation\nk = 1.6*B # transport parameter\ns = lambda y: 1 - 0.482*(3*y**2 - 1)/2 # solar weighting\naw = 0.32 # water albedo\nai = 0.62 # ice albedo\nTc = -10.0 # critical temperature for ice formation\nQ0 = 342.0 # solar constant (1370 W/m^2 divided by 4)\n\n# Note version in lectures was a 1/2 factor off on the second grouping of terms; \n# now corrected to match Q6 of PS4\nabar = lambda ys: ai + (aw - ai)*ys*(1 - 0.241*(ys**2 - 1))\nQfunc = lambda ys: (Tc + A/B)*(B+k)/(s(ys)*(1 - (ai+aw)/2) + k/B*(1 - abar(ys)))\n\n# Solve for the ice line\nys = np.linspace(0, 1, 100);\nQs = Qfunc(ys);\nplt.plot(Qs, ys, 'k')\nplt.plot([Q0, Q0], [0, 1], '--')\nplt.xlabel('Q');\nplt.ylabel('ys');\nplt.grid(1)\n\n\n\n\n\n\n\n\nOn the above graph, we have plotted the reference line, which is at \\(Q = 342\\) W-m-sq. So amazingly, there are two intersections with the black curve, which in fact indicates that two ice lines seem to be possible. One ice line as \\(y_s\\) near \\(0.95\\) and the other has \\(y_s\\) much lower down and near the equator.\nMoreover, the above graph is not complete! When we computed it, we specified that \\(a(y_s) = \\frac{1}{2}(a_i + a_w)\\) but this would not be true if there were no ice line, or equivalently if the ice line is located directly at \\(y = 1\\) or \\(y = 0\\). These yield the so-called ice-free states and ice-covered states, respectively.",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>EBM with latitude III</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>EBM with latitude III</span>"
     ]
   },
   {
     "objectID": "part-03-box/latitude3.html#ice-free-state",
     "href": "part-03-box/latitude3.html#ice-free-state",
-    "title": "16  EBM with latitude III",
-    "section": "16.5 Ice-free state",
-    "text": "16.5 Ice-free state\n\\(\\nextSection\\)\nThe ice-free state is the state for which \\(a = a_w = \\bar{a}\\) for all \\(y \\in [0, 1)\\). In this case, the solution can be directly calculated from Equation 16.3. It would then be given by \\[\nT^*(y) = \\frac{Q(1 - a_w)}{B + k}\\left[s(y) + \\frac{k}{B}\\right] - \\frac{A}{B}.\n\\] This solution has a requirement, which is that when considering the solar constant \\(Q\\), the solar constant cannot be so weak so that an ice line appears for \\(y &lt; 1\\). The minimum value of \\(Q\\) is therefore determined by pinning the ice line right at the North Pole. Thus \\[\nQ &gt; \\frac{(B + k)(T_C + A/B)}{(1 - a_w)[s(1) + k/B]} \\approx 330 \\mathrm{W} \\, \\mathrm{m}^{-2}.\n\\] It is of interest to verify that the global mean temperature for a system in this state is a warm \\(16\\) degrees Celsius. According to this model, then, if the mean temperature is above this value, it is possible to have a state where there is no ice anywhere!",
+    "title": "17  EBM with latitude III",
+    "section": "17.5 Ice-free state",
+    "text": "17.5 Ice-free state\n\\(\\nextSection\\)\nThe ice-free state is the state for which \\(a = a_w = \\bar{a}\\) for all \\(y \\in [0, 1)\\). In this case, the solution can be directly calculated from Equation 17.3. It would then be given by \\[\nT^*(y) = \\frac{Q(1 - a_w)}{B + k}\\left[s(y) + \\frac{k}{B}\\right] - \\frac{A}{B}.\n\\] This solution has a requirement, which is that when considering the solar constant \\(Q\\), the solar constant cannot be so weak so that an ice line appears for \\(y &lt; 1\\). The minimum value of \\(Q\\) is therefore determined by pinning the ice line right at the North Pole. Thus \\[\nQ &gt; \\frac{(B + k)(T_C + A/B)}{(1 - a_w)[s(1) + k/B]} \\approx 330 \\mathrm{W} \\, \\mathrm{m}^{-2}.\n\\] It is of interest to verify that the global mean temperature for a system in this state is a warm \\(16\\) degrees Celsius. According to this model, then, if the mean temperature is above this value, it is possible to have a state where there is no ice anywhere!",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>EBM with latitude III</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>EBM with latitude III</span>"
     ]
   },
   {
     "objectID": "part-03-box/latitude3.html#ice-covered-state",
     "href": "part-03-box/latitude3.html#ice-covered-state",
-    "title": "16  EBM with latitude III",
-    "section": "16.6 Ice-covered state",
-    "text": "16.6 Ice-covered state\n\\(\\nextSection\\)\nA similar argument applies setting \\(a = a_i = \\bar{a}\\) for all \\(y\\in (0, 1]\\). In this case, \\[\nT^*(y) = \\frac{Q(1 - a_i)}{B + k}\\left[s(y) + \\frac{k}{B}\\right] - \\frac{A}{B}.\n\\] This time, there is a maximal condition on \\(Q\\) such that any higher value would require an ice line somewhere within the domain, i.e. \\(y &gt; 0\\). Thus \\[\nQ &lt; \\frac{(B + k)(T_C + A/B)}{(1 - a_i)[s(0) + k/B]} \\approx 441 \\mathrm{W} \\, \\mathrm{m}^{-2}.\n\\] Again we may verify that this corresponds to a mean temperature of \\(-38\\) degrees Celsius.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nA = 202 # outgoing radiation\nB = 1.9 # outgoing radiation\nk = 1.6*B # transport parameter\ns = lambda y: 1 - 0.482*(3*y**2 - 1)/2 # solar weighting\naw = 0.32 # water albedo\nai = 0.62 # ice albedo\nTc = -10.0 # critical temperature for ice formation\nQ0 = 342.0 # solar constant (1370 W/m^2 divided by 4)\n\nQmin = ((B+k)*(Tc + A/B))/((1-aw)*(s(1)+k/B)) \nQmax = ((B+k)*(Tc + A/B))/((1-ai)*(s(0)+k/B))\nprint(\"Minimal Q for ice-free state = \", Qmin)\nprint(\"Max Q for ice-covered state = \", Qmax)\n\n# Note version in lectures was a 1/2 factor off on the second grouping of terms; \n# now corrected to match Q6 of PS4\nabar = lambda ys: ai + (aw - ai)*ys*(1 - 0.241*(ys**2 - 1))\nQfunc = lambda ys: (Tc + A/B)*(B+k)/(s(ys)*(1 - (ai+aw)/2) + k/B*(1 - abar(ys)))\n\n# Solve for the ice line\nys = np.linspace(0, 1, 100);\nQs = Qfunc(ys);\nplt.plot(Qs, ys, 'k')\nplt.plot([Q0, Q0], [0, 1], '--')\nplt.plot([250, Qmax], [0, 0], 'b')\nplt.plot([Qmin, 550], [1, 1], 'b')\nplt.xlabel('Q');\nplt.ylabel('ys');\nplt.grid(1)\n\nMinimal Q for ice-free state =  330.3616063989335\nMax Q for ice-covered state =  440.72694936919913",
+    "title": "17  EBM with latitude III",
+    "section": "17.6 Ice-covered state",
+    "text": "17.6 Ice-covered state\n\\(\\nextSection\\)\nA similar argument applies setting \\(a = a_i = \\bar{a}\\) for all \\(y\\in (0, 1]\\). In this case, \\[\nT^*(y) = \\frac{Q(1 - a_i)}{B + k}\\left[s(y) + \\frac{k}{B}\\right] - \\frac{A}{B}.\n\\] This time, there is a maximal condition on \\(Q\\) such that any higher value would require an ice line somewhere within the domain, i.e. \\(y &gt; 0\\). Thus \\[\nQ &lt; \\frac{(B + k)(T_C + A/B)}{(1 - a_i)[s(0) + k/B]} \\approx 441 \\mathrm{W} \\, \\mathrm{m}^{-2}.\n\\] Again we may verify that this corresponds to a mean temperature of \\(-38\\) degrees Celsius.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nA = 202 # outgoing radiation\nB = 1.9 # outgoing radiation\nk = 1.6*B # transport parameter\ns = lambda y: 1 - 0.482*(3*y**2 - 1)/2 # solar weighting\naw = 0.32 # water albedo\nai = 0.62 # ice albedo\nTc = -10.0 # critical temperature for ice formation\nQ0 = 342.0 # solar constant (1370 W/m^2 divided by 4)\n\nQmin = ((B+k)*(Tc + A/B))/((1-aw)*(s(1)+k/B)) \nQmax = ((B+k)*(Tc + A/B))/((1-ai)*(s(0)+k/B))\nprint(\"Minimal Q for ice-free state = \", Qmin)\nprint(\"Max Q for ice-covered state = \", Qmax)\n\n# Note version in lectures was a 1/2 factor off on the second grouping of terms; \n# now corrected to match Q6 of PS4\nabar = lambda ys: ai + (aw - ai)*ys*(1 - 0.241*(ys**2 - 1))\nQfunc = lambda ys: (Tc + A/B)*(B+k)/(s(ys)*(1 - (ai+aw)/2) + k/B*(1 - abar(ys)))\n\n# Solve for the ice line\nys = np.linspace(0, 1, 100);\nQs = Qfunc(ys);\nplt.plot(Qs, ys, 'k')\nplt.plot([Q0, Q0], [0, 1], '--')\nplt.plot([250, Qmax], [0, 0], 'b')\nplt.plot([Qmin, 550], [1, 1], 'b')\nplt.xlabel('Q');\nplt.ylabel('ys');\nplt.grid(1)\n\nMinimal Q for ice-free state =  330.3616063989335\nMax Q for ice-covered state =  440.72694936919913",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>EBM with latitude III</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>EBM with latitude III</span>"
     ]
   },
   {
     "objectID": "part-03-box/latitude3.html#partially-ice-covered-states",
     "href": "part-03-box/latitude3.html#partially-ice-covered-states",
-    "title": "16  EBM with latitude III",
-    "section": "16.7 Partially ice-covered states",
-    "text": "16.7 Partially ice-covered states\n\\(\\nextSection\\)\nIn lectures, we demonstrated, via the code here the four possible solutions of the latitude EBM. Two of the solutions, developed above, correspond to completely covered ice-state and ice-free states. The other two solutions are partially-iced states.\n\n\n\n\n\n\nFigure 16.2: The four possible solutions; orange and blue show the completely-ice and ice-free states; red and green show the partial ice-covered state. These are shown for \\(A = 202\\), \\(B = 1.9\\), \\(k = 1.6 B\\), and \\(Q\\) = 342$\n\n\n\nIn the next chapter, we will examine the stability of these four states.",
+    "title": "17  EBM with latitude III",
+    "section": "17.7 Partially ice-covered states",
+    "text": "17.7 Partially ice-covered states\n\\(\\nextSection\\)\nIn lectures, we demonstrated, via the code here the four possible solutions of the latitude EBM. Two of the solutions, developed above, correspond to completely covered ice-state and ice-free states. The other two solutions are partially-iced states.\n\n\n\n\n\n\nFigure 17.2: The four possible solutions; orange and blue show the completely-ice and ice-free states; red and green show the partial ice-covered state. These are shown for \\(A = 202\\), \\(B = 1.9\\), \\(k = 1.6 B\\), and \\(Q\\) = 342$\n\n\n\nIn the next chapter, we will examine the stability of these four states.",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>EBM with latitude III</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>EBM with latitude III</span>"
     ]
   },
   {
     "objectID": "part-03-box/latitude4.html",
     "href": "part-03-box/latitude4.html",
-    "title": "17  EBM with latitude IV",
+    "title": "18  EBM with latitude IV",
     "section": "",
-    "text": "17.1 Studying the mean temperature\nFollowing the previous chapter, we now have a better understanding of the relationship between the ice line, \\(y_s\\), and the solar forcing, \\(Q\\). We demonstrated that for the baseline case of \\(Q = 342\\), (at least) four solutions are possible.\nExamination of the root shows that the two non-trivial ice lines are approximately at \\(y_s = 0.256\\) and \\(y_s = 0.939\\) for \\(Q = 342\\). Using the script developed in lectures, we can study a similar graph of the mean temperature versus the solar forcing. Jupyter hub link.\nThis yields the following picture:\nDuring the lecture, we discussed the so-called Snowball Earth scenario where decreasing the solar constant may cause the stable state of the planet to jump down to the green branch shown above (completely frozen Earth). The solution exhibits hysteresis which describes the non-reversibility shown in the bifurcation diagram. This will be further expounded in the following discussion on stability.",
+    "text": "18.1 Studying the mean temperature\nFollowing the previous chapter, we now have a better understanding of the relationship between the ice line, \\(y_s\\), and the solar forcing, \\(Q\\). We demonstrated that for the baseline case of \\(Q = 342\\), (at least) four solutions are possible.\nExamination of the root shows that the two non-trivial ice lines are approximately at \\(y_s = 0.256\\) and \\(y_s = 0.939\\) for \\(Q = 342\\). Using the script developed in lectures, we can study a similar graph of the mean temperature versus the solar forcing. Jupyter hub link.\nThis yields the following picture:\nDuring the lecture, we discussed the so-called Snowball Earth scenario where decreasing the solar constant may cause the stable state of the planet to jump down to the green branch shown above (completely frozen Earth). The solution exhibits hysteresis which describes the non-reversibility shown in the bifurcation diagram. This will be further expounded in the following discussion on stability.",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>EBM with latitude IV</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>EBM with latitude IV</span>"
     ]
   },
   {
     "objectID": "part-03-box/latitude4.html#studying-the-mean-temperature",
     "href": "part-03-box/latitude4.html#studying-the-mean-temperature",
-    "title": "17  EBM with latitude IV",
+    "title": "18  EBM with latitude IV",
     "section": "",
-    "text": "Figure 17.1: The iceline\n\n\n\n\n\n\n\n\n\n\n\nFigure 17.2: Mean temperature",
+    "text": "Figure 18.1: The iceline\n\n\n\n\n\n\n\n\n\n\n\nFigure 18.2: Mean temperature",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>EBM with latitude IV</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>EBM with latitude IV</span>"
     ]
   },
   {
     "objectID": "part-03-box/latitude4.html#stability",
     "href": "part-03-box/latitude4.html#stability",
-    "title": "17  EBM with latitude IV",
-    "section": "17.2 Stability",
-    "text": "17.2 Stability\n\\(\\nextSection\\)\nSo far, we have only discussed the steady-state solutions of the latitude-dependent EBM, repeated below: \\[\nC \\frac{\\mathrm{\\partial}T}{\\mathrm{\\partial}t} = Qs(y)[1 - a(y)] - (A + BT) + k(\\bar{T} - T).\n\\] In this section, we investigate the stability analysis for the mean temperature, \\(\\bar{T}\\). This was given in Equation 24.2 and repeated below: \\[\nC \\frac{\\mathrm{d}\\bar{T}}{\\mathrm{d}t} = G(\\bar{T}) \\equiv Q(1 - \\bar{a}) - (A + B\\bar{T}),\n\\tag{17.1}\\] The following linearisation argument was presented by Cahalan and North (1979), with some additional details to avoid confusion. Let us linearise this about a steady-state solution, writing \\[\n\\bar{T} = \\bar{T}^* + u(t),\n\\] where \\(u \\ll 1\\). By Taylor series, \\[\nG(\\bar{T}) = G(\\bar{T}^*) + G'(\\bar{T}^*)u + O(u^2),\n\\] so substitution into the ODE yields the linear equation \\[\nC \\frac{\\mathrm{d}u}{\\mathrm{d}t} = G'(\\bar{T}^*) u.\n\\tag{17.2}\\] We need to calculate the derivative term on the RHS. First, using the equation for \\(G\\) in Equation 17.1, we have \\[\nG'(T^*) = -B - Q \\frac{\\mathrm{d}\\bar{a}}{\\mathrm{d}\\bar{T}}\\biggr\\rvert_{\\bar{T} = \\bar{T}^*}.\n\\tag{17.3}\\] The above calculation assumes that \\(Q\\) is a fixed number, as it should, since \\(Q\\) is regarded as a parameter (we choose a value of \\(Q\\), then this allows us to evolve the ODE).\n\n\n\n\n\n\nCalahan & North’s “trick”\n\n\n\nThe following presentation took about 3 lines of text in the presentation of Cahalan & North (1979), between eqns (1.2) and (1.3) in the image below. Students have inquired about the manipulations.\n\n\n\n\n\n\nFigure 17.3: From Cahalan & North, p.1179\n\n\n\n\n\nThe problem is what to do with the derivative of \\(\\bar{a}\\) that appears in (Equation 17.3). This is a strange quantity, since \\(\\bar{a}\\) does not explicitly depend on \\(\\bar{T}\\), and is given in (Equation 16.2). The issue is that there is a hidden dependence: \\(\\bar{a}\\) depends on the ice line, \\(y_s\\), which depends on not only \\(Q\\), but is multivalued as well! \nCahalan & North, whether knowingly or unknowingly, applied a trick, which is to consider that \\(Q\\) is not a parameter, but that it can be viewed as depending on \\(\\bar{T}^*\\), the steady state (this dependence is shown in Figure 17.2). Therefore, Cahalan & North returned to the equation (Equation 16.1) that gives the steady-state: \\[\nT^* = \\frac{Q(1 - \\bar{a}) - A}{B}.\n\\] We differentiate this equation with respect to \\(\\bar{T^*}\\), but now assume both \\(Q\\) and \\(\\bar{a}\\) depend on \\(\\bar{T^*}\\). This yields \\[\n1 = \\frac{1}{B} \\frac{\\mathrm{d}Q}{\\mathrm{d}\\bar{T^*}}(1 - \\bar{a}) - \\frac{Q}{B} \\frac{\\mathrm{d}\\bar{a}}{\\mathrm{d}\\bar{T}^*} \\Longrightarrow\nB = \\frac{\\mathrm{d}Q}{\\mathrm{d}\\bar{T^*}}(1 - \\bar{a}) - Q \\frac{\\mathrm{d}\\bar{a}}{\\mathrm{d}\\bar{T}^*}\n\\tag{17.4}\\]\nWe substitute the above value of \\(B\\) into (Equation 17.3), and then finally into the equation for the linearisation (Equation 17.2). Then we have \\[\nC \\frac{\\mathrm{d}u}{\\mathrm{d}t} = -\\left[(1 - \\bar{a}) \\frac{\\mathrm{d}Q}{\\mathrm{d}\\bar{T}^*}\\right]u(t) = -\\gamma u(t),\n\\] where the constant \\(\\gamma\\) has been defined by the above. Thus, the solution is given by \\[\nu(t) = u(0) e^{-\\gamma t/C}.\n\\]\nNote then that the crucial quantity is \\[\n\\gamma \\equiv (1 - \\bar{a}) \\frac{\\mathrm{d}Q}{\\mathrm{d}\\bar{T}^*}.\n\\] If \\(\\gamma\\) is positive, the equilibrium point is stable, while if \\(\\gamma\\) is negative, the equilibrium is unstable. Because \\((1 - \\bar{a}) &gt; 0\\), then this yields the so-called slope-stability theorem coined by Cahalan and North (1979): \\[\\begin{align}\n\\frac{\\mathrm{d}Q}{\\mathrm{d}\\bar{T}^*} &gt; 0 &\\Longrightarrow \\text{stable}, \\\\\n\\frac{\\mathrm{d}Q}{\\mathrm{d}\\bar{T}^*} &lt; 0 &\\Longrightarrow \\text{unstable}.\n\\end{align}\\]\nWe may now plot the bifurcation diagram, shown in \\((Q, \\bar{T})\\)-space. First, return to Figure 17.2. In lecture 21, we drew the following picture:\n\n\n\n\n\n\nFigure 17.4: Bifurcation diagram for \\((Q, \\bar{T})\\)\n\n\n\nNote the following characteristics.\n\nThere are up to four steady states (green, orange, two blacks).\nThose branches with positive gradient are stable; there is only one branch with a negative gradient and it is thus unstable. In the image, these are shown solid for stable and dashed for unstable.\nThe diagram indicates tipping points and hysteresis. As explained in the lectures, one can encounter a situation where, beginning from the upper orange branches, the solar radiation is decreased past the tipping point. The solution must then evolve to the lowermost stable state (green). However, increasing \\(Q\\) does not return us to the original non-frozen state—unless \\(Q\\) is increased by a massive amount. This ‘hysteresis’ loop is shown with the maroon colours in the image above.",
+    "title": "18  EBM with latitude IV",
+    "section": "18.2 Stability",
+    "text": "18.2 Stability\n\\(\\nextSection\\)\nSo far, we have only discussed the steady-state solutions of the latitude-dependent EBM, repeated below: \\[\nC \\frac{\\mathrm{\\partial}T}{\\mathrm{\\partial}t} = Qs(y)[1 - a(y)] - (A + BT) + k(\\bar{T} - T).\n\\] In this section, we investigate the stability analysis for the mean temperature, \\(\\bar{T}\\). This was given in ?eq-meanT-evo-ps and repeated below: \\[\nC \\frac{\\mathrm{d}\\bar{T}}{\\mathrm{d}t} = G(\\bar{T}) \\equiv Q(1 - \\bar{a}) - (A + B\\bar{T}),\n\\tag{18.1}\\] The following linearisation argument was presented by Cahalan and North (1979), with some additional details to avoid confusion. Let us linearise this about a steady-state solution, writing \\[\n\\bar{T} = \\bar{T}^* + u(t),\n\\] where \\(u \\ll 1\\). By Taylor series, \\[\nG(\\bar{T}) = G(\\bar{T}^*) + G'(\\bar{T}^*)u + O(u^2),\n\\] so substitution into the ODE yields the linear equation \\[\nC \\frac{\\mathrm{d}u}{\\mathrm{d}t} = G'(\\bar{T}^*) u.\n\\tag{18.2}\\] We need to calculate the derivative term on the RHS. First, using the equation for \\(G\\) in Equation 18.1, we have \\[\nG'(T^*) = -B - Q \\frac{\\mathrm{d}\\bar{a}}{\\mathrm{d}\\bar{T}}\\biggr\\rvert_{\\bar{T} = \\bar{T}^*}.\n\\tag{18.3}\\] The above calculation assumes that \\(Q\\) is a fixed number, as it should, since \\(Q\\) is regarded as a parameter (we choose a value of \\(Q\\), then this allows us to evolve the ODE).\n\n\n\n\n\n\nCalahan & North’s “trick”\n\n\n\nThe following presentation took about 3 lines of text in the presentation of Cahalan & North (1979), between eqns (1.2) and (1.3) in the image below. Students have inquired about the manipulations.\n\n\n\n\n\n\nFigure 18.3: From Cahalan & North, p.1179\n\n\n\n\n\nThe problem is what to do with the derivative of \\(\\bar{a}\\) that appears in (Equation 18.3). This is a strange quantity, since \\(\\bar{a}\\) does not explicitly depend on \\(\\bar{T}\\), and is given in (Equation 17.2). The issue is that there is a hidden dependence: \\(\\bar{a}\\) depends on the ice line, \\(y_s\\), which depends on not only \\(Q\\), but is multivalued as well! \nCahalan & North, whether knowingly or unknowingly, applied a trick, which is to consider that \\(Q\\) is not a parameter, but that it can be viewed as depending on \\(\\bar{T}^*\\), the steady state (this dependence is shown in Figure 18.2). Therefore, Cahalan & North returned to the equation (Equation 17.1) that gives the steady-state: \\[\nT^* = \\frac{Q(1 - \\bar{a}) - A}{B}.\n\\] We differentiate this equation with respect to \\(\\bar{T^*}\\), but now assume both \\(Q\\) and \\(\\bar{a}\\) depend on \\(\\bar{T^*}\\). This yields \\[\n1 = \\frac{1}{B} \\frac{\\mathrm{d}Q}{\\mathrm{d}\\bar{T^*}}(1 - \\bar{a}) - \\frac{Q}{B} \\frac{\\mathrm{d}\\bar{a}}{\\mathrm{d}\\bar{T}^*} \\Longrightarrow\nB = \\frac{\\mathrm{d}Q}{\\mathrm{d}\\bar{T^*}}(1 - \\bar{a}) - Q \\frac{\\mathrm{d}\\bar{a}}{\\mathrm{d}\\bar{T}^*}\n\\tag{18.4}\\]\nWe substitute the above value of \\(B\\) into (Equation 18.3), and then finally into the equation for the linearisation (Equation 18.2). Then we have \\[\nC \\frac{\\mathrm{d}u}{\\mathrm{d}t} = -\\left[(1 - \\bar{a}) \\frac{\\mathrm{d}Q}{\\mathrm{d}\\bar{T}^*}\\right]u(t) = -\\gamma u(t),\n\\] where the constant \\(\\gamma\\) has been defined by the above. Thus, the solution is given by \\[\nu(t) = u(0) e^{-\\gamma t/C}.\n\\]\nNote then that the crucial quantity is \\[\n\\gamma \\equiv (1 - \\bar{a}) \\frac{\\mathrm{d}Q}{\\mathrm{d}\\bar{T}^*}.\n\\] If \\(\\gamma\\) is positive, the equilibrium point is stable, while if \\(\\gamma\\) is negative, the equilibrium is unstable. Because \\((1 - \\bar{a}) &gt; 0\\), then this yields the so-called slope-stability theorem coined by Cahalan and North (1979): \\[\\begin{align}\n\\frac{\\mathrm{d}Q}{\\mathrm{d}\\bar{T}^*} &gt; 0 &\\Longrightarrow \\text{stable}, \\\\\n\\frac{\\mathrm{d}Q}{\\mathrm{d}\\bar{T}^*} &lt; 0 &\\Longrightarrow \\text{unstable}.\n\\end{align}\\]\nWe may now plot the bifurcation diagram, shown in \\((Q, \\bar{T})\\)-space. First, return to Figure 18.2. In lecture 21, we drew the following picture:\n\n\n\n\n\n\nFigure 18.4: Bifurcation diagram for \\((Q, \\bar{T})\\)\n\n\n\nNote the following characteristics.\n\nThere are up to four steady states (green, orange, two blacks).\nThose branches with positive gradient are stable; there is only one branch with a negative gradient and it is thus unstable. In the image, these are shown solid for stable and dashed for unstable.\nThe diagram indicates tipping points and hysteresis. As explained in the lectures, one can encounter a situation where, beginning from the upper orange branches, the solar radiation is decreased past the tipping point. The solution must then evolve to the lowermost stable state (green). However, increasing \\(Q\\) does not return us to the original non-frozen state—unless \\(Q\\) is increased by a massive amount. This ‘hysteresis’ loop is shown with the maroon colours in the image above.",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>EBM with latitude IV</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>EBM with latitude IV</span>"
     ]
   },
   {
     "objectID": "part-03-box/basic-ocean-model.html",
     "href": "part-03-box/basic-ocean-model.html",
-    "title": "18  Basic models of the ocean",
+    "title": "19  Basic models of the ocean",
     "section": "",
-    "text": "18.1 Terminology and context\nThe ocean plays a significant role in regulating the Earth’s climate, as it acts as a massive heat sink and helps to distribute heat and moisture around the planet. In addition, carbon dioxide is water soluble, and through precipitation and wave motion, is transferred into the oceans. Thus the ocean acts as a sink, absorbing large amounts of this greenhouse gas from the atmosphere.\nThe thermohaline circulation (THC), also known as the global ocean conveyor belt, is a complex ocean circulation pattern that is driven by differences in water temperature and salinity. It is an important component of the Earth’s climate system, as it helps to distribute heat and other properties throughout the planet’s oceans.\nThe thermohaline circulation is driven by the sinking of cold, dense water in the polar regions, which then spreads out and flows towards the equator. As the water warms and becomes less dense, it rises to the surface and returns to the poles, creating a continuous loop of ocean currents. The role of salinity in driving the thermohaline circulation is due to the fact that the dissolved salts in seawater increase its density.\nThis circulation pattern has a significant impact on global climate, as it helps to regulate the exchange of heat and other properties between the oceans and the atmosphere. Changes in the thermohaline circulation, such as those caused by global warming, can have far-reaching effects on the planet’s climate and weather patterns.",
+    "text": "19.1 Terminology and context\nThe ocean plays a significant role in regulating the Earth’s climate, as it acts as a massive heat sink and helps to distribute heat and moisture around the planet. In addition, carbon dioxide is water soluble, and through precipitation and wave motion, is transferred into the oceans. Thus the ocean acts as a sink, absorbing large amounts of this greenhouse gas from the atmosphere.\nThe thermohaline circulation (THC), also known as the global ocean conveyor belt, is a complex ocean circulation pattern that is driven by differences in water temperature and salinity. It is an important component of the Earth’s climate system, as it helps to distribute heat and other properties throughout the planet’s oceans.\nThe thermohaline circulation is driven by the sinking of cold, dense water in the polar regions, which then spreads out and flows towards the equator. As the water warms and becomes less dense, it rises to the surface and returns to the poles, creating a continuous loop of ocean currents. The role of salinity in driving the thermohaline circulation is due to the fact that the dissolved salts in seawater increase its density.\nThis circulation pattern has a significant impact on global climate, as it helps to regulate the exchange of heat and other properties between the oceans and the atmosphere. Changes in the thermohaline circulation, such as those caused by global warming, can have far-reaching effects on the planet’s climate and weather patterns.",
     "crumbs": [
       "Box models of the ocean",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Basic models of the ocean</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Basic models of the ocean</span>"
     ]
   },
   {
     "objectID": "part-03-box/basic-ocean-model.html#terminology-and-context",
     "href": "part-03-box/basic-ocean-model.html#terminology-and-context",
-    "title": "18  Basic models of the ocean",
+    "title": "19  Basic models of the ocean",
     "section": "",
-    "text": "Figure 18.1: The thermohaline circulation. In the Atlantic, the circulation carries warm water (red) north near the surface and cold deep water (blue) south. Image from NASA/JPL.",
+    "text": "Figure 19.1: The thermohaline circulation. In the Atlantic, the circulation carries warm water (red) north near the surface and cold deep water (blue) south. Image from NASA/JPL.",
     "crumbs": [
       "Box models of the ocean",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Basic models of the ocean</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Basic models of the ocean</span>"
     ]
   },
   {
     "objectID": "part-03-box/basic-ocean-model.html#temperature",
     "href": "part-03-box/basic-ocean-model.html#temperature",
-    "title": "18  Basic models of the ocean",
-    "section": "18.2 Temperature",
-    "text": "18.2 Temperature\n\\(\\nextSection\\)\n\n\n\n\n\n\nExtra content\n\n\n\nThe material in this subsection is not examinable in 2022-23 and is given here for further context.\n\n\nIn regards to the temperature, the ocean can be divided into three layers.\n\nThe top layer is thin (on the order of metres) and is heated from the Sun. Mixing is a dominant effect due to wind and waves, and so the temperature in this region is mostly constant.\nThe thermocline region is the intermediate layer. Here, the temperature decreaes approximately linearly.\nThe deep abyssal zone comprises 98% of the total volume of the oceans. The temperature in this region is mostly constant, and a few degrees above freezing.\n\nWithin the intermediate region, the temperature can be modelled by an advection diffusion equation, \\[\n\\frac{\\mathrm{\\partial}T}{\\mathrm{\\partial}t} + w \\frac{\\mathrm{\\partial}T}{\\mathrm{\\partial}z} = \\kappa \\frac{\\mathrm{\\partial}^2 T}{\\mathrm{\\partial}z^2},\n\\tag{18.1}\\] where \\(w\\) is the upswelling velocity and \\(\\kappa\\) is the diffusion coefficient of the fluid.\nLet us assume that the temperature in this region is near steady state and that the upwards velocity is constant. Then we integrate the ODE to find \\[\nT(z) = T_0 + T_1 \\mathrm{e}^{-z/z^*},\n\\] where \\(T_0\\) and \\(T_1\\) are constants. From (Kaper and Engler 2013), the typical orders for the parameters are \\(\\kappa \\sim 10^{-2} \\,\\mathrm{m}^{2} \\,\\mathrm{s}^{-1}\\) and \\(z^* \\sim 10^2 \\, \\mathrm{m}\\), so \\(w \\sim 10^{-4} \\,\\mathrm{m} \\,\\mathrm{s}^{-1}\\), which is quite slow.\n\n\n\n\n\n\nFigure 18.2: Cross section of the Atlantic Ocean, showing the temperature and salinity profiles on the right. Image from (Kaper and Engler 2013).",
+    "title": "19  Basic models of the ocean",
+    "section": "19.2 Temperature",
+    "text": "19.2 Temperature\n\\(\\nextSection\\)\n\n\n\n\n\n\nExtra content\n\n\n\nThe material in this subsection is not examinable in 2022-23 and is given here for further context.\n\n\nIn regards to the temperature, the ocean can be divided into three layers.\n\nThe top layer is thin (on the order of metres) and is heated from the Sun. Mixing is a dominant effect due to wind and waves, and so the temperature in this region is mostly constant.\nThe thermocline region is the intermediate layer. Here, the temperature decreaes approximately linearly.\nThe deep abyssal zone comprises 98% of the total volume of the oceans. The temperature in this region is mostly constant, and a few degrees above freezing.\n\nWithin the intermediate region, the temperature can be modelled by an advection diffusion equation, \\[\n\\frac{\\mathrm{\\partial}T}{\\mathrm{\\partial}t} + w \\frac{\\mathrm{\\partial}T}{\\mathrm{\\partial}z} = \\kappa \\frac{\\mathrm{\\partial}^2 T}{\\mathrm{\\partial}z^2},\n\\tag{19.1}\\] where \\(w\\) is the upswelling velocity and \\(\\kappa\\) is the diffusion coefficient of the fluid.\nLet us assume that the temperature in this region is near steady state and that the upwards velocity is constant. Then we integrate the ODE to find \\[\nT(z) = T_0 + T_1 \\mathrm{e}^{-z/z^*},\n\\] where \\(T_0\\) and \\(T_1\\) are constants. From (Kaper and Engler 2013), the typical orders for the parameters are \\(\\kappa \\sim 10^{-2} \\,\\mathrm{m}^{2} \\,\\mathrm{s}^{-1}\\) and \\(z^* \\sim 10^2 \\, \\mathrm{m}\\), so \\(w \\sim 10^{-4} \\,\\mathrm{m} \\,\\mathrm{s}^{-1}\\), which is quite slow.\n\n\n\n\n\n\nFigure 19.2: Cross section of the Atlantic Ocean, showing the temperature and salinity profiles on the right. Image from (Kaper and Engler 2013).",
     "crumbs": [
       "Box models of the ocean",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Basic models of the ocean</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Basic models of the ocean</span>"
     ]
   },
   {
     "objectID": "part-03-box/basic-ocean-model.html#salinity-and-density",
     "href": "part-03-box/basic-ocean-model.html#salinity-and-density",
-    "title": "18  Basic models of the ocean",
-    "section": "18.3 Salinity and density",
-    "text": "18.3 Salinity and density\n\\(\\nextSection\\)\nSalinity is a key component in the oceans since the salts have a large effect on the water density (which consequently drives motion). Salinity is measured in psu or practical salinity units, which is a non-dimensional ratio of conductivities. In the mixed layer, the sainity ranges from 31-39 psu, and is about 35 in the abyssal zone. You can inspect the profile in Figure 18.2.\nBelow in the study of the ocean, we will need a so-called equation of state, which connects the density, \\(\\rho\\), with the salinity, say \\(S\\), and temperature, say \\(T\\). Here is a typical graph of the relationship.\n\n\n\n\n\n\nFigure 18.3: Image from (Kaper and Engler 2013)",
+    "title": "19  Basic models of the ocean",
+    "section": "19.3 Salinity and density",
+    "text": "19.3 Salinity and density\n\\(\\nextSection\\)\nSalinity is a key component in the oceans since the salts have a large effect on the water density (which consequently drives motion). Salinity is measured in psu or practical salinity units, which is a non-dimensional ratio of conductivities. In the mixed layer, the sainity ranges from 31-39 psu, and is about 35 in the abyssal zone. You can inspect the profile in Figure 19.2.\nBelow in the study of the ocean, we will need a so-called equation of state, which connects the density, \\(\\rho\\), with the salinity, say \\(S\\), and temperature, say \\(T\\). Here is a typical graph of the relationship.\n\n\n\n\n\n\nFigure 19.3: Image from (Kaper and Engler 2013)",
     "crumbs": [
       "Box models of the ocean",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Basic models of the ocean</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Basic models of the ocean</span>"
     ]
   },
   {
     "objectID": "part-03-box/basic-ocean-model.html#two-box-model-of-the-ocean",
     "href": "part-03-box/basic-ocean-model.html#two-box-model-of-the-ocean",
-    "title": "18  Basic models of the ocean",
-    "section": "18.4 Two-box model of the ocean",
-    "text": "18.4 Two-box model of the ocean\n\\(\\nextSection\\)\nModelling the THC is a challenging task! In principal, this might involve the solution of multiple coupled PDEs for the flows and temperatures, which would then need to be solved on a very complicated domain. In addition, such models require a number of empirical equations of state (connecting density to temperature and salinity).\nToy models can be developed much more easily at the ‘systems level’ via box models.",
+    "title": "19  Basic models of the ocean",
+    "section": "19.4 Two-box model of the ocean",
+    "text": "19.4 Two-box model of the ocean\n\\(\\nextSection\\)\nModelling the THC is a challenging task! In principal, this might involve the solution of multiple coupled PDEs for the flows and temperatures, which would then need to be solved on a very complicated domain. In addition, such models require a number of empirical equations of state (connecting density to temperature and salinity).\nToy models can be developed much more easily at the ‘systems level’ via box models.",
     "crumbs": [
       "Box models of the ocean",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Basic models of the ocean</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Basic models of the ocean</span>"
     ]
   },
   {
     "objectID": "part-03-box/basic-ocean-model.html#a-one-dimensional-model-constant-temperature",
     "href": "part-03-box/basic-ocean-model.html#a-one-dimensional-model-constant-temperature",
-    "title": "18  Basic models of the ocean",
-    "section": "18.5 A one-dimensional model (constant temperature)",
-    "text": "18.5 A one-dimensional model (constant temperature)\n\\(\\nextSection\\)\nConstruction and assumptions of the box model.\n\nWe consider two boxes, labeled ‘1’ and ‘2’, respectively via subscripts. Box 1 corresponds to high latitudes (near poles) and Box 2 to low latitudes (near equator). Each box has a corresponding temperature, \\(T_i\\), and salinity, \\(S_i\\). In each box, the temperature and salinities are well mixed, so they take different values in either box, in general.\nDifferences between the two boxes will drive a flow through the capillary pipe that connects the boxes at the bottom. A compensating flow at the surface ensures that the volume of water in each box does not change. Together, these two exchanges (top and bottom) represent the overturning circulation of the THC.\nWe assume (see above) that the strength of the exchange flow between the boxes is linearly proportional to their differences of temperature and salinity. In particular, let \\(\\rho_1\\) and \\(\\rho_2\\) be the two densities in the corresponding boxes. The flow \\(q\\) in the capillary pipe is driven by the difference \\[\nq = k \\frac{\\rho_1 - \\rho_2}{\\rho_0},\n\\tag{18.2}\\] where \\(k\\) is the hydraulic constant and takes the typical value of \\(k = 1.5 \\cdot 10^{-6} \\, \\mathrm{s}^{-1}\\). The reference density \\(\\rho_0\\) is defined in conjunction with the equation of state.\nIn the normal state of the planet, \\(q &gt; 0\\) when the flow through the capillary goes in the direction of the equator as a result of higher densities at high latitudes.\nWe need an equation of state that connects the densities, \\(\\rho\\), with the temperature and salinities. This concerns the figure Figure 18.3. We assume that \\[\n\\rho = \\rho_0(1 - \\alpha(T - T_0) + \\beta(S - S_0)),\n\\tag{18.3}\\] where \\(T_0\\) and \\(S_0\\) are average values of temperature and salinity; \\(\\rho_0\\) is the density if \\(T = T_0\\) and \\(S = S_0\\); \\(\\alpha\\) and \\(\\beta\\) are constants with typical values \\(\\alpha = 1.5 \\times 10^{-4} \\mathrm{deg}^{-1}\\) and \\(\\beta = 8 \\times 10^{-4} \\mathrm{psu}^{-1}\\). Combining (Equation 18.2) with (Equation 18.3) gives \\[\nq = k[ \\alpha(T_2 - T_1) - \\beta(S_2 - S_1)].\n\\tag{18.4}\\]\nExternal wind forces and Coriolis effects are ignored.\nWe assume that in each box, there is an exchange of heat and salinity to the surrounding environment. For instance, salinity will exchange due to evaporation, precipitation, and runoff. These will have constant of proportionalities of \\(c\\) and \\(d\\) in the equations below.\nPrecipitation, evaporation, and runoff from the continents and atmosphere will also cause the salinity in either box to change. We therefore assume that this is modeled by a flux \\(H\\).\nRemember that in general, \\(T_2 &gt; T_1\\) (the temperatures at the equator are higher). Consequently, evaporation dominates Box 2; there is a net loss of salt-free moisture in the atmosphere and this causes a compensating virtual flux of salt, \\(H &gt; 0\\), into Box 2. At the same time, there is higher precipitation and runoff into Box 1 (due to lower temperatures), causing a net gain of salt-free moisture and therefore a loss of virtual salt, say \\(-H &lt; 0\\). We assume these two virtual salt fluxes sum to zero.\nNote that in the normal state of affairs, \\(S_2 &gt; S_1\\), and the lower latitude water is saltier than that of high latitudes.\n\nAn image of the box model is shown below.\n\n\n\n\n\n\nFigure 18.4: Two-box model of the North Atlantic with evaporation and precipitation. Image from (Kaper and Engler 2013)\n\n\n\nThe equations are given as follows. \\[\\begin{align}\n\\frac{\\mathrm{d}T_1}{\\mathrm{d}t} &= c(T_1^* - T_1) + |q|(T_2 - T_1) \\\\\n\\frac{\\mathrm{d}T_2}{\\mathrm{d}t} &= c(T_2^* - T_2) + |q|(T_1 - T_2) \\\\\n\\frac{\\mathrm{d}S_1}{\\mathrm{d}t} &= -H + d(S_1^* - S_1) + |q|(S_2 - S_1) \\\\\n\\frac{\\mathrm{d}S_2}{\\mathrm{d}t} &= H + d(S_2^* - S_2) + |q|(S_1 - S_2)\n\\end{align}\\] {#eq-2box}\nNote that in the exchange terms corresponding to the flow \\(q\\) in the capillary pipes, we use an absolute value since it does not matter (flows are exchanged in both lower and upper pipes).\nNote also that \\(q = q(T_1, T_2, S_1, S_2)\\) as given in (Equation 18.4).",
+    "title": "19  Basic models of the ocean",
+    "section": "19.5 A one-dimensional model (constant temperature)",
+    "text": "19.5 A one-dimensional model (constant temperature)\n\\(\\nextSection\\)\nConstruction and assumptions of the box model.\n\nWe consider two boxes, labeled ‘1’ and ‘2’, respectively via subscripts. Box 1 corresponds to high latitudes (near poles) and Box 2 to low latitudes (near equator). Each box has a corresponding temperature, \\(T_i\\), and salinity, \\(S_i\\). In each box, the temperature and salinities are well mixed, so they take different values in either box, in general.\nDifferences between the two boxes will drive a flow through the capillary pipe that connects the boxes at the bottom. A compensating flow at the surface ensures that the volume of water in each box does not change. Together, these two exchanges (top and bottom) represent the overturning circulation of the THC.\nWe assume (see above) that the strength of the exchange flow between the boxes is linearly proportional to their differences of temperature and salinity. In particular, let \\(\\rho_1\\) and \\(\\rho_2\\) be the two densities in the corresponding boxes. The flow \\(q\\) in the capillary pipe is driven by the difference \\[\nq = k \\frac{\\rho_1 - \\rho_2}{\\rho_0},\n\\tag{19.2}\\] where \\(k\\) is the hydraulic constant and takes the typical value of \\(k = 1.5 \\cdot 10^{-6} \\, \\mathrm{s}^{-1}\\). The reference density \\(\\rho_0\\) is defined in conjunction with the equation of state.\nIn the normal state of the planet, \\(q &gt; 0\\) when the flow through the capillary goes in the direction of the equator as a result of higher densities at high latitudes.\nWe need an equation of state that connects the densities, \\(\\rho\\), with the temperature and salinities. This concerns the figure Figure 19.3. We assume that \\[\n\\rho = \\rho_0(1 - \\alpha(T - T_0) + \\beta(S - S_0)),\n\\tag{19.3}\\] where \\(T_0\\) and \\(S_0\\) are average values of temperature and salinity; \\(\\rho_0\\) is the density if \\(T = T_0\\) and \\(S = S_0\\); \\(\\alpha\\) and \\(\\beta\\) are constants with typical values \\(\\alpha = 1.5 \\times 10^{-4} \\mathrm{deg}^{-1}\\) and \\(\\beta = 8 \\times 10^{-4} \\mathrm{psu}^{-1}\\). Combining (Equation 19.2) with (Equation 19.3) gives \\[\nq = k[ \\alpha(T_2 - T_1) - \\beta(S_2 - S_1)].\n\\tag{19.4}\\]\nExternal wind forces and Coriolis effects are ignored.\nWe assume that in each box, there is an exchange of heat and salinity to the surrounding environment. For instance, salinity will exchange due to evaporation, precipitation, and runoff. These will have constant of proportionalities of \\(c\\) and \\(d\\) in the equations below.\nPrecipitation, evaporation, and runoff from the continents and atmosphere will also cause the salinity in either box to change. We therefore assume that this is modeled by a flux \\(H\\).\nRemember that in general, \\(T_2 &gt; T_1\\) (the temperatures at the equator are higher). Consequently, evaporation dominates Box 2; there is a net loss of salt-free moisture in the atmosphere and this causes a compensating virtual flux of salt, \\(H &gt; 0\\), into Box 2. At the same time, there is higher precipitation and runoff into Box 1 (due to lower temperatures), causing a net gain of salt-free moisture and therefore a loss of virtual salt, say \\(-H &lt; 0\\). We assume these two virtual salt fluxes sum to zero.\nNote that in the normal state of affairs, \\(S_2 &gt; S_1\\), and the lower latitude water is saltier than that of high latitudes.\n\nAn image of the box model is shown below.\n\n\n\n\n\n\nFigure 19.4: Two-box model of the North Atlantic with evaporation and precipitation. Image from (Kaper and Engler 2013)\n\n\n\nThe equations are given as follows. \\[\n\\begin{aligned}\n\\frac{\\mathrm{d}T_1}{\\mathrm{d}t} &= c(T_1^* - T_1) + |q|(T_2 - T_1) \\\\\n\\frac{\\mathrm{d}T_2}{\\mathrm{d}t} &= c(T_2^* - T_2) + |q|(T_1 - T_2) \\\\\n\\frac{\\mathrm{d}S_1}{\\mathrm{d}t} &= -H + d(S_1^* - S_1) + |q|(S_2 - S_1) \\\\\n\\frac{\\mathrm{d}S_2}{\\mathrm{d}t} &= H + d(S_2^* - S_2) + |q|(S_1 - S_2)\n\\end{aligned}\n\\tag{19.5}\\]\nNote that in the exchange terms corresponding to the flow \\(q\\) in the capillary pipes, we use an absolute value since it does not matter (flows are exchanged in both lower and upper pipes).\nNote also that \\(q = q(T_1, T_2, S_1, S_2)\\) as given in (Equation 19.4).",
     "crumbs": [
       "Box models of the ocean",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Basic models of the ocean</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Basic models of the ocean</span>"
     ]
   },
   {
     "objectID": "part-03-box/basic-ocean-model.html#reducing-the-equations-via-symmetry",
     "href": "part-03-box/basic-ocean-model.html#reducing-the-equations-via-symmetry",
-    "title": "18  Basic models of the ocean",
-    "section": "18.6 Reducing the equations via symmetry",
-    "text": "18.6 Reducing the equations via symmetry\n\\(\\nextSection\\)\n\nBy adding the equations (?eq-2box), it can be verified that in the limit \\(t \\to \\infty\\), the average temperature in the system, \\(1/2(T_1 + T_2)\\) tends to the average temperature in the surrounding basins \\(1/2(T_1^* + T_2^*)\\). The same conclusion can be drawn for the corresponding salinities.\nIt is then sensible to write all temperature and salinity in terms of this baseline scenario. So let us write \\[\\begin{align}\nT_1 &= \\frac{1}{2}m + U_1, \\\\\nT_2 &= \\frac{1}{2}m + U_2,\n\\end{align}\\] where \\(m = T_1^* + T_2^*\\). Then the first equation becomes \\[\\begin{align}\n\\frac{\\mathrm{d}U_1}{\\mathrm{d}t} &= c\\left(T_1^* - U_1 - \\frac{1}{2}m\\right) + |q| (U_2 - U_1)\\\\\n&= c\\left(- T^*  - U_1\\right) + |q| (U_2 - U_1).\n\\end{align}\\] where \\(T^* = \\frac{1}{2}(T_2^* - T_1^*)\\).\nThe analgous manipulations are done to the quantities for the salinity. In the end, if we (confusingly) re-write \\(T\\) for \\(U\\), then we obtain \\[\\begin{align}\n\\frac{\\mathrm{d}T_1}{\\mathrm{d}t} &= c(-T^* - T_1) + |q|(T_2 - T_1) \\\\\n\\frac{\\mathrm{d}T_2}{\\mathrm{d}t} &= c(T^* - T_2) + |q|(T_1 - T_2) \\\\\n\\frac{\\mathrm{d}S_1}{\\mathrm{d}t} &= -H + d(-S^* - S_1) + |q|(S_2 - S_1) \\\\\n\\frac{\\mathrm{d}S_2}{\\mathrm{d}t} &= H + d(S^* - S_2) + |q|(S_1 - S_2)\n\\end{align}\\] {#eq-2box-again}\nComparing the above to ?eq-2box, the main difference is that, in expressing the temperature and salinities with respect to the average values in the basin, we have eliminated two of the constants from the set \\((T_1^*, T_1^*, S_1^*, S_2^*)\\) now only into two constants \\((T^*, S^*)\\).\nIn the situation of zero salt flux. \\(H = 0\\), the above model reduces to Stommel’s box model studied in Chapter 19.",
+    "title": "19  Basic models of the ocean",
+    "section": "19.6 Reducing the equations via symmetry",
+    "text": "19.6 Reducing the equations via symmetry\n\\(\\nextSection\\)\n\nBy adding the equations (Equation 19.5), it can be verified that in the limit \\(t \\to \\infty\\), the average temperature in the system, \\(1/2(T_1 + T_2)\\) tends to the average temperature in the surrounding basins \\(1/2(T_1^* + T_2^*)\\). The same conclusion can be drawn for the corresponding salinities.\nIt is then sensible to write all temperature and salinity in terms of this baseline scenario. So let us write \\[\n\\begin{aligned}\nT_1 &= \\frac{1}{2}m + U_1, \\\\\nT_2 &= \\frac{1}{2}m + U_2,\n\\end{aligned}\n\\] where \\(m = T_1^* + T_2^*\\). Then the first equation becomes \\[\n\\begin{aligned}\n\\frac{\\mathrm{d}U_1}{\\mathrm{d}t} &= c\\left(T_1^* - U_1 - \\frac{1}{2}m\\right) + |q| (U_2 - U_1)\\\\\n&= c\\left(- T^*  - U_1\\right) + |q| (U_2 - U_1).\n\\end{aligned}\n\\] where \\(T^* = \\frac{1}{2}(T_2^* - T_1^*)\\).\nThe analogous manipulations are done to the quantities for the salinity. In the end, if we (confusingly) re-write \\(T\\) for \\(U\\), then we obtain \\[\n\\begin{aligned}\n\\frac{\\mathrm{d}T_1}{\\mathrm{d}t} &= c(-T^* - T_1) + |q|(T_2 - T_1) \\\\\n\\frac{\\mathrm{d}T_2}{\\mathrm{d}t} &= c(T^* - T_2) + |q|(T_1 - T_2) \\\\\n\\frac{\\mathrm{d}S_1}{\\mathrm{d}t} &= -H + d(-S^* - S_1) + |q|(S_2 - S_1) \\\\\n\\frac{\\mathrm{d}S_2}{\\mathrm{d}t} &= H + d(S^* - S_2) + |q|(S_1 - S_2)\n\\end{aligned}\n\\tag{19.6}\\]\nComparing the above to Equation 19.5, the main difference is that, in expressing the temperature and salinities with respect to the average values in the basin, we have eliminated two of the constants from the set \\((T_1^*, T_1^*, S_1^*, S_2^*)\\) now only into two constants \\((T^*, S^*)\\).\nIn the situation of zero salt flux. \\(H = 0\\), the above model reduces to Stommel’s box model studied later in this course.",
     "crumbs": [
       "Box models of the ocean",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Basic models of the ocean</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Basic models of the ocean</span>"
     ]
   },
   {
     "objectID": "part-03-box/basic-ocean-model.html#sec-ocean-toysalinity",
     "href": "part-03-box/basic-ocean-model.html#sec-ocean-toysalinity",
-    "title": "18  Basic models of the ocean",
-    "section": "18.7 Analysis of a reduced 1D model for the salinity",
-    "text": "18.7 Analysis of a reduced 1D model for the salinity\n\\(\\nextSection\\)\nIt is possible to do some analysis on the system (?eq-2box-again), though we may prefer to simply move on to study the more historically well-known reduction called Stommel’s box model in Chapter 19.\nWe make the following assumptions:\n\nWe assume that on the timescale of interest in the THC, the temperature of each box equilibrates quickly with the surrounding basin. Therefore the system can be regarded as being in steady state.\n\nThe difference in temperatures between the two boxes is small; together with the top assumption, this implies that \\(T_1(t) = -T^*\\) and \\(T_2(t) = T^*\\).\nSalinity exchanges by negligible amounts with its surrounding basin, i.e. \\(d = 0\\)\n\nThis leaves us with \\[\\begin{align}\n\\frac{\\mathrm{d}S_1}{\\mathrm{d}t} &= -H + |q|(S_2 - S_1) \\\\\n\\frac{\\mathrm{d}S_2}{\\mathrm{d}t} &= H + |q| (S_1 - S_2),\n\\end{align}\\] where \\(q = k(2\\alpha T^* - \\beta(S_2 - S_1))\\).\nNow, the formulation for the salinities can be placed into a single equation for \\(\\Delta S = S_2 - S_1\\), which satisfies \\[\n\\frac{\\mathrm{d}\\Delta S}{\\mathrm{d}t} = 2H - 2k|\\alpha \\Delta T - \\beta \\Delta S| \\Delta S.\n\\tag{18.5}\\]\nThis is now a much simpler and elegant formulation for study. Under a suitable non-dimensionalisation and scaling, we can even place the above equation in the final simplified form of \\[\n\\dot{x} = \\lambda - |1 - x| x,\n\\] where \\(\\lambda &gt; 0\\) (for temperatures in the usual configuration, with \\(T_2 - T_1 &gt; 0\\), and a suitably defined function \\(x = x(t)\\).\n\n\n\n\n\nKaper, Hans, and Hans Engler. 2013. Mathematics and Climate. SIAM.",
+    "title": "19  Basic models of the ocean",
+    "section": "19.7 Analysis of a reduced 1D model for the salinity",
+    "text": "19.7 Analysis of a reduced 1D model for the salinity\n\\(\\nextSection\\)\nIt is possible to do some analysis on the system (Equation 19.6), though we may prefer to simply move on to study the more historically well-known reduction called Stommel’s box model.\nWe make the following assumptions:\n\nWe assume that on the timescale of interest in the THC, the temperature of each box equilibrates quickly with the surrounding basin. Therefore the system can be regarded as being in steady state.\n\nThe difference in temperatures between the two boxes is small; together with the top assumption, this implies that \\(T_1(t) = -T^*\\) and \\(T_2(t) = T^*\\).\nSalinity exchanges by negligible amounts with its surrounding basin, i.e. \\(d = 0\\)\n\nThis leaves us with \\[\\begin{align*}\n\\frac{\\mathrm{d}S_1}{\\mathrm{d}t} &= -H + |q|(S_2 - S_1) \\\\\n\\frac{\\mathrm{d}S_2}{\\mathrm{d}t} &= H + |q| (S_1 - S_2),\n\\end{align*}\\] where \\(q = k(2\\alpha T^* - \\beta(S_2 - S_1))\\).\nNow, the formulation for the salinities can be placed into a single equation for \\(\\Delta S = S_2 - S_1\\), which satisfies \\[\n\\frac{\\mathrm{d}\\Delta S}{\\mathrm{d}t} = 2H - 2k|\\alpha \\Delta T - \\beta \\Delta S| \\Delta S.\n\\tag{19.7}\\]\nThis is now a much simpler and elegant formulation for study. Under a suitable non-dimensionalisation and scaling, we can even place the above equation in the final simplified form of \\[\n\\dot{x} = \\lambda - |1 - x| x,\n\\] where \\(\\lambda &gt; 0\\) (for temperatures in the usual configuration, with \\(T_2 - T_1 &gt; 0\\), and a suitably defined function \\(x = x(t)\\).\n\n\n\n\n\nKaper, Hans, and Hans Engler. 2013. Mathematics and Climate. SIAM.",
     "crumbs": [
       "Box models of the ocean",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Basic models of the ocean</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Basic models of the ocean</span>"
     ]
   },
   {
     "objectID": "part-03-box/stommel.html",
     "href": "part-03-box/stommel.html",
-    "title": "19  Stommel’s box model",
+    "title": "20  Stommel’s box model",
     "section": "",
-    "text": "19.1 Non-dimensionalisation\nWe can then nondimensionalise the system by setting \\[\nx = \\frac{\\Delta S}{\\Delta S^*}, \\quad y = \\frac{\\Delta T}{\\Delta T^*}, \\quad t' = ct,\n\\] where \\(t'\\) is nondimensional time. Dropping the primes henceforth, we have the following set of non-dimensional equations to study for the unknowns, \\(x = x(t)\\), and \\(y = y(t)\\):\n\\[\\begin{align}\n\\frac{\\mathrm{d}x}{\\mathrm{d}t} &= \\delta(1 - x) - |f(x, y)|x, \\\\\n\\frac{\\mathrm{d}y}{\\mathrm{d}t} &= 1 - y - |f(x, y)|y,\n\\end{align}\\] {#eq-stommelsys} where we have introduced the function, \\[\nf(x, y; R, \\lambda) = \\frac{1}{\\lambda}(Rx - y),\n\\tag{19.1}\\] where there are now three non-dimensional parameters given by\n\\[\\begin{align}\n\\delta &= d/c, \\\\\n\\lambda &= c/(2\\alpha k \\Delta T^*), \\\\\nR &= \\beta \\Delta S^*/(\\alpha \\Delta T^*).\n\\end{align}\\]\nTogether ?eq-stommelsys and Equation 19.1 form a system of equations for \\((x(t), y(t))\\), with parameters \\(\\delta\\), \\(\\lambda\\), and \\(R\\).\nAlthough there are many parameters, it is important to note that the quantity \\(f\\) is crucial since it corresponds to the direction of flow in the bottom pipe of the Ocean model. By convention, the system was set up so that \\(f &gt; 0\\) corresponds to flow through the bottom pipe goes in the direction of the equator (Box 1) as a result of higher densities at the high latitudes. We are subsequently interested in whether it is possible for \\(f\\) to switch sign, which would correspond to a bottom flow going from equator to poles, and the entire system switching direction.",
+    "text": "20.1 Non-dimensionalisation\nWe can then nondimensionalise the system by setting \\[\nx = \\frac{\\Delta S}{\\Delta S^*}, \\quad y = \\frac{\\Delta T}{\\Delta T^*}, \\quad t' = ct,\n\\] where \\(t'\\) is nondimensional time. Dropping the primes henceforth, we have the following set of non-dimensional equations to study for the unknowns, \\(x = x(t)\\), and \\(y = y(t)\\):\n\\[\\begin{align}\n\\frac{\\mathrm{d}x}{\\mathrm{d}t} &= \\delta(1 - x) - |f(x, y)|x, \\\\\n\\frac{\\mathrm{d}y}{\\mathrm{d}t} &= 1 - y - |f(x, y)|y,\n\\end{align}\\] {#eq-stommelsys} where we have introduced the function, \\[\nf(x, y; R, \\lambda) = \\frac{1}{\\lambda}(Rx - y),\n\\tag{20.2}\\] where there are now three non-dimensional parameters given by\n\\[\\begin{align}\n\\delta &= d/c, \\\\\n\\lambda &= c/(2\\alpha k \\Delta T^*), \\\\\nR &= \\beta \\Delta S^*/(\\alpha \\Delta T^*).\n\\end{align}\\]\nTogether ?eq-stommelsys and Equation 20.2 form a system of equations for \\((x(t), y(t))\\), with parameters \\(\\delta\\), \\(\\lambda\\), and \\(R\\).\nAlthough there are many parameters, it is important to note that the quantity \\(f\\) is crucial since it corresponds to the direction of flow in the bottom pipe of the Ocean model. By convention, the system was set up so that \\(f &gt; 0\\) corresponds to flow through the bottom pipe goes in the direction of the equator (Box 1) as a result of higher densities at the high latitudes. We are subsequently interested in whether it is possible for \\(f\\) to switch sign, which would correspond to a bottom flow going from equator to poles, and the entire system switching direction.",
     "crumbs": [
       "Box models of the ocean",
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Stommel's box model</span>"
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Stommel's box model</span>"
     ]
   },
   {
     "objectID": "part-03-box/stommel.html#sec-ocean2-equil",
     "href": "part-03-box/stommel.html#sec-ocean2-equil",
-    "title": "19  Stommel’s box model",
-    "section": "19.2 Equilibrium states",
-    "text": "19.2 Equilibrium states\n\\(\\nextSection\\)\nLet the equilibrium states be given by \\((x^*, y^*)\\) with \\(f(x^*, y^*) = f^*\\). Then setting the right hand sides of (?eq-stommelsys) to zero and solving, we find \\[\nx^* = \\frac{\\delta}{\\delta + |f^*|} \\quad \\text{and} \\quad\ny^* = \\frac{1}{1 + |f^*|}.\n\\tag{19.2}\\] We can solve for \\(f^*\\) in both equations and equate the result to one another. This gives \\[\n\\delta \\frac{1-x^*}{x^*} = \\frac{1 - y^*}{y^*} = |f^*|.\n\\] Therefore the equilibrium points lie along the above curve. Let us generate different values of \\(f^*\\) and plot the combination.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\ndelt = 1/6\nfmat = np.linspace(1e-3, 10, 101)\nxs = delt/(delt + np.abs(fmat))\nys = 1/(1 + np.abs(fmat))\nplt.plot(xs, ys, '.-')\nplt.xlim((0,1))\nplt.ylim((0,1))\nplt.xlabel(\"$x^*$\"); plt.ylabel(\"$y^*$\");\nplt.grid(1)\n\n\n\n\n\n\n\n\nThe above shows the steady-state values at \\(\\delta = 1/6\\). Each point refers to a different value of \\(|f^*|\\). Note that as \\(|f^*| \\to \\infty\\), then \\((x^*, y^*) \\to (0, 0)\\) while as \\(|f^*| \\to 0\\), then \\((x^*, y^*) \\to (1,1)\\).\nNow the above does not tell us what equilibrium states will exist at a specific value of \\(\\delta\\) since it requires information about \\(f^*\\). We take (Equation 19.1) and combine with (Equation 19.2). We conclude that the equilibrium points must satisfy \\[\n\\lambda f^* = \\phi(f^*),\n\\] where we have defined the function \\(\\phi\\) according to \\[\n\\phi(f^*) = \\frac{\\delta R}{\\delta + |f^*|} - \\frac{1}{1 + |f^*|}.\n\\tag{19.3}\\] Therefore, for each combination of the parameters \\((\\lambda, \\delta, R)\\), we must solve \\(\\delta f^* = \\phi(f^*)\\) to determine \\(f^*\\). Once the values of \\(f^*\\) are known, then the steady-states \\((x^*, y^*)\\) are also known. Here is a typical graph showing the potential intersections at the values of \\(\\lambda = 1/5\\), \\(\\delta = 1/6\\) and \\(R = 2\\).\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport scipy.optimize as sciopt\n\nlam = 1/5;\ndelt = 1/6;\nR = 2;\n\nf = np.linspace(-2.5, 2.5, 101)\nphi = delt*R/(delt + np.abs(f)) - 1/(1 + np.abs(f))\n\nplt.plot(f, phi, 'k', label='$\\phi$')\nplt.plot(f, lam*f, 'b', label='$\\lambda f$' )\nplt.ylim((-1.5,2))\nplt.xlabel(\"$f$\")\nplt.ylabel(\"$\\phi$\")\nplt.legend()\nplt.grid(1)\n\n\n\n\n\n\n\n\nAlthough there are many parameters that can alter the shape of the overall graphs, note that if \\(\\lambda\\) is increased from its current value of \\(\\lambda = 1/6\\), then two of the left roots will disappear, leaving only a single root.",
+    "title": "20  Stommel’s box model",
+    "section": "20.2 Equilibrium states",
+    "text": "20.2 Equilibrium states\n\\(\\nextSection\\)\nLet the equilibrium states be given by \\((x^*, y^*)\\) with \\(f(x^*, y^*) = f^*\\). Then setting the right hand sides of (?eq-stommelsys) to zero and solving, we find \\[\nx^* = \\frac{\\delta}{\\delta + |f^*|} \\quad \\text{and} \\quad\ny^* = \\frac{1}{1 + |f^*|}.\n\\tag{20.3}\\] We can solve for \\(f^*\\) in both equations and equate the result to one another. This gives \\[\n\\delta \\frac{1-x^*}{x^*} = \\frac{1 - y^*}{y^*} = |f^*|.\n\\] Therefore the equilibrium points lie along the above curve. Let us generate different values of \\(f^*\\) and plot the combination.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\ndelt = 1/6\nfmat = np.linspace(1e-3, 10, 101)\nxs = delt/(delt + np.abs(fmat))\nys = 1/(1 + np.abs(fmat))\nplt.plot(xs, ys, '.-')\nplt.xlim((0,1))\nplt.ylim((0,1))\nplt.xlabel(\"$x^*$\"); plt.ylabel(\"$y^*$\");\nplt.grid(1)\n\n\n\n\n\n\n\n\nThe above shows the steady-state values at \\(\\delta = 1/6\\). Each point refers to a different value of \\(|f^*|\\). Note that as \\(|f^*| \\to \\infty\\), then \\((x^*, y^*) \\to (0, 0)\\) while as \\(|f^*| \\to 0\\), then \\((x^*, y^*) \\to (1,1)\\).\nNow the above does not tell us what equilibrium states will exist at a specific value of \\(\\delta\\) since it requires information about \\(f^*\\). We take (Equation 20.2) and combine with (Equation 20.3). We conclude that the equilibrium points must satisfy \\[\n\\lambda f^* = \\phi(f^*),\n\\] where we have defined the function \\(\\phi\\) according to \\[\n\\phi(f^*) = \\frac{\\delta R}{\\delta + |f^*|} - \\frac{1}{1 + |f^*|}.\n\\tag{20.4}\\] Therefore, for each combination of the parameters \\((\\lambda, \\delta, R)\\), we must solve \\(\\delta f^* = \\phi(f^*)\\) to determine \\(f^*\\). Once the values of \\(f^*\\) are known, then the steady-states \\((x^*, y^*)\\) are also known. Here is a typical graph showing the potential intersections at the values of \\(\\lambda = 1/5\\), \\(\\delta = 1/6\\) and \\(R = 2\\).\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport scipy.optimize as sciopt\n\nlam = 1/5;\ndelt = 1/6;\nR = 2;\n\nf = np.linspace(-2.5, 2.5, 101)\nphi = delt*R/(delt + np.abs(f)) - 1/(1 + np.abs(f))\n\nplt.plot(f, phi, 'k', label='$\\phi$')\nplt.plot(f, lam*f, 'b', label='$\\lambda f$' )\nplt.ylim((-1.5,2))\nplt.xlabel(\"$f$\")\nplt.ylabel(\"$\\phi$\")\nplt.legend()\nplt.grid(1)\n\n\n\n\n\n\n\n\nAlthough there are many parameters that can alter the shape of the overall graphs, note that if \\(\\lambda\\) is increased from its current value of \\(\\lambda = 1/6\\), then two of the left roots will disappear, leaving only a single root.",
     "crumbs": [
       "Box models of the ocean",
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Stommel's box model</span>"
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Stommel's box model</span>"
     ]
   },
   {
     "objectID": "part-03-box/stommel.html#stability",
     "href": "part-03-box/stommel.html#stability",
-    "title": "19  Stommel’s box model",
-    "section": "19.3 Stability",
-    "text": "19.3 Stability\n\\(\\nextSection\\)\nWe let \\(x = x^* + \\xi\\) and \\(y = y^* + \\eta\\) and linearise the system about the fixed points. This gives \\[\n\\begin{pmatrix}\n\\dot{\\xi} \\\\\n\\dot{\\eta}\n\\end{pmatrix} = A\n\\begin{pmatrix}\n\\xi \\\\ \\eta\n\\end{pmatrix},\n\\] where the matrix \\(A\\) is given by \\[\nA =\n\\begin{pmatrix}\n-(\\delta + |f^*|) \\mp \\frac{Rx^*}{\\lambda} & \\pm \\frac{x^*}{\\lambda} \\\\\n\\mp \\frac{Ry^*}{\\lambda} & -(1 + |f^*|) \\pm \\frac{y^*}{\\lambda}\n\\end{pmatrix}\n\\] if \\(f^* \\gtrless 0\\).\nThere are two ways or proceeding. We can numerically substitute the fixed points into the above matrix for \\(A\\) and then calculate the eigenvalues (numerically or otherwise). Or we can directly proceed analytically.\nIf proceeding analytically, we can then calculate the trace and determinant, giving\n\\[\\begin{align}\nT &= -(1 + \\delta + 3 |f^*|), \\\\\nD &= (\\delta + 2|f^*|)(1 + |f^*|) \\pm (1 - \\delta) \\frac{y^*}{\\lambda}.\n\\end{align}\\]\nUsing the above, we can analytically calculate the key discriminant expression of \\(T^2 - 4D\\) (or numerically) in order to verify stability. The details of the classification scheme is given in the appendix Chapter 27.\nFor our purposes, we will mainly proceed using numerics, and bypass the need to study the above results analytically.\nIn the accompanying lecture script, we will obtain the eigenvalues numerically, and generate the phase plane. At the test point \\(R = 2\\), \\(\\delta = 1/6\\), and \\(\\lambda = 1/5\\), we generate the following phase plane picture.\n\n\n\n\n\n\nFigure 19.1: Phase plane for \\(R = 2\\), \\(\\lambda = 1/5\\) and \\(\\delta = 1/6\\). The blue, red, and green fixed points correspond to \\(f_1\\), \\(f_2\\), and \\(f_3\\) in order. The blue point is a stable node, the red point is an unstable saddle, and the green point is a stable spiral.",
+    "title": "20  Stommel’s box model",
+    "section": "20.3 Stability",
+    "text": "20.3 Stability\n\\(\\nextSection\\)\nWe let \\(x = x^* + \\xi\\) and \\(y = y^* + \\eta\\) and linearise the system about the fixed points. This gives \\[\n\\begin{pmatrix}\n\\dot{\\xi} \\\\\n\\dot{\\eta}\n\\end{pmatrix} = A\n\\begin{pmatrix}\n\\xi \\\\ \\eta\n\\end{pmatrix},\n\\] where the matrix \\(A\\) is given by \\[\nA =\n\\begin{pmatrix}\n-(\\delta + |f^*|) \\mp \\frac{Rx^*}{\\lambda} & \\pm \\frac{x^*}{\\lambda} \\\\\n\\mp \\frac{Ry^*}{\\lambda} & -(1 + |f^*|) \\pm \\frac{y^*}{\\lambda}\n\\end{pmatrix}\n\\] if \\(f^* \\gtrless 0\\).\nThere are two ways or proceeding. We can numerically substitute the fixed points into the above matrix for \\(A\\) and then calculate the eigenvalues (numerically or otherwise). Or we can directly proceed analytically.\nIf proceeding analytically, we can then calculate the trace and determinant, giving\n\\[\\begin{align}\nT &= -(1 + \\delta + 3 |f^*|), \\\\\nD &= (\\delta + 2|f^*|)(1 + |f^*|) \\pm (1 - \\delta) \\frac{y^*}{\\lambda}.\n\\end{align}\\]\nUsing the above, we can analytically calculate the key discriminant expression of \\(T^2 - 4D\\) (or numerically) in order to verify stability. The details of the classification scheme is given in the appendix Chapter 27.\nFor our purposes, we will mainly proceed using numerics, and bypass the need to study the above results analytically.\nIn the accompanying lecture script, we will obtain the eigenvalues numerically, and generate the phase plane. At the test point \\(R = 2\\), \\(\\delta = 1/6\\), and \\(\\lambda = 1/5\\), we generate the following phase plane picture.\n\n\n\n\n\n\nFigure 20.1: Phase plane for \\(R = 2\\), \\(\\lambda = 1/5\\) and \\(\\delta = 1/6\\). The blue, red, and green fixed points correspond to \\(f_1\\), \\(f_2\\), and \\(f_3\\) in order. The blue point is a stable node, the red point is an unstable saddle, and the green point is a stable spiral.",
     "crumbs": [
       "Box models of the ocean",
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Stommel's box model</span>"
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Stommel's box model</span>"
     ]
   },
   {
     "objectID": "part-03-box/stommel.html#bifurcation-diagrams",
     "href": "part-03-box/stommel.html#bifurcation-diagrams",
-    "title": "19  Stommel’s box model",
-    "section": "19.4 Bifurcation diagrams",
-    "text": "19.4 Bifurcation diagrams\n\\(\\nextSection\\)\nOnce the above stability analysis, it is possible to sketch the final bifurcation diagram.\nFirst, we can note that as \\(\\lambda\\) increases, the graph in Section 19.2 indicates that there may either be three intersections (as shown) or if \\(\\lambda\\) increases then two of the intersections may disappear. We can note that:\n\n\n\n\\(f_i^*\\)\n\\(\\lambda \\to 0^+\\)\n\\(\\lambda \\to \\infty\\)\n\n\n\n\n\\(f_1^*\\)\n\\(-\\infty\\)\nnone\n\n\n\\(f_2^*\\)\nfixed point &lt; 0\nnone\n\n\n\\(f_3^*\\)\nfixed point &gt; 0\n0\n\n\n\nWe can also ascertain that there should be a point, say \\(\\lambda = \\lambda^*\\) where the two roots coalesce, \\(f_1^* = f_2^*\\), and thereafter disappear. This allows us to now plot the bifurcation \\((\\lambda, f^*)\\)-plane:\n\n\n\n\n\n\nFigure 19.2",
+    "title": "20  Stommel’s box model",
+    "section": "20.4 Bifurcation diagrams",
+    "text": "20.4 Bifurcation diagrams\n\\(\\nextSection\\)\nOnce the above stability analysis, it is possible to sketch the final bifurcation diagram.\nFirst, we can note that as \\(\\lambda\\) increases, the graph in Section 20.2 indicates that there may either be three intersections (as shown) or if \\(\\lambda\\) increases then two of the intersections may disappear. We can note that:\n\n\n\n\\(f_i^*\\)\n\\(\\lambda \\to 0^+\\)\n\\(\\lambda \\to \\infty\\)\n\n\n\n\n\\(f_1^*\\)\n\\(-\\infty\\)\nnone\n\n\n\\(f_2^*\\)\nfixed point &lt; 0\nnone\n\n\n\\(f_3^*\\)\nfixed point &gt; 0\n0\n\n\n\nWe can also ascertain that there should be a point, say \\(\\lambda = \\lambda^*\\) where the two roots coalesce, \\(f_1^* = f_2^*\\), and thereafter disappear. This allows us to now plot the bifurcation \\((\\lambda, f^*)\\)-plane:\n\n\n\n\n\n\nFigure 20.2",
     "crumbs": [
       "Box models of the ocean",
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Stommel's box model</span>"
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Stommel's box model</span>"
     ]
   },
   {
     "objectID": "part-03-box/stommel.html#stommels-conclusion",
     "href": "part-03-box/stommel.html#stommels-conclusion",
-    "title": "19  Stommel’s box model",
-    "section": "19.5 Stommel’s conclusion",
-    "text": "19.5 Stommel’s conclusion\n\\(\\nextSection\\)\nWhat is the final takeaway message(s)?\n\nIt is possible to pose a conceptual model of the ocean and the thermohaline circulation, which governs the exchange of hot-and-cold waters and salty waters from equatorial-to-pole zones.\nThis conceptual model suggests that tipping points and hysteresis are possible in such systems. In particular, it is possible, according to these models, for the flow directions to entirely change!\n\n\n\n\n\n\n\nAs noted by (Kaper and Engler 2013):\n\n\n\n“Clearly, two-box models are only a caricature of the THC. At best, they account for the pole-to-equator circulation in single ocean basin (the North Atlantic). They certainly do not account for the fact that all the Earth’s oceans are connected, nor for the fact that the oceans are coupled to the atmosphere and other components of the climate system. Nevertheless, the finding that such simple models predict the possibility of two distinct stable modes of circulation, and that transitions from one more to another can be induced by changing the forcing parameters [–] has had a significant impact in oceanography and climate science.”\n\n\n\n\n\n\nKaper, Hans, and Hans Engler. 2013. Mathematics and Climate. SIAM.\n\n\nStommel, Henry. 1961. “Thermohaline Convection with Two Stable Regimes of Flow.” Tellus 13 (2): 224–30.",
+    "title": "20  Stommel’s box model",
+    "section": "20.5 Stommel’s conclusion",
+    "text": "20.5 Stommel’s conclusion\n\\(\\nextSection\\)\nWhat is the final takeaway message(s)?\n\nIt is possible to pose a conceptual model of the ocean and the thermohaline circulation, which governs the exchange of hot-and-cold waters and salty waters from equatorial-to-pole zones.\nThis conceptual model suggests that tipping points and hysteresis are possible in such systems. In particular, it is possible, according to these models, for the flow directions to entirely change!\n\n\n\n\n\n\n\nAs noted by (Kaper and Engler 2013):\n\n\n\n“Clearly, two-box models are only a caricature of the THC. At best, they account for the pole-to-equator circulation in single ocean basin (the North Atlantic). They certainly do not account for the fact that all the Earth’s oceans are connected, nor for the fact that the oceans are coupled to the atmosphere and other components of the climate system. Nevertheless, the finding that such simple models predict the possibility of two distinct stable modes of circulation, and that transitions from one more to another can be induced by changing the forcing parameters [–] has had a significant impact in oceanography and climate science.”\n\n\n\n\n\n\nKaper, Hans, and Hans Engler. 2013. Mathematics and Climate. SIAM.\n\n\nStommel, Henry. 1961. “Thermohaline Convection with Two Stable Regimes of Flow.” Tellus 13 (2): 224–30.",
     "crumbs": [
       "Box models of the ocean",
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Stommel's box model</span>"
-    ]
-  },
-  {
-    "objectID": "part-xx-exercises/problemclass05.html",
-    "href": "part-xx-exercises/problemclass05.html",
-    "title": "20  Problem class 5",
-    "section": "",
-    "text": "2022-23 note\n\n\n\nThis material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.",
-    "crumbs": [
-      "Box models of the ocean",
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Problem class 5</span>"
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Stommel's box model</span>"
     ]
   },
   {
@@ -972,7 +950,7 @@
     "href": "part-xx-exercises/ps02.html#ode-solvers-and-eulers-method",
     "title": "22  Problem set 2",
     "section": "22.5 ODE solvers and Euler’s method",
-    "text": "22.5 ODE solvers and Euler’s method\n\\(\\nextSection\\)\nReturn to the setup of the above question.\n\nModify the script developed in lecture 8 or alternatively copy-and-paste the script shown in Section 6.2 in order to solve the initial-value problem from the previous question at a prescribed value of \\(\\epsilon\\) and \\(\\alpha\\).\nUsing a pocket calculator (or your phone calculator) apply Euler’s method with \\(\\Delta t = 0.2\\), \\(\\epsilon = 0.2\\), and \\(\\alpha = 1\\) to determine the position of the projectile at \\(t = 0.6\\).\nCompare your hand calculation with the result from the Python output, as well as with your asymptotic approximations.",
+    "text": "22.5 ODE solvers and Euler’s method\n\\(\\nextSection\\)\nReturn to the setup of the above question.\n\nModify the script shown in Section 6.2 in order to solve the initial-value problem from the previous question at a prescribed value of \\(\\epsilon\\) and \\(\\alpha\\).\nUsing a pocket calculator (or your phone calculator) apply Euler’s method with \\(\\Delta t = 0.2\\), \\(\\epsilon = 0.2\\), and \\(\\alpha = 1\\) to determine the position of the projectile at \\(t = 0.6\\).\nCompare your hand calculation with the result from the Python output, as well as with your asymptotic approximations.",
     "crumbs": [
       "Exercises",
       "<span class='chapter-number'>22</span>  <span class='chapter-title'>Problem set 2</span>"
@@ -1027,7 +1005,7 @@
     "href": "part-xx-exercises/ps03.html#q5.-inner-asymptotic-solutions",
     "title": "23  Problem set 3",
     "section": "Q5. Inner asymptotic solutions",
-    "text": "Q5. Inner asymptotic solutions\n\\(\\nextSection\\)\nThere will be a boundary layer near \\(z = 0\\). Set \\(z = \\epsilon^{\\alpha} s\\) and \\(T(z) = U(s)\\). Follow the same procedure, as in Chapter 9 in order to determine the correct choice of \\(\\alpha\\) for the inner region. This choice should balance the two terms \\(\\epsilon T''\\) and \\(2T'\\).",
+    "text": "Q5. Inner asymptotic solutions\n\\(\\nextSection\\)\nThere will be a boundary layer near \\(z = 0\\). Set \\(z = \\epsilon^{\\alpha} s\\) and \\(T(z) = U(s)\\). Follow the same procedure, as in Chapter 8 in order to determine the correct choice of \\(\\alpha\\) for the inner region. This choice should balance the two terms \\(\\epsilon T''\\) and \\(2T'\\).",
     "crumbs": [
       "Exercises",
       "<span class='chapter-number'>23</span>  <span class='chapter-title'>Problem set 3</span>"
@@ -1045,146 +1023,135 @@
     ]
   },
   {
-    "objectID": "part-xx-exercises/ps04.html",
-    "href": "part-xx-exercises/ps04.html",
-    "title": "24  Problem set 4",
-    "section": "",
-    "text": "Q1. Budyko’s model\nPreviously we derived the energy for outgoing radiation as: \\[\nE_{\\text{out}}(T) = \\sigma \\gamma T^4,\n\\] which is estimated via the Stefan-Boltzmann law. Budyko’s approximation replaces this law with a linear relationship.",
-    "crumbs": [
-      "Exercises",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Problem set 4</span>"
-    ]
-  },
-  {
-    "objectID": "part-xx-exercises/ps04.html#q1.-budykos-model",
-    "href": "part-xx-exercises/ps04.html#q1.-budykos-model",
-    "title": "24  Problem set 4",
-    "section": "",
-    "text": "Assume that \\[\nT = T_0 + \\bar{T},\n\\] where \\(T_0 = 273.15 \\, \\mathrm{K}\\), which corresponds to \\(0^\\circ \\, \\mathrm{C}\\). We can consider \\(\\bar{T}\\) as measured in Celcius (since conversion between Kelvins and Celcius is directly proportional). Substitute the above into \\(E_{\\text{out}}\\) and linearise, thus assuming \\(\\bar{T}\\) is near zero. Place the energy in the form \\[\nE_{\\text{out}} \\sim A + B\\bar{T}.\n\\] Using the standard value of \\(\\sigma = 5.67 \\times 10^{-8}\\) W/m2 K4 and \\(\\gamma = 1\\), calculate the values of \\(A\\) and \\(B\\).\nRather than use the formal values derived above, the standard Budyko model uses values of \\(A = 203.3 \\mathrm{W}/\\mathrm{m}^2\\) and \\(B = 2.09 \\, \\mathrm{W}/(\\mathrm{m}^2 {}^\\circ \\mathrm{C})\\) that are found from best fit with observational data.\nUsing Jupyter and a short script for numerical root finding, investigate the equilibrium solutions of \\[\nQ(1 - a(T_0 + \\bar{T})) = A + B \\bar{T}.\n\\] where \\(Q = 342 \\, \\mathrm{W}/\\mathrm{m}^2\\) and \\(a(T)\\) is given from (Equation 12.2). Where are the equilibrium solutions, \\(\\bar{T^*}\\), and how do they compare with those obtained previously using the Stefan-Boltzmann relation?",
-    "crumbs": [
-      "Exercises",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Problem set 4</span>"
-    ]
-  },
-  {
-    "objectID": "part-xx-exercises/ps04.html#q2.-variable-sun-output",
-    "href": "part-xx-exercises/ps04.html#q2.-variable-sun-output",
-    "title": "24  Problem set 4",
-    "section": "Q2. Variable Sun output",
-    "text": "Q2. Variable Sun output\n\\(\\nextSection\\)\nSatellite data indicates that \\(Q\\), varies roughly between 341.37 W/m2 and 341.75 W/m2, with a period of about 11 years.\n\nUse the simple EBM (Equation 12.3), given by \\[\nQ(1 - a) = \\sigma \\gamma T^4,\n\\] with a constant albedo, \\(a = 0.3\\) and greenhouse gas factor \\(\\gamma = 0.6\\) to estimate the resultant variation (max and min) in the Earth’s mean surface temperature \\(T\\).\nSimilar to (a) but this time, use the Budyko balance equation, \\[\nQ(1 - a) = A + BT\n\\] with \\(A = 203.3 \\, \\mathrm{W} \\mathrm{m}^{-2}\\) and \\(B = 2.09 \\, \\mathrm{W}/(\\mathrm{m}^{2} \\, {}^\\circ \\mathrm{C})\\) to estimate the resultant variation in the surface temperature. Use \\(a = 0.3\\).\nThe actual variation in surface temperature is in fact less than what you computed above. Why might this be?",
-    "crumbs": [
-      "Exercises",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Problem set 4</span>"
-    ]
-  },
-  {
-    "objectID": "part-xx-exercises/ps04.html#q3.-phase-line-analysis",
-    "href": "part-xx-exercises/ps04.html#q3.-phase-line-analysis",
-    "title": "24  Problem set 4",
-    "section": "Q3. Phase line analysis",
-    "text": "Q3. Phase line analysis\n\\(\\nextSection\\)\nConsider the energy balance equation \\[\nC \\frac{\\mathrm{d}T}{\\mathrm{d}t} = Q(1 - a(T)) - \\sigma \\gamma T^4 \\equiv G(T).\n\\tag{24.1}\\] with \\(a\\) given by (Equation 12.2). Because the differential equation is autonomous, we can apply phase-line analysis in order to qualitatively understand the evolution. Below is a plot of the function \\(G\\):\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nQ = 342; sigma = 5.67e-8; gam = 0.6;\na = lambda T: 0.5 - 0.2*np.tanh(0.1*(T-265));\nT = np.linspace(220, 310, 100);\nG = Q*(1-a(T)) - sigma*gam*T**4\nfig, ax = plt.subplots()\nax.plot(T, G)\nax.grid(); ax.minorticks_on();\n# Customize the major grid\nax.grid(which='major', linestyle='-', linewidth='0.5', color='red')\n# Customize the minor grid\nax.grid(which='minor', linestyle=':', linewidth='0.5', color='black')\nplt.xlabel('T (in Kelvins)'); plt.ylabel('G(T)');\n\n\n\n\n\n\n\n\n\nSketch the solution \\(T(t)\\) of this equation for \\(t &gt; 0\\) if \\(T(0) = 230, 240, 260, 270\\) and \\(300\\).\nSketch the solution \\(T(t)\\) of this equation for \\(t &gt; 0\\) if \\(T(0) = 285\\). Then sketch the solution of this equation with the same initial data in the same coordinate system if \\(C\\) is twice as large. Explain your answer.\nIf \\(\\gamma\\) is decreased due to the increased greenhouse effect, the entire curve is shifted upwards. Sketch the solution if \\(T(0) = 280\\). Sketch the solution with the same initial data if \\(\\gamma\\) is decreased. Explain your answer.",
-    "crumbs": [
-      "Exercises",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Problem set 4</span>"
-    ]
-  },
-  {
-    "objectID": "part-xx-exercises/ps04.html#q4.-evolution",
-    "href": "part-xx-exercises/ps04.html#q4.-evolution",
-    "title": "24  Problem set 4",
-    "section": "Q4. Evolution",
-    "text": "Q4. Evolution\n\\(\\nextSection\\)\nConsider again (Equation 24.1). Let \\(T^*\\) be a steady-state solution and set \\(T = T^* + u(t)\\) where \\(u(t)\\) is a small perturbation from the steady state.\n\nShow that the perturbation satisfies \\[\nC \\dot{u} = -D u + O(u^2).\n\\] and hence solve for the general solution of the leading-order perturbation (ignoring quadratic terms). What are the conditions on \\(T^*\\) so that the steady state is linearly stable?\nAssuming \\(T^*\\) is linearly stable, find the typical response time to a perturbation. For instance, what is the time it takes for the perturbation to reach the value \\(u(t) = 0\\) if \\(u(0) = 1\\)? How does this response time change with \\(C\\)? What is the physical interpretation of this regarding the climate?",
-    "crumbs": [
-      "Exercises",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Problem set 4</span>"
-    ]
-  },
-  {
-    "objectID": "part-xx-exercises/ps04.html#q5.-integral-of-energy-over-the-planet",
-    "href": "part-xx-exercises/ps04.html#q5.-integral-of-energy-over-the-planet",
-    "title": "24  Problem set 4",
-    "section": "Q5. Integral of energy over the planet",
-    "text": "Q5. Integral of energy over the planet\n\\(\\nextSection\\)\nIgnoring the effects of albedo, the total radiation absorbed over the surface of the planet (per unit time) is given by \\[\n\\iint_{\\text{planet}} Qs(y=\\sin\\varphi) \\, \\mathrm{d}S.\n\\] This is what is known as a surface integral (Section 28.1). In the case of the spherical coordinate system, this is calculated by \\[\n\\int_{\\theta=0}^{2\\pi} \\int_{\\varphi = -\\pi/2}^{\\pi/2} Qs(y = \\sin\\varphi) R_E^2 \\cos\\varphi \\, \\mathrm{d}\\varphi \\mathrm{d}\\theta.\n\\] Use the properties of \\(s(y)\\) in (Equation 13.2) to conclude that the total radiation absorbed is \\(4\\pi R_E^2 Q\\).",
-    "crumbs": [
-      "Exercises",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Problem set 4</span>"
-    ]
-  },
-  {
-    "objectID": "part-xx-exercises/ps04.html#q6.-mean-temperature-in-the-latitude-dependent-ebm",
-    "href": "part-xx-exercises/ps04.html#q6.-mean-temperature-in-the-latitude-dependent-ebm",
-    "title": "24  Problem set 4",
-    "section": "Q6. Mean temperature in the latitude-dependent EBM",
-    "text": "Q6. Mean temperature in the latitude-dependent EBM\n\\(\\nextSection\\)\nConsider now the latitude-dependent EBM \\[\nC \\frac{\\mathrm{\\partial}T}{\\mathrm{\\partial}t} = Qs(y)[1 - a(y)] - (A + BT) + k(\\bar{T} - T).\n\\] Recall the albedo is given by \\(a = a_i\\) for \\(y &gt; y_s\\) and \\(a = a_w\\) for \\(y &lt; y_s\\).\n\nBy integrating the above equation over \\(y \\in [0, 1]\\), show that the mean temperature is given by \\[\nC \\frac{\\mathrm{d}\\bar{T}}{\\mathrm{d}t} = Q(1 - \\bar{a}) - (A + B\\bar{T}),\n\\tag{24.2}\\] where \\[\n\\bar{a} = \\int_0^1 s(y) a(y) \\, \\mathrm{d}y = \\alpha_w \\int_0^{y_s} s(y) \\, \\mathrm{d}y + a_i \\int_{y_s}^1 s(y) \\, \\mathrm{d}y.\n\\]\nIn the case that \\(s\\) is given by (Equation 13.2), show that \\[\n\\bar{a} = a_i + (a_w - a_i) y_s[1 - 0.241(y_s^2 - 1)].\n\\tag{24.3}\\] What is \\(\\bar{a}\\) in the two situations of a completely ice-covered world and an ice-free world?\nUsing Python, plot a graph of the steady-state temperature, \\(T^*\\), which satisfies \\[\n\\bar{T}^* = \\frac{Q(1 - \\bar{a}) - A}{B},\n\\tag{24.4}\\] as a function of the ice line location, \\(y_s \\in [0, 1]\\).\nIn the numerical code designed in lectures ma30287/notebooks/lecture17-latitudeebm_newton.ipynb we used numerical quadratic to determine \\(\\bar{T}\\). Experiment with a modest number of mesh points and verify how well the integration scheme compares with the exact solution shown above.",
-    "crumbs": [
-      "Exercises",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Problem set 4</span>"
-    ]
-  },
-  {
     "objectID": "part-xx-exercises/ps01sol.html",
     "href": "part-xx-exercises/ps01sol.html",
-    "title": "25  Problem set 1 solutions",
+    "title": "24  Problem set 1 solutions",
     "section": "",
     "text": "Q1 The bump lemma\nProve the following one-dimensional lemma, which was used in the derivation of the heat equation.\nIf \\(\\int_a^b g(x) \\, \\mathrm{d}x = 0\\) for all \\(a\\) and \\(b \\in [0, 1]\\), then \\(g(x) \\equiv 0\\) for all \\(x\\in [0, 1]\\).\nHint: think of a proof by contradiction.",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Problem set 1 solutions</span>"
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Problem set 1 solutions</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps01sol.html#q1-the-bump-lemma",
     "href": "part-xx-exercises/ps01sol.html#q1-the-bump-lemma",
-    "title": "25  Problem set 1 solutions",
+    "title": "24  Problem set 1 solutions",
     "section": "",
     "text": "Solution\n\n\n\n\n\nAssume by contradiction that \\(f(x) \\neq 0\\) between two arbitrary points, say \\(x_0\\) and \\(x_1\\), both in the interval \\([a, b]\\). Then \\(\\int_{x_0}^{x_1} f(x) \\mathrm{d}x \\neq 0\\). This assumes some degree of smoothness and integrability (as long as \\(f\\) is not too pathological).",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Problem set 1 solutions</span>"
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Problem set 1 solutions</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps01sol.html#q2.-a-source-in-the-heat-equation",
     "href": "part-xx-exercises/ps01sol.html#q2.-a-source-in-the-heat-equation",
-    "title": "25  Problem set 1 solutions",
+    "title": "24  Problem set 1 solutions",
     "section": "Q2. A source in the heat equation",
     "text": "Q2. A source in the heat equation\n\\(\\nextSection\\)\nConsider the same heat experiment discussed in Chapter 1 but now consider a bar that has an internal source or sink generating or removing heat, such as the case of a boiler with an internal heating element. By adapting a similar derivation to the one presented, explain why the modified conservation of heat equation is \\[\n\\frac{\\mathrm{\\partial}}{\\mathrm{\\partial}t} \\int_a^b \\rho c T \\, \\mathrm{d}x = q(x = a, t) - q(x = b, t) + \\int_a^b R(x, t) \\, \\mathrm{d}x.\n\\]\nIn addition:\n\nBy studying the dimensions of the other terms in the above equation, find what the dimensions of \\(R\\) are. What does \\(R &gt; 0\\) mean and \\(R &lt; 0\\)?\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nOn the left, density has units kg/m^3, specific heat J/(kg K), and temperature K. But then dx has units of m. And d/dt has units of 1/s. So altogether, we have the following SI units on the left: \\[\n\\frac{J}{m^2 \\cdot s}\n\\]\nSo its energy per unit area per unit time. The reason why it’s per unit area is because you have not integrated over the sides of the cylinder/bar.\nSo therefore this needs to match the units on the right, which are [R] [dx]. So you conclude that \\[\n[R] = \\frac{J}{m^3 \\cdot s}\n\\] i.e. energy per unit time per unit volume. This is energy density.\nR &gt; 0 means heat is added into the system (source). R &lt; 0 means heat is removed from the system (sink).\n\n\n\n\nHence derive the partial differential equation that governs the temperature \\(T\\).\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe derivation follows exactly as in the notes, except you have an additional term on the RHS. Use Fourier’s law to convert \\(q = -k \\partial T/\\partial x\\). Write everything under the integral and this yields: \\[\n\\rho c \\frac{\\mathrm{\\partial}T}{\\mathrm{\\partial}t} = k \\frac{\\mathrm{\\partial}^2 T}{\\mathrm{\\partial}x^2} + R.\n\\]\n\n\n\n\nBy introducing the appropriate scalings on each of the variables, \\(x\\), \\(t\\), and \\(T\\), non-dimensionalise the PDE and discuss the non-dimensional parameters (there will be two).\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nSame derivation as in the notes. Let \\[\nx = L x', T = [T]T' \\quad \\text{and} \\quad t = [t]t'.\n\\] This time you will remember to scale out the typical source strength, so \\[\nR = [R]R'.\n\\]\nThis leads to \\[\n\\frac{\\mathrm{\\partial}T'}{\\mathrm{\\partial}t'}\n= \\left(\\frac{k[t]}{L^2 \\rho c}\\right) \\frac{\\mathrm{\\partial}^2 T'}{\\mathrm{\\partial}x'^2} + \\left(\\frac{[R][t]}{\\rho c [T]}\\right)R'.\n\\] So this gives the two sets of non-dimensional numbers\n\\[\\begin{align}\n\\Pi_1 &= \\frac{k[t]}{L^2 \\rho c} \\\\\n\\Pi_2 &= \\frac{[R][t]}{\\rho c [T]}.\n\\end{align}\\]\nIf you want, you can write it in the alternative form by taking the time scaling to be \\([t] = L/U\\), where \\(U\\) is some unspecified velocity scale.\nFor the interpretation, you can simply take \\(\\Pi_1\\) to be a measure of diffusive effects (heat spreading out) and \\(\\Pi_2\\) to be a measure of source strength. Note that this problem can be simplified even further by choosing the time scale so as to set \\(\\Pi_1 = 1\\). If you do this, you will be left with a single non-dimensional parameter that balances diffusion with the strength of the source.",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Problem set 1 solutions</span>"
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Problem set 1 solutions</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps01sol.html#q3.-choice-of-scalings",
     "href": "part-xx-exercises/ps01sol.html#q3.-choice-of-scalings",
-    "title": "25  Problem set 1 solutions",
+    "title": "24  Problem set 1 solutions",
     "section": "Q3. Choice of scalings",
     "text": "Q3. Choice of scalings\n\\(\\nextSection\\)\nConsider the dimensional problem for the motion of a projectile launched from close to the surface of the Earth. The dimensional height of the projectile, \\(y(t)\\), is given by \\[\\begin{align}\n\\frac{\\mathrm{d}^2 y}{\\mathrm{d}t^2} &= - \\frac{GM}{(R+y)^2}, \\\\\ny(0) &= 2 \\, \\mathrm{m}, \\\\\ny'(0) &= -V_0 \\, \\mathrm{m/s}.\n\\end{align}\\] Assume that the Earth is spherical and of uniform density, with its mass given by \\(M = (4/3) \\pi R^3 \\rho\\). Non-dimensionalise the height using \\(y = L \\tilde{y}\\) and time using \\(t = T\\tilde{t}\\). Consider the following cases:\n\n\\(R\\) fixed, \\(V_0 \\to \\infty\\), \\(\\rho\\) fixed;\n\\(R\\) fixed, \\(V_0\\) fixed, \\(\\rho \\to \\infty\\);\n\\(R\\) fixed, \\(V_0\\) fixed, \\(\\rho \\to 0\\);\n\\(R \\to 0\\), \\(V_0\\) fixed, \\(M\\) fixed.\n\n\n\n\n\n\n\nNB!\n\n\n\nThis problem ended up a lot longer than expected. Nevertheless do at least of the few cases to get a feel.\n\n\nFor each case:\n\nExplain the physical interpretation of the limits.\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nVery fast initial velocity\nVery heavy object\nVery light object\nVery small Earth radius\n\n\n\n\n\nChoose the scalings \\(L\\) and \\(T\\) to normalise as many terms as possible.\nChoose the scalings so that the time it takes for the projectile to fall should be finite for the given limit, and for the speed, acceleration, and initial height to be well behaved (finite).\nWrite out the scaled problem and identify all remaining nondimensional parameters.\nIdentify the limiting small parameter for each case. Write out the problem (leading-order problem) when the parameter is set to zero.\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe solution for parts (b) to (d) is given below. The solution for part (e) is simply setting \\(\\epsilon = 0\\) in each case.",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Problem set 1 solutions</span>"
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Problem set 1 solutions</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps01sol.html#q4.-the-unique-timescale-in-the-heat-equation",
     "href": "part-xx-exercises/ps01sol.html#q4.-the-unique-timescale-in-the-heat-equation",
-    "title": "25  Problem set 1 solutions",
+    "title": "24  Problem set 1 solutions",
     "section": "Q4. The unique timescale in the heat equation",
     "text": "Q4. The unique timescale in the heat equation\n\\(\\nextSection\\)\nDuring our investigation of the heat equation, we found that it was possible to scale time so as to scale out the only non-dimensional parameter that appears in the PDE. As explained in lectures, the disappearance of all non-dimensional parameters is due to the fact that only a single sensible timescale exists.\nBy adjusting the boundary conditions, we may create a new problem involving heat flow where a unique ‘special’ timescale can no longer be chosen.\nConsider a system where one side of the rod is heated in some periodic fashion, e.g. set the initial and boundary conditions to be \\[\\begin{align}\nT(x, 0) &= T_0 \\\\\nT(0, t) &= T_a \\cos (\\omega t), \\\\\nT(L, t) &= T_b.\n\\end{align}\\]\n\nWhat must the units of \\(\\omega\\) be?\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nNote \\(\\omega t\\) must be unitless. Therefore \\([\\omega] = 1/s\\).\n\n\n\n\nNon-dimensionalise as usual and, without selecting the timescale, \\([t]\\), identify the key non-dimensional parameters that remain. Write a brief sentence to describe their physical interpretation.\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThis is exactly the same as in the above heat question. You will still obtain\n\\[\n\\frac{\\mathrm{\\partial}T'}{\\mathrm{\\partial}t'}\n= \\Pi_1 \\frac{\\mathrm{\\partial}^2 T'}{\\mathrm{\\partial}x'^2}\n\\] where the non-dimensional parameters is the Peclet number introduced in lectures: \\[\n\\Pi_1 = \\left(\\frac{k[t]}{L^2 \\rho c}\\right).\n\\]\nThe main difference is that now, your boundary conditions are \\[\nT'(0, t') = \\Pi_3 \\cos (\\Pi_2 t') \\quad \\text{and} \\quad\nT'(1, t') = \\Pi_4\n\\] where \\[\n\\Pi_2 = \\omega [t], \\qquad \\Pi_3 = \\frac{T_a}{T_0}, \\qquad Pi_4 = T_b/T_0.\n\\]\nThe scaling on the temperature was taken to be such that the final initial condition is set to unity: \\[\nT'(x', 0) = 1.\n\\]\n\n\n\n\nThere are two sensible choices for setting the timescale, \\([t]\\). Identify the two choices and present the reduced set of equations in each case.\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nSo there are now two ways of choosing the time scale. Either choose it to set \\(\\Pi_1 = 1\\) or choose it to set \\(\\Pi_2 = 1\\). In the former choice, you are choosing to set time according to the diffusive rate. In the latter, you are setting time according to how the boundary is heated.",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Problem set 1 solutions</span>"
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Problem set 1 solutions</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps01sol.html#q5.-timescale-in-the-surface-energy",
     "href": "part-xx-exercises/ps01sol.html#q5.-timescale-in-the-surface-energy",
-    "title": "25  Problem set 1 solutions",
+    "title": "24  Problem set 1 solutions",
     "section": "Q5. Timescale in the surface energy",
     "text": "Q5. Timescale in the surface energy\n\\(\\nextSection\\)\nTake the basic zero-dimensional energy model studied in (Equation 3.7) for the temperature of the troposphere: \\[\nc \\frac{\\mathrm{d}T}{\\mathrm{d}t} = \\frac{1}{4} Q(1 - a) - \\sigma \\gamma T^4.\n\\]\n\nNon-dimensionalise the model by choosing \\(T = [T]T'\\), \\(t = [t]t'\\), and \\(Q = [Q]Q'\\). Show that it is possible to select the scalings on the temperature and time so as to completely remove all constants from the problem when \\(Q\\) is assumed to be constant.\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe question’s suggestion of setting \\(Q = [Q]Q'\\) was excessive since \\(Q\\) is just a constant in this case. So proceeding as usual:\nSet in the scalings. This time it is easier to balance the right had-side first. \\[\n\\frac{c[T]}{[t']}\\frac{\\mathrm{\\partial}T'}{\\mathrm{\\partial}t'} = \\left(\\frac{Q(1-a)}{4}\\right) - \\left(\\sigma \\gamma [T]^4\\right) T'^4.\n\\] So select the temperature scaling so that both coefficients on the RHS are equal. \\[\n[T] = \\left(\\frac{Q(1-a)}{4\\sigma \\gamma}\\right)^{1/4}.\n\\] Now choose the time scaling also to match the LHS coefficient to the RHS coefficient. \\[\nc \\frac{[T]}{[t]} = \\sigma \\gamma [T]^4 \\Longrightarrow\n[t] = \\frac{c}{\\sigma \\gamma [T]^4}\n\\] Once you have done this, the equation transforms to the one given in part b.\n\n\n\n\nThus, show that the analysis of the above equation is equivalent to studying \\[\n\\frac{\\mathrm{d}T}{\\mathrm{d}t} = 1 - T^4,\n\\] where we have dropped the primes and assumed that the albedo is such that \\(1 - a \\neq 0\\).\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nDone above.\n\n\n\n\nFrom your choice of \\([t]\\), estimate the typical dimensional value using \\(d \\approx 10 \\mathrm{km}\\), \\(\\rho \\approx 1 \\mathrm{kg} \\,\\mathrm{m}^{-3}\\), \\(c_p \\approx 10^3 \\mathrm{J} \\,\\mathrm{kg}^{-1} \\,\\mathrm{K}^{-1}\\).\n\nUse a pocket calculator to verify your calculations and conclude that this time-scale is on the order of a month. What is the relevance of this approximation as it concerns the steady-state solution?\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nBelow (Equation 3.7), we defined \\(C = \\rho c_p d\\). So the scaling on time is (put in the scaling for [T]): \\[\n[t] = \\left(\\frac{4}{(1-a)}\\right)^{3/4} \\left(\\frac{C}{(\\sigma \\gamma)^{1/4} Q^{3/4}}\\right).\n\\]\nSo we know that \\(\\sigma = 5.67 \\times 10^{-8}\\) J/(m^2 s K^4), \\(Q = 1.38 \\times 10^3\\) J/(m^2 s). We can also calculate \\[\nC = \\rho c_p d = 10^7 J/(K \\cdot m^2).\n\\]\nWe can use \\(\\gamma = 1\\) for an estimate. The right-most factor is \\[\n\\frac{10^7}{(5.67 \\times 10^{-8})^{1/4} (1.378 \\times 10^3)^{3/4}} s = 2.88 \\times 10^6 s\n\\]\nIf we use a = 0.3 then this gives a total of \\[\n[t] = 3.7 \\times 2.88 \\times 10^6 s.\n\\] To convert to days, note 1 day = 24 hours = 2460 minutes = 2460*60 seconds. This is then \\[\n[t] = \\frac{1.65 \\times 10^7}{8.64 \\times 10^4} \\text{days} = 0.19 \\times 10^3 \\text{days} = 190 \\text{days}.\n\\] So on the order of 6 months. Any answer you get that’s roughly on the order of months sounds about right. This is the rough approximation of how long time-scale effects take to appear.",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Problem set 1 solutions</span>"
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Problem set 1 solutions</span>"
+    ]
+  },
+  {
+    "objectID": "part-xx-exercises/ps02sol.html",
+    "href": "part-xx-exercises/ps02sol.html",
+    "title": "25  Problem set 2 solutions",
+    "section": "",
+    "text": "25.1 Getting started with Jupyter",
+    "crumbs": [
+      "Exercises",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Problem set 2 solutions</span>"
+    ]
+  },
+  {
+    "objectID": "part-xx-exercises/ps02sol.html#getting-started-with-jupyter",
+    "href": "part-xx-exercises/ps02sol.html#getting-started-with-jupyter",
+    "title": "25  Problem set 2 solutions",
+    "section": "",
+    "text": "Note\n\n\n\nN/A",
+    "crumbs": [
+      "Exercises",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Problem set 2 solutions</span>"
+    ]
+  },
+  {
+    "objectID": "part-xx-exercises/ps02sol.html#testing-the-solutions-of-a-cubic",
+    "href": "part-xx-exercises/ps02sol.html#testing-the-solutions-of-a-cubic",
+    "title": "25  Problem set 2 solutions",
+    "section": "25.2 Testing the solutions of a cubic",
+    "text": "25.2 Testing the solutions of a cubic\n\\(\\nextSection\\)\n\n\n\n\n\n\nNote\n\n\n\nSee notebook/ps2_sol.ipynb notebook for the code.",
+    "crumbs": [
+      "Exercises",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Problem set 2 solutions</span>"
+    ]
+  },
+  {
+    "objectID": "part-xx-exercises/ps02sol.html#analysis-of-singular-cubic-equation",
+    "href": "part-xx-exercises/ps02sol.html#analysis-of-singular-cubic-equation",
+    "title": "25  Problem set 2 solutions",
+    "section": "25.3 Analysis of singular cubic equation",
+    "text": "25.3 Analysis of singular cubic equation\n\\(\\nextSection\\)\nConsider the cubic equation \\[\n\\epsilon x^3 - x + 1 = 0,\n\\] with \\(\\epsilon \\ll 1\\) and \\(\\epsilon &gt; 0\\).\n\nDevelop the first three terms of an asymptotic expansion about the root by setting \\[\nx = x_0 + \\epsilon x_1 + \\epsilon^2 x_2 + \\ldots\n\\]\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nSubstitution into the cubic gives \\[\n\\epsilon (x_0^3 + 3 x_0 x_1 + \\ldots) - (x_0 + \\epsilon x_1 + \\epsilon^2 x_2) + 1 = 0.\n\\] Equating at each order and solving gives \\[\\begin{gather}\n-x_0 + 1 = 0 \\Longrightarrow x_0 = 1 \\\\\nx_0^3 - x_1 = 0 \\Longrightarrow x_1 = 1 \\\\\n3x_0 x_1 - x_2 = 0 \\Longrightarrow x_2 = 3\n\\end{gather}\\] So the three-term approximation is \\[\nx \\sim 1 + \\epsilon + 3 \\epsilon^2.\n\\]\n\n\n\n\nFill out the following table.\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n| $\\epsilon$ | $x_{\\text{exact}}$ | $x_{\\text{exact}} - x_0$ |\n| -----------| -------------------|--------------------------|\n| 0.1 | 1.1535 | 0.1535 |\n| 0.08 | 1.1092 | 0.1092 |\n| 0.06 | 1.0744 | 0.0744 |\n| 0.04 | 1.0457 | 0.0457|\n| 0.02 |1.0213 | 0.0213 |\nThis is a really excellent demonstration of an ‘organic’ discovery process. Below we plot the errors we found in the above table. I rounded the values to only the first two decimals. It is not so important to be extremely accurate (in fact, this is the point of requiring you to do so by hand!)\n\n\n\n\n\n\nFigure 25.1: Hand drawn image\n\n\n\nWhen doing this, I tried to fit to a line because I knew the error was supposed to be \\[\nx - x_0 \\sim \\epsilon\n\\] so was expecting a line of unit gradient. But the gradient estimated above was a bit higher, at 1.6. Returning to Python, we see the problem.\n\n\n\n\n\n\nFigure 25.2: Python image\n\n\n\nSo over the range investigated of \\(0.02 &lt; \\epsilon &lt; 0.1\\), the behaviour is quadratic.This is a nice lesson on how to discover new results based on computation and analysis.\n\n\n\n\nBy rescaling \\(x\\) appropriately in terms of \\(\\epsilon\\), derive the first three terms of the asymptotic approximations of the remaining roots.\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nWe expect the critical scaling to balance \\(\\epsilon x^3\\) with \\(x\\) since these two will be dominant when \\(x\\) is large. So we set \\[\nx = \\frac{X}{\\sqrt{\\epsilon}}\n\\]\nNow we have \\[\nX^3 - X + \\sqrt{\\epsilon} = 0.\n\\]\nYou will notice that the progression here should go in powers of \\(\\epsilon^{1/2}\\). Alternatively set \\(\\delta = \\epsilon^{1/2}\\) and now the problem is standard in \\(\\delta\\): \\[\nX^3 - X + \\delta = 0.\n\\] And we expand \\[\nX = X_0 + \\delta X_1 + \\delta^2 X_2 + \\ldots\n\\] We get \\[\\begin{gather}\nX_0^3 - X_0 = 0 \\Longrightarrow X_0^2 = 1 \\Longrightarrow X_0 = \\pm 1 \\\\\n3 X_0^2 X_1 - X_1 + 1 = 0 \\Longrightarrow X_1 = -\\frac{1}{2} \\\\\n3 X_0^2 X_2 + 3 X_0 X_1^2 - X_2 = 0 \\Longrightarrow X_2 = \\mp \\frac{3}{8}.\n\\end{gather}\\] So it seems that the three-term approximation for the other two roots is \\[\nx \\sim \\frac{1}{\\sqrt{\\epsilon}} \\left(\\pm 1 - \\sqrt{\\epsilon} \\frac{1}{2} \\mp \\epsilon \\frac{3}{8}\\right).\n\\]",
+    "crumbs": [
+      "Exercises",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Problem set 2 solutions</span>"
+    ]
+  },
+  {
+    "objectID": "part-xx-exercises/ps02sol.html#a-damped-projectile-problem",
+    "href": "part-xx-exercises/ps02sol.html#a-damped-projectile-problem",
+    "title": "25  Problem set 2 solutions",
+    "section": "25.4 A damped projectile problem",
+    "text": "25.4 A damped projectile problem\n\\(\\nextSection\\)\nIf air resistance is included, then the non-dimensional toy model is instead \\[\\begin{gather}\n\\frac{\\mathrm{d}^2 y}{\\mathrm{d}t^2} = - \\frac{1}{(1 + \\epsilon y)^2} - \\frac{\\alpha}{(1 + \\epsilon y)} \\frac{\\mathrm{d}y}{\\mathrm{d}t}, \\\\\ny(0) = 0, \\\\\ny'(0) = 1.\n\\end{gather}\\] where \\(\\alpha \\geq 0\\) is the parameter that controls air resistance.\n\nBegin by assuming that \\(\\alpha\\) is a fixed number and consider the limit where \\(\\epsilon \\ll 1\\). Find a one-term asymptotic expansion of the solution for small \\(\\epsilon\\).\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nFirst, note that \\[\n(1 + \\epsilon y)^{\\alpha} = 1 + \\alpha (\\epsilon y) + O(\\epsilon y)^2.\n\\]\nYou will not need more terms than that. Substitute \\(y = y_0(t) + \\epsilon y_1(t) + \\ldots\\) into the equation. This gives, for the leading terms \\[\\begin{gather}\ny_0'' = -1 - \\alpha y_0' \\\\\ny_0(0) = 0 \\\\\ny_0'(0) = 1\n\\end{gather}\\] To solve this, you will need to refresh your memory on second-order differential equations learned in 2nd year. You can see Chapter 26 for references. To solve this set \\(y_0 = e^{rt}\\) and solve for \\(r\\) for the homogeneous equation. You will get \\[\ny_{\\text{homogeneous}} = (c_1 + c_2 e^{-\\alpha t}).\n\\] From here, we need a particular solution. This can be obtained by guessing (also see this reference). If we guess \\[\ny_p = C t,\n\\] we see that \\[\ny_p'' + \\alpha y_p' = \\alpha C = -1\n\\] implies \\(C = -1/\\alpha\\). Therefore the general solution is \\[\ny_0 = (c_1 + c_2 e^{-\\alpha t}) - \\frac{t}{\\alpha}.\n\\] We now select the constants to satisfy the initial conditions. This yields \\[\nc_1 + c_2 = 0 \\quad \\text{and} \\quad\n-\\alpha c_2 - 1/\\alpha = 1,\n\\] from which the solution can be easily derived. It is \\[\ny(t) \\sim \\left(\\frac{1}{\\alpha^2} + \\frac{1}{\\alpha}\\right) - \\left(\\frac{1}{\\alpha^2} + \\frac{1}{\\alpha}\\right)e^{-\\alpha t} - \\frac{t}{\\alpha}.\n\\]\nThe solution of \\(y_1\\) proceeds in the same way, but since we did not anticipate that this question would be so algebraically involved, we will not require solving for \\(y_1\\). This can be left as an exercise if you so wish.\n\n\n\n\n(Challenging) Is the effect of the air resistance to increase or decrease the flight time? Justify based on your analytical solution.\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe above solution seems quite strange. After all, when \\(\\alpha = 0\\), we know that parabolic motion is expected. We found previously that \\[\ny_{\\alpha = 0}(t) \\sim -\\frac{1}{2}t^2 + t.\n\\] which matches our intuition about the expected flight being parabolic. However, notice that if \\(\\alpha\\) is small, we can expand the exponential, \\(e^{-\\alpha t} = 1 - \\alpha t + \\ldots\\) to show \\[\ny_0 \\sim \\left(-\\frac{1}{2}t^2 + t\\right) + \\alpha \\frac{1}{6} \\left(-3t^2 + t^3\\right) + O(\\alpha^2).\n\\]\nThis is a fairly sophisticated argument. Instead, you can simply plot the curves and show the difference.\n\n\n\n\n\n\nFigure 25.3: With (solid) and without damping (dashed)",
+    "crumbs": [
+      "Exercises",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Problem set 2 solutions</span>"
+    ]
+  },
+  {
+    "objectID": "part-xx-exercises/ps02sol.html#ode-solvers-and-eulers-method",
+    "href": "part-xx-exercises/ps02sol.html#ode-solvers-and-eulers-method",
+    "title": "25  Problem set 2 solutions",
+    "section": "25.5 ODE solvers and Euler’s method",
+    "text": "25.5 ODE solvers and Euler’s method\n\\(\\nextSection\\)\nReturn to the setup of the above question.\n\nModify the script developed in lecture 8 or alternatively copy-and-paste the script shown in Section 6.2 in order to solve (?eq-ps2-air) at a prescribed value of \\(\\epsilon\\) and \\(\\alpha\\).\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThis is found in notebooks/sol02_solutions.ipynb.\n\n\n\n\nUsing a pocket calculator (or your phone calculator) apply Euler’s method with \\(\\Delta t = 0.2\\), \\(\\epsilon = 0.2\\), and \\(\\alpha = 1\\) to determine the position of the projectile at \\(t = 0.6\\).\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nEuler’s method is simply \\[\nY_{n+1} = Y_n + F(t_n, y_n)\\Delta t.\n\\] Here \\[\nF = \\begin{pmatrix}\ny' \\\\\n-\\frac{1}{(1 + \\epsilon y)^2} - \\frac{\\alpha}{(1 + \\epsilon y)}\n\\end{pmatrix}.\n\\]\nWe split the time steps into {0, 0.2, 0.4, 0.6}. We also round to two figures.\n\n\n\nt\nY\n\\(1 + \\epsilon y\\)\nF\n\\(F \\Delta t\\)\n\n\n\n\n0\n(0, 1)\n1\n(1, -2)\n(0.2, -0.4)\n\n\n0.2\n(0.2, 0.6)\n1.04\n(0.6, -1.5)\n(0.12, -0.3)\n\n\n0.4\n(0.32, 0.3)\n1.06\n(0.3, -1.16)\n(0.06, -0.23)\n\n\n0.6\n(0.38, 0.07)\n\n\n\n\n\n\nAfter three iterations, we get a value of \\(y(0.6) \\approx 0.38\\).\n\n\n\n\nCompare your hand calculation with the result from the Python output, as well as with your asymptotic approximations.\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nWe have (rounded to two digits) \\[\n\\begin{aligned}\ny_{\\text{exact numerical}} \\approx 0.31 \\\\\ny_{\\text{euler}} \\approx 0.38 \\\\\ny_{\\text{asym}} \\approx 0.30\n\\end{aligned}\n\\]",
+    "crumbs": [
+      "Exercises",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Problem set 2 solutions</span>"
     ]
   },
   {
