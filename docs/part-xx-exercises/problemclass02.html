@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -377,6 +406,12 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>This problem class will involve the completition of the ODE studied in asymptotic approximations III. We will then study the boundary-value problem which forms part of the third problem set, namely: <span class="math display">\[
+\begin{gathered}
+\epsilon T'' + 2T' + T = 0, \\
+T(0) = 0 \quad \text{and} \quad T(1) = 1.
+\end{gathered}
+\]</span> The associated Python note is in <code>lectures/lecture12-SolvingBVPs</code>. You will gain an appreciation for some of the unique elements that are introduced when looking at <span class="math inline">\(\epsilon \to 0\)</span> in boundary-value problems.</p>
 <!-- ::: {.callout} -->
 <!---->
 <!-- This problem class will be covered in Monday Week 4.  -->
