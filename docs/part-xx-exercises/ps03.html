@@ -351,6 +351,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Problem set 2 solutions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps03sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Problem set 3 solutions</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -365,37 +371,37 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
   </div>
 </li>
       </ul>
@@ -480,27 +486,7 @@ T(1) &amp;= 1.
 <section id="q2.-numerical-solutions" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q2.-numerical-solutions">Q2. Numerical solutions</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>The problem <a href="#eq-ps3-sys" class="quarto-xref">Equation&nbsp;<span>23.1</span></a> is a different kind of problem than you may have encountered previously. Previously, you have encountered initial-value problems (IVPs), where the solution is entirely specified by initial conditions at a single point. This is a boundary-value problem (BVP), where the solution is required to satisfy values at multiple points.</p>
-<p>During lecture 12/problem class 3, we will describe how the BVP can be solved using the <strong>Shooting Method</strong>. The Shooting Method uses the following algorithm.</p>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Pseudocode for the Shooting Method
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li><p>Input an initial guess, a, of T’(0) = a.</p></li>
-<li><p>Solve the ODE as an initial-value problem using the two boundary conditions of T(0) = 0 and T’(0) = a. Solve on the domain z in [0, 1].</p></li>
-<li><p>Set F = T(1) - 1</p></li>
-<li><p>Apply a Newton solver to solve F = 0.</p></li>
-</ol>
-</div>
-</div>
-<p>Write a numerical code to solve (<a href="#eq-ps3-sys" class="quarto-xref">Equation&nbsp;<span>23.1</span></a>) using a Shooting Method. Use your code to investigate the solution profiles for different values of <span class="math inline">\(\epsilon\)</span>.</p>
+<p>By adapting the code studied in lectures (script <code>lecture12-SolvingBVPs</code>), write a numerical code to solve (<a href="#eq-ps3-sys" class="quarto-xref">Equation&nbsp;<span>23.1</span></a>) using Python’s built-in functions. Use your code to investigate the solution profiles for different values of <span class="math inline">\(\epsilon\)</span>.</p>
 </section>
 <section id="q3.-investigation-of-the-boundary-layer" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q3.-investigation-of-the-boundary-layer">Q3. Investigation of the boundary layer</h2>

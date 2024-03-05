@@ -405,6 +405,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Problem set 2 solutions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps03sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Problem set 3 solutions</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -419,37 +425,37 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
   </div>
 </li>
       </ul>
@@ -507,43 +513,44 @@ window.Quarto = {
 \frac{\mathrm{d}\Delta S}{\mathrm{d}t} = d(\Delta S^* - \Delta S) - 2|q|\Delta S,
 \end{aligned}
 \tag{20.1}\]</span></span></p>
-<p>where <span class="math inline">\(\Delta T^* = 2T^*\)</span>, <span class="math inline">\(\Delta S^* = 2S^*\)</span>, and we have defined the two new unknowns,</p>
-<p><span class="math display">\[\begin{align}
+<p>where <span class="math inline">\(\Delta T^* = 2T^*\)</span>, <span class="math inline">\(\Delta S^* = 2S^*\)</span>, and we have defined the two new unknowns, <span class="math display">\[
+\begin{aligned}
 \Delta T &amp;= T_2 - T_1, \\
 \Delta S &amp;= S_2 - S_1,
-\end{align}\]</span></p>
-<p>and now, the flow <span class="math inline">\(q\)</span> is given by <span class="math display">\[
+\end{aligned}
+\]</span> and now, the flow <span class="math inline">\(q\)</span> is given by <span class="math display">\[
 q = k(\alpha \Delta T - \beta \Delta S).
 \]</span></p>
 <section id="non-dimensionalisation" class="level2" data-number="20.1">
 <h2 data-number="20.1" class="anchored" data-anchor-id="non-dimensionalisation"><span class="header-section-number">20.1</span> Non-dimensionalisation</h2>
 <p>We can then nondimensionalise the system by setting <span class="math display">\[
 x = \frac{\Delta S}{\Delta S^*}, \quad y = \frac{\Delta T}{\Delta T^*}, \quad t' = ct,
-\]</span> where <span class="math inline">\(t'\)</span> is nondimensional time. Dropping the primes henceforth, we have the following set of non-dimensional equations to study for the unknowns, <span class="math inline">\(x = x(t)\)</span>, and <span class="math inline">\(y = y(t)\)</span>:</p>
-<p><span class="math display">\[\begin{align}
+\]</span> where <span class="math inline">\(t'\)</span> is nondimensional time. Dropping the primes henceforth, we have the following set of non-dimensional equations to study for the unknowns, <span class="math inline">\(x = x(t)\)</span>, and <span class="math inline">\(y = y(t)\)</span>: <span id="eq-stommelsys"><span class="math display">\[
+\begin{aligned}
 \frac{\mathrm{d}x}{\mathrm{d}t} &amp;= \delta(1 - x) - |f(x, y)|x, \\
 \frac{\mathrm{d}y}{\mathrm{d}t} &amp;= 1 - y - |f(x, y)|y,
-\end{align}\]</span> {#eq-stommelsys} where we have introduced the function, <span id="eq-stommelf"><span class="math display">\[
+\end{aligned}
+\tag{20.2}\]</span></span> where we have introduced the function, <span id="eq-stommelf"><span class="math display">\[
 f(x, y; R, \lambda) = \frac{1}{\lambda}(Rx - y),
-\tag{20.2}\]</span></span> where there are now three non-dimensional parameters given by</p>
+\tag{20.3}\]</span></span> where there are now three non-dimensional parameters given by</p>
 <p><span class="math display">\[\begin{align}
 \delta &amp;= d/c, \\
 \lambda &amp;= c/(2\alpha k \Delta T^*), \\
 R &amp;= \beta \Delta S^*/(\alpha \Delta T^*).
 \end{align}\]</span></p>
-<p>Together <span class="quarto-unresolved-ref">?eq-stommelsys</span> and <a href="#eq-stommelf" class="quarto-xref">Equation&nbsp;<span>20.2</span></a> form a system of equations for <span class="math inline">\((x(t), y(t))\)</span>, with parameters <span class="math inline">\(\delta\)</span>, <span class="math inline">\(\lambda\)</span>, and <span class="math inline">\(R\)</span>.</p>
+<p>Together <a href="#eq-stommelsys" class="quarto-xref">Equation&nbsp;<span>20.2</span></a> and <a href="#eq-stommelf" class="quarto-xref">Equation&nbsp;<span>20.3</span></a> form a system of equations for <span class="math inline">\((x(t), y(t))\)</span>, with parameters <span class="math inline">\(\delta\)</span>, <span class="math inline">\(\lambda\)</span>, and <span class="math inline">\(R\)</span>.</p>
 <p>Although there are many parameters, it is important to note that the quantity <span class="math inline">\(f\)</span> is crucial since it corresponds to the direction of flow in the bottom pipe of the Ocean model. By convention, the system was set up so that <span class="math inline">\(f &gt; 0\)</span> corresponds to flow through the bottom pipe goes in the direction of the equator (Box 1) as a result of higher densities at the high latitudes. We are subsequently interested in whether it is possible for <span class="math inline">\(f\)</span> to switch sign, which would correspond to a bottom flow going from equator to poles, and the entire system switching direction.</p>
 </section>
 <section id="sec-ocean2-equil" class="level2" data-number="20.2">
 <h2 data-number="20.2" class="anchored" data-anchor-id="sec-ocean2-equil"><span class="header-section-number">20.2</span> Equilibrium states</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>Let the equilibrium states be given by <span class="math inline">\((x^*, y^*)\)</span> with <span class="math inline">\(f(x^*, y^*) = f^*\)</span>. Then setting the right hand sides of (<span class="quarto-unresolved-ref">?eq-stommelsys</span>) to zero and solving, we find <span id="eq-stommel-xsys"><span class="math display">\[
+<p>Let the equilibrium states be given by <span class="math inline">\((x^*, y^*)\)</span> with <span class="math inline">\(f(x^*, y^*) = f^*\)</span>. Then setting the right hand sides of (<a href="#eq-stommelsys" class="quarto-xref">Equation&nbsp;<span>20.2</span></a>) to zero and solving, we find <span id="eq-stommel-xsys"><span class="math display">\[
 x^* = \frac{\delta}{\delta + |f^*|} \quad \text{and} \quad
 y^* = \frac{1}{1 + |f^*|}.
-\tag{20.3}\]</span></span> We can solve for <span class="math inline">\(f^*\)</span> in both equations and equate the result to one another. This gives <span class="math display">\[
+\tag{20.4}\]</span></span> We can solve for <span class="math inline">\(f^*\)</span> in both equations and equate the result to one another. This gives <span class="math display">\[
 \delta \frac{1-x^*}{x^*} = \frac{1 - y^*}{y^*} = |f^*|.
 \]</span> Therefore the equilibrium points lie along the above curve. Let us generate different values of <span class="math inline">\(f^*\)</span> and plot the combination.</p>
-<div id="92c6056f" class="cell" data-execution_count="1">
+<div id="7bb5110e" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -565,12 +572,12 @@ y^* = \frac{1}{1 + |f^*|}.
 </div>
 </div>
 <p>The above shows the steady-state values at <span class="math inline">\(\delta = 1/6\)</span>. Each point refers to a different value of <span class="math inline">\(|f^*|\)</span>. Note that as <span class="math inline">\(|f^*| \to \infty\)</span>, then <span class="math inline">\((x^*, y^*) \to (0, 0)\)</span> while as <span class="math inline">\(|f^*| \to 0\)</span>, then <span class="math inline">\((x^*, y^*) \to (1,1)\)</span>.</p>
-<p>Now the above does not tell us what equilibrium states will exist at a specific value of <span class="math inline">\(\delta\)</span> since it requires information about <span class="math inline">\(f^*\)</span>. We take (<a href="#eq-stommelf" class="quarto-xref">Equation&nbsp;<span>20.2</span></a>) and combine with (<a href="#eq-stommel-xsys" class="quarto-xref">Equation&nbsp;<span>20.3</span></a>). We conclude that the equilibrium points must satisfy <span class="math display">\[
+<p>Now the above does not tell us what equilibrium states will exist at a specific value of <span class="math inline">\(\delta\)</span> since it requires information about <span class="math inline">\(f^*\)</span>. We take (<a href="#eq-stommelf" class="quarto-xref">Equation&nbsp;<span>20.3</span></a>) and combine with (<a href="#eq-stommel-xsys" class="quarto-xref">Equation&nbsp;<span>20.4</span></a>). We conclude that the equilibrium points must satisfy <span class="math display">\[
 \lambda f^* = \phi(f^*),
 \]</span> where we have defined the function <span class="math inline">\(\phi\)</span> according to <span id="eq-stommel-phi"><span class="math display">\[
 \phi(f^*) = \frac{\delta R}{\delta + |f^*|} - \frac{1}{1 + |f^*|}.
-\tag{20.4}\]</span></span> Therefore, for each combination of the parameters <span class="math inline">\((\lambda, \delta, R)\)</span>, we must solve <span class="math inline">\(\delta f^* = \phi(f^*)\)</span> to determine <span class="math inline">\(f^*\)</span>. Once the values of <span class="math inline">\(f^*\)</span> are known, then the steady-states <span class="math inline">\((x^*, y^*)\)</span> are also known. Here is a typical graph showing the potential intersections at the values of <span class="math inline">\(\lambda = 1/5\)</span>, <span class="math inline">\(\delta = 1/6\)</span> and <span class="math inline">\(R = 2\)</span>.</p>
-<div id="e6716fe7" class="cell" data-execution_count="2">
+\tag{20.5}\]</span></span> Therefore, for each combination of the parameters <span class="math inline">\((\lambda, \delta, R)\)</span>, we must solve <span class="math inline">\(\delta f^* = \phi(f^*)\)</span> to determine <span class="math inline">\(f^*\)</span>. Once the values of <span class="math inline">\(f^*\)</span> are known, then the steady-states <span class="math inline">\((x^*, y^*)\)</span> are also known. Here is a typical graph showing the potential intersections at the values of <span class="math inline">\(\lambda = 1/5\)</span>, <span class="math inline">\(\delta = 1/6\)</span> and <span class="math inline">\(R = 2\)</span>.</p>
+<div id="8bbb80f6" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.optimize <span class="im">as</span> sciopt</span>
@@ -623,7 +630,7 @@ A =
 T &amp;= -(1 + \delta + 3 |f^*|), \\
 D &amp;= (\delta + 2|f^*|)(1 + |f^*|) \pm (1 - \delta) \frac{y^*}{\lambda}.
 \end{align}\]</span></p>
-<p>Using the above, we can analytically calculate the key discriminant expression of <span class="math inline">\(T^2 - 4D\)</span> (or numerically) in order to verify stability. The details of the classification scheme is given in the appendix <a href="../part-05-techniques/dynamical-systems.html" class="quarto-xref"><span>Chapter 27</span></a>.</p>
+<p>Using the above, we can analytically calculate the key discriminant expression of <span class="math inline">\(T^2 - 4D\)</span> (or numerically) in order to verify stability. The details of the classification scheme is given in the appendix <a href="../part-05-techniques/dynamical-systems.html" class="quarto-xref"><span>Chapter 28</span></a>.</p>
 <p>For our purposes, we will mainly proceed using numerics, and bypass the need to study the above results analytically.</p>
 <p><a href="https://maths.jupyterhub.bath.ac.uk/hub/user-redirect/lab/tree/courses/MA30287/notebooks/lecture29-StommelPhasePlane.ipynb">In the accompanying lecture script</a>, we will obtain the eigenvalues numerically, and generate the phase plane. At the test point <span class="math inline">\(R = 2\)</span>, <span class="math inline">\(\delta = 1/6\)</span>, and <span class="math inline">\(\lambda = 1/5\)</span>, we generate the following phase plane picture.</p>
 <div id="fig-stommel-phase" class="quarto-figure quarto-figure-center quarto-float anchored">

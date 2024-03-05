@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-05-techniques/part-techniques.html" rel="next">
+<link href="../part-xx-exercises/ps03sol.html" rel="next">
 <link href="../part-xx-exercises/ps01sol.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -351,6 +351,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Problem set 2 solutions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps03sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Problem set 3 solutions</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -365,37 +371,37 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
   </div>
 </li>
       </ul>
@@ -630,7 +636,7 @@ Solution
 y_0'' = -1 - \alpha y_0' \\
 y_0(0) = 0 \\
 y_0'(0) = 1
-\end{gather}\]</span> To solve this, you will need to refresh your memory on second-order differential equations learned in 2nd year. You can see <a href="../part-05-techniques/odes.html" class="quarto-xref"><span>Chapter 26</span></a> for references. To solve this set <span class="math inline">\(y_0 = e^{rt}\)</span> and solve for <span class="math inline">\(r\)</span> for the homogeneous equation. You will get <span class="math display">\[
+\end{gather}\]</span> To solve this, you will need to refresh your memory on second-order differential equations learned in 2nd year. You can see <a href="../part-05-techniques/odes.html" class="quarto-xref"><span>Chapter 27</span></a> for references. To solve this set <span class="math inline">\(y_0 = e^{rt}\)</span> and solve for <span class="math inline">\(r\)</span> for the homogeneous equation. You will get <span class="math display">\[
 y_{\text{homogeneous}} = (c_1 + c_2 e^{-\alpha t}).
 \]</span> From here, we need a particular solution. This can be obtained by guessing (also see <a href="https://tutorial.math.lamar.edu/Classes/DE/UndeterminedCoefficients.aspx">this reference</a>). If we guess <span class="math display">\[
 y_p = C t,
@@ -688,7 +694,7 @@ Figure&nbsp;25.3: With (solid) and without damping (dashed)
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
 <p>Return to the setup of the above question.</p>
 <ol type="1">
-<li>Modify the script developed in lecture 8 or alternatively copy-and-paste the script shown in <a href="../part-05-techniques/asymptotics02.html#sec-asym2-num" class="quarto-xref"><span>Section 6.2</span></a> in order to solve (<span class="quarto-unresolved-ref">?eq-ps2-air</span>) at a prescribed value of <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\alpha\)</span>.</li>
+<li>Modify the script shown in <a href="../part-05-techniques/asymptotics02.html#sec-asym2-num" class="quarto-xref"><span>Section 6.2</span></a> in order to solve the equation from the previous question at a prescribed value of <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\alpha\)</span>.</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
@@ -702,7 +708,7 @@ Solution
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>This is found in <code>notebooks/sol02_solutions.ipynb</code>.</p>
+<p>This is found in <code>problemsets/sol02_solutions.ipynb</code>.</p>
 </div>
 </div>
 </div>
@@ -1199,8 +1205,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-05-techniques/part-techniques.html" class="pagination-link" aria-label="Appendices">
-        <span class="nav-page-text">Appendices</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-xx-exercises/ps03sol.html" class="pagination-link" aria-label="<span class='chapter-number'>26</span>&nbsp; <span class='chapter-title'>Problem set 3 solutions</span>">
+        <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Problem set 3 solutions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
