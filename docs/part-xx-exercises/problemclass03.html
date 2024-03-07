@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -375,6 +404,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/chatgpt-goes-wrong.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -389,7 +424,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#numerical-solutions" id="toc-numerical-solutions" class="nav-link active" data-scroll-target="#numerical-solutions"><span class="header-section-number">12.1</span> Numerical solutions</a></li>
+  <li><a href="#analytical-solution" id="toc-analytical-solution" class="nav-link" data-scroll-target="#analytical-solution"><span class="header-section-number">12.2</span> Analytical solution</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -413,10 +455,63 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- The problem class will cover matched asymptotics and Newton's method. We will focus on getting you started on Problem Set 3, @sec-ps3. In particular, we will focus on learning how to solve boundary-value problems using a combination of `solve_ivp` and `fsolve` learned in the previous two chapters. -->
-<!---->
+<p>This problem class, we will study an example of a PDE model for heat transport, and then use it to inform ourselves on a typical physical problem.</p>
+<p>We are interested in finding the optimal depth for a storage cellar that might be used to house wine. Based on our previous discussions, if we assume that the temperature beneath the ground is given by <span class="math inline">\(T(x, t)\)</span>, with <span class="math inline">\(x \geq 0\)</span> below the surface, then the temperature is governed by <span class="math display">\[
+\frac{\partial T}{\partial t} = \kappa \frac{\partial^2 T}{\partial x^2},
+\]</span> for <span class="math inline">\(x \geq 0\)</span>. This is a highly averaged model, where we assume there is no transport of heat into the horizontal plane.</p>
+<p>We shall also assume that the surface temperature is modelled by an oscillatory function. On the assumption that the temperature has been normalised so that <span class="math inline">\(T = 0\)</span> corresponds to the mean temperature of the surface, then we have <span class="math display">\[
+T(x = 0, t) = A \cos(\omega t).
+\]</span> The wavelength is then <span class="math inline">\(2\pi/\omega\)</span> which we can set to one year. So <span class="math inline">\(\omega = 1/(2\pi) \text{ yr}^{-1}\)</span>.</p>
+<p>In addition, we expect that the temperature should not be singular far beneath (in particular we expect it to get colder as we go further underground), at least on a scale where we are not approaching the centre of the Earth! Thus it is sensible that <span class="math display">\[
+|T(x, t)| \text{ is bounded as $x \to \infty$}.
+\]</span></p>
+<p>You will not require an initial condition of the discussions below.</p>
+<section id="numerical-solutions" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="numerical-solutions"><span class="header-section-number">12.1</span> Numerical solutions</h2>
+<p>An example code that uses first-order explicit Euler timestepping is given in <code>lecture15-winecellar</code> on the lectures coding folder. A typical numerical output is given here:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/winecellar.png" class="img-fluid figure-img"></p>
+<figcaption>Numerical solution of the wine cellar problem</figcaption>
+</figure>
+</div>
+</section>
+<section id="analytical-solution" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="analytical-solution"><span class="header-section-number">12.2</span> Analytical solution</h2>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<p>Before we begin, it is useful for the purposes of manipulation to write the boundary condition as <span class="math display">\[
+T(0, t) = A \Re (e^{i\omega t}) = A\Re(\cos (\omega t) + i \sin(\omega t)) = A\cos(\omega t).
+\]</span> This has the advantage that we can manipulate exponentials much more easily.</p>
+<p>To solve the problem analytically, we attempt a solution method called separation of variables. Let <span class="math display">\[
+T(x, t) = G(t) H(x).
+\]</span> Substitution into the PDE gives <span class="math display">\[
+G'(t) H(x) = \kappa G(t) H''(x),
+\]</span> and we attempt to separate the functions of <span class="math inline">\(t\)</span> to one side and the functions of <span class="math inline">\(x\)</span> to the other. <span class="math display">\[
+\frac{G'(t)}{G'(t)} = \kappa \frac{H''(x)}{H(x)}
+\]</span> Now in order for two completely different functions dependent on two completely different independent variables to be equal in this way, then this implies that both sides must be equal to a constant. So we have <span class="math display">\[
+\begin{aligned}
+G' &amp;= \lambda G \\
+H''  &amp;= \lambda \kappa H.
+\end{aligned}
+\]</span> Therefore <span class="math inline">\(G = \mathrm{const} \times e^{\lambda t}\)</span>. Because of the boundary conditions that would require <span class="math inline">\(T = A e^{i\omega t}\)</span>, you can check that <span class="math inline">\(\lambda = 0\)</span> and <span class="math inline">\(\lambda\)</span> real are both impossible. The only way to satisfy the boundary conditions is if <span class="math inline">\(\lambda = i\omega\)</span>. So we conclude that <span class="math display">\[
+G(t) = \mathrm{const.} \times e^{i\omega t}.
+\]</span> To solve <span class="math display">\[
+H'' = i\omega \kappa H,
+\]</span> you can attempt the substitution <span class="math inline">\(H(x) = e^{rx}\)</span> and solve the resultant equation for the characteristic polynomial in <span class="math inline">\(r\)</span>. You will do this in the problem set, and obtain <span class="math display">\[
+r = \pm \sqrt{i} \sqrt{\omega \kappa} = \pm \sqrt{\omega \kappa} \frac{1 + i}{\sqrt{2}}.
+\]</span> Therefore <span class="math display">\[
+H(x) = C_1 e^{\sqrt{\omega \kappa/2}x}e^{\sqrt{\omega \kappa/2}ix}+ C_2 e^{-\sqrt{\omega \kappa/2}x}e^{-\sqrt{\omega \kappa/2}ix}.
+\]</span> The first solution should be discarded since it blows up as <span class="math inline">\(x \to \infty\)</span>.</p>
+<p>Finally, we conclude that the solution is given by <span class="math display">\[
+T = e^{i\omega t} e^{-\sqrt{\omega \kappa/2}x}e^{-\sqrt{\omega \kappa/2}ix}.
+\]</span> Move the imaginary arguments together: <span class="math display">\[
+T = \text{const.} \times  e^{-\sqrt{\omega \kappa/2}x}e^{i(-\sqrt{\omega \kappa/2}x + t)}.
+\]</span> Now we take the real part, giving <span class="math display">\[
+T = A e^{-\sqrt{\omega \kappa/2}x} \cos\left(-\sqrt{\omega \kappa/2}x + t\right),
+\]</span> and we see that having set the constant to <span class="math inline">\(A\)</span> the solution indeed satisfies <span class="math inline">\(T(0, t) = A\cos(\omega t)\)</span>.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

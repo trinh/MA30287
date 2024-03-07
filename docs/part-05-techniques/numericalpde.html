@@ -404,6 +404,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-05-techniques/chatgpt-goes-wrong.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -466,7 +472,7 @@ u(x_j, t_k) = u_{j}^j.
 <p>Like for Euler’s method, we consider the approximation of the time derivative as follows: <span class="math display">\[
 \left(\frac{\partial u}{\partial t}\right)_j^k \approx \frac{u_j^{k+1} - u_j^k}{\Delta t}, \qquad \text{for $0 \leq j \leq N+1$, $k \geq 0$}.
 \]</span></p>
-<p>In order to approximate the second-order derivative, we will use <span class="math display">\[
+<p>In order to approximate the second-order derivative, Hwe will use <span class="math display">\[
 \left(\frac{\partial^2 u}{\partial x^2}\right)_j^k \approx \frac{u_{j+1}^k - 2 u_j^k + u_{j-1}^k}{(\Delta x)^2}, \qquad \text{$1 \leq j \leq N$, $k \geq 0$}.
 \]</span> Note that the finite difference cannot be applied directly to the first and last points (<span class="math inline">\(j = 0\)</span> and <span class="math inline">\(j = N+1\)</span>). Substituting the above finite differences into the heat equation, we see that we now have the prescription: <span class="math display">\[
 u_j^{k+1} = u_j^k + \frac{\Delta t}{(\Delta x)^2} \left[u_{j+1}^k - 2 u_j^k + u_{j-1}^k \right],
@@ -480,6 +486,7 @@ u_j^0 = 2, \qquad \text{for $j = 0, 1, 2, \ldots, N+1$}.
 \]</span> The boundary conditions require <span class="math display">\[
 u_0^k = 1 \quad \text{and} \quad u_{N+1}^k = 2, \quad \text{for all $k \geq 0$}.
 \]</span></p>
+<p>During the lectures, we will examine script `</p>
 
 
 </section>
