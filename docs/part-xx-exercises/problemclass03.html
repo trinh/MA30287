@@ -254,7 +254,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-03-box/box-energy-model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">The basic EBM (steady-state)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">EBM with nonlinear albedo</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -369,6 +369,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Problem set 3 solutions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps04sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Problem set 4 solutions</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -383,43 +389,43 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/chatgpt-goes-wrong.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
   </div>
 </li>
       </ul>
@@ -519,9 +525,9 @@ H(x) = C_1 e^{\sqrt{\omega/(2\kappa)}x}e^{\sqrt{\omega/(2\kappa)}ix}+ C_2 e^{-\s
 T = e^{i\omega t} e^{-\sqrt{\omega/(2\kappa)}x}e^{-\sqrt{\omega/(2\kappa)}ix}.
 \]</span> Move the imaginary arguments together: <span class="math display">\[
 T = \text{const.} \times  e^{-\sqrt{\omega/(2\kappa)}x}e^{i(-\sqrt{\omega/(2\kappa)}x + \omega t)}.
-\]</span> Now we take the real part, giving <span class="math display">\[
+\]</span> Now we take the real part, giving <span id="eq-wine-sol"><span class="math display">\[
 T = A e^{-\sqrt{\omega/(2\kappa)}x} \cos\left(-\sqrt{\omega/(2\kappa)}x + \omega t\right),
-\]</span> and we see that having set the constant to <span class="math inline">\(A\)</span> the solution indeed satisfies <span class="math inline">\(T(0, t) = A\cos(\omega t)\)</span>.</p>
+\tag{12.1}\]</span></span> and we see that having set the constant to <span class="math inline">\(A\)</span> the solution indeed satisfies <span class="math inline">\(T(0, t) = A\cos(\omega t)\)</span>.</p>
 </section>
 <section id="selection-of-optimal-depth" class="level2" data-number="12.3">
 <h2 data-number="12.3" class="anchored" data-anchor-id="selection-of-optimal-depth"><span class="header-section-number">12.3</span> Selection of optimal depth</h2>

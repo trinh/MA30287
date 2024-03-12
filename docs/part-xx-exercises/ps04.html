@@ -288,7 +288,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-03-box/box-energy-model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">The basic EBM (steady-state)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">EBM with nonlinear albedo</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -403,6 +403,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Problem set 3 solutions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps04sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Problem set 4 solutions</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -417,43 +423,43 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/chatgpt-goes-wrong.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
   </div>
 </li>
       </ul>
@@ -476,9 +482,8 @@ window.Quarto = {
   <ul>
   <li><a href="#q1.-the-wine-cellar-problem-i" id="toc-q1.-the-wine-cellar-problem-i" class="nav-link active" data-scroll-target="#q1.-the-wine-cellar-problem-i">Q1. The wine cellar problem I</a></li>
   <li><a href="#q2.-the-wine-cellar-problem-ii" id="toc-q2.-the-wine-cellar-problem-ii" class="nav-link" data-scroll-target="#q2.-the-wine-cellar-problem-ii">Q2. The wine cellar problem II</a></li>
-  <li><a href="#q2.-budykos-model" id="toc-q2.-budykos-model" class="nav-link" data-scroll-target="#q2.-budykos-model">Q2. Budyko’s model</a></li>
-  <li><a href="#q3.-variable-sun-output" id="toc-q3.-variable-sun-output" class="nav-link" data-scroll-target="#q3.-variable-sun-output">Q3. Variable Sun output</a></li>
-  <li><a href="#q4.-phase-line-analysis" id="toc-q4.-phase-line-analysis" class="nav-link" data-scroll-target="#q4.-phase-line-analysis">Q4. Phase line analysis</a></li>
+  <li><a href="#q3.-ebms-with-variable-sun" id="toc-q3.-ebms-with-variable-sun" class="nav-link" data-scroll-target="#q3.-ebms-with-variable-sun">Q3. EBMs with variable sun</a></li>
+  <li><a href="#q4.-ebms-and-phase-line-analysis" id="toc-q4.-ebms-and-phase-line-analysis" class="nav-link" data-scroll-target="#q4.-ebms-and-phase-line-analysis">Q4. EBMs and phase line analysis</a></li>
   </ul>
 </nav>
     </div>
@@ -519,37 +524,29 @@ Note
 </div>
 <section id="q1.-the-wine-cellar-problem-i" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q1.-the-wine-cellar-problem-i">Q1. The wine cellar problem I</h2>
-<p>Question TBD about using analysis to compute the solution.</p>
+<p>Within <a href="problemclass03.html" class="quarto-xref"><span>Chapter 12</span></a>, the heat system was studied: <span class="math display">\[
+\begin{gathered}
+\frac{\partial T}{\partial t} = \kappa \frac{\partial^2 T}{\partial x^2}, \\
+T(x = 0, t) = A \cos(\omega t), \\
+|T(x, t)| \text{ is bounded as $x \to \infty$}.
+\end{gathered}
+\]</span> for <span class="math inline">\(x \geq 0\)</span>. The initial condition can be ignored.</p>
+<p>The solution was sought in the form of <span class="math inline">\(T(x, t) = G(t) H(x)\)</span> using a separation of variables procedure leading to <span class="math display">\[
+\frac{G'}{G} = \kappa \frac{H''}{H} = \lambda.
+\]</span> Go through an argument that the cases of <span class="math inline">\(\lambda = 0\)</span> and <span class="math inline">\(\lambda\)</span> real lead to incompatible solutions. Review the calculation that <span class="math inline">\(\lambda = i\omega\)</span> leads to the desired solution given in (<a href="problemclass03.html#eq-wine-sol" class="quarto-xref">Equation&nbsp;<span>12.1</span></a>).</p>
 </section>
 <section id="q2.-the-wine-cellar-problem-ii" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q2.-the-wine-cellar-problem-ii">Q2. The wine cellar problem II</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>Question TBD about using numerics to verify your solution.</p>
+<p>Review the code written in <code>lecture15-winecellar.ipynb</code>.</p>
+<p>Verify how well the numerical solution matches the exact analytical solution by overlaying the numerical solution with the analytical solution.</p>
 </section>
-<section id="q2.-budykos-model" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="q2.-budykos-model">Q2. Budyko’s model</h2>
-<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>Previously we derived the energy for outgoing radiation as: <span class="math display">\[
-E_{\text{out}}(T) = \sigma \gamma T^4,
-\]</span> which is estimated via the Stefan-Boltzmann law. Budyko’s approximation replaces this law with a linear relationship.</p>
-<ol type="a">
-<li><p>Assume that <span class="math display">\[
-T = T_0 + \bar{T},
-\]</span> where <span class="math inline">\(T_0 = 273.15 \, \mathrm{K}\)</span>, which corresponds to <span class="math inline">\(0^\circ \, \mathrm{C}\)</span>. We can consider <span class="math inline">\(\bar{T}\)</span> as measured in Celcius (since conversion between Kelvins and Celcius is directly proportional). Substitute the above into <span class="math inline">\(E_{\text{out}}\)</span> and linearise, thus assuming <span class="math inline">\(\bar{T}\)</span> is near zero. Place the energy in the form <span class="math display">\[
-E_{\text{out}} \sim A + B\bar{T}.
-\]</span> Using the standard value of <span class="math inline">\(\sigma = 5.67 \times 10^{-8}\)</span> W/m<sup>2</sup> K<sup>4</sup> and <span class="math inline">\(\gamma = 1\)</span>, calculate the values of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>.</p></li>
-<li><p>Rather than use the formal values derived above, the standard Budyko model uses values of <span class="math inline">\(A = 203.3 \mathrm{W}/\mathrm{m}^2\)</span> and <span class="math inline">\(B = 2.09 \, \mathrm{W}/(\mathrm{m}^2 {}^\circ \mathrm{C})\)</span> that are found from best fit with observational data.</p>
-<p>Using Jupyter and a short script for numerical root finding, investigate the equilibrium solutions of <span class="math display">\[
-Q(1 - a(T_0 + \bar{T})) = A + B \bar{T}.
-\]</span> where <span class="math inline">\(Q = 342 \, \mathrm{W}/\mathrm{m}^2\)</span> and <span class="math inline">\(a(T)\)</span> is given from (<a href="../part-03-box/box-energy-model.html#eq-albedokaper" class="quarto-xref">Equation&nbsp;<span>13.2</span></a>). Where are the equilibrium solutions, <span class="math inline">\(\bar{T^*}\)</span>, and how do they compare with those obtained previously using the Stefan-Boltzmann relation?</p></li>
-</ol>
-</section>
-<section id="q3.-variable-sun-output" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="q3.-variable-sun-output">Q3. Variable Sun output</h2>
+<section id="q3.-ebms-with-variable-sun" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q3.-ebms-with-variable-sun">Q3. EBMs with variable sun</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
 <p>Satellite data indicates that <span class="math inline">\(Q\)</span>, varies roughly between 341.37 W/m<sup>2</sup> and 341.75 W/m<sup>2</sup>, with a period of about 11 years.</p>
 <ol type="a">
-<li><p>Use the simple EBM (<a href="../part-03-box/box-energy-model.html#eq-energy-ss" class="quarto-xref">Equation&nbsp;<span>13.3</span></a>), given by <span class="math display">\[
+<li><p>Use the simple EBM given in (<a href="../part-03-box/box-energy-model.html#eq-energy-ss" class="quarto-xref">Equation&nbsp;<span>13.3</span></a>) and repeated below: <span class="math display">\[
 Q(1 - a) = \sigma \gamma T^4,
 \]</span> with a constant albedo, <span class="math inline">\(a = 0.3\)</span> and greenhouse gas factor <span class="math inline">\(\gamma = 0.6\)</span> to estimate the resultant variation (max and min) in the Earth’s mean surface temperature <span class="math inline">\(T\)</span>.</p></li>
 <li><p>Similar to (a) but this time, use the Budyko balance equation, <span class="math display">\[
@@ -558,13 +555,13 @@ Q(1 - a) = A + BT
 <li><p>The actual variation in surface temperature is in fact less than what you computed above. Why might this be?</p></li>
 </ol>
 </section>
-<section id="q4.-phase-line-analysis" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="q4.-phase-line-analysis">Q4. Phase line analysis</h2>
+<section id="q4.-ebms-and-phase-line-analysis" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q4.-ebms-and-phase-line-analysis">Q4. EBMs and phase line analysis</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
 <p>Consider the energy balance equation <span id="eq-ps4-main"><span class="math display">\[
 C \frac{\mathrm{d}T}{\mathrm{d}t} = Q(1 - a(T)) - \sigma \gamma T^4 \equiv G(T).
 \tag{24.1}\]</span></span> with <span class="math inline">\(a\)</span> given by (<a href="../part-03-box/box-energy-model.html#eq-albedokaper" class="quarto-xref">Equation&nbsp;<span>13.2</span></a>). Because the differential equation is autonomous, we can apply phase-line analysis in order to qualitatively understand the evolution. Below is a plot of the function <span class="math inline">\(G\)</span>:</p>
-<div id="7cedee61" class="cell" data-execution_count="1">
+<div id="2ee5b58a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -593,6 +590,31 @@ C \frac{\mathrm{d}T}{\mathrm{d}t} = Q(1 - a(T)) - \sigma \gamma T^4 \equiv G(T).
 <li><p>Sketch the solution <span class="math inline">\(T(t)\)</span> of this equation for <span class="math inline">\(t &gt; 0\)</span> if <span class="math inline">\(T(0) = 285\)</span>. Then sketch the solution of this equation with the same initial data in the same coordinate system if <span class="math inline">\(C\)</span> is twice as large. Explain your answer.</p></li>
 <li><p>If <span class="math inline">\(\gamma\)</span> is decreased due to the increased greenhouse effect, the entire curve is shifted upwards. Sketch the solution if <span class="math inline">\(T(0) = 280\)</span>. Sketch the solution with the same initial data if <span class="math inline">\(\gamma\)</span> is decreased. Explain your answer.</p></li>
 </ol>
+<!-- ## Q3. Budyko's model {.unnumbered}  -->
+<!---->
+<!-- Previously we derived the energy for outgoing radiation as: -->
+<!-- $$ -->
+<!-- E_{\text{out}}(T) = \sigma \gamma T^4,  -->
+<!-- $$  -->
+<!-- which is estimated via the Stefan-Boltzmann law. Budyko's approximation replaces this law with a linear relationship.   -->
+<!---->
+<!-- a. Assume that  -->
+<!-- $$ -->
+<!-- T = T_0 + \bar{T}, -->
+<!-- $$  -->
+<!-- where $T_0 = 273.15 \, \mathrm{K}$, which corresponds to $0^\circ \, \mathrm{C}$. We can consider $\bar{T}$ as measured in Celcius (since conversion between Kelvins and Celcius is directly proportional). Substitute the above into $E_{\text{out}}$ and linearise, thus assuming $\bar{T}$ is near zero. Place the energy in the form -->
+<!-- $$ -->
+<!-- E_{\text{out}} \sim A + B\bar{T}. -->
+<!-- $$  -->
+<!-- Using the standard value of $\sigma = 5.67 \times 10^{-8}$ W/m<sup>2</sup> K<sup>4</sup> and $\gamma = 1$, calculate the values of $A$ and $B$.  -->
+<!---->
+<!-- b. Rather than use the formal values derived above, the standard Budyko model uses values of $A = 203.3 \mathrm{W}/\mathrm{m}^2$ and $B = 2.09 \, \mathrm{W}/(\mathrm{m}^2 {}^\circ \mathrm{C})$ that are found from best fit with observational data.  -->
+<!--     -->
+<!--    Using Jupyter and a short script for numerical root finding, investigate the equilibrium solutions of  -->
+<!-- $$ -->
+<!-- Q(1 - a(T_0 + \bar{T})) = A + B \bar{T}. -->
+<!-- $$  -->
+<!-- where $Q = 342 \, \mathrm{W}/\mathrm{m}^2$ and $a(T)$ is given from (@eq-albedokaper). Where are the equilibrium solutions, $\bar{T^*}$, and how do they compare with those obtained previously using the Stefan-Boltzmann relation? -->
 
 
 </section>

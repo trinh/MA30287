@@ -254,7 +254,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-03-box/box-energy-model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">The basic EBM (steady-state)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">EBM with nonlinear albedo</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -369,6 +369,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Problem set 3 solutions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps04sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Problem set 4 solutions</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -383,43 +389,43 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/chatgpt-goes-wrong.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
   </div>
 </li>
       </ul>
@@ -654,7 +660,7 @@ Solution
 y_0'' = -1 - \alpha y_0' \\
 y_0(0) = 0 \\
 y_0'(0) = 1
-\end{gather}\]</span> To solve this, you will need to refresh your memory on second-order differential equations learned in 2nd year. You can see <a href="../part-05-techniques/odes.html" class="quarto-xref"><span>Chapter 29</span></a> for references. To solve this set <span class="math inline">\(y_0 = e^{rt}\)</span> and solve for <span class="math inline">\(r\)</span> for the homogeneous equation. You will get <span class="math display">\[
+\end{gather}\]</span> To solve this, you will need to refresh your memory on second-order differential equations learned in 2nd year. You can see <a href="../part-05-techniques/odes.html" class="quarto-xref"><span>Chapter 30</span></a> for references. To solve this set <span class="math inline">\(y_0 = e^{rt}\)</span> and solve for <span class="math inline">\(r\)</span> for the homogeneous equation. You will get <span class="math display">\[
 y_{\text{homogeneous}} = (c_1 + c_2 e^{-\alpha t}).
 \]</span> From here, we need a particular solution. This can be obtained by guessing (also see <a href="https://tutorial.math.lamar.edu/Classes/DE/UndeterminedCoefficients.aspx">this reference</a>). If we guess <span class="math display">\[
 y_p = C t,
@@ -689,10 +695,12 @@ Solution
 <div class="callout-body-container callout-body">
 <p>The above solution seems quite strange. After all, when <span class="math inline">\(\alpha = 0\)</span>, we know that parabolic motion is expected. We found previously that <span class="math display">\[
 y_{\alpha = 0}(t) \sim -\frac{1}{2}t^2 + t.
-\]</span> which matches our intuition about the expected flight being parabolic. However, notice that if <span class="math inline">\(\alpha\)</span> is small, we can expand the exponential, <span class="math inline">\(e^{-\alpha t} = 1 - \alpha t + \ldots\)</span> to show <span class="math display">\[
-y_0 \sim \left(-\frac{1}{2}t^2 + t\right) + \alpha \frac{1}{6} \left(-3t^2 + t^3\right) + O(\alpha^2).
-\]</span></p>
-<p>This is a fairly sophisticated argument. Instead, you can simply plot the curves and show the difference.</p>
+\]</span> which matches our intuition about the expected flight being parabolic. However, notice that if <span class="math inline">\(\alpha\)</span> is small, we can expand the exponential, <span class="math inline">\(e^{-\alpha t} = 1 - \alpha t + \ldots\)</span>. Substitution into the derived formula for <span class="math inline">\(y_0\)</span> gives <span class="math display">\[
+\color{blue}y(t) \sim \left(\frac{1}{\alpha^2} + \frac{1}{\alpha}\right) - \left(\frac{1}{\alpha^2} + \frac{1}{\alpha}\right)\left[1 - \alpha t + \ldots\right] - \frac{t}{\alpha}.
+\]</span> We can now simplify the expression and we see that the <span class="math inline">\(\alpha \to 0\)</span> limit is not problematic, because it now becomes: <span class="math display">\[
+y_0 \sim \left(-\frac{1}{2}t^2 + t\right) + \alpha \frac{1}{6} \left(-3t^2 + t^3\right) + O(\alpha^2),
+\]</span> and the previous terms that we believed might tend to infinity as <span class="math inline">\(\alpha \to 0\)</span> cancel. Inspecting the above solution, notice that the leading-order result agrees with the previously derived result for <span class="math inline">\(\alpha = 0\)</span>. The next term shows the small effect of drag.</p>
+<p>You can simply plot the curves and show the difference.</p>
 <div id="fig-para" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-para-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -706,6 +714,7 @@ Figure&nbsp;27.3: With (solid) and without damping (dashed)
 </div>
 </div>
 </div>
+<p>Notice that the dashed line brings down the parabolic path initially.</p>
 </section>
 <section id="ode-solvers-and-eulers-method" class="level2" data-number="27.5">
 <h2 data-number="27.5" class="anchored" data-anchor-id="ode-solvers-and-eulers-method"><span class="header-section-number">27.5</span> ODE solvers and Euler’s method</h2>

@@ -467,7 +467,7 @@
     "href": "part-xx-exercises/problemclass03.html#analytical-solution",
     "title": "12  Problem class 3",
     "section": "12.2 Analytical solution",
-    "text": "12.2 Analytical solution\n\\(\\nextSection\\)\nBefore we begin, it is useful for the purposes of manipulation to write the boundary condition as \\[\nT(0, t) = A \\Re (e^{i\\omega t}) = A\\Re(\\cos (\\omega t) + i \\sin(\\omega t)) = A\\cos(\\omega t).\n\\] This has the advantage that we can manipulate exponentials much more easily.\nTo solve the problem analytically, we attempt a solution method called separation of variables. Let \\[\nT(x, t) = G(t) H(x).\n\\] Substitution into the PDE gives \\[\nG'(t) H(x) = \\kappa G(t) H''(x),\n\\] and we attempt to separate the functions of \\(t\\) to one side and the functions of \\(x\\) to the other. \\[\n\\frac{G'(t)}{G'(t)} = \\kappa \\frac{H''(x)}{H(x)}\n\\] Now in order for two completely different functions dependent on two completely different independent variables to be equal in this way, then this implies that both sides must be equal to a constant. So we have \\[\n\\begin{aligned}\nG' &= \\lambda G \\\\\nH''  &= \\lambda \\kappa H.\n\\end{aligned}\n\\] Therefore \\(G = \\mathrm{const} \\times e^{\\lambda t}\\). Because of the boundary conditions that would require \\(T = A e^{i\\omega t}\\), you can check that \\(\\lambda = 0\\) and \\(\\lambda\\) real are both impossible. The only way to satisfy the boundary conditions is if \\(\\lambda = i\\omega\\). So we conclude that \\[\nG(t) = \\mathrm{const.} \\times e^{i\\omega t}.\n\\] To solve \\[\nH'' = (i\\omega/\\kappa) H,\n\\] you can attempt the substitution \\(H(x) = e^{rx}\\) and solve the resultant equation for the characteristic polynomial in \\(r\\). You will do this in the problem set, and obtain \\[\nr = \\pm \\sqrt{i} \\sqrt{\\omega/\\kappa} = \\pm \\sqrt{\\omega/\\kappa} \\frac{1 + i}{\\sqrt{2}}.\n\\] Therefore \\[\nH(x) = C_1 e^{\\sqrt{\\omega/(2\\kappa)}x}e^{\\sqrt{\\omega/(2\\kappa)}ix}+ C_2 e^{-\\sqrt{\\omega/(2\\kappa)}x}e^{-\\sqrt{\\omega/(2\\kappa)}ix}.\n\\] The first solution should be discarded since it blows up as \\(x \\to \\infty\\).\nFinally, we conclude that the solution is given by \\[\nT = e^{i\\omega t} e^{-\\sqrt{\\omega/(2\\kappa)}x}e^{-\\sqrt{\\omega/(2\\kappa)}ix}.\n\\] Move the imaginary arguments together: \\[\nT = \\text{const.} \\times  e^{-\\sqrt{\\omega/(2\\kappa)}x}e^{i(-\\sqrt{\\omega/(2\\kappa)}x + \\omega t)}.\n\\] Now we take the real part, giving \\[\nT = A e^{-\\sqrt{\\omega/(2\\kappa)}x} \\cos\\left(-\\sqrt{\\omega/(2\\kappa)}x + \\omega t\\right),\n\\] and we see that having set the constant to \\(A\\) the solution indeed satisfies \\(T(0, t) = A\\cos(\\omega t)\\).",
+    "text": "12.2 Analytical solution\n\\(\\nextSection\\)\nBefore we begin, it is useful for the purposes of manipulation to write the boundary condition as \\[\nT(0, t) = A \\Re (e^{i\\omega t}) = A\\Re(\\cos (\\omega t) + i \\sin(\\omega t)) = A\\cos(\\omega t).\n\\] This has the advantage that we can manipulate exponentials much more easily.\nTo solve the problem analytically, we attempt a solution method called separation of variables. Let \\[\nT(x, t) = G(t) H(x).\n\\] Substitution into the PDE gives \\[\nG'(t) H(x) = \\kappa G(t) H''(x),\n\\] and we attempt to separate the functions of \\(t\\) to one side and the functions of \\(x\\) to the other. \\[\n\\frac{G'(t)}{G'(t)} = \\kappa \\frac{H''(x)}{H(x)}\n\\] Now in order for two completely different functions dependent on two completely different independent variables to be equal in this way, then this implies that both sides must be equal to a constant. So we have \\[\n\\begin{aligned}\nG' &= \\lambda G \\\\\nH''  &= \\lambda \\kappa H.\n\\end{aligned}\n\\] Therefore \\(G = \\mathrm{const} \\times e^{\\lambda t}\\). Because of the boundary conditions that would require \\(T = A e^{i\\omega t}\\), you can check that \\(\\lambda = 0\\) and \\(\\lambda\\) real are both impossible. The only way to satisfy the boundary conditions is if \\(\\lambda = i\\omega\\). So we conclude that \\[\nG(t) = \\mathrm{const.} \\times e^{i\\omega t}.\n\\] To solve \\[\nH'' = (i\\omega/\\kappa) H,\n\\] you can attempt the substitution \\(H(x) = e^{rx}\\) and solve the resultant equation for the characteristic polynomial in \\(r\\). You will do this in the problem set, and obtain \\[\nr = \\pm \\sqrt{i} \\sqrt{\\omega/\\kappa} = \\pm \\sqrt{\\omega/\\kappa} \\frac{1 + i}{\\sqrt{2}}.\n\\] Therefore \\[\nH(x) = C_1 e^{\\sqrt{\\omega/(2\\kappa)}x}e^{\\sqrt{\\omega/(2\\kappa)}ix}+ C_2 e^{-\\sqrt{\\omega/(2\\kappa)}x}e^{-\\sqrt{\\omega/(2\\kappa)}ix}.\n\\] The first solution should be discarded since it blows up as \\(x \\to \\infty\\).\nFinally, we conclude that the solution is given by \\[\nT = e^{i\\omega t} e^{-\\sqrt{\\omega/(2\\kappa)}x}e^{-\\sqrt{\\omega/(2\\kappa)}ix}.\n\\] Move the imaginary arguments together: \\[\nT = \\text{const.} \\times  e^{-\\sqrt{\\omega/(2\\kappa)}x}e^{i(-\\sqrt{\\omega/(2\\kappa)}x + \\omega t)}.\n\\] Now we take the real part, giving \\[\nT = A e^{-\\sqrt{\\omega/(2\\kappa)}x} \\cos\\left(-\\sqrt{\\omega/(2\\kappa)}x + \\omega t\\right),\n\\tag{12.1}\\] and we see that having set the constant to \\(A\\) the solution indeed satisfies \\(T(0, t) = A\\cos(\\omega t)\\).",
     "crumbs": [
       "Practical applied mathematics",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Problem class 3</span>"
@@ -487,56 +487,34 @@
   {
     "objectID": "part-03-box/box-energy-model.html",
     "href": "part-03-box/box-energy-model.html",
-    "title": "13  The basic EBM (steady-state)",
+    "title": "13  EBM with nonlinear albedo",
     "section": "",
     "text": "13.1 Steady-state analysis\nPreviously, we have assumed that the planetary albedo, \\(a\\), is constant and independent of temperature. In actuality, water can turn to snow and ice and vice versa; since snow and ice have much higher albedo than open water, then we should consider \\(a = a(T)\\).\nLet us assume that there are two relevant ranges to consider: T &lt; 150K (cold) and T &gt; 280K (hot). Let us assume that the albedo is, in these two regions: \\[\na(T) \\approx\n\\begin{cases}\n0.7 & \\mathrm{if }\\ T &lt; 150\\mathrm{K}, \\\\\n0.3 & \\mathrm{if }\\ T &gt; 280\\mathrm{K}.\n\\end{cases}\n\\] The above guarantees that more energy is reflected if temperatures are low. To model this process, we can use a ramp function to specify the albedo over all temperatures: \\[\na(T) = A - B \\mathrm{tanh}\\left(k(T - 265)\\right).\n\\tag{13.2}\\] where \\(A = 0.5\\), \\(B = {\\color{blue}0.2}\\), \\(k = 0.1\\), and \\(T_0 = 265 \\mathrm{K}\\). Recall that the tanh function is given by \\[\n\\mathrm{tanh}(x) = \\frac{\\mathrm{sinh}(x)}{\\mathrm{cosh}(x)} = \\frac{e^x - e^{-x}}{e^x + e^{-x}}.\n\\]\nLet us further assume that the system is in steady state, so that the temperature is determined by solving the equation \\[\nf(T) = Q[1 - a(T)] - \\sigma \\gamma T^4 = 0.\n\\tag{13.3}\\]\nIn the following code, we plot the two terms that make up \\(f\\), and their intersections indicate roots of \\(f = 0\\). We then use the Python ‘fsolve’ function to approximate the roots given initial guesses.\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport scipy.optimize as sciopt\n\nQ = 342\nsigma = 5.67e-8 \ngamma = 0.62\n\nTT = np.linspace(220,310,50)\n\ndef fun(T):\n    a = 0.5 - 0.2*np.tanh((T - 265)/10)\n    x = (1-a)*Q\n    return x\nLHS = fun(TT)\n\nplt.plot(TT, LHS)\nplt.plot(TT, gamma*sigma*TT**4, 'k--')\n\ndef eq(T):\n    x = fun(T) - gamma*sigma*T**4\n    return x\nT1 = sciopt.fsolve(eq, 230)\nT2 = sciopt.fsolve(eq, 265)\nT3 = sciopt.fsolve(eq, 290)\nprint(\"T1 = {:.2f}\".format(T1[0]))\nprint(\"T2 = {:.2f}\".format(T2[0]))\nprint(\"T3 = {:.2f}\".format(T3[0]))\n\nT1 = 232.55\nT2 = 265.56\nT3 = 286.74\nTherefore multiple equilibria are observed.",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The basic EBM (steady-state)</span>"
-    ]
-  },
-  {
-    "objectID": "part-03-box/box-energy-model.html#dynamics-and-phase-line-solutions",
-    "href": "part-03-box/box-energy-model.html#dynamics-and-phase-line-solutions",
-    "title": "13  The basic EBM (steady-state)",
-    "section": "13.2 Dynamics and phase line solutions",
-    "text": "13.2 Dynamics and phase line solutions\n\\(\\nextSection\\)\nThe full time-dependent model is given by \\[\nC \\frac{\\mathrm{d}T}{\\mathrm{d}t} = f(T),\n\\] so we may use the positivity or negativity of \\(f\\) in order to sketch the time-dependent behaviour of the system.\nTo see this, we can perform an asymptotic analysis near the fixed points. Let the initial condition be considered near the fixed point: \\[\nT(t = 0) = T^* + \\delta,\n\\] where \\(\\delta \\ll 1\\). Then we expand the solution into an asymptotic expansion, \\[\nT(t) = T^* + \\delta T_1(t) + \\delta T^2(t) + \\ldots\n\\] Substitution into the above ODE gives, at \\(O(\\delta)\\), \\[\nC \\frac{\\mathrm{d}T_1}{\\mathrm{d}t} = f'(T_0) T_1,\n\\] and hence, with \\(T_1(0) = 1\\), we have \\[\nT_1(t) = e^{f'(T_0) t/C}.\n\\] Therefore, depending on the positivity or negativity of the gradient function, the perturbation will either decay or grow as \\(t\\to\\infty\\).\nIt can then be verified that the centre equilbria is unstable while the other two are stable. The higher temperature corresponds to the one that the Earth is currently in, but according to this model, there seems to be the possibility of a colder climate (50 degrees colder) where the Earth is entirely covered with snow and ice.\nInterestingly, there is some evidence that the Earth’s climate may have been in this so-called state up to four times between 750 million and 580 million years ago (Neoproterozoic age). Observations of geological deposits suggest that the Earth has undergone periods of complete global glaciation where there have been very minimal biological activity. During this period, there is a massive build-up of CO2 in the atmopshere, leading to huge greenhouse effect. As \\(\\gamma\\) decreases in our model, the equilibrium can then shift, suddenly transitioning the Planet into the warm state.",
-    "crumbs": [
-      "Energy balance models",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The basic EBM (steady-state)</span>"
-    ]
-  },
-  {
-    "objectID": "part-03-box/box-energy-model.html#numerical-continuation-of-the-steady-states",
-    "href": "part-03-box/box-energy-model.html#numerical-continuation-of-the-steady-states",
-    "title": "13  The basic EBM (steady-state)",
-    "section": "13.3 Numerical continuation of the steady states",
-    "text": "13.3 Numerical continuation of the steady states\n\\(\\nextSection\\)\nWe have done a preliminary steady-state analysis of \\[\nQ (1 - a(T)) - \\sigma \\gamma T^4,\n\\] but we would like to better understand how these steady-states may change depending on the parameters. For example, we would like to understand how the solutions vary of the solar constant related to \\(Q\\) varies; or we would like to understand how solutions vary as \\(\\gamma\\) varies.\nMore specifically, we would like to design some numerical routines that would allow us to (smartly!) solve for the roots of the above equation as the parameters are varied. Although the above problem (roots of a single equation) is simple enough to do this in a manual way, the methods of numerical continuation we learn in this chapter is applicable to much more general set of problems.\nSuppose that we are interested in studying how the steady-states (up to three) change as \\(Q\\) changes. Then we are interested in producing a diagram of \\(Q\\) vs. \\(T\\). The basic idea is to start with an initial solution at some value of \\(Q\\), increment \\(Q\\), then solve for the next value using the previous value as a guess. This involves the following pseudocode:\n\n\n\n\n\n\nNumerical continuation\n\n\n\n1. Input guess T0, f, df, parameter Q1\n\n    a. Call Newton's method via Newton(f, df, T0, Q1) \n    b. Obtain a preliminary solution (T1, Q1)\n\n2. Increment Q1 = Q1 + dQ \n\n    a. Call Newton's method via Newton(f, df, T1, Q1)\n    b. Obtain a new solution (T1, Q1)\n\n3. Repeat 2 until we reach a desired Q value\n\n\nThe following code provides continuation for one of the roots.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.optimize import fsolve\nfrom scipy.optimize import root\n\nsigma = 5.67e-8\ngamma = 0.62\na = lambda T: 0.5 - 0.2*np.tanh((T - 265)/10)\n\nQ0 = 342\nQmat = np.linspace(250, 450, 30)\nTmat = 0*Qmat\n\n# Initial guess\nx = 220\nfor i, Q in enumerate(Qmat):\n    f = lambda T: Q*(1-a(T)) - sigma*gamma*T**4\n    sol = root(f, x)\n    # If solution not found, output error\n    if sol.success != 1:\n        print(\"Q/Q0 = \", Q/Q0, \": \", sol.message)\n    Tmat[i] = sol.x\n\nplt.plot(Qmat/Q0, Tmat, 'o');\n\nplt.xlabel('Q/Q0');\nplt.ylabel('T');\n\nQ/Q0 =  1.2754587618471467 :  The iteration is not making good progress, as measured by the \n  improvement from the last ten iterations.\nQ/Q0 =  1.2956241177656787 :  The iteration is not making good progress, as measured by the \n  improvement from the last ten iterations.\nQ/Q0 =  1.3157894736842106 :  The iteration is not making good progress, as measured by the \n  improvement from the last five Jacobian evaluations.\n\n\n/var/folders/26/pd267j_136sfv9lw7lc9rcm40000gp/T/ipykernel_87450/2481211673.py:22: DeprecationWarning: Conversion of an array with ndim &gt; 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)\n  Tmat[i] = sol.x\n\n\n\n\n\n\n\n\n\nAbove, we have scaled \\(Q\\) with the reference value of \\(Q_0 = 342\\).\nIn your lecture, problem class, or exercises, you will design continuation on the other branches of solutions, and then study the result and its implications. During the lecture, we studied MA30287/notebooks/lecture13_EBM.ipynb which can be found at this link.",
-    "crumbs": [
-      "Energy balance models",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The basic EBM (steady-state)</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>EBM with nonlinear albedo</span>"
     ]
   },
   {
     "objectID": "part-03-box/box-energy-model.html#bifurcation-diagram",
     "href": "part-03-box/box-energy-model.html#bifurcation-diagram",
-    "title": "13  The basic EBM (steady-state)",
-    "section": "13.4 Bifurcation diagram",
-    "text": "13.4 Bifurcation diagram\n\\(\\nextSection\\)\nIn reference to the above note, the following diagram was drawn and discussed in Lecture 15.\n\n\n\n\n\n\nFigure 13.1: Bifurcation diagram of \\(Q/Q_0\\) vs \\(T^*\\)\n\n\n\nWe noted the following:\n\nThe system has three steady states, given by the green, red, and blue curves.\nThe middle state is unstable (shown dashed).\nThe system exhibits hysteresis. Note that if we decrease \\(Q/Q_0\\) past the tipping point, marked \\(Q_{T1}\\) in the image, then we would evolve to the lower stable steady state (which is the ice state). However, while we are in the ice stated, if we were to attempt to increase the solar radiation to return to the green branch, we would need to arrive at \\(Q_{T2}\\) to do so; this irreversibility is known as hysteresis.",
+    "title": "13  EBM with nonlinear albedo",
+    "section": "13.2 Bifurcation diagram",
+    "text": "13.2 Bifurcation diagram\n\\(\\nextSection\\)\nDuring the lectures, the above script plotting the steady-state solutions will be examined in order to understand the effects of changing \\(Q\\).\nIt will be observed that dependent on the solar radiation, there may be one or three steady-state solutions. This leads to the following key bifurcation diagram.\n\n\n\n\n\n\nFigure 13.1: Bifurcation diagram of \\(Q/Q_0\\) vs \\(T^*\\)\n\n\n\nWe noted the following:\n\nThe system has three steady states, given by the green, red, and blue curves.\nThe middle state is unstable (shown dashed).\nThe system exhibits hysteresis. Note that if we decrease \\(Q/Q_0\\) past the tipping point, marked \\(Q_{T1}\\) in the image, then we would evolve to the lower stable steady state (which is the ice state). However, while we are in the ice stated, if we were to attempt to increase the solar radiation to return to the green branch, we would need to arrive at \\(Q_{T2}\\) to do so; this irreversibility is known as hysteresis. ## Dynamics and phase line solutions\n\nThe full time-dependent model is given by \\[\nC \\frac{\\mathrm{d}T}{\\mathrm{d}t} = f(T),\n\\] so we may use the positivity or negativity of \\(f\\) in order to sketch the time-dependent behaviour of the system.\nTo see this, we can perform an asymptotic analysis near the fixed points. Let the initial condition be considered near the fixed point: \\[\nT(t = 0) = T^* + \\delta,\n\\] where \\(\\delta \\ll 1\\). Then we expand the solution into an asymptotic expansion, \\[\nT(t) = T^* + \\delta T_1(t) + \\delta T^2(t) + \\ldots\n\\] Substitution into the above ODE gives, at \\(O(\\delta)\\), \\[\nC \\frac{\\mathrm{d}T_1}{\\mathrm{d}t} = f'(T_0) T_1,\n\\] and hence, with \\(T_1(0) = 1\\), we have \\[\nT_1(t) = e^{f'(T_0) t/C}.\n\\] Therefore, depending on the positivity or negativity of the gradient function, the perturbation will either decay or grow as \\(t\\to\\infty\\).\nIt can then be verified that the centre equilbria is unstable while the other two are stable. The higher temperature corresponds to the one that the Earth is currently in, but according to this model, there seems to be the possibility of a colder climate (50 degrees colder) where the Earth is entirely covered with snow and ice.\nInterestingly, there is some evidence that the Earth’s climate may have been in this so-called state up to four times between 750 million and 580 million years ago (Neoproterozoic age). Observations of geological deposits suggest that the Earth has undergone periods of complete global glaciation where there have been very minimal biological activity. During this period, there is a massive build-up of CO2 in the atmopshere, leading to huge greenhouse effect. As \\(\\gamma\\) decreases in our model, the equilibrium can then shift, suddenly transitioning the Planet into the warm state.",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The basic EBM (steady-state)</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>EBM with nonlinear albedo</span>"
     ]
   },
   {
     "objectID": "part-03-box/box-energy-model.html#sec-budyko",
     "href": "part-03-box/box-energy-model.html#sec-budyko",
-    "title": "13  The basic EBM (steady-state)",
-    "section": "13.5 Re-scaling and Budyko’s model",
-    "text": "13.5 Re-scaling and Budyko’s model\n\\(\\nextSection\\)\nTo model the outgoing radiation, we use the quartic Stefan-Boltzmann law. However, over the range of temperatures we are interested-in, it seems that a simpler approximation is sufficient. In your homework, you will investigate the re-scaling and shifting of temperature, such that \\[\nT = T_0 + [T]\\tilde{T},\n\\] where \\(T_0 = 265 \\mathrm{K}\\). Then under the assumption that temperatures are not-so-far from \\(T_0\\), we expand \\[\n(T_0 + [T]\\tilde{T})^4 \\sim T_0^4 + 4 T_0^3 [T] \\tilde{T} =\nC_1 + C_2 \\tilde{T}.\n\\] This simplifies the model considerably.",
+    "title": "13  EBM with nonlinear albedo",
+    "section": "13.3 Re-scaling and Budyko’s model",
+    "text": "13.3 Re-scaling and Budyko’s model\n\\(\\nextSection\\)\nTo model the outgoing radiation, we use the quartic Stefan-Boltzmann law. However, over the range of temperatures we are interested-in, it seems that a simpler approximation is sufficient. In your homework, you will investigate the re-scaling and shifting of temperature, such that \\[\nT = T_0 + [T]\\tilde{T},\n\\] where \\(T_0 = 265 \\mathrm{K}\\). Then under the assumption that temperatures are not-so-far from \\(T_0\\), we expand \\[\n(T_0 + [T]\\tilde{T})^4 \\sim T_0^4 + 4 T_0^3 [T] \\tilde{T} =\nC_1 + C_2 \\tilde{T}.\n\\] This simplifies the model considerably.",
     "crumbs": [
       "Energy balance models",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The basic EBM (steady-state)</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>EBM with nonlinear albedo</span>"
     ]
   },
   {
@@ -566,7 +544,7 @@
     "href": "part-03-box/box-energy-model2.html#outgoing-energy",
     "title": "14  EBM with latitude I",
     "section": "14.2 Outgoing energy",
-    "text": "14.2 Outgoing energy\n\\(\\nextSection\\)\nThe outgoing energy is approximated via the linear Budyko approximation discussed in Section 13.5. \\[\nE_{\\text{out}} = A + BT,\n\\] where \\(A = 202 \\mathrm{W}/ \\mathrm{m}^2\\) and \\(B = 1.9 \\mathrm{W}/(\\mathrm{m}^2 {}^\\circ \\mathrm{C})\\). These figures are taken from a 1993 paper by Graves, Lee, and North.",
+    "text": "14.2 Outgoing energy\n\\(\\nextSection\\)\nThe outgoing energy is approximated via the linear Budyko approximation discussed in Section 13.3. \\[\nE_{\\text{out}} = A + BT,\n\\] where \\(A = 202 \\mathrm{W}/ \\mathrm{m}^2\\) and \\(B = 1.9 \\mathrm{W}/(\\mathrm{m}^2 {}^\\circ \\mathrm{C})\\). These figures are taken from a 1993 paper by Graves, Lee, and North.",
     "crumbs": [
       "Energy balance models",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>EBM with latitude I</span>"
@@ -874,7 +852,7 @@
     "href": "part-03-box/stommel.html#stability",
     "title": "20  Stommel’s box model",
     "section": "20.3 Stability",
-    "text": "20.3 Stability\n\\(\\nextSection\\)\nWe let \\(x = x^* + \\xi\\) and \\(y = y^* + \\eta\\) and linearise the system about the fixed points. This gives \\[\n\\begin{pmatrix}\n\\dot{\\xi} \\\\\n\\dot{\\eta}\n\\end{pmatrix} = A\n\\begin{pmatrix}\n\\xi \\\\ \\eta\n\\end{pmatrix},\n\\] where the matrix \\(A\\) is given by \\[\nA =\n\\begin{pmatrix}\n-(\\delta + |f^*|) \\mp \\frac{Rx^*}{\\lambda} & \\pm \\frac{x^*}{\\lambda} \\\\\n\\mp \\frac{Ry^*}{\\lambda} & -(1 + |f^*|) \\pm \\frac{y^*}{\\lambda}\n\\end{pmatrix}\n\\] if \\(f^* \\gtrless 0\\).\nThere are two ways or proceeding. We can numerically substitute the fixed points into the above matrix for \\(A\\) and then calculate the eigenvalues (numerically or otherwise). Or we can directly proceed analytically.\nIf proceeding analytically, we can then calculate the trace and determinant, giving\n\\[\\begin{align}\nT &= -(1 + \\delta + 3 |f^*|), \\\\\nD &= (\\delta + 2|f^*|)(1 + |f^*|) \\pm (1 - \\delta) \\frac{y^*}{\\lambda}.\n\\end{align}\\]\nUsing the above, we can analytically calculate the key discriminant expression of \\(T^2 - 4D\\) (or numerically) in order to verify stability. The details of the classification scheme is given in the appendix Chapter 30.\nFor our purposes, we will mainly proceed using numerics, and bypass the need to study the above results analytically.\nIn the accompanying lecture script, we will obtain the eigenvalues numerically, and generate the phase plane. At the test point \\(R = 2\\), \\(\\delta = 1/6\\), and \\(\\lambda = 1/5\\), we generate the following phase plane picture.\n\n\n\n\n\n\nFigure 20.1: Phase plane for \\(R = 2\\), \\(\\lambda = 1/5\\) and \\(\\delta = 1/6\\). The blue, red, and green fixed points correspond to \\(f_1\\), \\(f_2\\), and \\(f_3\\) in order. The blue point is a stable node, the red point is an unstable saddle, and the green point is a stable spiral.",
+    "text": "20.3 Stability\n\\(\\nextSection\\)\nWe let \\(x = x^* + \\xi\\) and \\(y = y^* + \\eta\\) and linearise the system about the fixed points. This gives \\[\n\\begin{pmatrix}\n\\dot{\\xi} \\\\\n\\dot{\\eta}\n\\end{pmatrix} = A\n\\begin{pmatrix}\n\\xi \\\\ \\eta\n\\end{pmatrix},\n\\] where the matrix \\(A\\) is given by \\[\nA =\n\\begin{pmatrix}\n-(\\delta + |f^*|) \\mp \\frac{Rx^*}{\\lambda} & \\pm \\frac{x^*}{\\lambda} \\\\\n\\mp \\frac{Ry^*}{\\lambda} & -(1 + |f^*|) \\pm \\frac{y^*}{\\lambda}\n\\end{pmatrix}\n\\] if \\(f^* \\gtrless 0\\).\nThere are two ways or proceeding. We can numerically substitute the fixed points into the above matrix for \\(A\\) and then calculate the eigenvalues (numerically or otherwise). Or we can directly proceed analytically.\nIf proceeding analytically, we can then calculate the trace and determinant, giving\n\\[\\begin{align}\nT &= -(1 + \\delta + 3 |f^*|), \\\\\nD &= (\\delta + 2|f^*|)(1 + |f^*|) \\pm (1 - \\delta) \\frac{y^*}{\\lambda}.\n\\end{align}\\]\nUsing the above, we can analytically calculate the key discriminant expression of \\(T^2 - 4D\\) (or numerically) in order to verify stability. The details of the classification scheme is given in the appendix Chapter 31.\nFor our purposes, we will mainly proceed using numerics, and bypass the need to study the above results analytically.\nIn the accompanying lecture script, we will obtain the eigenvalues numerically, and generate the phase plane. At the test point \\(R = 2\\), \\(\\delta = 1/6\\), and \\(\\lambda = 1/5\\), we generate the following phase plane picture.\n\n\n\n\n\n\nFigure 20.1: Phase plane for \\(R = 2\\), \\(\\lambda = 1/5\\) and \\(\\delta = 1/6\\). The blue, red, and green fixed points correspond to \\(f_1\\), \\(f_2\\), and \\(f_3\\) in order. The blue point is a stable node, the red point is an unstable saddle, and the green point is a stable spiral.",
     "crumbs": [
       "Box models of the ocean",
       "<span class='chapter-number'>20</span>  <span class='chapter-title'>Stommel's box model</span>"
@@ -1104,7 +1082,7 @@
     "href": "part-xx-exercises/ps04.html",
     "title": "24  Problem set 4",
     "section": "",
-    "text": "Q1. The wine cellar problem I\nQuestion TBD about using analysis to compute the solution.",
+    "text": "Q1. The wine cellar problem I\nWithin Chapter 12, the heat system was studied: \\[\n\\begin{gathered}\n\\frac{\\partial T}{\\partial t} = \\kappa \\frac{\\partial^2 T}{\\partial x^2}, \\\\\nT(x = 0, t) = A \\cos(\\omega t), \\\\\n|T(x, t)| \\text{ is bounded as $x \\to \\infty$}.\n\\end{gathered}\n\\] for \\(x \\geq 0\\). The initial condition can be ignored.\nThe solution was sought in the form of \\(T(x, t) = G(t) H(x)\\) using a separation of variables procedure leading to \\[\n\\frac{G'}{G} = \\kappa \\frac{H''}{H} = \\lambda.\n\\] Go through an argument that the cases of \\(\\lambda = 0\\) and \\(\\lambda\\) real lead to incompatible solutions. Review the calculation that \\(\\lambda = i\\omega\\) leads to the desired solution given in (Equation 12.1).",
     "crumbs": [
       "Exercises",
       "<span class='chapter-number'>24</span>  <span class='chapter-title'>Problem set 4</span>"
@@ -1115,40 +1093,29 @@
     "href": "part-xx-exercises/ps04.html#q2.-the-wine-cellar-problem-ii",
     "title": "24  Problem set 4",
     "section": "Q2. The wine cellar problem II",
-    "text": "Q2. The wine cellar problem II\n\\(\\nextSection\\)\nQuestion TBD about using numerics to verify your solution.",
+    "text": "Q2. The wine cellar problem II\n\\(\\nextSection\\)\nReview the code written in lecture15-winecellar.ipynb.\nVerify how well the numerical solution matches the exact analytical solution by overlaying the numerical solution with the analytical solution.",
     "crumbs": [
       "Exercises",
       "<span class='chapter-number'>24</span>  <span class='chapter-title'>Problem set 4</span>"
     ]
   },
   {
-    "objectID": "part-xx-exercises/ps04.html#q2.-budykos-model",
-    "href": "part-xx-exercises/ps04.html#q2.-budykos-model",
+    "objectID": "part-xx-exercises/ps04.html#q3.-ebms-with-variable-sun",
+    "href": "part-xx-exercises/ps04.html#q3.-ebms-with-variable-sun",
     "title": "24  Problem set 4",
-    "section": "Q2. Budyko’s model",
-    "text": "Q2. Budyko’s model\n\\(\\nextSection\\)\nPreviously we derived the energy for outgoing radiation as: \\[\nE_{\\text{out}}(T) = \\sigma \\gamma T^4,\n\\] which is estimated via the Stefan-Boltzmann law. Budyko’s approximation replaces this law with a linear relationship.\n\nAssume that \\[\nT = T_0 + \\bar{T},\n\\] where \\(T_0 = 273.15 \\, \\mathrm{K}\\), which corresponds to \\(0^\\circ \\, \\mathrm{C}\\). We can consider \\(\\bar{T}\\) as measured in Celcius (since conversion between Kelvins and Celcius is directly proportional). Substitute the above into \\(E_{\\text{out}}\\) and linearise, thus assuming \\(\\bar{T}\\) is near zero. Place the energy in the form \\[\nE_{\\text{out}} \\sim A + B\\bar{T}.\n\\] Using the standard value of \\(\\sigma = 5.67 \\times 10^{-8}\\) W/m2 K4 and \\(\\gamma = 1\\), calculate the values of \\(A\\) and \\(B\\).\nRather than use the formal values derived above, the standard Budyko model uses values of \\(A = 203.3 \\mathrm{W}/\\mathrm{m}^2\\) and \\(B = 2.09 \\, \\mathrm{W}/(\\mathrm{m}^2 {}^\\circ \\mathrm{C})\\) that are found from best fit with observational data.\nUsing Jupyter and a short script for numerical root finding, investigate the equilibrium solutions of \\[\nQ(1 - a(T_0 + \\bar{T})) = A + B \\bar{T}.\n\\] where \\(Q = 342 \\, \\mathrm{W}/\\mathrm{m}^2\\) and \\(a(T)\\) is given from (Equation 13.2). Where are the equilibrium solutions, \\(\\bar{T^*}\\), and how do they compare with those obtained previously using the Stefan-Boltzmann relation?",
+    "section": "Q3. EBMs with variable sun",
+    "text": "Q3. EBMs with variable sun\n\\(\\nextSection\\)\nSatellite data indicates that \\(Q\\), varies roughly between 341.37 W/m2 and 341.75 W/m2, with a period of about 11 years.\n\nUse the simple EBM given in (Equation 13.3) and repeated below: \\[\nQ(1 - a) = \\sigma \\gamma T^4,\n\\] with a constant albedo, \\(a = 0.3\\) and greenhouse gas factor \\(\\gamma = 0.6\\) to estimate the resultant variation (max and min) in the Earth’s mean surface temperature \\(T\\).\nSimilar to (a) but this time, use the Budyko balance equation, \\[\nQ(1 - a) = A + BT\n\\] with \\(A = 203.3 \\, \\mathrm{W} \\mathrm{m}^{-2}\\) and \\(B = 2.09 \\, \\mathrm{W}/(\\mathrm{m}^{2} \\, {}^\\circ \\mathrm{C})\\) to estimate the resultant variation in the surface temperature. Use \\(a = 0.3\\).\nThe actual variation in surface temperature is in fact less than what you computed above. Why might this be?",
     "crumbs": [
       "Exercises",
       "<span class='chapter-number'>24</span>  <span class='chapter-title'>Problem set 4</span>"
     ]
   },
   {
-    "objectID": "part-xx-exercises/ps04.html#q3.-variable-sun-output",
-    "href": "part-xx-exercises/ps04.html#q3.-variable-sun-output",
+    "objectID": "part-xx-exercises/ps04.html#q4.-ebms-and-phase-line-analysis",
+    "href": "part-xx-exercises/ps04.html#q4.-ebms-and-phase-line-analysis",
     "title": "24  Problem set 4",
-    "section": "Q3. Variable Sun output",
-    "text": "Q3. Variable Sun output\n\\(\\nextSection\\)\nSatellite data indicates that \\(Q\\), varies roughly between 341.37 W/m2 and 341.75 W/m2, with a period of about 11 years.\n\nUse the simple EBM (Equation 13.3), given by \\[\nQ(1 - a) = \\sigma \\gamma T^4,\n\\] with a constant albedo, \\(a = 0.3\\) and greenhouse gas factor \\(\\gamma = 0.6\\) to estimate the resultant variation (max and min) in the Earth’s mean surface temperature \\(T\\).\nSimilar to (a) but this time, use the Budyko balance equation, \\[\nQ(1 - a) = A + BT\n\\] with \\(A = 203.3 \\, \\mathrm{W} \\mathrm{m}^{-2}\\) and \\(B = 2.09 \\, \\mathrm{W}/(\\mathrm{m}^{2} \\, {}^\\circ \\mathrm{C})\\) to estimate the resultant variation in the surface temperature. Use \\(a = 0.3\\).\nThe actual variation in surface temperature is in fact less than what you computed above. Why might this be?",
-    "crumbs": [
-      "Exercises",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Problem set 4</span>"
-    ]
-  },
-  {
-    "objectID": "part-xx-exercises/ps04.html#q4.-phase-line-analysis",
-    "href": "part-xx-exercises/ps04.html#q4.-phase-line-analysis",
-    "title": "24  Problem set 4",
-    "section": "Q4. Phase line analysis",
-    "text": "Q4. Phase line analysis\n\\(\\nextSection\\)\nConsider the energy balance equation \\[\nC \\frac{\\mathrm{d}T}{\\mathrm{d}t} = Q(1 - a(T)) - \\sigma \\gamma T^4 \\equiv G(T).\n\\tag{24.1}\\] with \\(a\\) given by (Equation 13.2). Because the differential equation is autonomous, we can apply phase-line analysis in order to qualitatively understand the evolution. Below is a plot of the function \\(G\\):\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nQ = 342; sigma = 5.67e-8; gam = 0.6;\na = lambda T: 0.5 - 0.2*np.tanh(0.1*(T-265));\nT = np.linspace(220, 310, 100);\nG = Q*(1-a(T)) - sigma*gam*T**4\nfig, ax = plt.subplots()\nax.plot(T, G)\nax.grid(); ax.minorticks_on();\n# Customize the major grid\nax.grid(which='major', linestyle='-', linewidth='0.5', color='red')\n# Customize the minor grid\nax.grid(which='minor', linestyle=':', linewidth='0.5', color='black')\nplt.xlabel('T (in Kelvins)'); plt.ylabel('G(T)');\n\n\n\n\n\n\n\n\n\nSketch the solution \\(T(t)\\) of this equation for \\(t &gt; 0\\) if \\(T(0) = 230, 240, 260, 270\\) and \\(300\\).\nSketch the solution \\(T(t)\\) of this equation for \\(t &gt; 0\\) if \\(T(0) = 285\\). Then sketch the solution of this equation with the same initial data in the same coordinate system if \\(C\\) is twice as large. Explain your answer.\nIf \\(\\gamma\\) is decreased due to the increased greenhouse effect, the entire curve is shifted upwards. Sketch the solution if \\(T(0) = 280\\). Sketch the solution with the same initial data if \\(\\gamma\\) is decreased. Explain your answer.",
+    "section": "Q4. EBMs and phase line analysis",
+    "text": "Q4. EBMs and phase line analysis\n\\(\\nextSection\\)\nConsider the energy balance equation \\[\nC \\frac{\\mathrm{d}T}{\\mathrm{d}t} = Q(1 - a(T)) - \\sigma \\gamma T^4 \\equiv G(T).\n\\tag{24.1}\\] with \\(a\\) given by (Equation 13.2). Because the differential equation is autonomous, we can apply phase-line analysis in order to qualitatively understand the evolution. Below is a plot of the function \\(G\\):\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nQ = 342; sigma = 5.67e-8; gam = 0.6;\na = lambda T: 0.5 - 0.2*np.tanh(0.1*(T-265));\nT = np.linspace(220, 310, 100);\nG = Q*(1-a(T)) - sigma*gam*T**4\nfig, ax = plt.subplots()\nax.plot(T, G)\nax.grid(); ax.minorticks_on();\n# Customize the major grid\nax.grid(which='major', linestyle='-', linewidth='0.5', color='red')\n# Customize the minor grid\nax.grid(which='minor', linestyle=':', linewidth='0.5', color='black')\nplt.xlabel('T (in Kelvins)'); plt.ylabel('G(T)');\n\n\n\n\n\n\n\n\n\nSketch the solution \\(T(t)\\) of this equation for \\(t &gt; 0\\) if \\(T(0) = 230, 240, 260, 270\\) and \\(300\\).\nSketch the solution \\(T(t)\\) of this equation for \\(t &gt; 0\\) if \\(T(0) = 285\\). Then sketch the solution of this equation with the same initial data in the same coordinate system if \\(C\\) is twice as large. Explain your answer.\nIf \\(\\gamma\\) is decreased due to the increased greenhouse effect, the entire curve is shifted upwards. Sketch the solution if \\(T(0) = 280\\). Sketch the solution with the same initial data if \\(\\gamma\\) is decreased. Explain your answer.",
     "crumbs": [
       "Exercises",
       "<span class='chapter-number'>24</span>  <span class='chapter-title'>Problem set 4</span>"
@@ -1181,7 +1148,7 @@
     "href": "part-xx-exercises/ps05.html#q2.-integral-of-energy-over-the-planet",
     "title": "25  Problem set 5",
     "section": "Q2. Integral of energy over the planet",
-    "text": "Q2. Integral of energy over the planet\n\\(\\nextSection\\)\nIgnoring the effects of albedo, the total radiation absorbed over the surface of the planet (per unit time) is given by \\[\n\\iint_{\\text{planet}} Qs(y=\\sin\\varphi) \\, \\mathrm{d}S.\n\\] This is what is known as a surface integral (Section 31.1). In the case of the spherical coordinate system, this is calculated by \\[\n\\int_{\\theta=0}^{2\\pi} \\int_{\\varphi = -\\pi/2}^{\\pi/2} Qs(y = \\sin\\varphi) R_E^2 \\cos\\varphi \\, \\mathrm{d}\\varphi \\mathrm{d}\\theta.\n\\] Use the properties of \\(s(y)\\) in (Equation 14.2) to conclude that the total radiation absorbed is \\(4\\pi R_E^2 Q\\).",
+    "text": "Q2. Integral of energy over the planet\n\\(\\nextSection\\)\nIgnoring the effects of albedo, the total radiation absorbed over the surface of the planet (per unit time) is given by \\[\n\\iint_{\\text{planet}} Qs(y=\\sin\\varphi) \\, \\mathrm{d}S.\n\\] This is what is known as a surface integral (Section 32.1). In the case of the spherical coordinate system, this is calculated by \\[\n\\int_{\\theta=0}^{2\\pi} \\int_{\\varphi = -\\pi/2}^{\\pi/2} Qs(y = \\sin\\varphi) R_E^2 \\cos\\varphi \\, \\mathrm{d}\\varphi \\mathrm{d}\\theta.\n\\] Use the properties of \\(s(y)\\) in (Equation 14.2) to conclude that the total radiation absorbed is \\(4\\pi R_E^2 Q\\).",
     "crumbs": [
       "Exercises",
       "<span class='chapter-number'>25</span>  <span class='chapter-title'>Problem set 5</span>"
@@ -1313,7 +1280,7 @@
     "href": "part-xx-exercises/ps02sol.html#a-damped-projectile-problem",
     "title": "27  Problem set 2 solutions",
     "section": "27.4 A damped projectile problem",
-    "text": "27.4 A damped projectile problem\n\\(\\nextSection\\)\nIf air resistance is included, then the non-dimensional toy model is instead \\[\\begin{gather}\n\\frac{\\mathrm{d}^2 y}{\\mathrm{d}t^2} = - \\frac{1}{(1 + \\epsilon y)^2} - \\frac{\\alpha}{(1 + \\epsilon y)} \\frac{\\mathrm{d}y}{\\mathrm{d}t}, \\\\\ny(0) = 0, \\\\\ny'(0) = 1.\n\\end{gather}\\] where \\(\\alpha \\geq 0\\) is the parameter that controls air resistance.\n\nBegin by assuming that \\(\\alpha\\) is a fixed number and consider the limit where \\(\\epsilon \\ll 1\\). Find a one-term asymptotic expansion of the solution for small \\(\\epsilon\\).\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nFirst, note that \\[\n(1 + \\epsilon y)^{\\alpha} = 1 + \\alpha (\\epsilon y) + O(\\epsilon y)^2.\n\\]\nYou will not need more terms than that. Substitute \\(y = y_0(t) + \\epsilon y_1(t) + \\ldots\\) into the equation. This gives, for the leading terms \\[\\begin{gather}\ny_0'' = -1 - \\alpha y_0' \\\\\ny_0(0) = 0 \\\\\ny_0'(0) = 1\n\\end{gather}\\] To solve this, you will need to refresh your memory on second-order differential equations learned in 2nd year. You can see Chapter 29 for references. To solve this set \\(y_0 = e^{rt}\\) and solve for \\(r\\) for the homogeneous equation. You will get \\[\ny_{\\text{homogeneous}} = (c_1 + c_2 e^{-\\alpha t}).\n\\] From here, we need a particular solution. This can be obtained by guessing (also see this reference). If we guess \\[\ny_p = C t,\n\\] we see that \\[\ny_p'' + \\alpha y_p' = \\alpha C = -1\n\\] implies \\(C = -1/\\alpha\\). Therefore the general solution is \\[\ny_0 = (c_1 + c_2 e^{-\\alpha t}) - \\frac{t}{\\alpha}.\n\\] We now select the constants to satisfy the initial conditions. This yields \\[\nc_1 + c_2 = 0 \\quad \\text{and} \\quad\n-\\alpha c_2 - 1/\\alpha = 1,\n\\] from which the solution can be easily derived. It is \\[\ny(t) \\sim \\left(\\frac{1}{\\alpha^2} + \\frac{1}{\\alpha}\\right) - \\left(\\frac{1}{\\alpha^2} + \\frac{1}{\\alpha}\\right)e^{-\\alpha t} - \\frac{t}{\\alpha}.\n\\]\nThe solution of \\(y_1\\) proceeds in the same way, but since we did not anticipate that this question would be so algebraically involved, we will not require solving for \\(y_1\\). This can be left as an exercise if you so wish.\n\n\n\n\n(Challenging) Is the effect of the air resistance to increase or decrease the flight time? Justify based on your analytical solution.\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe above solution seems quite strange. After all, when \\(\\alpha = 0\\), we know that parabolic motion is expected. We found previously that \\[\ny_{\\alpha = 0}(t) \\sim -\\frac{1}{2}t^2 + t.\n\\] which matches our intuition about the expected flight being parabolic. However, notice that if \\(\\alpha\\) is small, we can expand the exponential, \\(e^{-\\alpha t} = 1 - \\alpha t + \\ldots\\) to show \\[\ny_0 \\sim \\left(-\\frac{1}{2}t^2 + t\\right) + \\alpha \\frac{1}{6} \\left(-3t^2 + t^3\\right) + O(\\alpha^2).\n\\]\nThis is a fairly sophisticated argument. Instead, you can simply plot the curves and show the difference.\n\n\n\n\n\n\nFigure 27.3: With (solid) and without damping (dashed)",
+    "text": "27.4 A damped projectile problem\n\\(\\nextSection\\)\nIf air resistance is included, then the non-dimensional toy model is instead \\[\\begin{gather}\n\\frac{\\mathrm{d}^2 y}{\\mathrm{d}t^2} = - \\frac{1}{(1 + \\epsilon y)^2} - \\frac{\\alpha}{(1 + \\epsilon y)} \\frac{\\mathrm{d}y}{\\mathrm{d}t}, \\\\\ny(0) = 0, \\\\\ny'(0) = 1.\n\\end{gather}\\] where \\(\\alpha \\geq 0\\) is the parameter that controls air resistance.\n\nBegin by assuming that \\(\\alpha\\) is a fixed number and consider the limit where \\(\\epsilon \\ll 1\\). Find a one-term asymptotic expansion of the solution for small \\(\\epsilon\\).\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nFirst, note that \\[\n(1 + \\epsilon y)^{\\alpha} = 1 + \\alpha (\\epsilon y) + O(\\epsilon y)^2.\n\\]\nYou will not need more terms than that. Substitute \\(y = y_0(t) + \\epsilon y_1(t) + \\ldots\\) into the equation. This gives, for the leading terms \\[\\begin{gather}\ny_0'' = -1 - \\alpha y_0' \\\\\ny_0(0) = 0 \\\\\ny_0'(0) = 1\n\\end{gather}\\] To solve this, you will need to refresh your memory on second-order differential equations learned in 2nd year. You can see Chapter 30 for references. To solve this set \\(y_0 = e^{rt}\\) and solve for \\(r\\) for the homogeneous equation. You will get \\[\ny_{\\text{homogeneous}} = (c_1 + c_2 e^{-\\alpha t}).\n\\] From here, we need a particular solution. This can be obtained by guessing (also see this reference). If we guess \\[\ny_p = C t,\n\\] we see that \\[\ny_p'' + \\alpha y_p' = \\alpha C = -1\n\\] implies \\(C = -1/\\alpha\\). Therefore the general solution is \\[\ny_0 = (c_1 + c_2 e^{-\\alpha t}) - \\frac{t}{\\alpha}.\n\\] We now select the constants to satisfy the initial conditions. This yields \\[\nc_1 + c_2 = 0 \\quad \\text{and} \\quad\n-\\alpha c_2 - 1/\\alpha = 1,\n\\] from which the solution can be easily derived. It is \\[\ny(t) \\sim \\left(\\frac{1}{\\alpha^2} + \\frac{1}{\\alpha}\\right) - \\left(\\frac{1}{\\alpha^2} + \\frac{1}{\\alpha}\\right)e^{-\\alpha t} - \\frac{t}{\\alpha}.\n\\]\nThe solution of \\(y_1\\) proceeds in the same way, but since we did not anticipate that this question would be so algebraically involved, we will not require solving for \\(y_1\\). This can be left as an exercise if you so wish.\n\n\n\n\n(Challenging) Is the effect of the air resistance to increase or decrease the flight time? Justify based on your analytical solution.\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe above solution seems quite strange. After all, when \\(\\alpha = 0\\), we know that parabolic motion is expected. We found previously that \\[\ny_{\\alpha = 0}(t) \\sim -\\frac{1}{2}t^2 + t.\n\\] which matches our intuition about the expected flight being parabolic. However, notice that if \\(\\alpha\\) is small, we can expand the exponential, \\(e^{-\\alpha t} = 1 - \\alpha t + \\ldots\\). Substitution into the derived formula for \\(y_0\\) gives \\[\n\\color{blue}y(t) \\sim \\left(\\frac{1}{\\alpha^2} + \\frac{1}{\\alpha}\\right) - \\left(\\frac{1}{\\alpha^2} + \\frac{1}{\\alpha}\\right)\\left[1 - \\alpha t + \\ldots\\right] - \\frac{t}{\\alpha}.\n\\] We can now simplify the expression and we see that the \\(\\alpha \\to 0\\) limit is not problematic, because it now becomes: \\[\ny_0 \\sim \\left(-\\frac{1}{2}t^2 + t\\right) + \\alpha \\frac{1}{6} \\left(-3t^2 + t^3\\right) + O(\\alpha^2),\n\\] and the previous terms that we believed might tend to infinity as \\(\\alpha \\to 0\\) cancel. Inspecting the above solution, notice that the leading-order result agrees with the previously derived result for \\(\\alpha = 0\\). The next term shows the small effect of drag.\nYou can simply plot the curves and show the difference.\n\n\n\n\n\n\nFigure 27.3: With (solid) and without damping (dashed)\n\n\n\n\n\n\nNotice that the dashed line brings down the parabolic path initially.",
     "crumbs": [
       "Exercises",
       "<span class='chapter-number'>27</span>  <span class='chapter-title'>Problem set 2 solutions</span>"
@@ -1408,168 +1375,212 @@
     ]
   },
   {
+    "objectID": "part-xx-exercises/ps04sol.html",
+    "href": "part-xx-exercises/ps04sol.html",
+    "title": "29  Problem set 4 solutions",
+    "section": "",
+    "text": "Q1. The wine cellar problem I\nTo be written.",
+    "crumbs": [
+      "Exercises",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Problem set 4 solutions</span>"
+    ]
+  },
+  {
+    "objectID": "part-xx-exercises/ps04sol.html#q2.-the-wine-cellar-problem-ii",
+    "href": "part-xx-exercises/ps04sol.html#q2.-the-wine-cellar-problem-ii",
+    "title": "29  Problem set 4 solutions",
+    "section": "Q2. The wine cellar problem II",
+    "text": "Q2. The wine cellar problem II\n\\(\\nextSection\\)\nTo be written.",
+    "crumbs": [
+      "Exercises",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Problem set 4 solutions</span>"
+    ]
+  },
+  {
+    "objectID": "part-xx-exercises/ps04sol.html#q3.-ebms-and-variable-sun-output",
+    "href": "part-xx-exercises/ps04sol.html#q3.-ebms-and-variable-sun-output",
+    "title": "29  Problem set 4 solutions",
+    "section": "Q3. EBMs and variable sun output",
+    "text": "Q3. EBMs and variable sun output\n\\(\\nextSection\\)\n\nRegarding the resultant variation on the Earth’s mean surface.\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe variation seems to be very small. Ignoring units, we have \\[\nT = \\left(\\frac{1-a}{\\sigma \\gamma}\\right)^{1/4} Q^{1/4} \\approx 67.3505 \\times Q^{1/4}.\n\\] Substituting the values of \\(Q\\) given this gives a temperature that ranges from \\(T = 289.499 \\, \\mathrm{K}\\) to \\(289.580 \\, \\mathrm{K}\\). Converting this to Celsius gives \\(16.35 \\, {}^\\circ \\mathrm{C}\\) to \\(16.43 \\, {}^\\circ \\mathrm{C}\\) i.e. a fraction of a degree.\n\n\n\n\nRegarding the variation using the Budyko model.\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nWe obtain the range of approximately \\(T = 17.06 \\, {}^\\circ \\mathrm{C}\\) to \\(17.19 \\, {}^\\circ \\mathrm{C}\\).\n\n\n\n\nRegarding why the disparity between actual surface measurements.\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThere are many ways to respond, but one major factor is the oceans, which are ignored in our model. The oceans provide a massive energy sink for the planet, and so we would expect that the minor variations of \\(Q\\) due to the 11-year cycle would be smoothed out by the effects of the oceans.",
+    "crumbs": [
+      "Exercises",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Problem set 4 solutions</span>"
+    ]
+  },
+  {
+    "objectID": "part-xx-exercises/ps04sol.html#q4.-phase-line-analysis",
+    "href": "part-xx-exercises/ps04sol.html#q4.-phase-line-analysis",
+    "title": "29  Problem set 4 solutions",
+    "section": "Q4. Phase line analysis",
+    "text": "Q4. Phase line analysis\n\\(\\nextSection\\)\n\nSketch the solution \\(T(t)\\) of this equation for \\(t &gt; 0\\) if \\(T(0) = 230, 240, 260, 270\\) and \\(300\\).\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nYou should be able to do this question by hand, but the following graph is generated via the accompanying Jupyter script in the solutions folder. The point is that once the steady-state solutions are known (dashed) then each solution given by the different initial condition can be approximated by whether it tends towards or away from the nearest fixed point.\n\n\n\n\n\n\nFigure 29.1: Graphical solution for Q3a\n\n\n\n\n\n\n\nSketch the solution \\(T(t)\\) of this equation for \\(t &gt; 0\\) if \\(T(0) = 285\\). Then sketch the solution of this equation with the same initial data in the same coordinate system if \\(C\\) is twice as large. Explain your answer.\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe below numerical solution shows blue for \\(C = 1\\) and orange for \\(C = 4\\). Notice that increasing \\(C\\) seems to decrease the rate of change of the evolution. Indeed, since \\[\n\\frac{\\mathrm{\\partial}T}{\\mathrm{\\partial}t} \\propto \\frac{1}{C},\n\\] then multiplying \\(C\\) by factor is equivalent to slowing down the evolution by the inverse of that factor. A factor of \\(C\\) that is twice as large would slow down the evolution by half. Note that the oscillations shown in the graph below are numerical artifacts due to the tolerances on the ODE solver (how do you know this?)\n\n\n\nGraphical solution for Q3b\n\n\n\n\n\n\nIf \\(\\gamma\\) is decreased due to the increased greenhouse effect, the entire curve is shifted upwards. Sketch the solution if \\(T(0) = 280\\). Sketch the solution with the same initial data if \\(\\gamma\\) is decreased. Explain your answer.\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nDecreasing \\(\\gamma\\) has the effect of shifting the curve upwards. The hottest steady state \\(T_3\\) is consequently increased. There are two main effects. First, the steady-state is much hotter, so the system will tend towards a much hotter state. Second, because decreasing $ $ will increase the rate of change of \\(T\\) (since we are subtracting less via the factor \\(-\\gamma T^4\\)), then the evolution towards the hotter state is initially much faster.\nYou see that in the following diagram.\n\n\n\nGraphical solution for Q3c\n\n\nThe above makes sense on a physical level. Decreasing \\(\\gamma\\) is equivalent to increasing greenhouse gases. We do expect the system to tend to a hotter state, then.",
+    "crumbs": [
+      "Exercises",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Problem set 4 solutions</span>"
+    ]
+  },
+  {
     "objectID": "part-05-techniques/odes.html",
     "href": "part-05-techniques/odes.html",
-    "title": "29  Differential equations",
+    "title": "30  Differential equations",
     "section": "",
-    "text": "29.1 First-order linear differential equations\nFirst-order linear differential equations are of the form \\[\ny' + q(x) y = r(x).\n\\] These are solved by integrating factors. Multiply both sides by \\[\ne^{\\int^x q(x') \\, \\mathrm{d}x'}\n\\] so that the equation can be placed in the form \\[\n\\frac{\\mathrm{d}}{\\mathrm{d}x} \\left(y e^{\\int^x q(x') \\, \\mathrm{d}x'}\\right) = r(x) e^{\\int^x q(x') \\, \\mathrm{d}x'}\n\\] Then integrate and solve for \\(y\\).\nReferences",
+    "text": "30.1 First-order linear differential equations\nFirst-order linear differential equations are of the form \\[\ny' + q(x) y = r(x).\n\\] These are solved by integrating factors. Multiply both sides by \\[\ne^{\\int^x q(x') \\, \\mathrm{d}x'}\n\\] so that the equation can be placed in the form \\[\n\\frac{\\mathrm{d}}{\\mathrm{d}x} \\left(y e^{\\int^x q(x') \\, \\mathrm{d}x'}\\right) = r(x) e^{\\int^x q(x') \\, \\mathrm{d}x'}\n\\] Then integrate and solve for \\(y\\).\nReferences",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Differential equations</span>"
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Differential equations</span>"
     ]
   },
   {
     "objectID": "part-05-techniques/odes.html#first-order-linear-differential-equations",
     "href": "part-05-techniques/odes.html#first-order-linear-differential-equations",
-    "title": "29  Differential equations",
+    "title": "30  Differential equations",
     "section": "",
     "text": "Paul’s online notes",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Differential equations</span>"
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Differential equations</span>"
     ]
   },
   {
     "objectID": "part-05-techniques/odes.html#second-order-constant-coefficient-odes",
     "href": "part-05-techniques/odes.html#second-order-constant-coefficient-odes",
-    "title": "29  Differential equations",
-    "section": "29.2 Second-order constant coefficient ODEs",
-    "text": "29.2 Second-order constant coefficient ODEs\n\\(\\nextSection\\)\nSecond-order linear constant-coefficient ODEs are of the form \\[\ny'' + ay' + by = f(x).\n\\] With both forced (\\(f \\neq 0\\)) and unforced (\\(f = 0\\)) varieties studied. For the unforced variant (homogeneous), you will remember that the equation is solved by attempting the ansatz \\(y = e^{rx}\\) and solving for \\(r\\).\nThere are many references on this topic since it is the standard second-order theory learned in most initial differential equations courses.\nReferences:\n\nPaul’s online notes",
+    "title": "30  Differential equations",
+    "section": "30.2 Second-order constant coefficient ODEs",
+    "text": "30.2 Second-order constant coefficient ODEs\n\\(\\nextSection\\)\nSecond-order linear constant-coefficient ODEs are of the form \\[\ny'' + ay' + by = f(x).\n\\] With both forced (\\(f \\neq 0\\)) and unforced (\\(f = 0\\)) varieties studied. For the unforced variant (homogeneous), you will remember that the equation is solved by attempting the ansatz \\(y = e^{rx}\\) and solving for \\(r\\).\nThere are many references on this topic since it is the standard second-order theory learned in most initial differential equations courses.\nReferences:\n\nPaul’s online notes",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Differential equations</span>"
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Differential equations</span>"
     ]
   },
   {
     "objectID": "part-05-techniques/dynamical-systems.html",
     "href": "part-05-techniques/dynamical-systems.html",
-    "title": "30  Dynamical systems",
+    "title": "31  Dynamical systems",
     "section": "",
-    "text": "30.1 Stability analysis for 2x2 systems\nIn the case of 2x2 systems, there is a useful classification and shortcut. The eigenvalues, \\(\\lambda_1\\) and \\(\\lambda_2\\) are given by \\[\n\\lambda_{1,2} = \\frac{1}{2} (T \\pm \\sqrt{T^2 - 4D}),\n\\] where \\(T = \\mathrm{tr}(A) = a + d\\) and \\(D = \\mathrm{det}(A) = ad - bc\\). Once \\(T\\) and \\(D\\) are known, then the fixed points can be classified based on the following diagram.\nAbove, the critical parabola is where \\(T^2 - 4D = 0\\).",
+    "text": "31.1 Stability analysis for 2x2 systems\nIn the case of 2x2 systems, there is a useful classification and shortcut. The eigenvalues, \\(\\lambda_1\\) and \\(\\lambda_2\\) are given by \\[\n\\lambda_{1,2} = \\frac{1}{2} (T \\pm \\sqrt{T^2 - 4D}),\n\\] where \\(T = \\mathrm{tr}(A) = a + d\\) and \\(D = \\mathrm{det}(A) = ad - bc\\). Once \\(T\\) and \\(D\\) are known, then the fixed points can be classified based on the following diagram.\nAbove, the critical parabola is where \\(T^2 - 4D = 0\\).",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Dynamical systems</span>"
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Dynamical systems</span>"
     ]
   },
   {
     "objectID": "part-05-techniques/dynamical-systems.html#stability-analysis-for-2x2-systems",
     "href": "part-05-techniques/dynamical-systems.html#stability-analysis-for-2x2-systems",
-    "title": "30  Dynamical systems",
+    "title": "31  Dynamical systems",
     "section": "",
-    "text": "Figure 30.1: Classification diagram from (Kaper and Engler 2013)\n\n\n\n\n\n\n\n\nKaper, Hans, and Hans Engler. 2013. Mathematics and Climate. SIAM.",
+    "text": "Figure 31.1: Classification diagram from (Kaper and Engler 2013)\n\n\n\n\n\n\n\n\nKaper, Hans, and Hans Engler. 2013. Mathematics and Climate. SIAM.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Dynamical systems</span>"
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Dynamical systems</span>"
     ]
   },
   {
     "objectID": "part-05-techniques/vector-calculus.html",
     "href": "part-05-techniques/vector-calculus.html",
-    "title": "31  Vector calculus",
+    "title": "32  Vector calculus",
     "section": "",
-    "text": "31.1 Surface integrals\nSurface integrals are generalisations of the concept of a multiple integrals to integrals over surfaces. For example, consider a flat plate of area \\(A\\) heated to a certain temperature, and thus emits a certain amount of energy, \\(E\\), per unit area (per unit time). The total energy emitted per unit time would then be \\(E A\\).\nIf we want to consider the same problem, but now posed on a general surface, say the planet \\(S\\), and where \\(E\\) varies along the surface, then we must consider adding together \\(E(\\mathbf{x}) \\mathrm{d}{S}\\). We thus chop our surface into smaller pieces, each with area \\(\\mathrm{d}S\\), multiply each piece with its corresponding energy, and then sum the result.\nThe result is the surface integral \\[\n\\iint_S E(\\mathbf{x}) \\, \\mathrm{d}S.\n\\] A tutorial for computing surface integrals can be found here.\nYou will not need to know how to calculate surface integrals in general in the course.",
+    "text": "32.1 Surface integrals\nSurface integrals are generalisations of the concept of a multiple integrals to integrals over surfaces. For example, consider a flat plate of area \\(A\\) heated to a certain temperature, and thus emits a certain amount of energy, \\(E\\), per unit area (per unit time). The total energy emitted per unit time would then be \\(E A\\).\nIf we want to consider the same problem, but now posed on a general surface, say the planet \\(S\\), and where \\(E\\) varies along the surface, then we must consider adding together \\(E(\\mathbf{x}) \\mathrm{d}{S}\\). We thus chop our surface into smaller pieces, each with area \\(\\mathrm{d}S\\), multiply each piece with its corresponding energy, and then sum the result.\nThe result is the surface integral \\[\n\\iint_S E(\\mathbf{x}) \\, \\mathrm{d}S.\n\\] A tutorial for computing surface integrals can be found here.\nYou will not need to know how to calculate surface integrals in general in the course.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Vector calculus</span>"
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Vector calculus</span>"
     ]
   },
   {
     "objectID": "part-05-techniques/modelling.html",
     "href": "part-05-techniques/modelling.html",
-    "title": "32  Modelling",
+    "title": "33  Modelling",
     "section": "",
     "text": "Appendices\n\n\n\nThese appendices may contain material that is added during the term, dependent on student enquiries and need.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Modelling</span>"
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Modelling</span>"
     ]
   },
   {
     "objectID": "part-05-techniques/finitedifference.html",
     "href": "part-05-techniques/finitedifference.html",
-    "title": "33  Finite difference approximations",
+    "title": "34  Finite difference approximations",
     "section": "",
-    "text": "33.1 Forwards, backwards, and centred differences\nWe want to learn how to use finite differences in order to approximate derivatives numerically. We know that \\[\nf'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h},\n\\] provided the limit exists. Therefore, a simple idea to approximating the value of \\(f'(x)\\) is to use a small numerical value for \\(h\\), and calculate (the gradient of the secant line), \\[\nf'(x) \\approx \\frac{f(x + h) - f(x)}{h},\n\\] where \\(h\\) is a specified small number. The above is known as the two-point forward-difference formula. In fact, we can determine exactly the error of such an approximation via Taylor’s theorem. If \\(f\\) is twice continuously differentiable, then \\[\nf(x + h) = f(x) + h f'(x) + \\frac{h^2}{2} f''(c),\n\\] for some point \\(c\\in [x, x+h]\\). Therefore by re-arrangement, we see the following.\nNotice that the error in using the two-point forward difference approximation is then \\(\\mathcal{O}(h)\\), and this error tends to zero as \\(h \\to 0\\) (as long as \\(f''\\) is continuous). We thus call the above formula a first-order finite-difference approximation. If the error is \\(\\mathcal{O}(h^n)\\), we call the corresponding formula an \\(n\\)th-order approximation.\nSimilar formulae can be developed for the backwards difference (send \\(h \\to -h\\)).\nA more accurate formula can be developed via subtracting the Taylor series for \\(f(x - h)\\) from that for \\(f(x + h)\\). This results in:\nThus we see that the centered difference formula is accurate to \\(O(h^2)\\).",
+    "text": "34.1 Forwards, backwards, and centred differences\nWe want to learn how to use finite differences in order to approximate derivatives numerically. We know that \\[\nf'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h},\n\\] provided the limit exists. Therefore, a simple idea to approximating the value of \\(f'(x)\\) is to use a small numerical value for \\(h\\), and calculate (the gradient of the secant line), \\[\nf'(x) \\approx \\frac{f(x + h) - f(x)}{h},\n\\] where \\(h\\) is a specified small number. The above is known as the two-point forward-difference formula. In fact, we can determine exactly the error of such an approximation via Taylor’s theorem. If \\(f\\) is twice continuously differentiable, then \\[\nf(x + h) = f(x) + h f'(x) + \\frac{h^2}{2} f''(c),\n\\] for some point \\(c\\in [x, x+h]\\). Therefore by re-arrangement, we see the following.\nNotice that the error in using the two-point forward difference approximation is then \\(\\mathcal{O}(h)\\), and this error tends to zero as \\(h \\to 0\\) (as long as \\(f''\\) is continuous). We thus call the above formula a first-order finite-difference approximation. If the error is \\(\\mathcal{O}(h^n)\\), we call the corresponding formula an \\(n\\)th-order approximation.\nSimilar formulae can be developed for the backwards difference (send \\(h \\to -h\\)).\nA more accurate formula can be developed via subtracting the Taylor series for \\(f(x - h)\\) from that for \\(f(x + h)\\). This results in:\nThus we see that the centered difference formula is accurate to \\(O(h^2)\\).",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Finite difference approximations</span>"
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Finite difference approximations</span>"
     ]
   },
   {
     "objectID": "part-05-techniques/finitedifference.html#forwards-backwards-and-centred-differences",
     "href": "part-05-techniques/finitedifference.html#forwards-backwards-and-centred-differences",
-    "title": "33  Finite difference approximations",
+    "title": "34  Finite difference approximations",
     "section": "",
     "text": "Two-point forward-difference formula\n\n\n\n\\[\nf'(x) = \\frac{f(x + h) - f(x)}{h} - \\frac{h}{2} f''(c),\n\\] where \\(c \\in (x, x+h)\\).\n\n\n\n\n\n\n\n\n\nExample\n\n\n\nUse the two-point forward difference formula with different values of \\(h\\) in order to approximate the derivative of \\(f(x) = 1/x\\) at \\(x = 2\\).\n\n\n\n\\(f(x)\\)\n\\(f(x + h)\\)\n\\(h\\)\n\\(f'(x)\\)\nError\n\n\n\n\n…\n…\n…\n…\n…\n\n\n…\n…\n…\n…\n…\n\n\n…\n…\n…\n…\n…\n\n\n\n\n\n\n\n\n\n\n\n\n\nThree-point centered-difference formula\n\n\n\n\\[\nf'(x) = \\frac{f(x + h) - f(x - h)}{2h} - \\frac{h^2}{6} f'''(c),\n\\] where \\(c \\in (x-h, x+h)\\).",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Finite difference approximations</span>"
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Finite difference approximations</span>"
     ]
   },
   {
     "objectID": "part-05-techniques/finitedifference.html#jacobian-matrices",
     "href": "part-05-techniques/finitedifference.html#jacobian-matrices",
-    "title": "33  Finite difference approximations",
-    "section": "33.2 Jacobian matrices",
-    "text": "33.2 Jacobian matrices\n\\(\\nextSection\\)\n\n\n\n\n\n\nReference\n\n\n\nYou will have encountered the Jacobian, firstly in your first-year Methods courses when performing change-of-coordinates in integration formulae, and secondly in your second-year Modelling and Dynamics courses when studying differential equations. It also comes up in the second-year Vectors and PDEs course.\n\n\nThe Jacobian matrix, \\(\\mathbf{J}\\), of a vector function, \\(\\mathbf{F}: \\mathbb{R}^n \\to \\mathbb{R}^m\\), \\[\n\\mathbf{F}(\\mathbf{x}) = \\begin{pmatrix}\nf_1(\\mathbf{x}) \\\\\nf_2(\\mathbf{x}) \\\\\n\\vdots \\\\\nf_m(\\mathbf{x})\n\\end{pmatrix},\n\\] is the matrix of all its first-order partial derivatives, \\[\n\\mathbf{J}(\\mathbf{x}) = \\begin{pmatrix}\n\\frac{\\mathrm{\\partial}f_1}{\\mathrm{\\partial}x_2} & \\cdots &\n\\frac{\\mathrm{\\partial}f_1}{\\mathrm{\\partial}x_n} \\\\\n\\vdots & \\ddots & \\vdots \\\\\n\\frac{\\mathrm{\\partial}f_m}{\\mathrm{\\partial}x_1} & \\cdots &\n\\frac{\\mathrm{\\partial}f_m}{\\mathrm{\\partial}x_n}\n\\end{pmatrix}\n= \\begin{pmatrix}\n\\nabla f_1(\\mathbf{x})^T \\\\\n\\vdots \\\\\n\\nabla f_n(\\mathbf{x})^T\n\\end{pmatrix}.\n\\] We can essentially think of the Jacobian as the multi-dimensional extension of the basic derivative. It encodes all of the (first-order) information about the rate-of-change of the function.\nIt is interesting and important to consider the numerical evaluation of the Jacobian, in the event that the function \\(\\mathbf{F}\\) cannot be easily differentiated exactly. The simplest algorithm is based on approximating each entry of the matrix by a finite difference.\nFor example, let us consider approximating \\[\n\\frac{\\mathrm{\\partial}f_i}{\\mathrm{\\partial}x_j}(\\mathbf{x}_0).\n\\] We define the \\(j\\)th unit vector by \\(\\mathbf{e}_j = [0 \\, 0 \\, \\cdots \\, 1 \\, \\cdots \\, 0]\\), which the \\(j\\)th entry being one and all entries being zero. Then we can approximate the derivative by a central difference, \\[\n\\frac{\\mathrm{\\partial}f_i}{\\mathrm{\\partial}x_j}(\\mathbf{x}_0) \\approx \\frac{f_i(\\mathbf{x}_0 + \\mathbf{e}_j h) - f_i(\\mathbf{x}_0 - \\mathbf{e}_j h)}{2h},\n\\] where \\(h\\) is a small step size.\nLet us test this by calculating the Jacobian for \\[\n\\mathbf{F}(\\mathbf{x}) = \\begin{pmatrix}\nx_1^2 \\\\\nx_2^2 \\\\\nx_1 x_2\n\\end{pmatrix}.\n\\] The pseudocode for this looks like this\n\n\n\n\n\n\nPseudocode for numerical Jacobian\n\n\n\nInput: function F (size m), point x (size n), step size h\n1. Create an (m x n) matrix, J\n2. a. Loop through all the rows indexed by i\n      b. Loop through all the columns indexed by j\n             Create the ej unit vector\n         Calculate the difference of F_i(x + h e_j) - F_i(x - h e_j)\n         Divide by 2h\n         Assign this value to the (i,j)th value of the Jacobian\n\nOutput: the (mxn) Jacobian matrix J\n\n\nHere is a code that puts it into practice.\n\nimport numpy as np\n\ndef jacobian(func,initial,delta=1e-3):\n  f = func\n  nrow = len(f(initial))\n  ncol = len(initial)\n  output = np.zeros(nrow*ncol)\n  output = output.reshape(nrow,ncol)\n  for i in range(nrow):\n    for j in range(ncol):\n      ej = np.zeros(ncol)\n      ej[j] = 1\n      dij = (f(initial+ delta * ej)[i] - f(initial- delta * ej)[i])/(2*delta)\n      output[i,j] = dij\n  return output\n  \ndef myf(x):\n  x1 = x[0]\n  x2 = x[1]\n  output = np.zeros(3)\n  output[0] = x[0]**2\n  output[1] = x[1]**2\n  output[2] = x[0]*x[1]\n  return output\n  \njacobian(myf,[1,2])\n\narray([[2., 0.],\n       [0., 4.],\n       [2., 1.]])",
+    "title": "34  Finite difference approximations",
+    "section": "34.2 Jacobian matrices",
+    "text": "34.2 Jacobian matrices\n\\(\\nextSection\\)\n\n\n\n\n\n\nReference\n\n\n\nYou will have encountered the Jacobian, firstly in your first-year Methods courses when performing change-of-coordinates in integration formulae, and secondly in your second-year Modelling and Dynamics courses when studying differential equations. It also comes up in the second-year Vectors and PDEs course.\n\n\nThe Jacobian matrix, \\(\\mathbf{J}\\), of a vector function, \\(\\mathbf{F}: \\mathbb{R}^n \\to \\mathbb{R}^m\\), \\[\n\\mathbf{F}(\\mathbf{x}) = \\begin{pmatrix}\nf_1(\\mathbf{x}) \\\\\nf_2(\\mathbf{x}) \\\\\n\\vdots \\\\\nf_m(\\mathbf{x})\n\\end{pmatrix},\n\\] is the matrix of all its first-order partial derivatives, \\[\n\\mathbf{J}(\\mathbf{x}) = \\begin{pmatrix}\n\\frac{\\mathrm{\\partial}f_1}{\\mathrm{\\partial}x_2} & \\cdots &\n\\frac{\\mathrm{\\partial}f_1}{\\mathrm{\\partial}x_n} \\\\\n\\vdots & \\ddots & \\vdots \\\\\n\\frac{\\mathrm{\\partial}f_m}{\\mathrm{\\partial}x_1} & \\cdots &\n\\frac{\\mathrm{\\partial}f_m}{\\mathrm{\\partial}x_n}\n\\end{pmatrix}\n= \\begin{pmatrix}\n\\nabla f_1(\\mathbf{x})^T \\\\\n\\vdots \\\\\n\\nabla f_n(\\mathbf{x})^T\n\\end{pmatrix}.\n\\] We can essentially think of the Jacobian as the multi-dimensional extension of the basic derivative. It encodes all of the (first-order) information about the rate-of-change of the function.\nIt is interesting and important to consider the numerical evaluation of the Jacobian, in the event that the function \\(\\mathbf{F}\\) cannot be easily differentiated exactly. The simplest algorithm is based on approximating each entry of the matrix by a finite difference.\nFor example, let us consider approximating \\[\n\\frac{\\mathrm{\\partial}f_i}{\\mathrm{\\partial}x_j}(\\mathbf{x}_0).\n\\] We define the \\(j\\)th unit vector by \\(\\mathbf{e}_j = [0 \\, 0 \\, \\cdots \\, 1 \\, \\cdots \\, 0]\\), which the \\(j\\)th entry being one and all entries being zero. Then we can approximate the derivative by a central difference, \\[\n\\frac{\\mathrm{\\partial}f_i}{\\mathrm{\\partial}x_j}(\\mathbf{x}_0) \\approx \\frac{f_i(\\mathbf{x}_0 + \\mathbf{e}_j h) - f_i(\\mathbf{x}_0 - \\mathbf{e}_j h)}{2h},\n\\] where \\(h\\) is a small step size.\nLet us test this by calculating the Jacobian for \\[\n\\mathbf{F}(\\mathbf{x}) = \\begin{pmatrix}\nx_1^2 \\\\\nx_2^2 \\\\\nx_1 x_2\n\\end{pmatrix}.\n\\] The pseudocode for this looks like this\n\n\n\n\n\n\nPseudocode for numerical Jacobian\n\n\n\nInput: function F (size m), point x (size n), step size h\n1. Create an (m x n) matrix, J\n2. a. Loop through all the rows indexed by i\n      b. Loop through all the columns indexed by j\n             Create the ej unit vector\n         Calculate the difference of F_i(x + h e_j) - F_i(x - h e_j)\n         Divide by 2h\n         Assign this value to the (i,j)th value of the Jacobian\n\nOutput: the (mxn) Jacobian matrix J\n\n\nHere is a code that puts it into practice.\n\nimport numpy as np\n\ndef jacobian(func,initial,delta=1e-3):\n  f = func\n  nrow = len(f(initial))\n  ncol = len(initial)\n  output = np.zeros(nrow*ncol)\n  output = output.reshape(nrow,ncol)\n  for i in range(nrow):\n    for j in range(ncol):\n      ej = np.zeros(ncol)\n      ej[j] = 1\n      dij = (f(initial+ delta * ej)[i] - f(initial- delta * ej)[i])/(2*delta)\n      output[i,j] = dij\n  return output\n  \ndef myf(x):\n  x1 = x[0]\n  x2 = x[1]\n  output = np.zeros(3)\n  output[0] = x[0]**2\n  output[1] = x[1]**2\n  output[2] = x[0]*x[1]\n  return output\n  \njacobian(myf,[1,2])\n\narray([[2., 0.],\n       [0., 4.],\n       [2., 1.]])",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Finite difference approximations</span>"
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Finite difference approximations</span>"
     ]
   },
   {
     "objectID": "part-05-techniques/coding.html",
     "href": "part-05-techniques/coding.html",
-    "title": "34  Coding",
+    "title": "35  Coding",
     "section": "",
-    "text": "34.1 Variable scope\nDuring the 27 Feb 2024 lecture, the question of variable scope came up. Firstly, here is what ChatGPT says:\nSo indeed it looks like Python uses a scheme where if a variable is not locally declared, it will use values of the variable outside of the function. This can allow us to produce this kind of thing:\ndef myfunc():\n    print(a)\n\na = 1\nmyfunc()\na = 2\nmyfunc()\na = 3\nmyfunc()\n\n1\n2\n3\nSo I was wrong! Python variables are global when defined outside the function! Here is a reference.\nThis is certainly easier to use! However it can lead to confusion because for very complex codes, you may not be sure what value of a variable is being used within a function. Because most of the programming you will do in this course is very simple, this is unlikely to lead to trouble.\nIt’s generally good to avoid this whenever it is possible, though. For instance in this particular case, it makes much more sense to pass in the variable.\ndef myfunc(a):\n    print(a)\n\na = 99\nmyfunc(1)\nmyfunc(2)\nmyfunc(3)\n\n1\n2\n3\nIn the above case, the a that appears in the function is different from the a that is declared outside the function. This makes it very easy to understand what your function is doing without knowing what is happening outside of it.\nFor example, there is no danger of values being reset:\ndef myfunc(a):\n    a = a + 1000\n    print(a)\n\na = 99\nmyfunc(1)\nmyfunc(2)\nmyfunc(3)\nprint(a)\n\n1001\n1002\n1003\n99",
+    "text": "35.1 Variable scope\nDuring the 27 Feb 2024 lecture, the question of variable scope came up. Firstly, here is what ChatGPT says:\nSo indeed it looks like Python uses a scheme where if a variable is not locally declared, it will use values of the variable outside of the function. This can allow us to produce this kind of thing:\ndef myfunc():\n    print(a)\n\na = 1\nmyfunc()\na = 2\nmyfunc()\na = 3\nmyfunc()\n\n1\n2\n3\nSo I was wrong! Python variables are global when defined outside the function! Here is a reference.\nThis is certainly easier to use! However it can lead to confusion because for very complex codes, you may not be sure what value of a variable is being used within a function. Because most of the programming you will do in this course is very simple, this is unlikely to lead to trouble.\nIt’s generally good to avoid this whenever it is possible, though. For instance in this particular case, it makes much more sense to pass in the variable.\ndef myfunc(a):\n    print(a)\n\na = 99\nmyfunc(1)\nmyfunc(2)\nmyfunc(3)\n\n1\n2\n3\nIn the above case, the a that appears in the function is different from the a that is declared outside the function. This makes it very easy to understand what your function is doing without knowing what is happening outside of it.\nFor example, there is no danger of values being reset:\ndef myfunc(a):\n    a = a + 1000\n    print(a)\n\na = 99\nmyfunc(1)\nmyfunc(2)\nmyfunc(3)\nprint(a)\n\n1001\n1002\n1003\n99",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Coding</span>"
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Coding</span>"
     ]
   },
   {
     "objectID": "part-05-techniques/coding.html#variable-scope",
     "href": "part-05-techniques/coding.html#variable-scope",
-    "title": "34  Coding",
+    "title": "35  Coding",
     "section": "",
     "text": "What ChatGPT says on scope",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Coding</span>"
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Coding</span>"
     ]
   },
   {
     "objectID": "part-05-techniques/coding.html#conversations-with-chatgpt",
     "href": "part-05-techniques/coding.html#conversations-with-chatgpt",
-    "title": "34  Coding",
-    "section": "34.2 Conversations with ChatGPT",
-    "text": "34.2 Conversations with ChatGPT\n\\(\\nextSection\\)\nWe should have an informal discussion of how the use of GenAI in education. Does it help with coding? When should it shoudn’t it be used?\nAsking something simple.\n\n\n\nA nice chat with ChatGPT\n\n\nWait a minute… \nModifying.. \nModifying again to oscillate in time… \nOops!",
+    "title": "35  Coding",
+    "section": "35.2 Conversations with ChatGPT",
+    "text": "35.2 Conversations with ChatGPT\n\\(\\nextSection\\)\nWe should have an informal discussion of how the use of GenAI in education. Does it help with coding? When should it shoudn’t it be used?\nAsking something simple.\n\n\n\nA nice chat with ChatGPT\n\n\nWait a minute… \nModifying.. \nModifying again to oscillate in time… \nOops!",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Coding</span>"
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Coding</span>"
     ]
   },
   {
     "objectID": "part-05-techniques/chatgpt-goes-wrong.html",
     "href": "part-05-techniques/chatgpt-goes-wrong.html",
-    "title": "35  An example of ChatGPT going wrong",
+    "title": "36  An example of ChatGPT going wrong",
     "section": "",
-    "text": "35.1 Breakdown of issues\nTo solve the differential equation\n\\[\n\\epsilon^p y'' + y^2 = \\text{sech}(x)\n\\]\nusing matched asymptotics, we’ll first identify the scales of \\(y\\) and \\(x\\). Since we’re looking for solutions near \\(x = 0\\), we’ll assume a boundary layer solution near \\(x = 0\\) where \\(\\textrm{sech}(x)\\) is significant.\nIn the outer region, we’ll look for solutions where \\(y\\) is significant.\nFor small \\(x\\), the scale of \\(\\text{sech}(x)\\) is \\(O(1)\\), while for \\(y\\), the scale is \\(O(\\sqrt{\\epsilon})\\) where \\(\\epsilon\\) is a small parameter.\nLet \\(x = \\epsilon^\\alpha X\\), where \\(\\alpha\\) is to be determined later. For the inner region, we take \\(\\epsilon \\ll X \\ll 1\\), and for the outer region, we take \\(X = O(1)\\). We will match the solutions in the overlap region \\(0 \\leq X \\leq O(\\epsilon^\\beta)\\) where \\(\\beta &gt; \\alpha\\).\nSubstituting \\(x = \\epsilon^\\alpha X\\) and \\(y(x) = \\epsilon^\\gamma Y(X)\\) into the differential equation and neglecting terms of higher order in \\(\\epsilon\\) yields:\n\\[\ne^p \\epsilon^{-2\\alpha} Y'' + \\epsilon^{2\\gamma} Y^2 = \\text{sech}(\\epsilon^\\alpha X)\n\\]\nFor balance, we choose:\n\\[\n\\begin{gathered}\n2\\gamma - 2\\alpha = 0 \\implies \\gamma = \\alpha \\\\\n2\\alpha - 2\\alpha p = 0 \\implies p = 1\n\\end{gathered}\n\\]\nThus, we need to solve:\n\\[\nY'' + Y^2 = e^X\n\\]\nEverything else is wrong.",
+    "text": "36.1 Breakdown of issues\nTo solve the differential equation\n\\[\n\\epsilon^p y'' + y^2 = \\text{sech}(x)\n\\]\nusing matched asymptotics, we’ll first identify the scales of \\(y\\) and \\(x\\). Since we’re looking for solutions near \\(x = 0\\), we’ll assume a boundary layer solution near \\(x = 0\\) where \\(\\textrm{sech}(x)\\) is significant.\nIn the outer region, we’ll look for solutions where \\(y\\) is significant.\nFor small \\(x\\), the scale of \\(\\text{sech}(x)\\) is \\(O(1)\\), while for \\(y\\), the scale is \\(O(\\sqrt{\\epsilon})\\) where \\(\\epsilon\\) is a small parameter.\nLet \\(x = \\epsilon^\\alpha X\\), where \\(\\alpha\\) is to be determined later. For the inner region, we take \\(\\epsilon \\ll X \\ll 1\\), and for the outer region, we take \\(X = O(1)\\). We will match the solutions in the overlap region \\(0 \\leq X \\leq O(\\epsilon^\\beta)\\) where \\(\\beta &gt; \\alpha\\).\nSubstituting \\(x = \\epsilon^\\alpha X\\) and \\(y(x) = \\epsilon^\\gamma Y(X)\\) into the differential equation and neglecting terms of higher order in \\(\\epsilon\\) yields:\n\\[\ne^p \\epsilon^{-2\\alpha} Y'' + \\epsilon^{2\\gamma} Y^2 = \\text{sech}(\\epsilon^\\alpha X)\n\\]\nFor balance, we choose:\n\\[\n\\begin{gathered}\n2\\gamma - 2\\alpha = 0 \\implies \\gamma = \\alpha \\\\\n2\\alpha - 2\\alpha p = 0 \\implies p = 1\n\\end{gathered}\n\\]\nThus, we need to solve:\n\\[\nY'' + Y^2 = e^X\n\\]\nEverything else is wrong.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>35</span>  <span class='chapter-title'>An example of ChatGPT going wrong</span>"
+      "<span class='chapter-number'>36</span>  <span class='chapter-title'>An example of ChatGPT going wrong</span>"
     ]
   },
   {
     "objectID": "part-05-techniques/chatgpt-goes-wrong.html#breakdown-of-issues",
     "href": "part-05-techniques/chatgpt-goes-wrong.html#breakdown-of-issues",
-    "title": "35  An example of ChatGPT going wrong",
+    "title": "36  An example of ChatGPT going wrong",
     "section": "",
     "text": "Solution\n\n\n\n\n\nWhy did it change “ep” to \\(\\epsilon^p\\)?\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nWhy did it assume the boundary layer is near \\(x = 0\\)? Also, \\(\\mathrm{x}\\) is not necessarily ``significant” near \\(x = 0\\).\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nDoesn’t really make sense.\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThat’s not right…\\(x\\) is not \\(O(1)\\) near \\(y = 0\\). It’s not obvious at this point what the scaling for \\(y\\) is.\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThis isn’t right. In the inner region \\(X  = O(1)\\) and the outer region \\(X \\to \\infty\\). Almost all the statements are wrong.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe above lines don’t make any sense. For one thing, near \\(x = 0\\), you should have \\(\\mathrm{sech}{x} \\sim 1\\). Secondly if you examine what its working gives, no value of \\(\\alpha\\) is obtained. The correct inner equation is found by balancing the first and last terms, giving \\(x = \\sqrt{\\epsilon} X\\) and \\[\nY'' + \\epsilon Y^2 = \\mathrm{sech}(\\epsilon x) \\sim 1.\n\\]",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>35</span>  <span class='chapter-title'>An example of ChatGPT going wrong</span>"
+      "<span class='chapter-number'>36</span>  <span class='chapter-title'>An example of ChatGPT going wrong</span>"
     ]
   },
   {
