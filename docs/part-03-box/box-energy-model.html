@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -541,7 +561,7 @@ $$
 $$ 
 -->
 <p>In the following code, we plot the two terms that make up <span class="math inline">\(f\)</span>, and their intersections indicate roots of <span class="math inline">\(f = 0\)</span>. We then use the Python ‘fsolve’ function to approximate the roots given initial guesses.</p>
-<div id="2b052aed" class="cell" data-execution_count="1">
+<div id="6cf52137" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.optimize <span class="im">as</span> sciopt</span>
@@ -650,7 +670,7 @@ We discuss Newton's method in @sec-newton.
 
 Using the simplest Newton code there, we can solve for one of the roots.
 
-::: {#49ba7344 .cell execution_count=2}
+::: {#47d3a8a7 .cell execution_count=2}
 ``` {.python .cell-code}
 import numpy as np
 
@@ -770,8 +790,32 @@ T = T_0 + [T]\tilde{T},
 (T_0 + [T]\tilde{T})^4 \sim T_0^4 + 4 T_0^3 [T] \tilde{T} =
 C_1 + C_2 \tilde{T}.
 \]</span> This simplifies the model considerably.</p>
+<p>This is, in fact, a theoretical justification of <strong>Budyko’s model</strong>, first suggested by Budyko <span class="citation" data-cites="budyko1969effect">(<a href="../references.html#ref-budyko1969effect" role="doc-biblioref">Budyko 1969</a>)</span>, where instead of the Stefan-Boltmann law that provides the cumbersome quartic power of <span class="math inline">\(T\)</span>, we use instead <span class="math display">\[
+E_\text{out} = \sigma \gamma T^4 \approx A + BT,
+\]</span> where <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> will vary with location and climate. For instance, for the Northern Hemisphere, <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span> gives the values of <span class="math inline">\(A = 203.3\text{Wm}^{-2}\)</span> and <span class="math inline">\(B = 2.09 \text{Wm}^{-2}\text{deg}^{-1}\)</span> and where temperature is measured in degrees Celcius. As shown above, one can interpret this as a linear expansion of the Stefan-Boltzmann law (after which similar values of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are derived).</p>
+<p>The above Budyko model will be a staple of the latitude-dependent model introduced in the next chapter.</p>
+<!-- 
+## Budyoko's model  
+
+(Sec. 2.8 of Kapler & Engler)
+
+Prevously we used the assumption that the outgoing radiation follows the Stefan-Boltzmann law (@eq-SBlaw). Based on observational data, there seems to be a simpler linear law, first suggested by Budyko [@budyko1969effect]. The law can be written as 
+$$
+E_\text{out} = A + BT,
+$$ {#eq-budykolaw}
+where $A$ and $B$ will vary with location and climate. For:q
+instance, for the Northern Hemisphere, [@kaper_book] gives the values of $A = 203.3\text{Wm}^{-2}$ and $B = 2.09 \text{Wm}^{-2}\text{deg}^{-1}$ and where temperature is measured in degrees Celcius. One can interpret this as a linear expansion of the Stefan Boltzmann law about $T = 0$ (after which similar values of $A$ and $B$ are derived). 
+-->
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-budyko1969effect" class="csl-entry" role="listitem">
+Budyko, Mikhail I. 1969. <span>“The Effect of Solar Radiation Variations on the Climate of the Earth.”</span> <em>Tellus</em> 21 (5): 611–19.
+</div>
+<div id="ref-kaper_book" class="csl-entry" role="listitem">
+Kaper, Hans, and Hans Engler. 2013. <em>Mathematics and Climate</em>. SIAM.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
