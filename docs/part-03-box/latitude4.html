@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-03-box/part-ocean.html" rel="next">
+<link href="../part-03-box/part-morebox.html" rel="next">
 <link href="../part-03-box/latitude3.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -70,35 +70,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -265,14 +236,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/latitude2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">EBM with latitude II</span></span></a>
+  <a href="../part-xx-exercises/problemclass04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Problem class 4</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/problemclass04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Problem class 4</span></span></a>
+  <a href="../part-03-box/latitude2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">EBM with latitude II</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -291,8 +262,8 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../part-03-box/part-ocean.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Box models of the ocean</span></a>
+            <a href="../part-03-box/part-morebox.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fast-slow dynamics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -300,14 +271,37 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../part-03-box/iceages01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ice ages I: an introduction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-03-box/iceages02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Ice ages II: a model for fast-slow dynamics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-03-box/part-ocean.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Box models of the ocean and environment</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../part-03-box/basic-ocean-model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Basic models of the ocean</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Basic models of the ocean</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-03-box/stommel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Stommel’s box model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Stommel’s box model</span></span></a>
   </div>
 </li>
       </ul>
@@ -316,63 +310,69 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../part-xx-exercises/part-exercises.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercises</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Problem set 1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Problem set 1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-xx-exercises/ps02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Problem set 2</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Problem set 2</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-xx-exercises/ps03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Problem set 3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Problem set 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-xx-exercises/ps04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Problem set 4</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Problem set 4</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-xx-exercises/ps05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Problem set 5</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Problem set 5</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Problem set 6</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-xx-exercises/ps01sol.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Problem set 1 solutions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Problem set 1 solutions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-xx-exercises/ps02sol.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Problem set 2 solutions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Problem set 2 solutions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-xx-exercises/ps03sol.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Problem set 3 solutions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Problem set 3 solutions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-xx-exercises/ps04sol.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Problem set 4 solutions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Problem set 4 solutions</span></span></a>
   </div>
 </li>
       </ul>
@@ -381,51 +381,51 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../part-05-techniques/part-techniques.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/chatgpt-goes-wrong.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
   </div>
 </li>
       </ul>
@@ -442,14 +442,7 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#studying-the-mean-temperature" id="toc-studying-the-mean-temperature" class="nav-link active" data-scroll-target="#studying-the-mean-temperature"><span class="header-section-number">18.1</span> Studying the mean temperature</a></li>
-  <li><a href="#stability" id="toc-stability" class="nav-link" data-scroll-target="#stability"><span class="header-section-number">18.2</span> Stability</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -473,110 +466,9 @@ window.Quarto = {
 </header>
 
 
-<section id="studying-the-mean-temperature" class="level2" data-number="18.1">
-<h2 data-number="18.1" class="anchored" data-anchor-id="studying-the-mean-temperature"><span class="header-section-number">18.1</span> Studying the mean temperature</h2>
-<p>Following the previous chapter, we now have a better understanding of the relationship between the ice line, <span class="math inline">\(y_s\)</span>, and the solar forcing, <span class="math inline">\(Q\)</span>. We demonstrated that for the baseline case of <span class="math inline">\(Q = 342\)</span>, (at least) four solutions are possible.</p>
-<div id="fig-iceline" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-iceline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="img/2023-03-23-13-06-25.png" class="img-fluid figure-img" style="width:80.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-iceline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;18.1: The iceline
-</figcaption>
-</figure>
-</div>
-<p>Examination of the root shows that the two non-trivial ice lines are approximately at <span class="math inline">\(y_s = 0.256\)</span> and <span class="math inline">\(y_s = 0.939\)</span> for <span class="math inline">\(Q = 342\)</span>. Using the script developed in lectures, we can study a similar graph of the mean temperature versus the solar forcing. <a href="https://maths.jupyterhub.bath.ac.uk/hub/user-redirect/lab/tree/courses/MA30287/notebooks/lecture19-LatitudeEBM-iceline.ipynb">Jupyter hub link</a>.</p>
-<p>This yields the following picture:</p>
-<div id="fig-Tbar" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-Tbar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="img/2023-03-23-13-09-37.png" class="img-fluid figure-img" style="width:80.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Tbar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;18.2: Mean temperature
-</figcaption>
-</figure>
-</div>
-<p>During the lecture, we discussed the so-called <em>Snowball Earth</em> scenario where decreasing the solar constant may cause the stable state of the planet to jump down to the green branch shown above (completely frozen Earth). The solution exhibits <em>hysteresis</em> which describes the non-reversibility shown in the bifurcation diagram. This will be further expounded in the following discussion on stability.</p>
-</section>
-<section id="stability" class="level2" data-number="18.2">
-<h2 data-number="18.2" class="anchored" data-anchor-id="stability"><span class="header-section-number">18.2</span> Stability</h2>
-<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>So far, we have only discussed the steady-state solutions of the latitude-dependent EBM, repeated below: <span class="math display">\[
-C \frac{\mathrm{\partial}T}{\mathrm{\partial}t} = Qs(y)[1 - a(y)] - (A + BT) + k(\bar{T} - T).
-\]</span> In this section, we investigate the stability analysis for the mean temperature, <span class="math inline">\(\bar{T}\)</span>. This was given in <a href="../part-xx-exercises/ps05.html#eq-meanT-evo-ps" class="quarto-xref">Equation&nbsp;<span>25.1</span></a> and repeated below: <span id="eq-meanT-evo"><span class="math display">\[
-C \frac{\mathrm{d}\bar{T}}{\mathrm{d}t} = G(\bar{T}) \equiv Q(1 - \bar{a}) - (A + B\bar{T}),
-\tag{18.1}\]</span></span> The following linearisation argument was presented by <a href="https://moodle.bath.ac.uk/pluginfile.php/2213909/mod_resource/content/0/Cahalan_North_1979.pdf">Cahalan and North (1979)</a>, with some additional details to avoid confusion. Let us linearise this about a steady-state solution, writing <span class="math display">\[
-\bar{T} = \bar{T}^* + u(t),
-\]</span> where <span class="math inline">\(u \ll 1\)</span>. By Taylor series, <span class="math display">\[
-G(\bar{T}) = G(\bar{T}^*) + G'(\bar{T}^*)u + O(u^2),
-\]</span> so substitution into the ODE yields the linear equation <span id="eq-linearu"><span class="math display">\[
-C \frac{\mathrm{d}u}{\mathrm{d}t} = G'(\bar{T}^*) u.
-\tag{18.2}\]</span></span> We need to calculate the derivative term on the RHS. First, using the equation for <span class="math inline">\(G\)</span> in <a href="#eq-meanT-evo" class="quarto-xref">Equation&nbsp;<span>18.1</span></a>, we have <span id="eq-Gprime"><span class="math display">\[
-G'(T^*) = -B - Q \frac{\mathrm{d}\bar{a}}{\mathrm{d}\bar{T}}\biggr\rvert_{\bar{T} = \bar{T}^*}.
-\tag{18.3}\]</span></span> The above calculation assumes that <span class="math inline">\(Q\)</span> is a fixed number, as it should, since <span class="math inline">\(Q\)</span> is regarded as a parameter (we choose a value of <span class="math inline">\(Q\)</span>, then this allows us to evolve the ODE).</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Calahan &amp; North’s “trick”
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The following presentation took about 3 lines of text in the presentation of Cahalan &amp; North (1979), between eqns (1.2) and (1.3) in the image below. Students have inquired about the manipulations.</p>
-<div id="fig-cn79" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-cn79-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="img/2023-05-02-17-45-45.png" class="img-fluid figure-img" style="width:50.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cn79-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;18.3: From Cahalan &amp; North, p.1179
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p><span style="color:blue;">The problem is what to do with the derivative of <span class="math inline">\(\bar{a}\)</span> that appears in (<a href="#eq-Gprime" class="quarto-xref">Equation&nbsp;<span>18.3</span></a>). This is a strange quantity, since <span class="math inline">\(\bar{a}\)</span> does not explicitly depend on <span class="math inline">\(\bar{T}\)</span>, and is given in (<a href="latitude3.html#eq-abar-again" class="quarto-xref">Equation&nbsp;<span>17.2</span></a>). The issue is that there is a hidden dependence: <span class="math inline">\(\bar{a}\)</span> depends on the ice line, <span class="math inline">\(y_s\)</span>, which depends on not only <span class="math inline">\(Q\)</span>, but is multivalued as well! </span></p>
-<p>Cahalan &amp; North, whether knowingly or unknowingly, applied a trick, which is to consider that <span class="math inline">\(Q\)</span> is not a parameter, but that it can be viewed as depending on <span class="math inline">\(\bar{T}^*\)</span>, the steady state (this dependence is shown in <a href="#fig-Tbar" class="quarto-xref">Figure&nbsp;<span>18.2</span></a>). Therefore, Cahalan &amp; North returned to the equation (<a href="latitude3.html#eq-meanT-again" class="quarto-xref">Equation&nbsp;<span>17.1</span></a>) that gives the steady-state: <span class="math display">\[
-T^* = \frac{Q(1 - \bar{a}) - A}{B}.
-\]</span> We differentiate this equation with respect to <span class="math inline">\(\bar{T^*}\)</span>, but now assume both <span class="math inline">\(Q\)</span> and <span class="math inline">\(\bar{a}\)</span> depend on <span class="math inline">\(\bar{T^*}\)</span>. This yields <span id="eq-diffmeaneq"><span class="math display">\[
-1 = \frac{1}{B} \frac{\mathrm{d}Q}{\mathrm{d}\bar{T^*}}(1 - \bar{a}) - \frac{Q}{B} \frac{\mathrm{d}\bar{a}}{\mathrm{d}\bar{T}^*} \Longrightarrow
-B = \frac{\mathrm{d}Q}{\mathrm{d}\bar{T^*}}(1 - \bar{a}) - Q \frac{\mathrm{d}\bar{a}}{\mathrm{d}\bar{T}^*}
-\tag{18.4}\]</span></span></p>
-<p>We substitute the above value of <span class="math inline">\(B\)</span> into (<a href="#eq-Gprime" class="quarto-xref">Equation&nbsp;<span>18.3</span></a>), and then finally into the equation for the linearisation (<a href="#eq-linearu" class="quarto-xref">Equation&nbsp;<span>18.2</span></a>). Then we have <span class="math display">\[
-C \frac{\mathrm{d}u}{\mathrm{d}t} = -\left[(1 - \bar{a}) \frac{\mathrm{d}Q}{\mathrm{d}\bar{T}^*}\right]u(t) = -\gamma u(t),
-\]</span> where the constant <span class="math inline">\(\gamma\)</span> has been defined by the above. Thus, the solution is given by <span class="math display">\[
-u(t) = u(0) e^{-\gamma t/C}.
-\]</span></p>
-<p>Note then that the crucial quantity is <span class="math display">\[
-\gamma \equiv (1 - \bar{a}) \frac{\mathrm{d}Q}{\mathrm{d}\bar{T}^*}.
-\]</span> If <span class="math inline">\(\gamma\)</span> is positive, the equilibrium point is stable, while if <span class="math inline">\(\gamma\)</span> is negative, the equilibrium is unstable. Because <span class="math inline">\((1 - \bar{a}) &gt; 0\)</span>, then this yields the so-called slope-stability theorem coined by <a href="https://doi.org/10.1175/1520-0469(1979)036%3C1178:ASTFEB%3E2.0.CO;2">Cahalan and North (1979)</a>: <span class="math display">\[\begin{align}
-\frac{\mathrm{d}Q}{\mathrm{d}\bar{T}^*} &gt; 0 &amp;\Longrightarrow \text{stable}, \\
-\frac{\mathrm{d}Q}{\mathrm{d}\bar{T}^*} &lt; 0 &amp;\Longrightarrow \text{unstable}.
-\end{align}\]</span></p>
-<p>We may now plot the bifurcation diagram, shown in <span class="math inline">\((Q, \bar{T})\)</span>-space. First, return to <a href="#fig-Tbar" class="quarto-xref">Figure&nbsp;<span>18.2</span></a>. In lecture 21, we drew the following picture:</p>
-<div id="fig-CNbif" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-CNbif-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="img/2023-05-02-18-06-12.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CNbif-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;18.4: Bifurcation diagram for <span class="math inline">\((Q, \bar{T})\)</span>
-</figcaption>
-</figure>
-</div>
-<p>Note the following characteristics.</p>
-<ol type="1">
-<li><p>There are up to four steady states (green, orange, two blacks).</p></li>
-<li><p>Those branches with positive gradient are stable; there is only one branch with a negative gradient and it is thus unstable. In the image, these are shown solid for stable and dashed for unstable.</p></li>
-<li><p>The diagram indicates tipping points and hysteresis. As explained in the lectures, one can encounter a situation where, beginning from the upper orange branches, the solar radiation is decreased past the tipping point. The solution must then evolve to the lowermost stable state (green). However, increasing <span class="math inline">\(Q\)</span> does not return us to the original non-frozen state—unless <span class="math inline">\(Q\)</span> is increased by a massive amount. This ‘hysteresis’ loop is shown with the maroon colours in the image above.</p></li>
-</ol>
+<p>//Temporary spare lecture//</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -973,8 +865,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-03-box/part-ocean.html" class="pagination-link" aria-label="Box models of the ocean">
-        <span class="nav-page-text">Box models of the ocean</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-03-box/part-morebox.html" class="pagination-link" aria-label="Fast-slow dynamics">
+        <span class="nav-page-text">Fast-slow dynamics</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
