@@ -565,27 +565,30 @@ C \frac{\mathrm{d}T}{\mathrm{d}t} = G(T),
 <li><p>(<strong>Non-autonomous forcing</strong>) We can consider the addition of temporal forcing, for instance, <span class="math display">\[
 G \mapsto G(T) + \epsilon f(t).
 \]</span> This would model, for instance, some oscillatory source input. For instance, this might model extra oscillatory effects due to the influence of the other planets.</p></li>
-<li><p>(<strong>Systems of DEs </strong>) We might be interested in extending the model so that, in addition to modelling the evolution of the temperature, we also model the evolution of CO<sub>2</sub> in the atmosphere. Or we might want a model where the albedo, itself, can evolve in time. An example of such a model is</p></li>
-</ol>
-<p><span class="math display">\[\begin{align}
+<li><p>(<strong>Systems of DEs </strong>) We might be interested in extending the model so that, in addition to modelling the evolution of the temperature, we also model the evolution of CO<sub>2</sub> in the atmosphere. Or we might want a model where the albedo, itself, can evolve in time. An example of such a model is <span class="math display">\[
+\begin{aligned}
 C \frac{\mathrm{d}T}{\mathrm{d}t} &amp;= Q[1 - a(t)] - \sigma \gamma T^4, \\
 D \frac{\mathrm{d}a}{\mathrm{d}a} &amp;= a_{\text{eq}}(T) - a.
-\end{align}\]</span></p>
+\end{aligned}
+\]</span></p></li>
+</ol>
 <p>The above provides a model for ice sheet dynamics.</p>
 </section>
 <section id="phase-plane-analysis-for-two-dimensional-systems" class="level2" data-number="19.4">
 <h2 data-number="19.4" class="anchored" data-anchor-id="phase-plane-analysis-for-two-dimensional-systems"><span class="header-section-number">19.4</span> Phase plane analysis for two-dimensional systems</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>Coming back now to the standard non-autonomous system of two ODEs, we have</p>
-<p><span class="math display">\[\begin{align}
+<p>Coming back now to the standard non-autonomous system of two ODEs, we have <span class="math display">\[
+\begin{aligned}
 \dot{x} &amp;= f_1(x, y), \\
 \dot{y} &amp;= f_2(x, y).
-\end{align}\]</span></p>
-<p>What is the difference between these kinds of systems and the simpler 1D equations? The main difference is that the analysis is done in the <strong>phase plane</strong> given by <span class="math inline">\((x, y)\)</span>. Fixed points lie in the phase plane, but now there is the additional possibility of oscillations or circular orbits.</p>
-<p>An example of this is the system <span class="math display">\[\begin{align}
+\end{aligned}
+\]</span> What is the difference between these kinds of systems and the simpler 1D equations? The main difference is that the analysis is done in the <strong>phase plane</strong> given by <span class="math inline">\((x, y)\)</span>. Fixed points lie in the phase plane, but now there is the additional possibility of oscillations or circular orbits.</p>
+<p>An example of this is the system <span class="math display">\[
+\begin{aligned}
 \dot{x} &amp;= y - g(x), \\
 \dot{y} &amp;= h(x) - y.
-\end{align}\]</span></p>
+\end{aligned}
+\]</span></p>
 <p>For instance, choosing <span class="math inline">\(h(x) = 4(2-x)\)</span> and <span class="math inline">\(g(x) = \sin x\)</span> yields the following phase plane diagram: <img src="img/phaseplane01.png" id="fig-pplane01" class="img-fluid" style="width:80.0%" alt="Typical phase plane"></p>
 <p>We see there exists a fixed point at where the two nullclines (dashed) intersect. Analysis near this fixed point would reveal that solutions encircle in a clockwise direction and tend towards the fixed point. This is shown by the solution plot on the right.</p>
 <p>Therefore, one way to extend our EBMs is to consider coupling to another component. Keep this in mind as this is where we will be going in the next lecture.</p>

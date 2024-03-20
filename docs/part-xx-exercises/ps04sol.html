@@ -518,7 +518,31 @@ Solution
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Details to be added in Week 7.</p>
+<p>Separation of variables leads to the equation <span class="math display">\[
+\frac{G'}{G} = \kappa \frac{H''}{H} = \lambda.
+\]</span></p>
+<p>Crucially in considering possible solutions, we want solutions to obey the necessary boundary condition of <span class="math inline">\(T(0, t) = A\cos(\omega t) = G(t)H(0)\)</span>. This is highly restrictive.</p>
+<p>We first consider <span class="math inline">\(\lambda = 0\)</span>. Then we have that <span class="math inline">\(G(t) = \text{const.}\)</span>. This is then no way to satisfy the time-varying boundary condition.</p>
+<p>We next consider <span class="math inline">\(\lambda \in \mathbb{R}\)</span>. Then <span class="math inline">\(G(t) = C e^{\lambda t}\)</span>. So again the behaviour of the time-dependent part is incompatible with the oscillating boundary conditions.</p>
+<p>Therefore the only remaining possibility is <span class="math inline">\(\lambda = i\alpha\)</span> where <span class="math inline">\(\alpha\)</span> is real. Then we have that <span class="math display">\[
+G(t) = C_1 e^{i\alpha t} + C_2 e^{-i\alpha t}.
+\]</span> Written in terms of real-valued functions, this gives essentially a linear combination of <span class="math inline">\(\cos(\alpha t)\)</span> and <span class="math inline">\(\sin(\alpha t)\)</span>. In order to be compatible with the boundary conditions, we would thus need <span class="math display">\[
+G(t) = \text{const.} \cos(\omega t) = \text{const.} \times \mathrm{Re} (e^{i\omega t}),
+\]</span> i.e.&nbsp;taking the imaginary part (if we wish to continue manipulating exponentials).</p>
+<p>Now solving for <span class="math inline">\(H(x)\)</span>, we set <span class="math inline">\(H(x) = e^{rx}\)</span> as a solution ansatz, giving the characteristic equation <span class="math display">\[
+r^2 = i\omega \Longrightarrow r = \pm \sqrt{i \omega}.
+\]</span> Therefore the general solution for <span class="math inline">\(H\)</span> yields <span class="math display">\[
+H(x) = D_1 e^{\sqrt{i\omega}x} + D_2 e^{-\sqrt{i\omega}x}.
+\]</span> In order to parse the above form, it is best to re-write the real and complex parts of the exponential argument separately. We note that by Euler’s theorem, <span class="math display">\[
+\sqrt{i} = (e^{\pi i/2})^{1/2} = e^{\pi i/4} = \frac{1 + i}{\sqrt{2}}.
+\]</span> So now we can re-write <span class="math display">\[
+H(x) = D_1 e^{\sqrt{\omega/2} x} e^{i\sqrt{\omega/2\kappa}x} + D_2 e^{-\sqrt{\omega/2\kappa} x} e^{-i\sqrt{\omega/2}x}.
+\]</span> By the boundedness assumption, we require that <span class="math inline">\(H(x)\)</span> does not blow up as <span class="math inline">\(x \to \infty\)</span>. So therefore <span class="math inline">\(D_1 = 0\)</span>. We can finally put the results together, yielding: <span class="math display">\[
+T(x, t) = \text{const.} \times \mathrm{Re} \left[ e^{i\omega t} e^{-\sqrt{\omega/2\kappa} x} e^{-i\sqrt{\omega/2\kappa}x}\right]
+= \text{const.} \times \mathrm{Re} \left[ e^{-\sqrt{\omega/2\kappa} x} e^{i(-\sqrt{\omega/2\kappa}x + \omega t)}\right].
+\]</span> Note that the reason you have re-written it with the exponentials arranged in this fashion is because the portion of the exponential with the imaginary argument becomes oscillatory. Taking the real part yields <span class="math display">\[
+T(x, t) = A e^{-\sqrt{\omega/2} x} \cos\left(-\sqrt{\omega/2\kappa} x + \omega t\right).
+\]</span> You can double check that the above solution satisfies all the required conditions, including the condition at <span class="math inline">\(x = 0\)</span> (forcing us to choose the prefactor <span class="math inline">\(A\)</span>).</p>
 </div>
 </div>
 </div>
@@ -538,7 +562,7 @@ Solution
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Details to be added in Week 7.</p>
+<p>Solution script can be found on the solutions/ folder of the Noteable Python website.</p>
 </div>
 </div>
 </div>
