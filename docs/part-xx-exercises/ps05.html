@@ -404,6 +404,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Problem set 4 solutions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps05sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Problem set 5 solutions</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -418,43 +424,43 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/chatgpt-goes-wrong.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
   </div>
 </li>
       </ul>
@@ -532,7 +538,7 @@ C \dot{u} = -D u + O(u^2).
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
 <p>Ignoring the effects of albedo, the total radiation absorbed over the surface of the planet (per unit time) is given by <span class="math display">\[
 \iint_{\text{planet}} Qs(y=\sin\varphi) \, \mathrm{d}S.
-\]</span> This is what is known as a surface integral (<a href="../part-05-techniques/vector-calculus.html#sec-appendix-surfaceintegral" class="quarto-xref"><span>Section 35.1</span></a>). In the case of the spherical coordinate system, this is calculated by <span class="math display">\[
+\]</span> This is what is known as a surface integral (<a href="../part-05-techniques/vector-calculus.html#sec-appendix-surfaceintegral" class="quarto-xref"><span>Section 36.1</span></a>). In the case of the spherical coordinate system, this is calculated by <span class="math display">\[
 \int_{\theta=0}^{2\pi} \int_{\varphi = -\pi/2}^{\pi/2} Qs(y = \sin\varphi) R_E^2 \cos\varphi \, \mathrm{d}\varphi \mathrm{d}\theta.
 \]</span> Use the properties of <span class="math inline">\(s(y)\)</span> in (<a href="../part-03-box/box-energy-model2.html#eq-EBM-s" class="quarto-xref">Equation&nbsp;<span>14.3</span></a>) to conclude that the total radiation absorbed is <span class="math inline">\(4\pi R_E^2 Q\)</span>.</p>
 </section>
@@ -543,18 +549,20 @@ C \dot{u} = -D u + O(u^2).
 C \frac{\mathrm{\partial}T}{\mathrm{\partial}t} = Qs(y)[1 - a(y)] - (A + BT) + k(\bar{T} - T).
 \]</span> Recall the albedo is given by <span class="math inline">\(a = a_i\)</span> for <span class="math inline">\(y &gt; y_s\)</span> and <span class="math inline">\(a = a_w\)</span> for <span class="math inline">\(y &lt; y_s\)</span>.</p>
 <ol type="a">
-<li><p>By integrating the above equation over <span class="math inline">\(y \in [0, 1]\)</span>, show that the mean temperature is given by <span id="eq-meanT-evo-ps"><span class="math display">\[
+<li>By integrating the above equation over <span class="math inline">\(y \in [0, 1]\)</span>, show that the mean temperature is given by <span id="eq-meanT-evo-ps"><span class="math display">\[
 C \frac{\mathrm{d}\bar{T}}{\mathrm{d}t} = Q(1 - \bar{a}) - (A + B\bar{T}),
 \tag{27.1}\]</span></span> where <span class="math display">\[
 \bar{a} = \int_0^1 s(y) a(y) \, \mathrm{d}y = \alpha_w \int_0^{y_s} s(y) \, \mathrm{d}y + a_i \int_{y_s}^1 s(y) \, \mathrm{d}y.
-\]</span></p></li>
-<li><p>In the case that <span class="math inline">\(s\)</span> is given by (<a href="../part-03-box/box-energy-model2.html#eq-EBM-s" class="quarto-xref">Equation&nbsp;<span>14.3</span></a>), show that <span id="eq-ps4-abar"><span class="math display">\[
+\]</span></li>
+<li>In the case that <span class="math inline">\(s\)</span> is given by (<a href="../part-03-box/box-energy-model2.html#eq-EBM-s" class="quarto-xref">Equation&nbsp;<span>14.3</span></a>), show that <span id="eq-ps4-abar"><span class="math display">\[
 \bar{a} = a_i + (a_w - a_i) y_s[1 - 0.241(y_s^2 - 1)].
-\tag{27.2}\]</span></span> What is <span class="math inline">\(\bar{a}\)</span> in the two situations of a completely ice-covered world and an ice-free world?</p></li>
-<li><p>Using Python, plot a graph of the steady-state temperature, <span class="math inline">\(T^*\)</span>, which satisfies <span id="eq-ps4-Tbar"><span class="math display">\[
-\bar{T}^* = \frac{Q(1 - \bar{a}) - A}{B},
-\tag{27.3}\]</span></span> as a function of the ice line location, <span class="math inline">\(y_s \in [0, 1]\)</span>.</p></li>
+\tag{27.2}\]</span></span> What is <span class="math inline">\(\bar{a}\)</span> in the two situations of a completely ice-covered world and an ice-free world?</li>
 </ol>
+<!-- c. Using Python, plot a graph of the steady-state temperature, $T^*$, which satisfies -->
+<!-- $$ -->
+<!-- \bar{T}^* = \frac{Q(1 - \bar{a}) - A}{B}, -->
+<!-- $$ {#eq-ps4-Tbar} -->
+<!-- as a function of the ice line location, $y_s \in [0, 1]$.  -->
 <!-- c. In the numerical code designed in lectures `ma30287/notebooks/lecture17-latitudeebm_newton.ipynb` we used numerical quadratic to determine $\bar{T}$. Experiment with a modest number of mesh points and verify how well the integration scheme compares with the exact solution shown above. -->
 </section>
 <section id="q4.-sensitivity-of-the-climate" class="level2 unnumbered">
@@ -572,7 +580,7 @@ C \frac{\mathrm{d}T_1}{\mathrm{d}t} = (1 - a(T_0)) - B(T_0) T_1 - A'(T_0) T_1 - 
 \]</span></p></li>
 <li><p>Consequently, show that the temperature perturbation can be written as <span id="eq-T1eqpertb"><span class="math display">\[
 B(T_0) \tau \frac{\mathrm{\partial}T_1}{\mathrm{\partial}t} = [1 - a(T_0)]  - \frac{B(T_0)}{g} T_1,
-\tag{27.4}\]</span></span> where</p></li>
+\tag{27.3}\]</span></span> where</p></li>
 </ol>
 <p><span class="math display">\[
 \begin{aligned}
@@ -585,7 +593,7 @@ f_2 &amp;= \frac{1}{B(T_0)} \left(-Q_0 a'(T_0)\right)
 \]</span></p>
 <p>The parameter <span class="math inline">\(\tau\)</span> measures the time scale of the climate system’s thermal inertia. It involves the thermal inertia of the atmosphere and also the much larger inertia of the oceans. The factor <span class="math inline">\(g\)</span> is the climate gain; it amplifies any response to the radiative perturbation by a factor of <span class="math inline">\(g\)</span>. Also <span class="math inline">\(f_1\)</span> incorporates the effect of water-vapor feedback and <span class="math inline">\(f_2\)</span> that of ice and snow albedo feedback.</p>
 <ol start="3" type="a">
-<li>Consider (<a href="#eq-T1eqpertb" class="quarto-xref">Equation&nbsp;<span>27.4</span></a>) at steady state, so therefore the perturbed equilibrium temperature is equal to <span class="math display">\[
+<li>Consider (<a href="#eq-T1eqpertb" class="quarto-xref">Equation&nbsp;<span>27.3</span></a>) at steady state, so therefore the perturbed equilibrium temperature is equal to <span class="math display">\[
 \delta T_1 =  \frac{[1 - a(T_0)] \delta g}{B(T_0)}.
 \]</span> If the CO<sub>2</sub> level in the atmosphere doubles, then the radiative forcing might be adjusted as: <span class="math display">\[
 (1 - a(T_0)) \delta = 3.7 \,  \mathrm{W} \cdot \mathrm{m}^{-2}.
