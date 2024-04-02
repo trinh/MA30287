@@ -1224,7 +1224,7 @@
     "href": "part-xx-exercises/ps06.html",
     "title": "28  Problem set 6",
     "section": "",
-    "text": "Note\n\n\n\nProblem sets 6-7 will not be released until after the Easter break (due to the coursework and pacing.)\n\n\n\n\n\n\n\n\nNote\n\n\n\nTo release for 2023-24.",
+    "text": "Note\n\n\n\nProblem sets 6-7 will not be released until after the Easter break.\n\n\n\n\n\n\n\n\nNote\n\n\n\nTo release for 2023-24.",
     "crumbs": [
       "Exercises",
       "<span class='chapter-number'>28</span>  <span class='chapter-title'>Problem set 6</span>"
@@ -1411,7 +1411,7 @@
     "href": "part-xx-exercises/ps03sol.html#outer-asymptotic-solutions",
     "title": "31  Problem set 3 solutions",
     "section": "31.4 Outer asymptotic solutions",
-    "text": "31.4 Outer asymptotic solutions\n\\(\\nextSection\\)\nBegin by setting \\[\nT = T_{\\text{outer}} = T_0(z) + \\epsilon T_1(z) + \\epsilon^2 T_2(z) + \\ldots\n\\] Substitute the above expansion into the system and solve for the first two orders.\nYou may verify that the solution is given by\n\\[\\begin{align}\nT_0 &= e^{1/2} e^{-z/2}, \\\\\nT_1 &= -\\frac{1}{8} e^{1/2} e^{-z/2} (z - 1).\n\\end{align}\\]\n\n\n\n\n\n\nSolution\n\n\n\n\n\nRemember: as you solve the outer solution, you impose the boundary condition of \\(T(1) = 1\\).\nAt leading order, we get the problem \\(2T_0' + T_0 = 0\\) subject to \\(T_0(1) = 1\\). This is solved either by separation of variables or by integrating factor. For example, re-write as \\[\n(T_0 e^{z/2})' = 0,\n\\] integrate twice and obtain the given solution after imposing the boundary conditions.\nAt next order, we get \\[\n2T_1' + T_1 = -T_0'' \\Longrightarrow T_1' + \\frac{1}{2}T_1 = -\\frac{1}{2}T_0'' ,\n\\] along with the boundary conditions of \\(T_1(1) = 0\\).\nAgain place this into the appropriate form by dividing and multiplying by the integrating factor \\(e^{z/2}\\), \\[\n(T_1 e^{z/2})' = -\\frac{1}{2 }T_0'' e^{z/2}.\n\\] Substitute in the expression for \\(T_0\\) and integrate, then solve to get the given solution.",
+    "text": "31.4 Outer asymptotic solutions\n\\(\\nextSection\\)\nBegin by setting \\[\nT = T_{\\text{outer}} = T_0(z) + \\epsilon T_1(z) + \\epsilon^2 T_2(z) + \\ldots\n\\] Substitute the above expansion into the system and solve for the first two orders.\nYou may verify that the solution is given by\n\\[\\begin{align}\nT_0 &= e^{1/2} e^{-z/2}, \\\\\nT_1 &= -\\frac{1}{8} e^{1/2} e^{-z/2} (z - 1).\n\\end{align}\\]\n\n\n\n\n\n\nSolution\n\n\n\n\n\nRemember: as you solve the outer solution, you impose the boundary condition of \\(T(1) = 1\\).\nLeading-order: at leading order, we get the problem \\(2T_0' + T_0 = 0\\) subject to \\(T_0(1) = 1\\). This is solved either by separation of variables or by integrating factor. Using the technique of solving first-order linear equations, (see Chapter 34) we divide, \\[\nT_0' + \\frac{1}{2}T_0 = 0.\n\\] We then multiply both sides of the equation by \\(e^{z/2}\\). \\[\n\\frac{\\mathrm{d}}{\\mathrm{d}z}\\Bigl[T_0 e^{z/2}\\Bigr] = 0.\n\\] Integrate, and solve, giving \\(T_0 = Ce^{-z/2}\\). We now impose \\(T_0(1) = 1\\) which yields \\(C = e^{1/2}\\).\nFirst-order: at next order, we get \\[\n2T_1' + T_1 = -T_0'' \\Longrightarrow T_1' + \\frac{1}{2}T_1 = -\\frac{1}{2}T_0'' ,\n\\] along with the boundary conditions of \\(T_1(1) = 0\\).\nAgain place this into the appropriate form. Again, this is a linear first-order equation. We multiply by the integrating factor \\(e^{z/2}\\), placing the equation into the form \\[\n\\frac{\\mathrm{d}}{\\mathrm{d}z} \\Bigl[ T_1 e^{z/2} \\Bigr] = -\\frac{1}{2 }T_0'' e^{z/2} = -\\frac{1}{8} e^{1/2}.\n\\] We integrate once and simplify, yielding \\[\nT_1(z) = \\left(-\\frac{e^{1/2}}{8} z + C\\right)e^{-z/2},\n\\] and then impose the condition that \\(T_1(1) = 0\\). This yields \\(C = e^{1/2}/8\\) hence \\[\nT_1(z) = -\\frac{e^{1/2}}{8}(z - 1) e^{-z/2}.\n\\]",
     "crumbs": [
       "Exercises",
       "<span class='chapter-number'>31</span>  <span class='chapter-title'>Problem set 3 solutions</span>"
@@ -1554,18 +1554,7 @@
     "href": "part-05-techniques/odes.html",
     "title": "34  Differential equations",
     "section": "",
-    "text": "34.1 First-order linear differential equations\nFirst-order linear differential equations are of the form \\[\ny' + q(x) y = r(x).\n\\] These are solved by integrating factors. Multiply both sides by \\[\ne^{\\int^x q(x') \\, \\mathrm{d}x'}\n\\] so that the equation can be placed in the form \\[\n\\frac{\\mathrm{d}}{\\mathrm{d}x} \\left(y e^{\\int^x q(x') \\, \\mathrm{d}x'}\\right) = r(x) e^{\\int^x q(x') \\, \\mathrm{d}x'}\n\\] Then integrate and solve for \\(y\\).\nReferences",
-    "crumbs": [
-      "Appendices",
-      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Differential equations</span>"
-    ]
-  },
-  {
-    "objectID": "part-05-techniques/odes.html#first-order-linear-differential-equations",
-    "href": "part-05-techniques/odes.html#first-order-linear-differential-equations",
-    "title": "34  Differential equations",
-    "section": "",
-    "text": "Paul’s online notes",
+    "text": "34.1 First-order linear differential equations\nFirst-order linear differential equations are of the form \\[\ny'(x) + q(x) y(x) = r(x).\n\\] These are solved by integrating factors. One trick often employed us to think of placing the left hand-side of the equation into the form: \\[\n\\frac{\\mathrm{d}}{\\mathrm{d}x} \\left[ y(x) e^{\\mathrm{??}} \\right],\n\\] where the derivative of ?? yields \\(q(x)\\).\nOfficially, to do this, we multiply both sides of the original equation by the integrating factor \\[\ne^{\\int^x q(x') \\, \\mathrm{d}x'}\n\\] so that the equation can be placed in the form \\[\n\\frac{\\mathrm{d}}{\\mathrm{d}x} \\left[y(x) e^{\\int^x q(x') \\, \\mathrm{d}x'}\\right] = r(x) e^{\\int^x q(x') \\, \\mathrm{d}x'}\n\\] Then integrate and solve for \\(y\\). This gives \\[\ny(x) = \\left( \\int r(x) e^{\\int^x q(x') \\, \\mathrm{d}x'} \\, \\mathrm{d}x + C \\right)e^{-\\int^x q(x') \\, \\mathrm{d}x'}.\n\\] It is usually much easier to work with specific problems, as many of the integrals are simpler than the general form given above. You will need to impose any required boundary conditions in order to determine the constant of integration above.\nThe solution of first-order linear equations is a standard problem in most first differential equations courses. You can find many references online and here is a good one providing plenty practice: Paul’s online notes",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>34</span>  <span class='chapter-title'>Differential equations</span>"

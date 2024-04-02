@@ -658,15 +658,21 @@ Solution
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Remember</strong>: as you solve the outer solution, you impose the boundary condition of <span class="math inline">\(T(1) = 1\)</span>.</p>
-<p>At leading order, we get the problem <span class="math inline">\(2T_0' + T_0 = 0\)</span> subject to <span class="math inline">\(T_0(1) = 1\)</span>. This is solved either by separation of variables or by integrating factor. For example, re-write as <span class="math display">\[
-(T_0 e^{z/2})' = 0,
-\]</span> integrate twice and obtain the given solution after imposing the boundary conditions.</p>
-<p>At next order, we get <span class="math display">\[
+<p><strong>Leading-order</strong>: at leading order, we get the problem <span class="math inline">\(2T_0' + T_0 = 0\)</span> subject to <span class="math inline">\(T_0(1) = 1\)</span>. This is solved either by separation of variables or by integrating factor. Using the technique of solving first-order linear equations, (see <a href="../part-05-techniques/odes.html" class="quarto-xref"><span>Chapter 34</span></a>) we divide, <span class="math display">\[
+T_0' + \frac{1}{2}T_0 = 0.
+\]</span> We then multiply both sides of the equation by <span class="math inline">\(e^{z/2}\)</span>. <span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d}z}\Bigl[T_0 e^{z/2}\Bigr] = 0.
+\]</span> Integrate, and solve, giving <span class="math inline">\(T_0 = Ce^{-z/2}\)</span>. We now impose <span class="math inline">\(T_0(1) = 1\)</span> which yields <span class="math inline">\(C = e^{1/2}\)</span>.</p>
+<p><strong>First-order</strong>: at next order, we get <span class="math display">\[
 2T_1' + T_1 = -T_0'' \Longrightarrow T_1' + \frac{1}{2}T_1 = -\frac{1}{2}T_0'' ,
 \]</span> along with the boundary conditions of <span class="math inline">\(T_1(1) = 0\)</span>.</p>
-<p>Again place this into the appropriate form by dividing and multiplying by the integrating factor <span class="math inline">\(e^{z/2}\)</span>, <span class="math display">\[
-(T_1 e^{z/2})' = -\frac{1}{2 }T_0'' e^{z/2}.
-\]</span> Substitute in the expression for <span class="math inline">\(T_0\)</span> and integrate, then solve to get the given solution.</p>
+<p>Again place this into the appropriate form. Again, this is a linear first-order equation. We multiply by the integrating factor <span class="math inline">\(e^{z/2}\)</span>, placing the equation into the form <span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d}z} \Bigl[ T_1 e^{z/2} \Bigr] = -\frac{1}{2 }T_0'' e^{z/2} = -\frac{1}{8} e^{1/2}.
+\]</span> We integrate once and simplify, yielding <span class="math display">\[
+T_1(z) = \left(-\frac{e^{1/2}}{8} z + C\right)e^{-z/2},
+\]</span> and then impose the condition that <span class="math inline">\(T_1(1) = 0\)</span>. This yields <span class="math inline">\(C = e^{1/2}/8\)</span> hence <span class="math display">\[
+T_1(z) = -\frac{e^{1/2}}{8}(z - 1) e^{-z/2}.
+\]</span></p>
 </div>
 </div>
 </div>

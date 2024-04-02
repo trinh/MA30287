@@ -508,32 +508,21 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Appendices
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>These appendices may contain material that is added during the term, dependent on student enquiries and need.</p>
-</div>
-</div>
 <section id="first-order-linear-differential-equations" class="level2" data-number="34.1">
 <h2 data-number="34.1" class="anchored" data-anchor-id="first-order-linear-differential-equations"><span class="header-section-number">34.1</span> First-order linear differential equations</h2>
 <p>First-order linear differential equations are of the form <span class="math display">\[
-y' + q(x) y = r(x).
-\]</span> These are solved by integrating factors. Multiply both sides by <span class="math display">\[
+y'(x) + q(x) y(x) = r(x).
+\]</span> These are solved by integrating factors. One trick often employed us to think of placing the left hand-side of the equation into the form: <span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d}x} \left[ y(x) e^{\mathrm{??}} \right],
+\]</span> where the derivative of ?? yields <span class="math inline">\(q(x)\)</span>.</p>
+<p>Officially, to do this, we multiply both sides of the original equation by the integrating factor <span class="math display">\[
 e^{\int^x q(x') \, \mathrm{d}x'}
 \]</span> so that the equation can be placed in the form <span class="math display">\[
-\frac{\mathrm{d}}{\mathrm{d}x} \left(y e^{\int^x q(x') \, \mathrm{d}x'}\right) = r(x) e^{\int^x q(x') \, \mathrm{d}x'}
-\]</span> Then integrate and solve for <span class="math inline">\(y\)</span>.</p>
-<p>References</p>
-<ul>
-<li><a href="https://tutorial.math.lamar.edu/classes/de/linear.aspx">Paul’s online notes</a></li>
-</ul>
+\frac{\mathrm{d}}{\mathrm{d}x} \left[y(x) e^{\int^x q(x') \, \mathrm{d}x'}\right] = r(x) e^{\int^x q(x') \, \mathrm{d}x'}
+\]</span> Then integrate and solve for <span class="math inline">\(y\)</span>. This gives <span class="math display">\[
+y(x) = \left( \int r(x) e^{\int^x q(x') \, \mathrm{d}x'} \, \mathrm{d}x + C \right)e^{-\int^x q(x') \, \mathrm{d}x'}.
+\]</span> It is usually much easier to work with specific problems, as many of the integrals are simpler than the general form given above. You will need to impose any required boundary conditions in order to determine the constant of integration above.</p>
+<p>The solution of first-order linear equations is a standard problem in most first differential equations courses. You can find many references online and here is a good one providing plenty practice: <a href="https://tutorial.math.lamar.edu/classes/de/linear.aspx">Paul’s online notes</a></p>
 </section>
 <section id="second-order-constant-coefficient-odes" class="level2" data-number="34.2">
 <h2 data-number="34.2" class="anchored" data-anchor-id="second-order-constant-coefficient-odes"><span class="header-section-number">34.2</span> Second-order constant coefficient ODEs</h2>
