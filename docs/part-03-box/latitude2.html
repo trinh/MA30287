@@ -570,19 +570,19 @@ E_{\text{transport}}(y, t) &amp;= k(\bar{T} - T),
 </div>
 </div>
 <p>Our goal is to study the steady-state solutions, <span class="math inline">\(T = T_\infty(y)\)</span>, given by solving the implicit equation: <span id="eq-latitude2-Phieq"><span class="math display">\[
-T_\infty(y) = \Phi(T_\infty) = \frac{k\bar{T}_\infty + Qs(y)(1 {\color{blue}-} a(y)) - A}{B + k}.
+T_\infty(y) = \Phi(T_\infty) = \frac{k\bar{T}_\infty + Qs(y)(1 - a(y)) - A}{B + k}.
 \tag{16.3}\]</span></span></p>
 <p>We want to know whether other solutions exist with ice lines at <span class="math inline">\(y_s \in [0, 1]\)</span>.</p>
 <section id="development-of-an-equation-for-the-ice-line" class="level2" data-number="16.1">
 <h2 data-number="16.1" class="anchored" data-anchor-id="development-of-an-equation-for-the-ice-line"><span class="header-section-number">16.1</span> Development of an equation for the ice line</h2>
-<p>It turns out to be possible to develop an equation for the ice line.</p>
-<p>First, note from your problem set <a href="../part-xx-exercises/ps04.html" class="quarto-xref"><span>Chapter 26</span></a> you find that it is possible to solve for the steady-state mean temperature, which we write as <span class="math inline">\(\bar{T}_\infty\)</span>. In your problem set, you will develop the following equation: <!-- (given by (@eq-ps4-Tbar)):  --> <span id="eq-meanT-again"><span class="math display">\[
+<p>It turns out to be possible to develop an equation for the ice line. First, note from your <span style="color:blue;">problem set 5</span> in <a href="../part-xx-exercises/ps05.html" class="quarto-xref"><span>Chapter 27</span></a>, you find that it is possible to solve for the steady-state mean temperature, which we write as <span class="math inline">\(\bar{T}_\infty\)</span>. In your problem set, you will develop the following equation <span style="color:blue;">by integrating over (<a href="#eq-EBMlat2" class="quarto-xref">Equation&nbsp;<span>16.1</span></a>) from <span class="math inline">\(y = 0\)</span> to <span class="math inline">\(y = 1\)</span>.</span></p>
+<p><span style="color:blue;">Taking the steady-state limit of (<a href="../part-xx-exercises/ps05.html#eq-meanT-evo-ps" class="quarto-xref">Equation&nbsp;<span>27.1</span></a>) this yields</span> <!-- (given by (@eq-ps4-Tbar)):  --> <span id="eq-meanT-again"><span class="math display">\[
 \bar{T}_\infty = \frac{Q(1 - \bar{a}) - A}{B}.
 \tag{16.4}\]</span></span> The quantity <span class="math inline">\(\bar{a}\)</span> is given by integrating the albedo as follows: <span id="eq-abar-again"><span class="math display">\[
 \bar{a} = \int_0^1 s(y) a(y) \, \mathrm{d}y = a_i + (a_w {\color{blue}-} a_i)y_s[1 - 0.241 (y_s^2 - 1)],
 \tag{16.5}\]</span></span> which is given by (<a href="../part-xx-exercises/ps05.html#eq-ps4-abar" class="quarto-xref">Equation&nbsp;<span>27.2</span></a>). You may check that the above formula has the right signs by considering either the complete ice case (ice line at the equator <span class="math inline">\(y_s = 0\)</span>) or the complete water/land case (ice line at <span class="math inline">\(y_s = 1\)</span>).</p>
 <p>Now we return to the implicit equation for the temperature, which is given by (<a href="#eq-latitude2-Phieq" class="quarto-xref">Equation&nbsp;<span>16.3</span></a>) and repeated here: <span class="math display">\[
-T_\infty(y) = \Phi(T_\infty) = \frac{k\bar{T}_\infty + Qs(y)(1 {\color{red}-} a(y)) - A}{B + k}.
+T_\infty(y) = \Phi(T_\infty) = \frac{k\bar{T}_\infty + Qs(y)(1 - a(y)) - A}{B + k}.
 \]</span> Substitute the mean temperature in, and this now yields <span id="eq-Tstar"><span class="math display">\[
 T_\infty(y) = \frac{Q}{B + k} \left[ s(y) [1 - a(y)] + \frac{k}{B}(1 - \bar{a})\right] - \frac{A}{B}.
 \tag{16.6}\]</span></span> This ice line is then found by setting <span class="math inline">\(T = T_C\)</span> at <span class="math inline">\(y = y_s\)</span> in the above formula. Notice, though, that since <span class="math inline">\(s(y)\)</span> is a cubic function, then we would need to solve a cubic equation in general.</p>
@@ -603,7 +603,7 @@ T = T(t, y) = G(y; A, b, k, C, Q, a_i, a_w).
 <p>We return to (<a href="#eq-Tstar" class="quarto-xref">Equation&nbsp;<span>16.6</span></a>) and consider inverting the formulation. For each given ice line location, <span class="math inline">\(y_s \in (0, 1)\)</span>, we solve for the <span class="math inline">\(Q\)</span> value. This gives <span id="eq-Qfunc"><span class="math display">\[
 Q = K(y_s) \equiv \frac{\left(T_C + \frac{A}{B}\right)(B + k)}{s(y_s)[1 - \frac{1}{2}(a_i + a_w)] + \frac{k}{B}(1 - \bar{a})}.
 \tag{16.7}\]</span></span> Above, we have used the fact that <span class="math inline">\(a(y_s) = \frac{1}{2}(a_i + a_w)\)</span>. This can now be plotted in Python, either in the notebook written during lectures, or via the code below.</p>
-<div id="f6b0d5d6" class="cell" data-execution_count="1">
+<div id="2e22dc92" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">202</span> <span class="co"># outgoing radiation</span></span>
@@ -654,7 +654,7 @@ T_\infty(y) = \frac{Q(1 - a_i)}{B + k}\left[s(y) + \frac{k}{B}\right] - \frac{A}
 \]</span> This time, there is a maximal condition on <span class="math inline">\(Q\)</span> such that any higher value would require an ice line somewhere within the domain, i.e.&nbsp;<span class="math inline">\(y &gt; 0\)</span>. Thus <span class="math display">\[
 Q &lt; \frac{(B + k)(T_C + A/B)}{(1 - a_i)[s(0) + k/B]} \approx 441 \mathrm{W} \, \mathrm{m}^{-2}.
 \]</span> Again we may verify that this corresponds to a mean temperature of <span class="math inline">\(-38\)</span> degrees Celsius.</p>
-<div id="1a12f761" class="cell" data-execution_count="2">
+<div id="9cb7322e" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">202</span> <span class="co"># outgoing radiation</span></span>

@@ -570,6 +570,7 @@ C \frac{\mathrm{d}T}{\mathrm{d}t} = Q(1 - a) - \sigma \gamma T^4,
 <p>In this chapter, we discuss the effects of considering a nonlinear albedo, <span class="math inline">\(a = a(T)\)</span>, as well as some of the numerical and analytical tools at our disposal for studying the above equation.</p>
 <section id="steady-state-analysis" class="level2" data-number="13.1">
 <h2 data-number="13.1" class="anchored" data-anchor-id="steady-state-analysis"><span class="header-section-number">13.1</span> Steady-state analysis</h2>
+<p>Below, we shall let <span class="math inline">\(T = T_\infty\)</span> be the steady-state solution that is independent of time. Whenever convenient, we will drop the subscript notation and simply refer to the steady state as <span class="math inline">\(T\)</span>.</p>
 <p>Previously, we have assumed that the planetary albedo, <span class="math inline">\(a\)</span>, is constant and independent of temperature. In actuality, water can turn to snow and ice and vice versa; since snow and ice have much higher albedo than open water, then we should consider <span class="math inline">\(a = a(T)\)</span>.</p>
 <p>Let us assume that there are two relevant ranges to consider: T &lt; 150K (cold) and T &gt; 280K (hot). Let us assume that the albedo is, in these two regions: <span class="math display">\[
 a(T) \approx
@@ -596,7 +597,7 @@ $$
 $$ 
 -->
 <p>In the following code, we plot the two terms that make up <span class="math inline">\(f\)</span>, and their intersections indicate roots of <span class="math inline">\(f = 0\)</span>. We then use the Python ‘fsolve’ function to approximate the roots given initial guesses.</p>
-<div id="3b5af433" class="cell" data-execution_count="1">
+<div id="7b84593c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.optimize <span class="im">as</span> sciopt</span>
@@ -651,7 +652,7 @@ T3 = 286.74</code></pre>
 <img src="img/2023-05-06-14-13-15.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-basicEBM-bif-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;13.1: Bifurcation diagram of <span class="math inline">\(Q/Q_0\)</span> vs <span class="math inline">\(T^*\)</span>
+Figure&nbsp;13.1: Bifurcation diagram of <span class="math inline">\(Q/Q_0\)</span> vs <span class="math inline">\(T_\infty\)</span>
 </figcaption>
 </figure>
 </div>
@@ -665,9 +666,9 @@ Figure&nbsp;13.1: Bifurcation diagram of <span class="math inline">\(Q/Q_0\)</sp
 C \frac{\mathrm{d}T}{\mathrm{d}t} = f(T),
 \]</span> so we may use the positivity or negativity of <span class="math inline">\(f\)</span> in order to sketch the time-dependent behaviour of the system.</p>
 <p>To see this, we can perform an asymptotic analysis near the fixed points. Let the initial condition be considered near the fixed point: <span class="math display">\[
-T(t = 0) = T^* + \delta,
+T(t = 0) = T_\infty + \delta,
 \]</span> where <span class="math inline">\(\delta \ll 1\)</span>. Then we expand the solution into an asymptotic expansion, <span class="math display">\[
-T(t) = T^* + \delta T_1(t) + \delta T^2(t) + \ldots
+T(t) = T_\infty + \delta T_1(t) + \delta T^2(t) + \ldots
 \]</span> Substitution into the above ODE gives, at <span class="math inline">\(O(\delta)\)</span>, <span class="math display">\[
 C \frac{\mathrm{d}T_1}{\mathrm{d}t} = f'(T_0) T_1,
 \]</span> and hence, with <span class="math inline">\(T_1(0) = 1\)</span>, we have <span class="math display">\[
@@ -705,7 +706,7 @@ We discuss Newton's method in @sec-newton.
 
 Using the simplest Newton code there, we can solve for one of the roots.
 
-::: {#8b8b17ea .cell execution_count=2}
+::: {#d3149ae9 .cell execution_count=2}
 ``` {.python .cell-code}
 import numpy as np
 
