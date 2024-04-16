@@ -752,7 +752,7 @@
     "href": "part-03-box/iceages01.html#phase-plane-analysis-for-two-dimensional-systems",
     "title": "19  Ice ages I: an introduction",
     "section": "19.4 Phase plane analysis for two-dimensional systems",
-    "text": "19.4 Phase plane analysis for two-dimensional systems\n\\(\\nextSection\\)\nComing back now to the standard non-autonomous system of two ODEs, we have \\[\n\\begin{aligned}\n\\dot{x} &= f_1(x, y), \\\\\n\\dot{y} &= f_2(x, y).\n\\end{aligned}\n\\] What is the difference between these kinds of systems and the simpler 1D equations? The main difference is that the analysis is done in the phase plane given by \\((x, y)\\). Fixed points lie in the phase plane, but now there is the additional possibility of oscillations or circular orbits.\nAn example of this is the system \\[\n\\begin{aligned}\n\\dot{x} &= y - g(x), \\\\\n\\dot{y} &= h(x) - y.\n\\end{aligned}\n\\]\nFor instance, choosing \\(h(x) = 4(2-x)\\) and \\(g(x) = \\sin x\\) yields the following phase plane diagram: \nWe see there exists a fixed point at where the two nullclines (dashed) intersect. Analysis near this fixed point would reveal that solutions encircle in a clockwise direction and tend towards the fixed point. This is shown by the solution plot on the right.\nTherefore, one way to extend our EBMs is to consider coupling to another component. Keep this in mind as this is where we will be going in the next lecture.",
+    "text": "19.4 Phase plane analysis for two-dimensional systems\n\\(\\nextSection\\)\nComing back now to the standard non-autonomous system of two ODEs, we have \\[\n\\begin{aligned}\n\\dot{x} &= f_1(x, y), \\\\\n\\dot{y} &= f_2(x, y).\n\\end{aligned}\n\\] What is the difference between these kinds of systems and the simpler 1D equations? The main difference is that the analysis is done in the phase plane given by \\((x, y)\\). Fixed points lie in the phase plane, but now there is the additional possibility of oscillations or circular orbits.\nAn example of this is the system \\[\n\\begin{aligned}\n\\dot{x} &= y - g(x), \\\\\n\\dot{y} &= h(x) - y.\n\\end{aligned}\n\\]\nFor instance, choosing \\(h(x) = 4(2-x)\\) and \\(g(x) = \\sin x\\) yields the following phase plane diagram: \nYou can reproduce the phase plane via the code snippet in lectures/Chap20-TypicalPhasePlot.ipynb.\nWe see there exists a fixed point at where the two nullclines (dashed) intersect. Analysis near this fixed point would reveal that solutions encircle in a clockwise direction and tend towards the fixed point. This is shown by the solution plot on the right.\nTherefore, one way to extend our EBMs is to consider coupling to another component. Keep this in mind as this is where we will be going in the next lecture.",
     "crumbs": [
       "Fast-slow dynamics",
       "<span class='chapter-number'>19</span>  <span class='chapter-title'>Ice ages I: an introduction</span>"
@@ -774,7 +774,7 @@
     "href": "part-03-box/iceages02.html#the-van-der-pol-oscillator",
     "title": "20  Ice ages II: a model for fast-slow dynamics",
     "section": "",
-    "text": "20.1.1 The Lienard transformation\n\\(\\nextSection\\)\nWe first explain how to transform the above second-order equation so that it resembles the system of two linear differential equations shown above. Notice that the equation can be written in the form \\[\n\\frac{\\mathrm{d}}{\\mathrm{d}t} \\left(\\epsilon \\frac{\\mathrm{d}x}{\\mathrm{d}t} + \\frac{1}{3} x^3 - x \\right) + x = 0.\n\\tag{20.1}\\] We then define \\[\ny \\equiv \\epsilon \\frac{\\mathrm{d}x}{\\mathrm{d}t} + \\frac{1}{3} x^3 - x  \n\\] which can be re-arranged to yield \\[\n\\epsilon \\dot{x} = y - S(x), \\qquad S(x) \\equiv \\frac{1}{3}x^3 - x,\n\\] where we have used dots to indicate derivatives in time. The second equation is found by Equation 20.1 itself, since this yields \\[\n\\dot{y} = -x.\n\\] Therefore together, we have our system: \\[\\begin{align}\n\\epsilon \\dot{x} &= y - S(x), \\\\\n\\dot{y} &= -x.\n\\end{align}\\]\n\n\n20.1.2 An investigation in Python\n\\(\\nextSection\\)\nThe lecture will now investigate the scripts to see the qualitative behaviour of the ODE. We will design a phase plane plotter in Python and see why this is called a fast-slow system. The script can be found here: lecture23a-typicalphaseplot (where we show how to do phase plotting in Python) and then here: lecture23b-fastslow.\nDuring the lecture, we discussed the following image:\n\n\n\nPhase plot of the above system\n\n\nWe interpreted the dynamics that follow either the slow manifold, \\(y = S(x)\\), and also the fast transitions that occur between the branches of the cubic. Also shown on the right side of the above plots are the profiles, \\(x\\) and \\(y\\) versus \\(t\\). In the limit \\(\\epsilon \\to 0\\), the transitions begin to resemble shocks.",
+    "text": "20.1.1 The Lienard transformation\n\\(\\nextSection\\)\nWe first explain how to transform the above second-order equation so that it resembles the system of two linear differential equations shown above. Notice that the equation can be written in the form \\[\n\\frac{\\mathrm{d}}{\\mathrm{d}t} \\left(\\epsilon \\frac{\\mathrm{d}x}{\\mathrm{d}t} + \\frac{1}{3} x^3 - x \\right) + x = 0.\n\\tag{20.1}\\] We then define \\[\ny \\equiv \\epsilon \\frac{\\mathrm{d}x}{\\mathrm{d}t} + \\frac{1}{3} x^3 - x  \n\\] which can be re-arranged to yield \\[\n\\epsilon \\dot{x} = y - S(x), \\qquad S(x) \\equiv \\frac{1}{3}x^3 - x,\n\\] where we have used dots to indicate derivatives in time. The second equation is found by Equation 20.1 itself, since this yields \\[\n\\dot{y} = -x.\n\\] Therefore together, we have our system: \\[\\begin{align}\n\\epsilon \\dot{x} &= y - S(x), \\\\\n\\dot{y} &= -x.\n\\end{align}\\]\n\n\n20.1.2 An investigation in Python\n\\(\\nextSection\\)\nThe lecture will now investigate the scripts to see the qualitative behaviour of the ODE. We will design a phase plane plotter in Python and see why this is called a fast-slow system.\nThe script can be found in the Noteable notes via lectures/Chap21-DynamicsFastSlow.ipynb.\nDuring the lecture, we discussed the following image:\n\n\n\nPhase plot of the above system\n\n\nWe interpreted the dynamics that follow either the slow manifold, \\(y = S(x)\\), and also the fast transitions that occur between the branches of the cubic. Also shown on the right side of the above plots are the profiles, \\(x\\) and \\(y\\) versus \\(t\\). In the limit \\(\\epsilon \\to 0\\), the transitions begin to resemble shocks.",
     "crumbs": [
       "Fast-slow dynamics",
       "<span class='chapter-number'>20</span>  <span class='chapter-title'>Ice ages II: a model for fast-slow dynamics</span>"
@@ -1312,7 +1312,40 @@
     "href": "part-xx-exercises/ps06.html",
     "title": "31  Problem set 6",
     "section": "",
-    "text": "Note\n\n\n\nProblem sets 6-7 will not be released until after the Easter break.\n\n\n\n\n\n\n\n\nNote\n\n\n\nTo release for 2023-24.",
+    "text": "Q1. A van der Pol equation\nConsider the van der Pol equation for \\(x(t)\\) with \\(0 &lt; \\epsilon \\ll 1\\): \\[\n\\epsilon \\frac{\\mathrm{d}^2 x}{\\mathrm{d}t^2} + (3x^2 - 6x - 9) \\frac{\\mathrm{d}x}{\\mathrm{d}t} + 4x = 0.\n\\]\nHint: Find the time spent moving along each of the slow curves by obtaining an equation \\(\\dot{x}_0 = g(x_0)\\) from part c, and then separate variables to write \\[\n\\dot{x}_0 = g(x_0) \\Longrightarrow P = \\int_{t_{\\text{start}}}^{t_{\\text{end}}} \\, \\mathrm{d}t = \\int_{x_{\\text{start}}}^{x_{\\text{end}}} \\frac{\\mathrm{d}x}{g(x)}.\n\\] Finally, integrate over the ranges in \\(x\\) that are appropriate to each of the slow segments, and add the result to obtain the period.",
+    "crumbs": [
+      "Exercises",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Problem set 6</span>"
+    ]
+  },
+  {
+    "objectID": "part-xx-exercises/ps06.html#q1.-a-van-der-pol-equation",
+    "href": "part-xx-exercises/ps06.html#q1.-a-van-der-pol-equation",
+    "title": "31  Problem set 6",
+    "section": "",
+    "text": "Determine \\(f(x)\\) so that this equation can be written as a Liénard phase plane system in the form \\[\\begin{align}\n\\epsilon \\dot{x} &= f(x) + 4y, \\\\\n\\dot{y} &= -x.\n\\end{align}\\]\nFor fixed \\(\\epsilon &gt; 0\\), find the equilibrium point(s) in the phase plane, find their eigenvalues, and classify their linear stability.\nUse the expansions \\(x(t) = x_0(t) + \\epsilon x_1(t) + O(\\epsilon^2)\\) to determine the equations for the leading-order slow solution. Sketch the slow manifold, indicate the directions motion on each part, and identify the two attracting points on the curve.\nUse the expansions \\(x(t) = X_0(T) + \\epsilon X_1(T) + O(\\epsilon^2)\\) and \\(y(t) = Y_0(T) + \\epsilon Y_1(T) + O(\\epsilon^2)\\) with \\(T = t/\\epsilon\\) to obtain the leading-order fast solution.\nUse the phase plane to determine the maximum and minimum values of \\(x(t)\\) during an oscillation. Sketch \\(x(t)\\) as a function of time.\n(Challenge) Using the time required for the slow motions in part c (neglecting the short times for the fast solutions in part d), determine the leading-order estimate for the period \\(P\\) of oscillation for the limit cycle.",
+    "crumbs": [
+      "Exercises",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Problem set 6</span>"
+    ]
+  },
+  {
+    "objectID": "part-xx-exercises/ps06.html#q2.-fast-slow-dynamics-with-three-variables",
+    "href": "part-xx-exercises/ps06.html#q2.-fast-slow-dynamics-with-three-variables",
+    "title": "31  Problem set 6",
+    "section": "Q2. Fast-slow dynamics with three variables",
+    "text": "Q2. Fast-slow dynamics with three variables\n\\(\\nextSection\\)\nConsider the limit of \\(\\epsilon \\ll 1\\) for each of the following cases.\n\nConsider the system \\[\n\\begin{aligned}[c]\n\\dot{x} &= 2 - y, \\\\\n\\dot{y} &= x-z, \\\\\n\\epsilon\\dot{z} &= y - y^2 + \\frac{1}{3}y^3 - z,\n\\end{aligned}\n\\] with the initial conditions of \\(x(0) = 1\\), \\(y(0) = 3\\), and \\(z(0) = 0\\).\n\n\nIdentify the surface \\(z = S(x, y)\\) that defines the slow manifold.\nFind the equilibrium point of the leading-order slow phase plane system and show that it is asymptotically stable for \\(t \\to \\infty\\).\nAlso determine the form of the initial layer that describes the transition from the initial conditions to the slow manifold.\n\n\nConsider the system \\[\n\\begin{aligned}[c]\n\\dot{x} &= 2 - y, \\\\\n\\epsilon\\dot{y} &= x-z, \\\\\n\\dot{z} &= y - y^2 + \\frac{1}{3}y^3 - z,\n\\end{aligned}\n\\] with the initial conditions of \\(x(0) = 0\\), \\(y(0) = 3\\), and \\(z(0) = 1\\).\n\n\nShow that the slow manifold reduces to a curve that could be written in parametric form as \\(x = x(z), y = y(z), z = z\\).\nDetermine the asymptotic solution for \\(t \\to \\infty\\).\nAlso determine the form of the initial layer that describes the transition from initial conditions to the slow manifold.",
+    "crumbs": [
+      "Exercises",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Problem set 6</span>"
+    ]
+  },
+  {
+    "objectID": "part-xx-exercises/ps06.html#q3.-visualising-fast-slow-dynamics",
+    "href": "part-xx-exercises/ps06.html#q3.-visualising-fast-slow-dynamics",
+    "title": "31  Problem set 6",
+    "section": "Q3. Visualising fast-slow dynamics",
+    "text": "Q3. Visualising fast-slow dynamics\n\\(\\nextSection\\)\nBy modifying the standard scripts developed in lectures, plot visualisations of Q1 and Q2(a) in order to verify your understanding of the fast-slow dynamics.",
     "crumbs": [
       "Exercises",
       "<span class='chapter-number'>31</span>  <span class='chapter-title'>Problem set 6</span>"

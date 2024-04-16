@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -472,7 +501,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#q1.-a-van-der-pol-equation" id="toc-q1.-a-van-der-pol-equation" class="nav-link active" data-scroll-target="#q1.-a-van-der-pol-equation">Q1. A van der Pol equation</a></li>
+  <li><a href="#q2.-fast-slow-dynamics-with-three-variables" id="toc-q2.-fast-slow-dynamics-with-three-variables" class="nav-link" data-scroll-target="#q2.-fast-slow-dynamics-with-three-variables">Q2. Fast-slow dynamics with three variables</a></li>
+  <li><a href="#q3.-visualising-fast-slow-dynamics" id="toc-q3.-visualising-fast-slow-dynamics" class="nav-link" data-scroll-target="#q3.-visualising-fast-slow-dynamics">Q3. Visualising fast-slow dynamics</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -496,92 +533,63 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Problem sets 6-7 will not be released until after the Easter break.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>To release for 2023-24.</p>
-</div>
-</div>
-<!-- ## Q2. A van der Pol equation {.unnumbered} -->
-<!---->
-<!-- Consider the van der Pol equation for $x(t)$ with $0 < \epsilon \ll 1$:  -->
-<!-- $$ -->
-<!-- \epsilon \frac{\mathrm{d}^2 x}{\mathrm{d}t^2} + (3x^2 - 6x - 9) \frac{\mathrm{d}x}{\mathrm{d}t} + 4x = 0. -->
-<!-- $$  -->
-<!---->
-<!-- a. Determine $f(x)$ so that this equation can be written as a Liénard phase plane system in the form  -->
-<!---->
-<!-- \begin{align} -->
-<!-- \epsilon \dot{x} &= f(x) + 4y, \\ -->
-<!-- \dot{y} &= -x.  -->
-<!-- \end{align} -->
-<!---->
-<!---->
-<!---->
-<!-- b. For fixed $\epsilon > 0$, find the equilibrium point(s) in the phase plane, find their eigenvalues, and classify their linear stability.  -->
-<!---->
-<!-- c. Use the expansions $x(t) = x_0(t) + \epsilon x_1(t) + O(\epsilon^2)$ to determine the equations for the leading-order slow solution. Sketch the slow manifold, indicate the directions motion on each part, and identify the two attracting points on the curve.  -->
-<!---->
-<!-- d. Use the expansions $x(t) = X_0(T) + \epsilon X_1(T) + O(\epsilon^2)$ and $y(t) = Y_0(T) + \epsilon Y_1(T) + O(\epsilon^2)$ with $T = t/\epsilon$ to obtain the leading-order fast solution.  -->
-<!---->
-<!-- e. Use the phase plane to determine the maximum and minimum values of $x(t)$ during an oscillation. Sketch $x(t)$ as a function of time.  -->
-<!---->
-<!-- f. **(Challenge)** Using the time required for the slow motions in part c (neglecting the short times for the fast solutions in part d), determine the leading-order estimate for the period $P$  of oscillation for the limit cycle.  -->
-<!---->
-<!-- Hint: Find the time spent moving along each of the slow curves by obtaining an equation $\dot{x}_0 = g(x_0)$ from part c, and then separate variables to write  -->
-<!-- $$ -->
-<!-- \dot{x}_0 = g(x_0) \Longrightarrow P = \int_{t_{\text{start}}}^{t_{\text{end}}} \, \mathrm{d}t = \int_{x_{\text{start}}}^{x_{\text{end}}} \frac{\mathrm{d}x}{g(x)}. -->
-<!-- $$  -->
-<!-- Finally, integrate over the ranges in $x$ that are appropriate to each of the slow segments, and add the result to obtain the period. -->
-<!---->
-<!-- ## Q3. Fast-slow dynamics with three variables {.unnumbered} -->
-<!---->
-<!-- Consider the limit of $\epsilon \ll 1$ for each of the following cases.  -->
-<!---->
-<!-- a. For the system  -->
-<!-- $$ -->
-<!-- \begin{aligned}[c] -->
-<!-- \dot{x} &= 2 - y, \\ -->
-<!-- \dot{y} &= x-z, \\ -->
-<!-- \epsilon\dot{z} &= y - y^2 + \frac{1}{3}y^3 - z,  -->
-<!-- \end{aligned} -->
-<!-- $$  -->
-<!-- with the initial conditions of $x(0) = 1$, $y(0) = 3$, and $z(0) = 0$.  -->
-<!---->
-<!-- Identify the surface $z = S(x, y)$ that defines the slow manifold. Find the equilibrium point of the leading-order slow phase plane system and show that it is asymptotically stable for $t \to \infty$. Also determine the form of the initial layer that describes the transition from the initial conditions to the slow manifold. -->
-<!---->
-<!-- b. For the system  -->
-<!-- $$ -->
-<!-- \begin{aligned}[c] -->
-<!-- \dot{x} &= 2 - y, \\ -->
-<!-- \epsilon\dot{y} &= x-z, \\ -->
-<!-- \dot{z} &= y - y^2 + \frac{1}{3}y^3 - z,  -->
-<!-- \end{aligned} -->
-<!-- $$  -->
-<!-- with the initial conditions of $x(0) = 0$, $y(0) = 3$, and $z(0) = 1$.  -->
-<!---->
-<!-- Show that the slow manifold reduces to a curve that could be written in parametric form as $x = x(z), y = y(z), z = z$. Determine the asymptotic solution for $t \to \infty$. Also determine the form of the initial layer that describes the transition from initial conditions to the slow manifold. -->
-<!---->
+<section id="q1.-a-van-der-pol-equation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q1.-a-van-der-pol-equation">Q1. A van der Pol equation</h2>
+<p>Consider the van der Pol equation for <span class="math inline">\(x(t)\)</span> with <span class="math inline">\(0 &lt; \epsilon \ll 1\)</span>: <span class="math display">\[
+\epsilon \frac{\mathrm{d}^2 x}{\mathrm{d}t^2} + (3x^2 - 6x - 9) \frac{\mathrm{d}x}{\mathrm{d}t} + 4x = 0.
+\]</span></p>
+<ol type="a">
+<li><p>Determine <span class="math inline">\(f(x)\)</span> so that this equation can be written as a Liénard phase plane system in the form <span class="math display">\[\begin{align}
+\epsilon \dot{x} &amp;= f(x) + 4y, \\
+\dot{y} &amp;= -x.
+\end{align}\]</span></p></li>
+<li><p>For fixed <span class="math inline">\(\epsilon &gt; 0\)</span>, find the equilibrium point(s) in the phase plane, find their eigenvalues, and classify their linear stability.</p></li>
+<li><p>Use the expansions <span class="math inline">\(x(t) = x_0(t) + \epsilon x_1(t) + O(\epsilon^2)\)</span> to determine the equations for the leading-order slow solution. Sketch the slow manifold, indicate the directions motion on each part, and identify the two attracting points on the curve.</p></li>
+<li><p>Use the expansions <span class="math inline">\(x(t) = X_0(T) + \epsilon X_1(T) + O(\epsilon^2)\)</span> and <span class="math inline">\(y(t) = Y_0(T) + \epsilon Y_1(T) + O(\epsilon^2)\)</span> with <span class="math inline">\(T = t/\epsilon\)</span> to obtain the leading-order fast solution.</p></li>
+<li><p>Use the phase plane to determine the maximum and minimum values of <span class="math inline">\(x(t)\)</span> during an oscillation. Sketch <span class="math inline">\(x(t)\)</span> as a function of time.</p></li>
+<li><p><strong>(Challenge)</strong> Using the time required for the slow motions in part c (neglecting the short times for the fast solutions in part d), determine the leading-order estimate for the period <span class="math inline">\(P\)</span> of oscillation for the limit cycle.</p></li>
+</ol>
+<p>Hint: Find the time spent moving along each of the slow curves by obtaining an equation <span class="math inline">\(\dot{x}_0 = g(x_0)\)</span> from part c, and then separate variables to write <span class="math display">\[
+\dot{x}_0 = g(x_0) \Longrightarrow P = \int_{t_{\text{start}}}^{t_{\text{end}}} \, \mathrm{d}t = \int_{x_{\text{start}}}^{x_{\text{end}}} \frac{\mathrm{d}x}{g(x)}.
+\]</span> Finally, integrate over the ranges in <span class="math inline">\(x\)</span> that are appropriate to each of the slow segments, and add the result to obtain the period.</p>
+</section>
+<section id="q2.-fast-slow-dynamics-with-three-variables" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q2.-fast-slow-dynamics-with-three-variables">Q2. Fast-slow dynamics with three variables</h2>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<p>Consider the limit of <span class="math inline">\(\epsilon \ll 1\)</span> for each of the following cases.</p>
+<ol type="a">
+<li>Consider the system <span class="math display">\[
+\begin{aligned}[c]
+\dot{x} &amp;= 2 - y, \\
+\dot{y} &amp;= x-z, \\
+\epsilon\dot{z} &amp;= y - y^2 + \frac{1}{3}y^3 - z,
+\end{aligned}
+\]</span> with the initial conditions of <span class="math inline">\(x(0) = 1\)</span>, <span class="math inline">\(y(0) = 3\)</span>, and <span class="math inline">\(z(0) = 0\)</span>.</li>
+</ol>
+<ol type="i">
+<li>Identify the surface <span class="math inline">\(z = S(x, y)\)</span> that defines the slow manifold.</li>
+<li>Find the equilibrium point of the leading-order slow phase plane system and show that it is asymptotically stable for <span class="math inline">\(t \to \infty\)</span>.</li>
+<li>Also determine the form of the initial layer that describes the transition from the initial conditions to the slow manifold.</li>
+</ol>
+<ol start="2" type="a">
+<li>Consider the system <span class="math display">\[
+\begin{aligned}[c]
+\dot{x} &amp;= 2 - y, \\
+\epsilon\dot{y} &amp;= x-z, \\
+\dot{z} &amp;= y - y^2 + \frac{1}{3}y^3 - z,
+\end{aligned}
+\]</span> with the initial conditions of <span class="math inline">\(x(0) = 0\)</span>, <span class="math inline">\(y(0) = 3\)</span>, and <span class="math inline">\(z(0) = 1\)</span>.</li>
+</ol>
+<ol type="i">
+<li>Show that the slow manifold reduces to a curve that could be written in parametric form as <span class="math inline">\(x = x(z), y = y(z), z = z\)</span>.</li>
+<li>Determine the asymptotic solution for <span class="math inline">\(t \to \infty\)</span>.</li>
+<li>Also determine the form of the initial layer that describes the transition from initial conditions to the slow manifold.</li>
+</ol>
+</section>
+<section id="q3.-visualising-fast-slow-dynamics" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q3.-visualising-fast-slow-dynamics">Q3. Visualising fast-slow dynamics</h2>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<p>By modifying the standard scripts developed in lectures, plot visualisations of Q1 and Q2(a) in order to verify your understanding of the fast-slow dynamics.</p>
 <!-- ## Q1. Non-dimensionalisation of the ocean model {.unnumbered} -->
 <!---->
 <!-- Take the ocean model from (@eq-ocean-final-dimensional). Re-scale the salinity and time via -->
@@ -667,6 +675,7 @@ Note
 <!---->
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
