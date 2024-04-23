@@ -621,7 +621,7 @@ $$
 $$ 
 -->
 <p>In the following code, we plot the two terms that make up <span class="math inline">\(f\)</span>, and their intersections indicate roots of <span class="math inline">\(f = 0\)</span>. We then use the Python ‘fsolve’ function to approximate the roots given initial guesses.</p>
-<div id="807b2204" class="cell" data-execution_count="1">
+<div id="2f919e4f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.optimize <span class="im">as</span> sciopt</span>
@@ -694,9 +694,9 @@ T(t = 0) = T_\infty + \delta,
 \]</span> where <span class="math inline">\(\delta \ll 1\)</span>. Then we expand the solution into an asymptotic expansion, <span class="math display">\[
 T(t) = T_\infty + \delta T_1(t) + \delta T^2(t) + \ldots
 \]</span> Substitution into the above ODE gives, at <span class="math inline">\(O(\delta)\)</span>, <span class="math display">\[
-C \frac{\mathrm{d}T_1}{\mathrm{d}t} = f'(T_0) T_1,
+C \frac{\mathrm{d}T_1}{\mathrm{d}t} = f'(T_\infty) T_1,
 \]</span> and hence, with <span class="math inline">\(T_1(0) = 1\)</span>, we have <span class="math display">\[
-T_1(t) = e^{f'(T_0) t/C}.
+T_1(t) = e^{f'(T_\infty) t/C}.
 \]</span> Therefore, depending on the positivity or negativity of the gradient function, the perturbation will either decay or grow as <span class="math inline">\(t\to\infty\)</span>.</p>
 <p>It can then be verified that the centre equilbria is unstable while the other two are stable. The higher temperature corresponds to the one that the Earth is currently in, but according to this model, there seems to be the possibility of a colder climate (50 degrees colder) where the Earth is entirely covered with snow and ice.</p>
 <p>Interestingly, there is some evidence that the Earth’s climate may have been in this so-called state up to four times between 750 million and 580 million years ago (Neoproterozoic age). Observations of geological deposits suggest that the Earth has undergone periods of complete global glaciation where there have been very minimal biological activity. During this period, there is a massive build-up of CO<sub>2</sub> in the atmopshere, leading to huge greenhouse effect. As <span class="math inline">\(\gamma\)</span> decreases in our model, the equilibrium can then shift, suddenly transitioning the Planet into the warm state.</p>
@@ -730,7 +730,7 @@ We discuss Newton's method in @sec-newton.
 
 Using the simplest Newton code there, we can solve for one of the roots.
 
-::: {#aeb2a453 .cell execution_count=2}
+::: {#e5a14923 .cell execution_count=2}
 ``` {.python .cell-code}
 import numpy as np
 
