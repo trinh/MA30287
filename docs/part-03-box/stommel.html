@@ -488,6 +488,18 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Problem set 5 solutions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps06sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Problem set 6 solutions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps07sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Problem set 7 solutions</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -502,43 +514,43 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/chatgpt-goes-wrong.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
   </div>
 </li>
       </ul>
@@ -559,7 +571,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#non-dimensionalisation" id="toc-non-dimensionalisation" class="nav-link active" data-scroll-target="#non-dimensionalisation"><span class="header-section-number">24.1</span> Non-dimensionalisation</a></li>
+  <li><a href="#sec-stommel-nondim" id="toc-sec-stommel-nondim" class="nav-link active" data-scroll-target="#sec-stommel-nondim"><span class="header-section-number">24.1</span> Non-dimensionalisation</a></li>
   <li><a href="#sec-ocean2-equil" id="toc-sec-ocean2-equil" class="nav-link" data-scroll-target="#sec-ocean2-equil"><span class="header-section-number">24.2</span> Equilibrium states</a></li>
   <li><a href="#stability" id="toc-stability" class="nav-link" data-scroll-target="#stability"><span class="header-section-number">24.3</span> Stability</a></li>
   <li><a href="#bifurcation-diagrams" id="toc-bifurcation-diagrams" class="nav-link" data-scroll-target="#bifurcation-diagrams"><span class="header-section-number">24.4</span> Bifurcation diagrams</a></li>
@@ -589,8 +601,8 @@ window.Quarto = {
 </header>
 
 
-<p>In addition to the model studied in <a href="basic-ocean-model.html#sec-ocean-toysalinity" class="quarto-xref"><span>Section 23.7</span></a>, there is another kind of reduced model that is examined in this chapter.</p>
-<p>In his work <span class="citation" data-cites="stommel1961thermohaline">(<a href="../references.html#ref-stommel1961thermohaline" role="doc-biblioref">Stommel 1961</a>)</span> did not account for evaporation or precipitation, so there is no virtual salt flux, <span class="math inline">\(H = 0\)</span>, but each box does exchange salinity with its surrounding environment, so <span class="math inline">\(d &gt; 0\)</span>. The set of four differential equations presented in <a href="basic-ocean-model.html" class="quarto-xref"><span>Chapter 23</span></a> (<a href="basic-ocean-model.html#eq-2box-again" class="quarto-xref">Equation&nbsp;<span>23.6</span></a>) can be reduced two coupled differential equations for the mean temperature and salinity. We notice that if we subtract the pairs of equations, then we can write <span id="eq-stommelpre"><span class="math display">\[
+<!-- In addition to the model studied in @sec-ocean-toysalinity, there is another kind of reduced model that is examined in this chapter. -->
+<p>In his work <span class="citation" data-cites="stommel1961thermohaline">(<a href="#ref-stommel1961thermohaline" role="doc-biblioref">Stommel 1961</a>)</span> did not account for evaporation or precipitation, so there is no virtual salt flux, <span class="math inline">\(H = 0\)</span>, but each box does exchange salinity with its surrounding environment, so <span class="math inline">\(d &gt; 0\)</span>. The set of four differential equations presented in <a href="#sec-oceanbox" class="quarto-xref"><span class="quarto-unresolved-ref">sec-oceanbox</span></a> (<a href="#eq-2box-again" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-2box-again</span></a>) can be reduced two coupled differential equations for the mean temperature and salinity. We notice that if we subtract the pairs of equations, then we can write <span id="eq-stommelpre"><span class="math display">\[
 \begin{aligned}
 \frac{\mathrm{d}\Delta T}{\mathrm{d}t} = c(\Delta T^* - \Delta T) - 2|q|\Delta T, \\
 \frac{\mathrm{d}\Delta S}{\mathrm{d}t} = d(\Delta S^* - \Delta S) - 2|q|\Delta S,
@@ -604,8 +616,8 @@ window.Quarto = {
 \]</span> and now, the flow <span class="math inline">\(q\)</span> is given by <span class="math display">\[
 q = k(\alpha \Delta T - \beta \Delta S).
 \]</span></p>
-<section id="non-dimensionalisation" class="level2" data-number="24.1">
-<h2 data-number="24.1" class="anchored" data-anchor-id="non-dimensionalisation"><span class="header-section-number">24.1</span> Non-dimensionalisation</h2>
+<section id="sec-stommel-nondim" class="level2" data-number="24.1">
+<h2 data-number="24.1" class="anchored" data-anchor-id="sec-stommel-nondim"><span class="header-section-number">24.1</span> Non-dimensionalisation</h2>
 <p>We can then nondimensionalise the system by setting <span class="math display">\[
 x = \frac{\Delta S}{\Delta S^*}, \quad y = \frac{\Delta T}{\Delta T^*}, \quad t' = ct,
 \]</span> where <span class="math inline">\(t'\)</span> is nondimensional time. Dropping the primes henceforth, we have the following set of non-dimensional equations to study for the unknowns, <span class="math inline">\(x = x(t)\)</span>, and <span class="math inline">\(y = y(t)\)</span>: <span id="eq-stommelsys"><span class="math display">\[
@@ -615,25 +627,26 @@ x = \frac{\Delta S}{\Delta S^*}, \quad y = \frac{\Delta T}{\Delta T^*}, \quad t'
 \end{aligned}
 \tag{24.2}\]</span></span> where we have introduced the function, <span id="eq-stommelf"><span class="math display">\[
 f(x, y; R, \lambda) = \frac{1}{\lambda}(Rx - y),
-\tag{24.3}\]</span></span> where there are now three non-dimensional parameters given by</p>
-<p><span class="math display">\[\begin{align}
+\tag{24.3}\]</span></span> where there are now three non-dimensional parameters given by <span class="math display">\[
+\begin{aligned}
 \delta &amp;= d/c, \\
 \lambda &amp;= c/(2\alpha k \Delta T^*), \\
 R &amp;= \beta \Delta S^*/(\alpha \Delta T^*).
-\end{align}\]</span></p>
-<p>Together <a href="#eq-stommelsys" class="quarto-xref">Equation&nbsp;<span>24.2</span></a> and <a href="#eq-stommelf" class="quarto-xref">Equation&nbsp;<span>24.3</span></a> form a system of equations for <span class="math inline">\((x(t), y(t))\)</span>, with parameters <span class="math inline">\(\delta\)</span>, <span class="math inline">\(\lambda\)</span>, and <span class="math inline">\(R\)</span>.</p>
+\end{aligned}
+\]</span></p>
+<p>Together <a href="#eq-stommelsys" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-stommelsys</span></a> and <a href="#eq-stommelf" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-stommelf</span></a> form a system of equations for <span class="math inline">\((x(t), y(t))\)</span>, with parameters <span class="math inline">\(\delta\)</span>, <span class="math inline">\(\lambda\)</span>, and <span class="math inline">\(R\)</span>.</p>
 <p>Although there are many parameters, it is important to note that the quantity <span class="math inline">\(f\)</span> is crucial since it corresponds to the direction of flow in the bottom pipe of the Ocean model. By convention, the system was set up so that <span class="math inline">\(f &gt; 0\)</span> corresponds to flow through the bottom pipe goes in the direction of the equator (Box 1) as a result of higher densities at the high latitudes. We are subsequently interested in whether it is possible for <span class="math inline">\(f\)</span> to switch sign, which would correspond to a bottom flow going from equator to poles, and the entire system switching direction.</p>
 </section>
 <section id="sec-ocean2-equil" class="level2" data-number="24.2">
 <h2 data-number="24.2" class="anchored" data-anchor-id="sec-ocean2-equil"><span class="header-section-number">24.2</span> Equilibrium states</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>Let the equilibrium states be given by <span class="math inline">\((x^*, y^*)\)</span> with <span class="math inline">\(f(x^*, y^*) = f^*\)</span>. Then setting the right hand sides of (<a href="#eq-stommelsys" class="quarto-xref">Equation&nbsp;<span>24.2</span></a>) to zero and solving, we find <span id="eq-stommel-xsys"><span class="math display">\[
+<p>Let the equilibrium states be given by <span class="math inline">\((x^*, y^*)\)</span> with <span class="math inline">\(f(x^*, y^*) = f^*\)</span>. Then setting the right hand sides of (<a href="#eq-stommelsys" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-stommelsys</span></a>) to zero and solving, we find <span id="eq-stommel-xsys"><span class="math display">\[
 x^* = \frac{\delta}{\delta + |f^*|} \quad \text{and} \quad
 y^* = \frac{1}{1 + |f^*|}.
 \tag{24.4}\]</span></span> We can solve for <span class="math inline">\(f^*\)</span> in both equations and equate the result to one another. This gives <span class="math display">\[
 \delta \frac{1-x^*}{x^*} = \frac{1 - y^*}{y^*} = |f^*|.
 \]</span> Therefore the equilibrium points lie along the above curve. Let us generate different values of <span class="math inline">\(f^*\)</span> and plot the combination.</p>
-<div id="a75875d6" class="cell" data-execution_count="1">
+<div id="d56de9ed" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -654,13 +667,12 @@ y^* = \frac{1}{1 + |f^*|}.
 </div>
 </div>
 </div>
-<p>The above shows the steady-state values at <span class="math inline">\(\delta = 1/6\)</span>. Each point refers to a different value of <span class="math inline">\(|f^*|\)</span>. Note that as <span class="math inline">\(|f^*| \to \infty\)</span>, then <span class="math inline">\((x^*, y^*) \to (0, 0)\)</span> while as <span class="math inline">\(|f^*| \to 0\)</span>, then <span class="math inline">\((x^*, y^*) \to (1,1)\)</span>.</p>
-<p>Now the above does not tell us what equilibrium states will exist at a specific value of <span class="math inline">\(\delta\)</span> since it requires information about <span class="math inline">\(f^*\)</span>. We take (<a href="#eq-stommelf" class="quarto-xref">Equation&nbsp;<span>24.3</span></a>) and combine with (<a href="#eq-stommel-xsys" class="quarto-xref">Equation&nbsp;<span>24.4</span></a>). We conclude that the equilibrium points must satisfy <span class="math display">\[
+<p>The above plot shows the steady-state values at <span class="math inline">\(\delta = 1/6\)</span>. Each point refers to a different value of <span class="math inline">\(|f^*|\)</span>. Note that as <span class="math inline">\(|f^*| \to \infty\)</span>, then <span class="math inline">\((x^*, y^*) \to (0, 0)\)</span> while as <span class="math inline">\(|f^*| \to 0\)</span>, then <span class="math inline">\((x^*, y^*) \to (1,1)\)</span>. Now the above does not tell us what equilibrium states will exist at a specific value of <span class="math inline">\(\delta\)</span> since it requires information about <span class="math inline">\(f^*\)</span>. We take (<a href="#eq-stommelf" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-stommelf</span></a>) and combine with (<a href="#eq-stommel-xsys" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-stommel-xsys</span></a>). We conclude that the equilibrium points must satisfy <span class="math display">\[
 \lambda f^* = \phi(f^*),
 \]</span> where we have defined the function <span class="math inline">\(\phi\)</span> according to <span id="eq-stommel-phi"><span class="math display">\[
 \phi(f^*) = \frac{\delta R}{\delta + |f^*|} - \frac{1}{1 + |f^*|}.
 \tag{24.5}\]</span></span> Therefore, for each combination of the parameters <span class="math inline">\((\lambda, \delta, R)\)</span>, we must solve <span class="math inline">\(\delta f^* = \phi(f^*)\)</span> to determine <span class="math inline">\(f^*\)</span>. Once the values of <span class="math inline">\(f^*\)</span> are known, then the steady-states <span class="math inline">\((x^*, y^*)\)</span> are also known. Here is a typical graph showing the potential intersections at the values of <span class="math inline">\(\lambda = 1/5\)</span>, <span class="math inline">\(\delta = 1/6\)</span> and <span class="math inline">\(R = 2\)</span>.</p>
-<div id="0673a819" class="cell" data-execution_count="2">
+<div id="27bcb7ea" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.optimize <span class="im">as</span> sciopt</span>
@@ -692,6 +704,31 @@ y^* = \frac{1}{1 + |f^*|}.
 <section id="stability" class="level2" data-number="24.3">
 <h2 data-number="24.3" class="anchored" data-anchor-id="stability"><span class="header-section-number">24.3</span> Stability</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<p>For our purposes, we will mainly proceed using numerics, and bypass the need to study the above results analytically.</p>
+<p>In the accompanying lecture script, <code>lecture29-StommelPhasePlane.ipynb</code>, we will obtain the eigenvalues numerically, and generate the phase plane. At the test point <span class="math inline">\(R = 2\)</span>, <span class="math inline">\(\delta = 1/6\)</span>, and <span class="math inline">\(\lambda = 1/5\)</span>, we generate the following phase plane picture.</p>
+<div id="fig-stommel-phase" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-stommel-phase-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/2023-04-27-11-17-43.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stommel-phase-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;24.1: Phase plane for <span class="math inline">\(R = 2\)</span>, <span class="math inline">\(\lambda = 1/5\)</span> and <span class="math inline">\(\delta = 1/6\)</span>. The blue, red, and green fixed points correspond to <span class="math inline">\(f_1\)</span>, <span class="math inline">\(f_2\)</span>, and <span class="math inline">\(f_3\)</span> in order. The blue point is a stable node, the red point is an unstable saddle, and the green point is a stable spiral.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Details on the stability analysis
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This part is only for additional detail in the course; it involves some (non-interesting) algebra so is only included here for additional context.</p>
 <p>We let <span class="math inline">\(x = x^* + \xi\)</span> and <span class="math inline">\(y = y^* + \eta\)</span> and linearise the system about the fixed points. This gives <span class="math display">\[
 \begin{pmatrix}
 \dot{\xi} \\
@@ -713,25 +750,16 @@ A =
 T &amp;= -(1 + \delta + 3 |f^*|), \\
 D &amp;= (\delta + 2|f^*|)(1 + |f^*|) \pm (1 - \delta) \frac{y^*}{\lambda}.
 \end{align}\]</span></p>
-<p>Using the above, we can analytically calculate the key discriminant expression of <span class="math inline">\(T^2 - 4D\)</span> (or numerically) in order to verify stability. The details of the classification scheme is given in the appendix <a href="../part-05-techniques/dynamical-systems.html" class="quarto-xref"><span>Chapter 39</span></a>.</p>
-<p>For our purposes, we will mainly proceed using numerics, and bypass the need to study the above results analytically.</p>
-<p><a href="https://maths.jupyterhub.bath.ac.uk/hub/user-redirect/lab/tree/courses/MA30287/notebooks/lecture29-StommelPhasePlane.ipynb">In the accompanying lecture script</a>, we will obtain the eigenvalues numerically, and generate the phase plane. At the test point <span class="math inline">\(R = 2\)</span>, <span class="math inline">\(\delta = 1/6\)</span>, and <span class="math inline">\(\lambda = 1/5\)</span>, we generate the following phase plane picture.</p>
-<div id="fig-stommel-phase" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-stommel-phase-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="img/2023-04-27-11-17-43.png" class="img-fluid figure-img">
+<p>Using the above, we can analytically calculate the key discriminant expression of <span class="math inline">\(T^2 - 4D\)</span> (or numerically) in order to verify stability. The details of the classification scheme is given in the appendix <a href="#sec-appendix-dyn" class="quarto-xref"><span class="quarto-unresolved-ref">sec-appendix-dyn</span></a>.</p>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stommel-phase-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;24.1: Phase plane for <span class="math inline">\(R = 2\)</span>, <span class="math inline">\(\lambda = 1/5\)</span> and <span class="math inline">\(\delta = 1/6\)</span>. The blue, red, and green fixed points correspond to <span class="math inline">\(f_1\)</span>, <span class="math inline">\(f_2\)</span>, and <span class="math inline">\(f_3\)</span> in order. The blue point is a stable node, the red point is an unstable saddle, and the green point is a stable spiral.
-</figcaption>
-</figure>
+</div>
 </div>
 </section>
 <section id="bifurcation-diagrams" class="level2" data-number="24.4">
 <h2 data-number="24.4" class="anchored" data-anchor-id="bifurcation-diagrams"><span class="header-section-number">24.4</span> Bifurcation diagrams</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
 <p>Once the above stability analysis, it is possible to sketch the final bifurcation diagram.</p>
-<p>First, we can note that as <span class="math inline">\(\lambda\)</span> increases, the graph in <a href="#sec-ocean2-equil" class="quarto-xref"><span>Section 24.2</span></a> indicates that there may either be three intersections (as shown) or if <span class="math inline">\(\lambda\)</span> increases then two of the intersections may disappear. We can note that:</p>
+<p>First, we can note that as <span class="math inline">\(\lambda\)</span> increases, the graph in <a href="#sec-ocean2-equil" class="quarto-xref"><span class="quarto-unresolved-ref">sec-ocean2-equil</span></a> indicates that there may either be three intersections (as shown) or if <span class="math inline">\(\lambda\)</span> increases then two of the intersections may disappear. We can note that:</p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -784,7 +812,7 @@ Figure&nbsp;24.2
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-As noted by <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span>:
+As noted by <span class="citation" data-cites="kaper_book">(<a href="#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span>:
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -793,7 +821,7 @@ As noted by <span class="citation" data-cites="kaper_book">(<a href="../referenc
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-kaper_book" class="csl-entry" role="listitem">
 Kaper, Hans, and Hans Engler. 2013. <em>Mathematics and Climate</em>. SIAM.
 </div>

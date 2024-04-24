@@ -434,6 +434,18 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Problem set 5 solutions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps06sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Problem set 6 solutions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps07sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Problem set 7 solutions</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -448,43 +460,43 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/chatgpt-goes-wrong.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
   </div>
 </li>
       </ul>
@@ -505,9 +517,10 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#slow-analysis" id="toc-slow-analysis" class="nav-link active" data-scroll-target="#slow-analysis"><span class="header-section-number">22.1</span> Slow analysis</a></li>
-  <li><a href="#fast-dynamics-near-the-initial-condition" id="toc-fast-dynamics-near-the-initial-condition" class="nav-link" data-scroll-target="#fast-dynamics-near-the-initial-condition"><span class="header-section-number">22.2</span> Fast dynamics near the initial condition</a></li>
-  <li><a href="#an-equation-for-the-substrate-and-product" id="toc-an-equation-for-the-substrate-and-product" class="nav-link" data-scroll-target="#an-equation-for-the-substrate-and-product"><span class="header-section-number">22.3</span> An equation for the substrate and product</a></li>
+  <li><a href="#late-time-behaviour" id="toc-late-time-behaviour" class="nav-link active" data-scroll-target="#late-time-behaviour"><span class="header-section-number">22.1</span> Late-time behaviour</a></li>
+  <li><a href="#slow-analysis" id="toc-slow-analysis" class="nav-link" data-scroll-target="#slow-analysis"><span class="header-section-number">22.2</span> Slow analysis</a></li>
+  <li><a href="#fast-dynamics-near-the-initial-condition" id="toc-fast-dynamics-near-the-initial-condition" class="nav-link" data-scroll-target="#fast-dynamics-near-the-initial-condition"><span class="header-section-number">22.3</span> Fast dynamics near the initial condition</a></li>
+  <li><a href="#an-equation-for-the-substrate-and-product" id="toc-an-equation-for-the-substrate-and-product" class="nav-link" data-scroll-target="#an-equation-for-the-substrate-and-product"><span class="header-section-number">22.4</span> An equation for the substrate and product</a></li>
   </ul>
 </nav>
     </div>
@@ -535,9 +548,21 @@ window.Quarto = {
 
 <p>In the last two lectures, we discussed the use of toy models that exhibit fast-slow dynamics. These have been used to posit possible changes in behaviour in ice ages, where historical records confirm that multiple periodic states are possible.</p>
 <p>It is important to note that the van der Pol oscillator we have studied, which is equivalent to two first-order differential equations, is really not that unusual, and systems of (three or more) differential equations will often exhibit the kind of fast-slow behaviours observed. This occurs commonly in applications much more general than climate or geoscience—of course, if your view is to concentrate to models of Planet Earth, you can expect this kind of behaviour whenever you have moderately complicated systems of coupled oscillators describing the planet!</p>
-<p>As as means of providing you with additional toy examples, let us examine a model used in studying chemical reactions. Consider an enzyme-mediated chemical reaction given by <span class="math display">\[
-\text{formula broken due to latex}
-\]</span> <!-- $$ --> <!-- S + E \overset{k_1}{\underset{k_2}{\xleftrightarrow{}}} C \overset{k_3}{\xrightarrow{}} P + E --> <!-- $$  --> <!-- \ce{S + E <=>[k_1][k_2] C ->[k_3] P + E}, --> <!-- <=>[k_1][k_2] C ->[k_3] P + E}, --> where <span class="math inline">\(S\)</span> is the “substrate” reactant and <span class="math inline">\(P\)</span> is the concentration of the product. The enzyme <span class="math inline">\(E\)</span> is a compound that allows for an immediate reaction step that leads to the overall reaction, which in this case is <span class="math inline">\(S \to P\)</span>. The intermediate substance is <span class="math inline">\(C\)</span>, the complex. The point here is that dependent on the rate constants, <span class="math inline">\(k_1\)</span>, <span class="math inline">\(k_2\)</span>, <span class="math inline">\(k_3\)</span>, and the amount of each substance, the overall chemical reaction may be coarse-grained so that you only observe <span class="math inline">\(S \to P\)</span> (this is the slow dynamics). We can consider the dynamics of the three substances and derive the following system of three equations <span id="eq-3chem"><span class="math display">\[
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The physical explanation below is non-examinable. It is only to give you context on the sort of dynamics that can arise.</p>
+</div>
+</div>
+<p>As as means of providing you with additional toy examples, let us examine a model used in studying chemical reactions. Consider an enzyme-mediated chemical reaction given by the following: a substrate (S) and enzyme (E) combine to produce a complex (C) with a reaction rate <span class="math inline">\(k_1\)</span>. The complex then produces a product (P) and enzyme (E) with reaction rate <span class="math inline">\(k_3\)</span>. Finally the complex (C) can degrade into (S) and (E) with rate <span class="math inline">\(k_2\)</span>. The enzyme <span class="math inline">\(E\)</span> is a compound that allows for an immediate reaction step that leads to the overall reaction, which in this case is <span class="math inline">\(S \to P\)</span>. The intermediate substance is <span class="math inline">\(C\)</span>, the complex. The point here is that dependent on the rate constants, <span class="math inline">\(k_1\)</span>, <span class="math inline">\(k_2\)</span>, <span class="math inline">\(k_3\)</span>, and the amount of each substance, the overall chemical reaction may be coarse-grained so that you only observe <span class="math inline">\(S \to P\)</span> (this is the slow dynamics).</p>
+<p>We can consider the dynamics of the three substances and derive the following system of three equations <span id="eq-3chem"><span class="math display">\[
 \begin{aligned}
 \frac{\mathrm{d}s}{\mathrm{d}t} &amp;= -s(1 - c) + \lambda c, \qquad &amp; s(0) &amp;= 1, \\
 \epsilon\frac{\mathrm{d}c}{\mathrm{d}t} &amp;= s(1 - c) - \mu c, &amp; c(0) &amp;= 0, \\
@@ -546,7 +571,7 @@ window.Quarto = {
 \tag{22.1}\]</span></span> where the three substances have been suitably non-dimensionalised. The key is to assume that the parameters <span class="math inline">\(\lambda = O(1) = \mu\)</span>, while <span class="math display">\[
 \epsilon = \frac{\text{initial enzyme}}{\text{initial substrate}} \ll 1.
 \]</span></p>
-<p>Here is a typical numerical calculation found in the script <a href="https://maths.jupyterhub.bath.ac.uk/hub/user-redirect/lab/tree/courses/MA30287/notebooks/lecture25-ThreeTermChemicalReaction.ipynb">here</a>.</p>
+<p>Here is a typical numerical calculation found in the script <code>lecture28-ThreeTermChemicalReaction.ipynb</code>.</p>
 <div id="fig-3chem" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-3chem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -569,8 +594,15 @@ Figure&nbsp;22.2: Plot of the solution evolution with time
 </figure>
 </div>
 <p>The above graph suggests that there is a boundary layer for the complex near <span class="math inline">\(t = 0\)</span>.</p>
-<section id="slow-analysis" class="level2" data-number="22.1">
-<h2 data-number="22.1" class="anchored" data-anchor-id="slow-analysis"><span class="header-section-number">22.1</span> Slow analysis</h2>
+<section id="late-time-behaviour" class="level2" data-number="22.1">
+<h2 data-number="22.1" class="anchored" data-anchor-id="late-time-behaviour"><span class="header-section-number">22.1</span> Late-time behaviour</h2>
+<p>Note that as <span class="math inline">\(t\to\infty\)</span>, all the derivative terms are set to zero. This tells us that <span class="math display">\[
+s \to 0, qquad c \to 0.
+\]</span> Note that it is not immediately obvious what the limit of <span class="math inline">\(p\)</span> is. But it can be shown (see below) that <span class="math inline">\(p \to 1\)</span>.</p>
+</section>
+<section id="slow-analysis" class="level2" data-number="22.2">
+<h2 data-number="22.2" class="anchored" data-anchor-id="slow-analysis"><span class="header-section-number">22.2</span> Slow analysis</h2>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
 <p>We thus expand the solutions in the typical way, setting <span class="math display">\[
 \begin{aligned}
 s(t) &amp;= s_0(t) + \epsilon s_1(t) + \ldots \\
@@ -599,14 +631,14 @@ Figure&nbsp;22.3: Numerical solution as before but now plotted in the <span clas
 </figure>
 </div>
 </section>
-<section id="fast-dynamics-near-the-initial-condition" class="level2" data-number="22.2">
-<h2 data-number="22.2" class="anchored" data-anchor-id="fast-dynamics-near-the-initial-condition"><span class="header-section-number">22.2</span> Fast dynamics near the initial condition</h2>
+<section id="fast-dynamics-near-the-initial-condition" class="level2" data-number="22.3">
+<h2 data-number="22.3" class="anchored" data-anchor-id="fast-dynamics-near-the-initial-condition"><span class="header-section-number">22.3</span> Fast dynamics near the initial condition</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
 <p>As with our van der Pol example, the initial condition, where <span class="math inline">\(c(0) = 0\)</span> and <span class="math inline">\(s(0) = 1\)</span>, does not lie on the slow manifold above. Therefore we expect that there is a boundary layer where the system rapidly begins from the initial condition and tends to the slow manifold. The distinguished scaling on time can be confirmed to be <span class="math display">\[
 t = \epsilon^\alpha T = \epsilon T,
 \]</span> where <span class="math inline">\(\alpha = 1\)</span>. We then set <span class="math display">\[
 s = S(T) \qquad c = C(T),
-\]</span> for our new unknowns within this later. Under the scaling, the first two ODEs in (<a href="#eq-3chem" class="quarto-xref">Equation&nbsp;<span>22.1</span></a>) become <span class="math display">\[
+\]</span> for our new unknowns within this later. Under the scaling, the first two ODEs in (<a href="#eq-3chem" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-3chem</span></a>) become <span class="math display">\[
 \begin{aligned}
 \frac{\mathrm{d}S_0}{\mathrm{d}T} &amp;= 0,  &amp; S_0(0) &amp;= 1 \\
 \frac{\mathrm{d}C_0}{\mathrm{d}T} &amp;= S_0(1 - C_0) - \mu C_0. &amp; C_0 &amp;= 0.
@@ -616,14 +648,14 @@ s = S(T) \qquad c = C(T),
 S_0(T) \equiv 1.
 \]</span> Although we could solve for the concentration of <span class="math inline">\(c\)</span> or <span class="math inline">\(C\)</span>, this turns out not to be necessary. It should first be remarked that as the outer solution, <span class="math inline">\(s \sim s_0\)</span>, tends to the initial condition, <span class="math inline">\(t \to 0\)</span>, we should have <span class="math display">\[
 \lim_{t \to 0} s_0(t) = 1 = \lim_{T\to \infty} S_0(T).
-\]</span> Compare this with the condition (<a href="../part-05-techniques/asymptotics03.html#eq-matched-matchingcond" class="quarto-xref">Equation&nbsp;<span>8.2</span></a>) when we initially studied the method of matched asymptotics. Therefore, even though there is a boundary layer necessary for the concentration <span class="math inline">\(c\)</span> near <span class="math inline">\(t = 0\)</span>, we do not need to resolve it.</p>
+\]</span> Compare this with the condition (<a href="#eq-matched-matchingcond" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-matched-matchingcond</span></a>) when we initially studied the method of matched asymptotics. Therefore, even though there is a boundary layer necessary for the concentration <span class="math inline">\(c\)</span> near <span class="math inline">\(t = 0\)</span>, we do not need to resolve it.</p>
 </section>
-<section id="an-equation-for-the-substrate-and-product" class="level2" data-number="22.3">
-<h2 data-number="22.3" class="anchored" data-anchor-id="an-equation-for-the-substrate-and-product"><span class="header-section-number">22.3</span> An equation for the substrate and product</h2>
+<section id="an-equation-for-the-substrate-and-product" class="level2" data-number="22.4">
+<h2 data-number="22.4" class="anchored" data-anchor-id="an-equation-for-the-substrate-and-product"><span class="header-section-number">22.4</span> An equation for the substrate and product</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>Take now (<a href="#eq-s0c0" class="quarto-xref">Equation&nbsp;<span>22.3</span></a>), which yields <span class="math display">\[
+<p>Take now (<a href="#eq-s0c0" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-s0c0</span></a>), which yields <span class="math display">\[
 c_0 = \frac{s_0}{\mu + s_0},
-\]</span> and substitute this into the first and third equations (<a href="#eq-3chem-lead" class="quarto-xref">Equation&nbsp;<span>22.2</span></a>). This gives <span class="math display">\[
+\]</span> and substitute this into the first and third equations (<a href="#eq-3chem-lead" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-3chem-lead</span></a>). This gives <span class="math display">\[
 \begin{aligned}
 \frac{\mathrm{d}s_0}{\mathrm{d}t} &amp;= - \frac{\mu - \lambda}{\mu + s_0} s_0, \\
 \frac{\mathrm{d}p_0}{\mathrm{d}t} &amp;= \frac{\mu - \lambda}{\mu + s_0} s_0
@@ -634,7 +666,7 @@ c_0 = \frac{s_0}{\mu + s_0},
 \]</span> which is a conservation of mass/concentration statement that indicates that the total substrate and product is conserved. Therefore, if we only solve the first equation for <span class="math inline">\(s_0\)</span>: <span id="eq-mmlaw"><span class="math display">\[
 \frac{\mathrm{d}s_0}{\mathrm{d}t} = - \frac{\mu - \lambda}{\mu + s_0} s_0, \qquad s_0(0) = 1,
 \tag{22.4}\]</span></span> we can obtain the product concentration by <span class="math inline">\(p_0 = 1 - s_0\)</span>.</p>
-<p>The above equation (<a href="#eq-mmlaw" class="quarto-xref">Equation&nbsp;<span>22.4</span></a>) is in fact a famous result in biochemistry. It indicates that the substrate concentration follows a nonlinear rate and is called <em>the Michaelis-Menten law</em>. We have significantly simplified the necessary mathematical analysis down from the analysis of coupled system of three equations to a single equation for a single unknown (<span class="math inline">\(s_0\)</span>)!</p>
+<p>The above equation (<a href="#eq-mmlaw" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-mmlaw</span></a>) is in fact a famous result in biochemistry. It indicates that the substrate concentration follows a nonlinear rate and is called <em>the Michaelis-Menten law</em>. We have significantly simplified the necessary mathematical analysis down from the analysis of coupled system of three equations to a single equation for a single unknown (<span class="math inline">\(s_0\)</span>)!</p>
 <div id="fig-3chem-single" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-3chem-single-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">

@@ -434,6 +434,18 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Problem set 5 solutions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps06sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Problem set 6 solutions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps07sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Problem set 7 solutions</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -448,43 +460,43 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/chatgpt-goes-wrong.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
   </div>
 </li>
       </ul>
@@ -560,7 +572,7 @@ Solution
 <section id="q2.-a-source-in-the-heat-equation" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q2.-a-source-in-the-heat-equation">Q2. A source in the heat equation</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>Consider the same heat experiment discussed in <a href="../part-01-intro/intro-PDEs.html" class="quarto-xref"><span>Chapter 1</span></a> but now consider a bar that has an internal source or sink generating or removing heat, such as the case of a boiler with an internal heating element. By adapting a similar derivation to the one presented, explain why the modified conservation of heat equation is <span class="math display">\[
+<p>Consider the same heat experiment discussed in <a href="#sec-intro-PDEs" class="quarto-xref"><span class="quarto-unresolved-ref">sec-intro-PDEs</span></a> but now consider a bar that has an internal source or sink generating or removing heat, such as the case of a boiler with an internal heating element. By adapting a similar derivation to the one presented, explain why the modified conservation of heat equation is <span class="math display">\[
 \frac{\mathrm{\partial}}{\mathrm{\partial}t} \int_a^b \rho c T \, \mathrm{d}x = q(x = a, t) - q(x = b, t) + \int_a^b R(x, t) \, \mathrm{d}x.
 \]</span></p>
 <p>In addition:</p>
@@ -807,7 +819,7 @@ Solution
 <section id="q5.-timescale-in-the-surface-energy" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q5.-timescale-in-the-surface-energy">Q5. Timescale in the surface energy</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>Take the basic zero-dimensional energy model studied in (<a href="../part-01-intro/basic-energy-model.html#eq-heateq-earth" class="quarto-xref">Equation&nbsp;<span>3.7</span></a>) for the temperature of the troposphere: <span class="math display">\[
+<p>Take the basic zero-dimensional energy model studied in (<a href="#eq-heateq-earth" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-heateq-earth</span></a>) for the temperature of the troposphere: <span class="math display">\[
 c \frac{\mathrm{d}T}{\mathrm{d}t} = \frac{1}{4} Q(1 - a) - \sigma \gamma T^4.
 \]</span></p>
 <ol type="a">
@@ -875,7 +887,7 @@ Solution
 </div>
 <div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Below (<a href="../part-01-intro/basic-energy-model.html#eq-heateq-earth" class="quarto-xref">Equation&nbsp;<span>3.7</span></a>), we defined <span class="math inline">\(C = \rho c_p d\)</span>. So the scaling on time is (put in the scaling for [T]): <span class="math display">\[
+<p>Below (<a href="#eq-heateq-earth" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-heateq-earth</span></a>), we defined <span class="math inline">\(C = \rho c_p d\)</span>. So the scaling on time is (put in the scaling for [T]): <span class="math display">\[
 [t] = \left(\frac{4}{(1-a)}\right)^{3/4} \left(\frac{C}{(\sigma \gamma)^{1/4} Q^{3/4}}\right).
 \]</span></p>
 <p>So we know that <span class="math inline">\(\sigma = 5.67 \times 10^{-8}\)</span> J/(m^2 s K^4), <span class="math inline">\(Q = 1.38 \times 10^3\)</span> J/(m^2 s). We can also calculate <span class="math display">\[

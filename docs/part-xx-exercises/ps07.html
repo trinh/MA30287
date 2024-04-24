@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -405,6 +434,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Problem set 5 solutions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps06sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Problem set 6 solutions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps07sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Problem set 7 solutions</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -419,43 +460,43 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/chatgpt-goes-wrong.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
   </div>
 </li>
       </ul>
@@ -472,7 +513,17 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#q1.-non-dimensionalisation-of-the-stommel-box-model" id="toc-q1.-non-dimensionalisation-of-the-stommel-box-model" class="nav-link active" data-scroll-target="#q1.-non-dimensionalisation-of-the-stommel-box-model">Q1. Non-dimensionalisation of the Stommel box model</a></li>
+  <li><a href="#q2.-investigations-for-r" id="toc-q2.-investigations-for-r" class="nav-link" data-scroll-target="#q2.-investigations-for-r">Q2. Investigations for <span class="math inline">\(R\)</span></a></li>
+  <li><a href="#q3.-alternative-scalings-of-the-stommel-box-model" id="toc-q3.-alternative-scalings-of-the-stommel-box-model" class="nav-link" data-scroll-target="#q3.-alternative-scalings-of-the-stommel-box-model">Q3. Alternative scalings of the Stommel box model</a></li>
+  <li><a href="#q4.-box-models-for-flooding-1" id="toc-q4.-box-models-for-flooding-1" class="nav-link" data-scroll-target="#q4.-box-models-for-flooding-1">Q4. Box models for flooding 1</a></li>
+  <li><a href="#q5.-box-models-for-flooding-2" id="toc-q5.-box-models-for-flooding-2" class="nav-link" data-scroll-target="#q5.-box-models-for-flooding-2">Q5. Box models for flooding 2</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -496,92 +547,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Problem sets 6-7 will not be released until after the Easter break.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>To release for 2023-24.</p>
-</div>
-</div>
-<!-- ## Q2. A van der Pol equation {.unnumbered} -->
-<!---->
-<!-- Consider the van der Pol equation for $x(t)$ with $0 < \epsilon \ll 1$:  -->
-<!-- $$ -->
-<!-- \epsilon \frac{\mathrm{d}^2 x}{\mathrm{d}t^2} + (3x^2 - 6x - 9) \frac{\mathrm{d}x}{\mathrm{d}t} + 4x = 0. -->
-<!-- $$  -->
-<!---->
-<!-- a. Determine $f(x)$ so that this equation can be written as a Liénard phase plane system in the form  -->
-<!---->
-<!-- \begin{align} -->
-<!-- \epsilon \dot{x} &= f(x) + 4y, \\ -->
-<!-- \dot{y} &= -x.  -->
-<!-- \end{align} -->
-<!---->
-<!---->
-<!---->
-<!-- b. For fixed $\epsilon > 0$, find the equilibrium point(s) in the phase plane, find their eigenvalues, and classify their linear stability.  -->
-<!---->
-<!-- c. Use the expansions $x(t) = x_0(t) + \epsilon x_1(t) + O(\epsilon^2)$ to determine the equations for the leading-order slow solution. Sketch the slow manifold, indicate the directions motion on each part, and identify the two attracting points on the curve.  -->
-<!---->
-<!-- d. Use the expansions $x(t) = X_0(T) + \epsilon X_1(T) + O(\epsilon^2)$ and $y(t) = Y_0(T) + \epsilon Y_1(T) + O(\epsilon^2)$ with $T = t/\epsilon$ to obtain the leading-order fast solution.  -->
-<!---->
-<!-- e. Use the phase plane to determine the maximum and minimum values of $x(t)$ during an oscillation. Sketch $x(t)$ as a function of time.  -->
-<!---->
-<!-- f. **(Challenge)** Using the time required for the slow motions in part c (neglecting the short times for the fast solutions in part d), determine the leading-order estimate for the period $P$  of oscillation for the limit cycle.  -->
-<!---->
-<!-- Hint: Find the time spent moving along each of the slow curves by obtaining an equation $\dot{x}_0 = g(x_0)$ from part c, and then separate variables to write  -->
-<!-- $$ -->
-<!-- \dot{x}_0 = g(x_0) \Longrightarrow P = \int_{t_{\text{start}}}^{t_{\text{end}}} \, \mathrm{d}t = \int_{x_{\text{start}}}^{x_{\text{end}}} \frac{\mathrm{d}x}{g(x)}. -->
-<!-- $$  -->
-<!-- Finally, integrate over the ranges in $x$ that are appropriate to each of the slow segments, and add the result to obtain the period. -->
-<!---->
-<!-- ## Q3. Fast-slow dynamics with three variables {.unnumbered} -->
-<!---->
-<!-- Consider the limit of $\epsilon \ll 1$ for each of the following cases.  -->
-<!---->
-<!-- a. For the system  -->
-<!-- $$ -->
-<!-- \begin{aligned}[c] -->
-<!-- \dot{x} &= 2 - y, \\ -->
-<!-- \dot{y} &= x-z, \\ -->
-<!-- \epsilon\dot{z} &= y - y^2 + \frac{1}{3}y^3 - z,  -->
-<!-- \end{aligned} -->
-<!-- $$  -->
-<!-- with the initial conditions of $x(0) = 1$, $y(0) = 3$, and $z(0) = 0$.  -->
-<!---->
-<!-- Identify the surface $z = S(x, y)$ that defines the slow manifold. Find the equilibrium point of the leading-order slow phase plane system and show that it is asymptotically stable for $t \to \infty$. Also determine the form of the initial layer that describes the transition from the initial conditions to the slow manifold. -->
-<!---->
-<!-- b. For the system  -->
-<!-- $$ -->
-<!-- \begin{aligned}[c] -->
-<!-- \dot{x} &= 2 - y, \\ -->
-<!-- \epsilon\dot{y} &= x-z, \\ -->
-<!-- \dot{z} &= y - y^2 + \frac{1}{3}y^3 - z,  -->
-<!-- \end{aligned} -->
-<!-- $$  -->
-<!-- with the initial conditions of $x(0) = 0$, $y(0) = 3$, and $z(0) = 1$.  -->
-<!---->
-<!-- Show that the slow manifold reduces to a curve that could be written in parametric form as $x = x(z), y = y(z), z = z$. Determine the asymptotic solution for $t \to \infty$. Also determine the form of the initial layer that describes the transition from initial conditions to the slow manifold. -->
-<!---->
 <!-- ## Q1. Non-dimensionalisation of the ocean model {.unnumbered} -->
 <!---->
 <!-- Take the ocean model from (@eq-ocean-final-dimensional). Re-scale the salinity and time via -->
@@ -621,52 +586,74 @@ Note
 <!-- Does the bifurcation diagram indicate the possibility of tipping points and hysteresis? By considering the interpretation of $\lambda$ and $x^*$, discuss the physical consequences of such behaviour as it relates to the Ocean model. -->
 <!---->
 <!-- How does this bifurcation diagram compare to the typical bifurcation diagrams studied in the Energy Balance module, such as the one studied in @sec-latitude4 ?  -->
-<!---->
-<!-- ## Q4. Non-dimensionalisation of the Stommel box model {.unnumbered} -->
-<!---->
-<!-- Consider the Stommel box model given in (@eq-stommelpre). Non-dimensionalise the model in order to produce the set of equations given in (@eq-stommelsys), repeated here:  -->
-<!---->
-<!-- \begin{align} -->
-<!-- \frac{\mathrm{d}x}{\mathrm{d}t} &= \delta(1 - x) - |f(x, y)|x, \\ -->
-<!-- \frac{\mathrm{d}y}{\mathrm{d}t} &= 1 - y - |f(x, y)|y,  -->
-<!-- \end{align} {#eq-ps6-stommelsys} -->
-<!-- where we have introduced the function, -->
-<!-- $$ -->
-<!-- f(x, y; R, \lambda) = \frac{1}{\lambda}(Rx - y), -->
-<!-- $$ {#eq-ps6-stommelf}  -->
-<!---->
-<!---->
-<!-- Provide a brief description of the physical interpretations of the parameters $\lambda$,$\delta$, and $R$.   -->
-<!---->
-<!-- ## Q4. Investigations for $R$ {.unnumbered} -->
-<!---->
-<!-- Using the script available on the Jupyter hub, investigate the behaviour of the system (@eq-ps6-stommelsys) under changing values of $R$ and fixed values of the other parameters. Based on your intuition, what do you expect to be the features of the bifurcation diagram, as shown in the $(R, f^*)$-plane?  -->
-<!---->
-<!---->
-<!-- ## Q5. Alternative scalings of the Stommel box model {.unnumbered} -->
-<!---->
-<!-- It is possible to scale the problem differently, and this may allow for simpler analysis. Consider the set of equations (@eq-ps6-stommelsys). Write instead -->
-<!-- $$ -->
-<!-- x = [x] s, \qquad y = [y] \theta, \qquad t = [t] t', -->
-<!-- $$  -->
-<!-- Choose the correct scalings, $[x]$, $[y]$, and $[t]$, so that we obtain a re-scaled version:  -->
-<!---->
-<!-- \begin{align} -->
-<!-- \frac{\mathrm{d}s}{\mathrm{d}t'} &= 1 - (\epsilon + |q|) s, \\ -->
-<!-- \frac{\mathrm{d}\theta}{\mathrm{d}t'} &= 1 - (\mu + |q|)\theta, -->
-<!-- \end{align} -->
-<!---->
-<!-- where now the flow term is given by  -->
-<!-- $$ -->
-<!-- q = \kappa(-\theta + \tilde{R}s). -->
-<!-- $$  -->
-<!-- In addition to the choice of scalings, you will need to describe how the new parameters, $\epsilon$, $\mu$, $\kappa$, and $\tilde{R}$, are related to the older parameters. -->
-<!---->
-<!---->
-<!---->
-<!---->
+<section id="q1.-non-dimensionalisation-of-the-stommel-box-model" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q1.-non-dimensionalisation-of-the-stommel-box-model">Q1. Non-dimensionalisation of the Stommel box model</h2>
+<p>Consider the Stommel box model given in (<a href="#eq-stommelpre" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-stommelpre</span></a>). By following the procedure outlined in <a href="#sec-stommel-nondim" class="quarto-xref"><span class="quarto-unresolved-ref">sec-stommel-nondim</span></a> non-dimensionalise the model in order to produce the set of equations given in (<a href="#eq-stommelsys" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-stommelsys</span></a>), repeated here: <span class="math display">\[
+\begin{aligned}
+\frac{\mathrm{d}x}{\mathrm{d}t} &amp;= \delta(1 - x) - |f(x, y)|x, \\
+\frac{\mathrm{d}y}{\mathrm{d}t} &amp;= 1 - y - |f(x, y)|y,
+\end{aligned}
+\]</span> where we have introduced the function, <span class="math display">\[
+f(x, y; R, \lambda) = \frac{1}{\lambda}(Rx - y).
+\]</span></p>
+<p>Provide a brief description of the physical interpretations of the parameters <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(\delta\)</span>, and <span class="math inline">\(R\)</span>.</p>
+</section>
+<section id="q2.-investigations-for-r" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q2.-investigations-for-r">Q2. Investigations for <span class="math inline">\(R\)</span></h2>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<p>Using the script available on Noteable, investigate the behaviour of the system in the above question under changing values of <span class="math inline">\(R\)</span> and fixed values of the other parameters. Based on your intuition, what do you expect to be the features of the bifurcation diagram, as shown in the <span class="math inline">\((R, f)\)</span>-plane?</p>
+</section>
+<section id="q3.-alternative-scalings-of-the-stommel-box-model" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q3.-alternative-scalings-of-the-stommel-box-model">Q3. Alternative scalings of the Stommel box model</h2>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<p>It is possible to scale the problem differently, and this may allow for simpler analysis. Consider the set of equations in Q2. Write instead <span class="math display">\[
+x = [x] s, \qquad y = [y] \theta, \qquad t = [t] t',
+\]</span> Choose the correct scalings, <span class="math inline">\([x]\)</span>, <span class="math inline">\([y]\)</span>, and <span class="math inline">\([t]\)</span>, so that we obtain a re-scaled version: <span class="math display">\[
+\begin{aligned}
+\frac{\mathrm{d}s}{\mathrm{d}t'} &amp;= 1 - (\epsilon + |q|) s, \\
+\frac{\mathrm{d}\theta}{\mathrm{d}t'} &amp;= 1 - (\mu + |q|)\theta,
+\end{aligned}
+\]</span></p>
+<p>where now the flow term is given by <span class="math display">\[
+q = \kappa(-\theta + \tilde{R}s).
+\]</span> In addition to the choice of scalings, you will need to describe how the new parameters, <span class="math inline">\(\epsilon\)</span>, <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\kappa\)</span>, and <span class="math inline">\(\tilde{R}\)</span>, are related to the older parameters.</p>
+</section>
+<section id="q4.-box-models-for-flooding-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q4.-box-models-for-flooding-1">Q4. Box models for flooding 1</h2>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To add following lectures in Week 11</p>
+</div>
+</div>
+</section>
+<section id="q5.-box-models-for-flooding-2" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q5.-box-models-for-flooding-2">Q5. Box models for flooding 2</h2>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To add following lectures in Week 11</p>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -468,6 +468,18 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Problem set 5 solutions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps06sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Problem set 6 solutions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps07sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Problem set 7 solutions</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -482,43 +494,43 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/chatgpt-goes-wrong.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
   </div>
 </li>
       </ul>
@@ -629,7 +641,7 @@ X_0^2 + X_0 &amp;= 0 \Longrightarrow X_0 = -1 \\
 X = -1 - \epsilon + \ldots \Longrightarrow x = - \frac{1}{\epsilon} - 1 + \ldots
 \]</span></p>
 <p>Of course, we have used a very simple example (a solvable quadratic) to illustrate the idea of asymptotic approximations, but you should hopefully see that this method is extensible to much more complicated equations.</p>
-<div id="0e827d05" class="cell" data-execution_count="1">
+<div id="b407cce7" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -659,7 +671,7 @@ We want to now explain the procedure from which we can estimate solutions of equ
 
 Let us explain the procedure with a simple example. It is best to select an example from which we already know the solution. We seek solutions of the equation 
 
-::: {#f845a757 .cell execution_count=2}
+::: {#ff226665 .cell execution_count=2}
 ``` {.python .cell-code}
 import numpy as np
 import matplotlib.pyplot as plt
@@ -848,7 +860,7 @@ Examples
 </ul>
 </div>
 </div>
-<p>Let us return to the case of the quadratic example (<a href="#eq-quad" class="quarto-xref">Equation&nbsp;<span>5.1</span></a>). Using the O notation, we can write <span class="math display">\[
+<p>Let us return to the case of the quadratic example (<a href="#eq-quad" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-quad</span></a>). Using the O notation, we can write <span class="math display">\[
 x =
 \begin{cases}
 1 - \epsilon + 2 \epsilon^2 + O(\epsilon^3) \\

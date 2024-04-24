@@ -488,6 +488,18 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Problem set 5 solutions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps06sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Problem set 6 solutions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps07sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Problem set 7 solutions</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -502,43 +514,43 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/chatgpt-goes-wrong.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
   </div>
 </li>
       </ul>
@@ -587,7 +599,7 @@ window.Quarto = {
 </header>
 
 
-<p>Recall that we previously introduced the basic energy balance model in <a href="../part-01-intro/basic-energy-model.html" class="quarto-xref"><span>Chapter 3</span></a>. There, we derived the basic heat equation model (<a href="../part-01-intro/basic-energy-model.html#eq-heateq-earth" class="quarto-xref">Equation&nbsp;<span>3.7</span></a>) for the Earth’s temperature given by the following ordinary differential equation (ODE) for <span class="math inline">\(T = T(t)\)</span>,<br>
+<p>Recall that we previously introduced the basic energy balance model in <a href="#sec-basic-energy" class="quarto-xref"><span class="quarto-unresolved-ref">sec-basic-energy</span></a>. There, we derived the basic heat equation model (<a href="#eq-heateq-earth" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-heateq-earth</span></a>) for the Earth’s temperature given by the following ordinary differential equation (ODE) for <span class="math inline">\(T = T(t)\)</span>,<br>
 <span id="eq-heateq_earth"><span class="math display">\[
 C \frac{\mathrm{d}T}{\mathrm{d}t} = Q(1 - a) - \sigma \gamma T^4,
 \tag{13.1}\]</span></span> where we have defined <span class="math inline">\(C = \rho c_p d\)</span> as the heat capacity of the atmosphere. Above, the solar flux, Q is often taken to be <span class="math inline">\(Q = 1370/4 = 342\)</span> W/m<sup>2</sup>, <span class="math inline">\(\sigma = 5.67 \times 10^{-8}\)</span> W/(m<sup>2</sup>K<sup>4</sup>), and <span class="math inline">\(\gamma \leq 1\)</span> is the greenhouse gas factor.</p>
@@ -621,7 +633,7 @@ $$
 $$ 
 -->
 <p>In the following code, we plot the two terms that make up <span class="math inline">\(f\)</span>, and their intersections indicate roots of <span class="math inline">\(f = 0\)</span>. We then use the Python ‘fsolve’ function to approximate the roots given initial guesses.</p>
-<div id="2f919e4f" class="cell" data-execution_count="1">
+<div id="c7e3e7be" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.optimize <span class="im">as</span> sciopt</span>
@@ -730,7 +742,7 @@ We discuss Newton's method in @sec-newton.
 
 Using the simplest Newton code there, we can solve for one of the roots.
 
-::: {#e5a14923 .cell execution_count=2}
+::: {#9235f66f .cell execution_count=2}
 ``` {.python .cell-code}
 import numpy as np
 
@@ -850,9 +862,9 @@ T = T_0 + [T]\tilde{T},
 (T_0 + [T]\tilde{T})^4 \sim T_0^4 + 4 T_0^3 [T] \tilde{T} =
 C_1 + C_2 \tilde{T}.
 \]</span> This simplifies the model considerably.</p>
-<p>This is, in fact, a theoretical justification of <strong>Budyko’s model</strong>, first suggested by Budyko <span class="citation" data-cites="budyko1969effect">(<a href="../references.html#ref-budyko1969effect" role="doc-biblioref">Budyko 1969</a>)</span>, where instead of the Stefan-Boltmann law that provides the cumbersome quartic power of <span class="math inline">\(T\)</span>, we use instead <span class="math display">\[
+<p>This is, in fact, a theoretical justification of <strong>Budyko’s model</strong>, first suggested by Budyko <span class="citation" data-cites="budyko1969effect">(<a href="#ref-budyko1969effect" role="doc-biblioref">Budyko 1969</a>)</span>, where instead of the Stefan-Boltmann law that provides the cumbersome quartic power of <span class="math inline">\(T\)</span>, we use instead <span class="math display">\[
 E_\text{out} = \sigma \gamma T^4 \approx A + BT,
-\]</span> where <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> will vary with location and climate. For instance, for the Northern Hemisphere, <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span> gives the values of <span class="math inline">\(A = 203.3\text{Wm}^{-2}\)</span> and <span class="math inline">\(B = 2.09 \text{Wm}^{-2}\text{deg}^{-1}\)</span> and where temperature is measured in degrees Celcius. As shown above, one can interpret this as a linear expansion of the Stefan-Boltzmann law (after which similar values of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are derived).</p>
+\]</span> where <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> will vary with location and climate. For instance, for the Northern Hemisphere, <span class="citation" data-cites="kaper_book">(<a href="#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span> gives the values of <span class="math inline">\(A = 203.3\text{Wm}^{-2}\)</span> and <span class="math inline">\(B = 2.09 \text{Wm}^{-2}\text{deg}^{-1}\)</span> and where temperature is measured in degrees Celcius. As shown above, one can interpret this as a linear expansion of the Stefan-Boltzmann law (after which similar values of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are derived).</p>
 <p>The above Budyko model will be a staple of the latitude-dependent model introduced in the next chapter.</p>
 <!-- 
 ## Budyoko's model  
@@ -868,7 +880,7 @@ instance, for the Northern Hemisphere, [@kaper_book] gives the values of $A = 20
 -->
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-budyko1969effect" class="csl-entry" role="listitem">
 Budyko, Mikhail I. 1969. <span>“The Effect of Solar Radiation Variations on the Climate of the Earth.”</span> <em>Tellus</em> 21 (5): 611–19.
 </div>

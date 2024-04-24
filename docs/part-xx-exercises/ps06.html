@@ -434,6 +434,18 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Problem set 5 solutions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps06sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Problem set 6 solutions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xx-exercises/ps07sol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Problem set 7 solutions</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -448,43 +460,43 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/chatgpt-goes-wrong.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
   </div>
 </li>
       </ul>
@@ -539,19 +551,24 @@ window.Quarto = {
 \epsilon \frac{\mathrm{d}^2 x}{\mathrm{d}t^2} + (3x^2 - 6x - 9) \frac{\mathrm{d}x}{\mathrm{d}t} + 4x = 0.
 \]</span></p>
 <ol type="a">
-<li><p>Determine <span class="math inline">\(f(x)\)</span> so that this equation can be written as a Liénard phase plane system in the form <span class="math display">\[\begin{align}
+<li><p>Determine <span class="math inline">\(f(x)\)</span> so that this equation can be written as a Liénard phase plane system in the form <span class="math display">\[
+\begin{aligned}
 \epsilon \dot{x} &amp;= f(x) + 4y, \\
 \dot{y} &amp;= -x.
-\end{align}\]</span></p></li>
+\end{aligned}
+\]</span></p></li>
 <li><p>For fixed <span class="math inline">\(\epsilon &gt; 0\)</span>, find the equilibrium point(s) in the phase plane, find their eigenvalues, and classify their linear stability.</p></li>
 <li><p>Use the expansions <span class="math inline">\(x(t) = x_0(t) + \epsilon x_1(t) + O(\epsilon^2)\)</span> to determine the equations for the leading-order slow solution. Sketch the slow manifold, indicate the directions motion on each part, and identify the two attracting points on the curve.</p></li>
 <li><p>Use the expansions <span class="math inline">\(x(t) = X_0(T) + \epsilon X_1(T) + O(\epsilon^2)\)</span> and <span class="math inline">\(y(t) = Y_0(T) + \epsilon Y_1(T) + O(\epsilon^2)\)</span> with <span class="math inline">\(T = t/\epsilon\)</span> to obtain the leading-order fast solution.</p></li>
 <li><p>Use the phase plane to determine the maximum and minimum values of <span class="math inline">\(x(t)\)</span> during an oscillation. Sketch <span class="math inline">\(x(t)\)</span> as a function of time.</p></li>
-<li><p><strong>(Challenge)</strong> Using the time required for the slow motions in part c (neglecting the short times for the fast solutions in part d), determine the leading-order estimate for the period <span class="math inline">\(P\)</span> of oscillation for the limit cycle.</p></li>
 </ol>
-<p>Hint: Find the time spent moving along each of the slow curves by obtaining an equation <span class="math inline">\(\dot{x}_0 = g(x_0)\)</span> from part c, and then separate variables to write <span class="math display">\[
-\dot{x}_0 = g(x_0) \Longrightarrow P = \int_{t_{\text{start}}}^{t_{\text{end}}} \, \mathrm{d}t = \int_{x_{\text{start}}}^{x_{\text{end}}} \frac{\mathrm{d}x}{g(x)}.
-\]</span> Finally, integrate over the ranges in <span class="math inline">\(x\)</span> that are appropriate to each of the slow segments, and add the result to obtain the period.</p>
+<!-- f. **(Challenge)** Using the time required for the slow motions in part c (neglecting the short times for the fast solutions in part d), determine the leading-order estimate for the period $P$  of oscillation for the limit cycle.  -->
+<!---->
+<!-- Hint: Find the time spent moving along each of the slow curves by obtaining an equation $\dot{x}_0 = g(x_0)$ from part c, and then separate variables to write  -->
+<!-- $$ -->
+<!-- \dot{x}_0 = g(x_0) \Longrightarrow P = \int_{t_{\text{start}}}^{t_{\text{end}}} \, \mathrm{d}t = \int_{x_{\text{start}}}^{x_{\text{end}}} \frac{\mathrm{d}x}{g(x)}. -->
+<!-- $$  -->
+<!-- Finally, integrate over the ranges in $x$ that are appropriate to each of the slow segments, and add the result to obtain the period. -->
 </section>
 <section id="q2.-fast-slow-dynamics-with-three-variables" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q2.-fast-slow-dynamics-with-three-variables">Q2. Fast-slow dynamics with three variables</h2>
