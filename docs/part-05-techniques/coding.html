@@ -559,7 +559,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>So indeed it looks like Python uses a scheme where if a variable is not locally declared, it will use values of the variable outside of the function. This can allow us to produce this kind of thing:</p>
-<div id="0d0d270a" class="cell" data-execution_count="1">
+<div id="aeda861b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> myfunc():</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(a)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -578,7 +578,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>So I was wrong! Python variables are global when defined outside the function! <a href="https://www.w3schools.com/python/python_variables_global.asp">Here is a reference</a>.</p>
 <p>This is certainly easier to use! However it can lead to confusion because for very complex codes, you may not be sure what value of a variable is being used within a function. Because most of the programming you will do in this course is very simple, this is unlikely to lead to trouble.</p>
 <p>It’s generally good to avoid this whenever it is possible, though. For instance in this particular case, it makes much more sense to pass in the variable.</p>
-<div id="1c243b35" class="cell" data-execution_count="2">
+<div id="cbfb43f0" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> myfunc(a):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(a)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -594,7 +594,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>In the above case, the <code>a</code> that appears in the function is different from the <code>a</code> that is declared outside the function. This makes it very easy to understand what your function is doing without knowing what is happening outside of it.</p>
 <p>For example, there is no danger of values being reset:</p>
-<div id="5226fb96" class="cell" data-execution_count="3">
+<div id="2b8b6a5a" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> myfunc(a):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> a <span class="op">+</span> <span class="dv">1000</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(a)</span>

@@ -594,18 +594,24 @@ y_0 = S(x) = \frac{1}{3}x_0^3 - x_0.
 T = \frac{t - t^*}{\epsilon^\alpha} \Longrightarrow t = t^* + \epsilon^\alpha T,
 \]</span> and set <span class="math inline">\(x(t) = X(T)\)</span> and <span class="math inline">\(y(t) = Y(T)\)</span> under this new coordinate change. Essentially, this re-scales the coordinate axes, originally in <span class="math inline">\(t\)</span>, near the unknown location of the shock, <span class="math inline">\(t = t^*\)</span>. We can verify that the correct balance for re-scaling is chosen with <span class="math inline">\(\alpha = 1\)</span>. From the chain rule, we convert derivatives as follows: <span class="math display">\[
 \frac{\mathrm{d}}{\mathrm{d}t} = \frac{\mathrm{d}T}{\mathrm{d}t} \frac{\mathrm{d}}{\mathrm{d}T} = \frac{1}{\epsilon} \frac{\mathrm{d}}{\mathrm{d}T}.
-\]</span> Then the system becomes <span class="math display">\[\begin{align}
+\]</span> Then the system becomes <span class="math display">\[
+\begin{aligned}
 \frac{\mathrm{d}X}{\mathrm{d}T} &amp;= Y - S(X) \\
 \frac{\mathrm{d}Y}{\mathrm{d}T} &amp;= -\epsilon X.
-\end{align}\]</span></p>
-<p>We expand now in the typical fashion, setting <span class="math display">\[\begin{align}
+\end{aligned}
+\]</span></p>
+<p>We expand now in the typical fashion, setting <span class="math display">\[
+\begin{aligned}
 X &amp;= X_0(T) + \epsilon X_1(T) + \ldots \\
 Y &amp;= Y_0(T) + \epsilon Y_1(T) + \ldots
-\end{align}\]</span></p>
-<p>At leading order, this now yields <span class="math display">\[\begin{align}
+\end{aligned}
+\]</span></p>
+<p>At leading order, this now yields <span class="math display">\[
+\begin{aligned}
 \frac{\mathrm{d}X_0}{\mathrm{d}T} &amp;= Y_0 - S(X_0) \\
 \frac{\mathrm{d}Y_0}{\mathrm{d}T} &amp;= 0.
-\end{align}\]</span></p>
+\end{aligned}
+\]</span></p>
 <p>Therefore, from the second equation, we obtain <span class="math display">\[
 Y_0 = \text{constant}
 \]</span> which is to be expected from the phase-plane diagrams we have shown. Since we have established that the max/min of the slow manifold, <span class="math inline">\(S(X)\)</span>, is given by <span class="math inline">\(\pm 2/3\)</span>, then we know that the above constant is this value <em>if the solution had begun from the slow manifold</em> (see comment later about the initial condition).</p>

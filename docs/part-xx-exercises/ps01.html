@@ -583,11 +583,13 @@ Note
 <section id="q3.-choice-of-scalings" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q3.-choice-of-scalings">Q3. Choice of scalings</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>Consider the dimensional problem for the motion of a projectile launched from close to the surface of the Earth. The dimensional height of the projectile, <span class="math inline">\(y(t)\)</span>, is given by <span class="math display">\[\begin{align}
+<p>Consider the dimensional problem for the motion of a projectile launched from close to the surface of the Earth. The dimensional height of the projectile, <span class="math inline">\(y(t)\)</span>, is given by <span class="math display">\[
+\begin{aligned}
 \frac{\mathrm{d}^2 y}{\mathrm{d}t^2} &amp;= - \frac{GM}{(R+y)^2}, \\
 y(0) &amp;= 2 \, \mathrm{m}, \\
 y'(0) &amp;= -V_0 \, \mathrm{m/s}.
-\end{align}\]</span> Assume that the Earth is spherical and of uniform density, with its mass given by <span class="math inline">\(M = (4/3) \pi R^3 \rho\)</span>. Non-dimensionalise the height using <span class="math inline">\(y = L \tilde{y}\)</span> and time using <span class="math inline">\(t = T\tilde{t}\)</span>. Consider the following cases:</p>
+\end{aligned}
+\]</span> Assume that the Earth is spherical and of uniform density, with its mass given by <span class="math inline">\(M = (4/3) \pi R^3 \rho\)</span>. Non-dimensionalise the height using <span class="math inline">\(y = L \tilde{y}\)</span> and time using <span class="math inline">\(t = T\tilde{t}\)</span>. Consider the following cases:</p>
 <ol type="i">
 <li><span class="math inline">\(R\)</span> fixed, <span class="math inline">\(V_0 \to \infty\)</span>, <span class="math inline">\(\rho\)</span> fixed;</li>
 <li><span class="math inline">\(R\)</span> fixed, <span class="math inline">\(V_0\)</span> fixed, <span class="math inline">\(\rho \to \infty\)</span>;</li>
@@ -608,11 +610,13 @@ y'(0) &amp;= -V_0 \, \mathrm{m/s}.
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
 <p>During our investigation of the heat equation, we found that it was possible to scale time so as to scale out the only non-dimensional parameter that appears in the PDE (<span class="math inline">\(\Pi\)</span>). This produced (<a href="#eq-heat-nondim" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-heat-nondim</span></a>). The disappearance of all non-dimensional parameters is due to the fact that only a single sensible timescale exists.</p>
 <p>By adjusting the boundary conditions, we may create a new problem involving heat flow where a unique ‘special’ timescale can no longer be chosen.</p>
-<p>Consider a system where one side of the rod is heated in some periodic fashion, e.g.&nbsp;set the initial and boundary conditions to be <span class="math display">\[\begin{align}
+<p>Consider a system where one side of the rod is heated in some periodic fashion, e.g.&nbsp;set the initial and boundary conditions to be <span class="math display">\[
+\begin{aligned}
 T(x, 0) &amp;= T_0 \\
 T(0, t) &amp;= T_a \cos (\omega t), \\
 T(L, t) &amp;= T_b.
-\end{align}\]</span></p>
+\end{aligned}
+\]</span></p>
 <ol type="a">
 <li><p>What must the units of <span class="math inline">\(\omega\)</span> be?</p></li>
 <li><p>Non-dimensionalise as usual and, without selecting the timescale, <span class="math inline">\([t]\)</span>, identify the key non-dimensional parameters that remain. Write a brief sentence to describe their physical interpretation.</p></li>

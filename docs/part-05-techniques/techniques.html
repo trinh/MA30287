@@ -538,10 +538,12 @@ window.Quarto = {
 
 
 <p>As we go deeper into formulating the equations that model or govern aspects of Planet Earth, we will quickly come to the realisation that many such equations, even for the simplest minimal models, are not exactly solvable.</p>
-<p>For example, in the analysis of the Ocean models later in the course, we develop the following “simple” model for the temperature in the ocean: <span class="math display">\[\begin{align}
+<p>For example, in the analysis of the Ocean models later in the course, we develop the following “simple” model for the temperature in the ocean: <span class="math display">\[
+\begin{aligned}
 \frac{\mathrm{d}x}{\mathrm{d}t} &amp;= \delta(1 - x) - |f(x, y)|x, \\
 \frac{\mathrm{d}y}{\mathrm{d}t} &amp;= 1 - y - |f(x, y)|y,
-\end{align}\]</span> where we have introduced the function, <span class="math display">\[
+\end{aligned}
+\]</span> where we have introduced the function, <span class="math display">\[
 f(x, y; R, \lambda) = \frac{1}{\lambda}(Rx - y),
 \]</span></p>
 <p>This is quite a difficult problem! This is essentially a set of two nonlinear differential equations for two unknowns and three parameters. What kind of practical applied mathematics can we apply to study such problems?</p>
