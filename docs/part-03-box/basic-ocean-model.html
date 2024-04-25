@@ -543,6 +543,7 @@ window.Quarto = {
   <li><a href="#two-box-model-of-the-ocean" id="toc-two-box-model-of-the-ocean" class="nav-link" data-scroll-target="#two-box-model-of-the-ocean"><span class="header-section-number">23.4</span> Two-box model of the ocean</a></li>
   <li><a href="#a-one-dimensional-model-constant-temperature" id="toc-a-one-dimensional-model-constant-temperature" class="nav-link" data-scroll-target="#a-one-dimensional-model-constant-temperature"><span class="header-section-number">23.5</span> A one-dimensional model (constant temperature)</a></li>
   <li><a href="#reducing-the-equations-via-symmetry" id="toc-reducing-the-equations-via-symmetry" class="nav-link" data-scroll-target="#reducing-the-equations-via-symmetry"><span class="header-section-number">23.6</span> Reducing the equations via symmetry</a></li>
+  <li><a href="#sec-ocean-toysalinity" id="toc-sec-ocean-toysalinity" class="nav-link" data-scroll-target="#sec-ocean-toysalinity"><span class="header-section-number">23.7</span> Analysis of a reduced 1D model for the salinity</a></li>
   </ul>
 </nav>
     </div>
@@ -749,33 +750,44 @@ T_2 &amp;= \frac{1}{2}m + U_2,
 \tag{23.6}\]</span></span></p>
 <p>Comparing the above to <a href="#eq-2box" class="quarto-xref">Equation&nbsp;<span>23.5</span></a>, the main difference is that, in expressing the temperature and salinities with respect to the average values in the basin, we have eliminated two of the constants from the set <span class="math inline">\((T_1^*, T_1^*, S_1^*, S_2^*)\)</span> now only into two constants <span class="math inline">\((T^*, S^*)\)</span>.</p>
 <p>In the situation of zero salt flux. <span class="math inline">\(H = 0\)</span>, the above model reduces to Stommel’s box model studied later in this course.</p>
-<!-- ## Analysis of a reduced 1D model for the salinity {#sec-ocean-toysalinity} -->
-<!---->
-<!-- It is possible to do some analysis on the system (@eq-2box-again), though we may prefer to simply move on to study the more historically well-known reduction called *Stommel's box model*.  -->
-<!---->
-<!-- We make the following assumptions: -->
-<!---->
-<!-- * We assume that on the timescale of interest in the THC, the temperature of each box equilibrates quickly with the surrounding basin. Therefore the system can be regarded as being in steady state.   -->
-<!-- * The difference in temperatures between the two boxes is small; together with the top assumption, this implies that $T_1(t) = -T^*$ and $T_2(t) = T^*$.  -->
-<!-- * Salinity exchanges by negligible amounts with its surrounding basin, i.e. $d = 0$ -->
-<!---->
-<!-- This leaves us with  -->
-<!-- \begin{align*} -->
-<!-- \frac{\mathrm{d}S_1}{\mathrm{d}t} &= -H + |q|(S_2 - S_1) \\ -->
-<!-- \frac{\mathrm{d}S_2}{\mathrm{d}t} &= H + |q| (S_1 - S_2), -->
-<!-- \end{align*} -->
-<!-- where $q = k(2\alpha T^* - \beta(S_2 - S_1))$.  -->
-<!---->
-<!-- Now, the formulation for the salinities can be placed into a single equation for $\Delta S = S_2 - S_1$, which satisfies -->
-<!-- $$ -->
-<!-- \frac{\mathrm{d}\Delta S}{\mathrm{d}t} = 2H - 2k|\alpha \Delta T - \beta \Delta S| \Delta S. -->
-<!-- $$ {#eq-ocean-final-dimensional} -->
-<!---->
-<!-- This is now a much simpler and elegant formulation for study. Under a suitable non-dimensionalisation and scaling, we can even place the above equation in the final simplified form of  -->
-<!-- $$ -->
-<!-- \dot{x} = \lambda - |1 - x| x, -->
-<!-- $$  -->
-<!-- where $\lambda > 0$ (for temperatures in the usual configuration, with $T_2 - T_1 > 0$, and a suitably defined function $x = x(t)$.  -->
+</section>
+<section id="sec-ocean-toysalinity" class="level2" data-number="23.7">
+<h2 data-number="23.7" class="anchored" data-anchor-id="sec-ocean-toysalinity"><span class="header-section-number">23.7</span> Analysis of a reduced 1D model for the salinity</h2>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Reduced models (non-examinable)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This material was not taught in 23-24, but concerns a reduction of the above ocean box model. It is not examinable this year but you may find it useful to know this was taught—for revising with respect to last year’s exam.</p>
+<p>It is possible to do some analysis on the system (<a href="#eq-2box-again" class="quarto-xref">Equation&nbsp;<span>23.6</span></a>), though we may prefer to simply move on to study the more historically well-known reduction called <em>Stommel’s box model</em>.</p>
+<p>We make the following assumptions:</p>
+<ul>
+<li>We assume that on the timescale of interest in the THC, the temperature of each box equilibrates quickly with the surrounding basin. Therefore the system can be regarded as being in steady state.<br>
+</li>
+<li>The difference in temperatures between the two boxes is small; together with the top assumption, this implies that <span class="math inline">\(T_1(t) = -T^*\)</span> and <span class="math inline">\(T_2(t) = T^*\)</span>.</li>
+<li>Salinity exchanges by negligible amounts with its surrounding basin, i.e.&nbsp;<span class="math inline">\(d = 0\)</span></li>
+</ul>
+<p>This leaves us with <span class="math display">\[\begin{align*}
+\frac{\mathrm{d}S_1}{\mathrm{d}t} &amp;= -H + |q|(S_2 - S_1) \\
+\frac{\mathrm{d}S_2}{\mathrm{d}t} &amp;= H + |q| (S_1 - S_2),
+\end{align*}\]</span> where <span class="math inline">\(q = k(2\alpha T^* - \beta(S_2 - S_1))\)</span>.</p>
+<p>Now, the formulation for the salinities can be placed into a single equation for <span class="math inline">\(\Delta S = S_2 - S_1\)</span>, which satisfies <span id="eq-ocean-final-dimensional"><span class="math display">\[
+\frac{\mathrm{d}\Delta S}{\mathrm{d}t} = 2H - 2k|\alpha \Delta T - \beta \Delta S| \Delta S.
+\tag{23.7}\]</span></span></p>
+<p>This is now a much simpler and elegant formulation for study. Under a suitable non-dimensionalisation and scaling, we can even place the above equation in the final simplified form of <span class="math display">\[
+\dot{x} = \lambda - |1 - x| x,
+\]</span> where <span class="math inline">\(\lambda &gt; 0\)</span> (for temperatures in the usual configuration, with <span class="math inline">\(T_2 - T_1 &gt; 0\)</span>, and a suitably defined function <span class="math inline">\(x = x(t)\)</span>.</p>
+</div>
+</div>
+</div>
 <!-- 
 From here...
 
