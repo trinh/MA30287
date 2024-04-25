@@ -602,7 +602,7 @@ window.Quarto = {
 
 
 <!-- In addition to the model studied in @sec-ocean-toysalinity, there is another kind of reduced model that is examined in this chapter. -->
-<p>In his work <span class="citation" data-cites="stommel1961thermohaline">(<a href="#ref-stommel1961thermohaline" role="doc-biblioref">Stommel 1961</a>)</span> did not account for evaporation or precipitation, so there is no virtual salt flux, <span class="math inline">\(H = 0\)</span>, but each box does exchange salinity with its surrounding environment, so <span class="math inline">\(d &gt; 0\)</span>. The set of four differential equations presented in <a href="#sec-oceanbox" class="quarto-xref"><span class="quarto-unresolved-ref">sec-oceanbox</span></a> (<a href="#eq-2box-again" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-2box-again</span></a>) can be reduced two coupled differential equations for the mean temperature and salinity. We notice that if we subtract the pairs of equations, then we can write <span id="eq-stommelpre"><span class="math display">\[
+<p>In his work <span class="citation" data-cites="stommel1961thermohaline">(<a href="../references.html#ref-stommel1961thermohaline" role="doc-biblioref">Stommel 1961</a>)</span> did not account for evaporation or precipitation, so there is no virtual salt flux, <span class="math inline">\(H = 0\)</span>, but each box does exchange salinity with its surrounding environment, so <span class="math inline">\(d &gt; 0\)</span>. The set of four differential equations presented in <a href="basic-ocean-model.html" class="quarto-xref"><span>Chapter 23</span></a> (<a href="basic-ocean-model.html#eq-2box-again" class="quarto-xref">Equation&nbsp;<span>23.6</span></a>) can be reduced two coupled differential equations for the mean temperature and salinity. We notice that if we subtract the pairs of equations, then we can write <span id="eq-stommelpre"><span class="math display">\[
 \begin{aligned}
 \frac{\mathrm{d}\Delta T}{\mathrm{d}t} = c(\Delta T^* - \Delta T) - 2|q|\Delta T, \\
 \frac{\mathrm{d}\Delta S}{\mathrm{d}t} = d(\Delta S^* - \Delta S) - 2|q|\Delta S,
@@ -634,19 +634,19 @@ f(x, y; R, \lambda) = \frac{1}{\lambda}(Rx - y),
 R &amp;= \beta \Delta S^*/(\alpha \Delta T^*).
 \end{aligned}
 \]</span></p>
-<p>Together <a href="#eq-stommelsys" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-stommelsys</span></a> and <a href="#eq-stommelf" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-stommelf</span></a> form a system of equations for <span class="math inline">\((x(t), y(t))\)</span>, with parameters <span class="math inline">\(\delta\)</span>, <span class="math inline">\(\lambda\)</span>, and <span class="math inline">\(R\)</span>.</p>
+<p>Together <a href="#eq-stommelsys" class="quarto-xref">Equation&nbsp;<span>24.2</span></a> and <a href="#eq-stommelf" class="quarto-xref">Equation&nbsp;<span>24.3</span></a> form a system of equations for <span class="math inline">\((x(t), y(t))\)</span>, with parameters <span class="math inline">\(\delta\)</span>, <span class="math inline">\(\lambda\)</span>, and <span class="math inline">\(R\)</span>.</p>
 <p>Although there are many parameters, it is important to note that the quantity <span class="math inline">\(f\)</span> is crucial since it corresponds to the direction of flow in the bottom pipe of the Ocean model. By convention, the system was set up so that <span class="math inline">\(f &gt; 0\)</span> corresponds to flow through the bottom pipe goes in the direction of the equator (Box 1) as a result of higher densities at the high latitudes. We are subsequently interested in whether it is possible for <span class="math inline">\(f\)</span> to switch sign, which would correspond to a bottom flow going from equator to poles, and the entire system switching direction.</p>
 </section>
 <section id="sec-ocean2-equil" class="level2" data-number="24.2">
 <h2 data-number="24.2" class="anchored" data-anchor-id="sec-ocean2-equil"><span class="header-section-number">24.2</span> Equilibrium states</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>Let the equilibrium states be given by <span class="math inline">\((x^*, y^*)\)</span> with <span class="math inline">\(f(x^*, y^*) = f^*\)</span>. Then setting the right hand sides of (<a href="#eq-stommelsys" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-stommelsys</span></a>) to zero and solving, we find <span id="eq-stommel-xsys"><span class="math display">\[
+<p>Let the equilibrium states be given by <span class="math inline">\((x^*, y^*)\)</span> with <span class="math inline">\(f(x^*, y^*) = f^*\)</span>. Then setting the right hand sides of (<a href="#eq-stommelsys" class="quarto-xref">Equation&nbsp;<span>24.2</span></a>) to zero and solving, we find <span id="eq-stommel-xsys"><span class="math display">\[
 x^* = \frac{\delta}{\delta + |f^*|} \quad \text{and} \quad
 y^* = \frac{1}{1 + |f^*|}.
 \tag{24.4}\]</span></span> We can solve for <span class="math inline">\(f^*\)</span> in both equations and equate the result to one another. This gives <span class="math display">\[
 \delta \frac{1-x^*}{x^*} = \frac{1 - y^*}{y^*} = |f^*|.
 \]</span> Therefore the equilibrium points lie along the above curve. Let us generate different values of <span class="math inline">\(f^*\)</span> and plot the combination.</p>
-<div id="662e03d3" class="cell" data-execution_count="1">
+<div id="65a54726" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -667,12 +667,12 @@ y^* = \frac{1}{1 + |f^*|}.
 </div>
 </div>
 </div>
-<p>The above plot shows the steady-state values at <span class="math inline">\(\delta = 1/6\)</span>. Each point refers to a different value of <span class="math inline">\(|f^*|\)</span>. Note that as <span class="math inline">\(|f^*| \to \infty\)</span>, then <span class="math inline">\((x^*, y^*) \to (0, 0)\)</span> while as <span class="math inline">\(|f^*| \to 0\)</span>, then <span class="math inline">\((x^*, y^*) \to (1,1)\)</span>. Now the above does not tell us what equilibrium states will exist at a specific value of <span class="math inline">\(\delta\)</span> since it requires information about <span class="math inline">\(f^*\)</span>. We take (<a href="#eq-stommelf" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-stommelf</span></a>) and combine with (<a href="#eq-stommel-xsys" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-stommel-xsys</span></a>). We conclude that the equilibrium points must satisfy <span class="math display">\[
+<p>The above plot shows the steady-state values at <span class="math inline">\(\delta = 1/6\)</span>. Each point refers to a different value of <span class="math inline">\(|f^*|\)</span>. Note that as <span class="math inline">\(|f^*| \to \infty\)</span>, then <span class="math inline">\((x^*, y^*) \to (0, 0)\)</span> while as <span class="math inline">\(|f^*| \to 0\)</span>, then <span class="math inline">\((x^*, y^*) \to (1,1)\)</span>. Now the above does not tell us what equilibrium states will exist at a specific value of <span class="math inline">\(\delta\)</span> since it requires information about <span class="math inline">\(f^*\)</span>. We take (<a href="#eq-stommelf" class="quarto-xref">Equation&nbsp;<span>24.3</span></a>) and combine with (<a href="#eq-stommel-xsys" class="quarto-xref">Equation&nbsp;<span>24.4</span></a>). We conclude that the equilibrium points must satisfy <span class="math display">\[
 \lambda f^* = \phi(f^*),
 \]</span> where we have defined the function <span class="math inline">\(\phi\)</span> according to <span id="eq-stommel-phi"><span class="math display">\[
 \phi(f^*) = \frac{\delta R}{\delta + |f^*|} - \frac{1}{1 + |f^*|}.
 \tag{24.5}\]</span></span> Therefore, for each combination of the parameters <span class="math inline">\((\lambda, \delta, R)\)</span>, we must solve <span class="math inline">\(\delta f^* = \phi(f^*)\)</span> to determine <span class="math inline">\(f^*\)</span>. Once the values of <span class="math inline">\(f^*\)</span> are known, then the steady-states <span class="math inline">\((x^*, y^*)\)</span> are also known. Here is a typical graph showing the potential intersections at the values of <span class="math inline">\(\lambda = 1/5\)</span>, <span class="math inline">\(\delta = 1/6\)</span> and <span class="math inline">\(R = 2\)</span>.</p>
-<div id="870ab2bc" class="cell" data-execution_count="2">
+<div id="4688b4cd" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.optimize <span class="im">as</span> sciopt</span>
@@ -745,12 +745,13 @@ A =
 \end{pmatrix}
 \]</span> if <span class="math inline">\(f^* \gtrless 0\)</span>.</p>
 <p>There are two ways or proceeding. We can numerically substitute the fixed points into the above matrix for <span class="math inline">\(A\)</span> and then calculate the eigenvalues (numerically or otherwise). Or we can directly proceed analytically.</p>
-<p>If proceeding analytically, we can then calculate the trace and determinant, giving</p>
-<p><span class="math display">\[\begin{align}
+<p>If proceeding analytically, we can then calculate the trace and determinant, giving <span class="math display">\[
+\begin{aligned}
 T &amp;= -(1 + \delta + 3 |f^*|), \\
 D &amp;= (\delta + 2|f^*|)(1 + |f^*|) \pm (1 - \delta) \frac{y^*}{\lambda}.
-\end{align}\]</span></p>
-<p>Using the above, we can analytically calculate the key discriminant expression of <span class="math inline">\(T^2 - 4D\)</span> (or numerically) in order to verify stability. The details of the classification scheme is given in the appendix <a href="#sec-appendix-dyn" class="quarto-xref"><span class="quarto-unresolved-ref">sec-appendix-dyn</span></a>.</p>
+\end{aligned}
+\]</span></p>
+<p>Using the above, we can analytically calculate the key discriminant expression of <span class="math inline">\(T^2 - 4D\)</span> (or numerically) in order to verify stability. The details of the classification scheme is given in the appendix <a href="../part-05-techniques/dynamical-systems.html" class="quarto-xref"><span>Chapter 41</span></a>.</p>
 </div>
 </div>
 </div>
@@ -759,7 +760,7 @@ D &amp;= (\delta + 2|f^*|)(1 + |f^*|) \pm (1 - \delta) \frac{y^*}{\lambda}.
 <h2 data-number="24.4" class="anchored" data-anchor-id="bifurcation-diagrams"><span class="header-section-number">24.4</span> Bifurcation diagrams</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
 <p>Once the above stability analysis, it is possible to sketch the final bifurcation diagram.</p>
-<p>First, we can note that as <span class="math inline">\(\lambda\)</span> increases, the graph in <a href="#sec-ocean2-equil" class="quarto-xref"><span class="quarto-unresolved-ref">sec-ocean2-equil</span></a> indicates that there may either be three intersections (as shown) or if <span class="math inline">\(\lambda\)</span> increases then two of the intersections may disappear. We can note that:</p>
+<p>First, we can note that as <span class="math inline">\(\lambda\)</span> increases, the graph in <a href="#sec-ocean2-equil" class="quarto-xref"><span>Section 24.2</span></a> indicates that there may either be three intersections (as shown) or if <span class="math inline">\(\lambda\)</span> increases then two of the intersections may disappear. We can note that:</p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -812,7 +813,7 @@ Figure&nbsp;24.2
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-As noted by <span class="citation" data-cites="kaper_book">(<a href="#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span>:
+As noted by <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span>:
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -821,7 +822,7 @@ As noted by <span class="citation" data-cites="kaper_book">(<a href="#ref-kaper_
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-kaper_book" class="csl-entry" role="listitem">
 Kaper, Hans, and Hans Engler. 2013. <em>Mathematics and Climate</em>. SIAM.
 </div>

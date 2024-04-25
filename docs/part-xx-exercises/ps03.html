@@ -561,9 +561,9 @@ Note
 <p>For feedback, hand in by Friday Week 5.</p>
 </div>
 </div>
-<p>In <a href="#sec-asymptotics03" class="quarto-xref"><span class="quarto-unresolved-ref">sec-asymptotics03</span></a> we discussed how the zero-dimensional energy equation occurs in the form of <span class="math display">\[
+<p>In <a href="../part-05-techniques/asymptotics03.html" class="quarto-xref"><span>Chapter 8</span></a> we discussed how the zero-dimensional energy equation occurs in the form of <span class="math display">\[
 (\rho c_p V) \frac{\mathrm{d}T}{\mathrm{d}t} = E_{\text{in}}(t, T) - E_{\text{out}}(t, T).
-\]</span> This is oversimplistic since in actuality, your temperature function, <span class="math inline">\(T\)</span>, should also depend on space. For instance, if you are interested in modelling <span class="math inline">\(T\)</span> with a depth coordinate, then it would be <span class="math inline">\(T(z, t)\)</span>. In this case, we know that temperature would be governed by a second-order differential equation (in space) such as the kind that appears in (<a href="#eq-heatintro" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-heatintro</span></a>).</p>
+\]</span> This is oversimplistic since in actuality, your temperature function, <span class="math inline">\(T\)</span>, should also depend on space. For instance, if you are interested in modelling <span class="math inline">\(T\)</span> with a depth coordinate, then it would be <span class="math inline">\(T(z, t)\)</span>. In this case, we know that temperature would be governed by a second-order differential equation (in space) such as the kind that appears in (<a href="../part-01-intro/intro-PDEs.html#eq-heatintro" class="quarto-xref">Equation&nbsp;<span>1.1</span></a>).</p>
 <p>In this problem set, we will make up a toy example of a differential equation that might be encountered in heat flow. Consider now (in non-dimensional coordinates): <span class="math display">\[
 \frac{\mathrm{\partial}T}{\mathrm{\partial}t} = \epsilon \frac{\mathrm{\partial}^2 T}{\mathrm{\partial}z^2} + 2 \frac{\mathrm{\partial}T}{\mathrm{\partial}z} + T = 0,
 \]</span> which is determined for some function <span class="math inline">\(T(z, t)\)</span>. Here, the small parameter <span class="math inline">\(\epsilon &gt; 0\)</span>, <span class="math inline">\(\epsilon \ll 1\)</span>, is linked to the heat diffusion.</p>
@@ -576,12 +576,12 @@ T(1) &amp;= 1.
 \tag{28.1}\]</span></span> The challenge is to study the above problem for small values of <span class="math inline">\(\epsilon\)</span>.</p>
 <section id="q1.-conversion-to-first-order-system" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q1.-conversion-to-first-order-system">Q1. Conversion to first-order system</h2>
-<p>By using the procedure reviewed in <a href="#sec-asym2-num" class="quarto-xref"><span class="quarto-unresolved-ref">sec-asym2-num</span></a>, convert (<a href="#eq-ps3-sys" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-ps3-sys</span></a>) to a first-order system of equations.</p>
+<p>By using the procedure reviewed in <a href="../part-05-techniques/asymptotics02.html#sec-asym2-num" class="quarto-xref"><span>Section 6.2</span></a>, convert (<a href="#eq-ps3-sys" class="quarto-xref">Equation&nbsp;<span>28.1</span></a>) to a first-order system of equations.</p>
 </section>
 <section id="q2.-numerical-solutions" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q2.-numerical-solutions">Q2. Numerical solutions</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>By adapting the code studied in lectures (script <code>lecture12-SolvingBVPs</code>), write a numerical code to solve (<a href="#eq-ps3-sys" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-ps3-sys</span></a>) using Python’s built-in functions. Use your code to investigate the solution profiles for different values of <span class="math inline">\(\epsilon\)</span>.</p>
+<p>By adapting the code studied in lectures (script <code>lecture12-SolvingBVPs</code>), write a numerical code to solve (<a href="#eq-ps3-sys" class="quarto-xref">Equation&nbsp;<span>28.1</span></a>) using Python’s built-in functions. Use your code to investigate the solution profiles for different values of <span class="math inline">\(\epsilon\)</span>.</p>
 </section>
 <section id="q3.-investigation-of-the-boundary-layer" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q3.-investigation-of-the-boundary-layer">Q3. Investigation of the boundary layer</h2>
@@ -638,7 +638,7 @@ T_1 &amp;= -\frac{1}{8} e^{1/2} e^{-z/2} (z - 1).
 <section id="q5.-inner-asymptotic-solutions" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q5.-inner-asymptotic-solutions">Q5. Inner asymptotic solutions</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>There will be a boundary layer near <span class="math inline">\(z = 0\)</span>. Set <span class="math inline">\(z = \epsilon^{\alpha} s\)</span> and <span class="math inline">\(T(z) = U(s)\)</span>. Follow the same procedure, as in <a href="#sec-asymptotics03" class="quarto-xref"><span class="quarto-unresolved-ref">sec-asymptotics03</span></a> in order to determine the correct choice of <span class="math inline">\(\alpha\)</span> for the inner region. This choice should balance the two terms <span class="math inline">\(\epsilon T''\)</span> and <span class="math inline">\(2T'\)</span>.</p>
+<p>There will be a boundary layer near <span class="math inline">\(z = 0\)</span>. Set <span class="math inline">\(z = \epsilon^{\alpha} s\)</span> and <span class="math inline">\(T(z) = U(s)\)</span>. Follow the same procedure, as in <a href="../part-05-techniques/asymptotics03.html" class="quarto-xref"><span>Chapter 8</span></a> in order to determine the correct choice of <span class="math inline">\(\alpha\)</span> for the inner region. This choice should balance the two terms <span class="math inline">\(\epsilon T''\)</span> and <span class="math inline">\(2T'\)</span>.</p>
 </section>
 <section id="q6.-matching-and-comparison" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q6.-matching-and-comparison">Q6. Matching and comparison</h2>

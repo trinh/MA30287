@@ -638,7 +638,7 @@ Figure&nbsp;22.3: Numerical solution as before but now plotted in the <span clas
 t = \epsilon^\alpha T = \epsilon T,
 \]</span> where <span class="math inline">\(\alpha = 1\)</span>. We then set <span class="math display">\[
 s = S(T) \qquad c = C(T),
-\]</span> for our new unknowns within this later. Under the scaling, the first two ODEs in (<a href="#eq-3chem" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-3chem</span></a>) become <span class="math display">\[
+\]</span> for our new unknowns within this later. Under the scaling, the first two ODEs in (<a href="#eq-3chem" class="quarto-xref">Equation&nbsp;<span>22.1</span></a>) become <span class="math display">\[
 \begin{aligned}
 \frac{\mathrm{d}S_0}{\mathrm{d}T} &amp;= 0,  &amp; S_0(0) &amp;= 1 \\
 \frac{\mathrm{d}C_0}{\mathrm{d}T} &amp;= S_0(1 - C_0) - \mu C_0. &amp; C_0 &amp;= 0.
@@ -648,14 +648,14 @@ s = S(T) \qquad c = C(T),
 S_0(T) \equiv 1.
 \]</span> Although we could solve for the concentration of <span class="math inline">\(c\)</span> or <span class="math inline">\(C\)</span>, this turns out not to be necessary. It should first be remarked that as the outer solution, <span class="math inline">\(s \sim s_0\)</span>, tends to the initial condition, <span class="math inline">\(t \to 0\)</span>, we should have <span class="math display">\[
 \lim_{t \to 0} s_0(t) = 1 = \lim_{T\to \infty} S_0(T).
-\]</span> Compare this with the condition (<a href="#eq-matched-matchingcond" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-matched-matchingcond</span></a>) when we initially studied the method of matched asymptotics. Therefore, even though there is a boundary layer necessary for the concentration <span class="math inline">\(c\)</span> near <span class="math inline">\(t = 0\)</span>, we do not need to resolve it.</p>
+\]</span> Compare this with the condition (<a href="../part-05-techniques/asymptotics03.html#eq-matched-matchingcond" class="quarto-xref">Equation&nbsp;<span>8.2</span></a>) when we initially studied the method of matched asymptotics. Therefore, even though there is a boundary layer necessary for the concentration <span class="math inline">\(c\)</span> near <span class="math inline">\(t = 0\)</span>, we do not need to resolve it.</p>
 </section>
 <section id="an-equation-for-the-substrate-and-product" class="level2" data-number="22.4">
 <h2 data-number="22.4" class="anchored" data-anchor-id="an-equation-for-the-substrate-and-product"><span class="header-section-number">22.4</span> An equation for the substrate and product</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>Take now (<a href="#eq-s0c0" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-s0c0</span></a>), which yields <span class="math display">\[
+<p>Take now (<a href="#eq-s0c0" class="quarto-xref">Equation&nbsp;<span>22.3</span></a>), which yields <span class="math display">\[
 c_0 = \frac{s_0}{\mu + s_0},
-\]</span> and substitute this into the first and third equations (<a href="#eq-3chem-lead" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-3chem-lead</span></a>). This gives <span class="math display">\[
+\]</span> and substitute this into the first and third equations (<a href="#eq-3chem-lead" class="quarto-xref">Equation&nbsp;<span>22.2</span></a>). This gives <span class="math display">\[
 \begin{aligned}
 \frac{\mathrm{d}s_0}{\mathrm{d}t} &amp;= - \frac{\mu - \lambda}{\mu + s_0} s_0, \\
 \frac{\mathrm{d}p_0}{\mathrm{d}t} &amp;= \frac{\mu - \lambda}{\mu + s_0} s_0
@@ -666,7 +666,7 @@ c_0 = \frac{s_0}{\mu + s_0},
 \]</span> which is a conservation of mass/concentration statement that indicates that the total substrate and product is conserved. Therefore, if we only solve the first equation for <span class="math inline">\(s_0\)</span>: <span id="eq-mmlaw"><span class="math display">\[
 \frac{\mathrm{d}s_0}{\mathrm{d}t} = - \frac{\mu - \lambda}{\mu + s_0} s_0, \qquad s_0(0) = 1,
 \tag{22.4}\]</span></span> we can obtain the product concentration by <span class="math inline">\(p_0 = 1 - s_0\)</span>.</p>
-<p>The above equation (<a href="#eq-mmlaw" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-mmlaw</span></a>) is in fact a famous result in biochemistry. It indicates that the substrate concentration follows a nonlinear rate and is called <em>the Michaelis-Menten law</em>. We have significantly simplified the necessary mathematical analysis down from the analysis of coupled system of three equations to a single equation for a single unknown (<span class="math inline">\(s_0\)</span>)!</p>
+<p>The above equation (<a href="#eq-mmlaw" class="quarto-xref">Equation&nbsp;<span>22.4</span></a>) is in fact a famous result in biochemistry. It indicates that the substrate concentration follows a nonlinear rate and is called <em>the Michaelis-Menten law</em>. We have significantly simplified the necessary mathematical analysis down from the analysis of coupled system of three equations to a single equation for a single unknown (<span class="math inline">\(s_0\)</span>)!</p>
 <div id="fig-3chem-single" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-3chem-single-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">

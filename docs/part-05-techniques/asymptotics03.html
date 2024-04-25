@@ -586,9 +586,9 @@ window.Quarto = {
 
 <section id="regular-vs.-singular-problems" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="regular-vs.-singular-problems"><span class="header-section-number">8.1</span> Regular vs.&nbsp;singular problems</h2>
-<p>In <a href="#sec-asymptotics02" class="quarto-xref"><span class="quarto-unresolved-ref">sec-asymptotics02</span></a>, we studied how asymptotic expansions can be used to approximate equations like <span class="math display">\[
+<p>In <a href="asymptotics02.html" class="quarto-xref"><span>Chapter 6</span></a>, we studied how asymptotic expansions can be used to approximate equations like <span class="math display">\[
 \frac{\mathrm{d}^2 y}{\mathrm{d}t^2} = -\frac{1}{(1 + \epsilon y)^2}
-\]</span> by expanding the solution as <span class="math inline">\(y(t) = y_0(t) + \epsilon y_1(t) + \ldots\)</span>. These are known as <em>regular</em> problems because a small perturbation, <span class="math inline">\(\epsilon\)</span>, does not seem to fundamentally change the <span class="math inline">\(\epsilon = 0\)</span> solution beyond a small perturbation. This is not always the case. In <em>singular</em> problems, the situation of <span class="math inline">\(\epsilon \neq 0\)</span> is fundamentally different than the situation from <span class="math inline">\(\epsilon = 0\)</span>. You have already seen such an example in <a href="#sec-asymptotics01" class="quarto-xref"><span class="quarto-unresolved-ref">sec-asymptotics01</span></a>. The equation <span class="math display">\[
+\]</span> by expanding the solution as <span class="math inline">\(y(t) = y_0(t) + \epsilon y_1(t) + \ldots\)</span>. These are known as <em>regular</em> problems because a small perturbation, <span class="math inline">\(\epsilon\)</span>, does not seem to fundamentally change the <span class="math inline">\(\epsilon = 0\)</span> solution beyond a small perturbation. This is not always the case. In <em>singular</em> problems, the situation of <span class="math inline">\(\epsilon \neq 0\)</span> is fundamentally different than the situation from <span class="math inline">\(\epsilon = 0\)</span>. You have already seen such an example in <a href="asymptotics01.html" class="quarto-xref"><span>Chapter 5</span></a>. The equation <span class="math display">\[
 \epsilon x^2 + x - 1 = 0
 \]</span> has one root for <span class="math inline">\(\epsilon = 0\)</span> and two roots for non-zero small <span class="math inline">\(\epsilon\)</span>—even infinitesimally small values! This is quite interesting. From a wider scientific perspective, you may wonder what other problems in nature possess such singular effects.</p>
 <p>The point of this lecture is study a technique known as <em>matched asymptotics</em>. These matched asymptotics are often necessary for singularly perturbed differential equations.</p>
@@ -596,7 +596,7 @@ window.Quarto = {
 <section id="a-singular-first-order-ode-problem" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="a-singular-first-order-ode-problem"><span class="header-section-number">8.2</span> A singular first-order ODE problem</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>Previously in <a href="#sec-basic-energy" class="quarto-xref"><span class="quarto-unresolved-ref">sec-basic-energy</span></a>, we derived a basic equation that governs the temperature on the surface of the planet. This equation had the following form: <span class="math display">\[
+<p>Previously in <a href="../part-01-intro/basic-energy-model.html" class="quarto-xref"><span>Chapter 3</span></a>, we derived a basic equation that governs the temperature on the surface of the planet. This equation had the following form: <span class="math display">\[
 (\rho c_p V) \frac{\mathrm{d}T}{\mathrm{d}t} = E_{\text{in}}(t, T) - E_{\text{out}}(t, T).
 \]</span></p>
 <p>For the purpose of this section, let us make up a toy model. We suggest, in non-dimensional form, <span id="eq-matched-T"><span class="math display">\[
@@ -607,7 +607,7 @@ T(0) &amp;= T^*,
 \tag{8.1}\]</span></span> where we consider <span class="math inline">\(\epsilon &gt; 0\)</span> and <span class="math inline">\(\epsilon \ll 1\)</span>. You can think of the above model as modelling the temperature on a substance that radiates heat in a fashion proportional to itself (<span class="math inline">\(-T\)</span>) and is being subjected to an (incoming) heat source, <span class="math inline">\(R\)</span>. Let us take as an example, <span class="math display">\[
 R(t) = 1 + A \cos(t).
 \]</span> Our choice for <span class="math inline">\(R\)</span> is not so important. This equation is, in fact, solvable in closed form (how?) but let us get additional practice solving numerically.</p>
-<div id="d8639ebb" class="cell" data-execution_count="1">
+<div id="f1bea23d" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> solve_ivp</span>
@@ -640,7 +640,7 @@ R(t) = 1 + A \cos(t).
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
 <p>We seek a method that will allow us to develop a uniformly valid approximation, i.e.&nbsp;an approximation that is good everywhere in the relevant domain, <span class="math inline">\(t \geq 0\)</span>. Begin by performing the usual asymptotic approximation: <span class="math display">\[
 T(t) = T_0(t) + \epsilon T_1(t) + \epsilon^2 T_2(t) + \ldots
-\]</span> Substitution into the ODE (<a href="#eq-matched-T" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-matched-T</span></a>) yields at leading order, <span class="math display">\[
+\]</span> Substitution into the ODE (<a href="#eq-matched-T" class="quarto-xref">Equation&nbsp;<span>8.1</span></a>) yields at leading order, <span class="math display">\[
 0 = R(t) - T_0(t) \Longrightarrow T_0(t) = R(t) = 1 + A \cos(t).
 \]</span> As we have noted, this approximation fails to satisfy the initial condition, <span class="math inline">\(T(0) = T^*\)</span> in general. It is possible to go to higher order but this is not so important at the moment. So for now, we have obtained: <span class="math display">\[
 T_{\text{outer}} \sim \Bigl[ 1 + A\cos t\Bigr].
@@ -650,7 +650,7 @@ T_{\text{outer}} \sim \Bigl[ 1 + A\cos t\Bigr].
 <section id="the-inner-scaling" class="level3" data-number="8.3.1">
 <h3 data-number="8.3.1" class="anchored" data-anchor-id="the-inner-scaling"><span class="header-section-number">8.3.1</span> The inner scaling</h3>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>Our intuition follows a very similar logic to the examination of the singular root in <a href="#sec-asym1-singular" class="quarto-xref"><span class="quarto-unresolved-ref">sec-asym1-singular</span></a>. Above, our naive assumption was that <span class="math inline">\(\epsilon T'(t)\)</span> could be ignored since <span class="math inline">\(\epsilon\)</span> is a small number. However, this may not be the case if the gradient is very large.</p>
+<p>Our intuition follows a very similar logic to the examination of the singular root in <a href="asymptotics01.html#sec-asym1-singular" class="quarto-xref"><span>Section 5.1.1</span></a>. Above, our naive assumption was that <span class="math inline">\(\epsilon T'(t)\)</span> could be ignored since <span class="math inline">\(\epsilon\)</span> is a small number. However, this may not be the case if the gradient is very large.</p>
 <p>Our intuition further suggests that the boundary layer occurs near <span class="math inline">\(t = 0\)</span> and that it scales in size with <span class="math inline">\(\epsilon\)</span>. Therefore, let us set <span class="math display">\[
 t = \epsilon^{\alpha} s,
 \]</span> as a change of coordinates. We expect <span class="math inline">\(\alpha &gt; 0\)</span> (otherwise <span class="math inline">\(t\)</span> is not small), and within this region, we expect the new coordinate, <span class="math inline">\(s\)</span>, to be <span class="math inline">\(O(1)\)</span> (of moderate size). We then transform the unknown function: <span class="math display">\[
@@ -673,7 +673,7 @@ R( \epsilon^{\alpha} s) \sim 1 + A.
 <p>Therefore, the correct coordinate re-scaling was the ‘obvious’ one: <span class="math display">\[
 t = \epsilon s.
 \]</span></p>
-<p>Substituting this again in (<a href="#eq-matched-T" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-matched-T</span></a>): <span class="math display">\[
+<p>Substituting this again in (<a href="#eq-matched-T" class="quarto-xref">Equation&nbsp;<span>8.1</span></a>): <span class="math display">\[
 \begin{aligned}
 \frac{\mathrm{d}U}{\mathrm{d}s} &amp;= 1 + A\cos(\epsilon s) - U, \\
 U(0) &amp;= T^*.
@@ -697,7 +697,7 @@ U_0(s) = (1 + A) + (T^* - (1 +A))e^{-s}.
 T_{\text{inner}} \sim (1 + A) + (T^* - (1 +A))e^{-t/\epsilon}.
 \]</span></p>
 <p>Let’s finally plot this with our previous curves:</p>
-<div id="44be98aa" class="cell" data-execution_count="2">
+<div id="e2a5db8c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> solve_ivp</span>

@@ -558,7 +558,7 @@ T(1) &amp;= 1.
 <p>The challenge is to study the above problem for small values of <span class="math inline">\(\epsilon\)</span>.</p>
 <section id="conversion-to-first-order-system" class="level2" data-number="35.1">
 <h2 data-number="35.1" class="anchored" data-anchor-id="conversion-to-first-order-system"><span class="header-section-number">35.1</span> Conversion to first-order system</h2>
-<p>By using the procedure reviewed in <a href="#sec-asym2-num" class="quarto-xref"><span class="quarto-unresolved-ref">sec-asym2-num</span></a>, convert (<a href="#eq-ps3-sys" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-ps3-sys</span></a>) to a first-order system of equations.</p>
+<p>By using the procedure reviewed in <a href="../part-05-techniques/asymptotics02.html#sec-asym2-num" class="quarto-xref"><span>Section 6.2</span></a>, convert (<a href="ps03.html#eq-ps3-sys" class="quarto-xref">Equation&nbsp;<span>28.1</span></a>) to a first-order system of equations.</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -694,7 +694,7 @@ Solution
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Remember</strong>: as you solve the outer solution, you impose the boundary condition of <span class="math inline">\(T(1) = 1\)</span>.</p>
-<p><strong>Leading-order</strong>: at leading order, we get the problem <span class="math inline">\(2T_0' + T_0 = 0\)</span> subject to <span class="math inline">\(T_0(1) = 1\)</span>. This is solved either by separation of variables or by integrating factor. Using the technique of solving first-order linear equations, (see <a href="#sec-odes" class="quarto-xref"><span class="quarto-unresolved-ref">sec-odes</span></a>) we divide, <span class="math display">\[
+<p><strong>Leading-order</strong>: at leading order, we get the problem <span class="math inline">\(2T_0' + T_0 = 0\)</span> subject to <span class="math inline">\(T_0(1) = 1\)</span>. This is solved either by separation of variables or by integrating factor. Using the technique of solving first-order linear equations, (see <a href="../part-05-techniques/odes.html" class="quarto-xref"><span>Chapter 40</span></a>) we divide, <span class="math display">\[
 T_0' + \frac{1}{2}T_0 = 0.
 \]</span> We then multiply both sides of the equation by <span class="math inline">\(e^{z/2}\)</span>. <span class="math display">\[
 \frac{\mathrm{d}}{\mathrm{d}z}\Bigl[T_0 e^{z/2}\Bigr] = 0.
@@ -716,7 +716,7 @@ T_1(z) = -\frac{e^{1/2}}{8}(z - 1) e^{-z/2}.
 <section id="inner-asymptotic-solutions" class="level2" data-number="35.5">
 <h2 data-number="35.5" class="anchored" data-anchor-id="inner-asymptotic-solutions"><span class="header-section-number">35.5</span> Inner asymptotic solutions</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>There will be a boundary layer near <span class="math inline">\(z = 0\)</span>. Set <span class="math inline">\(z = \epsilon^{\alpha} s\)</span> and <span class="math inline">\(T(z) = U(s)\)</span>. Follow the same procedure, as in <a href="#sec-asymptotics03" class="quarto-xref"><span class="quarto-unresolved-ref">sec-asymptotics03</span></a> in order to determine the correct choice of <span class="math inline">\(\alpha\)</span> for the inner region. This choice should balance the two terms <span class="math inline">\(\epsilon T''\)</span> and <span class="math inline">\(2T'\)</span>.</p>
+<p>There will be a boundary layer near <span class="math inline">\(z = 0\)</span>. Set <span class="math inline">\(z = \epsilon^{\alpha} s\)</span> and <span class="math inline">\(T(z) = U(s)\)</span>. Follow the same procedure, as in <a href="../part-05-techniques/asymptotics03.html" class="quarto-xref"><span>Chapter 8</span></a> in order to determine the correct choice of <span class="math inline">\(\alpha\)</span> for the inner region. This choice should balance the two terms <span class="math inline">\(\epsilon T''\)</span> and <span class="math inline">\(2T'\)</span>.</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">

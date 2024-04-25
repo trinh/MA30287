@@ -544,7 +544,7 @@ window.Quarto = {
 </header>
 
 
-<p>We continue our investigation of the latitude-dependent model of <a href="#sec-latitude2" class="quarto-xref"><span class="quarto-unresolved-ref">sec-latitude2</span></a>.</p>
+<p>We continue our investigation of the latitude-dependent model of <a href="latitude2.html" class="quarto-xref"><span>Chapter 16</span></a>.</p>
 <!-- ## Placement of the ice line -->
 <!---->
 <!-- Using Newton's method, we previously solved for a complete solution by starting off with a 'lucky' initial guess. For example, starting with a linear temperature distribution set to $T(0) = 20$ and $T(1) = -20$ we were able to converge to the profile shown below.  -->
@@ -584,7 +584,7 @@ Figure&nbsp;17.2: Mean temperature
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
 <p>So far, we have only discussed the steady-state solutions of the latitude-dependent EBM, repeated below: <span class="math display">\[
 C \frac{\mathrm{\partial}T}{\mathrm{\partial}t} = Qs(y)[1 - a(y)] - (A + BT) + k(\bar{T} - T).
-\]</span> In this section, we investigate the stability analysis for the mean temperature, <span class="math inline">\(\bar{T}\)</span>. This was given in <a href="#eq-meanT-evo-ps" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-meanT-evo-ps</span></a> and repeated below: <span id="eq-meanT-evo"><span class="math display">\[
+\]</span> In this section, we investigate the stability analysis for the mean temperature, <span class="math inline">\(\bar{T}\)</span>. This was given in <a href="../part-xx-exercises/ps05.html#eq-meanT-evo-ps" class="quarto-xref">Equation&nbsp;<span>30.1</span></a> and repeated below: <span id="eq-meanT-evo"><span class="math display">\[
 C \frac{\mathrm{d}\bar{T}}{\mathrm{d}t} = G(\bar{T}) \equiv Q(1 - \bar{a}) - (A + B\bar{T}),
 \tag{17.1}\]</span></span> The following linearisation argument was presented by <a href="https://moodle.bath.ac.uk/pluginfile.php/2213909/mod_resource/content/0/Cahalan_North_1979.pdf">Cahalan and North (1979)</a>, with some additional details to avoid confusion. Let us linearise this about a steady-state solution, writing <span class="math display">\[
 \bar{T} = \bar{T}^* + u(t),
@@ -592,7 +592,7 @@ C \frac{\mathrm{d}\bar{T}}{\mathrm{d}t} = G(\bar{T}) \equiv Q(1 - \bar{a}) - (A 
 G(\bar{T}) = G(\bar{T}^*) + G'(\bar{T}^*)u + O(u^2),
 \]</span> so substitution into the ODE yields the linear equation <span id="eq-linearu"><span class="math display">\[
 C \frac{\mathrm{d}u}{\mathrm{d}t} = G'(\bar{T}^*) u.
-\tag{17.2}\]</span></span> We need to calculate the derivative term on the RHS. First, using the equation for <span class="math inline">\(G\)</span> in <a href="#eq-meanT-evo" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-meanT-evo</span></a>, we have <span id="eq-Gprime"><span class="math display">\[
+\tag{17.2}\]</span></span> We need to calculate the derivative term on the RHS. First, using the equation for <span class="math inline">\(G\)</span> in <a href="#eq-meanT-evo" class="quarto-xref">Equation&nbsp;<span>17.1</span></a>, we have <span id="eq-Gprime"><span class="math display">\[
 G'(T^*) = -B - Q \frac{\mathrm{d}\bar{a}}{\mathrm{d}\bar{T}}\biggr\rvert_{\bar{T} = \bar{T}^*}.
 \tag{17.3}\]</span></span> The above calculation assumes that <span class="math inline">\(Q\)</span> is a fixed number, as it should, since <span class="math inline">\(Q\)</span> is regarded as a parameter (we choose a value of <span class="math inline">\(Q\)</span>, then this allows us to evolve the ODE).</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -618,14 +618,14 @@ Figure&nbsp;17.3: From Cahalan &amp; North, p.1179
 </div>
 </div>
 </div>
-<p><span style="color:blue;">The problem is what to do with the derivative of <span class="math inline">\(\bar{a}\)</span> that appears in (<a href="#eq-Gprime" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-Gprime</span></a>). This is a strange quantity, since <span class="math inline">\(\bar{a}\)</span> does not explicitly depend on <span class="math inline">\(\bar{T}\)</span>, and is given in (<a href="#eq-abar-again" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-abar-again</span></a>). The issue is that there is a hidden dependence: <span class="math inline">\(\bar{a}\)</span> depends on the ice line, <span class="math inline">\(y_s\)</span>, which depends on not only <span class="math inline">\(Q\)</span>, but is multivalued as well! </span></p>
-<p>Cahalan &amp; North, whether knowingly or unknowingly, applied a trick, which is to consider that <span class="math inline">\(Q\)</span> is not a parameter, but that it can be viewed as depending on <span class="math inline">\(\bar{T}^*\)</span>, the steady state (this dependence is shown in <a href="#fig-Tbar" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-Tbar</span></a>). Therefore, Cahalan &amp; North returned to the equation (<a href="#eq-meanT-again" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-meanT-again</span></a>) that gives the steady-state: <span class="math display">\[
+<p><span style="color:blue;">The problem is what to do with the derivative of <span class="math inline">\(\bar{a}\)</span> that appears in (<a href="#eq-Gprime" class="quarto-xref">Equation&nbsp;<span>17.3</span></a>). This is a strange quantity, since <span class="math inline">\(\bar{a}\)</span> does not explicitly depend on <span class="math inline">\(\bar{T}\)</span>, and is given in (<a href="latitude2.html#eq-abar-again" class="quarto-xref">Equation&nbsp;<span>16.5</span></a>). The issue is that there is a hidden dependence: <span class="math inline">\(\bar{a}\)</span> depends on the ice line, <span class="math inline">\(y_s\)</span>, which depends on not only <span class="math inline">\(Q\)</span>, but is multivalued as well! </span></p>
+<p>Cahalan &amp; North, whether knowingly or unknowingly, applied a trick, which is to consider that <span class="math inline">\(Q\)</span> is not a parameter, but that it can be viewed as depending on <span class="math inline">\(\bar{T}^*\)</span>, the steady state (this dependence is shown in <a href="#fig-Tbar" class="quarto-xref">Figure&nbsp;<span>17.2</span></a>). Therefore, Cahalan &amp; North returned to the equation (<a href="latitude2.html#eq-meanT-again" class="quarto-xref">Equation&nbsp;<span>16.4</span></a>) that gives the steady-state: <span class="math display">\[
 T^* = \frac{Q(1 - \bar{a}) - A}{B}.
 \]</span> We differentiate this equation with respect to <span class="math inline">\(\bar{T^*}\)</span>, but now assume both <span class="math inline">\(Q\)</span> and <span class="math inline">\(\bar{a}\)</span> depend on <span class="math inline">\(\bar{T^*}\)</span>. This yields <span id="eq-diffmeaneq"><span class="math display">\[
 1 = \frac{1}{B} \frac{\mathrm{d}Q}{\mathrm{d}\bar{T^*}}(1 - \bar{a}) - \frac{Q}{B} \frac{\mathrm{d}\bar{a}}{\mathrm{d}\bar{T}^*} \Longrightarrow
 B = \frac{\mathrm{d}Q}{\mathrm{d}\bar{T^*}}(1 - \bar{a}) - Q \frac{\mathrm{d}\bar{a}}{\mathrm{d}\bar{T}^*}
 \tag{17.4}\]</span></span></p>
-<p>We substitute the above value of <span class="math inline">\(B\)</span> into (<a href="#eq-Gprime" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-Gprime</span></a>), and then finally into the equation for the linearisation (<a href="#eq-linearu" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-linearu</span></a>). Then we have <span class="math display">\[
+<p>We substitute the above value of <span class="math inline">\(B\)</span> into (<a href="#eq-Gprime" class="quarto-xref">Equation&nbsp;<span>17.3</span></a>), and then finally into the equation for the linearisation (<a href="#eq-linearu" class="quarto-xref">Equation&nbsp;<span>17.2</span></a>). Then we have <span class="math display">\[
 C \frac{\mathrm{d}u}{\mathrm{d}t} = -\left[(1 - \bar{a}) \frac{\mathrm{d}Q}{\mathrm{d}\bar{T}^*}\right]u(t) = -\gamma u(t),
 \]</span> where the constant <span class="math inline">\(\gamma\)</span> has been defined by the above. Thus, the solution is given by <span class="math display">\[
 u(t) = u(0) e^{-\gamma t/C}.
@@ -638,7 +638,7 @@ u(t) = u(0) e^{-\gamma t/C}.
 \frac{\mathrm{d}Q}{\mathrm{d}\bar{T}^*} &lt; 0 &amp;\Longrightarrow \text{unstable}.
 \end{aligned}
 \]</span></p>
-<p>We may now plot the bifurcation diagram, shown in <span class="math inline">\((Q, \bar{T})\)</span>-space. First, return to <a href="#fig-Tbar" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-Tbar</span></a>. In lecture 21, we drew the following picture:</p>
+<p>We may now plot the bifurcation diagram, shown in <span class="math inline">\((Q, \bar{T})\)</span>-space. First, return to <a href="#fig-Tbar" class="quarto-xref">Figure&nbsp;<span>17.2</span></a>. In lecture 21, we drew the following picture:</p>
 <div id="fig-CNbif" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-CNbif-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">

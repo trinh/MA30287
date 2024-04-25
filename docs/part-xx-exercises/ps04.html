@@ -595,7 +595,7 @@ Note
 </div>
 <section id="q1.-the-wine-cellar-problem-i" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q1.-the-wine-cellar-problem-i">Q1. The wine cellar problem I</h2>
-<p>Within <a href="#sec-pclass3" class="quarto-xref"><span class="quarto-unresolved-ref">sec-pclass3</span></a>, the heat system was studied: <span class="math display">\[
+<p>Within <a href="problemclass03.html" class="quarto-xref"><span>Chapter 12</span></a>, the heat system was studied: <span class="math display">\[
 \begin{gathered}
 \frac{\partial T}{\partial t} = \kappa \frac{\partial^2 T}{\partial x^2}, \\
 T(x = 0, t) = A \cos(\omega t), \\
@@ -604,7 +604,7 @@ T(x = 0, t) = A \cos(\omega t), \\
 \]</span> for <span class="math inline">\(x \geq 0\)</span>. The initial condition can be ignored.</p>
 <p>The solution was sought in the form of <span class="math inline">\(T(x, t) = G(t) H(x)\)</span> using a separation of variables procedure leading to <span class="math display">\[
 \frac{G'}{G} = \kappa \frac{H''}{H} = \lambda.
-\]</span> Go through an argument that the cases of <span class="math inline">\(\lambda = 0\)</span> and <span class="math inline">\(\lambda\)</span> real lead to incompatible solutions. Review the calculation that <span class="math inline">\(\lambda = i\omega\)</span> leads to the desired solution given in (<a href="#eq-wine-sol" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-wine-sol</span></a>).</p>
+\]</span> Go through an argument that the cases of <span class="math inline">\(\lambda = 0\)</span> and <span class="math inline">\(\lambda\)</span> real lead to incompatible solutions. Review the calculation that <span class="math inline">\(\lambda = i\omega\)</span> leads to the desired solution given in (<a href="problemclass03.html#eq-wine-sol" class="quarto-xref">Equation&nbsp;<span>12.1</span></a>).</p>
 </section>
 <section id="q2.-the-wine-cellar-problem-ii" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q2.-the-wine-cellar-problem-ii">Q2. The wine cellar problem II</h2>
@@ -618,7 +618,7 @@ T(x = 0, t) = A \cos(\omega t), \\
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
 <p>Satellite data indicates that <span class="math inline">\(Q\)</span>, varies roughly between 341.37 W/m<sup>2</sup> and 341.75 W/m<sup>2</sup>, with a period of about 11 years.</p>
 <ol type="a">
-<li><p>Use the simple EBM given in (<a href="#eq-energy-ss" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-energy-ss</span></a>) and repeated below: <span class="math display">\[
+<li><p>Use the simple EBM given in (<a href="../part-03-box/box-energy-model.html#eq-energy-ss" class="quarto-xref">Equation&nbsp;<span>13.3</span></a>) and repeated below: <span class="math display">\[
 Q(1 - a) = \sigma \gamma T^4,
 \]</span> with a constant albedo, <span class="math inline">\(a = 0.3\)</span> and greenhouse gas factor <span class="math inline">\(\gamma = 0.6\)</span> to estimate the resultant variation (max and min) in the Earth’s mean surface temperature <span class="math inline">\(T\)</span>.</p></li>
 <li><p>Similar to (a) but this time, use the Budyko balance equation, <span class="math display">\[
@@ -632,8 +632,8 @@ Q(1 - a) = A + BT
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
 <p>Consider the energy balance equation <span id="eq-ps4-main"><span class="math display">\[
 C \frac{\mathrm{d}T}{\mathrm{d}t} = Q(1 - a(T)) - \sigma \gamma T^4 \equiv G(T).
-\tag{29.1}\]</span></span> with <span class="math inline">\(a\)</span> given by (<a href="#eq-albedokaper" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-albedokaper</span></a>). Because the differential equation is autonomous, we can apply phase-line analysis in order to qualitatively understand the evolution. Below is a plot of the function <span class="math inline">\(G\)</span>:</p>
-<div id="b06722e0" class="cell" data-execution_count="1">
+\tag{29.1}\]</span></span> with <span class="math inline">\(a\)</span> given by (<a href="../part-03-box/box-energy-model.html#eq-albedokaper" class="quarto-xref">Equation&nbsp;<span>13.2</span></a>). Because the differential equation is autonomous, we can apply phase-line analysis in order to qualitatively understand the evolution. Below is a plot of the function <span class="math inline">\(G\)</span>:</p>
+<div id="fb4d3724" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>

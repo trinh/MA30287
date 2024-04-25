@@ -572,7 +572,7 @@ window.Quarto = {
 </header>
 
 
-<p>Putting a mathematical model into non-dimensional form is fundamental <span class="citation" data-cites="fowler_book">(<a href="#ref-fowler_book" role="doc-biblioref">Fowler 2011</a>)</span>. When we refer to a “back-of-the-envelope calculation”, we often mean simple algebraic calculations that still nevertheless provide enormous insight on problems. Such analyses are often based on dimensional analysis, which identifies the relationships between the different quantities involved in the problem.</p>
+<p>Putting a mathematical model into non-dimensional form is fundamental <span class="citation" data-cites="fowler_book">(<a href="../references.html#ref-fowler_book" role="doc-biblioref">Fowler 2011</a>)</span>. When we refer to a “back-of-the-envelope calculation”, we often mean simple algebraic calculations that still nevertheless provide enormous insight on problems. Such analyses are often based on dimensional analysis, which identifies the relationships between the different quantities involved in the problem.</p>
 <section id="dimensional-quantities" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="dimensional-quantities"><span class="header-section-number">2.1</span> Dimensional quantities</h2>
 <p>Every physical quantity, say Q, can be expressed as a product of a dimensional unit, denoted [Q], and a magnitude, say Q’. Thus we write <span class="math display">\[
@@ -625,7 +625,7 @@ F = m \frac{\mathrm{d}^2x}{\mathrm{d}t^2}
 <p>The below has been cleaned up to match the notation on the 13 Feb 2023 delivery.</p>
 </div>
 </div>
-<p>Exact units are not relevant for dynamics, and it is instead the ratio of units that we care about. To apply this principle, let us non-dimensionalise the equation <a href="#eq-heatintro" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-heatintro</span></a>. Let us consider the heat equation as given by the system <span class="math display">\[
+<p>Exact units are not relevant for dynamics, and it is instead the ratio of units that we care about. To apply this principle, let us non-dimensionalise the equation <a href="intro-PDEs.html#eq-heatintro" class="quarto-xref">Equation&nbsp;<span>1.1</span></a>. Let us consider the heat equation as given by the system <span class="math display">\[
 \begin{aligned}
 \frac{\partial T}{\partial t} &amp;= \kappa \frac{\partial^2 T}{\partial x^2} \\
 T(x, 0) &amp;= T_\text{init} \\
@@ -679,7 +679,7 @@ T'(1, t') &amp;= \frac{T_b}{T_\text{init}} \equiv B.
 \kappa, \qquad T_\text{init}, \qquad T_a, \qquad T_b, \qquad L.
 \]</span></p>
 <p>Imagine a situation where you are performing an analysis of heat spread in different pipes of different materials (characterised by <span class="math inline">\(\kappa\)</span>) and lengths (<span class="math inline">\(L\)</span>), with different initial and boundary temperatures. That is potentially a highly complicated parameter space to search (five-dimensional).</p>
-<p>Rather than solving the problem again and again for each change in parameters, what the analysis yielding (<a href="#eq-heat-nondim" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-heat-nondim</span></a>) reveals is that the parameter space only needs to be two-dimensional, for parameters <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. Therefore, by solving the problem at many different values of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, the solution space can be completely mapped.</p>
+<p>Rather than solving the problem again and again for each change in parameters, what the analysis yielding (<a href="#eq-heat-nondim" class="quarto-xref">Equation&nbsp;<span>2.1</span></a>) reveals is that the parameter space only needs to be two-dimensional, for parameters <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. Therefore, by solving the problem at many different values of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, the solution space can be completely mapped.</p>
 <p>Here is an example. Consider heat diffusion through common <a href="https://www.engineersedge.com/heat_transfer/thermal_diffusivity_table_13953.htm">brick</a>, which possesses a thermal diffusivity of <span class="math display">\[
 \kappa = 5.2 \times 10^{-7} \mathrm{m}^2/\mathrm{s}.
 \]</span> Therefore a brick that is about L = 10cm = 0.1m in size has a typical timescale of <span class="math display">\[
@@ -739,7 +739,7 @@ T'(1, t') &amp;= \frac{T_b}{T_\text{init}} \equiv B.
 <!-- ::: -->
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-fowler_book" class="csl-entry" role="listitem">
 Fowler, Andrew. 2011. <em>Mathematical Geoscience</em>. Vol. 36. Springer.
 </div>
