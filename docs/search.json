@@ -946,6 +946,17 @@
     ]
   },
   {
+    "objectID": "part-03-box/basic-ocean-model.html#sec-ocean-toysalinity",
+    "href": "part-03-box/basic-ocean-model.html#sec-ocean-toysalinity",
+    "title": "23  Basic models of the ocean",
+    "section": "23.7 Analysis of a reduced 1D model for the salinity",
+    "text": "23.7 Analysis of a reduced 1D model for the salinity\n\\(\\nextSection\\)\n\n\n\n\n\n\nReduced models (non-examinable)\n\n\n\n\n\nThis material was not taught in 23-24, but concerns a reduction of the above ocean box model. It is not examinable this year but you may find it useful to know this was taught—for revising with respect to last year’s exam.\nIt is possible to do some analysis on the system (Equation 23.6), though we may prefer to simply move on to study the more historically well-known reduction called Stommel’s box model.\nWe make the following assumptions:\n\nWe assume that on the timescale of interest in the THC, the temperature of each box equilibrates quickly with the surrounding basin. Therefore the system can be regarded as being in steady state.\n\nThe difference in temperatures between the two boxes is small; together with the top assumption, this implies that \\(T_1(t) = -T^*\\) and \\(T_2(t) = T^*\\).\nSalinity exchanges by negligible amounts with its surrounding basin, i.e. \\(d = 0\\)\n\nThis leaves us with \\[\\begin{align*}\n\\frac{\\mathrm{d}S_1}{\\mathrm{d}t} &= -H + |q|(S_2 - S_1) \\\\\n\\frac{\\mathrm{d}S_2}{\\mathrm{d}t} &= H + |q| (S_1 - S_2),\n\\end{align*}\\] where \\(q = k(2\\alpha T^* - \\beta(S_2 - S_1))\\).\nNow, the formulation for the salinities can be placed into a single equation for \\(\\Delta S = S_2 - S_1\\), which satisfies \\[\n\\frac{\\mathrm{d}\\Delta S}{\\mathrm{d}t} = 2H - 2k|\\alpha \\Delta T - \\beta \\Delta S| \\Delta S.\n\\tag{23.7}\\]\nThis is now a much simpler and elegant formulation for study. Under a suitable non-dimensionalisation and scaling, we can even place the above equation in the final simplified form of \\[\n\\dot{x} = \\lambda - |1 - x| x,\n\\] where \\(\\lambda &gt; 0\\) (for temperatures in the usual configuration, with \\(T_2 - T_1 &gt; 0\\), and a suitably defined function \\(x = x(t)\\).\n\n\n\n\n\n\n\n\nKaper, Hans, and Hans Engler. 2013. Mathematics and Climate. SIAM.",
+    "crumbs": [
+      "Box models of the ocean and environment",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Basic models of the ocean</span>"
+    ]
+  },
+  {
     "objectID": "part-03-box/stommel.html",
     "href": "part-03-box/stommel.html",
     "title": "24  Stommel’s box model",
@@ -998,6 +1009,61 @@
     "crumbs": [
       "Box models of the ocean and environment",
       "<span class='chapter-number'>24</span>  <span class='chapter-title'>Stommel's box model</span>"
+    ]
+  },
+  {
+    "objectID": "part-03-box/flood.html",
+    "href": "part-03-box/flood.html",
+    "title": "25  Box models for flood estimation",
+    "section": "",
+    "text": "25.1 Terminology\nFirst, examine a typical geometry in the image below.\nIn flooding, hydrologists are primarily interested in two related concepts of streamflow and runoff. Streamflow is typically measured at a prominent outlet, such as the mouth of a river or the outflow to a lake, and consists of the amount of water that flows through a cross section, expressed as cubic metres per second. At any given point in the above diagram, we can also measure the runoff, which is expressed in millimetres per day (mm/d). Given the river path in the figure above, we could theoretically convert from runoff to streamflow: we for each grid, we multiply the runoff by the surface area, which yields the volumetric per time quantity of streamflow.\nIn the above diagram, the upstream area of an outlet (the lake or the gauging station, for instance), is called a basin, catchment, or watershed.\nFor reference, these models are re-interpreted and cleaned up versions of what appears in the work by Jothityangkoon et al. (2001).",
+    "crumbs": [
+      "Box models of the ocean and environment",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Box models for flood estimation</span>"
+    ]
+  },
+  {
+    "objectID": "part-03-box/flood.html#terminology",
+    "href": "part-03-box/flood.html#terminology",
+    "title": "25  Box models for flood estimation",
+    "section": "",
+    "text": "Typical geometry of consideration; image from Gauch and Lin (2020)",
+    "crumbs": [
+      "Box models of the ocean and environment",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Box models for flood estimation</span>"
+    ]
+  },
+  {
+    "objectID": "part-03-box/flood.html#a-basic-flood-model",
+    "href": "part-03-box/flood.html#a-basic-flood-model",
+    "title": "25  Box models for flood estimation",
+    "section": "25.2 A basic flood model",
+    "text": "25.2 A basic flood model\n\\(\\nextSection\\)\nThe basic flood model or rainfall-runoff model is essentially a water balance equation. Here is a simple model with one store and one parameter. We consider the total water exchange that occurs in a given area. Prepitation input, \\(P(t)\\), measured in mm/day is obtained. The quantity \\(S(t)\\), measured in mm, then measures the current “storage” in the soil moisture. Actual evaporation \\(E_a(t)\\) will remove moisture from the soil. Then: \\[\n\\frac{\\mathrm{d}S}{\\mathrm{d}t} = P(t) - Q_{se}(t) - E_a(t).\n\\tag{25.1}\\] The makeup of the right hand-side are as follows.\nThe term \\(Q_{se}\\) measures the saturation excess overland flow. This is essentially the quantity that arises when the soil cannot support additional moisture, and produces runoff. We can consider it modelled as: \\[\nQ_{se}(t) = P(t) \\sigma(S - S_{\\text{max}}),\n\\] where \\(\\sigma\\) is a ‘sigmoid’ function, which is zero or is small for \\(S &lt; S_{\\text{max}}\\) and is one or near one for \\(S &gt; S_{\\text{max}}\\). For instance, we might take \\[\n\\sigma(S - S_{\\text{max}}) = H(S - S_{\\text{max}}) = \\begin{cases}\n1 & S &gt; S_{\\text{max}} \\\\\n0 & S &lt; S_{\\text{max}} \\\\\n1/2 & S = S_{\\text{max}} \\end{cases}\n\\] where \\(H\\) is the Heaviside step function, which for convenience we take at its midpoint value when evaluated at zero.\nThe above model for \\(Q_{se}\\) makes some sense. If the soil has not exceed some ‘maximum soil moisture storage’ value \\(S_{\\text{max}}\\), then there is no saturation excess and the total runoff is zero. However, once this threshold is exceed, the precipitation is routed directly to the runoff.\nThe actual evaporation (or more accurately evapotranspiration) includes interception loss from plant canopies at the land surface, and combined evaporation and transpiration taken out of the soil water. We take it to be written in a fashion proportional to the total soil moisture: \\[\nE_a(t) = \\frac{E_p(t)}{S_{\\text{max}}}S(t).\n\\] We assume that the metereological data provides estimates of the potential evaporation, \\(E_p(t)\\). You do not have to know about the specifics of the difference between actual and potential evaporation, though see a description of how these two quantities are measured at this link. Above, it is nice to think of the fact that the dimensions of \\(E_a\\) must be measured in storage units (mm) per time. The quantity \\[\n\\frac{S_{\\text{max}}}{E_p},\n\\] is the approximate time it would take for a bucket with \\(S_{\\text{max}}\\) to completely evaporate.\nTherefore, on the assumption that metereological data provides values of precipitation \\(P\\) and potential evapotranspiration (or simply evaporation), we can use the above to calculate the soil moisture \\(S\\). The key quantity to predict is the runoff, which in this case is simply the saturation excess: \\[\n\\text{runoff} = Q_{se}(t).\n\\]\nIn summary, the above model consists of a single store and a single parameter (\\(S_{\\text{max}}\\)). In theory, you would obtain time-series data of streamflow or runoff, and then attempt to calibrate the parameter.",
+    "crumbs": [
+      "Box models of the ocean and environment",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Box models for flood estimation</span>"
+    ]
+  },
+  {
+    "objectID": "part-03-box/flood.html#a-flood-model-with-slow-and-fast-flows",
+    "href": "part-03-box/flood.html#a-flood-model-with-slow-and-fast-flows",
+    "title": "25  Box models for flood estimation",
+    "section": "25.3 A flood model with slow and fast flows",
+    "text": "25.3 A flood model with slow and fast flows\n\\(\\nextSection\\)\nIf the above model is tested on real data, we would typically observe that it performs well in predicting long-time runoffs, but that it does not cope very well with inter-annual variations. Indeed, it fails to capture a key mechanism of water transfer, which suggests that runoff should be separated into two components: a delayed subsurface runoff, \\(Q_{ss}(t)\\), when soil moisture storage in the bucket exceeds some field capacity threshold (think of this as groundwater flow); and the previous saturation excess (think of this as overland flow).\nIn addition, we might want to separate the evopotranspiration as \\[\nE_a = E_b + E_v,\n\\] where \\(E_b\\) measures the bare soil evaporation while \\(E_v\\) measures the transpiration due to vegetation. In theory, this would allow us to partition land into soil-covered or vegetation-covered.\nThe model is then \\[\n\\frac{\\mathrm{d}S}{\\mathrm{d}t} = P(t) - (Q_{se}(t) + Q_{ss}(t)) - (E_b(t) + E_v(t)).\n\\] First, the saturation excess overland flow is as it was previously: \\[\nQ_{se}(t) = P(t) \\sigma(S - S_{\\text{max}}),\n\\] where again for simplicity, we could take \\(\\sigma = H\\) and use the Heaviside step function as the activation function.\nWe also allow now for the subsurface flow, \\(Q_{ss}(t)\\) (again in mm/day), modelled via \\[\nQ_{ss}(t) = a(S-S_{\\text{fc}})\\sigma(S - S_{\\text{fc}}),\n\\] which produces flow proportional to how much the soil has exceeded its field capacity value, \\(S_{fc}\\), subject to a proportionality constant \\(a\\).\nAs for the two evaporation rates, they are subsequently weighted by a factor dependent on \\(M\\), the forest fraction parameter, with \\(0 &lt; M &lt; 1\\). We do not go into detail on their forms, but refer the reader to the original work by Jothityangkoon et al. (2001), from which this model was taken. The evaporation rates are, \\[\nE_b = (1 - M) E_p(t) \\frac{S}{S_{\\text{max}}}.\n\\] The above is the usual expression for the evaporation rate, but additional weighted by the \\((1-M)\\) factor, which is zero if the area is entirely forest-covered. Next, the vegetation-covered evaporation is,\n\\[\nE_v = \\begin{cases}\nM E_p & S &gt; S_{fc} \\\\\n\\frac{S}{S_fc} M E_p & S &lt; S_{fc},\n\\end{cases}\n\\] and so the model depends on whether the groundwater region is entirely saturated or not. If the groundwater region is entirely saturated, then the maximal transpiration occurs, specifically with \\(E_v = E_p\\) for the completely forest-covered region. On the other hand, if the groundwater region is not completely saturated, then we allow the vegetative transpiration rate to be a fraction of \\(E_p\\), dependent on the soil moisture storage \\(S\\).\nAgain, the runoff is calculated via \\[\nQ = Q_{se} + Q_{ss}.\n\\]\nThis model has one store and 4 parameters: \\(S_{\\text{max}}\\) (mm), \\(S_{\\text{fc}}\\) (mm), \\(a\\) (1/day), and \\(0 &lt; M &lt; 1\\). Like all other models, you can attempt to train the model by processing known data and fitting the parameters.",
+    "crumbs": [
+      "Box models of the ocean and environment",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Box models for flood estimation</span>"
+    ]
+  },
+  {
+    "objectID": "part-03-box/flood.html#calibration-and-analysis",
+    "href": "part-03-box/flood.html#calibration-and-analysis",
+    "title": "25  Box models for flood estimation",
+    "section": "25.4 Calibration and analysis",
+    "text": "25.4 Calibration and analysis\n\\(\\nextSection\\)\n\n\n\n\n\n\nContent\n\n\n\nThis chapter will end with a short summary of how the above basic flooding model is calibrated and what results it produces. To be covered in Lecture 32.",
+    "crumbs": [
+      "Box models of the ocean and environment",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Box models for flood estimation</span>"
     ]
   },
   {
@@ -1378,7 +1444,7 @@
     "href": "part-xx-exercises/ps07.html#q4.-box-models-for-flooding-1",
     "title": "32  Problem set 7",
     "section": "Q4. Box models for flooding 1",
-    "text": "Q4. Box models for flooding 1\n\\(\\nextSection\\)\n\n\n\n\n\n\nNote\n\n\n\nTo add following lectures in Week 11",
+    "text": "Q4. Box models for flooding 1\n\\(\\nextSection\\)\nConsider the basic flooding model given in (Equation 25.1), and repeated below: \\[\n\\frac{\\mathrm{d}S}{\\mathrm{d}t} = P(t) - P(t)H(S - S_{\\text{max}}) - E_p(t) \\frac{S}{S_{\\text{max}}}.\n\\] Consider the initial condition of \\(S(0) = S_0 \\geq 0\\), and a constant rainfall \\(P(t) = P\\) and constant potential evapotranspiration \\(E_p(t) = E_p\\). Describe, using analysis, the evolution of the system.\nDraw graphs of the storage, \\(S\\), and saturation excess runoff \\(Q_{se}\\) (the second term of the above equation).",
     "crumbs": [
       "Exercises",
       "<span class='chapter-number'>32</span>  <span class='chapter-title'>Problem set 7</span>"
@@ -1975,17 +2041,6 @@
     "text": "Budyko, Mikhail I. 1969. “The Effect of Solar Radiation Variations\non the Climate of the Earth.” Tellus 21 (5): 611–19.\n\n\nFourier, Joseph. 1827. “Mémoire Sur Les\nTempératures Du Globe Terrestre Et Des Espaces\nPlanétaires.” Mémoires de\nl’Académie Royale Des Sciences de l’Institut de France\n7: 570–604.\n\n\nFowler, Andrew. 2011. Mathematical Geoscience. Vol. 36.\nSpringer.\n\n\nKaper, Hans, and Hans Engler. 2013. Mathematics and Climate.\nSIAM.\n\n\nMacKay, D. J. C. 2009. Sustainable Energy – Without the Hot\nAir. UIT Cambridge Ltd.\n\n\nPouillet, Claude Servais Mathias. 1838. “Memoire Sur Le Chaleur\nSolaire.” Paris.\n\n\nStommel, Henry. 1961. “Thermohaline Convection with Two Stable\nRegimes of Flow.” Tellus 13 (2): 224–30.\n\n\nVan der Veen, CJ. 2000. “Fourier and the ‘Greenhouse\nEffect’.” Polar Geography 24 (2): 132–52.",
     "crumbs": [
       "References"
-    ]
-  },
-  {
-    "objectID": "part-03-box/basic-ocean-model.html#sec-ocean-toysalinity",
-    "href": "part-03-box/basic-ocean-model.html#sec-ocean-toysalinity",
-    "title": "23  Basic models of the ocean",
-    "section": "23.7 Analysis of a reduced 1D model for the salinity",
-    "text": "23.7 Analysis of a reduced 1D model for the salinity\n\\(\\nextSection\\)\n\n\n\n\n\n\nReduced models (non-examinable)\n\n\n\n\n\nThis material was not taught in 23-24, but concerns a reduction of the above ocean box model. It is not examinable this year but you may find it useful to know this was taught—for revising with respect to last year’s exam.\nIt is possible to do some analysis on the system (Equation 23.6), though we may prefer to simply move on to study the more historically well-known reduction called Stommel’s box model.\nWe make the following assumptions:\n\nWe assume that on the timescale of interest in the THC, the temperature of each box equilibrates quickly with the surrounding basin. Therefore the system can be regarded as being in steady state.\n\nThe difference in temperatures between the two boxes is small; together with the top assumption, this implies that \\(T_1(t) = -T^*\\) and \\(T_2(t) = T^*\\).\nSalinity exchanges by negligible amounts with its surrounding basin, i.e. \\(d = 0\\)\n\nThis leaves us with \\[\\begin{align*}\n\\frac{\\mathrm{d}S_1}{\\mathrm{d}t} &= -H + |q|(S_2 - S_1) \\\\\n\\frac{\\mathrm{d}S_2}{\\mathrm{d}t} &= H + |q| (S_1 - S_2),\n\\end{align*}\\] where \\(q = k(2\\alpha T^* - \\beta(S_2 - S_1))\\).\nNow, the formulation for the salinities can be placed into a single equation for \\(\\Delta S = S_2 - S_1\\), which satisfies \\[\n\\frac{\\mathrm{d}\\Delta S}{\\mathrm{d}t} = 2H - 2k|\\alpha \\Delta T - \\beta \\Delta S| \\Delta S.\n\\tag{23.7}\\]\nThis is now a much simpler and elegant formulation for study. Under a suitable non-dimensionalisation and scaling, we can even place the above equation in the final simplified form of \\[\n\\dot{x} = \\lambda - |1 - x| x,\n\\] where \\(\\lambda &gt; 0\\) (for temperatures in the usual configuration, with \\(T_2 - T_1 &gt; 0\\), and a suitably defined function \\(x = x(t)\\).\n\n\n\n\n\n\n\n\nKaper, Hans, and Hans Engler. 2013. Mathematics and Climate. SIAM.",
-    "crumbs": [
-      "Box models of the ocean and environment",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Basic models of the ocean</span>"
     ]
   }
 ]

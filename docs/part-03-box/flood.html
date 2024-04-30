@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -484,7 +513,16 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#terminology" id="toc-terminology" class="nav-link active" data-scroll-target="#terminology"><span class="header-section-number">25.1</span> Terminology</a></li>
+  <li><a href="#a-basic-flood-model" id="toc-a-basic-flood-model" class="nav-link" data-scroll-target="#a-basic-flood-model"><span class="header-section-number">25.2</span> A basic flood model</a></li>
+  <li><a href="#a-flood-model-with-slow-and-fast-flows" id="toc-a-flood-model-with-slow-and-fast-flows" class="nav-link" data-scroll-target="#a-flood-model-with-slow-and-fast-flows"><span class="header-section-number">25.3</span> A flood model with slow and fast flows</a></li>
+  <li><a href="#calibration-and-analysis" id="toc-calibration-and-analysis" class="nav-link" data-scroll-target="#calibration-and-analysis"><span class="header-section-number">25.4</span> Calibration and analysis</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -508,8 +546,100 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>So far, we have focused primarily (though not exclusively) on mathematical models of climate, which concerns long-term averages of weather over many years. We have focused primarily (though not exclusively) on simplified box or conceptual models. For instance, in the last few chapters, we have studied box models of the ocean, where temperatures and salinity are lumped together into different categories/regions (or boxes), with exchanges of quantities between such boxes. These can also be considered <em>phenomenological models</em> or <em>process-driven</em> models.</p>
+<p>Similar ideas are used to model other aspects of the environment. In this chapter, we will provide in introduction on the mathematical modelling of flooding. Flooding is considered one of the most significant dangers posed around the world, and within the UK, the cost of flood damage and flood prevention is estimated at <a href="https://assets.publishing.service.gov.uk/media/5a74c78de5274a3f93b48beb/04-947-flooding-summary.pdf">£200 billion per year</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/flooddamage.png" class="img-fluid figure-img"></p>
+<figcaption>Table of flood damage; UK government report given in reference above</figcaption>
+</figure>
+</div>
+<section id="terminology" class="level2" data-number="25.1">
+<h2 data-number="25.1" class="anchored" data-anchor-id="terminology"><span class="header-section-number">25.1</span> Terminology</h2>
+<p>First, examine a typical geometry in the image below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/floodgeometry.png" class="img-fluid figure-img"></p>
+<figcaption>Typical geometry of consideration; image from <a href="https://arxiv.org/abs/2006.12975">Gauch and Lin (2020)</a></figcaption>
+</figure>
+</div>
+<p>In flooding, hydrologists are primarily interested in two related concepts of <em>streamflow</em> and <em>runoff</em>. Streamflow is typically measured at a prominent outlet, such as the mouth of a river or the outflow to a lake, and consists of the amount of water that flows through a cross section, expressed as cubic metres per second. At any given point in the above diagram, we can also measure the <em>runoff</em>, which is expressed in millimetres per day (mm/d). Given the river path in the figure above, we could theoretically convert from runoff to streamflow: we for each grid, we multiply the runoff by the surface area, which yields the volumetric per time quantity of streamflow.</p>
+<p>In the above diagram, the upstream area of an outlet (the lake or the gauging station, for instance), is called a <em>basin</em>, <em>catchment</em>, or <em>watershed</em>.</p>
+<p>For reference, these models are re-interpreted and cleaned up versions of what appears in the work by <a href="https://www.sciencedirect.com/science/article/abs/pii/S0022169401004966">Jothityangkoon et al.&nbsp;(2001)</a>.</p>
+</section>
+<section id="a-basic-flood-model" class="level2" data-number="25.2">
+<h2 data-number="25.2" class="anchored" data-anchor-id="a-basic-flood-model"><span class="header-section-number">25.2</span> A basic flood model</h2>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<p>The basic flood model or rainfall-runoff model is essentially a water balance equation. Here is a simple model with one store and one parameter. We consider the total water exchange that occurs in a given area. Prepitation input, <span class="math inline">\(P(t)\)</span>, measured in mm/day is obtained. The quantity <span class="math inline">\(S(t)\)</span>, measured in mm, then measures the current “storage” in the soil moisture. Actual evaporation <span class="math inline">\(E_a(t)\)</span> will remove moisture from the soil. Then: <span id="eq-basicflood"><span class="math display">\[
+\frac{\mathrm{d}S}{\mathrm{d}t} = P(t) - Q_{se}(t) - E_a(t).
+\tag{25.1}\]</span></span> The makeup of the right hand-side are as follows.</p>
+<p>The term <span class="math inline">\(Q_{se}\)</span> measures the <em>saturation excess overland flow</em>. This is essentially the quantity that arises when the soil cannot support additional moisture, and produces runoff. We can consider it modelled as: <span class="math display">\[
+Q_{se}(t) = P(t) \sigma(S - S_{\text{max}}),
+\]</span> where <span class="math inline">\(\sigma\)</span> is a ‘sigmoid’ function, which is zero or is small for <span class="math inline">\(S &lt; S_{\text{max}}\)</span> and is one or near one for <span class="math inline">\(S &gt; S_{\text{max}}\)</span>. For instance, we might take <span class="math display">\[
+\sigma(S - S_{\text{max}}) = H(S - S_{\text{max}}) = \begin{cases}
+1 &amp; S &gt; S_{\text{max}} \\
+0 &amp; S &lt; S_{\text{max}} \\
+1/2 &amp; S = S_{\text{max}} \end{cases}
+\]</span> where <span class="math inline">\(H\)</span> is the Heaviside step function, which for convenience we take at its midpoint value when evaluated at zero.</p>
+<p>The above model for <span class="math inline">\(Q_{se}\)</span> makes some sense. If the soil has not exceed some ‘maximum soil moisture storage’ value <span class="math inline">\(S_{\text{max}}\)</span>, then there is no saturation excess and the total runoff is zero. However, once this threshold is exceed, the precipitation is routed directly to the runoff.</p>
+<p>The actual evaporation (or more accurately evapotranspiration) includes interception loss from plant canopies at the land surface, and combined evaporation and transpiration taken out of the soil water. We take it to be written in a fashion proportional to the total soil moisture: <span class="math display">\[
+E_a(t) = \frac{E_p(t)}{S_{\text{max}}}S(t).
+\]</span> We assume that the metereological data provides estimates of the potential evaporation, <span class="math inline">\(E_p(t)\)</span>. You do not have to know about the specifics of the difference between actual and potential evaporation, though see a description of how these two quantities are measured at <a href="https://www.weather.gov.hk/en/education/meteorological-instruments/automatic-weather-stations/00541-Evaporation-and-Potential-Evapotranspiration.html">this link</a>. Above, it is nice to think of the fact that the dimensions of <span class="math inline">\(E_a\)</span> must be measured in storage units (mm) per time. The quantity <span class="math display">\[
+\frac{S_{\text{max}}}{E_p},
+\]</span> is the approximate time it would take for a bucket with <span class="math inline">\(S_{\text{max}}\)</span> to completely evaporate.</p>
+<p>Therefore, on the assumption that metereological data provides values of precipitation <span class="math inline">\(P\)</span> and potential evapotranspiration (or simply evaporation), we can use the above to calculate the soil moisture <span class="math inline">\(S\)</span>. The key quantity to predict is the runoff, which in this case is simply the saturation excess: <span class="math display">\[
+\text{runoff} = Q_{se}(t).
+\]</span></p>
+<p>In summary, the above model consists of a single store and a single parameter (<span class="math inline">\(S_{\text{max}}\)</span>). In theory, you would obtain time-series data of streamflow or runoff, and then attempt to calibrate the parameter.</p>
+</section>
+<section id="a-flood-model-with-slow-and-fast-flows" class="level2" data-number="25.3">
+<h2 data-number="25.3" class="anchored" data-anchor-id="a-flood-model-with-slow-and-fast-flows"><span class="header-section-number">25.3</span> A flood model with slow and fast flows</h2>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<p>If the above model is tested on real data, we would typically observe that it performs well in predicting long-time runoffs, but that it does not cope very well with inter-annual variations. Indeed, it fails to capture a key mechanism of water transfer, which suggests that runoff should be separated into two components: a delayed subsurface runoff, <span class="math inline">\(Q_{ss}(t)\)</span>, when soil moisture storage in the bucket exceeds some field capacity threshold (think of this as groundwater flow); and the previous saturation excess (think of this as overland flow).</p>
+<p>In addition, we might want to separate the evopotranspiration as <span class="math display">\[
+E_a = E_b + E_v,
+\]</span> where <span class="math inline">\(E_b\)</span> measures the bare soil evaporation while <span class="math inline">\(E_v\)</span> measures the transpiration due to vegetation. In theory, this would allow us to partition land into soil-covered or vegetation-covered.</p>
+<p>The model is then <span class="math display">\[
+\frac{\mathrm{d}S}{\mathrm{d}t} = P(t) - (Q_{se}(t) + Q_{ss}(t)) - (E_b(t) + E_v(t)).
+\]</span> First, the saturation excess overland flow is as it was previously: <span class="math display">\[
+Q_{se}(t) = P(t) \sigma(S - S_{\text{max}}),
+\]</span> where again for simplicity, we could take <span class="math inline">\(\sigma = H\)</span> and use the Heaviside step function as the activation function.</p>
+<p>We also allow now for the subsurface flow, <span class="math inline">\(Q_{ss}(t)\)</span> (again in mm/day), modelled via <span class="math display">\[
+Q_{ss}(t) = a(S-S_{\text{fc}})\sigma(S - S_{\text{fc}}),
+\]</span> which produces flow proportional to how much the soil has exceeded its field capacity value, <span class="math inline">\(S_{fc}\)</span>, subject to a proportionality constant <span class="math inline">\(a\)</span>.</p>
+<p>As for the two evaporation rates, they are subsequently weighted by a factor dependent on <span class="math inline">\(M\)</span>, the forest fraction parameter, with <span class="math inline">\(0 &lt; M &lt; 1\)</span>. We do not go into detail on their forms, but refer the reader to the original work by <a href="https://www.sciencedirect.com/science/article/abs/pii/S0022169401004966">Jothityangkoon et al.&nbsp;(2001)</a>, from which this model was taken. The evaporation rates are, <span class="math display">\[
+E_b = (1 - M) E_p(t) \frac{S}{S_{\text{max}}}.
+\]</span> The above is the usual expression for the evaporation rate, but additional weighted by the <span class="math inline">\((1-M)\)</span> factor, which is zero if the area is entirely forest-covered. Next, the vegetation-covered evaporation is,<br>
+<span class="math display">\[
+E_v = \begin{cases}
+M E_p &amp; S &gt; S_{fc} \\
+\frac{S}{S_fc} M E_p &amp; S &lt; S_{fc},
+\end{cases}
+\]</span> and so the model depends on whether the groundwater region is entirely saturated or not. If the groundwater region is entirely saturated, then the maximal transpiration occurs, specifically with <span class="math inline">\(E_v = E_p\)</span> for the completely forest-covered region. On the other hand, if the groundwater region is not completely saturated, then we allow the vegetative transpiration rate to be a fraction of <span class="math inline">\(E_p\)</span>, dependent on the soil moisture storage <span class="math inline">\(S\)</span>.</p>
+<p>Again, the runoff is calculated via <span class="math display">\[
+Q = Q_{se} + Q_{ss}.
+\]</span></p>
+<p>This model has one store and 4 parameters: <span class="math inline">\(S_{\text{max}}\)</span> (mm), <span class="math inline">\(S_{\text{fc}}\)</span> (mm), <span class="math inline">\(a\)</span> (1/day), and <span class="math inline">\(0 &lt; M &lt; 1\)</span>. Like all other models, you can attempt to train the model by processing known data and fitting the parameters.</p>
+</section>
+<section id="calibration-and-analysis" class="level2" data-number="25.4">
+<h2 data-number="25.4" class="anchored" data-anchor-id="calibration-and-analysis"><span class="header-section-number">25.4</span> Calibration and analysis</h2>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Content
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This chapter will end with a short summary of how the above basic flooding model is calibrated and what results it produces. To be covered in Lecture 32.</p>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
