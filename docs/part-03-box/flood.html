@@ -42,6 +42,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/mathjax3tags/mathjax3.js"></script>
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -514,7 +517,11 @@ window.Quarto = {
   <li><a href="#terminology" id="toc-terminology" class="nav-link active" data-scroll-target="#terminology"><span class="header-section-number">24.1</span> Terminology</a></li>
   <li><a href="#a-basic-flood-model" id="toc-a-basic-flood-model" class="nav-link" data-scroll-target="#a-basic-flood-model"><span class="header-section-number">24.2</span> A basic flood model</a></li>
   <li><a href="#a-flood-model-with-slow-and-fast-flows" id="toc-a-flood-model-with-slow-and-fast-flows" class="nav-link" data-scroll-target="#a-flood-model-with-slow-and-fast-flows"><span class="header-section-number">24.3</span> A flood model with slow and fast flows</a></li>
-  <li><a href="#calibration-and-analaysis" id="toc-calibration-and-analaysis" class="nav-link" data-scroll-target="#calibration-and-analaysis"><span class="header-section-number">24.4</span> Calibration and analaysis</a></li>
+  <li><a href="#calibration-and-analaysis" id="toc-calibration-and-analaysis" class="nav-link" data-scroll-target="#calibration-and-analaysis"><span class="header-section-number">24.4</span> Calibration and analaysis</a>
+  <ul class="collapse">
+  <li><a href="#the-basic-model" id="toc-the-basic-model" class="nav-link" data-scroll-target="#the-basic-model"><span class="header-section-number">24.4.1</span> The basic model</a></li>
+  <li><a href="#the-slow-fast-model" id="toc-the-slow-fast-model" class="nav-link" data-scroll-target="#the-slow-fast-model"><span class="header-section-number">24.4.2</span> The slow-fast model</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -630,9 +637,54 @@ Non-examinable
 <p>The following is presented, but is not examinable. Still, it is interesting to know briefly how the above hydrological models can be used in practice.</p>
 </div>
 </div>
-<p>The procedure is now as follows. We obtain calibration data, primarily of precipitation <span class="math inline">\(P(t)\)</span>, potential evapotranspiration <span class="math inline">\(E_p(t)\)</span>, and streamflow or runoff.</p>
+<p>The procedure, which is implemented via code provided in the accompany paper by <a href="https://gmd.copernicus.org/articles/15/6359/2022/">Trotter et al.</a> is now as follows. We obtain calibration data, primarily of precipitation <span class="math inline">\(P(t)\)</span>, potential evapotranspiration <span class="math inline">\(E_p(t)\)</span>, and streamflow or runoff.</p>
+<p>As an example, we use 5 years worth of climate and streamflow data from Buffalo River near Flat Woods, Tennessee, USA, to illustrate. The catchment was randomly selected from those provided within the CAMELS dataset <a href="https://hess.copernicus.org/articles/21/5293/2017/">Addor et al.&nbsp;(2017)</a>. The USGS gauge ID for this catchment is 3604000.</p>
+<p>When testing models’ performance against real data, hydrologists often use a range of metrics to evaluate and compare these models. One of the most commonly used is the <a href="https://en.wikipedia.org/wiki/Nash%E2%80%93Sutcliffe_model_efficiency_coefficient">Nash-Sutcliffe efficiency (NSE)</a>. NSE acts like a mean squared error (MSE) between observed and simulated flow discharge. It is calculated by taking one minus the ratio between the error variance of the model time series and the error variance of the observed time series of flow discharge. We have <span class="math display">\[
+    \mathrm{NSE}= 1 - \frac{\sum_{t=1}^T\left(Q_o^t-Q_m^t\right)^2}{\sum_{t=1}^T\left(Q_o^t-\bar{Q}_o\right)^2}
+\]</span> where <span class="math inline">\(\bar{Q}_o\)</span> is the mean of observed discharges for <span class="math inline">\(T\)</span> data points and <span class="math inline">\(Q_m^t\)</span>, <span class="math inline">\(Q_o^t\)</span> are the model discharge and observed discharge at time <span class="math inline">\(t\)</span>. Note that NSE <span class="math inline">\(\in (\infty, 1]\)</span>, with values closer to <span class="math inline">\(1\)</span> indicating the model has a great predictive skill for flow discharges based on the observed data. When NSE <span class="math inline">\(= 0\)</span>, the model has the same predictive skill as the mean of the time series in terms of the sum of the MSE. For NSE <span class="math inline">\(&lt; 0\)</span>, the observed mean is a better predictor for the model and indicates the model is not performing well.</p>
+<p>We won’t discuss how this is done in detail, but the essence is that we apply the flooding models above with approximated parameter values and obtain the simulated data <span class="math inline">\(Q_m^t\)</span>. The ODEs can be integrated using a normal integrator (similar to Euler’s method or perhaps something more sophisticated). Then during a predetermined ‘calibration’ period (in the below, roughly in the period 1990-1991), we apply an algorithm to determine the ‘best fitting’ parameters of the above model, whose values will hopefully minimise the objective function (given by the above NSE). Once this calibration is done, and the parameters determined, one can evaluate the NSE over a different ‘evaluation’ period to determine how well the model fits. The specific algorithm used below is called the covariance matrix adaption evolution strategy (CMA-ES, <a href="https://link.springer.com/chapter/10.1007/978-3-319-99253-2_1">reference</a>). CMA-ES is a stochastic, derivative-free, numerical optimisation algorithm.</p>
+<section id="the-basic-model" class="level3" data-number="24.4.1">
+<h3 data-number="24.4.1" class="anchored" data-anchor-id="the-basic-model"><span class="header-section-number">24.4.1</span> The basic model</h3>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../assets/calibration1.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Calibration and testing for model 1"><img src="../assets/calibration1.png" class="img-fluid figure-img" alt="Calibration and testing for model 1"></a></p>
+<figcaption>Calibration and testing for model 1</figcaption>
+</figure>
+</div>
+<p>And here is a blowup over a one-year period after the calibration.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../assets/calibration1zoom.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Zoom of the above"><img src="../assets/calibration1zoom.png" class="img-fluid figure-img" alt="Zoom of the above"></a></p>
+<figcaption>Zoom of the above</figcaption>
+</figure>
+</div>
+</section>
+<section id="the-slow-fast-model" class="level3" data-number="24.4.2">
+<h3 data-number="24.4.2" class="anchored" data-anchor-id="the-slow-fast-model"><span class="header-section-number">24.4.2</span> The slow-fast model</h3>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../assets/calibration2.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="Calibration and testing for model 2"><img src="../assets/calibration2.png" class="img-fluid figure-img" alt="Calibration and testing for model 2"></a></p>
+<figcaption>Calibration and testing for model 2</figcaption>
+</figure>
+</div>
+<p>And here is a blowup over a one-year period after the calibration.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../assets/calibration2zoom.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4" title="Zoom of the above"><img src="../assets/calibration2zoom.png" class="img-fluid figure-img" alt="Zoom of the above"></a></p>
+<figcaption>Zoom of the above</figcaption>
+</figure>
+</div>
 
 
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Calibration and testing for model 1</span>
+<span class="glightbox-desc lightbox-desc-2">Zoom of the above</span>
+<span class="glightbox-desc lightbox-desc-3">Calibration and testing for model 2</span>
+<span class="glightbox-desc lightbox-desc-4">Zoom of the above</span>
+</div>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1036,6 +1088,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","descPosition":"bottom","loop":false});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

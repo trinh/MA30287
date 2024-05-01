@@ -640,7 +640,7 @@ y^* = \frac{1}{1 + |f^*|}.
 \tag{23.4}\]</span></span> We can solve for <span class="math inline">\(f^*\)</span> in both equations and equate the result to one another. This gives <span class="math display">\[
 \delta \frac{1-x^*}{x^*} = \frac{1 - y^*}{y^*} = |f^*|.
 \]</span> Therefore the equilibrium points lie along the above curve. Let us generate different values of <span class="math inline">\(f^*\)</span> and plot the combination.</p>
-<div id="36c3b389" class="cell" data-execution_count="1">
+<div id="5dc240d3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -666,7 +666,7 @@ y^* = \frac{1}{1 + |f^*|}.
 \]</span> where we have defined the function <span class="math inline">\(\phi\)</span> according to <span id="eq-stommel-phi"><span class="math display">\[
 \phi(f^*) = \frac{\delta R}{\delta + |f^*|} - \frac{1}{1 + |f^*|}.
 \tag{23.5}\]</span></span> Therefore, for each combination of the parameters <span class="math inline">\((\lambda, \delta, R)\)</span>, we must solve <span class="math inline">\(\delta f^* = \phi(f^*)\)</span> to determine <span class="math inline">\(f^*\)</span>. Once the values of <span class="math inline">\(f^*\)</span> are known, then the steady-states <span class="math inline">\((x^*, y^*)\)</span> are also known. Here is a typical graph showing the potential intersections at the values of <span class="math inline">\(\lambda = 1/5\)</span>, <span class="math inline">\(\delta = 1/6\)</span> and <span class="math inline">\(R = 2\)</span>.</p>
-<div id="4102a095" class="cell" data-execution_count="2">
+<div id="104b4a14" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.optimize <span class="im">as</span> sciopt</span>
