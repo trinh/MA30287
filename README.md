@@ -4,6 +4,7 @@ This repository houses notes for the University of Bath Mathematics of Planet Ea
 
 2022-23: Original offering
 2023-24: Notes are being updated as we go
+2024-25: Another year...
 
 
 
