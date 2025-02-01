@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>12&nbsp; Problem set 1 – MA30287: Mathematics of Planet Earth</title>
+<title>11&nbsp; EBM with nonlinear albedo – MA30287: Mathematics of Planet Earth</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +84,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-xx-exercises/ps02.html" rel="next">
-<link href="../part-03-box/box-energy-model.html" rel="prev">
+<link href="../part-xx-exercises/ps01.html" rel="next">
+<link href="../part-03-box/part-box.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -111,7 +165,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-xx-exercises/ps01.html">Exercises</a></li><li class="breadcrumb-item"><a href="../part-xx-exercises/ps01.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Problem set 1</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-03-box/part-box.html">Energy balance models</a></li><li class="breadcrumb-item"><a href="../part-03-box/box-energy-model.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">EBM with nonlinear albedo</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -241,7 +295,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-03-box/box-energy-model.html" class="sidebar-item-text sidebar-link">
+  <a href="../part-03-box/box-energy-model.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">EBM with nonlinear albedo</span></span></a>
   </div>
 </li>
@@ -258,7 +312,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link active">
+  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Problem set 1</span></span></a>
   </div>
 </li>
@@ -333,20 +387,18 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#q1.-bump-lemma" id="toc-q1.-bump-lemma" class="nav-link active" data-scroll-target="#q1.-bump-lemma">Q1. Bump lemma</a></li>
-  <li><a href="#q2.-a-source-in-the-heat-equation" id="toc-q2.-a-source-in-the-heat-equation" class="nav-link" data-scroll-target="#q2.-a-source-in-the-heat-equation">Q2. A source in the heat equation</a></li>
-  <li><a href="#q3.-choice-of-scalings" id="toc-q3.-choice-of-scalings" class="nav-link" data-scroll-target="#q3.-choice-of-scalings">Q3. Choice of scalings</a></li>
-  <li><a href="#q4.-the-unique-timescale-in-the-heat-equation" id="toc-q4.-the-unique-timescale-in-the-heat-equation" class="nav-link" data-scroll-target="#q4.-the-unique-timescale-in-the-heat-equation">Q4. The unique timescale in the heat equation</a></li>
-  <li><a href="#q5.-timescale-in-the-surface-energy" id="toc-q5.-timescale-in-the-surface-energy" class="nav-link" data-scroll-target="#q5.-timescale-in-the-surface-energy">Q5. Timescale in the surface energy</a></li>
+  <li><a href="#steady-state-analysis" id="toc-steady-state-analysis" class="nav-link active" data-scroll-target="#steady-state-analysis"><span class="header-section-number">11.1</span> Steady-state analysis</a></li>
+  <li><a href="#bifurcation-diagram" id="toc-bifurcation-diagram" class="nav-link" data-scroll-target="#bifurcation-diagram"><span class="header-section-number">11.2</span> Bifurcation diagram</a></li>
+  <li><a href="#sec-budyko" id="toc-sec-budyko" class="nav-link" data-scroll-target="#sec-budyko"><span class="header-section-number">11.3</span> Re-scaling and Budyko’s model</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-xx-exercises/ps01.html">Exercises</a></li><li class="breadcrumb-item"><a href="../part-xx-exercises/ps01.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Problem set 1</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-03-box/part-box.html">Energy balance models</a></li><li class="breadcrumb-item"><a href="../part-03-box/box-energy-model.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">EBM with nonlinear albedo</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-PS1" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Problem set 1</span></span></h1>
+<h1 class="title"><span id="sec-box-energy" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">EBM with nonlinear albedo</span></span></h1>
 </div>
 
 
@@ -363,99 +415,295 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>For feedback, hand in by Friday Week 3.</p>
-</div>
-</div>
-<p>The intention of this problem set is to practice concepts from material related to conservation laws and non-dimensionalisation. Although these concepts seem quite separate from “Maths of Planet Earth”, actually, they form important pillars of mathematical modelling.</p>
-<section id="q1.-bump-lemma" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="q1.-bump-lemma">Q1. Bump lemma</h2>
-<p>Prove the following one-dimensional lemma, which was used in the derivation of the heat equation.</p>
-<p>If <span class="math inline">\(\int_a^b g(x) \, \mathrm{d}x = 0\)</span> for all <span class="math inline">\(a\)</span> and <span class="math inline">\(b \in [0, 1]\)</span>, then <span class="math inline">\(g(x) \equiv 0\)</span> for all <span class="math inline">\(x\in [0, 1]\)</span>.</p>
-<p><em>Hint:</em> think of a proof by contradiction.</p>
-</section>
-<section id="q2.-a-source-in-the-heat-equation" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="q2.-a-source-in-the-heat-equation">Q2. A source in the heat equation</h2>
-<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>Consider the same heat experiment discused in <a href="../part-01-intro/intro-PDEs.html" class="quarto-xref"><span>Chapter 2</span></a> but now consider a bar that has an internal source or sink generating or removing heat, such as the case of a boiler with an internal heating element. By adapting a similar derivation to the one presented, explain why the modified conservation of heat equation is <span class="math display">\[
-\frac{\mathrm{\partial}}{\mathrm{\partial}t} \int_a^b \rho c T \, \mathrm{d}x = {\color{blue}q(x = a, t) - q(x = b, t)} + \int_a^b R(x, t) \, \mathrm{d}x.
+<p>Recall that we previously introduced the basic energy balance model in <a href="../part-01-intro/basic-energy-model.html" class="quarto-xref"><span>Chapter 4</span></a>. There, we derived the basic heat equation model (<a href="../part-01-intro/basic-energy-model.html#eq-heateq-earth" class="quarto-xref">Equation&nbsp;<span>4.7</span></a>) for the Earth’s temperature given by the following ordinary differential equation (ODE) for <span class="math inline">\(T = T(t)\)</span>,<br>
+<span id="eq-heateq_earth"><span class="math display">\[
+C \frac{\mathrm{d}T}{\mathrm{d}t} = Q(1 - a) - \sigma \gamma T^4,
+\tag{11.1}\]</span></span> where we have defined <span class="math inline">\(C = \rho c_p d\)</span> as the heat capacity of the atmosphere. Above, the solar flux, Q is often taken to be <span class="math inline">\(Q = 1370/4 = 342\)</span> W/m<sup>2</sup>, <span class="math inline">\(\sigma = 5.67 \times 10^{-8}\)</span> W/(m<sup>2</sup>K<sup>4</sup>), and <span class="math inline">\(\gamma \leq 1\)</span> is the greenhouse gas factor.</p>
+<p>In this chapter, we discuss the effects of considering a nonlinear albedo, <span class="math inline">\(a = a(T)\)</span>, as well as some of the numerical and analytical tools at our disposal for studying the above equation.</p>
+<section id="steady-state-analysis" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="steady-state-analysis"><span class="header-section-number">11.1</span> Steady-state analysis</h2>
+<p>Below, we shall let <span class="math inline">\(T = T_\infty\)</span> be the steady-state solution that is independent of time. Whenever convenient, we will drop the subscript notation and simply refer to the steady state as <span class="math inline">\(T\)</span>.</p>
+<p>Previously, we have assumed that the planetary albedo, <span class="math inline">\(a\)</span>, is constant and independent of temperature. In actuality, water can turn to snow and ice and vice versa; since snow and ice have much higher albedo than open water, then we should consider <span class="math inline">\(a = a(T)\)</span>.</p>
+<p>Let us assume that there are two relevant ranges to consider: T &lt; 150K (cold) and T &gt; 280K (hot). Let us assume that the albedo is, in these two regions: <span class="math display">\[
+a(T) \approx
+\begin{cases}
+0.7 &amp; \mathrm{if }\ T &lt; 150\mathrm{K}, \\
+0.3 &amp; \mathrm{if }\ T &gt; 280\mathrm{K}.
+\end{cases}
+\]</span> The above guarantees that more energy is reflected if temperatures are low. To model this process, we can use a ramp function to specify the albedo over all temperatures: <span id="eq-albedokaper"><span class="math display">\[
+a(T) = A - B \mathrm{tanh}\left(k(T - 265)\right).
+\tag{11.2}\]</span></span> where <span class="math inline">\(A = 0.5\)</span>, <span class="math inline">\(B = {\color{blue}0.2}\)</span>, <span class="math inline">\(k = 0.1\)</span>, and <span class="math inline">\(T_0 = 265 \mathrm{K}\)</span>. Recall that the tanh function is given by <span class="math display">\[
+\mathrm{tanh}(x) = \frac{\mathrm{sinh}(x)}{\mathrm{cosh}(x)} = \frac{e^x - e^{-x}}{e^x + e^{-x}}.
 \]</span></p>
-<p>In addition:</p>
-<ol type="a">
-<li><p>By studying the dimensions of the other terms in the above equation, find what the dimensions of <span class="math inline">\(R\)</span> are. What does <span class="math inline">\(R &gt; 0\)</span> mean and <span class="math inline">\(R &lt; 0\)</span>?</p></li>
-<li><p>Hence derive the partial differential equation that governs the temperature <span class="math inline">\(T\)</span>.</p></li>
-<li><p>By introducing the appropriate scalings on each of the variables, <span class="math inline">\(x\)</span>, <span class="math inline">\(t\)</span>, and <span class="math inline">\(T\)</span>, non-dimensionalise the PDE and discuss the non-dimensional parameters (there will be two).</p></li>
-</ol>
+<p>Let us further assume that the system is in steady state, so that the temperature is determined by solving the equation <span id="eq-energy-ss"><span class="math display">\[
+f(T) = Q[1 - a(T)] - \sigma \gamma T^4 = 0.
+\tag{11.3}\]</span></span></p>
+<!--
+It is convenient for us to re-write this as 
+$$
+\tilde{Q_0}\tilde{Q}'[1 - a(T)] - T^4 = 0.
+$$ 
+where
+$$
+\tilde{Q_0} = \frac{1}{4} \frac{Q}{\sigma_0 \gamma_0} \, K^4 = \frac{1}{4} \frac{1370}{(5.67 \times 10^{-8})(0.6)} = 
+$$ 
+-->
+<p>In the following code, we plot the two terms that make up <span class="math inline">\(f\)</span>, and their intersections indicate roots of <span class="math inline">\(f = 0\)</span>. We then use the Python ‘fsolve’ function to approximate the roots given initial guesses.</p>
+<div id="da93a707" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.optimize <span class="im">as</span> sciopt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Q <span class="op">=</span> <span class="dv">342</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> <span class="fl">5.67e-8</span> </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>gamma <span class="op">=</span> <span class="fl">0.62</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>TT <span class="op">=</span> np.linspace(<span class="dv">220</span>,<span class="dv">310</span>,<span class="dv">50</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fun(T):</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="fl">0.5</span> <span class="op">-</span> <span class="fl">0.2</span><span class="op">*</span>np.tanh((T <span class="op">-</span> <span class="dv">265</span>)<span class="op">/</span><span class="dv">10</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> (<span class="dv">1</span><span class="op">-</span>a)<span class="op">*</span>Q</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>LHS <span class="op">=</span> fun(TT)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plt.plot(TT, LHS)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>plt.plot(TT, gamma<span class="op">*</span>sigma<span class="op">*</span>TT<span class="op">**</span><span class="dv">4</span>, <span class="st">'k--'</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> eq(T):</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> fun(T) <span class="op">-</span> gamma<span class="op">*</span>sigma<span class="op">*</span>T<span class="op">**</span><span class="dv">4</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>T1 <span class="op">=</span> sciopt.fsolve(eq, <span class="dv">230</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>T2 <span class="op">=</span> sciopt.fsolve(eq, <span class="dv">265</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>T3 <span class="op">=</span> sciopt.fsolve(eq, <span class="dv">290</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"T1 = </span><span class="sc">{:.2f}</span><span class="st">"</span>.<span class="bu">format</span>(T1[<span class="dv">0</span>]))</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"T2 = </span><span class="sc">{:.2f}</span><span class="st">"</span>.<span class="bu">format</span>(T2[<span class="dv">0</span>]))</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"T3 = </span><span class="sc">{:.2f}</span><span class="st">"</span>.<span class="bu">format</span>(T3[<span class="dv">0</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>T1 = 232.55
+T2 = 265.56
+T3 = 286.74</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="box-energy-model_files/figure-html/cell-2-output-2.png" width="575" height="411" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Therefore multiple equilibria are observed.</p>
 </section>
-<section id="q3.-choice-of-scalings" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="q3.-choice-of-scalings">Q3. Choice of scalings</h2>
+<section id="bifurcation-diagram" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="bifurcation-diagram"><span class="header-section-number">11.2</span> Bifurcation diagram</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>Consider the dimensional problem for the motion of a projectile launched from close to the surface of the Earth. The dimensional height of the projectile, <span class="math inline">\(y(t)\)</span>, is given by <span class="math display">\[
-\begin{aligned}
-\frac{\mathrm{d}^2 y}{\mathrm{d}t^2} &amp;= - \frac{GM}{(R+y)^2}, \\
-y(0) &amp;= 2 \, \mathrm{m}, \\
-y'(0) &amp;= -V_0 \, \mathrm{m/s}.
-\end{aligned}
-\]</span> Assume that the Earth is spherical and of uniform density, with its mass given by <span class="math inline">\(M = (4/3) \pi R^3 \rho\)</span>. Non-dimensionalise the height using <span class="math inline">\(y = L \tilde{y}\)</span> and time using <span class="math inline">\(t = T\tilde{t}\)</span>. Consider the following cases:</p>
-<ol type="i">
-<li><span class="math inline">\(R\)</span> fixed, <span class="math inline">\(V_0 \to \infty\)</span>, <span class="math inline">\(\rho\)</span> fixed;</li>
-<li><span class="math inline">\(R\)</span> fixed, <span class="math inline">\(V_0\)</span> fixed, <span class="math inline">\(\rho \to \infty\)</span>;</li>
-<li><span class="math inline">\(R\)</span> fixed, <span class="math inline">\(V_0\)</span> fixed, <span class="math inline">\(\rho \to 0\)</span>;</li>
-<li><span class="math inline">\(R \to 0\)</span>, <span class="math inline">\(V_0\)</span> fixed, <span class="math inline">\(M\)</span> fixed.</li>
-</ol>
-<p>For each case:</p>
-<ol type="a">
-<li>Explain the physical interpretation of the limits.</li>
-<li>Choose the scalings <span class="math inline">\(L\)</span> and <span class="math inline">\(T\)</span> to normalise as many terms as possible.</li>
-<li>Choose the scalins so that the time it takes for the projectile to fall should be finite for the given limit, and for the speed, acceleration, and initial height to be well behaved (finite).</li>
-<li>Write out the scaled problem and identify all remaining nondimensional parameters.</li>
-<li>Identify the limiting small parameter for each case. Write out the problem (leading-order problem) when the parameter is set to zero.</li>
-</ol>
-</section>
-<section id="q4.-the-unique-timescale-in-the-heat-equation" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="q4.-the-unique-timescale-in-the-heat-equation">Q4. The unique timescale in the heat equation</h2>
-<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>During our investigation of the heat equation, we found that it was possible to scale time so as to scale out the only non-dimensional parameter that appears in the PDE (<span class="math inline">\(\Pi\)</span>). This produced (<a href="../part-01-intro/intro-nondim.html#eq-heat-nondim" class="quarto-xref">Equation&nbsp;<span>3.1</span></a>). The disappearance of all non-dimensional parameters is due to the fact that only a single sensible timescale exists.</p>
-<p>By adjusting the boundary conditions, we may create a new problem involving heat flow where a unique ‘special’ timescale can no longer be chosen.</p>
-<p>Consider a system where one side of the rod is heated in some periodic fashion, e.g.&nbsp;set the initial and boundary conditions to be <span class="math display">\[
-\begin{aligned}
-T(x, 0) &amp;= T_0 \\
-T(0, t) &amp;= T_a \cos (\omega t), \\
-T(L, t) &amp;= T_b.
-\end{aligned}
-\]</span></p>
-<ol type="a">
-<li><p>What must the units of <span class="math inline">\(\omega\)</span> be?</p></li>
-<li><p>Non-dimensionalise as usual and, without selecting the timescale, <span class="math inline">\([t]\)</span>, identify the key non-dimensional parameters that remain. Write a brief sentence to describe their physical interpretation.</p></li>
-<li><p>There are two sensible choices for setting the timescale, <span class="math inline">\([t]\)</span>. Identify the two choices and present the reduced set of equations in each case.</p></li>
-</ol>
-</section>
-<section id="q5.-timescale-in-the-surface-energy" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="q5.-timescale-in-the-surface-energy">Q5. Timescale in the surface energy</h2>
-<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>Take the basic zero-dimensional energy model studied in (<a href="../part-01-intro/basic-energy-model.html#eq-heateq-earth" class="quarto-xref">Equation&nbsp;<span>4.7</span></a>) for the temperature of the troposphere: <span class="math display">\[
-C \frac{\mathrm{d}T}{\mathrm{d}t} = \frac{1}{4} Q(1 - a) - \sigma \gamma T^4.
-\]</span></p>
-<ol type="a">
-<li><p>Non-dimensionalise the model by choosing <span class="math inline">\(T = [T]T'\)</span>, <span class="math inline">\(t = [t]t'\)</span>, and <span class="math inline">\(Q = [Q]Q'\)</span>. Show that it is possible to select the scalings on the temperature and time so as to completely remove all constants from the problem when <span class="math inline">\(Q\)</span> is assumed to be constant.</p></li>
-<li><p>Thus, show that the analysis of the above equation is equivalent to studying <span class="math display">\[
-\frac{\mathrm{d}T}{\mathrm{d}t} = 1 - T^4,
-\]</span> where we have dropped the primes and assumed that the albedo is such that <span class="math inline">\(1 - a \neq 0\)</span>.</p></li>
-<li><p>From your choice of <span class="math inline">\([t]\)</span>, estimate the typical dimensional value using <span class="math inline">\(d \approx 10 \mathrm{km}\)</span>, <span class="math inline">\(\rho \approx 1 \mathrm{kg} \,\mathrm{m}^{-3}\)</span>, <span class="math inline">\(c_p \approx 10^3 \mathrm{J} \,\mathrm{kg}^{-1} \,\mathrm{K}^{-1}\)</span>.<br>
-<br>
-Use a pocket calculator to verify your calculations and conclude that this time-scale is on the order of a month. What is the relevance of this approximation as it concerns the steady-state solution?</p></li>
-</ol>
+<p>During the lectures, the above script plotting the steady-state solutions will be examined in order to understand the effects of changing <span class="math inline">\(Q\)</span>.</p>
+<p>It will be observed that dependent on the solar radiation, there may be one or three steady-state solutions. This leads to the following key bifurcation diagram.</p>
+<div id="fig-basicEBM-bif" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-basicEBM-bif-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/2023-05-06-14-13-15.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-basicEBM-bif-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.1: Bifurcation diagram of <span class="math inline">\(Q/Q_0\)</span> vs <span class="math inline">\(T_\infty\)</span>
+</figcaption>
+</figure>
+</div>
+<p>We noted the following:</p>
+<ul>
+<li>The system has three steady states, given by the green, red, and blue curves.</li>
+<li>The middle state is unstable (shown dashed).</li>
+<li>The system exhibits hysteresis. Note that if we decrease <span class="math inline">\(Q/Q_0\)</span> past the tipping point, marked <span class="math inline">\(Q_{T1}\)</span> in the image, then we would evolve to the lower stable steady state (which is the ice state). However, while we are in the ice stated, if we were to attempt to increase the solar radiation to return to the green branch, we would need to arrive at <span class="math inline">\(Q_{T2}\)</span> to do so; this irreversibility is known as hysteresis. ## Dynamics and phase line solutions</li>
+</ul>
+<p>The full time-dependent model is given by <span class="math display">\[
+C \frac{\mathrm{d}T}{\mathrm{d}t} = f(T),
+\]</span> so we may use the positivity or negativity of <span class="math inline">\(f\)</span> in order to sketch the time-dependent behaviour of the system.</p>
+<p>To see this, we can perform an asymptotic analysis near the fixed points. Let the initial condition be considered near the fixed point: <span class="math display">\[
+T(t = 0) = T_\infty + \delta,
+\]</span> where <span class="math inline">\(\delta \ll 1\)</span>. Then we expand the solution into an asymptotic expansion, <span class="math display">\[
+T(t) = T_\infty + \delta T_1(t) + \delta T^2(t) + \ldots
+\]</span> Substitution into the above ODE gives, at <span class="math inline">\(O(\delta)\)</span>, <span class="math display">\[
+C \frac{\mathrm{d}T_1}{\mathrm{d}t} = f'(T_\infty) T_1,
+\]</span> and hence, with <span class="math inline">\(T_1(0) = 1\)</span>, we have <span class="math display">\[
+T_1(t) = e^{f'(T_\infty) t/C}.
+\]</span> Therefore, depending on the positivity or negativity of the gradient function, the perturbation will either decay or grow as <span class="math inline">\(t\to\infty\)</span>.</p>
+<p>It can then be verified that the centre equilbria is unstable while the other two are stable. The higher temperature corresponds to the one that the Earth is currently in, but according to this model, there seems to be the possibility of a colder climate (50 degrees colder) where the Earth is entirely covered with snow and ice.</p>
+<p>Interestingly, there is some evidence that the Earth’s climate may have been in this so-called state up to four times between 750 million and 580 million years ago (Neoproterozoic age). Observations of geological deposits suggest that the Earth has undergone periods of complete global glaciation where there have been very minimal biological activity. During this period, there is a massive build-up of CO<sub>2</sub> in the atmopshere, leading to huge greenhouse effect. As <span class="math inline">\(\gamma\)</span> decreases in our model, the equilibrium can then shift, suddenly transitioning the Planet into the warm state.</p>
+<!-- 
+
+## Newton solver for the steady states
+
+In the above code, we used the built-in Python codes (fsolve) to solve for the steady-states. It is a good idea to learn (or review, if you have learned it previously) how to design your own solver. An implementation of Newton's solver is given by the following pseudo-code:
+
+:::{.callout-note}
+## Pseudocode for Newton's method
+
+```
+1. input x0, tolerance, maxiterations, f, df
+
+2. repeat while |f(x0)| > tol and iterations < maxiterations
+
+    a. set y0 = f(x0)
+       set yp = df(x0)
+    
+    b. set x1 = x0 - y0/yp
+
+    c. print iter #, x1, and f(x1)
+
+    d. set x0 = x1
+```
+:::
 
 
+We discuss Newton's method in @sec-newton. 
+
+Using the simplest Newton code there, we can solve for one of the roots.
+
+::: {#19030fa1 .cell execution_count=2}
+``` {.python .cell-code}
+import numpy as np
+
+def Newton(f, df, x, maxiter=100, tol=1e-12, display=0):
+    i = 0
+    while (abs(f(x) - 0) > tol) and (i < maxiter):
+        err = f(x)
+        x = x - err / df(x)
+        if display == 1:
+            print("f(x) = ", np.abs(err), ", x = ", x)
+        i = i + 1
+    return x, err
+
+
+Q = 1370
+sigma = 5.67e-8
+gamma = 0.62
+
+a = lambda T: 0.5 - 0.2*np.tanh((T - 265)/10)
+da = lambda T: -0.2*1/np.cosh((T-265)/10)**2/10
+
+f = lambda T: Q/4*(1-a(T)) - sigma*gamma*T**4
+df = lambda T: -Q/4*da(T) - 4*sigma*gamma*T**3
+
+x = 290
+x, err = Newton(f, df, x, 10, 1e-8, 1)
+print("Final approximation = ", x)
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+f(x) =  9.804483316627028 , x =  286.98075256805225
+f(x) =  0.36161336669368893 , x =  286.85997144120904
+f(x) =  0.0007259605908416233 , x =  286.85972798593116
+Final approximation =  286.85972798593116
+```
+:::
+:::
+
+
+-->
+<!-- ## Numerical continuation of the steady states -->
+<!---->
+<!-- We have done a preliminary steady-state analysis of  -->
+<!-- $$ -->
+<!-- Q (1 - a(T)) - \sigma \gamma T^4, -->
+<!-- $$ -->
+<!-- but we would like to better understand how these steady-states may change depending on the parameters. For example, we would like to understand how the solutions vary of the solar constant related to $Q$ varies; or we would like to understand how solutions vary as $\gamma$ varies.  -->
+<!---->
+<!---->
+<!-- More specifically, we would like to design some numerical routines that would allow us to (smartly!) solve for the roots of the above equation as the parameters are varied. Although the above problem (roots of a single equation) is simple enough to do this in a manual way, the methods of *numerical continuation* we learn in this chapter is applicable to much more general set of problems. -->
+<!---->
+<!---->
+<!-- Suppose that we are interested in studying how the steady-states (up to three) change as $Q$ changes. Then we are interested in producing a diagram of $Q$ vs. $T$. The basic idea is to start with an initial solution at some value of $Q$, increment $Q$, then solve for the next value using the previous value as a guess. This involves the following pseudocode: -->
+<!---->
+<!-- :::{.callout-note} -->
+<!-- ## Numerical continuation  -->
+<!---->
+<!-- ``` -->
+<!-- 1. Input guess T0, f, df, parameter Q1 -->
+<!---->
+<!--    a. Call Newton's method via Newton(f, df, T0, Q1)  -->
+<!--    b. Obtain a preliminary solution (T1, Q1) -->
+<!---->
+<!-- 2. Increment Q1 = Q1 + dQ  -->
+<!---->
+<!--    a. Call Newton's method via Newton(f, df, T1, Q1) -->
+<!--    b. Obtain a new solution (T1, Q1) -->
+<!---->
+<!-- 3. Repeat 2 until we reach a desired Q value -->
+<!-- ``` -->
+<!-- ::: -->
+<!---->
+<!-- The following code provides continuation for one of the roots. -->
+<!---->
+<!---->
+<!-- ```{python} -->
+<!-- import numpy as np -->
+<!-- import matplotlib.pyplot as plt -->
+<!-- from scipy.optimize import fsolve -->
+<!-- from scipy.optimize import root -->
+<!---->
+<!-- sigma = 5.67e-8 -->
+<!-- gamma = 0.62 -->
+<!-- a = lambda T: 0.5 - 0.2*np.tanh((T - 265)/10) -->
+<!---->
+<!-- Q0 = 342 -->
+<!-- Qmat = np.linspace(250, 450, 30) -->
+<!-- Tmat = 0*Qmat -->
+<!---->
+<!-- # Initial guess -->
+<!-- x = 220 -->
+<!-- for i, Q in enumerate(Qmat): -->
+<!--    f = lambda T: Q*(1-a(T)) - sigma*gamma*T**4 -->
+<!--    sol = root(f, x) -->
+<!--    # If solution not found, output error -->
+<!--    if sol.success != 1: -->
+<!--        print("Q/Q0 = ", Q/Q0, ": ", sol.message) -->
+<!--    Tmat[i] = sol.x -->
+<!---->
+<!-- plt.plot(Qmat/Q0, Tmat, 'o'); -->
+<!---->
+<!-- plt.xlabel('Q/Q0'); -->
+<!-- plt.ylabel('T'); -->
+<!-- ``` -->
+<!---->
+<!-- Above, we have scaled $Q$ with the reference value of $Q_0 = 342$.  -->
+<!---->
+<!-- In your lecture, problem class, or exercises, you will design continuation on the other branches of solutions, and then study the result and its implications. During the lecture, we studied `MA30287/notebooks/lecture13_EBM.ipynb` which can be found [at this link](https://maths.jupyterhub.bath.ac.uk/hub/user-redirect/lab/tree/courses/MA30287/notebooks/lecture13_EBM.ipynb). -->
+</section>
+<section id="sec-budyko" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="sec-budyko"><span class="header-section-number">11.3</span> Re-scaling and Budyko’s model</h2>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<p>To model the outgoing radiation, we use the quartic Stefan-Boltzmann law. However, over the range of temperatures we are interested-in, it seems that a simpler approximation is sufficient. In your homework, you will investigate the re-scaling and shifting of temperature, such that <span class="math display">\[
+T = T_0 + [T]\tilde{T},
+\]</span> where <span class="math inline">\(T_0 = 265 \mathrm{K}\)</span>. Then under the assumption that temperatures are not-so-far from <span class="math inline">\(T_0\)</span>, we expand <span class="math display">\[
+(T_0 + [T]\tilde{T})^4 \sim T_0^4 + 4 T_0^3 [T] \tilde{T} =
+C_1 + C_2 \tilde{T}.
+\]</span> This simplifies the model considerably.</p>
+<p>This is, in fact, a theoretical justification of <strong>Budyko’s model</strong>, first suggested by Budyko <span class="citation" data-cites="budyko1969effect">(<a href="../references.html#ref-budyko1969effect" role="doc-biblioref">Budyko 1969</a>)</span>, where instead of the Stefan-Boltmann law that provides the cumbersome quartic power of <span class="math inline">\(T\)</span>, we use instead <span class="math display">\[
+E_\text{out} = \sigma \gamma T^4 \approx A + BT,
+\]</span> where <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> will vary with location and climate. For instance, for the Northern Hemisphere, <span class="citation" data-cites="kaper_book">(<a href="../references.html#ref-kaper_book" role="doc-biblioref">Kaper and Engler 2013</a>)</span> gives the values of <span class="math inline">\(A = 203.3\text{Wm}^{-2}\)</span> and <span class="math inline">\(B = 2.09 \text{Wm}^{-2}\text{deg}^{-1}\)</span> and where temperature is measured in degrees Celcius. As shown above, one can interpret this as a linear expansion of the Stefan-Boltzmann law (after which similar values of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are derived).</p>
+<p>The above Budyko model will be a staple of the latitude-dependent model introduced in the next chapter.</p>
+<!-- 
+## Budyoko's model  
+
+(Sec. 2.8 of Kapler & Engler)
+
+Prevously we used the assumption that the outgoing radiation follows the Stefan-Boltzmann law (@eq-SBlaw). Based on observational data, there seems to be a simpler linear law, first suggested by Budyko [@budyko1969effect]. The law can be written as 
+$$
+E_\text{out} = A + BT,
+$$ {#eq-budykolaw}
+where $A$ and $B$ will vary with location and climate. For:q
+instance, for the Northern Hemisphere, [@kaper_book] gives the values of $A = 203.3\text{Wm}^{-2}$ and $B = 2.09 \text{Wm}^{-2}\text{deg}^{-1}$ and where temperature is measured in degrees Celcius. One can interpret this as a linear expansion of the Stefan Boltzmann law about $T = 0$ (after which similar values of $A$ and $B$ are derived). 
+-->
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-budyko1969effect" class="csl-entry" role="listitem">
+Budyko, Mikhail I. 1969. <span>“The Effect of Solar Radiation Variations on the Climate of the Earth.”</span> <em>Tellus</em> 21 (5): 611–19.
+</div>
+<div id="ref-kaper_book" class="csl-entry" role="listitem">
+Kaper, H., and H. Engler. 2013. <em>Mathematics and Climate</em>. SIAM.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -878,13 +1126,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part-03-box/box-energy-model.html" class="pagination-link" aria-label="EBM with nonlinear albedo">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">EBM with nonlinear albedo</span></span>
+      <a href="../part-03-box/part-box.html" class="pagination-link" aria-label="Energy balance models">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Energy balance models</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-xx-exercises/ps02.html" class="pagination-link" aria-label="Problem set 2">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Problem set 2</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-xx-exercises/ps01.html" class="pagination-link" aria-label="Problem set 1">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Problem set 1</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

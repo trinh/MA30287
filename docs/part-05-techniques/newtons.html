@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>12&nbsp; Problem set 1 – MA30287: Mathematics of Planet Earth</title>
+<title>9&nbsp; Nonlinear root finding – MA30287: Mathematics of Planet Earth</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-xx-exercises/ps02.html" rel="next">
-<link href="../part-03-box/box-energy-model.html" rel="prev">
+<link href="../part-05-techniques/numericalpde.html" rel="next">
+<link href="../part-05-techniques/asymptotics03.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -111,7 +145,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-xx-exercises/ps01.html">Exercises</a></li><li class="breadcrumb-item"><a href="../part-xx-exercises/ps01.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Problem set 1</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-05-techniques/techniques.html">Practical applied mathematics</a></li><li class="breadcrumb-item"><a href="../part-05-techniques/newtons.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Nonlinear root finding</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -218,7 +252,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-05-techniques/newtons.html" class="sidebar-item-text sidebar-link">
+  <a href="../part-05-techniques/newtons.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Nonlinear root finding</span></span></a>
   </div>
 </li>
@@ -258,7 +292,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link active">
+  <a href="../part-xx-exercises/ps01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Problem set 1</span></span></a>
   </div>
 </li>
@@ -333,20 +367,18 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#q1.-bump-lemma" id="toc-q1.-bump-lemma" class="nav-link active" data-scroll-target="#q1.-bump-lemma">Q1. Bump lemma</a></li>
-  <li><a href="#q2.-a-source-in-the-heat-equation" id="toc-q2.-a-source-in-the-heat-equation" class="nav-link" data-scroll-target="#q2.-a-source-in-the-heat-equation">Q2. A source in the heat equation</a></li>
-  <li><a href="#q3.-choice-of-scalings" id="toc-q3.-choice-of-scalings" class="nav-link" data-scroll-target="#q3.-choice-of-scalings">Q3. Choice of scalings</a></li>
-  <li><a href="#q4.-the-unique-timescale-in-the-heat-equation" id="toc-q4.-the-unique-timescale-in-the-heat-equation" class="nav-link" data-scroll-target="#q4.-the-unique-timescale-in-the-heat-equation">Q4. The unique timescale in the heat equation</a></li>
-  <li><a href="#q5.-timescale-in-the-surface-energy" id="toc-q5.-timescale-in-the-surface-energy" class="nav-link" data-scroll-target="#q5.-timescale-in-the-surface-energy">Q5. Timescale in the surface energy</a></li>
+  <li><a href="#demo-of-newtons-method-for-scalar-equations" id="toc-demo-of-newtons-method-for-scalar-equations" class="nav-link active" data-scroll-target="#demo-of-newtons-method-for-scalar-equations"><span class="header-section-number">9.1</span> Demo of Newton’s method for scalar equations</a></li>
+  <li><a href="#newtons-method-for-systems-of-nonlinear-equations" id="toc-newtons-method-for-systems-of-nonlinear-equations" class="nav-link" data-scroll-target="#newtons-method-for-systems-of-nonlinear-equations"><span class="header-section-number">9.2</span> Newton’s method for systems of nonlinear equations</a></li>
+  <li><a href="#secant-method" id="toc-secant-method" class="nav-link" data-scroll-target="#secant-method"><span class="header-section-number">9.3</span> Secant method</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-xx-exercises/ps01.html">Exercises</a></li><li class="breadcrumb-item"><a href="../part-xx-exercises/ps01.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Problem set 1</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-05-techniques/techniques.html">Practical applied mathematics</a></li><li class="breadcrumb-item"><a href="../part-05-techniques/newtons.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Nonlinear root finding</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-PS1" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Problem set 1</span></span></h1>
+<h1 class="title"><span id="sec-newton" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Nonlinear root finding</span></span></h1>
 </div>
 
 
@@ -363,97 +395,209 @@ window.Quarto = {
 </header>
 
 
+<p>Before we move on back to the subject of applications, it is worth providing an introduction to methods for solving nonlinear equations. Many problems you will encounter in applications, including for ordinary or partial differential equations, can be re-formulated as the solution of a nonlinear system of equations.</p>
+<p>Newton’s method is the most well-known scheme for solving nonlinear equations. Suppose we wish to solve the scalar equation, <span class="math display">\[
+f(x) = 0,
+\]</span> given some initial guess, <span class="math inline">\(x = x_0\)</span>, of the root. Suppose the root lies at <span class="math inline">\(x = x^*\)</span>. Then by Taylor’s theorem, <span class="math display">\[
+f(x^*) = f(x_0) + f'(x_0)(x^* - x_0) + O(f''(x_0)(x - x_0)^2).
+\]</span> If we assume the quadratic terms are negligible then solve for <span class="math inline">\(x^*\)</span> this gives <span class="math display">\[
+x^* \approx x_0 - \frac{f(x_0)}{f'(x_0)}.
+\]</span> There is a geometrical interpretation of the above. Essentially, in order to estimate the root of <span class="math inline">\(f(x) = 0\)</span>, we have used the tangent line at the point <span class="math inline">\(x = x_0\)</span>, and used the intersection of this tangent line with the axis as the approximation. This procedure can then be iterated.</p>
+<p>Thus, provided that the desired root, <span class="math inline">\(x^*\)</span>, is such that <span class="math inline">\(f'(x^*) \neq 0\)</span>, and <span class="math inline">\(x_0\)</span> is sufficiently close to <span class="math inline">\(x^*\)</span>, then the following iterates converge to the root: <span class="math display">\[
+x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}.
+\]</span></p>
+<section id="demo-of-newtons-method-for-scalar-equations" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="demo-of-newtons-method-for-scalar-equations"><span class="header-section-number">9.1</span> Demo of Newton’s method for scalar equations</h2>
+<p>Here is a simple demonstration of Newton’s method in order to solve for one of the roots of the following: <span class="math display">\[
+f(x) = x^3 + x - 1.
+\]</span></p>
+<p>We will start with the initial guess of <span class="math inline">\(x_0 = 0\)</span>. We can do this by hand in lectures using a pocket calculator. The solution is <span class="math inline">\(x^* \approx 0.6823278..\)</span></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>i</th>
+<th>xi</th>
+<th>f(xi)</th>
+<th>f’(xi)</th>
+<th>-f(xi)/f’(xi)</th>
+<th>error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="52b6cb38" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x0 <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Newton(f, df, x, maxiter<span class="op">=</span><span class="dv">10</span>):</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (i <span class="op">&lt;</span> maxiter):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        err <span class="op">=</span> f(x)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> x <span class="op">-</span> err <span class="op">/</span> df(x)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"f(x) = "</span>, np.<span class="bu">abs</span>(err), <span class="st">", x = "</span>, x)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x, err</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">3</span> <span class="op">+</span> x <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> <span class="kw">lambda</span> x: <span class="dv">3</span><span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>x, err <span class="op">=</span> Newton(f, df, x0, N)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Final approximation = "</span>, x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>f(x) =  1 , x =  1.0
+f(x) =  1.0 , x =  0.75
+f(x) =  0.171875 , x =  0.686046511627907
+f(x) =  0.008941036638283384 , x =  0.6823395825973142
+f(x) =  2.823062168566537e-05 , x =  0.6823278039465127
+f(x) =  2.839946056099052e-10 , x =  0.6823278038280194
+f(x) =  2.220446049250313e-16 , x =  0.6823278038280193
+f(x) =  1.1102230246251565e-16 , x =  0.6823278038280193
+f(x) =  1.1102230246251565e-16 , x =  0.6823278038280193
+f(x) =  1.1102230246251565e-16 , x =  0.6823278038280193
+Final approximation =  0.6823278038280193</code></pre>
+</div>
+</div>
+<!--
+
+::: {#3e7740d4 .cell execution_count=2}
+``` {.python .cell-code}
+import numpy as np
+
+def Newton(f, df, x, maxiter=100, tol=1e-12, display=0):
+    i = 0
+    while (abs(f(x) - 0) > tol) and (i < maxiter):
+        err = f(x)
+        x = x - err / df(x)
+        if display == 1:
+            print("f(x) = ", np.abs(err), ", x = ", x)
+        i = i + 1
+    return x, err
+
+f = lambda x: x**3 + x - 1
+df = lambda x: 3*x**2 + 1
+
+x = 0
+x, err = Newton(f, df, x, 10, 1e-8, 1)
+print("Final approximation = ", x)
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+f(x) =  1 , x =  1.0
+f(x) =  1.0 , x =  0.75
+f(x) =  0.171875 , x =  0.686046511627907
+f(x) =  0.008941036638283384 , x =  0.6823395825973142
+f(x) =  2.823062168566537e-05 , x =  0.6823278039465127
+Final approximation =  0.6823278039465127
+```
+:::
+:::
+
+
+-->
+<p>It is a good idea to also learn how to do this using built-in packages. The ‘fsolve’ function provides a Newton-like nonlinear solver. In fact, it can estimate the Jacobian (derivative), so only the function values need to be provided.</p>
+<div id="b9faacd1" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> fsolve</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">3</span> <span class="op">+</span> x <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>x0 <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>x, info, ier, msg <span class="op">=</span> fsolve(f, x0, full_output<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(msg)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The solution converged.
+[0.6823278]</code></pre>
+</div>
+</div>
+</section>
+<section id="newtons-method-for-systems-of-nonlinear-equations" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="newtons-method-for-systems-of-nonlinear-equations"><span class="header-section-number">9.2</span> Newton’s method for systems of nonlinear equations</h2>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<p>Newton’s method generalises naturally to the case of a system of equations. Suppose we wish to solve for the <span class="math inline">\(n\)</span> unknowns <span class="math inline">\(\mathbf{x} = (x_1, \ldots, x_n)\)</span> via <span class="math display">\[
+\mathbf{F(\mathbf{x}}) =
+\begin{pmatrix}
+F_1(\mathbf{x}) \\
+F_2(\mathbf{x}) \\
+\ldots \\
+F_n(\mathbf{x})
+\end{pmatrix} = 0.
+\]</span></p>
+<p>We have, via Taylor’s formula, <span class="math display">\[
+\mathbf{F}(\mathbf{x}_{i+1}) \sim  \mathbf{F(\mathbf{x}_i}) + J(\mathbf{x}_i)(\mathbf{x}_{i+1} - \mathbf{x}_i) + \mathcal{O}(||\mathbf{x}_{i+1} - \mathbf{x}_i||^2),
+\]</span> where <span class="math inline">\(J\)</span> is the Jacobian matrix <span class="math display">\[
+J(\mathbf{x}) = \nabla \mathbf{F}(\mathbf{x}) =
+\begin{pmatrix}
+\frac{\mathrm{\partial}F_1}{\mathrm{\partial}x_1} &amp;
+\cdots &amp;
+\frac{\mathrm{\partial}F_1}{\mathrm{\partial}x_n} \\
+\vdots &amp; \ddots &amp; \vdots \\
+\frac{\mathrm{\partial}F_n}{\mathrm{\partial}x_1} &amp;
+\cdots &amp;
+\frac{\mathrm{\partial}F_n}{\mathrm{\partial}x_n}
+\end{pmatrix}.
+\]</span> Therefore, Newton’s method forms the iterates of <span class="math display">\[
+\mathbf{x}_{i+1} = \mathbf{x}_i {\color{blue}-} J^{-1}(\mathbf{x}_i) \mathbf{F}(\mathbf{x}_i),
+\]</span> which takes a very similar form to the scalar case.</p>
+<p>However, solution of the inverse of <span class="math inline">\(J\)</span> is typically inefficient, and it is better to instead solve for <span class="math inline">\(\delta_{i+1} = \mathbf{x}_{i+1} - \mathbf{x}_i\)</span> via <span class="math display">\[
+J(\mathbf{x}_i) \delta_{i+1} = - \mathbf{F}(\mathbf{x}_i),
+\]</span> and then calculate <span class="math inline">\(\mathbf{x}_{i+1} = \mathbf{x}_i + \delta_{i+1}\)</span>. There are many ways of solving the above matrix problem efficiently using built-in routines that perform, e.g.&nbsp;Gaussian elimination.</p>
+</section>
+<section id="secant-method" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="secant-method"><span class="header-section-number">9.3</span> Secant method</h2>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<p>In many situations, evaluation of the Jacobian (or derivative) is the most time-consuming or difficult part of a nonlinear solver. Built-in solvers like ‘fsolve’, in fact, have the ability to approximate the derivative numerically.</p>
+<p>The Secant Method is similar to Newton’s Method but replaces the derivative by a finite difference. Geometrically, the tangent line is replaced with a line through the two last known guesses. The algorithm goes as follows.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Secant method
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>For feedback, hand in by Friday Week 3.</p>
+<ol type="1">
+<li><p>Develop two initial guesses to the solution, x0 and x1</p></li>
+<li><p>Compute <span class="math display">\[
+x_{n+1} = x_n - \frac{f(x_n)}{\frac{f(x_n) - f(x_{n-1})}{x_n - x_{n-1}}} =  x_n - \frac{f(x_n)(x_n - x_{n-1})}{f(x_n) - f(x_{n-1})}.
+\]</span></p></li>
+</ol>
 </div>
 </div>
-<p>The intention of this problem set is to practice concepts from material related to conservation laws and non-dimensionalisation. Although these concepts seem quite separate from “Maths of Planet Earth”, actually, they form important pillars of mathematical modelling.</p>
-<section id="q1.-bump-lemma" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="q1.-bump-lemma">Q1. Bump lemma</h2>
-<p>Prove the following one-dimensional lemma, which was used in the derivation of the heat equation.</p>
-<p>If <span class="math inline">\(\int_a^b g(x) \, \mathrm{d}x = 0\)</span> for all <span class="math inline">\(a\)</span> and <span class="math inline">\(b \in [0, 1]\)</span>, then <span class="math inline">\(g(x) \equiv 0\)</span> for all <span class="math inline">\(x\in [0, 1]\)</span>.</p>
-<p><em>Hint:</em> think of a proof by contradiction.</p>
-</section>
-<section id="q2.-a-source-in-the-heat-equation" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="q2.-a-source-in-the-heat-equation">Q2. A source in the heat equation</h2>
-<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>Consider the same heat experiment discused in <a href="../part-01-intro/intro-PDEs.html" class="quarto-xref"><span>Chapter 2</span></a> but now consider a bar that has an internal source or sink generating or removing heat, such as the case of a boiler with an internal heating element. By adapting a similar derivation to the one presented, explain why the modified conservation of heat equation is <span class="math display">\[
-\frac{\mathrm{\partial}}{\mathrm{\partial}t} \int_a^b \rho c T \, \mathrm{d}x = {\color{blue}q(x = a, t) - q(x = b, t)} + \int_a^b R(x, t) \, \mathrm{d}x.
-\]</span></p>
-<p>In addition:</p>
-<ol type="a">
-<li><p>By studying the dimensions of the other terms in the above equation, find what the dimensions of <span class="math inline">\(R\)</span> are. What does <span class="math inline">\(R &gt; 0\)</span> mean and <span class="math inline">\(R &lt; 0\)</span>?</p></li>
-<li><p>Hence derive the partial differential equation that governs the temperature <span class="math inline">\(T\)</span>.</p></li>
-<li><p>By introducing the appropriate scalings on each of the variables, <span class="math inline">\(x\)</span>, <span class="math inline">\(t\)</span>, and <span class="math inline">\(T\)</span>, non-dimensionalise the PDE and discuss the non-dimensional parameters (there will be two).</p></li>
-</ol>
-</section>
-<section id="q3.-choice-of-scalings" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="q3.-choice-of-scalings">Q3. Choice of scalings</h2>
-<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>Consider the dimensional problem for the motion of a projectile launched from close to the surface of the Earth. The dimensional height of the projectile, <span class="math inline">\(y(t)\)</span>, is given by <span class="math display">\[
-\begin{aligned}
-\frac{\mathrm{d}^2 y}{\mathrm{d}t^2} &amp;= - \frac{GM}{(R+y)^2}, \\
-y(0) &amp;= 2 \, \mathrm{m}, \\
-y'(0) &amp;= -V_0 \, \mathrm{m/s}.
-\end{aligned}
-\]</span> Assume that the Earth is spherical and of uniform density, with its mass given by <span class="math inline">\(M = (4/3) \pi R^3 \rho\)</span>. Non-dimensionalise the height using <span class="math inline">\(y = L \tilde{y}\)</span> and time using <span class="math inline">\(t = T\tilde{t}\)</span>. Consider the following cases:</p>
-<ol type="i">
-<li><span class="math inline">\(R\)</span> fixed, <span class="math inline">\(V_0 \to \infty\)</span>, <span class="math inline">\(\rho\)</span> fixed;</li>
-<li><span class="math inline">\(R\)</span> fixed, <span class="math inline">\(V_0\)</span> fixed, <span class="math inline">\(\rho \to \infty\)</span>;</li>
-<li><span class="math inline">\(R\)</span> fixed, <span class="math inline">\(V_0\)</span> fixed, <span class="math inline">\(\rho \to 0\)</span>;</li>
-<li><span class="math inline">\(R \to 0\)</span>, <span class="math inline">\(V_0\)</span> fixed, <span class="math inline">\(M\)</span> fixed.</li>
-</ol>
-<p>For each case:</p>
-<ol type="a">
-<li>Explain the physical interpretation of the limits.</li>
-<li>Choose the scalings <span class="math inline">\(L\)</span> and <span class="math inline">\(T\)</span> to normalise as many terms as possible.</li>
-<li>Choose the scalins so that the time it takes for the projectile to fall should be finite for the given limit, and for the speed, acceleration, and initial height to be well behaved (finite).</li>
-<li>Write out the scaled problem and identify all remaining nondimensional parameters.</li>
-<li>Identify the limiting small parameter for each case. Write out the problem (leading-order problem) when the parameter is set to zero.</li>
-</ol>
-</section>
-<section id="q4.-the-unique-timescale-in-the-heat-equation" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="q4.-the-unique-timescale-in-the-heat-equation">Q4. The unique timescale in the heat equation</h2>
-<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>During our investigation of the heat equation, we found that it was possible to scale time so as to scale out the only non-dimensional parameter that appears in the PDE (<span class="math inline">\(\Pi\)</span>). This produced (<a href="../part-01-intro/intro-nondim.html#eq-heat-nondim" class="quarto-xref">Equation&nbsp;<span>3.1</span></a>). The disappearance of all non-dimensional parameters is due to the fact that only a single sensible timescale exists.</p>
-<p>By adjusting the boundary conditions, we may create a new problem involving heat flow where a unique ‘special’ timescale can no longer be chosen.</p>
-<p>Consider a system where one side of the rod is heated in some periodic fashion, e.g.&nbsp;set the initial and boundary conditions to be <span class="math display">\[
-\begin{aligned}
-T(x, 0) &amp;= T_0 \\
-T(0, t) &amp;= T_a \cos (\omega t), \\
-T(L, t) &amp;= T_b.
-\end{aligned}
-\]</span></p>
-<ol type="a">
-<li><p>What must the units of <span class="math inline">\(\omega\)</span> be?</p></li>
-<li><p>Non-dimensionalise as usual and, without selecting the timescale, <span class="math inline">\([t]\)</span>, identify the key non-dimensional parameters that remain. Write a brief sentence to describe their physical interpretation.</p></li>
-<li><p>There are two sensible choices for setting the timescale, <span class="math inline">\([t]\)</span>. Identify the two choices and present the reduced set of equations in each case.</p></li>
-</ol>
-</section>
-<section id="q5.-timescale-in-the-surface-energy" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="q5.-timescale-in-the-surface-energy">Q5. Timescale in the surface energy</h2>
-<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<p>Take the basic zero-dimensional energy model studied in (<a href="../part-01-intro/basic-energy-model.html#eq-heateq-earth" class="quarto-xref">Equation&nbsp;<span>4.7</span></a>) for the temperature of the troposphere: <span class="math display">\[
-C \frac{\mathrm{d}T}{\mathrm{d}t} = \frac{1}{4} Q(1 - a) - \sigma \gamma T^4.
-\]</span></p>
-<ol type="a">
-<li><p>Non-dimensionalise the model by choosing <span class="math inline">\(T = [T]T'\)</span>, <span class="math inline">\(t = [t]t'\)</span>, and <span class="math inline">\(Q = [Q]Q'\)</span>. Show that it is possible to select the scalings on the temperature and time so as to completely remove all constants from the problem when <span class="math inline">\(Q\)</span> is assumed to be constant.</p></li>
-<li><p>Thus, show that the analysis of the above equation is equivalent to studying <span class="math display">\[
-\frac{\mathrm{d}T}{\mathrm{d}t} = 1 - T^4,
-\]</span> where we have dropped the primes and assumed that the albedo is such that <span class="math inline">\(1 - a \neq 0\)</span>.</p></li>
-<li><p>From your choice of <span class="math inline">\([t]\)</span>, estimate the typical dimensional value using <span class="math inline">\(d \approx 10 \mathrm{km}\)</span>, <span class="math inline">\(\rho \approx 1 \mathrm{kg} \,\mathrm{m}^{-3}\)</span>, <span class="math inline">\(c_p \approx 10^3 \mathrm{J} \,\mathrm{kg}^{-1} \,\mathrm{K}^{-1}\)</span>.<br>
-<br>
-Use a pocket calculator to verify your calculations and conclude that this time-scale is on the order of a month. What is the relevance of this approximation as it concerns the steady-state solution?</p></li>
-</ol>
+<!-- 
+http://hplgit.github.io/prog4comp/doc/pub/._p4c-solarized-Python031.html
+-->
 
 
 </section>
@@ -878,13 +1022,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part-03-box/box-energy-model.html" class="pagination-link" aria-label="EBM with nonlinear albedo">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">EBM with nonlinear albedo</span></span>
+      <a href="../part-05-techniques/asymptotics03.html" class="pagination-link" aria-label="Asymptotic approximations III">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Asymptotic approximations III</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-xx-exercises/ps02.html" class="pagination-link" aria-label="Problem set 2">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Problem set 2</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-05-techniques/numericalpde.html" class="pagination-link" aria-label="Numerical solutions of PDEs">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Numerical solutions of PDEs</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

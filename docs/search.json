@@ -34,7 +34,7 @@
     "href": "index.html#resources",
     "title": "MA30287: Mathematics of Planet Earth",
     "section": "Resources",
-    "text": "Resources\n\\(\\nextSection\\)\nIn general, you will have access to a few kinds of resources:\n\nThe Moodle portal will be the main organisation portal.\nLecture notes, coursework, and other resources will be found in an online format and will be linked on Moodle.\nCoding will be done via Noteable, accessed via the Moodle website.\n\nNaturally, because this is a relatively new module at Bath, there will be a fair amount of activity as we settle the material over the semester. Whenever we complete a lecture note (i.e. a ‘chapter’), we will use a box like this to indicate when the material was covered and in which lecture, and to mention any particular additions made.\n\n\n\n\n\n\nNote\n\n\n\nThe material in this note was covered in Lecture XX.\n\n\nHopefully by the time the module ends, every relevant chapter will have such a note. This allows you to judge what material has been ‘finalised’.",
+    "text": "Resources\n\\(\\nextSection\\)\nIn general, you will have access to a few kinds of resources:\n\nThe Moodle portal will be the main organisation portal.\nLecture notes, coursework, and other resources will be found in an online format and will be linked on Moodle.\nCoding will be done via Noteable, accessed via the Moodle website.\n\nNaturally, because this is a relatively new module at Bath, there will be a fair amount of activity as we settle the material over the semester.",
     "crumbs": [
       "Preface"
     ]
@@ -259,7 +259,7 @@
     "href": "part-05-techniques/asymptotics01.html#a-simple-quadratic",
     "title": "5  Asymptotic approximations I",
     "section": "",
-    "text": "A singular quadratic\n\n\n\nConsider the solution of \\[\n\\epsilon x^2 + x - 1 = 0,\n\\tag{5.1}\\] where \\(\\epsilon\\) is a fixed and very small positive number, say \\(0.000001\\). Forget that we know how to solve a quadratic equation: is it possible to develop a systematic approximation method?\n\n\n\n\n5.1.1 The singular root\n\\(\\nextSection\\)\nBut where has the other quadratic root gone?\nThe problem is that in considering \\(\\epsilon\\) to be small, we began by ignoring the leading term, \\(\\epsilon x^2\\). We effectively assumed that the equation was primarily balanced by setting the \\(x\\) term with the \\(-1\\) term, and the sum of the two terms approximately equalling zero.\nBut if \\(|x|\\) is large, then clearly our assumption that \\(\\epsilon x^2\\) being small may not be necessarily true for it depends on how large \\(|x|\\) is compared to \\(\\epsilon\\). Note that if \\(|x|\\) is large, then necessarily the last term, \\(-1\\), is negligible in comparison. Therefore, in order for \\(\\epsilon x^2\\) to balance \\(x\\), we see that \\(|x|\\) must be of size \\(1/\\epsilon\\).\nTherefore this suggests that we should re-scale our solution as follows \\[\nx = \\frac{X}{\\epsilon}.\n\\]\nSubstitution into the original quadratic now yields \\[\nX^2 + X - \\epsilon = 0.\n\\] Now notice that \\(\\epsilon = 0\\) expresses the correct balance in order to detect that missing root. Again we write \\[\nX = X_0 + \\epsilon X_1 + \\epsilon^2 X_2 + \\ldots\n\\] and attempt to solve order by order. Substitution into the equation yields \\[\n\\Bigl(X_0 + \\epsilon X_1 + \\epsilon^2 X_2 + \\ldots\\Bigr)^2 + \\Bigl(X_0 + \\epsilon X_1 + \\epsilon^2 X_2 + \\ldots\\Bigr) - \\epsilon = 0.\n\\] Expand and collect orders of \\(\\epsilon\\): \\[\n\\begin{aligned}\nX_0^2 + X_0 &= 0 \\Longrightarrow X_0 = -1 \\\\\n2X_0 X_1 + X_1 -1 &= 0 \\Longrightarrow X_0 = -1,\n\\end{aligned}\n\\] and thus to two orders, we have \\[\nX = -1 - \\epsilon + \\ldots \\Longrightarrow x = - \\frac{1}{\\epsilon} - 1 + \\ldots\n\\]\nOf course, we have used a very simple example (a solvable quadratic) to illustrate the idea of asymptotic approximations, but you should hopefully see that this method is extensible to much more complicated equations.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nep = np.linspace(1,0.1, 20)\nroot1 = (-1 + np.sqrt(1-4*ep*(-1)))/(2*ep)\nroot2 = (-1 - np.sqrt(1-4*ep*(-1)))/(2*ep)\nasym1 = 1 - ep\nasym2 = -1/ep - 1\nplt.plot(ep, root1, 'o')\nplt.plot(ep, root2, 'o')\nplt.plot(ep, asym1, '-')\nplt.plot(ep, asym2, '-')\nplt.legend(['$x_1$', '$x_2$', '2-term asymp.', '2-term asym'])\nplt.xlabel('$\\epsilon$')\nplt.ylabel('x');\n\n&lt;&gt;:14: SyntaxWarning: invalid escape sequence '\\e'\n&lt;&gt;:14: SyntaxWarning: invalid escape sequence '\\e'\n/var/folders/lw/7v5bfgnj6gj4qhr6fykhcp3h0000gn/T/ipykernel_36030/3662636573.py:14: SyntaxWarning: invalid escape sequence '\\e'\n  plt.xlabel('$\\epsilon$')",
+    "text": "A singular quadratic\n\n\n\nConsider the solution of \\[\n\\epsilon x^2 + x - 1 = 0,\n\\tag{5.1}\\] where \\(\\epsilon\\) is a fixed and very small positive number, say \\(0.000001\\). Forget that we know how to solve a quadratic equation: is it possible to develop a systematic approximation method?\n\n\n\n\n5.1.1 The singular root\n\\(\\nextSection\\)\nBut where has the other quadratic root gone?\nThe problem is that in considering \\(\\epsilon\\) to be small, we began by ignoring the leading term, \\(\\epsilon x^2\\). We effectively assumed that the equation was primarily balanced by setting the \\(x\\) term with the \\(-1\\) term, and the sum of the two terms approximately equalling zero.\nBut if \\(|x|\\) is large, then clearly our assumption that \\(\\epsilon x^2\\) being small may not be necessarily true for it depends on how large \\(|x|\\) is compared to \\(\\epsilon\\). Note that if \\(|x|\\) is large, then necessarily the last term, \\(-1\\), is negligible in comparison. Therefore, in order for \\(\\epsilon x^2\\) to balance \\(x\\), we see that \\(|x|\\) must be of size \\(1/\\epsilon\\).\nTherefore this suggests that we should re-scale our solution as follows \\[\nx = \\frac{X}{\\epsilon}.\n\\]\nSubstitution into the original quadratic now yields \\[\nX^2 + X - \\epsilon = 0.\n\\] Now notice that \\(\\epsilon = 0\\) expresses the correct balance in order to detect that missing root. Again we write \\[\nX = X_0 + \\epsilon X_1 + \\epsilon^2 X_2 + \\ldots\n\\] and attempt to solve order by order. Substitution into the equation yields \\[\n\\Bigl(X_0 + \\epsilon X_1 + \\epsilon^2 X_2 + \\ldots\\Bigr)^2 + \\Bigl(X_0 + \\epsilon X_1 + \\epsilon^2 X_2 + \\ldots\\Bigr) - \\epsilon = 0.\n\\] Expand and collect orders of \\(\\epsilon\\): \\[\n\\begin{aligned}\nX_0^2 + X_0 &= 0 \\Longrightarrow X_0 = -1 \\\\\n2X_0 X_1 + X_1 -1 &= 0 \\Longrightarrow X_0 = -1,\n\\end{aligned}\n\\] and thus to two orders, we have \\[\nX = -1 - \\epsilon + \\ldots \\Longrightarrow x = - \\frac{1}{\\epsilon} - 1 + \\ldots\n\\]\nOf course, we have used a very simple example (a solvable quadratic) to illustrate the idea of asymptotic approximations, but you should hopefully see that this method is extensible to much more complicated equations.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nep = np.linspace(1,0.1, 20)\nroot1 = (-1 + np.sqrt(1-4*ep*(-1)))/(2*ep)\nroot2 = (-1 - np.sqrt(1-4*ep*(-1)))/(2*ep)\nasym1 = 1 - ep\nasym2 = -1/ep - 1\nplt.plot(ep, root1, 'o')\nplt.plot(ep, root2, 'o')\nplt.plot(ep, asym1, '-')\nplt.plot(ep, asym2, '-')\nplt.legend(['$x_1$', '$x_2$', '2-term asymp.', '2-term asym'])\nplt.xlabel('$\\epsilon$')\nplt.ylabel('x');\n\n&lt;&gt;:14: SyntaxWarning: invalid escape sequence '\\e'\n&lt;&gt;:14: SyntaxWarning: invalid escape sequence '\\e'\n/var/folders/lw/7v5bfgnj6gj4qhr6fykhcp3h0000gn/T/ipykernel_31841/3662636573.py:14: SyntaxWarning: invalid escape sequence '\\e'\n  plt.xlabel('$\\epsilon$')",
     "crumbs": [
       "Practical applied mathematics",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Asymptotic approximations I</span>"
@@ -281,7 +281,7 @@
     "href": "part-05-techniques/asymptotics02.html",
     "title": "6  Asymptotic approximations II",
     "section": "",
-    "text": "6.1 Returning to the projectile problem\nIn the previous chapter, we learned about the technique of asymptotic expansions, whereby the solution of an equation is expressed in terms of a series in powers of a small parameter: \\[\nx = x_0 + \\epsilon x_1 + \\epsilon^2 x_2 + \\ldots\n\\] The precise choice of power progression (here integer powers of \\(\\epsilon\\) will depend on the particular problem. The same idea can be extended to approximating solutions of differential equations. The upshot of this procedure is that at each order of the scheme, a simpler problem can be studied.\nAgain it is best to demonstrate through examples.\nIn ?sec-pclass1 and Chapter 9 you studied the non-dimensionalisation of the projectile problem. Once re-scaled, it takes the following form: \\[\n\\begin{aligned}\n\\frac{\\mathrm{d}^2 y}{\\mathrm{d}t^2} &= -\\frac{1}{(1 + \\epsilon y)^2}, \\qquad t &gt; 0 \\\\\ny(0) &= 0, \\\\\ny'(0) &= 1.\n\\end{aligned}\n\\tag{6.1}\\]\nThis is a difficult problem without, in fact, any explicit solutions. However, we can estimate the solution in the limit \\(\\epsilon \\to 0\\). We expand the solution as \\[\ny(t) = y_0(t) + \\epsilon y_1(t) + \\epsilon^2 y_2(t) + \\ldots\n\\] In order to expand the denominator, you can use Taylor’s theorem to expand the function \\[\nf(x) = (1 + x)^\\alpha = f(0) + f'(0)x + \\ldots = 1 + \\alpha x + \\ldots\n\\] around \\(x = 0\\).\nThe differential equation now yields \\[\ny_0'' + \\epsilon y_1'' + \\epsilon^2 y_2'' + \\ldots = -\\left[1 - 2\\epsilon \\left(y_0 + \\epsilon y_1 + \\ldots\\right) + \\ldots \\right]\n\\] so grouping terms together order-by-order yields \\[\n\\Bigl[ y_0'' + 1 \\Bigr] + \\epsilon \\Bigl[ y_1'' - 2y_0\\Bigr] + \\ldots = 0.\n\\]\nWe can similarly substitute the expansion into the initial conditions. Altogether, at leading order, we obtain the following system to solve: \\[\n\\begin{aligned}\ny_0'' + 1 &= 0, \\\\\ny_0(0) &= 0, \\\\\ny_0'(0) &= 1.\n\\end{aligned}\n\\] Integrating twice and applying the boundary conditions gives us \\[\ny_0(t) = -\\frac{1}{2}t^2 + t.\n\\] In fact, this is simply the parabolic motion you would expect from school Physics. The \\(\\epsilon = 0\\) solution corresponds to assuming that the mass at the centre of the planet is dominant and then acceleration is constant.\nHowever, we can now proceed to higher order and examine the nonlinear effects. Proceeding to \\(O(\\epsilon)\\), we have the following system to solve: \\[\n\\begin{aligned}\ny_1'' &= 2y_0, \\\\\ny_1(0) &= 0, \\\\\ny_1'(0) &= 0.\n\\end{aligned}\n\\] Notice the boundary conditions come from the fact there are no \\(\\epsilon\\) corrections in the original boundary conditions, so \\(y_n(0) = y_n'(0) = 0\\) for all \\(n &gt; 0\\). Again this system is simple to integrate. Integrating the solution for \\(y_0\\) twice and substitution of the initial conditions yields \\[\ny_1(t) = -\\frac{1}{12}t^4 + \\frac{1}{3}t^3.\n\\] We have thus solved for the asymptotic approximation to two orders. We have \\[\ny(t) \\sim \\Bigl[ -\\frac{1}{2}t^2 + t\\Bigr] + \\epsilon \\Bigl[ -\\frac{1}{12}t^4 + \\frac{1}{3}t^3\\Bigr].\n\\] This was quite an accomplishment! We have taken a problem that was not easily solvable in explicit form and through fairly simple integrations, obtained an approximation to two orders in \\(\\epsilon\\). How good is it? Let us solve the problem numerically and compare with the asymptotic approximation.",
+    "text": "6.1 Returning to the projectile problem\nIn the previous chapter, we learned about the technique of asymptotic expansions, whereby the solution of an equation is expressed in terms of a series in powers of a small parameter: \\[\nx = x_0 + \\epsilon x_1 + \\epsilon^2 x_2 + \\ldots\n\\] The precise choice of power progression (here integer powers of \\(\\epsilon\\) will depend on the particular problem. The same idea can be extended to approximating solutions of differential equations. The upshot of this procedure is that at each order of the scheme, a simpler problem can be studied.\nAgain it is best to demonstrate through examples.\nIn ?sec-pclass1 and Chapter 12 you studied the non-dimensionalisation of the projectile problem. Once re-scaled, it takes the following form: \\[\n\\begin{aligned}\n\\frac{\\mathrm{d}^2 y}{\\mathrm{d}t^2} &= -\\frac{1}{(1 + \\epsilon y)^2}, \\qquad t &gt; 0 \\\\\ny(0) &= 0, \\\\\ny'(0) &= 1.\n\\end{aligned}\n\\tag{6.1}\\]\nThis is a difficult problem without, in fact, any explicit solutions. However, we can estimate the solution in the limit \\(\\epsilon \\to 0\\). We expand the solution as \\[\ny(t) = y_0(t) + \\epsilon y_1(t) + \\epsilon^2 y_2(t) + \\ldots\n\\] In order to expand the denominator, you can use Taylor’s theorem to expand the function \\[\nf(x) = (1 + x)^\\alpha = f(0) + f'(0)x + \\ldots = 1 + \\alpha x + \\ldots\n\\] around \\(x = 0\\).\nThe differential equation now yields \\[\ny_0'' + \\epsilon y_1'' + \\epsilon^2 y_2'' + \\ldots = -\\left[1 - 2\\epsilon \\left(y_0 + \\epsilon y_1 + \\ldots\\right) + \\ldots \\right]\n\\] so grouping terms together order-by-order yields \\[\n\\Bigl[ y_0'' + 1 \\Bigr] + \\epsilon \\Bigl[ y_1'' - 2y_0\\Bigr] + \\ldots = 0.\n\\]\nWe can similarly substitute the expansion into the initial conditions. Altogether, at leading order, we obtain the following system to solve: \\[\n\\begin{aligned}\ny_0'' + 1 &= 0, \\\\\ny_0(0) &= 0, \\\\\ny_0'(0) &= 1.\n\\end{aligned}\n\\] Integrating twice and applying the boundary conditions gives us \\[\ny_0(t) = -\\frac{1}{2}t^2 + t.\n\\] In fact, this is simply the parabolic motion you would expect from school Physics. The \\(\\epsilon = 0\\) solution corresponds to assuming that the mass at the centre of the planet is dominant and then acceleration is constant.\nHowever, we can now proceed to higher order and examine the nonlinear effects. Proceeding to \\(O(\\epsilon)\\), we have the following system to solve: \\[\n\\begin{aligned}\ny_1'' &= 2y_0, \\\\\ny_1(0) &= 0, \\\\\ny_1'(0) &= 0.\n\\end{aligned}\n\\] Notice the boundary conditions come from the fact there are no \\(\\epsilon\\) corrections in the original boundary conditions, so \\(y_n(0) = y_n'(0) = 0\\) for all \\(n &gt; 0\\). Again this system is simple to integrate. Integrating the solution for \\(y_0\\) twice and substitution of the initial conditions yields \\[\ny_1(t) = -\\frac{1}{12}t^4 + \\frac{1}{3}t^3.\n\\] We have thus solved for the asymptotic approximation to two orders. We have \\[\ny(t) \\sim \\Bigl[ -\\frac{1}{2}t^2 + t\\Bigr] + \\epsilon \\Bigl[ -\\frac{1}{12}t^4 + \\frac{1}{3}t^3\\Bigr].\n\\] This was quite an accomplishment! We have taken a problem that was not easily solvable in explicit form and through fairly simple integrations, obtained an approximation to two orders in \\(\\epsilon\\). How good is it? Let us solve the problem numerically and compare with the asymptotic approximation.",
     "crumbs": [
       "Practical applied mathematics",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Asymptotic approximations II</span>"
@@ -343,366 +343,520 @@
     ]
   },
   {
+    "objectID": "part-05-techniques/newtons.html",
+    "href": "part-05-techniques/newtons.html",
+    "title": "9  Nonlinear root finding",
+    "section": "",
+    "text": "9.1 Demo of Newton’s method for scalar equations\nBefore we move on back to the subject of applications, it is worth providing an introduction to methods for solving nonlinear equations. Many problems you will encounter in applications, including for ordinary or partial differential equations, can be re-formulated as the solution of a nonlinear system of equations.\nNewton’s method is the most well-known scheme for solving nonlinear equations. Suppose we wish to solve the scalar equation, \\[\nf(x) = 0,\n\\] given some initial guess, \\(x = x_0\\), of the root. Suppose the root lies at \\(x = x^*\\). Then by Taylor’s theorem, \\[\nf(x^*) = f(x_0) + f'(x_0)(x^* - x_0) + O(f''(x_0)(x - x_0)^2).\n\\] If we assume the quadratic terms are negligible then solve for \\(x^*\\) this gives \\[\nx^* \\approx x_0 - \\frac{f(x_0)}{f'(x_0)}.\n\\] There is a geometrical interpretation of the above. Essentially, in order to estimate the root of \\(f(x) = 0\\), we have used the tangent line at the point \\(x = x_0\\), and used the intersection of this tangent line with the axis as the approximation. This procedure can then be iterated.\nThus, provided that the desired root, \\(x^*\\), is such that \\(f'(x^*) \\neq 0\\), and \\(x_0\\) is sufficiently close to \\(x^*\\), then the following iterates converge to the root: \\[\nx_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}.\n\\]\nHere is a simple demonstration of Newton’s method in order to solve for one of the roots of the following: \\[\nf(x) = x^3 + x - 1.\n\\]\nWe will start with the initial guess of \\(x_0 = 0\\). We can do this by hand in lectures using a pocket calculator. The solution is \\(x^* \\approx 0.6823278..\\)\nimport numpy as np\n\nx0 = 0\nN = 10\n\ndef Newton(f, df, x, maxiter=10):\n    i = 0\n    while (i &lt; maxiter):\n        err = f(x)\n        x = x - err / df(x)\n        print(\"f(x) = \", np.abs(err), \", x = \", x)\n        i = i + 1\n    return x, err\n\nf = lambda x: x**3 + x - 1\ndf = lambda x: 3*x**2 + 1\n\nx, err = Newton(f, df, x0, N)\nprint(\"Final approximation = \", x)\n\nf(x) =  1 , x =  1.0\nf(x) =  1.0 , x =  0.75\nf(x) =  0.171875 , x =  0.686046511627907\nf(x) =  0.008941036638283384 , x =  0.6823395825973142\nf(x) =  2.823062168566537e-05 , x =  0.6823278039465127\nf(x) =  2.839946056099052e-10 , x =  0.6823278038280194\nf(x) =  2.220446049250313e-16 , x =  0.6823278038280193\nf(x) =  1.1102230246251565e-16 , x =  0.6823278038280193\nf(x) =  1.1102230246251565e-16 , x =  0.6823278038280193\nf(x) =  1.1102230246251565e-16 , x =  0.6823278038280193\nFinal approximation =  0.6823278038280193\nIt is a good idea to also learn how to do this using built-in packages. The ‘fsolve’ function provides a Newton-like nonlinear solver. In fact, it can estimate the Jacobian (derivative), so only the function values need to be provided.\nimport numpy as np\nfrom scipy.optimize import fsolve\n\nf = lambda x: x**3 + x - 1\n\nx0 = 1\nx, info, ier, msg = fsolve(f, x0, full_output=True)\n\nprint(msg)\nprint(x)\n\nThe solution converged.\n[0.6823278]",
+    "crumbs": [
+      "Practical applied mathematics",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Nonlinear root finding</span>"
+    ]
+  },
+  {
+    "objectID": "part-05-techniques/newtons.html#demo-of-newtons-method-for-scalar-equations",
+    "href": "part-05-techniques/newtons.html#demo-of-newtons-method-for-scalar-equations",
+    "title": "9  Nonlinear root finding",
+    "section": "",
+    "text": "i\nxi\nf(xi)\nf’(xi)\n-f(xi)/f’(xi)\nerror\n\n\n\n\n0\n\n\n\n\n\n\n\n1\n\n\n\n\n\n\n\n2",
+    "crumbs": [
+      "Practical applied mathematics",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Nonlinear root finding</span>"
+    ]
+  },
+  {
+    "objectID": "part-05-techniques/newtons.html#newtons-method-for-systems-of-nonlinear-equations",
+    "href": "part-05-techniques/newtons.html#newtons-method-for-systems-of-nonlinear-equations",
+    "title": "9  Nonlinear root finding",
+    "section": "9.2 Newton’s method for systems of nonlinear equations",
+    "text": "9.2 Newton’s method for systems of nonlinear equations\n\\(\\nextSection\\)\nNewton’s method generalises naturally to the case of a system of equations. Suppose we wish to solve for the \\(n\\) unknowns \\(\\mathbf{x} = (x_1, \\ldots, x_n)\\) via \\[\n\\mathbf{F(\\mathbf{x}}) =\n\\begin{pmatrix}\nF_1(\\mathbf{x}) \\\\\nF_2(\\mathbf{x}) \\\\\n\\ldots \\\\\nF_n(\\mathbf{x})\n\\end{pmatrix} = 0.\n\\]\nWe have, via Taylor’s formula, \\[\n\\mathbf{F}(\\mathbf{x}_{i+1}) \\sim  \\mathbf{F(\\mathbf{x}_i}) + J(\\mathbf{x}_i)(\\mathbf{x}_{i+1} - \\mathbf{x}_i) + \\mathcal{O}(||\\mathbf{x}_{i+1} - \\mathbf{x}_i||^2),\n\\] where \\(J\\) is the Jacobian matrix \\[\nJ(\\mathbf{x}) = \\nabla \\mathbf{F}(\\mathbf{x}) =\n\\begin{pmatrix}\n\\frac{\\mathrm{\\partial}F_1}{\\mathrm{\\partial}x_1} &\n\\cdots &\n\\frac{\\mathrm{\\partial}F_1}{\\mathrm{\\partial}x_n} \\\\\n\\vdots & \\ddots & \\vdots \\\\\n\\frac{\\mathrm{\\partial}F_n}{\\mathrm{\\partial}x_1} &\n\\cdots &\n\\frac{\\mathrm{\\partial}F_n}{\\mathrm{\\partial}x_n}\n\\end{pmatrix}.\n\\] Therefore, Newton’s method forms the iterates of \\[\n\\mathbf{x}_{i+1} = \\mathbf{x}_i {\\color{blue}-} J^{-1}(\\mathbf{x}_i) \\mathbf{F}(\\mathbf{x}_i),\n\\] which takes a very similar form to the scalar case.\nHowever, solution of the inverse of \\(J\\) is typically inefficient, and it is better to instead solve for \\(\\delta_{i+1} = \\mathbf{x}_{i+1} - \\mathbf{x}_i\\) via \\[\nJ(\\mathbf{x}_i) \\delta_{i+1} = - \\mathbf{F}(\\mathbf{x}_i),\n\\] and then calculate \\(\\mathbf{x}_{i+1} = \\mathbf{x}_i + \\delta_{i+1}\\). There are many ways of solving the above matrix problem efficiently using built-in routines that perform, e.g. Gaussian elimination.",
+    "crumbs": [
+      "Practical applied mathematics",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Nonlinear root finding</span>"
+    ]
+  },
+  {
+    "objectID": "part-05-techniques/newtons.html#secant-method",
+    "href": "part-05-techniques/newtons.html#secant-method",
+    "title": "9  Nonlinear root finding",
+    "section": "9.3 Secant method",
+    "text": "9.3 Secant method\n\\(\\nextSection\\)\nIn many situations, evaluation of the Jacobian (or derivative) is the most time-consuming or difficult part of a nonlinear solver. Built-in solvers like ‘fsolve’, in fact, have the ability to approximate the derivative numerically.\nThe Secant Method is similar to Newton’s Method but replaces the derivative by a finite difference. Geometrically, the tangent line is replaced with a line through the two last known guesses. The algorithm goes as follows.\n\n\n\n\n\n\nSecant method\n\n\n\n\nDevelop two initial guesses to the solution, x0 and x1\nCompute \\[\nx_{n+1} = x_n - \\frac{f(x_n)}{\\frac{f(x_n) - f(x_{n-1})}{x_n - x_{n-1}}} =  x_n - \\frac{f(x_n)(x_n - x_{n-1})}{f(x_n) - f(x_{n-1})}.\n\\]",
+    "crumbs": [
+      "Practical applied mathematics",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Nonlinear root finding</span>"
+    ]
+  },
+  {
+    "objectID": "part-05-techniques/numericalpde.html",
+    "href": "part-05-techniques/numericalpde.html",
+    "title": "10  Numerical solutions of PDEs",
+    "section": "",
+    "text": "10.1 Finite difference problem\nWe shall begin by introducing the simplest finite-difference routine for solving a PDE using Euler time stepping. Let us consider the solution of the heat equation on a finite interval: \\[\n\\begin{gathered}\n\\frac{\\partial u}{\\partial t} = \\frac{\\partial^2 u}{\\partial x^2}, \\\\\nu(0, t) = 1, \\quad u(1, t) = 2, \\quad u(x, 0) = 2.\n\\end{gathered}\n\\]\nWe consider a discretisation of the spatial domain \\(x \\in [0, 1]\\) via the \\((N+1)\\) points \\[\nx_0 = 0, \\quad x_1 = \\Delta x, \\quad x_2 = 2\\Delta x, \\quad \\ldots , \\quad x_{N+1} = 1.\n\\] Typically \\(\\Delta x\\) is small. We also have time steps of size \\(\\Delta t\\), and thus going from \\(t_0 = 0\\), \\(t_1 = \\Delta t\\), and so forth. We represent the solution by the indexing scheme: \\[\nu(x_j, t_k) = u_{j}^j.\n\\]\nLike for Euler’s method, we consider the approximation of the time derivative as follows: \\[\n\\left(\\frac{\\partial u}{\\partial t}\\right)_j^k \\approx \\frac{u_j^{k+1} - u_j^k}{\\Delta t}, \\qquad \\text{for $0 \\leq j \\leq N+1$, $k \\geq 0$}.\n\\]\nIn order to approximate the second-order derivative, Hwe will use \\[\n\\left(\\frac{\\partial^2 u}{\\partial x^2}\\right)_j^k \\approx \\frac{u_{j+1}^k - 2 u_j^k + u_{j-1}^k}{(\\Delta x)^2}, \\qquad \\text{$1 \\leq j \\leq N$, $k \\geq 0$}.\n\\] Note that the finite difference cannot be applied directly to the first and last points (\\(j = 0\\) and \\(j = N+1\\)). Substituting the above finite differences into the heat equation, we see that we now have the prescription: \\[\nu_j^{k+1} = u_j^k + \\frac{\\Delta t}{(\\Delta x)^2} \\left[u_{j+1}^k - 2 u_j^k + u_{j-1}^k \\right],\n\\] which applies for \\(j = 1, 2, \\ldots, N\\).",
+    "crumbs": [
+      "Practical applied mathematics",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Numerical solutions of PDEs</span>"
+    ]
+  },
+  {
+    "objectID": "part-05-techniques/numericalpde.html#boundary-and-initial-conditions",
+    "href": "part-05-techniques/numericalpde.html#boundary-and-initial-conditions",
+    "title": "10  Numerical solutions of PDEs",
+    "section": "10.2 Boundary and initial conditions",
+    "text": "10.2 Boundary and initial conditions\n\\(\\nextSection\\)\nThe initial conditions are implemented by setting \\[\nu_j^0 = 2, \\qquad \\text{for $j = 0, 1, 2, \\ldots, N+1$}.\n\\] The boundary conditions require \\[\nu_0^k = 1 \\quad \\text{and} \\quad u_{N+1}^k = 2, \\quad \\text{for all $k \\geq 0$}.\n\\]\nDuring the lectures, we will examine script Chap10-SolvingPDEs.ipynb on the course scripts to see an example implementation. A similar application is applied in Chap10-winecellar.ipynb to solve a heat equation.",
+    "crumbs": [
+      "Practical applied mathematics",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Numerical solutions of PDEs</span>"
+    ]
+  },
+  {
+    "objectID": "part-03-box/box-energy-model.html",
+    "href": "part-03-box/box-energy-model.html",
+    "title": "11  EBM with nonlinear albedo",
+    "section": "",
+    "text": "11.1 Steady-state analysis\nRecall that we previously introduced the basic energy balance model in Chapter 4. There, we derived the basic heat equation model (Equation 4.7) for the Earth’s temperature given by the following ordinary differential equation (ODE) for \\(T = T(t)\\),\n\\[\nC \\frac{\\mathrm{d}T}{\\mathrm{d}t} = Q(1 - a) - \\sigma \\gamma T^4,\n\\tag{11.1}\\] where we have defined \\(C = \\rho c_p d\\) as the heat capacity of the atmosphere. Above, the solar flux, Q is often taken to be \\(Q = 1370/4 = 342\\) W/m2, \\(\\sigma = 5.67 \\times 10^{-8}\\) W/(m2K4), and \\(\\gamma \\leq 1\\) is the greenhouse gas factor.\nIn this chapter, we discuss the effects of considering a nonlinear albedo, \\(a = a(T)\\), as well as some of the numerical and analytical tools at our disposal for studying the above equation.\nBelow, we shall let \\(T = T_\\infty\\) be the steady-state solution that is independent of time. Whenever convenient, we will drop the subscript notation and simply refer to the steady state as \\(T\\).\nPreviously, we have assumed that the planetary albedo, \\(a\\), is constant and independent of temperature. In actuality, water can turn to snow and ice and vice versa; since snow and ice have much higher albedo than open water, then we should consider \\(a = a(T)\\).\nLet us assume that there are two relevant ranges to consider: T &lt; 150K (cold) and T &gt; 280K (hot). Let us assume that the albedo is, in these two regions: \\[\na(T) \\approx\n\\begin{cases}\n0.7 & \\mathrm{if }\\ T &lt; 150\\mathrm{K}, \\\\\n0.3 & \\mathrm{if }\\ T &gt; 280\\mathrm{K}.\n\\end{cases}\n\\] The above guarantees that more energy is reflected if temperatures are low. To model this process, we can use a ramp function to specify the albedo over all temperatures: \\[\na(T) = A - B \\mathrm{tanh}\\left(k(T - 265)\\right).\n\\tag{11.2}\\] where \\(A = 0.5\\), \\(B = {\\color{blue}0.2}\\), \\(k = 0.1\\), and \\(T_0 = 265 \\mathrm{K}\\). Recall that the tanh function is given by \\[\n\\mathrm{tanh}(x) = \\frac{\\mathrm{sinh}(x)}{\\mathrm{cosh}(x)} = \\frac{e^x - e^{-x}}{e^x + e^{-x}}.\n\\]\nLet us further assume that the system is in steady state, so that the temperature is determined by solving the equation \\[\nf(T) = Q[1 - a(T)] - \\sigma \\gamma T^4 = 0.\n\\tag{11.3}\\]\nIn the following code, we plot the two terms that make up \\(f\\), and their intersections indicate roots of \\(f = 0\\). We then use the Python ‘fsolve’ function to approximate the roots given initial guesses.\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport scipy.optimize as sciopt\n\nQ = 342\nsigma = 5.67e-8 \ngamma = 0.62\n\nTT = np.linspace(220,310,50)\n\ndef fun(T):\n    a = 0.5 - 0.2*np.tanh((T - 265)/10)\n    x = (1-a)*Q\n    return x\nLHS = fun(TT)\n\nplt.plot(TT, LHS)\nplt.plot(TT, gamma*sigma*TT**4, 'k--')\n\ndef eq(T):\n    x = fun(T) - gamma*sigma*T**4\n    return x\nT1 = sciopt.fsolve(eq, 230)\nT2 = sciopt.fsolve(eq, 265)\nT3 = sciopt.fsolve(eq, 290)\nprint(\"T1 = {:.2f}\".format(T1[0]))\nprint(\"T2 = {:.2f}\".format(T2[0]))\nprint(\"T3 = {:.2f}\".format(T3[0]))\n\nT1 = 232.55\nT2 = 265.56\nT3 = 286.74\nTherefore multiple equilibria are observed.",
+    "crumbs": [
+      "Energy balance models",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>EBM with nonlinear albedo</span>"
+    ]
+  },
+  {
+    "objectID": "part-03-box/box-energy-model.html#bifurcation-diagram",
+    "href": "part-03-box/box-energy-model.html#bifurcation-diagram",
+    "title": "11  EBM with nonlinear albedo",
+    "section": "11.2 Bifurcation diagram",
+    "text": "11.2 Bifurcation diagram\n\\(\\nextSection\\)\nDuring the lectures, the above script plotting the steady-state solutions will be examined in order to understand the effects of changing \\(Q\\).\nIt will be observed that dependent on the solar radiation, there may be one or three steady-state solutions. This leads to the following key bifurcation diagram.\n\n\n\n\n\n\nFigure 11.1: Bifurcation diagram of \\(Q/Q_0\\) vs \\(T_\\infty\\)\n\n\n\nWe noted the following:\n\nThe system has three steady states, given by the green, red, and blue curves.\nThe middle state is unstable (shown dashed).\nThe system exhibits hysteresis. Note that if we decrease \\(Q/Q_0\\) past the tipping point, marked \\(Q_{T1}\\) in the image, then we would evolve to the lower stable steady state (which is the ice state). However, while we are in the ice stated, if we were to attempt to increase the solar radiation to return to the green branch, we would need to arrive at \\(Q_{T2}\\) to do so; this irreversibility is known as hysteresis. ## Dynamics and phase line solutions\n\nThe full time-dependent model is given by \\[\nC \\frac{\\mathrm{d}T}{\\mathrm{d}t} = f(T),\n\\] so we may use the positivity or negativity of \\(f\\) in order to sketch the time-dependent behaviour of the system.\nTo see this, we can perform an asymptotic analysis near the fixed points. Let the initial condition be considered near the fixed point: \\[\nT(t = 0) = T_\\infty + \\delta,\n\\] where \\(\\delta \\ll 1\\). Then we expand the solution into an asymptotic expansion, \\[\nT(t) = T_\\infty + \\delta T_1(t) + \\delta T^2(t) + \\ldots\n\\] Substitution into the above ODE gives, at \\(O(\\delta)\\), \\[\nC \\frac{\\mathrm{d}T_1}{\\mathrm{d}t} = f'(T_\\infty) T_1,\n\\] and hence, with \\(T_1(0) = 1\\), we have \\[\nT_1(t) = e^{f'(T_\\infty) t/C}.\n\\] Therefore, depending on the positivity or negativity of the gradient function, the perturbation will either decay or grow as \\(t\\to\\infty\\).\nIt can then be verified that the centre equilbria is unstable while the other two are stable. The higher temperature corresponds to the one that the Earth is currently in, but according to this model, there seems to be the possibility of a colder climate (50 degrees colder) where the Earth is entirely covered with snow and ice.\nInterestingly, there is some evidence that the Earth’s climate may have been in this so-called state up to four times between 750 million and 580 million years ago (Neoproterozoic age). Observations of geological deposits suggest that the Earth has undergone periods of complete global glaciation where there have been very minimal biological activity. During this period, there is a massive build-up of CO2 in the atmopshere, leading to huge greenhouse effect. As \\(\\gamma\\) decreases in our model, the equilibrium can then shift, suddenly transitioning the Planet into the warm state.",
+    "crumbs": [
+      "Energy balance models",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>EBM with nonlinear albedo</span>"
+    ]
+  },
+  {
+    "objectID": "part-03-box/box-energy-model.html#sec-budyko",
+    "href": "part-03-box/box-energy-model.html#sec-budyko",
+    "title": "11  EBM with nonlinear albedo",
+    "section": "11.3 Re-scaling and Budyko’s model",
+    "text": "11.3 Re-scaling and Budyko’s model\n\\(\\nextSection\\)\nTo model the outgoing radiation, we use the quartic Stefan-Boltzmann law. However, over the range of temperatures we are interested-in, it seems that a simpler approximation is sufficient. In your homework, you will investigate the re-scaling and shifting of temperature, such that \\[\nT = T_0 + [T]\\tilde{T},\n\\] where \\(T_0 = 265 \\mathrm{K}\\). Then under the assumption that temperatures are not-so-far from \\(T_0\\), we expand \\[\n(T_0 + [T]\\tilde{T})^4 \\sim T_0^4 + 4 T_0^3 [T] \\tilde{T} =\nC_1 + C_2 \\tilde{T}.\n\\] This simplifies the model considerably.\nThis is, in fact, a theoretical justification of Budyko’s model, first suggested by Budyko (Budyko 1969), where instead of the Stefan-Boltmann law that provides the cumbersome quartic power of \\(T\\), we use instead \\[\nE_\\text{out} = \\sigma \\gamma T^4 \\approx A + BT,\n\\] where \\(A\\) and \\(B\\) will vary with location and climate. For instance, for the Northern Hemisphere, (Kaper and Engler 2013) gives the values of \\(A = 203.3\\text{Wm}^{-2}\\) and \\(B = 2.09 \\text{Wm}^{-2}\\text{deg}^{-1}\\) and where temperature is measured in degrees Celcius. As shown above, one can interpret this as a linear expansion of the Stefan-Boltzmann law (after which similar values of \\(A\\) and \\(B\\) are derived).\nThe above Budyko model will be a staple of the latitude-dependent model introduced in the next chapter.\n\n\n\n\n\nBudyko, Mikhail I. 1969. “The Effect of Solar Radiation Variations on the Climate of the Earth.” Tellus 21 (5): 611–19.\n\n\nKaper, H., and H. Engler. 2013. Mathematics and Climate. SIAM.",
+    "crumbs": [
+      "Energy balance models",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>EBM with nonlinear albedo</span>"
+    ]
+  },
+  {
     "objectID": "part-xx-exercises/ps01.html",
     "href": "part-xx-exercises/ps01.html",
-    "title": "9  Problem set 1",
+    "title": "12  Problem set 1",
     "section": "",
     "text": "Q1. Bump lemma\nThe intention of this problem set is to practice concepts from material related to conservation laws and non-dimensionalisation. Although these concepts seem quite separate from “Maths of Planet Earth”, actually, they form important pillars of mathematical modelling.\nProve the following one-dimensional lemma, which was used in the derivation of the heat equation.\nIf \\(\\int_a^b g(x) \\, \\mathrm{d}x = 0\\) for all \\(a\\) and \\(b \\in [0, 1]\\), then \\(g(x) \\equiv 0\\) for all \\(x\\in [0, 1]\\).\nHint: think of a proof by contradiction.",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Problem set 1</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Problem set 1</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps01.html#q2.-a-source-in-the-heat-equation",
     "href": "part-xx-exercises/ps01.html#q2.-a-source-in-the-heat-equation",
-    "title": "9  Problem set 1",
+    "title": "12  Problem set 1",
     "section": "Q2. A source in the heat equation",
     "text": "Q2. A source in the heat equation\n\\(\\nextSection\\)\nConsider the same heat experiment discused in Chapter 2 but now consider a bar that has an internal source or sink generating or removing heat, such as the case of a boiler with an internal heating element. By adapting a similar derivation to the one presented, explain why the modified conservation of heat equation is \\[\n\\frac{\\mathrm{\\partial}}{\\mathrm{\\partial}t} \\int_a^b \\rho c T \\, \\mathrm{d}x = {\\color{blue}q(x = a, t) - q(x = b, t)} + \\int_a^b R(x, t) \\, \\mathrm{d}x.\n\\]\nIn addition:\n\nBy studying the dimensions of the other terms in the above equation, find what the dimensions of \\(R\\) are. What does \\(R &gt; 0\\) mean and \\(R &lt; 0\\)?\nHence derive the partial differential equation that governs the temperature \\(T\\).\nBy introducing the appropriate scalings on each of the variables, \\(x\\), \\(t\\), and \\(T\\), non-dimensionalise the PDE and discuss the non-dimensional parameters (there will be two).",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Problem set 1</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Problem set 1</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps01.html#q3.-choice-of-scalings",
     "href": "part-xx-exercises/ps01.html#q3.-choice-of-scalings",
-    "title": "9  Problem set 1",
+    "title": "12  Problem set 1",
     "section": "Q3. Choice of scalings",
     "text": "Q3. Choice of scalings\n\\(\\nextSection\\)\nConsider the dimensional problem for the motion of a projectile launched from close to the surface of the Earth. The dimensional height of the projectile, \\(y(t)\\), is given by \\[\n\\begin{aligned}\n\\frac{\\mathrm{d}^2 y}{\\mathrm{d}t^2} &= - \\frac{GM}{(R+y)^2}, \\\\\ny(0) &= 2 \\, \\mathrm{m}, \\\\\ny'(0) &= -V_0 \\, \\mathrm{m/s}.\n\\end{aligned}\n\\] Assume that the Earth is spherical and of uniform density, with its mass given by \\(M = (4/3) \\pi R^3 \\rho\\). Non-dimensionalise the height using \\(y = L \\tilde{y}\\) and time using \\(t = T\\tilde{t}\\). Consider the following cases:\n\n\\(R\\) fixed, \\(V_0 \\to \\infty\\), \\(\\rho\\) fixed;\n\\(R\\) fixed, \\(V_0\\) fixed, \\(\\rho \\to \\infty\\);\n\\(R\\) fixed, \\(V_0\\) fixed, \\(\\rho \\to 0\\);\n\\(R \\to 0\\), \\(V_0\\) fixed, \\(M\\) fixed.\n\nFor each case:\n\nExplain the physical interpretation of the limits.\nChoose the scalings \\(L\\) and \\(T\\) to normalise as many terms as possible.\nChoose the scalins so that the time it takes for the projectile to fall should be finite for the given limit, and for the speed, acceleration, and initial height to be well behaved (finite).\nWrite out the scaled problem and identify all remaining nondimensional parameters.\nIdentify the limiting small parameter for each case. Write out the problem (leading-order problem) when the parameter is set to zero.",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Problem set 1</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Problem set 1</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps01.html#q4.-the-unique-timescale-in-the-heat-equation",
     "href": "part-xx-exercises/ps01.html#q4.-the-unique-timescale-in-the-heat-equation",
-    "title": "9  Problem set 1",
+    "title": "12  Problem set 1",
     "section": "Q4. The unique timescale in the heat equation",
     "text": "Q4. The unique timescale in the heat equation\n\\(\\nextSection\\)\nDuring our investigation of the heat equation, we found that it was possible to scale time so as to scale out the only non-dimensional parameter that appears in the PDE (\\(\\Pi\\)). This produced (Equation 3.1). The disappearance of all non-dimensional parameters is due to the fact that only a single sensible timescale exists.\nBy adjusting the boundary conditions, we may create a new problem involving heat flow where a unique ‘special’ timescale can no longer be chosen.\nConsider a system where one side of the rod is heated in some periodic fashion, e.g. set the initial and boundary conditions to be \\[\n\\begin{aligned}\nT(x, 0) &= T_0 \\\\\nT(0, t) &= T_a \\cos (\\omega t), \\\\\nT(L, t) &= T_b.\n\\end{aligned}\n\\]\n\nWhat must the units of \\(\\omega\\) be?\nNon-dimensionalise as usual and, without selecting the timescale, \\([t]\\), identify the key non-dimensional parameters that remain. Write a brief sentence to describe their physical interpretation.\nThere are two sensible choices for setting the timescale, \\([t]\\). Identify the two choices and present the reduced set of equations in each case.",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Problem set 1</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Problem set 1</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps01.html#q5.-timescale-in-the-surface-energy",
     "href": "part-xx-exercises/ps01.html#q5.-timescale-in-the-surface-energy",
-    "title": "9  Problem set 1",
+    "title": "12  Problem set 1",
     "section": "Q5. Timescale in the surface energy",
     "text": "Q5. Timescale in the surface energy\n\\(\\nextSection\\)\nTake the basic zero-dimensional energy model studied in (Equation 4.7) for the temperature of the troposphere: \\[\nC \\frac{\\mathrm{d}T}{\\mathrm{d}t} = \\frac{1}{4} Q(1 - a) - \\sigma \\gamma T^4.\n\\]\n\nNon-dimensionalise the model by choosing \\(T = [T]T'\\), \\(t = [t]t'\\), and \\(Q = [Q]Q'\\). Show that it is possible to select the scalings on the temperature and time so as to completely remove all constants from the problem when \\(Q\\) is assumed to be constant.\nThus, show that the analysis of the above equation is equivalent to studying \\[\n\\frac{\\mathrm{d}T}{\\mathrm{d}t} = 1 - T^4,\n\\] where we have dropped the primes and assumed that the albedo is such that \\(1 - a \\neq 0\\).\nFrom your choice of \\([t]\\), estimate the typical dimensional value using \\(d \\approx 10 \\mathrm{km}\\), \\(\\rho \\approx 1 \\mathrm{kg} \\,\\mathrm{m}^{-3}\\), \\(c_p \\approx 10^3 \\mathrm{J} \\,\\mathrm{kg}^{-1} \\,\\mathrm{K}^{-1}\\).\n\nUse a pocket calculator to verify your calculations and conclude that this time-scale is on the order of a month. What is the relevance of this approximation as it concerns the steady-state solution?",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Problem set 1</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Problem set 1</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps02.html",
     "href": "part-xx-exercises/ps02.html",
-    "title": "10  Problem set 2",
+    "title": "13  Problem set 2",
     "section": "",
-    "text": "10.1 Getting started with Noteable\nThe intention of this problem set is to practice concepts from Chapter 5 (asymptotic approximations of algebraic equations) to Chapter 7 (Euler’s method and numerical solutions of differential equations). These techniques form some of the most powerful techniques at your disposal in applied maths.\nUse your Moodle course page to access the Noteable Python interface by clicking on the appropriate link in the course materials. Follow the instructions on the Moodle page to add the Git repository to your directory.",
+    "text": "13.1 Getting started with Noteable\nThe intention of this problem set is to practice concepts from Chapter 5 (asymptotic approximations of algebraic equations) to Chapter 7 (Euler’s method and numerical solutions of differential equations). These techniques form some of the most powerful techniques at your disposal in applied maths.\nUse your Moodle course page to access the Noteable Python interface by clicking on the appropriate link in the course materials. Follow the instructions on the Moodle page to add the Git repository to your directory.",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Problem set 2</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Problem set 2</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps02.html#getting-started-with-noteable",
     "href": "part-xx-exercises/ps02.html#getting-started-with-noteable",
-    "title": "10  Problem set 2",
+    "title": "13  Problem set 2",
     "section": "",
     "text": "Navigate to the welcome screen for MA30287 and follow the instructions in Welcome.ipynb and FirstTimeSetup.ipynb in order to create your own local directory at /MA30287_workspace/\nNavigate to the workspace folder. Click New -&gt; Notebook. If asked, select the kernel Python 3 (ipykernel).\nIn the first line of input, select, in toolbar Code -&gt; Markdown. This allows you to annotate your notebook with Markdown-style text input.\nIn the first line of input, type # Problem set 2. Then either type Shift + Enter or press the play button which will execute the line(s) of input. Your markdown text should render as a nicely formatted entry.\nRename the file to something appropriate, like ps02_scripts. You can do this by right-clicking the filename in the file manager and selecting Rename.\nProceed to the next question.",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Problem set 2</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Problem set 2</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps02.html#sec-ps2-cubic",
     "href": "part-xx-exercises/ps02.html#sec-ps2-cubic",
-    "title": "10  Problem set 2",
-    "section": "10.2 Testing the solutions of a cubic",
-    "text": "10.2 Testing the solutions of a cubic\n\\(\\nextSection\\)\nIn this question, you will develop the numerical solutions for the roots of the cubic equation: \\[\n\\epsilon x^3 - x + 1 = 0, \\qquad \\epsilon &gt; 0\n\\]\nType the following code into your Jupyter notebook. This code uses a command, which you will learn in a later week, called fsolve, in order to solve nonlinear equations. When writing the below code, you may want to separate the import commands into their own input field in the notebook.\n\nimport numpy as np\nfrom scipy.optimize import fsolve\n\nep = 0.1        # epsilon value\nxguess = 1.1    # Initial guess of root\n\nf = lambda x: ep*x**3 - x + 1\nxsol = fsolve(f, xguess)\nprint(\"Solved root at x = \", xsol)\n\nSolved root at x =  [1.15346731]",
+    "title": "13  Problem set 2",
+    "section": "13.2 Testing the solutions of a cubic",
+    "text": "13.2 Testing the solutions of a cubic\n\\(\\nextSection\\)\nIn this question, you will develop the numerical solutions for the roots of the cubic equation: \\[\n\\epsilon x^3 - x + 1 = 0, \\qquad \\epsilon &gt; 0\n\\]\nType the following code into your Jupyter notebook. This code uses a command, which you will learn in a later week, called fsolve, in order to solve nonlinear equations. When writing the below code, you may want to separate the import commands into their own input field in the notebook.\n\nimport numpy as np\nfrom scipy.optimize import fsolve\n\nep = 0.1        # epsilon value\nxguess = 1.1    # Initial guess of root\n\nf = lambda x: ep*x**3 - x + 1\nxsol = fsolve(f, xguess)\nprint(\"Solved root at x = \", xsol)\n\nSolved root at x =  [1.15346731]",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Problem set 2</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Problem set 2</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps02.html#analysis-of-singular-cubic-equation",
     "href": "part-xx-exercises/ps02.html#analysis-of-singular-cubic-equation",
-    "title": "10  Problem set 2",
-    "section": "10.3 Analysis of singular cubic equation",
-    "text": "10.3 Analysis of singular cubic equation\n\\(\\nextSection\\)\nConsider the cubic equation \\[\n\\epsilon x^3 - x + 1 = 0,\n\\] with \\(\\epsilon \\ll 1\\) and \\(\\epsilon &gt; 0\\).\n\nDevelop the first three terms of an asymptotic expansion about the root by setting \\[\nx = x_0 + \\epsilon x_1 + \\epsilon^2 x_2 + \\ldots\n\\]\nFill out the following table.\n\n\n\n\\(\\epsilon\\)\n\\(x_{\\text{exact}}\\)\n\\(x_{\\text{exact}} - x_0\\)\n\n\n\n\n0.1\n–\n–\n\n\n0.08\n–\n–\n\n\n0.06\n–\n–\n\n\n0.04\n–\n–\n\n\n0.02\n–\n–\n\n\n\nUse your code in Section 10.2 to input numerical approximations to the above entries.\nCreate a graph by hand of the data (it does not have to be extremely accurate), as plotted in the \\((\\epsilon, x_{\\text{exact}} - x_0)\\)-plane. Fit a line to this graph and estimate the gradient. Is this consistent with what you derived above?\nBy rescaling \\(x\\) appropriately in terms of \\(\\epsilon\\), derive the first three terms of the asymptotic approximations of the remaining roots.",
+    "title": "13  Problem set 2",
+    "section": "13.3 Analysis of singular cubic equation",
+    "text": "13.3 Analysis of singular cubic equation\n\\(\\nextSection\\)\nConsider the cubic equation \\[\n\\epsilon x^3 - x + 1 = 0,\n\\] with \\(\\epsilon \\ll 1\\) and \\(\\epsilon &gt; 0\\).\n\nDevelop the first three terms of an asymptotic expansion about the root by setting \\[\nx = x_0 + \\epsilon x_1 + \\epsilon^2 x_2 + \\ldots\n\\]\nFill out the following table.\n\n\n\n\\(\\epsilon\\)\n\\(x_{\\text{exact}}\\)\n\\(x_{\\text{exact}} - x_0\\)\n\n\n\n\n0.1\n–\n–\n\n\n0.08\n–\n–\n\n\n0.06\n–\n–\n\n\n0.04\n–\n–\n\n\n0.02\n–\n–\n\n\n\nUse your code in Section 13.2 to input numerical approximations to the above entries.\nCreate a graph by hand of the data (it does not have to be extremely accurate), as plotted in the \\((\\epsilon, x_{\\text{exact}} - x_0)\\)-plane. Fit a line to this graph and estimate the gradient. Is this consistent with what you derived above?\nBy rescaling \\(x\\) appropriately in terms of \\(\\epsilon\\), derive the first three terms of the asymptotic approximations of the remaining roots.",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Problem set 2</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Problem set 2</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps02.html#a-damped-projectile-problem",
     "href": "part-xx-exercises/ps02.html#a-damped-projectile-problem",
-    "title": "10  Problem set 2",
-    "section": "10.4 A damped projectile problem",
-    "text": "10.4 A damped projectile problem\n\\(\\nextSection\\)\nIn Chapter 6 you performed the asymptotic analysis for a projectile. The small parameter was \\(\\epsilon\\) and represented \\(v_0^2/(gR_E)\\) (a parameter that includes the initial velocity, \\(v_0\\), gravity \\(g\\), and the radius of the Earth, \\(R_E\\).\nIf air resistance is included, then the non-dimensional toy model is instead \\[\\begin{equation}\n\\begin{gathered}\n\\frac{\\mathrm{d}^2 y}{\\mathrm{d}t^2} = - \\frac{1}{(1 + \\epsilon y)^2} - \\frac{\\alpha}{(1 + \\epsilon y)} \\frac{\\mathrm{d}y}{\\mathrm{d}t}, \\\\\ny(0) = 0, \\\\\ny'(0) = 1.\n\\end{gathered}\n\\end{equation}\\] where \\(\\alpha \\geq 0\\) is the parameter that controls air resistance.\n\nBegin by assuming that \\(\\alpha\\) is a fixed number and consider the limit where \\(\\epsilon \\ll 1\\). Find a one-term asymptotic expansion of the solution for small \\(\\epsilon\\).\n(Challenging) Is the effect of the air resistance to increase or decrease the flight time? Justify based on your analytical solution.",
+    "title": "13  Problem set 2",
+    "section": "13.4 A damped projectile problem",
+    "text": "13.4 A damped projectile problem\n\\(\\nextSection\\)\nIn Chapter 6 you performed the asymptotic analysis for a projectile. The small parameter was \\(\\epsilon\\) and represented \\(v_0^2/(gR_E)\\) (a parameter that includes the initial velocity, \\(v_0\\), gravity \\(g\\), and the radius of the Earth, \\(R_E\\).\nIf air resistance is included, then the non-dimensional toy model is instead \\[\\begin{equation}\n\\begin{gathered}\n\\frac{\\mathrm{d}^2 y}{\\mathrm{d}t^2} = - \\frac{1}{(1 + \\epsilon y)^2} - \\frac{\\alpha}{(1 + \\epsilon y)} \\frac{\\mathrm{d}y}{\\mathrm{d}t}, \\\\\ny(0) = 0, \\\\\ny'(0) = 1.\n\\end{gathered}\n\\end{equation}\\] where \\(\\alpha \\geq 0\\) is the parameter that controls air resistance.\n\nBegin by assuming that \\(\\alpha\\) is a fixed number and consider the limit where \\(\\epsilon \\ll 1\\). Find a one-term asymptotic expansion of the solution for small \\(\\epsilon\\).\n(Challenging) Is the effect of the air resistance to increase or decrease the flight time? Justify based on your analytical solution.",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Problem set 2</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Problem set 2</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps02.html#ode-solvers-and-eulers-method",
     "href": "part-xx-exercises/ps02.html#ode-solvers-and-eulers-method",
-    "title": "10  Problem set 2",
-    "section": "10.5 ODE solvers and Euler’s method",
-    "text": "10.5 ODE solvers and Euler’s method\n\\(\\nextSection\\)\nReturn to the setup of the above question.\n\nModify the script shown in Section 6.2 in order to solve the initial-value problem from the previous question at a prescribed value of \\(\\epsilon\\) and \\(\\alpha\\).\nUsing a pocket calculator (or your phone calculator) apply Euler’s method with \\(\\Delta t = 0.2\\), \\(\\epsilon = 0.2\\), and \\(\\alpha = 1\\) to determine the position of the projectile at \\(t = 0.6\\).\nCompare your hand calculation with the result from the Python output, as well as with your asymptotic approximations.",
+    "title": "13  Problem set 2",
+    "section": "13.5 ODE solvers and Euler’s method",
+    "text": "13.5 ODE solvers and Euler’s method\n\\(\\nextSection\\)\nReturn to the setup of the above question.\n\nModify the script shown in Section 6.2 in order to solve the initial-value problem from the previous question at a prescribed value of \\(\\epsilon\\) and \\(\\alpha\\).\nUsing a pocket calculator (or your phone calculator) apply Euler’s method with \\(\\Delta t = 0.2\\), \\(\\epsilon = 0.2\\), and \\(\\alpha = 1\\) to determine the position of the projectile at \\(t = 0.6\\).\nCompare your hand calculation with the result from the Python output, as well as with your asymptotic approximations.",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Problem set 2</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Problem set 2</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps03.html",
     "href": "part-xx-exercises/ps03.html",
-    "title": "11  Problem set 3",
+    "title": "14  Problem set 3",
     "section": "",
-    "text": "Q1. Conversion to first-order system\nIn Chapter 8 we discussed how the zero-dimensional energy equation occurs in the form of \\[\n(\\rho c_p V) \\frac{\\mathrm{d}T}{\\mathrm{d}t} = E_{\\text{in}}(t, T) - E_{\\text{out}}(t, T).\n\\] This is oversimplistic since in actuality, your temperature function, \\(T\\), should also depend on space. For instance, if you are interested in modelling \\(T\\) with a depth coordinate, then it would be \\(T(z, t)\\). In this case, we know that temperature would be governed by a second-order differential equation (in space) such as the kind that appears in (Equation 2.1).\nIn this problem set, we will make up a toy example of a differential equation that might be encountered in heat flow. Consider now (in non-dimensional coordinates): \\[\n\\frac{\\mathrm{\\partial}T}{\\mathrm{\\partial}t} = \\epsilon \\frac{\\mathrm{\\partial}^2 T}{\\mathrm{\\partial}z^2} + 2 \\frac{\\mathrm{\\partial}T}{\\mathrm{\\partial}z} + T = 0,\n\\] which is determined for some function \\(T(z, t)\\). Here, the small parameter \\(\\epsilon &gt; 0\\), \\(\\epsilon \\ll 1\\), is linked to the heat diffusion.\nWe will study the steady-state version of the problem. So consider only \\(T = T(z)\\). We will make up some boundary conditions as well. \\[\n\\begin{aligned}\n\\epsilon T'' + 2T' + T &= 0, \\\\\nT(0) &= 0, \\\\\nT(1) &= 1.\n\\end{aligned}\n\\tag{11.1}\\] The challenge is to study the above problem for small values of \\(\\epsilon\\).\nBy using the procedure reviewed in Section 6.2, convert (Equation 11.1) to a first-order system of equations.",
+    "text": "Q1. Conversion to first-order system\nIn Chapter 8 we discussed how the zero-dimensional energy equation occurs in the form of \\[\n(\\rho c_p V) \\frac{\\mathrm{d}T}{\\mathrm{d}t} = E_{\\text{in}}(t, T) - E_{\\text{out}}(t, T).\n\\] This is oversimplistic since in actuality, your temperature function, \\(T\\), should also depend on space. For instance, if you are interested in modelling \\(T\\) with a depth coordinate, then it would be \\(T(z, t)\\). In this case, we know that temperature would be governed by a second-order differential equation (in space) such as the kind that appears in (Equation 2.1).\nIn this problem set, we will make up a toy example of a differential equation that might be encountered in heat flow. Consider now (in non-dimensional coordinates): \\[\n\\frac{\\mathrm{\\partial}T}{\\mathrm{\\partial}t} = \\epsilon \\frac{\\mathrm{\\partial}^2 T}{\\mathrm{\\partial}z^2} + 2 \\frac{\\mathrm{\\partial}T}{\\mathrm{\\partial}z} + T = 0,\n\\] which is determined for some function \\(T(z, t)\\). Here, the small parameter \\(\\epsilon &gt; 0\\), \\(\\epsilon \\ll 1\\), is linked to the heat diffusion.\nWe will study the steady-state version of the problem. So consider only \\(T = T(z)\\). We will make up some boundary conditions as well. \\[\n\\begin{aligned}\n\\epsilon T'' + 2T' + T &= 0, \\\\\nT(0) &= 0, \\\\\nT(1) &= 1.\n\\end{aligned}\n\\tag{14.1}\\] The challenge is to study the above problem for small values of \\(\\epsilon\\).\nBy using the procedure reviewed in Section 6.2, convert (Equation 14.1) to a first-order system of equations.",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Problem set 3</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Problem set 3</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps03.html#q2.-numerical-solutions",
     "href": "part-xx-exercises/ps03.html#q2.-numerical-solutions",
-    "title": "11  Problem set 3",
+    "title": "14  Problem set 3",
     "section": "Q2. Numerical solutions",
-    "text": "Q2. Numerical solutions\n\\(\\nextSection\\)\nBy adapting the code studied in lectures (script lecture12-SolvingBVPs), write a numerical code to solve (Equation 11.1) using Python’s built-in functions. Use your code to investigate the solution profiles for different values of \\(\\epsilon\\).",
+    "text": "Q2. Numerical solutions\n\\(\\nextSection\\)\nBy adapting the code studied in lectures (script lecture12-SolvingBVPs), write a numerical code to solve (Equation 14.1) using Python’s built-in functions. Use your code to investigate the solution profiles for different values of \\(\\epsilon\\).",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Problem set 3</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Problem set 3</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps03.html#q3.-investigation-of-the-boundary-layer",
     "href": "part-xx-exercises/ps03.html#q3.-investigation-of-the-boundary-layer",
-    "title": "11  Problem set 3",
+    "title": "14  Problem set 3",
     "section": "Q3. Investigation of the boundary layer",
     "text": "Q3. Investigation of the boundary layer\n\\(\\nextSection\\)\nUsing your code, use the following command in order to investigate the maxima \\((x_m, T_m)\\) as \\(\\epsilon\\) varies:\nind = np.argmax(Y[0])\nprint(ep, z[ind], Y[0, ind])\nYou may want to consider, as an example, the values \\(\\epsilon = \\{0.05, 0.1, 0.15, 0.2\\}\\) and fill the following table.\n\n\n\n\\(\\epsilon\\)\n\\(x_m\\)\n\\(T_m\\)\n\n\n\n\n0.05\n\n\n\n\n0.1\n\n\n\n\n0.15\n\n\n\n\n0.2\n\n\n\n\n\nCreate a plot of \\((\\epsilon, x_m)\\) and discuss the observed trend and its implications.",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Problem set 3</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Problem set 3</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps03.html#q4.-outer-asymptotic-solutions",
     "href": "part-xx-exercises/ps03.html#q4.-outer-asymptotic-solutions",
-    "title": "11  Problem set 3",
+    "title": "14  Problem set 3",
     "section": "Q4. Outer asymptotic solutions",
     "text": "Q4. Outer asymptotic solutions\n\\(\\nextSection\\)\nBegin by setting \\[\nT = T_{\\text{outer}} = T_0(z) + \\epsilon T_1(z) + \\epsilon^2 T_2(z) + \\ldots\n\\] Substitute the above expansion into the system and solve for the first two orders.\nYou may verify that the solution is given by\n\\[\\begin{align}\nT_0 &= e^{1/2} e^{-z/2}, \\\\\nT_1 &= -\\frac{1}{8} e^{1/2} e^{-z/2} (z - 1).\n\\end{align}\\]",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Problem set 3</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Problem set 3</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps03.html#q5.-inner-asymptotic-solutions",
     "href": "part-xx-exercises/ps03.html#q5.-inner-asymptotic-solutions",
-    "title": "11  Problem set 3",
+    "title": "14  Problem set 3",
     "section": "Q5. Inner asymptotic solutions",
     "text": "Q5. Inner asymptotic solutions\n\\(\\nextSection\\)\nThere will be a boundary layer near \\(z = 0\\). Set \\(z = \\epsilon^{\\alpha} s\\) and \\(T(z) = U(s)\\). Follow the same procedure, as in Chapter 8 in order to determine the correct choice of \\(\\alpha\\) for the inner region. This choice should balance the two terms \\(\\epsilon T''\\) and \\(2T'\\).",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Problem set 3</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Problem set 3</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps03.html#q6.-matching-and-comparison",
     "href": "part-xx-exercises/ps03.html#q6.-matching-and-comparison",
-    "title": "11  Problem set 3",
+    "title": "14  Problem set 3",
     "section": "Q6. Matching and comparison",
     "text": "Q6. Matching and comparison\n\\(\\nextSection\\)\nExpanding the inner solution as \\(U = U_0(s) + \\epsilon U_1(s) + \\ldots\\), write down the equation and boundary conditions that \\(U_0\\) must satisfy. You will notice that \\(U_0\\) is governed by a second-order differential equation and therefore needs two boundary conditions. One boundary condition comes from \\(z = 0\\), i.e. \\[\nU_0(0) = 0.\n\\]\nThe other boundary condition is a matching condition: \\[\n\\lim_{s \\to \\infty} U_0(s) = \\lim_{z \\to 0} T_0(z),\n\\] which imposes that the inner solution, as it leaves the boundary layer, matches the outer solution, it tends into the inner region.\nSolve for \\(U_0\\).",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Problem set 3</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Problem set 3</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps04.html",
     "href": "part-xx-exercises/ps04.html",
-    "title": "12  Problem set 4",
+    "title": "15  Problem set 4",
     "section": "",
     "text": "Q1. Budyko’s model\nThis problem set focuses on EBMs.\nPreviously we derived the energy for outgoing radiation as: \\[\nE_{\\text{out}}(T) = \\sigma \\gamma T^4,\n\\] which is estimated via the Stefan-Boltzmann law. Budyko’s approximation replaces this law with a linear relationship.",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Problem set 4</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Problem set 4</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps04.html#q1.-budykos-model",
     "href": "part-xx-exercises/ps04.html#q1.-budykos-model",
-    "title": "12  Problem set 4",
+    "title": "15  Problem set 4",
     "section": "",
-    "text": "Assume that \\[\nT = T_0 + \\bar{T},\n\\] where \\(T_0 = 273.15 \\, \\mathrm{K}\\), which corresponds to \\(0^\\circ \\, \\mathrm{C}\\). We can consider \\(\\bar{T}\\) as measured in Celcius (since conversion between Kelvins and Celcius is directly proportional). Substitute the above into \\(E_{\\text{out}}\\) and linearise, thus assuming \\(\\bar{T}\\) is near zero. Place the energy in the form \\[\nE_{\\text{out}} \\sim A + B\\bar{T}.\n\\] Using the standard value of \\(\\sigma = 5.67 \\times 10^{-8}\\) W/m2 K4 and \\(\\gamma = 1\\), calculate the values of \\(A\\) and \\(B\\).\nRather than use the formal values derived above, the standard Budyko model uses values of \\(A = 203.3 \\mathrm{W}/\\mathrm{m}^2\\) and \\(B = 2.09 \\, \\mathrm{W}/(\\mathrm{m}^2 {}^\\circ \\mathrm{C})\\) that are found from best fit with observational data.\nUsing Jupyter and a short script for numerical root finding, investigate the equilibrium solutions of \\[\nQ(1 - a(T_0 + \\bar{T})) = A + B \\bar{T}.\n\\] where \\(Q = 342 \\, \\mathrm{W}/\\mathrm{m}^2\\) and \\(a(T)\\) is given from (?eq-albedokaper). Where are the equilibrium solutions, \\(\\bar{T^*}\\), and how do they compare with those obtained previously using the Stefan-Boltzmann relation?",
+    "text": "Assume that \\[\nT = T_0 + \\bar{T},\n\\] where \\(T_0 = 273.15 \\, \\mathrm{K}\\), which corresponds to \\(0^\\circ \\, \\mathrm{C}\\). We can consider \\(\\bar{T}\\) as measured in Celcius (since conversion between Kelvins and Celcius is directly proportional). Substitute the above into \\(E_{\\text{out}}\\) and linearise, thus assuming \\(\\bar{T}\\) is near zero. Place the energy in the form \\[\nE_{\\text{out}} \\sim A + B\\bar{T}.\n\\] Using the standard value of \\(\\sigma = 5.67 \\times 10^{-8}\\) W/m2 K4 and \\(\\gamma = 1\\), calculate the values of \\(A\\) and \\(B\\).\nRather than use the formal values derived above, the standard Budyko model uses values of \\(A = 203.3 \\mathrm{W}/\\mathrm{m}^2\\) and \\(B = 2.09 \\, \\mathrm{W}/(\\mathrm{m}^2 {}^\\circ \\mathrm{C})\\) that are found from best fit with observational data.\nUsing Jupyter and a short script for numerical root finding, investigate the equilibrium solutions of \\[\nQ(1 - a(T_0 + \\bar{T})) = A + B \\bar{T}.\n\\] where \\(Q = 342 \\, \\mathrm{W}/\\mathrm{m}^2\\) and \\(a(T)\\) is given from (Equation 11.2). Where are the equilibrium solutions, \\(\\bar{T^*}\\), and how do they compare with those obtained previously using the Stefan-Boltzmann relation?",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Problem set 4</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Problem set 4</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps04.html#q2.-variable-sun-output",
     "href": "part-xx-exercises/ps04.html#q2.-variable-sun-output",
-    "title": "12  Problem set 4",
+    "title": "15  Problem set 4",
     "section": "Q2. Variable Sun output",
-    "text": "Q2. Variable Sun output\n\\(\\nextSection\\)\nSatellite data indicates that \\(Q\\), varies roughly between 341.37 W/m2 and 341.75 W/m2, with a period of about 11 years.\n\nUse the simple EBM (?eq-energy-ss), given by \\[\nQ(1 - a) = \\sigma \\gamma T^4,\n\\] with a constant albedo, \\(a = 0.3\\) and greenhouse gas factor \\(\\gamma = 0.6\\) to estimate the resultant variation (max and min) in the Earth’s mean surface temperature \\(T\\).\nSimilar to (a) but this time, use the Budyko balance equation, \\[\nQ(1 - a) = A + BT\n\\] with \\(A = 203.3 \\, \\mathrm{W} \\mathrm{m}^{-2}\\) and \\(B = 2.09 \\, \\mathrm{W}/(\\mathrm{m}^{2} \\, {}^\\circ \\mathrm{C})\\) to estimate the resultant variation in the surface temperature. Use \\(a = 0.3\\).\nThe actual variation in surface temperature is in fact less than what you computed above. Why might this be?",
+    "text": "Q2. Variable Sun output\n\\(\\nextSection\\)\nSatellite data indicates that \\(Q\\), varies roughly between 341.37 W/m2 and 341.75 W/m2, with a period of about 11 years.\n\nUse the simple EBM (Equation 11.3), given by \\[\nQ(1 - a) = \\sigma \\gamma T^4,\n\\] with a constant albedo, \\(a = 0.3\\) and greenhouse gas factor \\(\\gamma = 0.6\\) to estimate the resultant variation (max and min) in the Earth’s mean surface temperature \\(T\\).\nSimilar to (a) but this time, use the Budyko balance equation, \\[\nQ(1 - a) = A + BT\n\\] with \\(A = 203.3 \\, \\mathrm{W} \\mathrm{m}^{-2}\\) and \\(B = 2.09 \\, \\mathrm{W}/(\\mathrm{m}^{2} \\, {}^\\circ \\mathrm{C})\\) to estimate the resultant variation in the surface temperature. Use \\(a = 0.3\\).\nThe actual variation in surface temperature is in fact less than what you computed above. Why might this be?",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Problem set 4</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Problem set 4</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps04.html#q3.-phase-line-analysis",
     "href": "part-xx-exercises/ps04.html#q3.-phase-line-analysis",
-    "title": "12  Problem set 4",
+    "title": "15  Problem set 4",
     "section": "Q3. Phase line analysis",
-    "text": "Q3. Phase line analysis\n\\(\\nextSection\\)\nConsider the energy balance equation \\[\nC \\frac{\\mathrm{d}T}{\\mathrm{d}t} = Q(1 - a(T)) - \\sigma \\gamma T^4 \\equiv G(T).\n\\tag{12.1}\\] with \\(a\\) given by (?eq-albedokaper). Because the differential equation is autonomous, we can apply phase-line analysis in order to qualitatively understand the evolution. Below is a plot of the function \\(G\\):\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nQ = 342; sigma = 5.67e-8; gam = 0.6;\na = lambda T: 0.5 - 0.2*np.tanh(0.1*(T-265));\nT = np.linspace(220, 310, 100);\nG = Q*(1-a(T)) - sigma*gam*T**4\nfig, ax = plt.subplots()\nax.plot(T, G)\nax.grid(); ax.minorticks_on();\n# Customize the major grid\nax.grid(which='major', linestyle='-', linewidth='0.5', color='red')\n# Customize the minor grid\nax.grid(which='minor', linestyle=':', linewidth='0.5', color='black')\nplt.xlabel('T (in Kelvins)'); plt.ylabel('G(T)');\n\n\n\n\n\n\n\n\n\nSketch the solution \\(T(t)\\) of this equation for \\(t &gt; 0\\) if \\(T(0) = 230, 240, 260, 270\\) and \\(300\\).\nSketch the solution \\(T(t)\\) of this equation for \\(t &gt; 0\\) if \\(T(0) = 285\\). Then sketch the solution of this equation with the same initial data in the same coordinate system if \\(C\\) is twice as large. Explain your answer.\nIf \\(\\gamma\\) is decreased due to the increased greenhouse effect, the entire curve is shifted upwards. Sketch the solution if \\(T(0) = 280\\). Sketch the solution with the same initial data if \\(\\gamma\\) is decreased. Explain your answer.",
+    "text": "Q3. Phase line analysis\n\\(\\nextSection\\)\nConsider the energy balance equation \\[\nC \\frac{\\mathrm{d}T}{\\mathrm{d}t} = Q(1 - a(T)) - \\sigma \\gamma T^4 \\equiv G(T).\n\\tag{15.1}\\] with \\(a\\) given by (Equation 11.2). Because the differential equation is autonomous, we can apply phase-line analysis in order to qualitatively understand the evolution. Below is a plot of the function \\(G\\):\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nQ = 342; sigma = 5.67e-8; gam = 0.6;\na = lambda T: 0.5 - 0.2*np.tanh(0.1*(T-265));\nT = np.linspace(220, 310, 100);\nG = Q*(1-a(T)) - sigma*gam*T**4\nfig, ax = plt.subplots()\nax.plot(T, G)\nax.grid(); ax.minorticks_on();\n# Customize the major grid\nax.grid(which='major', linestyle='-', linewidth='0.5', color='red')\n# Customize the minor grid\nax.grid(which='minor', linestyle=':', linewidth='0.5', color='black')\nplt.xlabel('T (in Kelvins)'); plt.ylabel('G(T)');\n\n\n\n\n\n\n\n\n\nSketch the solution \\(T(t)\\) of this equation for \\(t &gt; 0\\) if \\(T(0) = 230, 240, 260, 270\\) and \\(300\\).\nSketch the solution \\(T(t)\\) of this equation for \\(t &gt; 0\\) if \\(T(0) = 285\\). Then sketch the solution of this equation with the same initial data in the same coordinate system if \\(C\\) is twice as large. Explain your answer.\nIf \\(\\gamma\\) is decreased due to the increased greenhouse effect, the entire curve is shifted upwards. Sketch the solution if \\(T(0) = 280\\). Sketch the solution with the same initial data if \\(\\gamma\\) is decreased. Explain your answer.",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Problem set 4</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Problem set 4</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps04.html#q4.-evolution",
     "href": "part-xx-exercises/ps04.html#q4.-evolution",
-    "title": "12  Problem set 4",
+    "title": "15  Problem set 4",
     "section": "Q4. Evolution",
-    "text": "Q4. Evolution\n\\(\\nextSection\\)\nConsider again (Equation 12.1). Let \\(T^*\\) be a steady-state solution and set \\(T = T^* + u(t)\\) where \\(u(t)\\) is a small perturbation from the steady state.\n\nShow that the perturbation satisfies \\[\nC \\dot{u} = -D u + O(u^2).\n\\] and hence solve for the general solution of the leading-order perturbation (ignoring quadratic terms). What are the conditions on \\(T^*\\) so that the steady state is linearly stable?\nAssuming \\(T^*\\) is linearly stable, find the typical response time to a perturbation. For instance, what is the time it takes for the perturbation to reach the value \\(u(t) = 0\\) if \\(u(0) = 1\\)? How does this response time change with \\(C\\)? What is the physical interpretation of this regarding the climate?",
+    "text": "Q4. Evolution\n\\(\\nextSection\\)\nConsider again (Equation 15.1). Let \\(T^*\\) be a steady-state solution and set \\(T = T^* + u(t)\\) where \\(u(t)\\) is a small perturbation from the steady state.\n\nShow that the perturbation satisfies \\[\nC \\dot{u} = -D u + O(u^2).\n\\] and hence solve for the general solution of the leading-order perturbation (ignoring quadratic terms). What are the conditions on \\(T^*\\) so that the steady state is linearly stable?\nAssuming \\(T^*\\) is linearly stable, find the typical response time to a perturbation. For instance, what is the time it takes for the perturbation to reach the value \\(u(t) = 0\\) if \\(u(0) = 1\\)? How does this response time change with \\(C\\)? What is the physical interpretation of this regarding the climate?",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Problem set 4</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Problem set 4</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps04.html#q5.-integral-of-energy-over-the-planet",
     "href": "part-xx-exercises/ps04.html#q5.-integral-of-energy-over-the-planet",
-    "title": "12  Problem set 4",
+    "title": "15  Problem set 4",
     "section": "Q5. Integral of energy over the planet",
     "text": "Q5. Integral of energy over the planet\n\\(\\nextSection\\)\nIgnoring the effects of albedo, the total radiation absorbed over the surface of the planet (per unit time) is given by \\[\n\\iint_{\\text{planet}} Qs(y=\\sin\\varphi) \\, \\mathrm{d}S.\n\\] This is what is known as a surface integral (?sec-appendix-surfaceintegral). In the case of the spherical coordinate system, this is calculated by \\[\n\\int_{\\theta=0}^{2\\pi} \\int_{\\varphi = -\\pi/2}^{\\pi/2} Qs(y = \\sin\\varphi) R_E^2 \\cos\\varphi \\, \\mathrm{d}\\varphi \\mathrm{d}\\theta.\n\\] Use the properties of \\(s(y)\\) in (?eq-EBM-s) to conclude that the total radiation absorbed is \\(4\\pi R_E^2 Q\\).",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Problem set 4</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Problem set 4</span>"
     ]
   },
   {
     "objectID": "part-xx-exercises/ps04.html#q6.-mean-temperature-in-the-latitude-dependent-ebm",
     "href": "part-xx-exercises/ps04.html#q6.-mean-temperature-in-the-latitude-dependent-ebm",
-    "title": "12  Problem set 4",
+    "title": "15  Problem set 4",
     "section": "Q6. Mean temperature in the latitude-dependent EBM",
-    "text": "Q6. Mean temperature in the latitude-dependent EBM\n\\(\\nextSection\\)\nConsider now the latitude-dependent EBM \\[\nC \\frac{\\mathrm{\\partial}T}{\\mathrm{\\partial}t} = Qs(y)[1 - a(y)] - (A + BT) + k(\\bar{T} - T).\n\\] Recall the albedo is given by \\(a = a_i\\) for \\(y &gt; y_s\\) and \\(a = a_w\\) for \\(y &lt; y_s\\).\n\nBy integrating the above equation over \\(y \\in [0, 1]\\), show that the mean temperature is given by \\[\nC \\frac{\\mathrm{d}\\bar{T}}{\\mathrm{d}t} = Q(1 - \\bar{a}) - (A + B\\bar{T}),\n\\tag{12.2}\\] where \\[\n\\bar{a} = \\int_0^1 s(y) a(y) \\, \\mathrm{d}y = \\alpha_w \\int_0^{y_s} s(y) \\, \\mathrm{d}y + a_i \\int_{y_s}^1 s(y) \\, \\mathrm{d}y.\n\\]\nIn the case that \\(s\\) is given by (?eq-EBM-s), show that \\[\n\\bar{a} = a_i + (a_w - a_i) y_s[1 - 0.241(y_s^2 - 1)].\n\\tag{12.3}\\] What is \\(\\bar{a}\\) in the two situations of a completely ice-covered world and an ice-free world?\nUsing Python, plot a graph of the steady-state temperature, \\(T^*\\), which satisfies \\[\n\\bar{T}^* = \\frac{Q(1 - \\bar{a}) - A}{B},\n\\tag{12.4}\\] as a function of the ice line location, \\(y_s \\in [0, 1]\\).\nIn the numerical code designed in lectures ma30287/notebooks/lecture17-latitudeebm_newton.ipynb we used numerical quadratic to determine \\(\\bar{T}\\). Experiment with a modest number of mesh points and verify how well the integration scheme compares with the exact solution shown above.",
+    "text": "Q6. Mean temperature in the latitude-dependent EBM\n\\(\\nextSection\\)\nConsider now the latitude-dependent EBM \\[\nC \\frac{\\mathrm{\\partial}T}{\\mathrm{\\partial}t} = Qs(y)[1 - a(y)] - (A + BT) + k(\\bar{T} - T).\n\\] Recall the albedo is given by \\(a = a_i\\) for \\(y &gt; y_s\\) and \\(a = a_w\\) for \\(y &lt; y_s\\).\n\nBy integrating the above equation over \\(y \\in [0, 1]\\), show that the mean temperature is given by \\[\nC \\frac{\\mathrm{d}\\bar{T}}{\\mathrm{d}t} = Q(1 - \\bar{a}) - (A + B\\bar{T}),\n\\tag{15.2}\\] where \\[\n\\bar{a} = \\int_0^1 s(y) a(y) \\, \\mathrm{d}y = \\alpha_w \\int_0^{y_s} s(y) \\, \\mathrm{d}y + a_i \\int_{y_s}^1 s(y) \\, \\mathrm{d}y.\n\\]\nIn the case that \\(s\\) is given by (?eq-EBM-s), show that \\[\n\\bar{a} = a_i + (a_w - a_i) y_s[1 - 0.241(y_s^2 - 1)].\n\\tag{15.3}\\] What is \\(\\bar{a}\\) in the two situations of a completely ice-covered world and an ice-free world?\nUsing Python, plot a graph of the steady-state temperature, \\(T^*\\), which satisfies \\[\n\\bar{T}^* = \\frac{Q(1 - \\bar{a}) - A}{B},\n\\tag{15.4}\\] as a function of the ice line location, \\(y_s \\in [0, 1]\\).\nIn the numerical code designed in lectures ma30287/notebooks/lecture17-latitudeebm_newton.ipynb we used numerical quadratic to determine \\(\\bar{T}\\). Experiment with a modest number of mesh points and verify how well the integration scheme compares with the exact solution shown above.",
     "crumbs": [
       "Exercises",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Problem set 4</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Problem set 4</span>"
     ]
   },
   {
     "objectID": "part-xy-problemclasses/problemclass_noteable.html",
     "href": "part-xy-problemclasses/problemclass_noteable.html",
-    "title": "13  Problem class 1: an introduction to Noteable",
+    "title": "16  Problem class 1: an introduction to Noteable",
     "section": "",
-    "text": "13.1 Getting started with Noteable\nDuring this module, we will perform various computational experiments using Python. In order to make it easy for students to code in Python from a variety of devices (desktops, laptops, tablets, and even a phone), we use a cloud-computing system called Noteable that allows you to code from within a web browser. Students who like to code using their own Python setup on their computer can also do so. The goal of this problem class is to quickly get you up to speed with the basic Noteable system, and how to manipulate outputs. We should cover:\nUse your Moodle course page to access the Noteable Python interface by clicking on the appropriate link in the course materials. Follow the instructions on the Moodle page to add the Git repository to your directory.",
+    "text": "16.1 Getting started with Noteable\nDuring this module, we will perform various computational experiments using Python. In order to make it easy for students to code in Python from a variety of devices (desktops, laptops, tablets, and even a phone), we use a cloud-computing system called Noteable that allows you to code from within a web browser. Students who like to code using their own Python setup on their computer can also do so. The goal of this problem class is to quickly get you up to speed with the basic Noteable system, and how to manipulate outputs. We should cover:\nUse your Moodle course page to access the Noteable Python interface by clicking on the appropriate link in the course materials. Follow the instructions on the Moodle page to add the Git repository to your directory.",
     "crumbs": [
       "Problem classes",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Problem class 1: an introduction to Noteable</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Problem class 1: an introduction to Noteable</span>"
     ]
   },
   {
     "objectID": "part-xy-problemclasses/problemclass_noteable.html#getting-started-with-noteable",
     "href": "part-xy-problemclasses/problemclass_noteable.html#getting-started-with-noteable",
-    "title": "13  Problem class 1: an introduction to Noteable",
+    "title": "16  Problem class 1: an introduction to Noteable",
     "section": "",
     "text": "Navigate to the welcome screen for MA30287 and follow the instructions in Welcome.ipynb and FirstTimeSetup.ipynb in order to create your own local directory at /MA30287_workspace/\nNavigate to the workspace folder. Click New -&gt; Notebook. If asked, select the kernel Python 3 (ipykernel).\nIn the first line of input, select, in toolbar Code -&gt; Markdown. This allows you to annotate your notebook with Markdown-style text input.\nIn the first line of input, type # Problem class 1. Then either type Shift + Enter or press the play button which will execute the line(s) of input. Your markdown text should render as a nicely formatted entry.\nRename the file to something appropriate, like problemclass01. You can do this by right-clicking the filename in the file manager and selecting Rename.\nProceed to the next question.",
     "crumbs": [
       "Problem classes",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Problem class 1: an introduction to Noteable</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Problem class 1: an introduction to Noteable</span>"
     ]
   },
   {
     "objectID": "part-xy-problemclasses/problemclass_noteable.html#mathematical-plotting",
     "href": "part-xy-problemclasses/problemclass_noteable.html#mathematical-plotting",
-    "title": "13  Problem class 1: an introduction to Noteable",
-    "section": "13.2 Mathematical plotting",
-    "text": "13.2 Mathematical plotting\n\\(\\nextSection\\)\nThree key Python packages used throughout this course are numpy, matplotlib, and scipy. Numpy provides array functionality, allowing you to naturally manipulate vectors and matrices. Matplotlib is a general plotting package for Python, allowing for the creation of (typically) 2D and 3D plots. And scipy provides algorithms for differential and integral operations allowing e.g. the solution of differential equations.\nHere is a script to generate a graph of a sine curve.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx = np.linspace(0, 4*np.pi, 50)\ny = np.sin(x)\nplt.plot(x, y)\nplt.xlabel('x');\nplt.ylabel('sin(x)');\nplt.grid(1)\n\n\n\n\n\n\n\n\nHere is a script to generate a 3D plot.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom mpl_toolkits.mplot3d import Axes3D\n\n# Define the function\ndef f(x, y):\n    return np.sin(np.sqrt(x**2 + y**2)) * np.exp(- (x**2 + y**2) / 10)\n\n# Create grid\nx = np.linspace(-5, 5, 50)\ny = np.linspace(-5, 5, 50)\nX, Y = np.meshgrid(x, y)\nZ = f(X, Y)\n\n# Plot the surface\nfig = plt.figure(figsize=(8, 6))\nax = fig.add_subplot(111, projection='3d')\nax.plot_surface(X, Y, Z, cmap='viridis')\n\n# Labels and title\nax.set_xlabel(\"x\")\nax.set_ylabel(\"y\")\nax.set_zlabel(\"z\")\nplt.show()",
+    "title": "16  Problem class 1: an introduction to Noteable",
+    "section": "16.2 Mathematical plotting",
+    "text": "16.2 Mathematical plotting\n\\(\\nextSection\\)\nThree key Python packages used throughout this course are numpy, matplotlib, and scipy. Numpy provides array functionality, allowing you to naturally manipulate vectors and matrices. Matplotlib is a general plotting package for Python, allowing for the creation of (typically) 2D and 3D plots. And scipy provides algorithms for differential and integral operations allowing e.g. the solution of differential equations.\nHere is a script to generate a graph of a sine curve.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx = np.linspace(0, 4*np.pi, 50)\ny = np.sin(x)\nplt.plot(x, y)\nplt.xlabel('x');\nplt.ylabel('sin(x)');\nplt.grid(1)\n\n\n\n\n\n\n\n\nHere is a script to generate a 3D plot.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom mpl_toolkits.mplot3d import Axes3D\n\n# Define the function\ndef f(x, y):\n    return np.sin(np.sqrt(x**2 + y**2)) * np.exp(- (x**2 + y**2) / 10)\n\n# Create grid\nx = np.linspace(-5, 5, 50)\ny = np.linspace(-5, 5, 50)\nX, Y = np.meshgrid(x, y)\nZ = f(X, Y)\n\n# Plot the surface\nfig = plt.figure(figsize=(8, 6))\nax = fig.add_subplot(111, projection='3d')\nax.plot_surface(X, Y, Z, cmap='viridis')\n\n# Labels and title\nax.set_xlabel(\"x\")\nax.set_ylabel(\"y\")\nax.set_zlabel(\"z\")\nplt.show()",
     "crumbs": [
       "Problem classes",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Problem class 1: an introduction to Noteable</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Problem class 1: an introduction to Noteable</span>"
     ]
   },
   {
     "objectID": "part-xy-problemclasses/problemclass_noteable.html#debugging-jupyter-code",
     "href": "part-xy-problemclasses/problemclass_noteable.html#debugging-jupyter-code",
-    "title": "13  Problem class 1: an introduction to Noteable",
-    "section": "13.3 Debugging Jupyter code",
-    "text": "13.3 Debugging Jupyter code\n\\(\\nextSection\\)\nIt would be good to demonstrate a workflow to understand how errors are diagnosed and studied (e.g. by printing simple variables throughout the script). Also, it would be good to show students how graphs can be zoomed in/out and/or rotated within the browser interface (this may be tricky in Noteable).",
+    "title": "16  Problem class 1: an introduction to Noteable",
+    "section": "16.3 Debugging Jupyter code",
+    "text": "16.3 Debugging Jupyter code\n\\(\\nextSection\\)\nIt would be good to demonstrate a workflow to understand how errors are diagnosed and studied (e.g. by printing simple variables throughout the script). Also, it would be good to show students how graphs can be zoomed in/out and/or rotated within the browser interface (this may be tricky in Noteable).",
     "crumbs": [
       "Problem classes",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Problem class 1: an introduction to Noteable</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Problem class 1: an introduction to Noteable</span>"
     ]
   },
   {
     "objectID": "part-xy-problemclasses/problemclass_noteable.html#outputting-and-saving",
     "href": "part-xy-problemclasses/problemclass_noteable.html#outputting-and-saving",
-    "title": "13  Problem class 1: an introduction to Noteable",
-    "section": "13.4 Outputting and saving",
-    "text": "13.4 Outputting and saving\n\\(\\nextSection\\)\nDuring the problem class, we will also show how to:\n\nCreate a zip file of your workspace using the terminal so that you can save a copy of your files onto your local filesystem. This can be done by running the script ExportMA30287.ipynb in the root directory of the Noteable system, and then downloading the result.\nCreate a copy of your script in PDF form so that it can be sent around as a single document. This can be done by going to File -&gt; Save and Export Notebook As…",
+    "title": "16  Problem class 1: an introduction to Noteable",
+    "section": "16.4 Outputting and saving",
+    "text": "16.4 Outputting and saving\n\\(\\nextSection\\)\nDuring the problem class, we will also show how to:\n\nCreate a zip file of your workspace using the terminal so that you can save a copy of your files onto your local filesystem. This can be done by running the script ExportMA30287.ipynb in the root directory of the Noteable system, and then downloading the result.\nCreate a copy of your script in PDF form so that it can be sent around as a single document. This can be done by going to File -&gt; Save and Export Notebook As…",
     "crumbs": [
       "Problem classes",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Problem class 1: an introduction to Noteable</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Problem class 1: an introduction to Noteable</span>"
     ]
   },
   {
     "objectID": "part-xy-problemclasses/problemclass_noteable.html#challenge-coding-exercise",
     "href": "part-xy-problemclasses/problemclass_noteable.html#challenge-coding-exercise",
-    "title": "13  Problem class 1: an introduction to Noteable",
-    "section": "13.5 Challenge coding exercise",
-    "text": "13.5 Challenge coding exercise\n\\(\\nextSection\\)\nCreate an animation of the 2D or 3D plot, e.g. by making it so the waves ‘ripple’. Using a for loop, animate the wave. Then output the animation as a video file.",
+    "title": "16  Problem class 1: an introduction to Noteable",
+    "section": "16.5 Challenge coding exercise",
+    "text": "16.5 Challenge coding exercise\n\\(\\nextSection\\)\nCreate an animation of the 2D or 3D plot, e.g. by making it so the waves ‘ripple’. Using a for loop, animate the wave. Then output the animation as a video file.",
     "crumbs": [
       "Problem classes",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Problem class 1: an introduction to Noteable</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Problem class 1: an introduction to Noteable</span>"
     ]
   },
   {
     "objectID": "part-xy-problemclasses/problemclass_dim.html",
     "href": "part-xy-problemclasses/problemclass_dim.html",
-    "title": "14  Problem class 2: dimensional analysis",
+    "title": "17  Problem class 2: dimensional analysis",
     "section": "",
-    "text": "14.1 Projectile motion\nIn this problem class, we will practice some concepts about non-dimensionalising in preparation for the Problem Set 1 in Chapter 9. We will cover these two strategies in choosing scalings.\nHere are the problems we shall do in the problem class.\nA projectile of mass \\(M\\) (in kg) is launched vertically with initial velocity \\(V_0\\) (in m/s) from a position \\(Y_0\\) (in m) above the surface. Thus the mass’s position, \\(Y(t)\\) is governed by Newton’s second law (applied to the mass and the mass of the Earth) and the set of equations \\[\n\\begin{gathered}\nM Y_{tt} = - \\frac{g R_E^2 M}{(R_E + Y)^2}, \\\\\nY(0) = Y_0,\n\\end{gathered}\n\\] where \\(g = 9.81 m/s^2\\) and \\(R_E = 6.4 \\times 10^6 m\\) is the radius of the Earth.",
+    "text": "17.1 Projectile motion\nIn this problem class, we will practice some concepts about non-dimensionalising in preparation for the Problem Set 1 in Chapter 12. We will cover these two strategies in choosing scalings.\nHere are the problems we shall do in the problem class.\nA projectile of mass \\(M\\) (in kg) is launched vertically with initial velocity \\(V_0\\) (in m/s) from a position \\(Y_0\\) (in m) above the surface. Thus the mass’s position, \\(Y(t)\\) is governed by Newton’s second law (applied to the mass and the mass of the Earth) and the set of equations \\[\n\\begin{gathered}\nM Y_{tt} = - \\frac{g R_E^2 M}{(R_E + Y)^2}, \\\\\nY(0) = Y_0,\n\\end{gathered}\n\\] where \\(g = 9.81 m/s^2\\) and \\(R_E = 6.4 \\times 10^6 m\\) is the radius of the Earth.",
     "crumbs": [
       "Problem classes",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Problem class 2: dimensional analysis</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Problem class 2: dimensional analysis</span>"
     ]
   },
   {
     "objectID": "part-xy-problemclasses/problemclass_dim.html#projectile-motion",
     "href": "part-xy-problemclasses/problemclass_dim.html#projectile-motion",
-    "title": "14  Problem class 2: dimensional analysis",
+    "title": "17  Problem class 2: dimensional analysis",
     "section": "",
     "text": "Non-dimensionalise the equation using arbitary length and time scales.\nIdentify the non-dimensional constants, \\(\\Pi_i\\).\nChoose a length scale of \\(L = Y_0\\) and time scale of \\(T = (L/g)^{1/2}\\). Discuss the resultant equation and the interpretation of choosing these scales.\nDoes your above choice allow you to easily study the limit of \\(R_E \\to \\infty\\)? If the limit can be taken, reduce the governing system to a simpler equation.\nDoes your choice in 3. allow you to easily study the limit of \\(Y_0 \\to 0\\)? If not, choose an alternative choice of length and time scales and in that case, reduce the set of equations.",
     "crumbs": [
       "Problem classes",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Problem class 2: dimensional analysis</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Problem class 2: dimensional analysis</span>"
     ]
   },
   {
     "objectID": "part-xy-problemclasses/problemclass_dim.html#terminal-velocity",
     "href": "part-xy-problemclasses/problemclass_dim.html#terminal-velocity",
-    "title": "14  Problem class 2: dimensional analysis",
-    "section": "14.2 Terminal velocity",
-    "text": "14.2 Terminal velocity\n\\(\\nextSection\\)\nA ball of radius \\(R\\) (in m) and uniform density \\(\\rho\\) (in kg/m3) falls in a viscous fluid. The fluid has density \\(\\rho_f\\) (in kg/m3) and viscosity (a measure of friction or resistance) \\(\\mu\\) (in kg/(m s)). The equation that governs the velocity is \\[\n\\begin{gathered}\n\\frac{4}{3} \\pi R^3 \\rho \\frac{\\mathrm{d}V}{\\mathrm{d}t} = \\frac{4}{3} \\pi R^3 (\\rho - \\rho_f) g - 6\\pi \\mu R V, \\\\\nV(0) = V_0.\n\\end{gathered}\n\\]\n\nChoose appropriate velocity and time scales to non-dimensionalise the equation so as to leave only a single non-dimensional number on the drag term (the last term on the right hand-side).\nDefine the non-dimensional parameter expressing a ratio between drag force and gravity force by the Stokes number (St) and confirm that it is \\[\nSt = \\frac{9\\mu V_0}{2(\\rho - \\rho_f) g R^3}.\n\\]\nComment on the two limits of \\(St \\to 0\\) and \\(St \\to \\infty\\). Can the problem be reduced in these two limits? If so, reduce and solve.",
+    "title": "17  Problem class 2: dimensional analysis",
+    "section": "17.2 Terminal velocity",
+    "text": "17.2 Terminal velocity\n\\(\\nextSection\\)\nA ball of radius \\(R\\) (in m) and uniform density \\(\\rho\\) (in kg/m3) falls in a viscous fluid. The fluid has density \\(\\rho_f\\) (in kg/m3) and viscosity (a measure of friction or resistance) \\(\\mu\\) (in kg/(m s)). The equation that governs the velocity is \\[\n\\begin{gathered}\n\\frac{4}{3} \\pi R^3 \\rho \\frac{\\mathrm{d}V}{\\mathrm{d}t} = \\frac{4}{3} \\pi R^3 (\\rho - \\rho_f) g - 6\\pi \\mu R V, \\\\\nV(0) = V_0.\n\\end{gathered}\n\\]\n\nChoose appropriate velocity and time scales to non-dimensionalise the equation so as to leave only a single non-dimensional number on the drag term (the last term on the right hand-side).\nDefine the non-dimensional parameter expressing a ratio between drag force and gravity force by the Stokes number (St) and confirm that it is \\[\nSt = \\frac{9\\mu V_0}{2(\\rho - \\rho_f) g R^3}.\n\\]\nComment on the two limits of \\(St \\to 0\\) and \\(St \\to \\infty\\). Can the problem be reduced in these two limits? If so, reduce and solve.",
     "crumbs": [
       "Problem classes",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Problem class 2: dimensional analysis</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Problem class 2: dimensional analysis</span>"
+    ]
+  },
+  {
+    "objectID": "part-xy-problemclasses/problemclass_bvp.html",
+    "href": "part-xy-problemclasses/problemclass_bvp.html",
+    "title": "18  Problem class 3: BVPs",
+    "section": "",
+    "text": "This problem class will involve the completion of the ODE studied in asymptotic approximations III. We will then study the boundary-value problem which forms part of the third problem set, namely: \\[\n\\begin{gathered}\n\\epsilon T'' + 2T' + T = 0, \\\\\nT(0) = 0 \\quad \\text{and} \\quad T(1) = 1.\n\\end{gathered}\n\\] The associated Python note is in lectures/lecture12-SolvingBVPs. You will gain an appreciation for some of the unique elements that are introduced when looking at \\(\\epsilon \\to 0\\) in boundary-value problems.",
+    "crumbs": [
+      "Problem classes",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Problem class 3: BVPs</span>"
+    ]
+  },
+  {
+    "objectID": "part-xy-problemclasses/problemclass_pdes.html",
+    "href": "part-xy-problemclasses/problemclass_pdes.html",
+    "title": "19  Problem class 4: on PDEs",
+    "section": "",
+    "text": "19.1 Numerical solutions\nThis problem class, we will study an example of a PDE model for heat transport, and then use it to inform ourselves on a typical physical problem.\nWe are interested in finding the optimal depth for a storage cellar that might be used to house wine. Based on our previous discussions, if we assume that the temperature beneath the ground is given by \\(T(x, t)\\), with \\(x \\geq 0\\) below the surface, then the temperature is governed by \\[\n\\frac{\\partial T}{\\partial t} = \\kappa \\frac{\\partial^2 T}{\\partial x^2},\n\\] for \\(x \\geq 0\\). This is a highly averaged model, where we assume there is no transport of heat into the horizontal plane.\nWe shall also assume that the surface temperature is modelled by an oscillatory function. On the assumption that the temperature has been normalised so that \\(T = 0\\) corresponds to the mean temperature of the surface, then we have \\[\nT(x = 0, t) = A \\cos(\\omega t).\n\\] The wavelength is then \\(2\\pi/\\omega\\) which we can set to one year. So \\(\\omega = 1/(2\\pi) \\text{ yr}^{-1}\\).\nIn addition, we expect that the temperature should not be singular far beneath (in particular we expect it to get colder as we go further underground), at least on a scale where we are not approaching the centre of the Earth! Thus it is sensible that \\[\n|T(x, t)| \\text{ is bounded as $x \\to \\infty$}.\n\\]\nYou will not require an initial condition of the discussions below.\nAn example code that uses first-order explicit Euler timestepping is given in lecture15-winecellar on the lectures coding folder. A typical numerical output is given here:",
+    "crumbs": [
+      "Problem classes",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Problem class 4: on PDEs</span>"
+    ]
+  },
+  {
+    "objectID": "part-xy-problemclasses/problemclass_pdes.html#numerical-solutions",
+    "href": "part-xy-problemclasses/problemclass_pdes.html#numerical-solutions",
+    "title": "19  Problem class 4: on PDEs",
+    "section": "",
+    "text": "Numerical solution of the wine cellar problem",
+    "crumbs": [
+      "Problem classes",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Problem class 4: on PDEs</span>"
+    ]
+  },
+  {
+    "objectID": "part-xy-problemclasses/problemclass_pdes.html#analytical-solution",
+    "href": "part-xy-problemclasses/problemclass_pdes.html#analytical-solution",
+    "title": "19  Problem class 4: on PDEs",
+    "section": "19.2 Analytical solution",
+    "text": "19.2 Analytical solution\n\\(\\nextSection\\)\nBefore we begin, it is useful for the purposes of manipulation to write the boundary condition as \\[\nT(0, t) = A \\Re (e^{i\\omega t}) = A\\Re(\\cos (\\omega t) + i \\sin(\\omega t)) = A\\cos(\\omega t).\n\\] This has the advantage that we can manipulate exponentials much more easily.\nTo solve the problem analytically, we attempt a solution method called separation of variables. Let \\[\nT(x, t) = G(t) H(x).\n\\] Substitution into the PDE gives \\[\nG'(t) H(x) = \\kappa G(t) H''(x),\n\\] and we attempt to separate the functions of \\(t\\) to one side and the functions of \\(x\\) to the other. \\[\n\\frac{G'(t)}{G'(t)} = \\kappa \\frac{H''(x)}{H(x)}\n\\] Now in order for two completely different functions dependent on two completely different independent variables to be equal in this way, then this implies that both sides must be equal to a constant. So we have \\[\n\\begin{aligned}\nG' &= \\lambda G \\\\\nH''  &= \\lambda \\kappa H.\n\\end{aligned}\n\\] Therefore \\(G = \\mathrm{const} \\times e^{\\lambda t}\\). Because of the boundary conditions that would require \\(T = A e^{i\\omega t}\\), you can check that \\(\\lambda = 0\\) and \\(\\lambda\\) real are both impossible. The only way to satisfy the boundary conditions is if \\(\\lambda = i\\omega\\). So we conclude that \\[\nG(t) = \\mathrm{const.} \\times e^{i\\omega t}.\n\\] To solve \\[\nH'' = (i\\omega/\\kappa) H,\n\\] you can attempt the substitution \\(H(x) = e^{rx}\\) and solve the resultant equation for the characteristic polynomial in \\(r\\). You will do this in the problem set, and obtain \\[\nr = \\pm \\sqrt{i} \\sqrt{\\omega/\\kappa} = \\pm \\sqrt{\\omega/\\kappa} \\frac{1 + i}{\\sqrt{2}}.\n\\] Therefore \\[\nH(x) = C_1 e^{\\sqrt{\\omega/(2\\kappa)}x}e^{\\sqrt{\\omega/(2\\kappa)}ix}+ C_2 e^{-\\sqrt{\\omega/(2\\kappa)}x}e^{-\\sqrt{\\omega/(2\\kappa)}ix}.\n\\] The first solution should be discarded since it blows up as \\(x \\to \\infty\\).\nFinally, we conclude that the solution is given by \\[\nT = e^{i\\omega t} e^{-\\sqrt{\\omega/(2\\kappa)}x}e^{-\\sqrt{\\omega/(2\\kappa)}ix}.\n\\] Move the imaginary arguments together: \\[\nT = \\text{const.} \\times  e^{-\\sqrt{\\omega/(2\\kappa)}x}e^{i(-\\sqrt{\\omega/(2\\kappa)}x + \\omega t)}.\n\\] Now we take the real part, giving \\[\nT = A e^{-\\sqrt{\\omega/(2\\kappa)}x} \\cos\\left(-\\sqrt{\\omega/(2\\kappa)}x + \\omega t\\right),\n\\tag{19.1}\\] and we see that having set the constant to \\(A\\) the solution indeed satisfies \\(T(0, t) = A\\cos(\\omega t)\\).",
+    "crumbs": [
+      "Problem classes",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Problem class 4: on PDEs</span>"
+    ]
+  },
+  {
+    "objectID": "part-xy-problemclasses/problemclass_pdes.html#selection-of-optimal-depth",
+    "href": "part-xy-problemclasses/problemclass_pdes.html#selection-of-optimal-depth",
+    "title": "19  Problem class 4: on PDEs",
+    "section": "19.3 Selection of optimal depth",
+    "text": "19.3 Selection of optimal depth\n\\(\\nextSection\\)\nThe optimal depth of the wine cellar is selected by taking the depth to be such that the cosine is completely out of phase with the surface solution. This means that \\[\n-\\sqrt{\\omega/(2\\kappa)}x + \\omega t + \\pi = \\omega t.\n\\] You can substitute other multiples of \\(\\pi\\). Thus we have \\[\nx = \\pi \\sqrt{\\frac{2\\kappa}{\\omega}}.\n\\] We can estimate the numbers as follows. Converting from 1 year to seconds yields \\[\n\\omega = \\frac{2\\pi}{3.15 \\times 10^7 \\mathrm{s}}.\n\\] Also, the \\(\\kappa\\) for dry soil is around \\(0.002 \\mathrm{cm}^2/\\mathrm{s}\\).\nPutting these numbers in yields \\[\nx \\approx 445 \\mathrm{cm} = 4.45 \\mathrm{m}.\n\\]",
+    "crumbs": [
+      "Problem classes",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Problem class 4: on PDEs</span>"
     ]
   },
   {
@@ -710,7 +864,7 @@
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Fourier, Joseph. 1827. “Mémoire Sur Les\nTempératures Du Globe Terrestre Et Des Espaces\nPlanétaires.” Mémoires de\nl’Académie Royale Des Sciences de l’Institut de France\n7: 570–604.\n\n\nFowler, Andrew. 2011. Mathematical Geoscience. Vol. 36.\nSpringer.\n\n\nKaper, H., and H. Engler. 2013. Mathematics and Climate. SIAM.\n\n\nMacKay, D. J. C. 2009. Sustainable Energy – Without the Hot\nAir. UIT Cambridge Ltd.\n\n\nPouillet, Claude Servais Mathias. 1838. “Memoire Sur Le Chaleur\nSolaire.” Paris.\n\n\nVan der Veen, CJ. 2000. “Fourier and the ‘Greenhouse\nEffect’.” Polar Geography 24 (2): 132–52.",
+    "text": "Budyko, Mikhail I. 1969. “The Effect of Solar Radiation Variations\non the Climate of the Earth.” Tellus 21 (5): 611–19.\n\n\nFourier, Joseph. 1827. “Mémoire Sur Les\nTempératures Du Globe Terrestre Et Des Espaces\nPlanétaires.” Mémoires de\nl’Académie Royale Des Sciences de l’Institut de France\n7: 570–604.\n\n\nFowler, Andrew. 2011. Mathematical Geoscience. Vol. 36.\nSpringer.\n\n\nKaper, H., and H. Engler. 2013. Mathematics and Climate. SIAM.\n\n\nMacKay, D. J. C. 2009. Sustainable Energy – Without the Hot\nAir. UIT Cambridge Ltd.\n\n\nPouillet, Claude Servais Mathias. 1838. “Memoire Sur Le Chaleur\nSolaire.” Paris.\n\n\nVan der Veen, CJ. 2000. “Fourier and the ‘Greenhouse\nEffect’.” Polar Geography 24 (2): 132–52.",
     "crumbs": [
       "References"
     ]
