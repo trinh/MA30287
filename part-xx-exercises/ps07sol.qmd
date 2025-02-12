@@ -1,0 +1,243 @@
+# Problem set 7 solutions {#sec-ps7sol}
+
+:::{.callout-tip}
+## Note
+This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.
+:::
+
+<!-- ## Q1. Non-dimensionalisation of the ocean model {.unnumbered} -->
+<!---->
+<!-- Take the ocean model from (@eq-ocean-final-dimensional). Re-scale the salinity and time via -->
+<!-- $$ -->
+<!-- \Delta S = [\Delta S]x \quad \text{and} \quad -->
+<!-- t = [t]t'. -->
+<!-- $$  -->
+<!-- By choosing appropriate scales, show that the equation can be reduced to the form  -->
+<!-- $$ -->
+<!-- \dot{x} = \lambda - |1 - x|x -->
+<!-- $$  -->
+<!-- for the parameter $\lambda$ which you should define. Note that the above quantity $\dot{x}$ refers to differentiation in $t'$. -->
+<!---->
+<!-- Provide an intuitive interpretation of the parameter $\lambda$.  -->
+<!---->
+<!-- :::{.callout-note} -->
+<!-- ## Solution -->
+<!---->
+<!-- You can verify that the scales should be chosen according to  -->
+<!-- $$ -->
+<!-- [\Delta S] = \frac{\alpha \Delta T}{\beta}, \qquad [t] = \frac{1}{2\alpha k |\Delta T|}, \qquad \lambda = \frac{\beta H}{\alpha^2 k \Delta T|\Delta T|}. -->
+<!-- $$  -->
+<!-- The parameter $\lambda$ measures the balance between virtual salt flux (measured by $H$) and the flux through the capillary pipe connecting boxes (measured via $k\alpha$). -->
+<!---->
+<!-- Note that under the assumption that $\Delta T = T_2 - T_1 > 0$ (the low latitudes is warmer), then $\lambda > 0$.  -->
+<!-- ::: -->
+<!---->
+<!---->
+<!-- ## Q2. Steady states of the reduced model  {.unnumbered} -->
+<!---->
+<!-- Consider now the reduced model (@eq-ps6-xeqn) and solve for the steady-state solutions (or equilibrium solutions). Assume that $\lambda > 0$ and consider the two cases of $1 - x \geq 0$ and $1 - x < 0$. Show that there are up to three steady states given by  -->
+<!---->
+<!-- \begin{align} -->
+<!-- x_1^* &= \frac{1}{2}(1 + \sqrt{1 + 4 \lambda}), \\ -->
+<!-- x_{2,3}^* &= \frac{1}{2}(1 \pm \sqrt{1 - 4\lambda}), -->
+<!-- \end{align} -->
+<!---->
+<!-- and derive conditions for each point to exist.  -->
+<!---->
+<!-- Next, set $x = x^* + y$ where $x^*$ is one of the three possible steady-state solutions. Show that the perturbation is governed by  -->
+<!-- $$ -->
+<!-- \dot{y} = \pm (2x^* - 1)y, \qquad x^* \lessgtr 1. -->
+<!-- $$  -->
+<!-- Conclude that $x_1^*$ is stable, $x_2^*$ is unstable, and $x_3^*$ is stable.  -->
+<!---->
+<!-- :::{.callout-note} -->
+<!-- ## Solution -->
+<!---->
+<!-- According to the above, we assume that $\lambda > 0$ and so it must be the case that $x > 0$ (it is not hard to relax this assumption and study all possibilities).   -->
+<!---->
+<!-- First consider $1 - x < 0$ or $x > 1$. The equation to solve is $-x(1-x) = \lambda$. Of the two roots, only the one  -->
+<!-- $$ -->
+<!-- x_1^* = \frac{1}{2}(1 + \sqrt{1 + 4\lambda}), \qquad \text{for all $\lambda > 0$} -->
+<!-- $$  -->
+<!-- is relevant since the other root has $x < 0$.  -->
+<!---->
+<!-- Next consider $1 - x \geq 0$ or $x \leq 1$. So that the equation to solve is $x(1-x) = \lambda$. This yields  -->
+<!-- $$ -->
+<!-- x_{2,3}^* = \frac{1}{2}(1 \pm \sqrt{1 - 4\lambda}), \qquad \text{for $0 < \lambda \leq 1/4$}. -->
+<!-- $$  -->
+<!---->
+<!-- For the stability analysis, it is useful firstly to write $|1 - x| = c (1 - x)$ for $x \lessgtr 1$ where $c = \pm 1$. Then we can write -->
+<!-- $$ -->
+<!-- \dot{x} = f(x), \qquad f(x) = \lambda - c(1-x)x. -->
+<!-- $$  -->
+<!-- Linearisation then means that we can expand $f(x) = f(x^*) + f'(x^*)(x - x^*) + \ldots$. The linearised system is -->
+<!-- $$ -->
+<!-- \dot{y} = f'(x^*)y = c(2x^* - 1) y \equiv Ay, -->
+<!-- $$  -->
+<!-- once $f'(x^*)$ has been calculated and simplified.  -->
+<!---->
+<!-- To check stability, we need only check the sign of $A$. For $x^* > 1$, we have  -->
+<!-- $$ -->
+<!-- A = -(2x_1^* - 1) = -\sqrt{1 + 4\lambda} < 0, -->
+<!-- $$  -->
+<!-- so the $x_1^*$ point is linearly stable (since it is associated with exponential decay and $y \to 0$ as $t \to \infty$). Similarly, for the other two,  -->
+<!-- $$ -->
+<!-- A = (2x^* - 1) = \pm \sqrt{1 - 4\lambda}.  -->
+<!-- $$  -->
+<!-- The top sign corresponds to $x_2^*$ and since $y \to \infty$ as $t \to \infty$ this point is unstable. However, $x_3^*$ has $A < 0$ so it is stable. -->
+<!-- ::: -->
+<!---->
+<!---->
+<!-- ## Q3. Bifurcation diagram for the reduced ocean model {.unnumbered} -->
+<!---->
+<!-- Based on your work in Q2, plot a bifurcation diagram in the $(\lambda, x^*)$-plane. Use solid and dashed curves to indicate stability.  -->
+<!---->
+<!-- Does the bifurcation diagram indicate the possibility of tipping points and hysteresis? By considering the interpretation of $\lambda$ and $x^*$, discuss the physical consequences of such behaviour as it relates to the Ocean model. -->
+<!---->
+<!-- How does this bifurcation diagram compare to the typical bifurcation diagrams studied in the Energy Balance module, such as the one studied in @sec-latitude4 ?  -->
+<!---->
+<!-- :::{.callout-important} -->
+<!-- ## Solution -->
+<!---->
+<!-- The bifurcation diagram is shown below. Stable solutions are shown solid and unstable dashed. We see that two of the branches only exist for $0 < \lambda < 1/4$, while the topmost branch exists for all $\lambda > 0$. The point $\lambda = 1/4$ corresponds to the tipping point. Indeed, we see hysteresis or non-reversability in the diagram, indicated by the path in red going from A to B to C.  -->
+<!---->
+<!-- ![Bifurcation diagram](img/2023-05-06-10-20-13.png){#fig-ps6-bif} -->
+<!---->
+<!-- Interestingly, unlike the bifurcation diagrams shown in previous chapters, the path shown in red indicates that once the top branch is reached, it is not possible to return to the lowermost branch (unless we relax the condition that $\lambda < 0$.  -->
+<!---->
+<!-- **Edit:** The horizontal axis of the above image is placed incorrectly. It should be placed so that $x_3^* \to 0$ as $\lambda \to 0$.  -->
+<!-- ::: -->
+
+
+## Q1. Non-dimensionalisation of the Stommel box model {.unnumbered}
+
+Consider the Stommel box model given in (@eq-stommelpre). Non-dimensionalise the model in order to produce the set of equations given in (@eq-stommelsys), repeated here: 
+$$
+\begin{aligned}
+\frac{\mathrm{d}x}{\mathrm{d}t} &= \delta(1 - x) - |f(x, y)|x, \\
+\frac{\mathrm{d}y}{\mathrm{d}t} &= 1 - y - |f(x, y)|y, 
+\end{aligned}
+$$
+where we have introduced the function,
+$$
+f(x, y; R, \lambda) = \frac{1}{\lambda}(Rx - y),
+$$
+
+Provide a brief description of the physical interpretations of the parameters $\lambda$, $\delta$, and $R$.  
+
+:::{.callout-important collapse=true}
+## Solution
+
+The non-dimensionalisation procedure was done in the lecture notes and lectures. 
+
+The final parameters were established by
+$$
+\delta = \frac{d}{c}, \qquad \lambda = \frac{c}{2\alpha k \Delta T^*}, \qquad R = \frac{\beta \Delta S^*}{\alpha \Delta T^*}.
+$$ 
+Their interpretations are as follows: $\delta$ measures the relative relaxation temporal rates of the salt-basin exchange and the temperature-basin exchange. Since thermal energy turns out to exchange on a faster time scale than salinity, then we are typically interested in $\delta \ll 1$. 
+
+The parameter $\lambda$ is a measure of the strength of the THC. For example, with $k$ large, this corresponds to significant flow through the pipes connecting the boxes, and so $\lambda \to 0$ corresponds to strong THC. 
+
+Finally $R$ allows us to compare the relative effects of temperature and salinity differences between the external basins. Salinity differences dominate if $R > 1$ and temperature differences dominate if $R < 1$. 
+:::
+
+
+## Q2. Investigations for $R$ {.unnumbered}
+
+Using the script available on Noteable investigate the behaviour of the Stommel box model under changing values of $R$ and fixed values of the other parameters. Based on your intuition, what do you expect to be the features of the bifurcation diagram, as shown in the $(R, f)$-plane? 
+
+:::{.callout-important collapse=true}
+## Solution
+
+Remember that the steady states are found by examining the intersections of the curves $\lambda f = \phi$. From (@eq-stommel-phi), we have
+$$
+\phi(f^*) = \frac{\delta R}{\delta + |f^*|} - \frac{1}{1 + |f^*|}.
+$$
+so essentially the effect of changing $R$ is to multiply the curve $\phi$ by a multiplier. Using the [code on the JupyterHub](https://maths.jupyterhub.bath.ac.uk/hub/user-redirect/lab/tree/courses/MA30287/notebooks/ps06_solution.ipynb) we obtain the following graph for different values of $R$.  
+
+![Steady state intersections for Stommel's box model](img/2023-05-06-10-45-41.png){#fig-ps6-stommelint}
+
+For the smallest values of $R$, note that only the lowermost steady state will be present. As $R$ crosses the critical value of $R = 1$, two intersections are borne at $\phi = 0$. Eventually $R$ crosses another critical value, and the two leftmost intersections merge then disappear, leaving only the largest steady-state. 
+
+Because the stability of the solution is essentially given by the ordering of the curves (if the curve $\lambda f$ is larger than the curve $\phi$ on the left of the steady-states), then we can see that, as typical for stability in this course, the first and third steady states are stable, and the middle one unstable. 
+
+We can now plot a bifurcation diagram using the above information.
+
+![Bifurcation diagram for $R$ vs $f^*$](img/2023-05-06-10-54-41.png){#fig-ps6-R}
+:::
+
+
+## Q3. Alternative scalings of the Stommel box model {.unnumbered}
+
+It is possible to scale the problem differently, and this may allow for simpler analysis. Consider the set of equations in Q1. Write instead
+$$
+x = [x] s, \qquad y = [y] \theta, \qquad t = [t] t',
+$$ 
+Choose the correct scalings, $[x]$, $[y]$, and $[t]$, so that we obtain a re-scaled version: 
+$$
+\begin{aligned}
+\frac{\mathrm{d}s}{\mathrm{d}t'} &= 1 - (\epsilon + |q|) s, \\
+\frac{\mathrm{d}\theta}{\mathrm{d}t'} &= 1 - (\mu + |q|)\theta,
+\end{aligned}
+$$
+
+where now the flow term is given by 
+$$
+q = \kappa(-\theta + \tilde{R}s).
+$$ 
+In addition to the choice of scalings, you will need to describe how the new parameters, $\epsilon$, $\mu$, $\kappa$, and $\tilde{R}$, are related to the older parameters.
+
+
+:::{.callout-important collapse=true}
+## Solution
+
+Putting in the scalings, 
+$$
+\begin{aligned}
+\frac{[x]}{[t]}\frac{\mathrm{d}s}{\mathrm{d}t'} &= \delta(1 - [x]s) - [x]|f(x, y)|s, \\
+\frac{[y]}{[t]}\frac{\mathrm{d}\theta}{\mathrm{d}t'} &= 1 - [y]\theta - |f(x, y)|\theta.
+\end{aligned}
+$$
+
+Comparing the equations, we see that we should choose
+$$
+[x] = \epsilon, \qquad \frac{\delta [t]}{[x]} = 1, \qquad [t] = \mu, \qquad [y] = [t] = \mu.
+$$ 
+Under this choice, 
+$$
+\begin{aligned}
+\frac{\mathrm{d}s}{\mathrm{d}t'} &= 1 - \epsilon s - [t]|f(x, y)|s, \\
+\frac{\mathrm{d}\theta}{\mathrm{d}t'} &= 1 - \mu\theta - [t]|f(x, y)|\theta.
+\end{aligned}
+$$
+The latter quantity is 
+$$
+\mu f = \frac{\mu[y]}{\lambda}\left(-\theta + \frac{R[x]}{[y]}s\right).
+$$
+We there write 
+$$
+\kappa =  \frac{\mu[y]}{\lambda}, \qquad \tilde{R} = \frac{R[x]}{[y]}
+$$ 
+
+Thus we have produced
+\begin{align}
+\frac{\mathrm{d}s}{\mathrm{d}t'} &= 1 - \epsilon s - |q|s, \\
+\frac{\mathrm{d}\theta}{\mathrm{d}t'} &= 1 - \mu\theta - |q|\theta.
+\end{align}
+where
+$$
+q = \kappa(-\theta + \tilde{R}s). 
+$$ 
+
+:::
+
+
+## Q4. Box models for flooding {.unnumbered}
+
+:::{.callout-important collapse=true}
+## Solution
+
+Solution shown in lectures.
+:::
+
+

@@ -536,6 +536,10 @@ window.Quarto = {
   <ul>
   <li><a href="#projectile-motion" id="toc-projectile-motion" class="nav-link active" data-scroll-target="#projectile-motion"><span class="header-section-number">38.1</span> Projectile motion</a></li>
   <li><a href="#terminal-velocity" id="toc-terminal-velocity" class="nav-link" data-scroll-target="#terminal-velocity"><span class="header-section-number">38.2</span> Terminal velocity</a></li>
+  <li><a href="#navier-stokes-equations" id="toc-navier-stokes-equations" class="nav-link" data-scroll-target="#navier-stokes-equations"><span class="header-section-number">38.3</span> Navier-Stokes equations</a>
+  <ul class="collapse">
+  <li><a href="#reynolds-number" id="toc-reynolds-number" class="nav-link" data-scroll-target="#reynolds-number"><span class="header-section-number">38.3.1</span> Reynolds Number</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -634,8 +638,59 @@ St = \frac{9\mu V_0}{2(\rho - \rho_f) g R^3}.
 \]</span></p></li>
 <li><p>Comment on the two limits of <span class="math inline">\(St \to 0\)</span> and <span class="math inline">\(St \to \infty\)</span>. Can the problem be reduced in these two limits? If so, reduce and solve.</p></li>
 </ol>
+</section>
+<section id="navier-stokes-equations" class="level2" data-number="38.3">
+<h2 data-number="38.3" class="anchored" data-anchor-id="navier-stokes-equations"><span class="header-section-number">38.3</span> Navier-Stokes equations</h2>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>WA to trim and correct for notation.</p>
+</div>
+</div>
+<p>Consider the Navier-Stokes equations (which is a set of equations that dictates fluid flow): <span class="math display">\[\frac{\partial \boldsymbol{u}}{\partial t}+\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\frac{1}{\rho}\nabla p+\nu \nabla^2 \boldsymbol{u}\]</span> where:</p>
+<ul>
+<li><span class="math inline">\(\boldsymbol{x}=(x, y, z)^{\mathrm{T}}\)</span> is the direction field (each with dimensions <span class="math inline">\(m\)</span>)</li>
+<li><span class="math inline">\(\boldsymbol{u}=(u, v, w)^{\mathrm{T}}\)</span> is the velocity field where <span class="math inline">\(u\)</span> is the movement along the <span class="math inline">\(x\)</span>-direction, <span class="math inline">\(v\)</span> is the movement along the <span class="math inline">\(y\)</span>-direction and <span class="math inline">\(w\)</span> is the movement along the <span class="math inline">\(z\)</span>-direction (each with dimensions <span class="math inline">\(m \, s^{-1}\)</span>)</li>
+<li><span class="math inline">\(t\)</span> is time (dimension s)</li>
+<li><span class="math inline">\(\rho\)</span> is the fluid density (dimension <span class="math inline">\(kg \, m^{-3}\)</span>)</li>
+<li><span class="math inline">\(\nu\)</span> is the dynamic viscosity, which represents the resistance to flow due to gravity (with dimensions <span class="math inline">\(m^2 \, s^{-1}\)</span>)</li>
+<li><span class="math inline">\(p\)</span> is the internal pressure of the fluid (with dimension <span class="math inline">\(kg \, m^{-1} \, s^{-2}\)</span>)</li>
+<li><span class="math inline">\(\nabla=\left( \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z} \right)^{\mathrm{T}}\)</span> is the gradient operator (each with the with effective dimension <span class="math inline">\(m^{-1}\)</span>).</li>
+<li><span class="math inline">\(\frac{\partial}{\partial t}\)</span> is the partial time derivative (with effective dimension <span class="math inline">\(s^{-1}\)</span>)</li>
+<li><span class="math inline">\(\nabla^2=\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}\)</span> is the Laplacaian operator (with effective dimension <span class="math inline">\(m^{-2}\)</span>).</li>
+</ul>
+<p>Consider the following arbitrary non-dimensionalisation: <span class="math display">\[\boldsymbol{x}=L\tilde{\boldsymbol{x}}, \quad \boldsymbol{u}=U\tilde{\boldsymbol{u}}, \quad t=T\tilde{t}, \quad p=P\tilde{p}\]</span> where <span class="math inline">\([\tilde{x}]=[\tilde{u}]=[\tilde{t}]=[\tilde{p}]=1\)</span> are the new non-dimensional quantities whereas <span class="math inline">\([L]=m, [U]=m \, s^{-1}, [T]=s\)</span> and <span class="math inline">\([P]=kg \, m^{-3}\)</span>.</p>
+<p>Replacing these into the Navier-Stokes equation gives <span class="math display">\[\frac{U}{T}\frac{\partial \boldsymbol{\tilde{u}}}{\partial \tilde{t}}+\frac{U^2}{L}\left( \tilde{\boldsymbol{u}} \cdot \tilde{\nabla} \right)\tilde{\boldsymbol{u}}=-\frac{P}{L\rho}\tilde{\nabla} \tilde{p}+\frac{\nu U}{L^2} \tilde{\nabla}^2 \tilde{\boldsymbol{u}}\]</span> where <span class="math inline">\(\tilde{\nabla}\)</span> is the gradient operator in the new coordinate space <span class="math inline">\((\tilde{x}, \tilde{y}, \tilde{z})\)</span>. The tildas will be dropped henceforth. Rearranging to make the coefficient of the time derivative 1 gives <span class="math display">\[\frac{\partial \boldsymbol{u}}{\partial t}+\frac{UT}{L}\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\frac{PT}{U L \rho}\nabla p+\frac{\nu T}{L^2} \nabla^2 \boldsymbol{u}.\]</span></p>
+<p>The most convenient term to eliminate is the coefficient of the pressure. Therefore, suppose the choice of the non-dimensionalisation parameters needs to be chosen such that <span class="math display">\[\frac{PT}{\rho L U}=1.\]</span> This means that the term <span class="math inline">\(P\)</span> can be written as <span class="math display">\[P=\frac{\rho U L}{T}.\]</span></p>
+<blockquote class="blockquote">
+<p>Checking the dimensions: <span class="math display">\[[P]=\left[ \frac{\rho U L }{T} \right]=[\rho][U][L][T]^{-1}=kg \, m^{-3} \, m \, s^{-1} \, m \, s^{-1}=kg \, m^{-1} \, s^{-2}\]</span> which is indeed the dimension for pressure.</p>
+</blockquote>
+<section id="reynolds-number" class="level3" data-number="38.3.1">
+<h3 data-number="38.3.1" class="anchored" data-anchor-id="reynolds-number"><span class="header-section-number">38.3.1</span> Reynolds Number</h3>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<p>Suppose that the term <span class="math inline">\(\frac{U T}{L}\)</span> should also be equal to 1, then this would mean that the time non-dimensionalisation can be done by having <span class="math inline">\(T=\frac{L}{U}\)</span>.</p>
+<blockquote class="blockquote">
+<p>Checking the dimensions: <span class="math display">\[[T]=\left[ \frac{L}{U} \right]=[L][U]^{-1}=m \, m^{-1} \, s=s\]</span> which is indeed the dimension for time.</p>
+</blockquote>
+<p>Therefore, with these choices of <span class="math inline">\(T\)</span> and <span class="math inline">\(P\)</span>, the Navier-Stokes equation becomes <span class="math display">\[\frac{\partial \boldsymbol{u}}{\partial t}+\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\nabla p+\frac{\nu}{U L} \nabla^2 \boldsymbol{u}.\]</span></p>
+<p>The term <span class="math inline">\(\frac{L U}{\nu}\)</span> is known as the Reynolds number, denoted <span class="math inline">\(Re\)</span> which is a non-dimensional quantity.</p>
+<blockquote class="blockquote">
+<p>Check the dimension of the Reynolds number: <span class="math display">\[[Re]=\left[ \frac{L U}{\nu} \right]=[L][U][\nu]^{-1}=m \, m \, s^{-1} \, m^2 \, s=1\]</span> meaning that the Reynolds number is dimensionless.</p>
+</blockquote>
+<p>Therefore, this gives the non-dimensional Navier-Stokes equation for fluid flow <span class="math display">\[\frac{\partial \boldsymbol{u}}{\partial t}+\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\nabla p+\frac{1}{Re} \nabla^2 \boldsymbol{u}.\]</span></p>
+<p>The Reynolds number <span class="math inline">\(Re\)</span> gives a measure for the effect of viscosity for fluid flow or for the movement through a fluid. As <span class="math inline">\(Re\)</span> gets larger, the fluid becomes less viscous hence reducing the effect of viscosity on the movement and the inertial forces dominate. (The case when <span class="math inline">\(Re \to \infty\)</span> is called inviscid flow where there is no viscosity.) As <span class="math inline">\(Re\)</span> decreases, the viscosity increases, making the movement depend on the viscous forces more than the inertial forces.</p>
+<p>The Reynolds number is important in modelling since when length and speed scales change from full-sized objects to smaller models (like models of cars and buildings for testing purposes), the same environment cannot be translated from one to the other (since a full sized building in 20mph winds will not move whereas 20mph winds on a small scale of model of the building will be affected much more). However, if the Reynolds number is fixed in both cases, the model can be made more realistic.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

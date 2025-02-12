@@ -1,0 +1,51 @@
+# Vector calculus
+
+:::{.callout-tip}
+## Appendices
+
+These appendices may contain material that is added during the term, dependent on student enquiries and need.
+:::
+
+## Surface integrals {#sec-appendix-surfaceintegral}
+
+Surface integrals are generalisations of the concept of a multiple integrals to integrals over surfaces. For example, consider a flat plate of area $A$ heated to a certain temperature, and thus emits a certain amount of energy, $E$, per unit area (per unit time). The total energy emitted per unit time would then be $E A$. 
+
+If we want to consider the same problem, but now posed on a general surface, say the planet $S$, and where $E$ varies along the surface, then we must consider adding together $E(\mathbf{x}) \mathrm{d}{S}$. We thus chop our surface into smaller pieces, each with area $\mathrm{d}S$, multiply each piece with its corresponding energy, and then sum the result. 
+
+The result is the surface integral 
+$$
+\iint_S E(\mathbf{x}) \, \mathrm{d}S.
+$$ 
+A tutorial for computing surface integrals can be found [here](https://tutorial.math.lamar.edu/classes/calciii/surfaceintegralsintro.aspx). 
+
+You will not need to know how to calculate surface integrals in general in the course.
+
+
+<!--
+## Coordinate systems
+
+* We need some vector calculus in the section on [@sec-radiative] when discussing the radiation integrals. 
+
+### Spherical coordinates
+
+In spherical coordinates, ...
+
+## Directional derivatives
+
+Used in the [@sec-radiative], i.e. $\partial\partial s = \mathbf{\hat{s}} \cdot \nabla_{\mathbf{x}}$. 
+
+## Integration in different coordinate systems
+
+:::{.callout-important}
+Probably need some homework questions on spherical integration?
+:::
+
+
+In @sec-two-stream, we make sure of the surface integral in spherical coordinates. This converts an integral as follows:
+$$
+\iint_S I \, \mathrm{d}{S} = \iint_{\theta, \phi} I \, \sin\theta \, \mathrm{d}\theta \, \mathrm{d}\phi.
+$$
+
+-->
+
+

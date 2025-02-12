@@ -1,0 +1,107 @@
+# Ice ages I: an introduction {#sec-ice1}
+
+Our next investigation will take us to the topic of fast-slow systems in order to posit toy mathematical models for ice ages. 
+
+## Background
+
+We have mainly been concerned about time periods in the decades, but it is now time to discuss much longer time periods. In particular, we are interested in the *Pleistocene era*, which lasts from around 2.5 million years go to 11,700 years ago; this period marked the evolution of *Homo sapiens*. Begin by examining this figure:
+
+![Figure from [here](https://en.m.wikipedia.org/wiki/File:Ice_Age_Temperature.png)](img/Ice_Age_Temperature.png){#fig-iceagetemp width=80%}
+
+This figure indicates temperature changes tracked via various measures at different locations. The top two graphs show the temperatures derived from two different ice core measurements. The lower curve is the total ice cover. In this figure, you see evidence for the four complete glacial cycles with the Earth temperature dropping into the ice ages. A key observation concerns the regular periodic behaviour, with regular cycles appearing every 100k years. 
+
+Turn now to this graph: 
+![Figure from [here](https://en.m.wikipedia.org/wiki/File:Ice_Age_Temperature.png)](img/2023-03-29-10-05-03.png){#fig-ice2 width=}
+
+This graph goes back even further. The key observation is that between 1 million and 2.5 million years, the periods seem to be predominantly 41k years. Thus sudden transition is referred to as the [Mid-Pleistocene Transition (MPT)](https://en.wikipedia.org/wiki/Mid-Pleistocene_Transition). The question of how or why the periods can suddenly change in such a manner is referred to as the [100,000-year problem](https://en.wikipedia.org/wiki/100,000-year_problem). 
+
+## Milankovitch cycles
+
+The most natural theory to explain the ice age periods is to consider that the Earth's orbit is affected by the gravitational attractions of the Sun, Moon, and the other planets. The complex interaction results in a slow, cyclic change in three important parameters of the orbit (Taylor 2005): 
+
+1. The *eccentricity* of the ellipse that the Earth describes in its orbit around the Sun each year (100kyr);
+
+2. The angle between the equatorial plane and the orbital plane, known as the Earth's *obliquity* (41kyr); 
+
+3. The *precession* of the spin axis around the normal to the orbital plane (20kyr).
+
+![Figure from [here](https://skepticalscience.com/graphics.php?g=342)](img/2023-03-29-10-57-04.png){#fig-mcycle width=}
+
+
+
+The name given to these cycles is *Milkankovich cycles*. 
+
+However, the key problem is that the Milankovich cycles do not seem to explain the MPT problem. The Milankovich cycles exhibit the necessary periods on both the 100kyr scale and 41kyr scale, but it cannot explain why there was a sudden transition. Moreover, the response of EBMs to the 100kyr forcing (due to the eccentricity) is not enough to explain why this forcing period takes precedence since it is the 41kyr cycle due to the obliquity that produces the largest effect on the solar radiation.  
+
+![Figure from [here](https://en.wikipedia.org/wiki/Milankovitch_cycles#/media/File:MilankovitchCyclesOrbitandCores.png)](img/2023-03-29-11-04-38.png)
+
+
+
+
+
+## The mathematician's perspective on models
+
+We start with some discussion of the perspective of a mathematician. The last few weeks, we have been studying models of Planet Earth that take the form of first-order autonomous systems: 
+$$
+C \frac{\mathrm{d}T}{\mathrm{d}t} = G(T), 
+$$ 
+or perhaps in the more recognisable 'dynamical-systems' form of 
+$$
+\dot{x} = f(x),
+$$ 
+for some function $x = x(t)$. Because this is such a simple model, the analysis of the time-dependent evolution can be done on a **phase line**. Solutions can only exhibit two behaviours as $t \to \infty$: they can tend towards a fixed point or they can diverge (to $\pm \infty$).
+
+There are numerous ways to extend the basic EBM. For instance: 
+
+1. (**Latitude variation**) Add latitude variation, with $G \mapsto G(y, T)$. Indeed this is what we had done in the last few chapters, and using a toy model (Newton's law of cooling) that imposes a driver $k(\bar{T} - T)$ into the ODE. 
+
+2. (**PDEs**) A more accurate model is to add a diffusion term, e.g. $k \nabla^2 T$. The Laplacian operator is then turned into a surface derivative in spherical coordinates along the planet. This turns the equation into a PDE, so is more involved to solve. 
+
+3. (**Non-autonomous forcing**) We can consider the addition of temporal forcing, for instance, 
+$$
+G \mapsto G(T) + \epsilon f(t).
+$$ 
+This would model, for instance, some oscillatory source input. For instance, this might model extra oscillatory effects due to the influence of the other planets.  
+
+4. (**Systems of DEs **) We might be interested in extending the model so that, in addition to modelling the evolution of the temperature, we also model the evolution of CO~2~ in the atmosphere. Or we might want a model where the albedo, itself, can evolve in time. An example of such a model is 
+$$
+\begin{aligned}
+C \frac{\mathrm{d}T}{\mathrm{d}t} &= Q[1 - a(t)] - \sigma \gamma T^4, \\
+D \frac{\mathrm{d}a}{\mathrm{d}a} &= a_{\text{eq}}(T) - a.
+\end{aligned}
+$$
+
+The above provides a model for ice sheet dynamics.
+
+## Phase plane analysis for two-dimensional systems 
+
+Coming back now to the standard non-autonomous system of two ODEs, we have 
+$$
+\begin{aligned}
+\dot{x} &= f_1(x, y), \\
+\dot{y} &= f_2(x, y). 
+\end{aligned}
+$$ 
+What is the difference between these kinds of systems and the simpler 1D equations? The main difference is that the analysis is done in the **phase plane** given by $(x, y)$. Fixed points lie in the phase plane, but now there is the additional possibility of oscillations or circular orbits.
+
+An example of this is the system 
+$$
+\begin{aligned}
+\dot{x} &= y - g(x), \\
+\dot{y} &= h(x) - y. 
+\end{aligned}
+$$ 
+
+For instance, choosing $h(x) = 4(2-x)$ and $g(x) = \sin x$ yields the following phase plane diagram: 
+![Typical phase plane](img/phaseplane01.png){#fig-pplane01 width=80%}
+
+You can reproduce the phase plane via the code snippet in `lectures/Chap20-TypicalPhasePlot.ipynb`.
+
+We see there exists a fixed point at where the two nullclines (dashed) intersect. Analysis near this fixed point would reveal that solutions encircle in a clockwise direction and tend towards the fixed point. This is shown by the solution plot on the right. 
+
+Therefore, one way to extend our EBMs is to consider coupling to another component. Keep this in mind as this is where we will be going in the next lecture.
+
+
+
+
+

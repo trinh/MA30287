@@ -1,0 +1,44 @@
+# Differential equations {#sec-odes}
+
+## First-order linear differential equations
+
+First-order linear differential equations are of the form 
+$$
+y'(x) + q(x) y(x) = r(x).
+$$ 
+These are solved by integrating factors. One trick often employed us to think of placing the left hand-side of the equation into the form: 
+$$
+\frac{\mathrm{d}}{\mathrm{d}x} \left[ y(x) e^{\mathrm{??}} \right],
+$$
+where the derivative of ?? yields $q(x)$. 
+
+Officially, to do this, we multiply both sides of the original equation by the integrating factor
+$$
+e^{\int^x q(x') \, \mathrm{d}x'}
+$$ 
+so that the equation can be placed in the form 
+$$
+\frac{\mathrm{d}}{\mathrm{d}x} \left[y(x) e^{\int^x q(x') \, \mathrm{d}x'}\right] = r(x) e^{\int^x q(x') \, \mathrm{d}x'}
+$$ 
+Then integrate and solve for $y$. This gives
+$$
+y(x) = \left( \int r(x) e^{\int^x q(x') \, \mathrm{d}x'} \, \mathrm{d}x + C \right)e^{-\int^x q(x') \, \mathrm{d}x'}.
+$$ 
+It is usually much easier to work with specific problems, as many of the integrals are simpler than the general form given above. You will need to impose any required boundary conditions in order to determine the constant of integration above.
+
+The solution of first-order linear equations is a standard problem in most first differential equations courses. You can find many references online and here is a good one providing plenty practice: [Paul's online notes](https://tutorial.math.lamar.edu/classes/de/linear.aspx)
+
+
+## Second-order constant coefficient ODEs
+
+Second-order linear constant-coefficient ODEs are of the form 
+$$
+y'' + ay' + by = f(x).
+$$ 
+With both forced ($f \neq 0$) and unforced ($f = 0$) varieties studied. For the unforced variant (homogeneous), you will remember that the equation is solved by attempting the ansatz $y = e^{rx}$ and solving for $r$. 
+
+There are many references on this topic since it is the standard second-order theory learned in most initial differential equations courses.
+
+References: 
+
+* [Paul's online notes](https://tutorial.math.lamar.edu/Classes/DE/IntroSecondOrder.aspx)

@@ -1,0 +1,81 @@
+# Units and physics {#sec-mackay-units}
+
+:::{.callout-tip}
+## 2022-23 note
+
+Covered in Lecture 5.
+:::
+
+
+:::{.callout-note}
+This lecture follows from Chap. 2 of [@mackay_book].
+:::
+
+
+
+Thus, the two fundamental quantities of *energy* and *power* have analogues in fluid motion. In fluid motion, *volume* can be measured in litres. *Flow* is the rate that volume is delivered, i.e. flow = (volume/time). In electricity or electromagnetism, energy is the analogue of volume, while power is the analogue of flow.  
+
+## Units
+
+::: {#def-kwh}
+## Unit of energy
+
+The SI unit of energy is a Joule (J). In discussing usage, however, we will often use the **kilowatt-hour (kWh)**. 
+:::
+
+::: {#def-power}
+
+## Unit of power
+
+The SI unit of power is a Watt (W), equivalent to 1 J/s. Thus 1 kW of power is 1000 J/s. Power can also be measured in **kWh per day**.
+
+:::
+
+So based on the above, let us unpack one unit of energy (kWh) in terms of Joules. 
+
+$$
+[E] = 1\mathrm{kWh} = (10^3 \mathrm{J/s}) \times \left(3.6 \cdot 10^3 \frac{\mathrm{s}}{\mathrm{hr}}\right) \cdot 1 \mathrm{hr} = 3.6 \cdot 10^6 \mathrm{J}.
+$$
+
+
+:::{.callout-note}
+One 40W lightbulb left on for a day uses about 1 kWh via the following argument.  
+
+$$
+40 \mathrm{W} \cdot 1 \mathrm{day} = 40 \cdot 10^{-3} \mathrm{kW} \cdot 24 \mathrm{hours} = 0.96 \mathrm{kWh}.
+$$
+:::
+
+So to repeat, for measurement of electricity, the unit we will often use is the kWh, and 1 kWh is approximately the energy required to light a (40W) lightbulb for an entire day. Given the importance of understanding your energy bills, thinking in terms of those quantities will help you remember. See below note.
+
+:::{.callout-note}
+Examining the current Shell Energy tarifs as of mid October 2022, the unit rate of electricity is 21.6p/kWh and the unit rate of gas is 4.2p/kWh. This is about double the figures quoted in [@mackay_book]!
+:::
+
+::: {#def-multipliers}
+
+## Kilo, mega, giga, tera
+
+*Kilo* means a multiplier of $10^3$. Similarly, *Mega* is a multiplier of $10^6$, *Giga* a multiplier of $10^9$, and *Tera* a multipier of $10^{12}$. 
+:::
+
+## Energy equivalences
+
+As the fundamental law of thermodynamics goes, *energy cannot be created nor destroyed*. However, not all energies are equivalent because there are penalties and efficiencies when one converts from one energy type to another (in terms of usable energy). For example: 
+
+1. A fossil fuel plant will convert from chemical energy to electrical energy at an efficiency of about 40%. 
+
+2. An aluminium plant will convert from elecrical energy to manufacture aluminium (and hence chemical energy) at an efficiency of about 30%. 
+
+Because of the above, in common usage, some tables of energy usage will include the conversion factors while others will not. For example, consider a power station that converts 2.5 kWh of oil into 1 kWh of electrical energy (an efficiency of 40%). We might then write
+$$
+E_\mathrm{electrical} = E_\mathrm{oil} \cdot 0.4
+$$
+but the above is a confusing statement if you assume that there is a single intrinsic notion of energy, $E$. Do we set $E = E_\mathrm{oil}$ or $E = E_\mathrm{electrical}$?. If this further confuses you, ask the following question: what does $E_\mathrm{oil}$ mean if one does not consider a conversion process?
+
+In order to avoid this confusion, MacKay uses (p. 27) the convention of treating energy values as equivalent, i.e. 1 kWh of chemical energy is the same as 1 kWh of electrical energy.
+
+:::{.callout-note}
+As MacKay notes (p. 27) the above assumption is not the same as assuming that all energy can be converted to one and the other without loss. 
+:::
+

@@ -1,0 +1,16 @@
+# Modelling {#sec-modelling}
+
+:::{.callout-tip}
+## Appendices
+
+These appendices may contain material that is added during the term, dependent on student enquiries and need.
+:::
+
+<!-- ## Units -->
+
+<!-- It is good to clarify notation and analysis of scientific units. In this course, we will sometimes use square brackets to indicate the units of a quantity. For example, in the next chapter, we will discuss radiation from the sun, measured by $Q = 1380$ W m^{-2}. A Watt (W) is energy per unit time, or joules per second (J/s). So alternatively, we could write $Q = 1380 J/(m^2 s)$, or --> 
+<!-- $$ -->
+<!-- [Q] = J m^{-2} s^{-1}. -->
+<!-- $$ --> 
+<!-- This is an example of a **flux**---the flow (W, J/s) per unit area (m^2) of some quantity (in this case, energy). If you are ever confused about what a unit means, it is a good idea to break it into its constituent parts. --> 
+

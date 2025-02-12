@@ -1,0 +1,54 @@
+# Numerical solutions of PDEs
+
+<!-- :::{.callout-note} -->
+<!-- ## 2023-24 note -->
+<!---->
+<!-- Numerical solutions of PDEs was only briefly touched upon during the lectures (and is accompanied by some investigation in the problem set). However, the material in this section is non-examinable. You are not expected to know how to apply finite-difference schemes to solve PDEs. -->
+<!-- ::: -->
+
+We shall begin by introducing the simplest finite-difference routine for solving a PDE using Euler time stepping. Let us consider the solution of the heat equation on a finite interval:
+$$
+\begin{gathered}
+\frac{\partial u}{\partial t} = \frac{\partial^2 u}{\partial x^2}, \\
+u(0, t) = 1, \quad u(1, t) = 2, \quad u(x, 0) = 2.
+\end{gathered}
+$$ 
+
+## Finite difference problem 
+
+We consider a discretisation of the spatial domain $x \in [0, 1]$ via the $(N+1)$ points 
+$$
+x_0 = 0, \quad x_1 = \Delta x, \quad x_2 = 2\Delta x, \quad \ldots , \quad x_{N+1} = 1. 
+$$
+Typically $\Delta x$ is small. We also have time steps of size $\Delta t$, and thus going from $t_0 = 0$, $t_1 = \Delta t$, and so forth. We represent the solution by the indexing scheme: 
+$$
+u(x_j, t_k) = u_{j}^j.
+$$ 
+
+Like for Euler's method, we consider the approximation of the time derivative as follows:
+$$
+\left(\frac{\partial u}{\partial t}\right)_j^k \approx \frac{u_j^{k+1} - u_j^k}{\Delta t}, \qquad \text{for $0 \leq j \leq N+1$, $k \geq 0$}.
+$$ 
+
+In order to approximate the second-order derivative, Hwe will use 
+$$
+\left(\frac{\partial^2 u}{\partial x^2}\right)_j^k \approx \frac{u_{j+1}^k - 2 u_j^k + u_{j-1}^k}{(\Delta x)^2}, \qquad \text{$1 \leq j \leq N$, $k \geq 0$}.
+$$ 
+Note that the finite difference cannot be applied directly to the first and last points ($j = 0$ and $j = N+1$). Substituting the above finite differences into the heat equation, we see that we now have the prescription: 
+$$
+u_j^{k+1} = u_j^k + \frac{\Delta t}{(\Delta x)^2} \left[u_{j+1}^k - 2 u_j^k + u_{j-1}^k \right], 
+$$ 
+which applies for $j = 1, 2, \ldots, N$. 
+
+## Boundary and initial conditions
+
+The initial conditions are implemented by setting 
+$$
+u_j^0 = 2, \qquad \text{for $j = 0, 1, 2, \ldots, N+1$}.
+$$ 
+The boundary conditions require 
+$$
+u_0^k = 1 \quad \text{and} \quad u_{N+1}^k = 2, \quad \text{for all $k \geq 0$}.
+$$ 
+
+During the lectures, we will examine script `Chap10-SolvingPDEs.ipynb` on the course scripts to see an example implementation. A similar application is applied in `Chap10-winecellar.ipynb` to solve a heat equation. 

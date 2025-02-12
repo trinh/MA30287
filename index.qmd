@@ -1,0 +1,65 @@
+# Preface  {.unnumbered .unlisted}
+
+
+:::{.callout-important}
+## Note 30 Jan 2025
+
+We are currently re-generating the notes for 2025 delivery. If you would like to see the complete notes from prior deliveries there should be a link up on the Moodle site. Hang tight.
+:::
+
+Welcome to to the 2023-24 delivery of [MA30287 Maths of Planet Earth](https://www.bath.ac.uk/catalogues/2023-2024/ma/MA30287.html) at the University of Bath. In the below figure, you will see an image that, to some extent, represents the way mathematicians and other learned scientists see the Planet. 
+
+![This picture was produced by [Abstruse Goose](https://abstrusegoose.com/275) and has the title: "this is how scientists see the world".](all_i_see_are_equations.png){#fig-world width=60%}
+
+## Lectures and office hours
+
+**Lectures** take place at the following times and locations: 
+
+* Tuesdays 9:15 in 6W 1.2
+* Wednesdays 11:15 in 6W 1.2
+* Thursdays 15:15 in 6W 1.2
+
+**Office hours:** You will be able to find me for an office hour in 4W 2.18 on Thursdays (following the lecture). Typically it is best to set this up, beforehand, by email appointment.
+
+## Coursework and examinations
+
+Your final mark will be 25% coursework and 75% final exam. 
+
+Details of the coursework will be released in Week 7 and it will be due in Week 10[^1].
+
+[^1]:Subject to confirmation.
+
+## Resources 
+
+In general, you will have access to a few kinds of resources: 
+
+1. The [Moodle portal](https://moodle.bath.ac.uk/course/view.php?id=60108) will be the main organisation portal. 
+
+2. Lecture notes, coursework, and other resources will be found in an online format and will be linked on Moodle.
+
+3. Coding will be done via Noteable, accessed via the Moodle website.
+
+Naturally, because this is a relatively new module at Bath, there will be a fair amount of activity as we settle the material over the semester. 
+
+
+## Prerequisites
+
+This course officially requires MA20221 (modeling and dynamical systems) or XX20231 (mathematical and statistical methods for the life sciences). It is designed to be somewhat stand-alone in the sense that applied mathematical techniques learned in other courses will be introduced in some capacity. Such techniques will involve: 
+
+* Solutions of ordinary differential equations (MA10230 and MA20220).
+* Multivariable calculus, partial differentiation, and multiple integrals (MA10230 and MA10236); some review/introduction of concepts from MA20223. 
+* Dynamical systems, stability, phase planes (MA20221, MA30060).
+* Numerical methods in Python (MA10276).
+
+Whenever possible, I have isolated such reviews/introductions and these can be found in the *Mathematical methods* section of these notes. During the current phase, Bath is undergoing changes to Years 1 and 2, so some of the above content may have shifted; these shifts are typically minor and cosmetic. 
+
+## Resources 
+
+This course is designed around the following sources: 
+
+* Sustainable energy -- without the hot air by [@mackay_book]
+* Mathematics & Climate by [@kaper_book]
+* Mathematical Geoscience by [@fowler_book]
+* [A gentle introduction to numerical simulations with Python](https://hplgit.github.io/prog4comp/)
+
+However, the current MPE course is also quite 'bespoke' at Bath, so there is no single source with all the information. It has been designed to cover a selection of topical subjects and complementary to other materials you might have learned previously in your studies. 

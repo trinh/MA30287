@@ -1,0 +1,190 @@
+# Finite difference approximations {#sec-FD}
+
+:::{.callout-tip}
+## Appendices
+
+These appendices may contain material that is added during the term, dependent on student enquiries and need.
+:::
+
+
+Many of the numerical methods we need will require using numerical approximations for the derivatives of functions. For instance, using Newton's method to solve for the zeros of a system of equations requires calculating the Jacobian matrix.
+
+## Forwards, backwards, and centred differences 
+
+We want to learn how to use finite differences in order to approximate derivatives numerically. We know that
+$$
+f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h},
+$$
+provided the limit exists. Therefore, a simple idea to approximating the value of $f'(x)$ is to use a small numerical value for $h$, and calculate (the gradient of the secant line), 
+$$
+f'(x) \approx \frac{f(x + h) - f(x)}{h},
+$$
+where $h$ is a specified small number. The above is known as the **two-point forward-difference formula**. In fact, we can determine exactly the error of such an approximation via Taylor's theorem. If $f$ is twice continuously differentiable, then 
+$$
+f(x + h) = f(x) + h f'(x) + \frac{h^2}{2} f''(c),
+$$
+for some point $c\in [x, x+h]$. Therefore by re-arrangement, we see the following. 
+
+:::{.callout-note}
+## Two-point forward-difference formula
+
+$$
+f'(x) = \frac{f(x + h) - f(x)}{h} - \frac{h}{2} f''(c),
+$$
+where $c \in (x, x+h)$.
+
+:::
+
+Notice that the error in using the two-point forward difference approximation is then $\mathcal{O}(h)$, and this error tends to zero as $h \to 0$ (as long as $f''$ is continuous). We thus call the above formula a first-order finite-difference approximation. If the error is $\mathcal{O}(h^n)$, we call the corresponding formula an $n$th-order approximation.
+
+:::{.callout-important}
+## Example
+
+Use the two-point forward difference formula with different values of $h$ in order to approximate the derivative of $f(x) = 1/x$ at $x = 2$. 
+
+| $f(x)$ | $f(x + h)$ | $h$ | $f'(x)$ | Error |
+|---|---|---|---|---|
+| ... | ... | ... | ... | ... |
+| ... | ... | ... | ... | ... |
+| ... | ... | ... | ... | ... |
+
+:::
+
+Similar formulae can be developed for the backwards difference (send $h \to -h$). 
+
+A more accurate formula can be developed via subtracting the Taylor series for $f(x - h)$ from that for $f(x + h)$. This results in:
+
+:::{.callout-note}
+## Three-point centered-difference formula
+
+$$
+f'(x) = \frac{f(x + h) - f(x - h)}{2h} - \frac{h^2}{6} f'''(c),
+$$
+where $c \in (x-h, x+h)$.
+
+:::
+
+Thus we see that the centered difference formula is accurate to $O(h^2)$.
+
+
+
+## Jacobian matrices
+
+:::{.callout-note}
+## Reference
+
+You will have encountered the Jacobian, firstly in your first-year Methods courses when performing change-of-coordinates in integration formulae, and secondly in your second-year Modelling and Dynamics courses when studying differential equations. It also comes up in the second-year Vectors and PDEs course. 
+:::
+
+
+The Jacobian matrix, $\mathbf{J}$, of a vector function, $\mathbf{F}: \mathbb{R}^n \to \mathbb{R}^m$,
+$$
+\mathbf{F}(\mathbf{x}) = \begin{pmatrix}
+f_1(\mathbf{x}) \\ 
+f_2(\mathbf{x}) \\
+\vdots \\
+f_m(\mathbf{x})
+\end{pmatrix},
+$$
+is the matrix of all its first-order partial derivatives, 
+$$
+\mathbf{J}(\mathbf{x}) = \begin{pmatrix}
+\frac{\mathrm{\partial}f_1}{\mathrm{\partial}x_2} & \cdots &
+\frac{\mathrm{\partial}f_1}{\mathrm{\partial}x_n} \\
+\vdots & \ddots & \vdots \\
+\frac{\mathrm{\partial}f_m}{\mathrm{\partial}x_1} & \cdots &
+\frac{\mathrm{\partial}f_m}{\mathrm{\partial}x_n}
+\end{pmatrix}
+= \begin{pmatrix}
+\nabla f_1(\mathbf{x})^T \\
+\vdots \\
+\nabla f_n(\mathbf{x})^T
+\end{pmatrix}.
+$$
+We can essentially think of the Jacobian as the multi-dimensional extension of the basic derivative. It encodes all of the (first-order) information about the rate-of-change of the function. 
+
+It is interesting and important to consider the numerical evaluation of the Jacobian, in the event that the function $\mathbf{F}$ cannot be easily differentiated exactly. The simplest algorithm is based on approximating each entry of the matrix by a finite difference. 
+
+For example, let us consider approximating 
+$$
+\frac{\mathrm{\partial}f_i}{\mathrm{\partial}x_j}(\mathbf{x}_0).
+$$
+We define the $j$th unit vector by $\mathbf{e}_j = [0 \, 0 \, \cdots \, 1 \, \cdots \, 0]$, which the $j$th entry being one and all entries being zero. Then we can approximate the derivative by a central difference, 
+$$
+\frac{\mathrm{\partial}f_i}{\mathrm{\partial}x_j}(\mathbf{x}_0) \approx \frac{f_i(\mathbf{x}_0 + \mathbf{e}_j h) - f_i(\mathbf{x}_0 - \mathbf{e}_j h)}{2h},
+$$
+where $h$ is a small step size. 
+
+Let us test this by calculating the Jacobian for 
+$$
+\mathbf{F}(\mathbf{x}) = \begin{pmatrix}
+x_1^2 \\
+x_2^2 \\
+x_1 x_2
+\end{pmatrix}.
+$$
+The pseudocode for this looks like this
+
+:::{.callout-note}
+## Pseudocode for numerical Jacobian
+
+Input: function F (size m), point x (size n), step size h
+
+```
+1. Create an (m x n) matrix, J
+2. a. Loop through all the rows indexed by i
+      b. Loop through all the columns indexed by j
+             Create the ej unit vector
+	     Calculate the difference of F_i(x + h e_j) - F_i(x - h e_j)
+	     Divide by 2h
+	     Assign this value to the (i,j)th value of the Jacobian
+
+Output: the (mxn) Jacobian matrix J
+```
+:::
+
+Here is a code that puts it into practice. 
+
+
+```{python}
+import numpy as np
+
+def jacobian(func,initial,delta=1e-3):
+  f = func
+  nrow = len(f(initial))
+  ncol = len(initial)
+  output = np.zeros(nrow*ncol)
+  output = output.reshape(nrow,ncol)
+  for i in range(nrow):
+    for j in range(ncol):
+      ej = np.zeros(ncol)
+      ej[j] = 1
+      dij = (f(initial+ delta * ej)[i] - f(initial- delta * ej)[i])/(2*delta)
+      output[i,j] = dij
+  return output
+  
+def myf(x):
+  x1 = x[0]
+  x2 = x[1]
+  output = np.zeros(3)
+  output[0] = x[0]**2
+  output[1] = x[1]**2
+  output[2] = x[0]*x[1]
+  return output
+  
+jacobian(myf,[1,2])
+```
+
+
+
+[comment]: # https://rh8liuqy.github.io/Finite_Difference.html#ref-finite
+
+<!-- 
+
+:::{.callout-note}
+## Reference
+
+Some of this material follows from Chap. 5 of [@sauer_book].
+:::
+
+-->

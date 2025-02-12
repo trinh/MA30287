@@ -1,0 +1,99 @@
+# An example of ChatGPT going wrong
+
+
+
+Please refer to [the Courseworks and genAI document for guidance](https://bath-prod-sss1.s3.eu-west-1.amazonaws.com/35/77/35774014a834e23684e6c48abb5314129715891d?response-content-disposition=inline%3B%20filename%3D%22gen-ai-guidelines.pdf%22&response-content-type=application%2Fpdf&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJBFBMNJTZPM2NVZA%2F20240307%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20240307T141016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=21584&X-Amz-Signature=25f0f09f8861ee9f73f8346a64b643f6bbc9bc6f3bfe5a7253a94ffb5ff2b271). 
+
+Remember that standard generative AI tools do not have mathematical engines. They have mathematical information, but no knowledge of mathematics. They can produce content that looks convincing but is incorrect. Worse still, in order to diagnose the issues, you may need to already be an expert!
+
+Here is an example based on material from this course. 
+
+![Example ChatGPT output](figures/chatgpt_asymptotics01.png)
+
+![Example ChatGPT output](figures/chatgpt_asymptotics02.png)
+
+
+
+It is important to remember that "correcting" the output of ChatGPT is sort of a misnomer. ChatGPT or similar genAI or Large Language Models and algorithms do not include common sense, or any algorithmic understanding of syntactic rules. With ``correcting" misunderstandings, you generally need to understand why the error was made in the first place. With LLMs, the "why" is replaced by the fact that, within its training set, words are simply close together in the high-dimensional vector space. 
+
+This brings to mind the well-known phrase *"Not even wrong"*
+
+![Not even wrong](figures/notevenwrong.png)
+
+## Breakdown of issues
+
+
+To solve the differential equation 
+
+$$
+\epsilon^p y'' + y^2 = \text{sech}(x)
+$$
+
+:::{.callout-important collapse=true}
+## Solution
+
+Why did it change "ep" to $\epsilon^p$? 
+:::
+
+using matched asymptotics, we'll first identify the scales of $y$ and $x$. Since we're looking for solutions near $x = 0$, we'll assume a boundary layer solution near $x = 0$ where $\textrm{sech}(x)$ is significant. 
+
+:::{.callout-important collapse=true}
+## Solution
+
+Why did it assume the boundary layer is near $x = 0$? Also, $\mathrm{x}$ is not necessarily ``significant" near $x = 0$. 
+:::
+
+In the outer region, we'll look for solutions where $y$ is significant.
+
+:::{.callout-important collapse=true}
+## Solution
+
+Doesn't really make sense. 
+:::
+
+For small $x$, the scale of $\text{sech}(x)$ is $O(1)$, while for $y$, the scale is $O(\sqrt{\epsilon})$ where $\epsilon$ is a small parameter.
+
+:::{.callout-important collapse=true}
+## Solution
+
+That's not right...$x$ is not $O(1)$ near $y = 0$. It's not obvious at this point what the scaling for $y$ is. 
+:::
+
+Let $x = \epsilon^\alpha X$, where $\alpha$ is to be determined later. For the inner region, we take $\epsilon \ll X \ll 1$, and for the outer region, we take $X = O(1)$. We will match the solutions in the overlap region $0 \leq X \leq O(\epsilon^\beta)$ where $\beta > \alpha$.
+
+:::{.callout-important collapse=true}
+## Solution
+This isn't right. In the inner region $X  = O(1)$ and the outer region $X \to \infty$. Almost all the statements are wrong. 
+:::
+
+Substituting $x = \epsilon^\alpha X$ and $y(x) = \epsilon^\gamma Y(X)$ into the differential equation and neglecting terms of higher order in $\epsilon$ yields:
+
+$$
+e^p \epsilon^{-2\alpha} Y'' + \epsilon^{2\gamma} Y^2 = \text{sech}(\epsilon^\alpha X)
+$$
+
+For balance, we choose:
+
+$$
+\begin{gathered}
+2\gamma - 2\alpha = 0 \implies \gamma = \alpha \\
+2\alpha - 2\alpha p = 0 \implies p = 1
+\end{gathered}
+$$
+
+Thus, we need to solve:
+
+$$
+Y'' + Y^2 = e^X
+$$
+
+:::{.callout-important collapse=true}
+## Solution
+
+The above lines don't make any sense. For one thing, near $x = 0$, you should have $\mathrm{sech}{x} \sim 1$. Secondly if you examine what its working gives, no value of $\alpha$ is obtained. The correct inner equation is found by balancing the first and last terms, giving $x = \sqrt{\epsilon} X$ and 
+$$
+Y'' + \epsilon Y^2 = \mathrm{sech}(\epsilon x) \sim 1. 
+$$ 
+:::
+
+Everything else is wrong. 

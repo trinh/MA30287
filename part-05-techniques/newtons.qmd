@@ -1,0 +1,176 @@
+---
+jupyter: python3
+---
+
+# Nonlinear root finding {#sec-newton}
+
+Before we move on back to the subject of applications, it is worth providing an introduction to methods for solving nonlinear equations. Many problems you will encounter in applications, including for ordinary or partial differential equations, can be re-formulated as the solution of a nonlinear system of equations. 
+
+Newton's method is the most well-known scheme for solving nonlinear equations. Suppose we wish to solve the scalar equation, 
+$$
+f(x) = 0,
+$$
+given some initial guess, $x = x_0$, of the root. Suppose the root lies at $x = x^*$. Then by Taylor's theorem,
+$$
+f(x^*) = f(x_0) + f'(x_0)(x^* - x_0) + O(f''(x_0)(x - x_0)^2).
+$$ 
+If we assume the quadratic terms are negligible then solve for $x^*$ this gives
+$$
+x^* \approx x_0 - \frac{f(x_0)}{f'(x_0)}.
+$$ 
+There is a geometrical interpretation of the above. Essentially, in order to estimate the root of $f(x) = 0$, we have used the tangent line at the point $x = x_0$, and used the intersection of this tangent line with the axis as the approximation. This procedure can then be iterated.
+
+Thus, provided that the desired root, $x^*$, is such that $f'(x^*) \neq 0$, and $x_0$ is sufficiently close to $x^*$, then the following iterates converge to the root: 
+$$
+x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}.
+$$
+
+## Demo of Newton's method for scalar equations
+
+Here is a simple demonstration of Newton's method in order to solve for one of the roots of the following:
+$$
+f(x) = x^3 + x - 1.
+$$ 
+
+We will start with the initial guess of $x_0 = 0$. We can do this by hand in lectures using a pocket calculator. The solution is $x^* \approx 0.6823278..$
+
+| i | xi | f(xi) | f'(xi) | -f(xi)/f'(xi) | error |
+| --- | --- | --- | --- | --- | --- | 
+| 0 | | | | | |
+| 1 | | | | | |
+| 2 | | | | | 
+
+
+```{python}
+import numpy as np
+
+x0 = 0
+N = 10
+
+def Newton(f, df, x, maxiter=10):
+	i = 0
+	while (i < maxiter):
+		err = f(x)
+		x = x - err / df(x)
+		print("f(x) = ", np.abs(err), ", x = ", x)
+		i = i + 1
+	return x, err
+
+f = lambda x: x**3 + x - 1
+df = lambda x: 3*x**2 + 1
+
+x, err = Newton(f, df, x0, N)
+print("Final approximation = ", x)
+```
+
+<!--
+```{python}
+import numpy as np
+
+def Newton(f, df, x, maxiter=100, tol=1e-12, display=0):
+	i = 0
+	while (abs(f(x) - 0) > tol) and (i < maxiter):
+		err = f(x)
+		x = x - err / df(x)
+		if display == 1:
+			print("f(x) = ", np.abs(err), ", x = ", x)
+		i = i + 1
+	return x, err
+
+f = lambda x: x**3 + x - 1
+df = lambda x: 3*x**2 + 1
+
+x = 0
+x, err = Newton(f, df, x, 10, 1e-8, 1)
+print("Final approximation = ", x)
+```
+--> 
+
+It is a good idea to also learn how to do this using built-in packages. The 'fsolve' function provides a Newton-like nonlinear solver. In fact, it can estimate the Jacobian (derivative), so only the function values need to be provided.
+
+```{python}
+import numpy as np
+from scipy.optimize import fsolve
+
+f = lambda x: x**3 + x - 1
+
+x0 = 1
+x, info, ier, msg = fsolve(f, x0, full_output=True)
+
+print(msg)
+print(x)
+```
+
+## Newton's method for systems of nonlinear equations
+
+Newton's method generalises naturally to the case of a system of equations. Suppose we wish to solve for the $n$ unknowns $\mathbf{x} = (x_1, \ldots, x_n)$ via 
+$$
+\mathbf{F(\mathbf{x}}) = 
+\begin{pmatrix}
+F_1(\mathbf{x}) \\
+F_2(\mathbf{x}) \\
+\ldots \\
+F_n(\mathbf{x})
+\end{pmatrix} = 0.
+$$
+
+We have, via Taylor's formula, 
+$$
+\mathbf{F}(\mathbf{x}_{i+1}) \sim  \mathbf{F(\mathbf{x}_i}) + J(\mathbf{x}_i)(\mathbf{x}_{i+1} - \mathbf{x}_i) + \mathcal{O}(||\mathbf{x}_{i+1} - \mathbf{x}_i||^2),
+$$
+where $J$ is the Jacobian matrix
+$$
+J(\mathbf{x}) = \nabla \mathbf{F}(\mathbf{x}) = 
+\begin{pmatrix}
+\frac{\mathrm{\partial}F_1}{\mathrm{\partial}x_1} & 
+\cdots &
+\frac{\mathrm{\partial}F_1}{\mathrm{\partial}x_n} \\
+\vdots & \ddots & \vdots \\
+\frac{\mathrm{\partial}F_n}{\mathrm{\partial}x_1} & 
+\cdots &
+\frac{\mathrm{\partial}F_n}{\mathrm{\partial}x_n}
+\end{pmatrix}.
+$$
+Therefore, Newton's method forms the iterates of 
+$$
+\mathbf{x}_{i+1} = \mathbf{x}_i {\color{blue}-} J^{-1}(\mathbf{x}_i) \mathbf{F}(\mathbf{x}_i),
+$$
+which takes a very similar form to the scalar case. 
+
+However, solution of the inverse of $J$ is typically inefficient, and it is better to instead solve for $\delta_{i+1} = \mathbf{x}_{i+1} - \mathbf{x}_i$ via 
+$$
+J(\mathbf{x}_i) \delta_{i+1} = - \mathbf{F}(\mathbf{x}_i),
+$$
+and then calculate $\mathbf{x}_{i+1} = \mathbf{x}_i + \delta_{i+1}$. There are many ways of solving the above matrix problem efficiently using built-in routines that perform, e.g. Gaussian elimination.
+
+## Secant method 
+
+In many situations, evaluation of the Jacobian (or derivative) is the most time-consuming or difficult part of a nonlinear solver. Built-in solvers like 'fsolve', in fact, have the ability to approximate the derivative numerically. 
+
+The Secant Method is similar to Newton's Method but replaces the derivative by a finite difference. Geometrically, the tangent line is replaced with a line through the two last known guesses. The algorithm goes as follows. 
+
+:::{.callout-note}
+## Secant method
+
+1. Develop two initial guesses to the solution, x0 and x1
+
+2. Compute 
+$$
+x_{n+1} = x_n - \frac{f(x_n)}{\frac{f(x_n) - f(x_{n-1})}{x_n - x_{n-1}}} =  x_n - \frac{f(x_n)(x_n - x_{n-1})}{f(x_n) - f(x_{n-1})}.
+$$ 
+
+:::
+
+
+<!-- 
+http://hplgit.github.io/prog4comp/doc/pub/._p4c-solarized-Python031.html
+-->
+
+
+
+
+
+
+
+
+

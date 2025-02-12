@@ -1,0 +1,67 @@
+# Ice ages II: a model for fast-slow dynamics {#sec-ice2}
+
+In order to capture the kind of dynamics observed in ice ages, we are interested in studying mathematical models that produce fast-slow dynamics -- that is, dynamics that might consist of a slow evolution in one state, before rapidly jumping to another state; such dynamics might exhibit the kind of periodicity we observed in the profiles of temperatures through the ice ages. We might also be interested in understanding how the periodicity might suddenly change (the Mid-Pleistocene Transition problem) but this will be more challenging. 
+
+It turns out that such fast-slow systems are incredibly common. If we return to the canonical example presented in the previous chapter, we can modify it sightly so that it takes the form 
+$$
+\begin{aligned}
+\epsilon \dot{x} &= y - g(x), \\
+\dot{y} &= h(x) - y. 
+\end{aligned}
+$$
+where $\epsilon$ is a small parameter.
+
+Studying the above, notice that if $\epsilon$ is small, then we expect for $y \sim g(x)$, and therefore the dynamics should be constrained to lie along this given curve. However, this seems incompatible with the evolution that is specified by the second equation. The result is that this system will exhibit a sequence of slow dynamics (where it is near $y = g(x)$) followed by fast dynamics where it hops between the branches of the $x$-nullcline. This will be clear with an example. 
+
+## The van der Pol oscillator
+
+In an article by [Ditlevsen and Ashwin (2018)](https://www.frontiersin.org/articles/10.3389/fphy.2018.00062/full) the authors argued that the following van der Pol oscillator presents a good toy model for understanding some of the dynamics that occur in ice ages: 
+$$
+\frac{\mathrm{d}^2 x}{\mathrm{d}\tau^2} = \frac{1}{\sqrt{\epsilon}} (1 - x^2) \frac{\mathrm{d}x}{\mathrm{d}\tau} - \alpha x + F(\tau),
+$$ 
+where $x = x(t)$, $F(\tau) = A \cos(\omega_F \tau)$ and $\omega_F = (2\pi/41) \mathrm{kyr}^{-1}$ represents a model for astronomical forcing. We will not discuss their 'derivation' of the above model (presented in their sec. 5), though it seems best to consider it solely as a toy model since otherwise their derivation of its validity based on EBM arguments is somewhat sketchy.
+
+In any case, we are firstly interested in the case of zero forcing, $F \equiv 0$. It can be verified that through a transformation of time, $\tau \mapsto t$, the above equation becomes
+$$
+\epsilon \frac{\mathrm{d}^2 x}{\mathrm{d}t^2} + (x^2 - 1) \frac{\mathrm{d}x}{\mathrm{d}t} + x = 0, 
+$$ 
+where we have chosen, without loss of generality, for $\alpha = 1$. Again we are considering $\epsilon \ll 1$. This is a very well-known problem in nonlinear oscillations and it is the canonical example of fast-slow dynamics.
+
+### The Lienard transformation
+
+We first explain how to transform the above second-order equation so that it resembles the system of two linear differential equations shown above. Notice that the equation can be written in the form 
+$$
+\frac{\mathrm{d}}{\mathrm{d}t} \left(\epsilon \frac{\mathrm{d}x}{\mathrm{d}t} + \frac{1}{3} x^3 - x \right) + x = 0.
+$$ {#eq-lienard} 
+We then define 
+$$
+y \equiv \epsilon \frac{\mathrm{d}x}{\mathrm{d}t} + \frac{1}{3} x^3 - x  
+$$ 
+which can be re-arranged to yield
+$$
+\epsilon \dot{x} = y - S(x), \qquad S(x) \equiv \frac{1}{3}x^3 - x,
+$$
+where we have used dots to indicate derivatives in time. The second equation is found by @eq-lienard itself, since this yields
+$$
+\dot{y} = -x. 
+$$ 
+Therefore together, we have our system: 
+$$
+\begin{aligned}
+\epsilon \dot{x} &= y - S(x), \\
+\dot{y} &= -x.
+\end{aligned}
+$$
+
+
+### An investigation in Python
+
+The lecture will now investigate the scripts to see the qualitative behaviour of the ODE. We will design a phase plane plotter in Python and see why this is called a fast-slow system. 
+
+The script can be found in the Noteable notes via `lectures/Chap21-DynamicsFastSlow.ipynb`.
+
+During the lecture, we discussed the following image: 
+
+![Phase plot of the above system](img/2023-04-12-10-52-55.png)
+
+We interpreted the dynamics that follow either the slow manifold, $y = S(x)$, and also the fast transitions that occur between the branches of the cubic. Also shown on the right side of the above plots are the profiles, $x$ and $y$ versus $t$. In the limit $\epsilon \to 0$, the transitions begin to resemble shocks. 

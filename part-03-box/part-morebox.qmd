@@ -1,0 +1,4 @@
+# Fast-slow dynamics
+
+This material will study the incidence of fast-flow dynamics that occur in generic dynamical systems. The emphasis will be on the posited fast-slow dynamics that occur in ice ages. 
+

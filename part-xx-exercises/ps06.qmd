@@ -1,0 +1,157 @@
+# Problem set 6 {#sec-ps6}
+
+:::{.callout-tip}
+## Note
+This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.
+:::
+
+## Q1. A van der Pol equation {.unnumbered}
+Consider the van der Pol equation for $x(t)$ with $0 < \epsilon \ll 1$: 
+$$
+\epsilon \frac{\mathrm{d}^2 x}{\mathrm{d}t^2} + (3x^2 - 6x - 9) \frac{\mathrm{d}x}{\mathrm{d}t} + 4x = 0.
+$$ 
+
+a. Determine $f(x)$ so that this equation can be written as a Liénard phase plane system in the form 
+$$
+\begin{aligned}
+\epsilon \dot{x} &= f(x) + 4y, \\
+\dot{y} &= -x. 
+\end{aligned}
+$$
+
+b. For fixed $\epsilon > 0$, find the equilibrium point(s) in the phase plane, find their eigenvalues, and classify their linear stability. 
+
+c. Use the expansions $x(t) = x_0(t) + \epsilon x_1(t) + O(\epsilon^2)$ to determine the equations for the leading-order slow solution. Sketch the slow manifold, indicate the directions motion on each part, and identify the two attracting points on the curve. 
+
+d. Use the expansions $x(t) = X_0(T) + \epsilon X_1(T) + O(\epsilon^2)$ and $y(t) = Y_0(T) + \epsilon Y_1(T) + O(\epsilon^2)$ with $T = t/\epsilon$ to obtain the leading-order fast solution. 
+
+e. Use the phase plane to determine the maximum and minimum values of $x(t)$ during an oscillation. Sketch $x(t)$ as a function of time. 
+
+<!-- f. **(Challenge)** Using the time required for the slow motions in part c (neglecting the short times for the fast solutions in part d), determine the leading-order estimate for the period $P$  of oscillation for the limit cycle.  -->
+<!---->
+<!-- Hint: Find the time spent moving along each of the slow curves by obtaining an equation $\dot{x}_0 = g(x_0)$ from part c, and then separate variables to write  -->
+<!-- $$ -->
+<!-- \dot{x}_0 = g(x_0) \Longrightarrow P = \int_{t_{\text{start}}}^{t_{\text{end}}} \, \mathrm{d}t = \int_{x_{\text{start}}}^{x_{\text{end}}} \frac{\mathrm{d}x}{g(x)}. -->
+<!-- $$  -->
+<!-- Finally, integrate over the ranges in $x$ that are appropriate to each of the slow segments, and add the result to obtain the period. -->
+
+## Q2. Fast-slow dynamics with three variables {.unnumbered}
+
+Consider the limit of $\epsilon \ll 1$ for each of the following cases. 
+
+a. Consider the system 
+$$
+\begin{aligned}[c]
+\dot{x} &= 2 - y, \\
+\dot{y} &= x-z, \\
+\epsilon\dot{z} &= y - y^2 + \frac{1}{3}y^3 - z, 
+\end{aligned}
+$$ 
+with the initial conditions of $x(0) = 1$, $y(0) = 3$, and $z(0) = 0$. 
+
+  (i) Identify the surface $z = S(x, y)$ that defines the slow manifold. 
+  (ii) Find the equilibrium point of the leading-order slow phase plane system and show that it is asymptotically stable for $t \to \infty$. 
+  (iii) Also determine the form of the initial layer that describes the transition from the initial conditions to the slow manifold.
+
+b. Consider the system 
+$$
+\begin{aligned}[c]
+\dot{x} &= 2 - y, \\
+\epsilon\dot{y} &= x-z, \\
+\dot{z} &= y - y^2 + \frac{1}{3}y^3 - z, 
+\end{aligned}
+$$ 
+with the initial conditions of $x(0) = 0$, $y(0) = 3$, and $z(0) = 1$. 
+
+  (i) Show that the slow manifold reduces to a curve that could be written in parametric form as $x = x(z), y = y(z), z = z$. 
+  (ii) Determine the asymptotic solution for $t \to \infty$. 
+  (iii) Also determine the form of the initial layer that describes the transition from initial conditions to the slow manifold.
+
+
+## Q3. Visualising fast-slow dynamics {.unnumbered}
+
+By modifying the standard scripts developed in lectures, plot visualisations of Q1 and Q2(a) in order to verify your understanding of the fast-slow dynamics. 
+
+<!-- ## Q1. Non-dimensionalisation of the ocean model {.unnumbered} -->
+<!---->
+<!-- Take the ocean model from (@eq-ocean-final-dimensional). Re-scale the salinity and time via -->
+<!-- $$ -->
+<!-- \Delta S = [\Delta S]x \quad \text{and} \quad -->
+<!-- t = [t]t'. -->
+<!-- $$  -->
+<!-- By choosing appropriate scales, show that the equation can be reduced to the form  -->
+<!-- $$ -->
+<!-- \dot{x} = \lambda - |1 - x|x -->
+<!-- $$ {#eq-ps6-xeqn} -->
+<!-- for the parameter $\lambda$ which you should define. Note that the above quantity $\dot{x}$ refers to differentiation in $t'$. -->
+<!---->
+<!-- Provide an intuitive interpretation of the parameter $\lambda$.  -->
+<!---->
+<!-- ## Q2. Steady states of the reduced model  {.unnumbered} -->
+<!---->
+<!-- Consider now the reduced model (@eq-ps6-xeqn) and solve for the steady-state solutions (or equilibrium solutions). Assume that $\lambda > 0$ and consider the two cases of $1 - x \geq 0$ and $1 - x < 0$. Show that there are up to three steady states given by  -->
+<!---->
+<!-- \begin{align} -->
+<!-- x_1^* &= \frac{1}{2}(1 + \sqrt{1 + 4 \lambda}), \\ -->
+<!-- x_{2,3}^* &= \frac{1}{2}(1 \pm \sqrt{1 - 4\lambda}), -->
+<!-- \end{align} -->
+<!---->
+<!-- and derive conditions for each point to exist.  -->
+<!---->
+<!-- Next, set $x = x^* + y$ where $x^*$ is one of the three possible steady-state solutions. Show that the perturbation is governed by  -->
+<!-- $$ -->
+<!-- \dot{y} = \pm (2x^* - 1)y, \qquad x^* \lessgtr 1. -->
+<!-- $$  -->
+<!-- Conclude that $x_1^*$ is stable, $x_2^*$ is unstable, and $x_3^*$ is stable.  -->
+<!---->
+<!-- ## Q3. Bifurcation diagram for the reduced ocean model {.unnumbered} -->
+<!---->
+<!-- Based on your work in Q2, plot a bifurcation diagram in the $(\lambda, x^*)$-plane. Use solid and dashed curves to indicate stability.  -->
+<!---->
+<!-- Does the bifurcation diagram indicate the possibility of tipping points and hysteresis? By considering the interpretation of $\lambda$ and $x^*$, discuss the physical consequences of such behaviour as it relates to the Ocean model. -->
+<!---->
+<!-- How does this bifurcation diagram compare to the typical bifurcation diagrams studied in the Energy Balance module, such as the one studied in @sec-latitude4 ?  -->
+<!---->
+<!-- ## Q4. Non-dimensionalisation of the Stommel box model {.unnumbered} -->
+<!---->
+<!-- Consider the Stommel box model given in (@eq-stommelpre). Non-dimensionalise the model in order to produce the set of equations given in (@eq-stommelsys), repeated here:  -->
+<!---->
+<!-- \begin{align} -->
+<!-- \frac{\mathrm{d}x}{\mathrm{d}t} &= \delta(1 - x) - |f(x, y)|x, \\ -->
+<!-- \frac{\mathrm{d}y}{\mathrm{d}t} &= 1 - y - |f(x, y)|y,  -->
+<!-- \end{align} {#eq-ps6-stommelsys} -->
+<!-- where we have introduced the function, -->
+<!-- $$ -->
+<!-- f(x, y; R, \lambda) = \frac{1}{\lambda}(Rx - y), -->
+<!-- $$ {#eq-ps6-stommelf}  -->
+<!---->
+<!---->
+<!-- Provide a brief description of the physical interpretations of the parameters $\lambda$,$\delta$, and $R$.   -->
+<!---->
+<!-- ## Q4. Investigations for $R$ {.unnumbered} -->
+<!---->
+<!-- Using the script available on the Jupyter hub, investigate the behaviour of the system (@eq-ps6-stommelsys) under changing values of $R$ and fixed values of the other parameters. Based on your intuition, what do you expect to be the features of the bifurcation diagram, as shown in the $(R, f^*)$-plane?  -->
+<!---->
+<!---->
+<!-- ## Q5. Alternative scalings of the Stommel box model {.unnumbered} -->
+<!---->
+<!-- It is possible to scale the problem differently, and this may allow for simpler analysis. Consider the set of equations (@eq-ps6-stommelsys). Write instead -->
+<!-- $$ -->
+<!-- x = [x] s, \qquad y = [y] \theta, \qquad t = [t] t', -->
+<!-- $$  -->
+<!-- Choose the correct scalings, $[x]$, $[y]$, and $[t]$, so that we obtain a re-scaled version:  -->
+<!---->
+<!-- \begin{align} -->
+<!-- \frac{\mathrm{d}s}{\mathrm{d}t'} &= 1 - (\epsilon + |q|) s, \\ -->
+<!-- \frac{\mathrm{d}\theta}{\mathrm{d}t'} &= 1 - (\mu + |q|)\theta, -->
+<!-- \end{align} -->
+<!---->
+<!-- where now the flow term is given by  -->
+<!-- $$ -->
+<!-- q = \kappa(-\theta + \tilde{R}s). -->
+<!-- $$  -->
+<!-- In addition to the choice of scalings, you will need to describe how the new parameters, $\epsilon$, $\mu$, $\kappa$, and $\tilde{R}$, are related to the older parameters. -->
+<!---->
+<!---->
+<!---->
+<!---->

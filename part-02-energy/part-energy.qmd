@@ -1,0 +1,9 @@
+# Energy usage and energy sources
+
+The first part of this course is centred upon a seminal book by Cambridge physicist David MacKay [@mackay_book] that was written a number of years ago.
+
+![Cover of MacKay's book](figures/mackay_cover.jpg){#fig-mackay_cover width=40%}
+
+Unlike many other books and discussions on the topic of energy, this one is written with the emphasis placed on developing simple back-of-the-envelope estimates of usage. This is a great philosophy, and one that does well to cut straight to the heart of more long-winded discussions.  
+
+MacKay's book was published with an open license, and can be freely downloaded at <https://www.withouthotair.com/>.

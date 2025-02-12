@@ -1,0 +1,134 @@
+# Problem class 2: dimensional analysis {#sec-pclass-dim}
+
+
+:::{.callout-tip}
+## Abstraction
+
+It may seem strange to study examples from elementary physics in a course that is supposed to be about Planet Earth. But simple examples are the best ways to learn these important techniques. The full climate equations are often very involved. These toy models still nevertheless capture the spirit of what you must do when attacking any scientific problem.
+:::
+
+In this problem class, we will practice some concepts about non-dimensionalising in preparation for the Problem Set 1 in @sec-PS1. We will cover these two strategies in choosing scalings.
+
+:::{.callout-important}
+## Scaling principle 1
+
+Select the characteristic scales so that as many of the possible non-dimensional numbers, $\Pi_i$, $i = 1, 2, 3, \ldots$ are normalised.
+:::
+
+:::{.callout-important}
+## Scaling principle 2
+
+Select characteristic scales so that no terms in the model diverge in the physical limit of interest.
+:::
+
+Here are the problems we shall do in the problem class. 
+
+
+
+## Projectile motion
+
+A projectile of mass $M$ (in kg) is launched vertically with initial velocity $V_0$ (in m/s) from a position $Y_0$ (in m) above the surface. Thus the mass's position, $Y(t)$ is governed by Newton's second law (applied to the mass and the mass of the Earth) and the set of equations
+$$
+\begin{gathered}
+M Y_{tt} = - \frac{g R_E^2 M}{(R_E + Y)^2}, \\
+Y(0) = Y_0,
+\end{gathered}
+$$
+where $g = 9.81 m/s^2$ and $R_E = 6.4 \times 10^6 m$ is the radius of the Earth.
+
+1. Non-dimensionalise the equation using arbitary length and time scales. 
+
+2. Identify the non-dimensional constants, $\Pi_i$.
+
+3. Choose a length scale of $L = Y_0$ and time scale of $T = (L/g)^{1/2}$. Discuss the resultant equation and the interpretation of choosing these scales. 
+
+4. Does your above choice allow you to easily study the limit of $R_E \to \infty$? If the limit can be taken, reduce the governing system to a simpler equation. 
+
+5. Does your choice in 3. allow you to easily study the limit of $Y_0 \to 0$? If not, choose an alternative choice of length and time scales and in that case, reduce the set of equations. 
+
+## Terminal velocity 
+
+A ball of radius $R$ (in m) and uniform density $\rho$ (in kg/m<sup>3</sup>) falls in a viscous fluid. The fluid has density $\rho_f$ (in kg/m<sup>3</sup>) and viscosity (a measure of friction or resistance) $\mu$ (in kg/(m s)). 
+The equation that governs the velocity is 
+$$
+\begin{gathered}
+\frac{4}{3} \pi R^3 \rho \frac{\mathrm{d}V}{\mathrm{d}t} = \frac{4}{3} \pi R^3 (\rho - \rho_f) g - 6\pi \mu R V, \\
+V(0) = V_0.
+\end{gathered}
+$$
+
+1. Choose appropriate velocity and time scales to non-dimensionalise the equation so as to leave only a single non-dimensional number on the drag term (the last term on the right hand-side). 
+
+2. Define the non-dimensional parameter expressing a ratio between drag force and gravity force by the Stokes number (St) and confirm that it is
+$$
+St = \frac{9\mu V_0}{2(\rho - \rho_f) g R^3}.
+$$
+
+3. Comment on the two limits of $St \to 0$ and $St \to \infty$. Can the problem be reduced in these two limits? If so, reduce and solve.
+
+## Navier-Stokes equations
+
+
+:::{.callout-tip}
+WA to trim and correct for notation.
+:::
+
+Consider the Navier-Stokes equations (which is a set of equations that dictates fluid flow):
+$$\frac{\partial \boldsymbol{u}}{\partial t}+\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\frac{1}{\rho}\nabla p+\nu \nabla^2 \boldsymbol{u}$$
+where:
+
+* $\boldsymbol{x}=(x, y, z)^{\mathrm{T}}$ is the direction field (each with dimensions $m$)
+* $\boldsymbol{u}=(u, v, w)^{\mathrm{T}}$ is the velocity field where $u$ is the movement along the $x$-direction, $v$ is the movement along the $y$-direction and $w$ is the movement along the $z$-direction (each with dimensions $m \, s^{-1}$)
+* $t$ is time (dimension s)
+* $\rho$ is the fluid density (dimension $kg \, m^{-3}$)
+* $\nu$ is the dynamic viscosity, which represents the resistance to flow due to gravity (with dimensions $m^2 \, s^{-1}$)
+* $p$ is the internal pressure of the fluid (with dimension $kg \, m^{-1} \, s^{-2}$)
+* $\nabla=\left( \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z} \right)^{\mathrm{T}}$ is the gradient operator (each with the with effective dimension $m^{-1}$).
+* $\frac{\partial}{\partial t}$ is the partial time derivative (with effective dimension $s^{-1}$)
+* $\nabla^2=\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}$ is the Laplacaian operator (with effective dimension $m^{-2}$).
+
+Consider the following arbitrary non-dimensionalisation:
+$$\boldsymbol{x}=L\tilde{\boldsymbol{x}}, \quad \boldsymbol{u}=U\tilde{\boldsymbol{u}}, \quad t=T\tilde{t}, \quad p=P\tilde{p}$$
+where $[\tilde{x}]=[\tilde{u}]=[\tilde{t}]=[\tilde{p}]=1$ are the new non-dimensional quantities whereas $[L]=m, [U]=m \, s^{-1}, [T]=s$ and $[P]=kg \, m^{-3}$.
+
+Replacing these into the Navier-Stokes equation gives
+$$\frac{U}{T}\frac{\partial \boldsymbol{\tilde{u}}}{\partial \tilde{t}}+\frac{U^2}{L}\left( \tilde{\boldsymbol{u}} \cdot \tilde{\nabla} \right)\tilde{\boldsymbol{u}}=-\frac{P}{L\rho}\tilde{\nabla} \tilde{p}+\frac{\nu U}{L^2} \tilde{\nabla}^2 \tilde{\boldsymbol{u}}$$
+where $\tilde{\nabla}$ is the gradient operator in the new coordinate space $(\tilde{x}, \tilde{y}, \tilde{z})$.  The tildas will be dropped henceforth.  Rearranging to make the coefficient of the time derivative 1 gives
+$$\frac{\partial \boldsymbol{u}}{\partial t}+\frac{UT}{L}\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\frac{PT}{U L \rho}\nabla p+\frac{\nu T}{L^2} \nabla^2 \boldsymbol{u}.$$
+
+The most convenient term to eliminate is the coefficient of the pressure.  Therefore, suppose the choice of the non-dimensionalisation parameters needs to be chosen such that
+$$\frac{PT}{\rho L U}=1.$$
+This means that the term $P$ can be written as
+$$P=\frac{\rho U L}{T}.$$
+
+> Checking the dimensions:
+$$[P]=\left[ \frac{\rho U L }{T} \right]=[\rho][U][L][T]^{-1}=kg \, m^{-3} \, m \, s^{-1} \, m \, s^{-1}=kg \, m^{-1} \, s^{-2}$$
+which is indeed the dimension for pressure.
+
+### Reynolds Number
+
+Suppose that the term $\frac{U T}{L}$ should also be equal to 1, then this would mean that the time non-dimensionalisation can be done by having $T=\frac{L}{U}$.
+
+> Checking the dimensions:
+$$[T]=\left[ \frac{L}{U} \right]=[L][U]^{-1}=m \, m^{-1} \, s=s$$
+which is indeed the dimension for time.
+
+Therefore, with these choices of $T$ and $P$, the Navier-Stokes equation becomes
+$$\frac{\partial \boldsymbol{u}}{\partial t}+\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\nabla p+\frac{\nu}{U L} \nabla^2 \boldsymbol{u}.$$
+
+The term $\frac{L U}{\nu}$ is known as the Reynolds number, denoted $Re$ which is a non-dimensional quantity.
+
+> Check the dimension of the Reynolds number:
+$$[Re]=\left[ \frac{L U}{\nu} \right]=[L][U][\nu]^{-1}=m \, m \, s^{-1} \, m^2 \, s=1$$
+meaning that the Reynolds number is dimensionless.
+
+Therefore, this gives the non-dimensional Navier-Stokes equation for fluid flow
+$$\frac{\partial \boldsymbol{u}}{\partial t}+\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\nabla p+\frac{1}{Re} \nabla^2 \boldsymbol{u}.$$
+
+The Reynolds number $Re$ gives a measure for the effect of viscosity for fluid flow or for the movement through a fluid.  As $Re$ gets larger, the fluid becomes less viscous hence reducing the effect of viscosity on the movement and the inertial forces dominate. (The case when $Re \to \infty$ is called inviscid flow where there is no viscosity.)  As $Re$ decreases, the viscosity increases, making the movement depend on the viscous forces more than the inertial forces.
+
+The Reynolds number is important in modelling since when length and speed scales change from full-sized objects to smaller models (like models of cars and buildings for testing purposes), the same environment cannot be translated from one to the other (since a full sized building in 20mph winds will not move whereas 20mph winds on a small scale of model of the building will be affected much more).  However, if the Reynolds number is fixed in both cases, the model can be made more realistic.
+
+
+
+

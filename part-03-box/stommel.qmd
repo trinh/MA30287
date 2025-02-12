@@ -1,0 +1,224 @@
+---
+jupyter: python3
+---
+
+# Stommel's box model {#sec-stommel}
+
+<!-- In addition to the model studied in @sec-ocean-toysalinity, there is another kind of reduced model that is examined in this chapter. -->
+
+In his work [@stommel1961thermohaline] did not account for evaporation or precipitation, so there is no virtual salt flux, $H = 0$, but each box does exchange salinity with its surrounding environment, so $d > 0$. The set of four differential equations presented in [@sec-oceanbox] (@eq-2box-again) can be reduced two coupled differential equations for the mean temperature and salinity. We notice that if we subtract the pairs of equations, then we can write
+$$
+\begin{aligned}
+\frac{\mathrm{d}\Delta T}{\mathrm{d}t} = c(\Delta T^* - \Delta T) - 2|q|\Delta T, \\
+\frac{\mathrm{d}\Delta S}{\mathrm{d}t} = d(\Delta S^* - \Delta S) - 2|q|\Delta S,
+\end{aligned} 
+$$ {#eq-stommelpre}
+
+where $\Delta T^* = 2T^*$, $\Delta S^* = 2S^*$, and we have defined the two new unknowns,
+$$
+\begin{aligned}
+\Delta T &= T_2 - T_1, \\
+\Delta S &= S_2 - S_1,
+\end{aligned}
+$$
+and now, the flow $q$ is given by
+$$
+q = k(\alpha \Delta T - \beta \Delta S).
+$$
+
+## Non-dimensionalisation {#sec-stommel-nondim}
+
+We can then nondimensionalise the system by setting
+$$
+\Delta T = {\Delta T^*}y, \quad \Delta S = \Delta S^* x, \qquad t = [t]t',
+$$
+where $t'$ is nondimensional time. Annoyingly, notice that we have flipped the order of the equations, i.e. above we presented temperature and salinity in that order, and now this is associated with $y$ and $x$. 
+
+For example, the equation in $\Delta T$ now becomes 
+$$
+\frac{\mathrm{d} y}{\mathrm{d}t'} = c[t](1 - y) - 2|q|[t] y
+$$ 
+and we see that we should select 
+$$
+[t] = \frac{1}{c}.
+$$ 
+If we now examine the remaining factor:
+$$
+2|q|[t] = \frac{2k \alpha \Delta T^*}{c} \left\lvert -y + \frac{\beta \Delta S^*}{\alpha \Delta T^*}\right\rvert = \frac{1}{\lambda}(Rx - y),
+$$ 
+we can see where the constants $\lambda$ and $R$ are defined from. Notice that there has been a negative sign flip within the absolute values. 
+
+Dropping the primes henceforth, we have the following set of non-dimensional equations to study for the unknowns, $x = x(t)$, and $y = y(t)$:
+$$
+\begin{aligned}
+\frac{\mathrm{d}x}{\mathrm{d}t} &= \delta(1 - x) - |f(x, y)|x, \\
+\frac{\mathrm{d}y}{\mathrm{d}t} &= 1 - y - |f(x, y)|y,
+\end{aligned} 
+$$ {#eq-stommelsys}
+where we have introduced the function,
+$$
+f(x, y; R, \lambda) = \frac{1}{\lambda}(Rx - y),
+$$ {#eq-stommelf}
+where there are now three non-dimensional parameters given by
+$$
+\begin{aligned}
+\delta &= d/c, \\
+\lambda &= c/(2\alpha k \Delta T^*), \\
+R &= \beta \Delta S^*/(\alpha \Delta T^*).
+\end{aligned}
+$$
+
+Together [@eq-stommelsys] and [@eq-stommelf] form a system of equations for $(x(t), y(t))$, with parameters $\delta$, $\lambda$, and $R$.
+
+Although there are many parameters, it is important to note that the quantity $f$ is crucial since it corresponds to the direction of flow in the bottom pipe of the Ocean model. By convention, the system was set up so that $f > 0$ corresponds to flow through the bottom pipe goes in the direction of the equator (Box 1) as a result of higher densities at the high latitudes. We are subsequently interested in whether it is possible for $f$ to switch sign, which would correspond to a bottom flow going from equator to poles, and the entire system switching direction.
+
+## Equilibrium states {#sec-ocean2-equil}
+
+Let the equilibrium states be given by $(x^*, y^*)$ with $f(x^*, y^*) = f^*$. Then setting the right hand sides of (@eq-stommelsys) to zero and solving, we find
+$$
+x^* = \frac{\delta}{\delta + |f^*|} \quad \text{and} \quad
+y^* = \frac{1}{1 + |f^*|}.
+$$ {#eq-stommel-xsys}
+We can solve for $f^*$ in both equations and equate the result to one another. This gives
+$$
+\delta \frac{1-x^*}{x^*} = \frac{1 - y^*}{y^*} = |f^*|.
+$$
+Therefore the equilibrium points lie along the above curve. Let us generate different values of $f^*$ and plot the combination.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+delt = 1/6
+fmat = np.linspace(1e-3, 10, 101)
+xs = delt/(delt + np.abs(fmat))
+ys = 1/(1 + np.abs(fmat))
+plt.plot(xs, ys, '.-')
+plt.xlim((0,1))
+plt.ylim((0,1))
+plt.xlabel("$x^*$"); plt.ylabel("$y^*$");
+plt.grid(1)
+```
+
+The above plot shows the steady-state values at $\delta = 1/6$. Each point refers to a different value of $|f^*|$. Note that as $|f^*| \to \infty$, then $(x^*, y^*) \to (0, 0)$ while as $|f^*| \to 0$, then $(x^*, y^*) \to (1,1)$. Now the above does not tell us what equilibrium states will exist at a specific value of $\delta$ since it requires information about $f^*$. We take (@eq-stommelf) and combine with (@eq-stommel-xsys). We conclude that the equilibrium points must satisfy
+$$
+\lambda f^* = \phi(f^*),
+$$
+where we have defined the function $\phi$ according to
+$$
+\phi(f^*) = \frac{\delta R}{\delta + |f^*|} - \frac{1}{1 + |f^*|}.
+$$ {#eq-stommel-phi}
+Therefore, for each combination of the parameters $(\lambda, \delta, R)$, we must solve $\delta f^* = \phi(f^*)$ to determine $f^*$. Once the values of $f^*$ are known, then the steady-states $(x^*, y^*)$ are also known. Here is a typical graph showing the potential intersections at the values of $\lambda = 1/5$, $\delta = 1/6$ and $R = 2$.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.optimize as sciopt
+
+lam = 1/5;
+delt = 1/6;
+R = 2;
+
+f = np.linspace(-2.5, 2.5, 101)
+phi = delt*R/(delt + np.abs(f)) - 1/(1 + np.abs(f))
+
+plt.plot(f, phi, 'k', label='$\phi$')
+plt.plot(f, lam*f, 'b', label='$\lambda f$' )
+plt.ylim((-1.5,2))
+plt.xlabel("$f$")
+plt.ylabel("$\phi$")
+plt.legend()
+plt.grid(1)
+```
+
+Although there are many parameters that can alter the shape of the overall graphs, note that if $\lambda$ is increased from its current value of $\lambda = 1/6$, then two of the left roots will disappear, leaving only a single root.
+
+
+## Stability
+
+
+For our purposes, we will mainly proceed using numerics, and bypass the need to study the above results analytically.
+
+In the accompanying lecture script, `lecture29-StommelPhasePlane.ipynb`, we will obtain the eigenvalues numerically, and generate the phase plane. At the test point $R = 2$, $\delta = 1/6$, and $\lambda = 1/5$, we generate the following phase plane picture.
+
+![Phase plane for $R = 2$, $\lambda = 1/5$ and $\delta = 1/6$. The blue, red, and green fixed points correspond to $f_1$, $f_2$, and $f_3$ in order. The blue point is a stable node, the red point is an unstable saddle, and the green point is a stable spiral.](img/2023-04-27-11-17-43.png){#fig-stommel-phase}
+
+:::{.callout-important collapse=true}
+## Details on the stability analysis
+
+This part is only for additional detail in the course; it involves some (non-interesting) algebra so is only included here for additional context.
+
+We let $x = x^* + \xi$ and $y = y^* + \eta$ and linearise the system about the fixed points. This gives
+$$
+\begin{pmatrix}
+\dot{\xi} \\
+\dot{\eta}
+\end{pmatrix} = A
+\begin{pmatrix}
+\xi \\ \eta
+\end{pmatrix},
+$$
+where the matrix $A$ is given by
+$$
+A =
+\begin{pmatrix}
+-(\delta + |f^*|) \mp \frac{Rx^*}{\lambda} & \pm \frac{x^*}{\lambda} \\
+\mp \frac{Ry^*}{\lambda} & -(1 + |f^*|) \pm \frac{y^*}{\lambda}
+\end{pmatrix}
+$$
+if $f^* \gtrless 0$.
+
+There are two ways or proceeding. We can numerically substitute the fixed points into the above matrix for $A$ and then calculate the eigenvalues (numerically or otherwise). Or we can directly proceed analytically.
+
+If proceeding analytically, we can then calculate the trace and determinant, giving
+$$
+\begin{aligned}
+T &= -(1 + \delta + 3 |f^*|), \\
+D &= (\delta + 2|f^*|)(1 + |f^*|) \pm (1 - \delta) \frac{y^*}{\lambda}.
+\end{aligned}
+$$
+
+Using the above, we can analytically calculate the key discriminant expression of $T^2 - 4D$ (or numerically) in order to verify stability. The details of the classification scheme is given in the appendix @sec-appendix-dyn.
+:::
+
+
+## Bifurcation diagrams
+
+Once the above stability analysis, it is possible to sketch the final bifurcation diagram.
+
+First, we can note that as $\lambda$ increases, the graph in @sec-ocean2-equil indicates that there may either be three intersections (as shown) or if $\lambda$ increases then two of the intersections may disappear. We can note that: 
+
+| $f_i^*$ | $\lambda \to 0^+$ | $\lambda \to \infty$ |
+| ---- | ----- | ----- | 
+| $f_1^*$ | $-\infty$ | none | 
+| $f_2^*$ | fixed point < 0 | none | 
+| $f_3^*$ | fixed point > 0 | 0 | 
+
+We can also ascertain that there should be a point, say $\lambda = \lambda^*$ where the two roots coalesce, $f_1^* = f_2^*$, and thereafter disappear. This allows us to now plot the bifurcation $(\lambda, f^*)$-plane:
+
+
+![](img/2023-05-02-12-22-41.png){#fig-ocean2-bif}
+
+## Stommel's conclusion
+
+What is the final takeaway message(s)?
+
+1. It is possible to pose a conceptual model of the ocean and the thermohaline circulation, which governs the exchange of hot-and-cold waters and salty waters from equatorial-to-pole zones.
+
+2. This conceptual model suggests that tipping points and hysteresis are possible in such systems. In particular, it is possible, according to these models, for the flow directions to entirely change!
+
+:::{.callout-note}
+## As noted by [@kaper_book]:
+
+"Clearly, two-box models are only a caricature of the THC. At best, they account for the pole-to-equator circulation in single ocean basin (the North Atlantic). They certainly do not account for the fact that all the Earth's oceans are connected, nor for the fact that the oceans are coupled to the atmosphere and other components of the climate system. Nevertheless, the finding that such simple models predict the possibility of two distinct stable modes of circulation, and that transitions from one more to another can be induced by changing the forcing parameters [--] has had a significant impact in oceanography and climate science."
+:::
+
+
+
+
+
+
+
+
+
+

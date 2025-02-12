@@ -1,0 +1,260 @@
+# The greenhouse gas effect
+
+:::{.callout-note}
+## Reference
+This chapter follows from Chap. 2 of [@fowler_book].
+:::
+
+:::{.callout-important}
+## Review
+This chapter needs a primer on vector calculus. 
+:::
+
+
+
+Previously in @sec-basic-energy, we looked at the development of the simplest climate model, given by 
+$$
+c \frac{\mathrm{d}T}{\mathrm{d}t} = \frac{1}{4}Q(1 - a) - \sigma \gamma T^4,
+$$ {#eq-basic-again}
+where $c = \rho c_p d$ is the heat capacity of the atmosphere, and a listing of the parameters is given as follows. 
+
+|     |                             |                  |
+|-----| ----------------------------| -----------------|
+| $d$ | thickness of the atmosphere | $10\, \mathrm{km}$ |
+| $\rho$ | average density | $1 \,\mathrm{kg} \mathrm{m}^{-3}$ |
+| $c_p$ | specific heat | $10^3\,\mathrm{J}\,\mathrm{K}^{-1}$ |
+| $Q$ | shortwave radiative flux | $1370\,\mathrm{W}\,\mathrm{m}^{-2}$ |
+| $a$ | albedo | $0.3$ |
+| $\sigma$ | Stefan-Boltzmann constant | $5.67 \times 10^{-8}\,\mathrm{W}\,\mathrm{m}^{-2}\,\mathrm{K}^{-4}$ |
+| $\gamma$ | greenhouse factor | ... |
+
+The equation above as a unique steady-state solution, given by 
+$$
+T = \left( \frac{Q(1-a)}{4\sigma \gamma}\right)^{1/4}.
+$$
+
+Returning to the heat equation [@eq-basic-again], balancing terms, we find the time-scale of evolution given by 
+$$
+[t] = \frac{d \rho c_p T}{Q(1 - a)} \approx 35\,\mathrm{days},
+$$ 
+which is a measure of how rapidly the atmosphere will respond to changes in the forcing. As we noted in @sec-basic-energy, if we take the naive choice of $\gamma = 1$, the equilibrium temperature is predicted to be about $T \approx 255\,\mathrm{K}$, compared to the actual temperature of $288\,\mathrm{K}$, which requires $\gamma \approx 0.61$.  
+
+Moreover, the above model can be applied to estimate the equilibrium temperatures on other planets as well. We can use the fact that solar radiation, $Q$, falls off with the inverse square distance from the sun, i.e. $Q \propto 1/L^2$. According to the equilibrium prediction above, we might then expect $T \propto L^{1/2}$. However both albedo and greenhouse factor are very strongly dependent on the properties of the planet. 
+
+For instance, suppose for Venus we take $\gamma = 1$, $Q \approx 2640\,\mathrm{W}\,\mathrm{m}^{-2}$ and $a \approx 0.77$. This would give $T \approx 230\,\mathrm{K}$ whereas in actuality $T \approx 740\,\mathrm{K}$. It turns out that the greenhouse factor for Venus is $\gamma \approx 0.01$ and is much stronger than on Earth.
+
+## Radiative energy transfer {#sec-radiative}
+
+Rather than thinking of the greenhouse factor, $\gamma$, as an empirical parameter, we want to investigate how a mathematical model for its prediction can be studied. To do this, we must develop a deeper understanding of how energy is transferred through the atmosphere. 
+
+Radiation is the transfer of energy by electromagnetic waves. Given a point in space, $\mathbf{x}$, we define the intensity $I_\nu(\mathbf{x}, \mathbf{\hat{s}})$ as the energy flux per unit surface area of waves with frequency $\nu$ travelling in the direction $\mathbf{\hat{s}}$ at the point $\mathbf{x}$. Remember as well that frequency is related to wavelength and speed by 
+$$
+\lambda = \frac{c}{\nu}.
+$$ 
+
+In order to calculate the total radiative energy flux at a given point, we imagine surrounding the point with a unit sphere. The unit vector on the sphere is given in spherical coordinates via 
+$$
+\mathbf{\hat{s}} = (\sin\theta \cos\phi, \sin\theta \sin\phi, \cos\theta).
+$$ 
+
+Consider a patch element of the sphere, with area element $\mathrm{d}{\omega}$ given by 
+$$
+\mathrm{d}{\omega} = \sin \theta \mathrm{d}{\theta} \mathrm{d}{\phi}.
+$$
+Then the radiative energy flux through this area element is given by 
+$$
+I_\nu(\mathbf{x}, \mathbf{\hat{s}}) \mathbf{\hat{s}} \mathrm{d}{\omega}.
+$$
+
+To calculate the total radiative energy flux, we then sum over all possible surface elements and over all possible frequencies: 
+$$
+\mathbf{q}(\mathbf{x}) = \int_S \int_0^\infty I_\nu(\mathbf{x}, \mathbf{\hat{s}}) \mathbf{\hat{s}} \, \mathrm{d}{\nu} \, \mathrm{d}{\omega},
+$$ 
+where note that the integral $\int_S \mathrm{d}{\omega}$ is a double integral over all angles $\theta$ and $\phi$. 
+
+Next, we need a governing equation for the intensity, $I_\nu$. 
+
+:::{.callout-note}
+## Radiative transfer equation
+
+The radiative intensity, $I_\nu$, is given by solving the radiative transfer equation, 
+$$
+\frac{\mathrm{\partial}I_\nu}{\mathrm{\partial}s} = -\rho \kappa_\nu I_\nu + \rho \kappa_\nu B_\nu,
+$${#eq-radiationeq}
+where $\partial/\partial s = \mathbf{\hat{s}} \cdot \nabla_{\mathbf{x}}$ is the directional derivative in the direction $\mathbf{\hat{s}}$. This is essentially an advection equation with source terms given by the first term, representing absorption by the atmosphere, and the second term representing re-emission. In addition, $\rho$ is the density and $\kappa_\nu$ are the absorption coefficients. 
+
+Re-emission is assumed to be independent of direction and is described by the Planck function, 
+$$
+B_\nu = \frac{2h\nu^3}{c^2(\mathrm{e}^{h\nu/(kT)} - 1)},
+$$
+describing the emission of radiation for a given local temperature $T$. The constants correspond to Planck's constant, $h \approx 6.6 \times 10^{-34} \,\mathrm{J} \,\mathrm{s}$, the speed of light, $c\approx 3.0 \times 10^8 \,\mathrm{m s}^{-1}$, and Boltzmann's constant, $k \approx 1.38 \times 10^{-23} \,\mathrm{J K}^{-1}$.
+:::
+
+We wish to consider $I_\nu$, determined above, within the atmosphere. However, dependent on the composition of the atmosphere, $\kappa_\nu$ is strongly dependent on the frequency (and space). For simplicity, however, we consider a 'grey' atmosphere, with $\kappa_\nu = \kappa$, independent of frequency.  
+
+Integrating @eq-radiationeq over all frequencies, we have 
+$$
+\frac{\mathrm{\partial}I}{\mathrm{\partial}s} = -\rho \kappa (I - B),
+$${#eq-radeq-simp}
+where we have the total radiation intensity and emission intensity defined by
+$$
+I(\mathbf{x}, \mathbf{s}) = \int_0^\infty I_\nu \, \mathrm{d}{\nu}, \qquad
+B(\mathbf{x}) = \int_0^\infty B_\nu \, \mathrm{d}{\nu}.
+$$
+
+We can integrate $B_\nu$ for $B$ (exercise) to obtain 
+$$
+B = \frac{\sigma T^4}{\pi},
+$$
+where $\sigma = 2\pi^5 k^4/(15 h^3 c^2)$ is the Stefan-Boltzmann constant, and now $B$ is related to the local temperature at each point. 
+
+Although the above relates $B$ to temperature, $T$, it is not so useful for our purposes because $T$ is undetermined. Consider an infinitessimal parcel of the medium. Let us assume that there is no other energy transfer mechanism except for radiation absorption and emission. Then by energy conservation, $B$ must be equal to the average radiation over all directions at each point, 
+$$
+B(\mathbf{x}) = \frac{1}{\text{Surf. area}} \iint_O I(\mathbf{x}, \mathbf{\hat{s}}) \, \mathrm{d}S =  \frac{1}{4\pi} \int_0^{2\pi} \int_0^\pi I(\mathbf{x}, \mathbf{\hat{s}}) \sin\theta \, \mathrm{d}{\theta} \, \mathrm{d}{\phi},
+$$ {#eq-B}
+where $O$ is the unit sphere in $s$-space.
+
+The above is the assumption of local radiative equilibrium, i.e. the total absorbed radiation at a point is equal to that determined by black body emission. 
+
+## Two-stream approximation {#sec-two-stream}  
+
+The above formulation for the intensity function, $I$, is difficult to solve in general. Let us consider the case of a one-dimensional atmosphere, $I = I(z, \theta)$, where $\theta$ is the angle of $\mathbf{\hat{s}}$ to the vertical. Then $\partial_s = \cos\theta\partial_z$ and @eq-radeq-simp gives
+$$
+\cos\theta \frac{\mathrm{\partial}I}{\mathrm{\partial}z} = -\rho \kappa (I - B).
+$$
+Since the density typically depends on $z$, $\rho = \rho(z)$, we define a new vertical coordinate that scales out the density. Let $\tau$ be the optical depth, and given by 
+$$
+\tau = \int_z^\infty \rho \kappa \, \mathrm{d}{z}.
+$$ {#eq-taudepth}
+Then since $\partial_z = \tau'(z) \partial_\tau$, we have, for a new function, $I = I(\tau, \mu)$, 
+$$
+\mu \frac{\mathrm{\partial}I}{\mathrm{\partial}\tau} = I - B,
+$$ {#eq-I-again}
+where we have also defined $\mu = \cos\theta$. It should be remarked that $B$ is given from @eq-B and must only depend as a function of of the optical depth, $\tau$. To see this, note from @eq-B that via the radiative equilibrium assumption, 
+$$
+B = \frac{1}{4\pi} \int_0^{2\pi} \int_0^\pi I \, \sin\theta \, \mathrm{d}\theta \, \mathrm{d}\phi = \frac{1}{2} \int_{-1}^1 I(\tau, \mu) \, \mathrm{d}\mu  = \frac{1}{2}(I_+ + I_-). 
+$$
+This makes sense since the assumption that $B$ averages all the different directions of radiation (which are measured by the coordinate $\mu$). 
+
+So in fact @eq-I-again is an integro-differential equation, 
+$$
+\mu \frac{\mathrm{\partial}I}{\mathrm{\partial}\tau} = I - \frac{1}{2} \int_{-1}^1 I(\tau, \mu) \, \mathrm{d}\mu.
+$$
+
+
+
+### Shuster-Schwarzschild approximation
+
+
+We next make the Shuster-Schwarzschild approximation to reduce the radiation from all different directions to either an average over the upwards direction or an average over the downwards direction. First, note that if we integrate over the top hemisphere, 
+$$
+\iint_S I \, \mathrm{d}{S} = \int_{\phi = 0}^{2\pi} \int_{\theta = 0}^{\pi/2} I \cdot \sin\theta \, \mathrm{d}{\theta} \, \mathrm{d}{\phi}. 
+$$
+Since $I$ is independent of the angular coordinate, $\phi$, we can integrate directly to see that 
+$$
+\int_0^{2\pi} \mathrm{d}\phi \int_{\theta = 0}^{\pi/2} I (-\mathrm{d}\mu) = 2\pi \int_{\mu = 0}^1 I \, \mathrm{d}\mu \equiv 2\pi I_+,
+$$
+once the integral in $\theta$ is converted to an integral in $\mu$. Doing the same for the radiation on the lower hemisphere yields the two new quantities
+
+\begin{align}
+I_+(\tau) &\equiv \int_0^1 I(\tau, \mu) \, \mathrm{d}\mu, \\
+I_-(\tau) &\equiv \int_{-1}^0 I(\tau, \mu) \, \mathrm{d}\mu.
+\end{align}
+
+
+We can now write $B$ in terms of these quantities:
+$$
+B = \frac{1}{2} \int_{-1}^1 I(\tau, \mu) \, \mathrm{d}\mu  = \frac{1}{2}(I_+ + I_-). 
+$$ {#eq-Breduced}
+
+
+Returning now to @eq-I-again, we integrate with respect to $\mu$ on the interval $\mu \in [-1, 0]$ and also on the interval $\mu\in[0, 1]$ to obtain the two equations 
+
+\begin{align}
+\frac{1}{2} \frac{\mathrm{d}I_+}{\mathrm{d}\tau} &= I_+(\tau) - B(\tau) \\
+\frac{1}{2} \frac{\mathrm{d}I_-}{\mathrm{d}\tau} &= I_-(\tau) - B(\tau)
+\end{align}
+
+and now using @eq-Breduced, we have 
+
+\begin{align}
+\frac{\mathrm{d}I_+}{\mathrm{d}\tau} &= I_+(\tau) - I_-(\tau)\\
+\frac{\mathrm{d}I_-}{\mathrm{d}\tau} &= I_+(\tau) - I_-(\tau).
+\end{align}
+
+
+We require some bondary conditions to solve the above. First, there is no incoming radiation at the top of the atmosphere ($z \to \infty$ or $\tau \to 0$), so 
+$$
+I_- = 0 \quad \text{at $\tau = 0$}.
+$$
+Next, at the surface, we have 
+$$
+\pi I_+ = \sigma T_s^4,
+$$
+which expresses the flux from the surface via the Stefan-Boltzmann law, where $T_s$ is surface temperature. 
+
+:::{.callout-note}
+Double check the physicality of the above BCs. 
+:::
+
+Note that the net upwards flux is given by $F = F_+ - F_- = \pi(I_+ - I_-)$ so we subtract the two above equations for $I_+$ and $I_-$ to get 
+
+\begin{align}
+F_- &= \pi I_- = F \tau \\
+F_+ &= \pi I_+ = F(1 + \tau).
+\end{align}
+
+The surface boundary condition is thus 
+$$
+F = \frac{\sigma T_s^4}{1 + \tau_s},
+$$
+where recall the definition of optical depth from @eq-taudepth and we have written 
+$$
+\tau_s = \int_0^\infty \rho \kappa \, \mathrm{d}z,
+$$
+for the optical depth of the atmosphere. 
+
+Note that the net upwards flux, $F$, defines the effective emitting temperature, $T_e$, according to 
+$$
+F = \sigma T_e^4,
+$$
+and thus we conclude that 
+$$
+T_s = (1 + \tau_s)^{1/4} T_e.
+$$
+
+The above final result indicates why surface temperature is warmer than the effective emitting temperature, and we can also conclude that the greenhouse gas factor introduced earlier is 
+$$
+\gamma = \frac{1}{1 + \tau_s}.
+$$
+
+Finally, we can obtain an expression for the temperature, $T$ throughout the atmosphere, using $B = F(1/2 + \tau)/pi$. Then
+$$
+T = \left(\frac{1/2 + \tau}{1 + \tau_s}\right)^{1/4} T_s,
+$$
+so indeed temperature decreases with height.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Vertical structure of the atmosphere
+
+# Ice-albedo feedback
+
+# Carbon
+
+## Problems
+
+* In [@sec-radiative], the units of the various quantities such as radiation intensity, energy flux, etc. can be confusing to follow. Follow the argument from eqns (...) to eqn (...) and carefully indicate the units of each associated quantity. 
+

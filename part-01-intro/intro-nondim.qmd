@@ -1,0 +1,213 @@
+# Dimensional scaling analysis {#sec-intro-nondim}
+
+
+Putting a mathematical model into non-dimensional form is fundamental [@fowler_book]. When we refer to a "back-of-the-envelope calculation", we often mean simple algebraic calculations that still nevertheless provide enormous insight on problems. Such analyses are often based on dimensional analysis, which identifies the relationships between the different quantities involved in the problem.
+
+## Dimensional quantities 
+
+Every physical quantity, say Q, can be expressed as a product of a dimensional unit, denoted [Q], and a magnitude, say Q'. Thus we write
+$$
+Q = Q'[Q]
+$$
+For example, if $x$ corresponds to the physical length in a problem, we might select $[x] = \mathrm{km}$ or $[x] = \mathrm{yards}$ or $[x] = \mathrm{m}$. It is important to choose the dimensionalisation to suit the problem under consideration.
+
+
+:::{.callout-note}
+## SI Units
+
+The International System (SI) of Base Units sets out a distinct selection of choices for dimensions in certain physical quantities. The seven fundamental dimensional units are 
+
+* [Length] = metre, $\mathrm{m}$
+* [Time] = seconds, $\mathrm{s}$
+* [Mass] = kilogram, $\mathrm{kg}$
+* [Temperature] = Kelvin, $\mathrm{K}$,
+* [Electric current] = ampere, $\mathrm{A}$
+* [Light intensity] = candela, $\mathrm{cd}$
+* [Material quantity] = mole, $\mathrm{mol}$
+
+Dimensional units that can be expressed in terms of other fundamental units are known as *derived units*. For example: 
+
+* [Speed] = $\mathrm{m} \, \mathrm{s}^{-1}$
+* [Acceleration] = $\mathrm{m} \, \mathrm{s}^{-2}$
+* [Force] = $\mathrm{kg} \, \mathrm{m} \, \mathrm{s}^{-2}$
+:::
+
+## Dimensional homogeneity and non-dimensionalisation
+
+All terms in any equation must have the same dimensions. This is the principle of dimensional homogenuity. For example, Newton's second law expresses the fact that 
+$$
+F = m \frac{\mathrm{d}^2x}{\mathrm{d}t^2},
+$$
+where $m$ is mass, $x$ is a unit of length, and $t$ is time. We can check, then, that the units do indeed match up on either side. Here, the RHS has units of $[m][x]/[t]^2$ or in SI units, $\mathrm{kg} \, \mathrm{m} \, \mathrm{s}^{-2}$. This indeed matches our previous given SI unit decomposition for force. 
+
+Notice in addition that the input to functions like $\cos\theta$ and $e^z$ must be non-dimensional (or dimensionless).
+
+The process of nondimensionalisation is then as follows. Given an equation, we know that each term must have the same dimension. Therefore, we can scale all the dependent and independent variables by dimensional constants in order to yield a non-dimensional equation. 
+
+Why this is an important tool is demonstrated by the below.
+
+## Returning to the heat equation 
+
+Exact units are not relevant for dynamics, and it is instead the ratio of units that we care about. To apply this principle, let us non-dimensionalise the equation @eq-heatintro. Let us consider the heat equation as given by the system 
+$$
+\begin{aligned}
+\frac{\partial T}{\partial t} &= \kappa \frac{\partial^2 T}{\partial x^2} \\
+T(x, 0) &= T_\text{init} \\
+T(0, t) &= T_a \\
+T(L, t) &= T_b.
+\end{aligned}
+$$
+
+Note that the constant $\kappa$ is known as the thermal diffusivity, and is given by
+$$
+\kappa = \frac{k}{\rho c},
+$$ 
+which were the units previously introduced. 
+
+We introduce typical scales for each of the variables. For example, we non-dimensionalise the temperature, distance, and time by setting
+$$
+T = [T] T', \qquad x = [x] x', \qquad t = [t] t'.
+$$
+Remember that via the chain rule, we have that
+$$
+\frac{\mathrm{d}}{\mathrm{d}x} = \frac{\mathrm{d}x'}{\mathrm{d}x} \frac{\mathrm{d}}{\mathrm{d}x'} = \frac{1}{[x]} \frac{\mathrm{d}}{\mathrm{d}x'}.
+$$
+
+Substitution into the equation now yields
+$$
+\begin{aligned}
+\frac{\partial T'}{\partial t'} &= \frac{\kappa[t]}{[x]^2}\frac{\partial^2 T}{\partial x^2} \\
+T'(x', 0) &= \frac{T_\text{init}}[T]\\
+T'(0, t') &= \frac{T_a}{[T]} \\
+T'(L/[x], t') &= \frac{T_b}{[T]}.
+\end{aligned}
+$$
+
+Be sure to work out the above for yourself. For example, notice that the previous boundary at $x = L$ is now sent to $x' = L/[x]$. 
+Now we see that the final equation is beautifully simple:
+At this point, we can identify a crucial non-dimensional parameter given by 
+$$
+\Pi = \frac{\kappa [t]}{[x]^2} = \frac{k [t]}{\rho c [x]^2}.
+$$ 
+
+Although this looks quite complicated, you can test that this parameter is indeed non-dimensional by looking up the units for thermal conductivity, $k$, density $\rho$, and specific heat $c$, and verifying that indeed $\Pi$ is non-dimensional.
+
+## Choice of units 
+
+It is important to remember that there are technically no wrong choices for the scales [x], [T], and [t], as long as they yield consistent balances. However, some choices are better than others for the context of the problem. Let us select: 
+$$
+[x] = L \qquad [T] = T_\text{init}.
+$$ 
+
+This means our unit of length is "one pipe" (if this is indeed a pipe), and our unit of temperature is whatever the initial temperature was set to be. The choice of time is free at the moment, and therefore we can select time as 
+$$
+\Pi = \frac{\kappa [t]}{[x]^2} = 1 \Longrightarrow [t] = \frac{L^2}{k}.
+$$ 
+
+Now we see that the final equation is beautifully simple:
+$$
+\begin{aligned}
+\frac{\partial T'}{\partial t'} &= \frac{\partial^2 T}{\partial x^2} \\
+T'(x', 0) &= 1 \\
+T'(0, t') &= \frac{T_a}{T_\text{init}} \equiv A, \\
+T'(1, t') &= \frac{T_b}{T_\text{init}} \equiv B.
+\end{aligned}
+$$ {#eq-heat-nondim}
+
+## Interpretation 
+
+What is the whole point of the above exercise? 
+
+In the original problem, there were five parameters:
+$$
+\kappa, \qquad T_\text{init}, \qquad T_a, \qquad T_b, \qquad L.
+$$ 
+
+Imagine a situation where you are performing an analysis of heat spread in different pipes of different materials (characterised by $\kappa$) and lengths ($L$), with different initial and boundary temperatures. That is potentially a highly complicated parameter space to search (five-dimensional). 
+
+Rather than solving the problem again and again for each change in parameters, what the analysis yielding (@eq-heat-nondim) reveals is that the parameter space only needs to be two-dimensional, for parameters $A$ and $B$. Therefore, by solving the problem at many different values of $A$ and $B$, the solution space can be completely mapped.  
+
+
+Here is an example. Consider heat diffusion through common [brick](https://www.engineersedge.com/heat_transfer/thermal_diffusivity_table_13953.htm), which possesses a thermal diffusivity of 
+$$
+\kappa = 5.2 \times 10^{-7} \mathrm{m}^2/\mathrm{s}.
+$$ 
+Therefore a brick that is about L = 10cm = 0.1m in size has a typical timescale of 
+$$
+[t] = \frac{L^2}{\kappa} \approx 1.9 \times 10^4 \mathrm{s} \approx 5 \mathrm{hrs}.
+$$ 
+
+The above choice of [t] is representative of the typical timescale you can expect for heat to diffuse through the brick. As you can see it's very long. 
+
+<!-- Suppose you needed to determine the temperature of a $L = 1$m long pipe with $\kappa = 237$ Watt/(metre Kelvin) (aluminium) at $t = 10$s. This corresponds to non-dimensional time -->
+
+
+<!-- $$ -->
+<!-- t' = \frac{10 \mathrm{s}}{[t]} = --> 
+<!-- $$ --> 
+
+<!-- \begin{gather} -->
+<!-- \frac{\rho c T_0}{[t]}\frac{\mathrm{\partial}T'}{\mathrm{\partial}t'} = \frac{kT_0}{L^2} \frac{\mathrm{\partial}^2 T'}{\mathrm{\partial}x'^2}, \\ -->
+<!-- T(x, 0) = 1 \\ -->
+<!-- T(0, 0) = \frac{T_a}{T_0}, \\ -->
+<!-- T(L, 0) = \frac{T_b}{T_0}. -->
+<!-- \end{gather} -->
+
+<!-- It is useful to think of time in terms of velocity and distance. Let us then write -->
+<!-- $$ -->
+<!-- [t] = L/U, -->
+<!-- $$ -->
+<!-- where $U$ is a typical velocity scale (which again, we shall specify later). Then note that the heat equation can be written as -->
+<!-- $$ -->
+<!-- \frac{\rho c}{(L/U)} \frac{\mathrm{\partial}T'}{\mathrm{\partial}t'} = \frac{k}{L^2}\frac{\mathrm{\partial}^2 T'}{\mathrm{\partial}x'^2}. -->
+<!-- $$ -->
+<!-- We can move all the units to one side and then write -->
+<!-- $$ -->
+<!-- \frac{\mathrm{\partial}T'}{\mathrm{\partial}t'} =\text{Pe} \frac{\mathrm{\partial}^2 T'}{\mathrm{\partial}x'^2}. -->
+<!-- $$ {#eq-heat-Pe} -->
+
+<!-- We can verify that the quantity -->
+<!-- $$ -->
+<!-- \mathrm{Pe} =  \frac{k/(\rho c L^2)}{U/L} = \frac{\text{diffusive timescale}}{\text{advective timescale}}. -->
+<!-- $$ -->
+<!-- known as the Peclet number is entirely non-dimensional. This number essentially charactises the balance between diffusive effects (which causes heat to spread out) versus advective effects (the transport of the heat). In the case of our problem, there is no obvious source of advection. Another way to see this is that the temporal or velocity scale is entirely free for us to select. -->  
+
+<!-- We can now choose the temporal scale so as to simplify the equation. Let us choose --> 
+<!-- $$ -->
+<!-- [t] = \frac{L}{U} = \frac{\rho c L^2}{k}. -->
+<!-- $$ {#eq-specialtime} -->
+
+<!-- Now the system simplifies. We can now write -->
+
+<!-- $$ -->
+<!-- \begin{gathered} -->
+<!-- \frac{\mathrm{\partial}T'}{\mathrm{\partial}t'} = \frac{\mathrm{\partial}^2 T'}{\mathrm{\partial}x'^2} \\ -->
+<!-- T'(x', 0) = 1 \\ -->
+<!-- T'(0, 0) = A, \\ -->
+<!-- T'(1, 0) = B. -->
+<!-- \end{gathered} -->
+<!-- $$ {#eq-heatintro-noscale} -->
+
+In summary, we have gone from a system where we needed to consider five parameters to a system where we only need to specify two (essentially, the ratio of the initial heat to the boundary values). This is an enormous simplification.
+
+Moreover, your analysis has further identified the key non-dimensional parameters that appear, including: 
+$$
+\Pi = \frac{\kappa [t]}{[x]^2}, \qquad A = \frac{T_a}{T_\mathrm{init}}, \qquad B = \frac{T_b}{T_\text{init}}, \qquad \frac{L}{[x]}
+$$ 
+
+In this particular problem, you had the freedom to choose $L$ to remove one parameter (the ratio of lengths), and time could be chosen to set $\Pi = 1$. 
+
+<!-- in @eq-heat-Pe. This demonstrates that it is not the individual values of $k$, $\rho$, $c$, ... that matter, but rather their specific combination in the form of the Peclet number. -->
+
+<!-- ## GI Taylor and the atomic bomb --> 
+
+<!-- :::{.callout-note} -->
+<!-- ## 2022-23 note -->
+
+<!-- During Lecture 3 we will cover some aspects of how non-dimensionalisation was famously used by British fluid dynamicist GI Taylor to estimate the energy of the atom bomb. Students can refer to the visualiser notes. -->
+<!-- ::: -->
+
+
+## GI Taylor and the energy of the atom bomb
+
+During the third lecture, we covered the story of how non-dimensionalisation was famously used by British fluid dynamicist Geoffrey Ingram Taylor to estimate the energy of the atom bomb. The notes can be found in the scanned visualiser notes. 

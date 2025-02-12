@@ -1,0 +1,3 @@
+# Lorenz equations
+
+(Chap. 7 of Kapler & Engler)

@@ -1,0 +1,29 @@
+# Problem class 3: BVPs {#sec-pclass-bvp}
+
+This problem class will involve the completion of the ODE studied in asymptotic approximations III. We will then study the boundary-value problem which forms part of the third problem set, namely: 
+$$
+\begin{gathered}
+\epsilon T'' + 2T' + T = 0, \\
+T(0) = 0 \quad \text{and} \quad T(1) = 1.
+\end{gathered}
+$$
+The associated Python note is in `lectures/lecture12-SolvingBVPs`. You will gain an appreciation for some of the unique elements that are introduced when looking at $\epsilon \to 0$ in boundary-value problems. 
+
+<!-- ::: {.callout} -->
+<!---->
+<!-- This problem class will be covered in Monday Week 4.  -->
+<!---->
+<!-- ::: -->
+
+<!-- In this problem class, we reviewed the week's methods. We then studied the problem of solving -->
+<!-- $$ -->
+<!-- x^2 - 2 x + \epsilon \sin x = 0, -->
+<!-- $$  -->
+<!-- for $\epsilon > 0$ and $\epsilon \ll 1$. We developed the roots of this equation using asymptotic expansions.  -->
+<!---->
+<!-- We then asked how to perform asymptotic analysis in the other limit of $\epsilon \to \infty$. In this limit, we can set  -->
+<!-- $$ -->
+<!-- \delta = \frac{1}{\epsilon} \to 0. -->
+<!-- $$  -->
+<!---->
+<!-- The discussion can be found in the lecture visualiser notes. -->

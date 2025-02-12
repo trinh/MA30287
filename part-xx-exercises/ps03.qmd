@@ -1,0 +1,94 @@
+# Problem set 3 {#sec-ps3}
+
+:::{.callout-tip}
+## Note
+This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.
+:::
+
+In @sec-asymptotics03 we discussed how the zero-dimensional energy equation occurs in the form of
+$$
+(\rho c_p V) \frac{\mathrm{d}T}{\mathrm{d}t} = E_{\text{in}}(t, T) - E_{\text{out}}(t, T).
+$$
+This is oversimplistic since in actuality, your temperature function, $T$, should also depend on space. For instance, if you are interested in modelling $T$ with a depth coordinate, then it would be $T(z, t)$. In this case, we know that temperature would be governed by a second-order differential equation (in space) such as the kind that appears in (@eq-heatintro).
+
+In this problem set, we will make up a toy example of a differential equation that might be encountered in heat flow. Consider now (in non-dimensional coordinates):
+$$
+\frac{\partial T}{\partial t} = \epsilon \frac{\partial^2 T}{\partial z^2} + 2 \frac{\partial T}{\partial z} + T = 0,
+$$
+which is determined for some function $T(z, t)$. Here, the small parameter $\epsilon > 0$, $\epsilon \ll 1$, is linked to the heat diffusion.
+
+We will study the steady-state version of the problem. So consider only $T = T(z)$. We will make up some boundary conditions as well. 
+$$
+\begin{aligned}
+\epsilon T'' + 2T' + T &= 0, \\
+T(0) &= 0, \\
+T(1) &= 1.
+\end{aligned} 
+$$ {#eq-ps3-sys}
+The challenge is to study the above problem for small values of $\epsilon$.
+
+
+## Q1. Conversion to first-order system {.unnumbered}
+
+By using the procedure reviewed in @sec-asym2-num,  convert (@eq-ps3-sys) to a first-order system of equations.
+
+## Q2. Numerical solutions {.unnumbered}
+
+By adapting the code studied in lectures (script `lecture12-SolvingBVPs`), write a numerical code to solve (@eq-ps3-sys) using Python's built-in functions. Use your code to investigate the solution profiles for different values of $\epsilon$.
+
+## Q3. Investigation of the boundary layer {.unnumbered}
+
+Using your code, use the following command in order to investigate the maxima $(x_m, T_m)$ as $\epsilon$ varies:
+
+	ind = np.argmax(Y[0])
+	print(ep, z[ind], Y[0, ind])
+
+You may want to consider, as an example, the values $\epsilon = \{0.05, 0.1, 0.15, 0.2\}$ and fill the following table.
+
+| $\epsilon$ | $x_m$ | $T_m$ |
+| -- | -- | -- |
+| 0.05 | | |
+| 0.1 | | |
+| 0.15 | | |
+| 0.2 | | |
+
+Create a plot of $(\epsilon, x_m)$ and discuss the observed trend and its implications.
+
+
+## Q4. Outer asymptotic solutions {.unnumbered}
+
+Begin by setting
+$$
+T = T_{\text{outer}} = T_0(z) + \epsilon T_1(z) + \epsilon^2 T_2(z) + \ldots
+$$
+Substitute the above expansion into the system and solve for the first two orders.
+
+You may verify that the solution is given by
+
+\begin{align}
+T_0 &= e^{1/2} e^{-z/2}, \\
+T_1 &= -\frac{1}{8} e^{1/2} e^{-z/2} (z - 1).
+\end{align}
+
+
+## Q5. Inner asymptotic solutions {.unnumbered}
+
+There will be a boundary layer near $z = 0$. Set $z = \epsilon^{\alpha} s$ and $T(z) = U(s)$. Follow the same procedure, as in @sec-asymptotics03 in order to determine the correct choice of $\alpha$ for the inner region. This choice should balance the two terms $\epsilon T''$ and $2T'$.
+
+## Q6. Matching and comparison {.unnumbered}
+
+Expanding the inner solution as $U = U_0(s) + \epsilon U_1(s) + \ldots$, write down the equation and boundary conditions that $U_0$ must satisfy. You will notice that $U_0$ is governed by a second-order differential equation and therefore needs two boundary conditions. One boundary condition comes from $z = 0$, i.e.
+$$
+U_0(0) = 0.
+$$
+
+The other boundary condition is a matching condition:
+$$
+\lim_{s \to \infty} U_0(s) = \lim_{z \to 0} T_0(z),
+$$
+which imposes that the inner solution, as it leaves the boundary layer, matches the outer solution, it tends into the inner region.
+
+Solve for $U_0$.
+
+
+

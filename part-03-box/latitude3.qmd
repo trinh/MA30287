@@ -1,0 +1,108 @@
+# EBM with latitude III {#sec-latitude3}
+
+We continue our investigation of the latitude-dependent model of @sec-latitude2.
+
+<!-- ## Placement of the ice line -->
+<!---->
+<!-- Using Newton's method, we previously solved for a complete solution by starting off with a 'lucky' initial guess. For example, starting with a linear temperature distribution set to $T(0) = 20$ and $T(1) = -20$ we were able to converge to the profile shown below.  -->
+<!---->
+<!-- ![Temperature distribution](img/2023-03-21-08-18-15.png){#fig-exampleT} -->
+<!---->
+<!-- It is seen in the image that the ice line lies roughly at $y_s = 0.85$. Actually, this turns out to be *wrong* because the numerical method we applied previously in @sec-latitude2 was flawed in a very subtle way. We will eventually come to this realisation after the material from this chapter. -->
+
+## Studying the mean temperature
+
+Following the previous chapter, we now have a better understanding of the relationship between the ice line, $y_s$, and the solar forcing, $Q$. We demonstrated that for the baseline case of $Q = 342$, (at least) four solutions are possible.  
+
+![The iceline](img/2023-03-23-13-06-25.png){#fig-iceline width=80%}
+
+Examination of the root shows that the two non-trivial ice lines are approximately at $y_s = 0.256$ and $y_s = 0.939$ for $Q = 342$. Using the script developed in lectures, we can study a similar graph of the mean temperature versus the solar forcing. 
+
+This yields the following picture: 
+
+![Mean temperature](img/2023-03-23-13-09-37.png){#fig-Tbar width=80%}
+
+During the lecture, we discussed the so-called *Snowball Earth* scenario where decreasing the solar constant may cause the stable state of the planet to jump down to the green branch shown above (completely frozen Earth). The solution exhibits *hysteresis* which describes the non-reversibility shown in the bifurcation diagram. This will be further expounded in the following discussion on stability. 
+
+## Stability
+
+So far, we have only discussed the steady-state solutions of the latitude-dependent EBM, repeated below: 
+$$
+C \frac{\mathrm{\partial}T}{\mathrm{\partial}t} = Qs(y)[1 - a(y)] - (A + BT) + k(\bar{T} - T).
+$$ 
+In this section, we investigate the stability analysis for the mean temperature, $\bar{T}$. This was given in @eq-meanT-evo-ps and repeated below:
+$$
+C \frac{\mathrm{d}\bar{T}}{\mathrm{d}t} = G(\bar{T}) \equiv Q(1 - \bar{a}) - (A + B\bar{T}),
+$$ {#eq-meanT-evo}
+The following linearisation argument was presented by [Cahalan and North (1979)](https://moodle.bath.ac.uk/pluginfile.php/2213909/mod_resource/content/0/Cahalan_North_1979.pdf), with some additional details to avoid confusion. Let us linearise this about a steady-state solution, writing
+$$
+\bar{T} = \bar{T}^* + u(t), 
+$$ 
+where $u \ll 1$. By Taylor series, 
+$$
+G(\bar{T}) = G(\bar{T}^*) + G'(\bar{T}^*)u + O(u^2),
+$$
+so substitution into the ODE yields the linear equation
+$$
+C \frac{\mathrm{d}u}{\mathrm{d}t} = G'(\bar{T}^*) u.
+$$ {#eq-linearu}
+We need to calculate the derivative term on the RHS. First, using the equation for $G$ in @eq-meanT-evo, we have
+$$
+G'(T^*) = -B - Q \frac{\mathrm{d}\bar{a}}{\mathrm{d}\bar{T}}\biggr\rvert_{\bar{T} = \bar{T}^*}.
+$$  {#eq-Gprime}
+The above calculation assumes that $Q$ is a fixed number, as it should, since $Q$ is regarded as a parameter (we choose a value of $Q$, then this allows us to evolve the ODE). 
+
+:::{.callout-note}
+## Calahan & North's "trick"
+
+The following presentation took about 3 lines of text in the presentation of Cahalan & North (1979), between eqns (1.2) and (1.3) in the image below. Students have inquired about the manipulations.
+
+![From Cahalan & North, p.1179](img/2023-05-02-17-45-45.png){#fig-cn79 width=50%}
+:::
+
+The problem is what to do with the derivative of $\bar{a}$ that appears in (@eq-Gprime). This is a strange quantity, since $\bar{a}$ does not explicitly depend on $\bar{T}$, and is given in (@eq-abar-again). The issue is that there is a hidden dependence: $\bar{a}$ depends on the ice line, $y_s$, which depends on not only $Q$, but is multivalued as well!
+
+Cahalan & North, whether knowingly or unknowingly, applied a trick, which is to consider that $Q$ is not a parameter, but that it can be viewed as depending on $\bar{T}^*$, the steady state (this dependence is shown in @fig-Tbar). Therefore, Cahalan & North returned to the equation (@eq-meanT-again) that gives the steady-state:
+$$
+T^* = \frac{Q(1 - \bar{a}) - A}{B}.
+$$
+We differentiate this equation with respect to $\bar{T^*}$, but now assume both $Q$ and $\bar{a}$ depend on $\bar{T^*}$. This yields
+$$
+1 = \frac{1}{B} \frac{\mathrm{d}Q}{\mathrm{d}\bar{T^*}}(1 - \bar{a}) - \frac{Q}{B} \frac{\mathrm{d}\bar{a}}{\mathrm{d}\bar{T}^*} \Longrightarrow 
+B = \frac{\mathrm{d}Q}{\mathrm{d}\bar{T^*}}(1 - \bar{a}) - Q \frac{\mathrm{d}\bar{a}}{\mathrm{d}\bar{T}^*}
+$$ {#eq-diffmeaneq}
+
+We substitute the above value of $B$ into (@eq-Gprime), and then finally into the equation for the linearisation (@eq-linearu). Then we have 
+$$
+C \frac{\mathrm{d}u}{\mathrm{d}t} = -\left[(1 - \bar{a}) \frac{\mathrm{d}Q}{\mathrm{d}\bar{T}^*}\right]u(t) = -\gamma u(t),
+$$ 
+where the constant $\gamma$ has been defined by the above. Thus, the solution is given by 
+$$
+u(t) = u(0) e^{-\gamma t/C}. 
+$$ 
+
+Note then that the crucial quantity is
+$$
+\gamma \equiv (1 - \bar{a}) \frac{\mathrm{d}Q}{\mathrm{d}\bar{T}^*}.
+$$
+If $\gamma$ is positive, the equilibrium point is stable, while if $\gamma$ is negative, the equilibrium is unstable. Because $(1 - \bar{a}) > 0$, then this yields the so-called slope-stability theorem coined by [Cahalan and North (1979)](https://doi.org/10.1175/1520-0469(1979)036%3C1178:ASTFEB%3E2.0.CO;2):
+$$
+\begin{aligned}
+\frac{\mathrm{d}Q}{\mathrm{d}\bar{T}^*} > 0 &\Longrightarrow \text{stable}, \\
+\frac{\mathrm{d}Q}{\mathrm{d}\bar{T}^*} < 0 &\Longrightarrow \text{unstable}.
+\end{aligned}
+$$
+
+
+We may now plot the bifurcation diagram, shown in $(Q, \bar{T})$-space. First, return to @fig-Tbar. In lecture 21, we drew the following picture: 
+
+![Bifurcation diagram for $(Q, \bar{T})$](img/2023-05-02-18-06-12.png){#fig-CNbif}
+
+Note the following characteristics. 
+
+1. There are up to four steady states (green, orange, two blacks). 
+
+2. Those branches with positive gradient are stable; there is only one branch with a negative gradient and it is thus unstable. In the image, these are shown solid for stable and dashed for unstable. 
+
+3. The diagram indicates tipping points and hysteresis. As explained in the lectures, one can encounter a situation where, beginning from the upper orange branches, the solar radiation is decreased past the tipping point. The solution must then evolve to the lowermost stable state (green). However, increasing $Q$ does not return us to the original non-frozen state---unless $Q$ is increased by a massive amount. This 'hysteresis' loop is shown with the maroon colours in the image above. 
+

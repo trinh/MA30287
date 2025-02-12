@@ -1,0 +1,14 @@
+# El Nino-Southern Oscillation
+
+:::{.callout-tip}
+## 2022-23 note
+This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.
+:::
+
+
+:::{.callout-note}
+## Reference
+This largely follow from Chap. 16 of [@kaper_book].
+:::
+
+

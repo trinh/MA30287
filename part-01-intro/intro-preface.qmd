@@ -1,0 +1,17 @@
+# What does Mathematics of Planet Earth mean?
+
+Mathematics of Planet Earth seems like an incredibly broad description for a course, but perhaps in order to give a rough idea of what such a course might include, we can consider the following diagram in @fig-natureESM, which illustrates different categories and subject areas that are involved in the modelling of a full Earth system. 
+
+![The many components of a full Earth System Model](figures/NatureESM.png){#fig-natureESM width=80%}
+
+It would be possible to spend a lifetime studying any one aspects of the above categories, and they span many different areas of study, including: (i) engineering (civil, fluids, mechanical, etc.); (ii) physics (geosciences, mechanics); (iii) Earth sciences; (iv) policy and health; and so forth and so on. As mathematicians, we also have a unique perspective, and applied mathematics plays important roles in many of the above categories.
+
+In essence, this course will include topics and themes are united by aspects of **mathematical modelling** and **mathematical analysis** and this is what distinguishes our style of study from adjacent areas of science and social science. 
+
+This course will focus on **models** of Planet Earth. As such, one can divide modelling into (at least) three types: (i) conceptual modelling; (ii) physics-based modelling; and (iii) statistical or data-based modelling. A basic **conceptual model** of the temperature on the planet consists of a differential equation that expresses basic principles of energy conservation, but that significantly coarse-grains the dynamics (to the extent where you would not necessarily need to know very much fluid mechanics or physics to study it). Analysis of such models is done numerically or semi-analytically (similar to the kind of phase-plane analysis of ODEs you would have seen in other modules). In this course, we will also study conceptual models of oceans and floods. 
+
+A secondary part of this course will involve more in-depth analysis of the physical models that govern the blue elements of the above figure. This moves us from the toy box (conceptual) models studied above to digging into the underlying physics---this also falls into the category of Mathematical Geoscience or Fluid Mechanics. 
+
+Statistical or data-based approaches are not as emphasised in this course (though they remain very important tools). Such approaches include, for example, analyses of time-series of climate variables, or machine-learning approaches for building data-based models on large quantities of data. 
+
+

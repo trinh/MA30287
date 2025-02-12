@@ -1,0 +1,87 @@
+# Problem class 1: an introduction to Noteable
+
+During this module, we will perform various computational experiments using Python. In order to make it easy for students to code in Python from a variety of devices (desktops, laptops, tablets, and even a phone), we use a cloud-computing system called Noteable that allows you to code from within a web browser. Students who like to code using their own Python setup on their computer can also do so. The goal of this problem class is to quickly get you up to speed with the basic Noteable system, and how to manipulate outputs. We should cover: 
+
+  * A walkthrough of setting up with Noteable
+  * Basic plotting using matplotlib and numpy
+  * How to export graphics and worksheets
+
+
+## Getting started with Noteable
+
+Use your [Moodle course page](https://moodle.bath.ac.uk/course/view.php?id=60108) to access the Noteable Python interface by clicking on the appropriate link in the course materials. Follow the instructions on the Moodle page to add the Git repository to your directory.
+
+1. Navigate to the welcome screen for MA30287 and follow the instructions in `Welcome.ipynb` and `FirstTimeSetup.ipynb` in order to create your own local directory at `/MA30287_workspace/`
+
+2. Navigate to the workspace folder. Click `New -> Notebook`. If asked, select the kernel `Python 3 (ipykernel)`.
+
+3. In the first line of input, select, in toolbar `Code -> Markdown`. This allows you to annotate your notebook with Markdown-style text input. 
+
+	In the first line of input, type `# Problem class 1`. Then either type `Shift + Enter` or press the play button which will execute the line(s) of input. Your markdown text should render as a nicely formatted entry. 
+
+4. Rename the file to something appropriate, like `problemclass01`. You can do this by right-clicking the filename in the file manager and selecting `Rename`.
+
+	Proceed to the next question. 
+
+## Mathematical plotting
+
+Three key Python packages used throughout this course are [numpy](https://numpy.org/), [matplotlib](https://matplotlib.org/), and [scipy](https://scipy.org/). `Numpy` provides array functionality, allowing you to naturally manipulate vectors and matrices. `Matplotlib` is a general plotting package for Python, allowing for the creation of (typically) 2D and 3D plots. And `scipy` provides algorithms for differential and integral operations allowing e.g. the solution of differential equations. 
+
+Here is a script to generate a graph of a sine curve. 
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 4*np.pi, 50)
+y = np.sin(x)
+plt.plot(x, y)
+plt.xlabel('x');
+plt.ylabel('sin(x)');
+plt.grid(1)
+```
+
+Here is a script to generate a 3D plot.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# Define the function
+def f(x, y):
+    return np.sin(np.sqrt(x**2 + y**2)) * np.exp(- (x**2 + y**2) / 10)
+
+# Create grid
+x = np.linspace(-5, 5, 50)
+y = np.linspace(-5, 5, 50)
+X, Y = np.meshgrid(x, y)
+Z = f(X, Y)
+
+# Plot the surface
+fig = plt.figure(figsize=(8, 6))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(X, Y, Z, cmap='viridis')
+
+# Labels and title
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+ax.set_zlabel("z")
+plt.show()
+```
+
+## Debugging Jupyter code
+
+*It would be good to demonstrate a workflow to understand how errors are diagnosed and studied (e.g. by printing simple variables throughout the script). Also, it would be good to show students how graphs can be zoomed in/out and/or rotated within the browser interface (this may be tricky in Noteable)*. 
+
+## Outputting and saving
+
+During the problem class, we will also show how to: 
+
+* Create a zip file of your workspace using the terminal so that you can save a copy of your files onto your local filesystem. This can be done by running the script `ExportMA30287.ipynb` in the root directory of the Noteable system, and then downloading the result. 
+* Create a copy of your script in PDF form so that it can be sent around as a single document. This can be done by going to File -> Save and Export Notebook As...
+
+## Challenge coding exercise
+
+Create an animation of the 2D or 3D plot, e.g. by making it so the waves 'ripple'. Using a `for` loop, animate the wave. Then output the animation as a video file. 
+

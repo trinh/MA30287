@@ -1,0 +1,105 @@
+# Problem set 7 {#sec-ps7}
+
+:::{.callout-tip}
+## Note
+This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.
+:::
+
+<!-- ## Q1. Non-dimensionalisation of the ocean model {.unnumbered} -->
+<!---->
+<!-- Take the ocean model from (@eq-ocean-final-dimensional). Re-scale the salinity and time via -->
+<!-- $$ -->
+<!-- \Delta S = [\Delta S]x \quad \text{and} \quad -->
+<!-- t = [t]t'. -->
+<!-- $$  -->
+<!-- By choosing appropriate scales, show that the equation can be reduced to the form  -->
+<!-- $$ -->
+<!-- \dot{x} = \lambda - |1 - x|x -->
+<!-- $$ {#eq-ps6-xeqn} -->
+<!-- for the parameter $\lambda$ which you should define. Note that the above quantity $\dot{x}$ refers to differentiation in $t'$. -->
+<!---->
+<!-- Provide an intuitive interpretation of the parameter $\lambda$.  -->
+<!---->
+<!-- ## Q2. Steady states of the reduced model  {.unnumbered} -->
+<!---->
+<!-- Consider now the reduced model (@eq-ps6-xeqn) and solve for the steady-state solutions (or equilibrium solutions). Assume that $\lambda > 0$ and consider the two cases of $1 - x \geq 0$ and $1 - x < 0$. Show that there are up to three steady states given by  -->
+<!---->
+<!-- \begin{align} -->
+<!-- x_1^* &= \frac{1}{2}(1 + \sqrt{1 + 4 \lambda}), \\ -->
+<!-- x_{2,3}^* &= \frac{1}{2}(1 \pm \sqrt{1 - 4\lambda}), -->
+<!-- \end{align} -->
+<!---->
+<!-- and derive conditions for each point to exist.  -->
+<!---->
+<!-- Next, set $x = x^* + y$ where $x^*$ is one of the three possible steady-state solutions. Show that the perturbation is governed by  -->
+<!-- $$ -->
+<!-- \dot{y} = \pm (2x^* - 1)y, \qquad x^* \lessgtr 1. -->
+<!-- $$  -->
+<!-- Conclude that $x_1^*$ is stable, $x_2^*$ is unstable, and $x_3^*$ is stable.  -->
+<!---->
+<!-- ## Q3. Bifurcation diagram for the reduced ocean model {.unnumbered} -->
+<!---->
+<!-- Based on your work in Q2, plot a bifurcation diagram in the $(\lambda, x^*)$-plane. Use solid and dashed curves to indicate stability.  -->
+<!---->
+<!-- Does the bifurcation diagram indicate the possibility of tipping points and hysteresis? By considering the interpretation of $\lambda$ and $x^*$, discuss the physical consequences of such behaviour as it relates to the Ocean model. -->
+<!---->
+<!-- How does this bifurcation diagram compare to the typical bifurcation diagrams studied in the Energy Balance module, such as the one studied in @sec-latitude4 ?  -->
+
+## Q1. Non-dimensionalisation of the Stommel box model {.unnumbered}
+
+Consider the Stommel box model given in (@eq-stommelpre). By following the procedure outlined in @sec-stommel-nondim non-dimensionalise the model in order to produce the set of equations given in (@eq-stommelsys), repeated here: 
+$$
+\begin{aligned}
+\frac{\mathrm{d}x}{\mathrm{d}t} &= \delta(1 - x) - |f(x, y)|x, \\
+\frac{\mathrm{d}y}{\mathrm{d}t} &= 1 - y - |f(x, y)|y, 
+\end{aligned}
+$$
+where we have introduced the function,
+$$
+f(x, y; R, \lambda) = \frac{1}{\lambda}(Rx - y).
+$$ 
+
+
+Provide a brief description of the physical interpretations of the parameters $\lambda$, $\delta$, and $R$.  
+
+## Q2. Investigations for $R$ {.unnumbered}
+
+Using the script available on Noteable, investigate the behaviour of the system in the above question under changing values of $R$ and fixed values of the other parameters. Based on your intuition, what do you expect to be the features of the bifurcation diagram, as shown in the $(R, f)$-plane? 
+
+
+## Q3. Alternative scalings of the Stommel box model {.unnumbered}
+
+It is possible to scale the problem differently, and this may allow for simpler analysis. Consider the set of equations in Q2. Write instead
+$$
+x = [x] s, \qquad y = [y] \theta, \qquad t = [t] t',
+$$ 
+Choose the correct scalings, $[x]$, $[y]$, and $[t]$, so that we obtain a re-scaled version: 
+$$
+\begin{aligned}
+\frac{\mathrm{d}s}{\mathrm{d}t'} &= 1 - (\epsilon + |q|) s, \\
+\frac{\mathrm{d}\theta}{\mathrm{d}t'} &= 1 - (\mu + |q|)\theta,
+\end{aligned}
+$$
+
+where now the flow term is given by 
+$$
+q = \kappa(-\theta + \tilde{R}s).
+$$ 
+In addition to the choice of scalings, you will need to describe how the new parameters, $\epsilon$, $\mu$, $\kappa$, and $\tilde{R}$, are related to the older parameters.
+
+## Q4. Box models for flooding 1 {.unnumbered}
+
+Consider the basic flooding model given in (@eq-basicflood), and repeated below:
+$$
+\frac{\mathrm{d}S}{\mathrm{d}t} = P(t) - P(t)H(S - S_{\text{max}}) - E_p(t) \frac{S}{S_{\text{max}}}.
+$$ 
+Consider the initial condition of $S(0) = S_0 \geq 0$, and a constant rainfall $P(t) = P$ and constant potential evapotranspiration $E_p(t) = E_p$. Describe, using analysis, the evolution of the system. 
+
+Draw graphs of the storage, $S$, and saturation excess runoff $Q_{se}$ (the second term of the above equation). 
+
+<!-- ## Q5. Box models for flooding 2 {.unnumbered} -->
+<!---->
+<!-- :::{.callout-note} -->
+<!---->
+<!-- To add following lectures in Week 11 -->
+<!-- ::: -->

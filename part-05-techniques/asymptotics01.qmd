@@ -1,0 +1,292 @@
+# Asymptotic approximations I {#sec-asymptotics01}
+
+One powerful set of techniques for approximating solutions to equations is called *asymptotic analysis* or *perturbation theory*. To begin with, in this chapter, we introduce you to these techniques as a means to approximating the solutions to equations like: 
+$$
+\epsilon x^2 + x - 1 = 0,
+$$
+when $\epsilon$ is a small parameter. 
+
+Soon, we apply the techniques to approximating solutions of differential equations.
+
+
+## A simple quadratic
+
+:::{.callout-important}
+## A singular quadratic 
+
+Consider the solution of 
+$$
+\epsilon x^2 + x - 1 = 0,
+$$ {#eq-quad}
+where $\epsilon$ is a fixed and very small positive number, say $0.000001$. Forget that we know how to solve a quadratic equation: is it possible to develop a systematic approximation method?  
+:::
+
+
+If $\epsilon = 0$, then $x = 1$. Moreover, if we substitute $x = 1$ into the equation, then we see that the error is small and proportional to $\epsilon$. It is natural to seek an approximation in powers of $\epsilon$. We call this an \emph{asymptotic expansion}. We write
+$$
+x = x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots
+$$
+Substitution into the equation yields
+$$
+\epsilon \Bigl(x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots\Bigr)^2 + \Bigl( x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots \Bigr) - 1 = 0.
+$$
+Expand and collect terms in powers of $\epsilon$:
+$$
+\Bigl( x_0 - 1 \Bigr) + \epsilon\Bigl(x_1 + x_0^2\Bigr) + \epsilon^2\Bigl(x_2 + 2 x_0 x_1\Bigr) + \ldots = 0.
+$$
+Now we equate coefficients at each order in $\epsilon$. This gives
+$$
+\begin{aligned}
+x_0 - 1 &= 0 \Longrightarrow x_0 = 1 \\
+x_1 + x_0^2 &= 0 \Longrightarrow x_1 = -1 \\
+x_2 + 2 x_0 x_1 &= 0 \Longrightarrow x_2 = 2
+\end{aligned} 
+$$
+We therefore have obtained the three-term approximation, 
+$$
+x = 1 - \epsilon + 2\epsilon^2 + \ldots
+$$
+Clearly we could continue this process *ad infinitum* obtaining increasingly accurate approximations to one of the roots. 
+
+### The singular root {#sec-asym1-singular}
+
+But where has the other quadratic root gone?
+
+The problem is that in considering $\epsilon$ to be small, we began by ignoring the leading term, $\epsilon x^2$. We effectively assumed that the equation was primarily *balanced* by setting the $x$ term with the $-1$ term, and the sum of the two terms approximately equalling zero. 
+
+But if $|x|$ is large, then clearly our assumption that $\epsilon x^2$ being small may not be necessarily true for it depends on how large $|x|$ is compared to $\epsilon$. Note that if $|x|$ is large, then necessarily the last term, $-1$, is negligible in comparison. Therefore, in order for $\epsilon x^2$ to balance $x$, we see that $|x|$ must be of size $1/\epsilon$.
+
+Therefore this suggests that we should re-scale our solution as follows
+$$
+x = \frac{X}{\epsilon}.
+$$
+
+Substitution into the original quadratic now yields
+$$
+X^2 + X - \epsilon = 0.
+$$
+Now notice that $\epsilon = 0$ expresses the correct balance in order to detect that missing root. Again we write 
+$$
+X = X_0 + \epsilon X_1 + \epsilon^2 X_2 + \ldots
+$$
+and attempt to solve order by order. Substitution into the equation yields
+$$
+\Bigl(X_0 + \epsilon X_1 + \epsilon^2 X_2 + \ldots\Bigr)^2 + \Bigl(X_0 + \epsilon X_1 + \epsilon^2 X_2 + \ldots\Bigr) - \epsilon = 0.
+$$
+Expand and collect orders of $\epsilon$:
+$$
+\begin{aligned}
+X_0^2 + X_0 &= 0 \Longrightarrow X_0 = -1 \\
+2X_0 X_1 + X_1 -1 &= 0 \Longrightarrow X_0 = -1,
+\end{aligned}
+$$
+and thus to two orders, we have
+$$
+X = -1 - \epsilon + \ldots \Longrightarrow x = - \frac{1}{\epsilon} - 1 + \ldots
+$$
+
+Of course, we have used a very simple example (a solvable quadratic) to illustrate the idea of asymptotic approximations, but you should hopefully see that this method is extensible to much more complicated equations. 
+
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+ep = np.linspace(1,0.1, 20)
+root1 = (-1 + np.sqrt(1-4*ep*(-1)))/(2*ep)
+root2 = (-1 - np.sqrt(1-4*ep*(-1)))/(2*ep)
+asym1 = 1 - ep
+asym2 = -1/ep - 1
+plt.plot(ep, root1, 'o')
+plt.plot(ep, root2, 'o')
+plt.plot(ep, asym1, '-')
+plt.plot(ep, asym2, '-')
+plt.legend(['$x_1$', '$x_2$', '2-term asymp.', '2-term asym'])
+plt.xlabel('$\epsilon$')
+plt.ylabel('x');
+
+```
+<!--
+
+We want to now explain the procedure from which we can estimate solutions of equations using an asymptotic approximation.
+
+Let us explain the procedure with a simple example. It is best to select an example from which we already know the solution. We seek solutions of the equation 
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def Newton(f, df, x, maxiter=100, tol=1e-12, display=0):
+	i = 0
+	while (abs(f(x) - 0) > tol) and (i < maxiter):
+		err = f(x)
+		x = x - err / df(x)
+		if display == 1:
+			print("f(x) = ", np.abs(err), ", x = ", x)
+		i = i + 1
+	return x, err
+
+lammat = np.linspace(-1, 1.1, 20)
+xmat = 0*lammat
+x = 0.1
+
+for i, lam in enumerate(lammat):
+	f = lambda x: x**2 + lam**2 - 1 
+	df = lambda x: 2*x 
+
+	x, err = Newton(f, df, x, 10, 1e-8, 0)
+	if err > 1e-4:
+		print("Careful no convergence at lambda = ", lam)
+	xmat[i] = x
+# Plots
+plt.plot(lammat, xmat, '-o');
+
+# Plotting a circle
+theta = np.linspace(0, 2*np.pi, 50)
+plt.plot(np.sin(theta), np.cos(theta), 'r--');
+plt.xlabel('lambda');
+plt.ylabel('x');
+plt.xlim([-1.5,1.5])
+plt.ylim([-1.5,1.5])
+plt.gca().set_aspect('equal')
+plt.show()
+```
+$$
+\underbrace{\epsilon x^2}_{\text{[1]}} + \underbrace{x}_{\text{[2]}} - \underbrace{1}_{\text{[3]}} = 0,	
+$$ {#eq-asympquad}
+
+when the parameter, $\epsilon$ is a small number. When $\epsilon$ is a small number, we argue that at least two of the three terms must be balanced. The procedure in which we establish which terms are dominant is called the method of dominant balance. 
+
+\begin{itemize}
+\item Case 1: \ding{172} $\sim$ \ding{174} $\gg$ \ding{173}
+
+This yields the balance of $x^2 \sim 1$ and thus $x \sim \pm 1$. 
+
+If it is indeed the case that $x = O(1)$, then we can check that \ding{173} $= O(\epsilon)$ is indeed smaller than \ding{172}, \ding{174}. The balance is therefore consistent.
+
+\item Case 2: \ding{172} $\sim$ \ding{173} $\gg$ \ding{174}
+
+Balancing the first two terms yields {\color{blue}$x = O(\epsilon)$} which is small. 
+
+However, the last term is $O(1)$, which turns out to be larger than \ding{172} or \ding{173}. So this is a contradiction that the first two terms establish the dominant balance.
+
+\item Verify that all remaining cases (of \ding{173} $\sim$ \ding{174} or all three terms in balance) yield contradictions.
+\end{itemize}
+
+The above seems all pretty obvious, but this systematic method will be important for less obvious problems. Once the dominant balance has been established, we can systematically develop approximations. We first set 
+\[
+x = x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots
+\]
+
+Substitute into \eqref{asymp:quad} and collect terms in increasing powers of $\epsilon$. This yields 
+\[
+\biggl[x_0^2 + (2 x_0 x_1)\epsilon + O(\epsilon^2)\biggr] + \epsilon\biggl[x_0 + \ep x_1 + \ldots\biggr] - 1 = 0,
+\]
+%
+for which we solve to get 
+\[
+x_0 = \pm 1 \qquad x_1 = -\frac{1}{2}. 
+\]
+Thus we have to the first two orders of approximation: 
+\[
+x = \pm 1 - \frac{\epsilon}{2} + \ldots
+\]
+
+The above can be verified and contrasted with expansion of the exact solution: 
+\[
+x = \frac{-\ep \pm \sqrt{\ep^2 + 4}}{2} = \frac{-\ep \pm (2 + \ep^2/4 + \ldots)}{2} = \pm 1 - \frac{\ep}{2} + \ldots
+\]
+
+The most important lesson to grasp (beyond following the manipulations above) is that this method of dominant balance, followed by asymptotic approximations, gives you a very powerful and very general way of estimating solutions to problems that you would not ordinarily be able to solve. You will get more practice in the problem set, but the above is sufficient to follow the next chapter.
+-->
+
+
+
+## Order notation and the tilde sign for asymptotic
+
+We define precisely what we mean when we say that two functions, say $f$ and $g$, exhibit the same behaviour in some limit, say $\epsilon \to 0$ or $x \to x_0$ or $x \to \infty$ and so forth. For instance, we claim that the graphs of $\sin(x)$ and $x$ look very similar as $x \to 0$. Thus we might write
+$$
+	\sin(x) \sim x \quad \text{as $x \to 0$.}
+$$ {#eq-sin}
+
+This notation of similarity allows us to specify functional behaviours at a deeper level than just limits. As you can see, it is not as useful to specify that 
+$$
+\lim_{x \to 0} \sin{x} = \lim_{x\to 0} x.
+$$
+In contrast, the asymptotic relation is much more prescriptive about the way that the functions are approaching the limit.
+
+:::{.callout-note}
+## Definition of $\sim$, $\gg$, and $\ll$
+
+First, the notation 
+$$
+f(x) \ll g(x), \qquad x \to x_0,
+$$
+is read as "$f(x)$ is much smaller than $g(x)$ as $x \to x_0$" and means
+$$
+\lim_{x\to x_0} \frac{f(x)}{g(x)} = 0.	
+$$
+We may analogously use $g(x) \gg f(x)$ for "much greater than\ldots".
+
+Second, the notation
+$$
+f(x) \sim g(x), \qquad x \to x_0,
+$$
+is read as "$f(x)$ is asymptotic to $g(x)$ as $x \to x_0$", and means that the error between $f$ and $g$ tends to zero as $x \to x_0$, or 
+$$
+\lim_{x\to x_0} \frac{f(x)}{g(x)} = 1.	
+$$
+We will often say "$f$ is like $g$" or "$f$ behaves like $g$",
+:::
+
+Here are some examples.
+
+:::{.callout-important}
+## Examples
+
+* $\sin x \sim x \sim \tan x$ as $x \to 0$
+* $x^2 + x + 1 \sim \dfrac{x^3 + \sin x}{1 + x}$ as $x \to \infty$
+* $\sin x \ll \cos x$ as $x \to 0$
+:::
+
+In the examination of limiting processes, often the main issue of consideration is the relative sizes of quantities defined according to their powers. For example, if $x$ is a very small number, with $x = 10^{-5}$, then $x^5$ is much smaller than $x$ (in terms of our notation, $x^5 \ll x$ as $x \to 0$). On the other hand, we might not care so much about the difference between 
+$$
+x^5 \quad \text{vs.} \quad 5 x^5
+$$
+The point is that the \emph{order} of $x^5$ and $5 x^5$ is the same as $x \to 0$. The "Big-Oh" notation formalises this distinction.
+
+:::{.callout-note}
+## Definition of Big-Oh
+
+We write $f = O(g)$ as $x \to x_0$ to mean that there exists constants $K > 0$ and $x^* > 0$ such that 
+$$
+|f| < K |g| \quad \text{for all $|x - x_0| < x^*$}.
+$$
+:::
+
+
+In practice, the use of the order symbol is very natural and you will not need to work with the technical definition. For example, when you derive the terms of the Maclaurin/Taylor series, you are naturally clustering all the terms of the same order (power) together. For us, the $O$ symbol provides a very convenient way of separating terms of different sizes.
+
+:::{.callout-important}
+## Examples
+
+* $2\sin x = O(\tan x)$ as $x \to 0$
+* $x^2 + x + 1 = O\left(\dfrac{5x^3 + \sin x}{1 + x}\right)$ as $x \to \infty$
+:::
+
+Let us return to the case of the quadratic example (@eq-quad). Using the O notation, we can write 
+$$
+x = 
+\begin{cases}
+1 - \epsilon + 2 \epsilon^2 + O(\epsilon^3) \\
+-\frac{1}{\epsilon} - 1 + O(\epsilon^2)
+\end{cases}
+$$
+for the two roots. Alternatively, we can truncate the expansions and simply using the $\sim$ symbol: 
+$$
+x \sim
+\begin{cases}
+1 - \epsilon  \\
+-\frac{1}{\epsilon} - 1 
+\end{cases}
+$$
+

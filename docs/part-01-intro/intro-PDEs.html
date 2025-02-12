@@ -756,6 +756,18 @@ One-dimensional transport equation
 \rho(x, 0) = \rho_0(x).
 \]</span></p>
 <p>The boundary conditions are more subtle. It is not always obvious what the boundary conditions should be on a problem.</p>
+<p>We can develop a solution of the above problem via a special coordinate substitution that takes into account the fact that solutions of the problem are wave-like. Let us set <span class="math display">\[
+\xi = x - ct,
+\]</span> and perform a substitution of the independent variable: <span class="math inline">\(\rho(x, t) = u(\xi, t)\)</span>. Then by the chain rule, <span class="math display">\[
+\begin{aligned}
+\frac{\partial \rho}{\partial x} = \frac{\partial \xi}{\partial x} \frac{\partial u}{\partial \xi} = \frac{\partial u}{\partial \xi}, \\
+\frac{\partial \rho}{\partial t} = \frac{\partial u}{\partial t} + \frac{\partial \xi}{\partial t} \frac{\partial u}{\partial \xi} = \frac{\partial u}{\partial t} - c \frac{\partial u}{\partial \xi}.
+\end{aligned}
+\]</span> Substitution into the PDE now gives <span class="math display">\[
+\frac{\partial u}{\partial t} = 0 \Longrightarrow u = f(\xi),
+\]</span> where <span class="math inline">\(f\)</span> is any arbitrary function. Therefore we claim that the general solution of the transport equation (with constant speed) is <span class="math display">\[
+u(x, t) = f(x - ct).
+\]</span></p>
 <p>Here is an example of a solution of such a problem.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -785,11 +797,11 @@ Solution
 </div>
 <div class="callout-body-container callout-body">
 <p>The general solution is given by <span class="math display">\[
-\rho(x, t) = F(x - ct),
+\rho(x, t) = f(x - ct),
 \]</span> where <span class="math inline">\(F\)</span> is an arbitrary (differentiable) function. You can verify this via the chain rule, noting that <span class="math display">\[
-\frac{\partial F}{\partial t} = -c F'(x - ct) \quad \text{and} \quad
-\frac{\partial F}{\partial x} = F'(x - ct).
-\]</span> Applying the initial condition at <span class="math inline">\(t = 0\)</span> gives <span class="math inline">\(F(x) = \rho_0(x)\)</span> and thus <span class="math display">\[
+\frac{\partial f}{\partial t} = -c f'(x - ct) \quad \text{and} \quad
+\frac{\partial f}{\partial x} = f'(x - ct).
+\]</span> Applying the initial condition at <span class="math inline">\(t = 0\)</span> gives <span class="math inline">\(f(x) = \rho_0(x)\)</span> and thus <span class="math display">\[
 \rho(x, t) = e^{-(x - ct)^2}.
 \]</span></p>
 <p>You may plot this to discover that it is, as perhaps expected, a Gaussian profile moving to the right at constant speed (for <span class="math inline">\(c &gt; 0\)</span>).</p>

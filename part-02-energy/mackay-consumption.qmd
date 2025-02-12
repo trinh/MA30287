@@ -1,0 +1,268 @@
+# Estimating consumption {#sec-mackay-consumption}
+
+:::{.callout-tip}
+## 2022-23 note
+
+Covered in Lecture 6.
+:::
+
+:::{.callout-note}
+This lecture will follow the presentation of energy estimates for consumption in Part I of [@mackay_book], with additional details found in the technical chapters of Part III.
+:::
+
+The goal of the next lecture is to teach you some of the mathematical modelling and mathematical arguments that lead to estimating energy consumption and energy generation. It is important to note, at this point, tha the style of the presentation must naturally stray further away from the rigorous axiomatic demonstrations you have encountered in other core mathematics models.  The emphasis is in the usage of core physical arguments (conservation of energy, for instance) to produce systematic approximations of real-life questions of usage. Our goal is to estimate, for example, the energy consumption of heating and cooling, of driving a car, or flying on a plane. 
+
+## Tips for estimates
+
+ *  **Use appropriate conversion of units.** 
+
+For example, even though you may not know what *specific heat* means (see below question about the bath hot water usage), examining the units of Joules/(Litre x Celcius) should tell you that this quantity corresponds to energy per unit volume per unit degree Celcius. Specific heat is a quantity associated with certain materials that describe the energy requred to increase its volume by one degree.  
+
+ * **Manipulate different forms of energy**
+
+ An object of mass $m$ moving at speed $v$ possesses *kinetic energy* given by 
+ $$
+ E_\mathrm{kinetic} = \frac{1}{2} mv^2.
+ $$
+An object can also possess different kinds of potential energy. For example, an object of mass $m$ that will fall when released possesses *gravitational potential energy* given by 
+$$
+E_\rm{grav. potential} = mgh
+$$
+where $h$ is its distance relative to some given point and $g = 9.8 \, \mathrm{m/s^2}$ is the standard gravitational constant on the surface. 
+
+A hot object also possesses heat energy. The heat energy is given by 
+$$
+E_\mathrm{heat} = c \rho V T
+$$
+where $c$ is the specific heat capacity (J/(kg K)), $\rho$ is the density (kg/m^3), $V$ is the volume (m^3), and $T$ is the temperature (K). An object can also possess chemical potential energy (for example, we possess such energy when we eat food). And so forth and so on. 
+
+:::{.callout-note}
+## Checking energies
+
+It is a good idea to check that all the above units make sense and the right hand-sides return the expected unit of energy. 
+:::
+
+## Heating and cooling
+
+We would like to develop estimates of energy usage in heating and cooling. 
+
+:::{.callout-tip}
+## Energy in a hot bath
+
+To compute the heat energy in taking a hot bath, we take the specific heat capacity of water, $\tilde{c} = 4200 \, \mathrm{J}/(\mathrm{L} \, ^{\circ}\mathrm{C})$. This multiplies the volume of a bath (50 cm x 15 cm x 150 cm), and the temperature of water minus the temperature of ambient water, estimated at $40^\circ\mathrm{C}$. This gives
+$$
+E_\mathrm{hot bath} \approx (4200 \times 110 \times 40) \mathrm{J} \approx 18 \, \mathrm{MJ} \approx 5 \, \mathrm{kWh}.
+$$
+
+**After lecture note**: MacKay works with a slightly different convention and writes the specific heat capacity in per L quantities. He also writes his volume in litres. I will show how this is worked out in our typical process. 
+
+1. density of water is 10^3 kg/m^3
+2. volume of the bath is 0.1125 m^3
+3. specific heat is 4.2 x 10^3 J/(kg C) [note K and C convert in one-to-one fashion]
+4. the weight of water is then 0.1125*10^3 kg or 112.5kg 
+5. converting from litres to water weight is 1L = 1kg; so this is where he pulls 110L from. 
+6. Using our formula, it works out to be the same: 
+$$
+E_\mathrm{heat} = \rho c V T = 112.5 \cdot 4.2 \times 10^3 \cdot 40^\circ \mathrm{J} = 1.89 \times 10^7 \mathrm{J}.
+$$ 
+:::
+
+
+:::{.callout-tip}
+## Energy in appliances
+
+For example, consider a kettle with a voltage of $V = 230V$ and a max amperage of $I = 13A$. Voltage measures the potential difference of electricity, and amperage measures the current. If you multiply the two together, $VI = P$, you get power, $P$. So this kettle has power $P = 3\mathrm{kW}$. 
+
+To estimate usage, we must estimate how often the kettle is used and for how long. Considering 20 minutes per household of two people, this then requires
+$$
+E_\mathrm{kettle} \approx (3 \mathrm{kW}) \times \left(20 \, \mathrm{min} \times \frac{\mathrm{hrs}}{60\mathrm{min}}\right) = 1 \mathrm{kWh}.
+$$
+
+You may also be interested in MacKay's estimates for microwave ovens (0.5 kWh/day), regular ovens (1.5 kWh/day), and clothes washers (1 kWh/day). 
+:::
+
+Following [@mackay_book], you can also follow similar estimates of using space heaters, refrigerators, and air conditioners. 
+
+:::{.callout-tip}
+## Hot air and cooling
+
+Mackay develops the following estimates of energy usage (per day per person). Considering space heaters run during the colder months, he develops
+
+$$
+E_\text{hot air} \approx 24\,\text{kWh}.
+$$
+while considering the refrigerator and air condition usage, he approximates
+$$
+E_\text{heat + cooling} \approx 1.5 \, \mathrm{kWh}.
+$$
+:::
+
+Note that the above estimates are for average domestic consumption, and hence this does not include the significant energy usages of the service and workplace industries. The total estimate from this chapter is as follows. 
+
+
+:::{.callout-important}
+## Total heating and cooling estimate
+
+MacKay estimates (p. 53) that the total energy one (domestic) person spends on heating and cooling, including home, workplace, and cooking, is 37 kWh per day per person (12 for hot water, 24 for hot air, and 1 for cooling). He notes that this seems to be close to the typical figures quoted (45 kWh/d per person) if you make use of some national tables (and some liberties---like using the University of Cambridge's energy estimates). 
+:::
+
+## Energy usage of stuff
+
+A significant amount of energy is expended on: 
+
+ 1. production of raw materials
+ 2. production on stuff and transportation of such
+ 3. use of stuff
+ 4. disposal and recycling of stuff
+
+:::{.callout-note}
+## Energy usage in a soda addict
+
+Consider someone who has a coca-cola addiction and drinks five cans of coke a day. What is their energy usage in this regard? On the assumption that the raw aluminium material phase dominates (production of metals is intensive), MacKay notes that one can needs about 0.6kWh of energy. Thus
+$$
+E_\text{coke} \approx 5 \times 0.6 \, \mathrm{kWh} = 3 \, \mathrm{kWh}
+$$
+as the per day per person figure.
+:::
+ 
+## Energy usage of transportation
+
+### Cars {#sec-carshort}
+
+MacKay uses some interesting back-of-the-envelope estimates here. First 
+$$
+\text{energy per day} = \frac{\text{distance travelled per day}}{\text{distance over unit of fuel}} \times \text{energy per unit of fuel}.
+$$
+
+We take about 50km travelled per day, and a typical family car is quoted as 12 km/L. 
+
+In order to estimate the energy per unit (L) of fuel, MacKay notes that automobile fuel is a hydrocarbon and so we can sensibly use butter as an estimate. A packet of butter informs that it contains a calorific value of about 3000 kJ per 100g. We have that 1 kJ is 1/3600 kWh, so this gives (5/6)\*10 ~ 8 kWh per kg. To get energy density in terms of volume, we need to know the density of butter. Water has a density of about 1kg/L (nearly by definition). Since butter floats on water, we might take its density to be 0.9kg/L (this is very close). Together this gives an estimate of about 8\*0.9 or 7 kWh/L. 
+
+Looking it up in a random [reference](http://www.blewbury.co.uk/energy/facts.htm), though, gives that petrol has about 10kWh/L. 
+
+Thus altogether, this gives an estimate of 
+$$
+\text{energy per day} = \frac{50 \mathrm{km}}{12 \mathrm{km/L}} \times 10 \mathrm{kWh/L} \approx 40 \mathrm{kWh/day}
+$$
+so the equivalent of leaving 40 lightbulbs on for an entire day.
+
+## In-depth
+
+MacKay provides a more in-depth calculation for car transport in the Appendix A.
+
+The energy in a fossil-fuel car goes into four main categories. 
+
+1. Speeding-up and slowing down using the brakes;
+2. air resistance; 
+3. rolling resistance;
+4. heat -- about 75% of the energy is thrown away as heat
+
+### Brakes
+
+* Assume a car of mass $m_c$ accelerates rapidly to a constant speed, $v$, and maintains this speed for a distance $d$, at which point the driver brakes rapidly to a stop. 
+
+* Assume that the kinetic energy is transferred into the brakes. We can estimate
+$$
+\text{Power in brakes} = \frac{ \text{kinetic energy}}{ \text{time between braking events}} = \frac{\frac{1}{2}m_c v^2}{(d/v)} = \frac{1}{2} \frac{m_c v^3}{d}.
+$$
+
+### Air resistance
+
+Drag is the most important aerodynamic force in cars at highway speeds. In order to calculate the exact drag, we would essentially need to integrate forces around the car in a fluid dynamics model. However, drag is usually approximated by the force^[This seems to be a simpler explanation than what is written in his textbook], 
+$$
+F_d = \frac{1}{2} \rho C_D A_f v^2,
+$$
+where $\rho$ is the density of air, $A_f$ is the frontal cross-sectional area of the car, and $C_D$ is the drag coefficient, a non-dimensional number that encodes all of the complicated fluid dynamics. Then we know that 
+$$
+\text{Power in drag} = \frac{ \text{Force . distance}}{ \text{time between braking}} =  \frac{1}{2} \rho C_D A_f v^3.
+$$
+
+### Ratio of brake power to drag power
+
+Recalling our discussion of non-dimensionalisation, we can form a non-dimensional number representing the ratio of the two above powers: 
+
+$$
+\Pi = \frac{\text{Power in brakes}}{\text{Power in drag}} = \frac{m_c}{d(\rho C_D A_f)}.
+$$
+Verify that the units are sensible. Note that when $\Pi > 1$, then braking effects are more dominant, and if $\Pi < 1$, then drag effects are more dominant. In order to examine the threshold, set $\Pi = 1$ and solve for $d$, 
+$$
+d_{\text{crit}} = \frac{m_c}{\rho C_D A_f}.
+$$
+
+We use the following approximations: $m_c = 1000 kg$, $\rho = 1.3 kg/m^3$, $C_D = 1/3$, $A_f = 3 m^2$. This gives a critical distance of 
+$$
+d_{ \text{crit}} = 750m.
+$$
+Therefore, when travelling more than about a 1km, much of your energy expenditure between these two items is largely going into drag, while for less than 1km, more energy is going into your brakes. In order to save energy, you can (i) drive more slowly; (ii) reduce the mass of your car; (iii) get better brakes (regenerative brakes); (iv) reduce your car's drag coefficient or reduce its cross sectional area.  
+
+### Rolling resistance
+
+Rolling resistance involves the energy consumed in the tyres and bearings of the car, the energy going into the noise of the wheels against the ground, the energy of grinding rubber off the tyres, the energy in the wheel vibrating the ground, etc. The standard model assumes that the rolling resistance force is
+$$
+F = C_{rr} m_c g, 
+$$
+where car rubber tyres are given in MacKay's book as having a coefficient $C_{rr} = 0.01$. Again, we can compare the threshold where rolling resistance is equal to drag via
+$$
+C_{rr} m_c g = \frac{1}{2} \rho C_D A_f v^2,
+$$
+which gives a critical speed of 
+$$
+v = \sqrt{2 \frac{C_{rr} m_c g}{\rho C_D A_f}} = 7m/s = 16 mi/hr.
+$$
+
+### Power
+
+Notice that we can then write the total power as 
+$$
+P = \sigma \left( \mathcal{A} v + \mathcal{C} v^3\right),
+$$
+where $\sigma$ is an efficiency parameter that indicates how efficiently chemical energy (petrol) is converted into mechanical energy via the engine and transmission. Much of this is initial energy is 'lost' to heat, and MacKay indicates that petrol engines are about 25% efficient. Thus we should set $\sigma = 4$. Above, note that $\mathcal{A}$ is then associated with the rolling resistance and $\mathcal{C}$ to the drag and braking. 
+
+Previously in @sec-carshort, we estimated energy consumption of 80 kWh to drive 100km (note this did not take into account any *dynamics*, i.e. time); this was a straight approximation based on the energy of petrol. 
+
+From the table below (most figures taken from MacKay but see the footnotes)
+
+| Quantity | Approximation |
+|----------|---------------|
+| $m_c$ | 1000kg | 
+| $v$ | 110km/h = 31 m/s | 
+| $d$ | 10km |
+| $\rho$ | 1.3 kg/m^3 | 
+| $C_D A_f$^[The figures on p.256 on MacKay are ambiguous, the second table A.7 seems to be $C_D A$ values. There are many references of this sort online like [here](http://www.mayfco.com/dragcd~1.htm)]  | 0.7 m^2 | 
+| $C_{rr}$ | 0.01 |
+
+We seem to get the following. 
+\begin{align}
+\text{Power}_{\text{brakes}} &\approx 1500 W \approx 1.5 kW \\ 
+\text{Power}_{\text{air}} &\approx   13,600 W = 13.6 kW  \\
+\text{Power}_{\text{rolling}} &\approx 3000 W = 3 kW.
+\end{align}
+
+We see that by far, the biggest contributor at such speeds is the drag. The above numbers should be multiplied by $\sigma = 4$. If we ignore all other effects and only consider drag, this gives about 54 kW of power. Hence driving for one hour this is 54 kWh, to be compared with our prior estimate of 80 kWh^[MacKay gets a larger figure of 80 kW on p.256, but this is because of his use of a drag $C_D A_f = 1m^2].
+
+
+
+### Conclusions and caveats
+
+So there are a few interesting conclusions. One conclusion is nicely summarised by this graph, which you can often see in other references. 
+
+![Car fuel consumption (energy per distance) from p.259 of MacKay](figures/car_energy.png){#fig-car-energy width=50%}
+
+The key, really, is that energy consumption is largely dominated by the cubic term in the power. MacKay, on p.258, compares the relative energetic consumption due to drag of a cyclist versus a car. If we assume their drag-area values are about the same (cyclists are less aerodynamic but occupy less area), a cyclist travelling at 20 km/h versus a car travelling at 100 km/h would have an energy ratio of 
+$$
+\frac{\text{Energy per distance of bike}}{\text{Energy per distance of car}} \approx \left(\frac{20 }{100}\right)^2 = 0.04,
+$$
+i.e. 4% of the energy consumption of a car. 
+
+There is one interesting caveat that would have been nice to see more discussion, but there is a commentary on p.260 of MacKay. It is conventional knowledge that cars have a 'sweet spot' for fuel consumption, which is often quoted as around the range of 40-60mph^[See the discussion [here](https://physics.stackexchange.com/questions/12874/why-is-55-60-mph-optimal-for-gas-mileage-of-a-passenger-car)]. 
+
+![Car fuel efficiency versus the approximations developed above](figures/car_gearing.png){#fig- width=70%}
+
+It seems unclear how the above alternative shape is modeled via the back-of-the-envelope estimates. For instance, can be be modeled by considering an efficiency, $\sigma = \sigma(v)$, the depends on speed? 
+
+
+
+
+## References
+
+[A good reference on the so-called road load equation](http://www.thecartech.com/subjects/auto_eng/road_loads.htm)

@@ -1,0 +1,38 @@
+# Thinking about your own energy {#sec-thought2}
+
+:::{.callout-note}
+## 
+
+There is no problem set for the material related to MacKay's book, i.e. @sec-mackay-units to @sec-mackay-consumption. Instead, a portion of your coursework in Week 7 will ask you to explore some issues to your own energy usage, and to other interesting aspects from MacKay's book.
+:::
+
+
+Therefore, instead of homework, I encourage you to read the following to get you into thinking about energy usage. 
+
+Download or access the book at [www.withouthotair.com](www.withouthotair.com).
+
+1. **Read/scan through Chap. 1 (Numbers, not adjectives).** 
+
+	Examine MacKay's arguments for those items that you find interesting. You can examine both the issue of consumption and energy production (or alternatively, use of renewables).  \
+
+2. **Read/scan through MacKay's technical sections, in Chap. 3 (technical chapters).** \
+
+	Select one or two items that you are interested in learning more about (e.g. energy usage in car transport), and read the technical aspects closely.
+
+3. **Investigate how much energy you are using yourself and what back-of-the-envelope calculations you would like to do.**
+
+	Start with your gas and electrical usage, but you may be interested in other energy usages that you have wondered about. \
+  
+  	Make a list of those interesting questions that you have wondered about. For example:
+
+	a. *Is it better for me to leave a hot coffee machine on the whole day, or turn it on every time I use it?*
+
+	b. *How important is it for me to eat less meat, in the grand scheme of things? How does this compare with the impact of going on vacation in the summers?*
+
+	c. *My family is thinking about selling our old car and instead buying an electric car. Is it better for the environment to do so, or is the environmental cost of electric car manufacturing, lithium battery usage, and disposing of our old car outweigh the benefits?*
+
+4. MacKay can be accused of oversimplifying many of the modelling aspects. Moreover, the book is now ten years out-of-date. \
+
+	**Which of MacKay's calculations might you be interested in digging into at a deeper level? **
+
+

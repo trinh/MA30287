@@ -1,0 +1,77 @@
+---
+title: PC2
+---
+
+Consider the Navier-Stokes equations (which is a set of equations that dictates fluid flow):
+$$\frac{\partial \boldsymbol{u}}{\partial t}+\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\frac{1}{\rho}\nabla p+\nu \nabla^2 \boldsymbol{u}$$
+where:
+
+* $\boldsymbol{x}=(x, y, z)^{\mathrm{T}}$ is the direction field (each with dimensions $m$)
+* $\boldsymbol{u}=(u, v, w)^{\mathrm{T}}$ is the velocity field where $u$ is the movement along the $x$-direction, $v$ is the movement along the $y$-direction and $w$ is the movement along the $z$-direction (each with dimensions $m \, s^{-1}$)
+* $t$ is time (dimension s)
+* $\rho$ is the fluid density (dimension $kg \, m^{-3}$)
+* $\nu$ is the dynamic viscosity, which represents the resistance to flow due to gravity (with dimensions $m^2 \, s^{-1}$)
+* $p$ is the internal pressure of the fluid (with dimension $kg \, m^{-1} \, s^{-2}$)
+* $\nabla=\left( \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z} \right)^{\mathrm{T}}$ is the gradient operator (each with the with effective dimension $m^{-1}$).
+* $\frac{\partial}{\partial t}$ is the partial time derivative (with effective dimension $s^{-1}$)
+* $\nabla^2=\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}$ is the Laplacaian operator (with effective dimension $m^{-2}$).
+
+Consider the following arbitrary non-dimensionalisation:
+$$\boldsymbol{x}=L\tilde{\boldsymbol{x}}, \quad \boldsymbol{u}=U\tilde{\boldsymbol{u}}, \quad t=T\tilde{t}, \quad p=P\tilde{p}$$
+where $[\tilde{x}]=[\tilde{u}]=[\tilde{t}]=[\tilde{p}]=1$ are the new non-dimensional quantities whereas $[L]=m, [U]=m \, s^{-1}, [T]=s$ and $[P]=kg \, m^{-3}$.
+
+Replacing these into the Navier-Stokes equation gives
+$$\frac{U}{T}\frac{\partial \boldsymbol{\tilde{u}}}{\partial \tilde{t}}+\frac{U^2}{L}\left( \tilde{\boldsymbol{u}} \cdot \tilde{\nabla} \right)\tilde{\boldsymbol{u}}=-\frac{P}{L\rho}\tilde{\nabla} \tilde{p}+\frac{\nu U}{L^2} \tilde{\nabla}^2 \tilde{\boldsymbol{u}}$$
+where $\tilde{\nabla}$ is the gradient operator in the new coordinate space $(\tilde{x}, \tilde{y}, \tilde{z})$.  The tildas will be dropped henceforth.  Rearranging to make the coefficient of the time derivative 1 gives
+$$\frac{\partial \boldsymbol{u}}{\partial t}+\frac{UT}{L}\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\frac{PT}{U L \rho}\nabla p+\frac{\nu T}{L^2} \nabla^2 \boldsymbol{u}.$$
+
+The most convenient term to eliminate is the coefficient of the pressure.  Therefore, suppose the choice of the non-dimensionalisation parameters needs to be chosen such that
+$$\frac{PT}{\rho L U}=1.$$
+This means that the term $P$ can be written as
+$$P=\frac{\rho U L}{T}.$$
+
+> Checking the dimensions:
+$$[P]=\left[ \frac{\rho U L }{T} \right]=[\rho][U][L][T]^{-1}=kg \, m^{-3} \, m \, s^{-1} \, m \, s^{-1}=kg \, m^{-1} \, s^{-2}$$
+which is indeed the dimension for pressure.
+
+### Reynolds Number
+
+Suppose that the term $\frac{U T}{L}$ should also be equal to 1, then this would mean that the time non-dimensionalisation can be done by having $T=\frac{L}{U}$.
+
+> Checking the dimensions:
+$$[T]=\left[ \frac{L}{U} \right]=[L][U]^{-1}=m \, m^{-1} \, s=s$$
+which is indeed the dimension for time.
+
+Therefore, with these choices of $T$ and $P$, the Navier-Stokes equation becomes
+$$\frac{\partial \boldsymbol{u}}{\partial t}+\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\nabla p+\frac{\nu}{U L} \nabla^2 \boldsymbol{u}.$$
+
+The term $\frac{L U}{\nu}$ is known as the Reynolds number, denoted $Re$ which is a non-dimensional quantity.
+
+> Check the dimension of the Reynolds number:
+$$[Re]=\left[ \frac{L U}{\nu} \right]=[L][U][\nu]^{-1}=m \, m \, s^{-1} \, m^2 \, s=1$$
+meaning that the Reynolds number is dimensionless.
+
+Therefore, this gives the non-dimensional Navier-Stokes equation for fluid flow
+$$\frac{\partial \boldsymbol{u}}{\partial t}+\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\nabla p+\frac{1}{Re} \nabla^2 \boldsymbol{u}.$$
+
+The Reynolds number $Re$ gives a measure for the effect of viscosity for fluid flow or for the movement through a fluid.  As $Re$ gets larger, the fluid becomes less viscous hence reducing the effect of viscosity on the movement and the inertial forces dominate. (The case when $Re \to \infty$ is called inviscid flow where there is no viscosity.)  As $Re$ decreases, the viscosity increases, making the movement depend on the viscous forces more than the inertial forces.
+
+The Reynolds number is important in modelling since when length and speed scales change from full-sized objects to smaller models (like models of cars and buildings for testing purposes), the same environment cannot be translated from one to the other (since a full sized building in 20mph winds will not move whereas 20mph winds on a small scale of model of the building will be affected much more).  However, if the Reynolds number is fixed in both cases, the model can be made more realistic.
+
+### Strouhal Number
+
+Suppose that the time is non-dimensionalised differently as $T=\frac{1}{f}$ where $f$ is a frequency.  Then the Navier-Stokes equation becomes
+$$\frac{\partial \boldsymbol{u}}{\partial t}+\frac{U}{Lf}\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\nabla p+\frac{\nu}{f L^2} \nabla^2 \boldsymbol{u}.$$
+
+The term $\frac{f L^2}{\nu}$, just as before, is equivalent to the Reynolds number as before which is dimensionless.
+
+> Indeed
+$$[Re]=\left[ \frac{f L^2}{\nu} \right]=[f][L]^2[\nu]^{-1}=s^{-1} \, m^2 \, m^{-2} \, s=1.$$
+
+The other term, $\frac{Lf}{U}$ is known as the Strouhal number (denoted $St$ which should not be confused with the Stokes number of the Stanton number).  Therefore the Navier-Stokes equations can now be written as
+$$\frac{\partial \boldsymbol{u}}{\partial t}+\frac{1}{St}\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\nabla p+\frac{1}{Re} \nabla^2 \boldsymbol{u}.$$
+
+The Strouhal number represents the effect of vortex shedding in flow across an object.  The higher $St$ is, the more vortices will be generated by the flow.
+![Vortex Shedding](figures/Strouhal_Number.png)
+
+This is an example where the same problem can be non-dimensionalised in two different ways to yield equations with different applications.

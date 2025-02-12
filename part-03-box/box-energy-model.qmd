@@ -1,0 +1,303 @@
+---
+jupyter: python3
+---
+
+# EBM with nonlinear albedo {#sec-box-energy}
+
+
+Recall that we previously introduced the basic energy balance model in @sec-basic-energy. There, we derived the basic heat equation model (@eq-heateq-earth) for the Earth's temperature given by the following ordinary differential equation (ODE) for $T = T(t)$,  
+$$
+C \frac{\mathrm{d}T}{\mathrm{d}t} = Q(1 - a) - \sigma \gamma T^4,
+$$ {#eq-heateq_earth}
+where we have defined $C = \rho c_p d$ as the heat capacity of the atmosphere. Above, the solar flux, Q is often taken to be $Q = 1370/4 = 342$ W/m<sup>2</sup>, $\sigma = 5.67 \times 10^{-8}$ W/(m<sup>2</sup>K<sup>4</sup>), and $\gamma \leq 1$ is the greenhouse gas factor.
+
+In this chapter, we discuss the effects of considering a nonlinear albedo, $a = a(T)$, as well as some of the numerical and analytical tools at our disposal for studying the above equation. 
+
+
+## Steady-state analysis
+
+Below, we shall let $T = T_\infty$ be the steady-state solution that is independent of time. Whenever convenient, we will drop the subscript notation and simply refer to the steady state as $T$. 
+
+Previously, we have assumed that the planetary albedo, $a$, is constant and independent of temperature. In actuality, water can turn to snow and ice and vice versa; since snow and ice have much higher albedo than open water, then we should consider $a = a(T)$. 
+
+Let us assume that there are two relevant ranges to consider:  T < 150K (cold) and T > 280K (hot). Let us assume that the albedo is, in these two regions:
+$$
+a(T) \approx 
+\begin{cases}
+0.7 & \mathrm{if }\ T < 150\mathrm{K}, \\
+0.3 & \mathrm{if }\ T > 280\mathrm{K}.
+\end{cases}
+$$
+The above guarantees that more energy is reflected if temperatures are low. To model this process, we can use a ramp function to specify the albedo over all temperatures:
+$$
+a(T) = A - B \mathrm{tanh}\left(k(T - 265)\right).
+$$ {#eq-albedokaper}
+where $A = 0.5$, $B = 0.2$, $k = 0.1$, and $T_0 = 265 \mathrm{K}$. Recall that the tanh function is given by 
+$$
+\mathrm{tanh}(x) = \frac{\mathrm{sinh}(x)}{\mathrm{cosh}(x)} = \frac{e^x - e^{-x}}{e^x + e^{-x}}.
+$$ 
+
+Let us further assume that the system is in steady state, so that the temperature is determined by solving the equation
+$$
+f(T) = Q[1 - a(T)] - \sigma \gamma T^4 = 0.
+$$ {#eq-energy-ss}
+
+<!--
+It is convenient for us to re-write this as 
+$$
+\tilde{Q_0}\tilde{Q}'[1 - a(T)] - T^4 = 0.
+$$ 
+where
+$$
+\tilde{Q_0} = \frac{1}{4} \frac{Q}{\sigma_0 \gamma_0} \, K^4 = \frac{1}{4} \frac{1370}{(5.67 \times 10^{-8})(0.6)} = 
+$$ 
+-->
+
+In the following code, we plot the two terms that make up $f$, and their intersections indicate roots of $f = 0$. We then use the Python 'fsolve' function to approximate the roots given initial guesses. 
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.optimize as sciopt
+
+Q = 342
+sigma = 5.67e-8 
+gamma = 0.62
+
+TT = np.linspace(220,310,50)
+
+def fun(T):
+	a = 0.5 - 0.2*np.tanh((T - 265)/10)
+	x = (1-a)*Q
+	return x
+LHS = fun(TT)
+
+plt.plot(TT, LHS)
+plt.plot(TT, gamma*sigma*TT**4, 'k--')
+
+def eq(T):
+	x = fun(T) - gamma*sigma*T**4
+	return x
+T1 = sciopt.fsolve(eq, 230)
+T2 = sciopt.fsolve(eq, 265)
+T3 = sciopt.fsolve(eq, 290)
+print("T1 = {:.2f}".format(T1[0]))
+print("T2 = {:.2f}".format(T2[0]))
+print("T3 = {:.2f}".format(T3[0]))
+```
+
+Therefore multiple equilibria are observed. 
+
+## Bifurcation diagram
+
+During the lectures, the above script plotting the steady-state solutions will be examined in order to understand the effects of changing $Q$. 
+
+It will be observed that dependent on the solar radiation, there may be one or three steady-state solutions. This leads to the following key bifurcation diagram. 
+
+![Bifurcation diagram of $Q/Q_0$ vs $T_\infty$](img/2023-05-06-14-13-15.png){#fig-basicEBM-bif}
+
+We noted the following:
+
+* The system has three steady states, given by the green, red, and blue curves. 
+* The middle state is unstable (shown dashed). 
+* The system exhibits hysteresis. Note that if we decrease $Q/Q_0$ past the tipping point, marked $Q_{T1}$ in the image, then we would evolve to the lower stable steady state (which is the ice state). However, while we are in the ice stated, if we were to attempt to increase the solar radiation to return to the green branch, we would need to arrive at $Q_{T2}$ to do so; this irreversibility is known as hysteresis. 
+## Dynamics and phase line solutions
+
+The full time-dependent model is given by 
+$$
+C \frac{\mathrm{d}T}{\mathrm{d}t} = f(T), 
+$$
+so we may use the positivity or negativity of $f$ in order to sketch the time-dependent behaviour of the system. 
+
+To see this, we can perform an asymptotic analysis near the fixed points. Let the initial condition be considered near the fixed point:
+$$
+T(t = 0) = T_\infty + \delta,
+$$ 
+where $\delta \ll 1$. Then we expand the solution into an asymptotic expansion, 
+$$
+T(t) = T_\infty + \delta T_1(t) + \delta T^2(t) + \ldots
+$$ 
+Substitution into the above ODE gives, at $O(\delta)$, 
+$$
+C \frac{\mathrm{d}T_1}{\mathrm{d}t} = f'(T_\infty) T_1, 
+$$ 
+and hence, with $T_1(0) = 1$, we have
+$$
+T_1(t) = e^{f'(T_\infty) t/C}.
+$$ 
+Therefore, depending on the positivity or negativity of the gradient function, the perturbation will either decay or grow as $t\to\infty$.
+
+It can then be verified that the centre equilbria is unstable while the other two are stable. The higher temperature corresponds to the one that the Earth is currently in, but according to this model, there seems to be the possibility of a colder climate (50 degrees colder) where the Earth is entirely covered with snow and ice. 
+
+Interestingly, there is some evidence that the Earth's climate may have been in this so-called \emph{Snowball Earth} state up to four times between 750 million and 580 million years ago (Neoproterozoic age). Observations of geological deposits suggest that the Earth has undergone periods of complete global glaciation where there have been very minimal biological activity. During this period, there is a massive build-up of CO~2~ in the atmopshere, leading to huge greenhouse effect. As $\gamma$ decreases in our model, the equilibrium can then shift, suddenly transitioning the Planet into the warm state. 
+
+
+
+
+<!-- 
+
+## Newton solver for the steady states
+
+In the above code, we used the built-in Python codes (fsolve) to solve for the steady-states. It is a good idea to learn (or review, if you have learned it previously) how to design your own solver. An implementation of Newton's solver is given by the following pseudo-code:
+
+:::{.callout-note}
+## Pseudocode for Newton's method
+
+```
+1. input x0, tolerance, maxiterations, f, df
+
+2. repeat while |f(x0)| > tol and iterations < maxiterations
+
+	a. set y0 = f(x0)
+	   set yp = df(x0)
+	
+	b. set x1 = x0 - y0/yp
+
+	c. print iter #, x1, and f(x1)
+
+	d. set x0 = x1
+```
+:::
+
+
+We discuss Newton's method in @sec-newton. 
+
+Using the simplest Newton code there, we can solve for one of the roots.
+
+
+```{python}
+import numpy as np
+
+def Newton(f, df, x, maxiter=100, tol=1e-12, display=0):
+	i = 0
+	while (abs(f(x) - 0) > tol) and (i < maxiter):
+		err = f(x)
+		x = x - err / df(x)
+		if display == 1:
+			print("f(x) = ", np.abs(err), ", x = ", x)
+		i = i + 1
+	return x, err
+
+
+Q = 1370
+sigma = 5.67e-8
+gamma = 0.62
+
+a = lambda T: 0.5 - 0.2*np.tanh((T - 265)/10)
+da = lambda T: -0.2*1/np.cosh((T-265)/10)**2/10
+
+f = lambda T: Q/4*(1-a(T)) - sigma*gamma*T**4
+df = lambda T: -Q/4*da(T) - 4*sigma*gamma*T**3
+
+x = 290
+x, err = Newton(f, df, x, 10, 1e-8, 1)
+print("Final approximation = ", x)
+```
+--> 
+
+
+<!-- ## Numerical continuation of the steady states -->
+<!---->
+<!-- We have done a preliminary steady-state analysis of  -->
+<!-- $$ -->
+<!-- Q (1 - a(T)) - \sigma \gamma T^4, -->
+<!-- $$ -->
+<!-- but we would like to better understand how these steady-states may change depending on the parameters. For example, we would like to understand how the solutions vary of the solar constant related to $Q$ varies; or we would like to understand how solutions vary as $\gamma$ varies.  -->
+<!---->
+<!---->
+<!-- More specifically, we would like to design some numerical routines that would allow us to (smartly!) solve for the roots of the above equation as the parameters are varied. Although the above problem (roots of a single equation) is simple enough to do this in a manual way, the methods of *numerical continuation* we learn in this chapter is applicable to much more general set of problems. -->
+<!---->
+<!---->
+<!-- Suppose that we are interested in studying how the steady-states (up to three) change as $Q$ changes. Then we are interested in producing a diagram of $Q$ vs. $T$. The basic idea is to start with an initial solution at some value of $Q$, increment $Q$, then solve for the next value using the previous value as a guess. This involves the following pseudocode: -->
+<!---->
+<!-- :::{.callout-note} -->
+<!-- ## Numerical continuation  -->
+<!---->
+<!-- ``` -->
+<!-- 1. Input guess T0, f, df, parameter Q1 -->
+<!---->
+<!-- 	a. Call Newton's method via Newton(f, df, T0, Q1)  -->
+<!-- 	b. Obtain a preliminary solution (T1, Q1) -->
+<!---->
+<!-- 2. Increment Q1 = Q1 + dQ  -->
+<!---->
+<!-- 	a. Call Newton's method via Newton(f, df, T1, Q1) -->
+<!-- 	b. Obtain a new solution (T1, Q1) -->
+<!---->
+<!-- 3. Repeat 2 until we reach a desired Q value -->
+<!-- ``` -->
+<!-- ::: -->
+<!---->
+<!-- The following code provides continuation for one of the roots. -->
+<!---->
+<!---->
+<!-- ```{python} -->
+<!-- import numpy as np -->
+<!-- import matplotlib.pyplot as plt -->
+<!-- from scipy.optimize import fsolve -->
+<!-- from scipy.optimize import root -->
+<!---->
+<!-- sigma = 5.67e-8 -->
+<!-- gamma = 0.62 -->
+<!-- a = lambda T: 0.5 - 0.2*np.tanh((T - 265)/10) -->
+<!---->
+<!-- Q0 = 342 -->
+<!-- Qmat = np.linspace(250, 450, 30) -->
+<!-- Tmat = 0*Qmat -->
+<!---->
+<!-- # Initial guess -->
+<!-- x = 220 -->
+<!-- for i, Q in enumerate(Qmat): -->
+<!-- 	f = lambda T: Q*(1-a(T)) - sigma*gamma*T**4 -->
+<!-- 	sol = root(f, x) -->
+<!-- 	# If solution not found, output error -->
+<!-- 	if sol.success != 1: -->
+<!-- 		print("Q/Q0 = ", Q/Q0, ": ", sol.message) -->
+<!-- 	Tmat[i] = sol.x -->
+<!---->
+<!-- plt.plot(Qmat/Q0, Tmat, 'o'); -->
+<!---->
+<!-- plt.xlabel('Q/Q0'); -->
+<!-- plt.ylabel('T'); -->
+<!-- ``` -->
+<!---->
+<!-- Above, we have scaled $Q$ with the reference value of $Q_0 = 342$.  -->
+<!---->
+<!-- In your lecture, problem class, or exercises, you will design continuation on the other branches of solutions, and then study the result and its implications. During the lecture, we studied `MA30287/notebooks/lecture13_EBM.ipynb` which can be found [at this link](https://maths.jupyterhub.bath.ac.uk/hub/user-redirect/lab/tree/courses/MA30287/notebooks/lecture13_EBM.ipynb). -->
+
+
+## Re-scaling and Budyko's model {#sec-budyko}
+
+To model the outgoing radiation, we use the quartic Stefan-Boltzmann law. However, over the range of temperatures we are interested-in, it seems that a simpler approximation is sufficient. In your homework, you will investigate the re-scaling and shifting of temperature, such that 
+$$
+T = T_0 + [T]\tilde{T},
+$$ 
+where $T_0 = 265 \mathrm{K}$. Then under the assumption that temperatures are not-so-far from $T_0$, we expand
+$$
+(T_0 + [T]\tilde{T})^4 \sim T_0^4 + 4 T_0^3 [T] \tilde{T} = 
+C_1 + C_2 \tilde{T}.
+$$ 
+This simplifies the model considerably.
+
+This is, in fact, a theoretical justification of **Budyko's model**, first suggested by Budyko [@budyko1969effect], where instead of the Stefan-Boltmann law that provides the cumbersome quartic power of $T$, we use instead 
+$$
+E_\text{out} = \sigma \gamma T^4 \approx A + BT,
+$$
+where $A$ and $B$ will vary with location and climate. For instance, for the Northern Hemisphere, [@kaper_book] gives the values of $A = 203.3\text{Wm}^{-2}$ and $B = 2.09 \text{Wm}^{-2}\text{deg}^{-1}$ and where temperature is measured in degrees Celcius. As shown above, one can interpret this as a linear expansion of the Stefan-Boltzmann law (after which similar values of $A$ and $B$ are derived). 
+
+The above Budyko model will be a staple of the latitude-dependent model introduced in the next chapter. 
+
+<!-- 
+## Budyoko's model  
+
+(Sec. 2.8 of Kapler & Engler)
+
+Prevously we used the assumption that the outgoing radiation follows the Stefan-Boltzmann law (@eq-SBlaw). Based on observational data, there seems to be a simpler linear law, first suggested by Budyko [@budyko1969effect]. The law can be written as 
+$$
+E_\text{out} = A + BT,
+$$ {#eq-budykolaw}
+where $A$ and $B$ will vary with location and climate. For:q
+instance, for the Northern Hemisphere, [@kaper_book] gives the values of $A = 203.3\text{Wm}^{-2}$ and $B = 2.09 \text{Wm}^{-2}\text{deg}^{-1}$ and where temperature is measured in degrees Celcius. One can interpret this as a linear expansion of the Stefan Boltzmann law about $T = 0$ (after which similar values of $A$ and $B$ are derived). 
+-->
+
+

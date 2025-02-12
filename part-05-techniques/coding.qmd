@@ -1,0 +1,79 @@
+# Coding
+
+## Variable scope
+
+During the 27 Feb 2024 lecture, the question of variable scope came up. Firstly, here is what ChatGPT says: 
+
+
+![What ChatGPT says on scope](figures/coding-chatgpt.png){width=80%}
+
+So indeed it looks like Python uses a scheme where if a variable is not locally declared, it will use values of the variable outside of the function. This can allow us to produce this kind of thing: 
+
+
+```{python}
+
+def myfunc():
+	print(a)
+
+a = 1
+myfunc()
+a = 2
+myfunc()
+a = 3
+myfunc()
+```
+
+So I was wrong! Python variables are global when defined outside the function! [Here is a reference](https://www.w3schools.com/python/python_variables_global.asp).
+
+This is certainly easier to use! However it can lead to confusion because for very complex codes, you may not be sure what value of a variable is being used within a function. Because most of the programming you will do in this course is very simple, this is unlikely to lead to trouble.
+
+It's generally good to avoid this whenever it is possible, though. For instance in this particular case, it makes much more sense to pass in the variable. 
+
+```{python}
+
+def myfunc(a):
+	print(a)
+
+a = 99
+myfunc(1)
+myfunc(2)
+myfunc(3)
+```
+
+In the above case, the `a` that appears in the function is different from the `a` that is declared outside the function. This makes it very easy to understand what your function is doing without knowing what is happening outside of it. 
+
+For example, there is no danger of values being reset: 
+
+
+```{python}
+
+def myfunc(a):
+	a = a + 1000
+	print(a)
+
+a = 99
+myfunc(1)
+myfunc(2)
+myfunc(3)
+print(a)
+```
+
+## Conversations with ChatGPT
+
+We should have an informal discussion of how the use of GenAI in education. Does it help with coding? When should it shoudn't it be used? 
+
+Asking something simple. 
+
+![A nice chat with ChatGPT](figures/ChatGPT01.png)
+
+Wait a minute...
+![A nice chat with ChatGPT](figures/ChatGPT02.png)
+
+Modifying..
+![A nice chat with ChatGPT](figures/ChatGPT03.png)
+
+Modifying again to oscillate in time...
+![A nice chat with ChatGPT](figures/ChatGPT05.png)
+
+Oops!
+![A nice chat with ChatGPT](figures/ChatGPT06.png)

@@ -1,0 +1,29 @@
+# Practical applied mathematics
+
+As we go deeper into formulating the equations that model or govern aspects of Planet Earth, we will quickly come to the realisation that many such equations, even for the simplest minimal models, are not exactly solvable. 
+
+For example, in the analysis of the Ocean models later in the course, we develop the following "simple" model for the temperature in the ocean:
+$$
+\begin{aligned}
+\frac{\mathrm{d}x}{\mathrm{d}t} &= \delta(1 - x) - |f(x, y)|x, \\
+\frac{\mathrm{d}y}{\mathrm{d}t} &= 1 - y - |f(x, y)|y, 
+\end{aligned}
+$$
+where we have introduced the function,
+$$
+f(x, y; R, \lambda) = \frac{1}{\lambda}(Rx - y),
+$$
+
+This is quite a difficult problem! This is essentially a set of two nonlinear differential equations for two unknowns and three parameters. What kind of practical applied mathematics can we apply to study such problems?
+
+
+The intention of this part is to introduce (and in some cases, review) three key concepts: 
+
+1. Asymptotic approximations.
+
+2. Numerical solutions of differential equations.
+
+3. Numerical solutions of nonlinear equations (Newton's method).
+
+as well as any additional tools you may need to study the kinds of differential equations involved in Maths of Planet Earth!
+

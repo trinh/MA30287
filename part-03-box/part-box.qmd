@@ -1,0 +1,26 @@
+# Energy balance models
+
+
+<!--
+## Physical vs. conceptual vs. statistical models
+
+We may pursue some discussion of the differences between model types during the lecture.
+
+:::{.callout-important}
+## Newton's law of cooling and similar linear laws
+
+In the following, we will follow some historical developments of physical box models, which often depend on certain assumed linear relationships. It can be very confusing if you want a derivation, via first-principles, of these relationships since often none will exist. This is an important-enough point to explain by analogy. 
+
+Consider an object of temperature $T$ placed in a room with ambient temperature $T_a$. A well-known empirical law for the time-evolution of temperature is given by Newton's Law of Cooling, i.e. 
+$$
+\frac{\mathrm{d}T}{\mathrm{d}t} = -c(T - T_a).
+$$ {#eq-:NLC}
+The constant $c > 0$ here has units of $s^{-1}$. 
+
+However, it is important to understand that the above law is often strictly used without derivation and without justification. It can be interpreted as a one-term Taylor expansion of the heat flux when $T - T_a$ is small but very rarely do people use the expansion under this assumption. There is more discussion of the law and its issues in the work by [@besson2012history] and also in [this online discussion](https://physics.stackexchange.com/questions/56553/are-newtons-law-of-cooling-and-stefans-law-related).
+
+I personally think a better way to think of such laws is that they are assumptions that the rate-of-changes are driven by linear gradients. 
+:::
+-->
+
+
