@@ -27,28 +27,27 @@ Here are the problems we shall do in the problem class.
 
 ## Projectile motion
 
-A projectile of mass $M$ (in kg) is launched vertically with initial velocity $V_0$ (in m/s) from a position $Y_0$ (in m) above the surface. Thus the mass's position, $Y(t)$ is governed by Newton's second law (applied to the mass and the mass of the Earth) and the set of equations
+A projectile of mass $M$ (in $\mathrm{kg}$) is launched vertically with initial velocity $V_0$ (in $\mathrm{m} \; \mathrm{s}^{-1}$) from a position $Y_0$ (in $\mathrm{m}$) above the surface. Thus the mass's position, $Y(t)$ is governed by Newton's second law (applied to the mass and the mass of the Earth) and the set of equations
 $$
 \begin{gathered}
 M Y_{tt} = - \frac{g R_E^2 M}{(R_E + Y)^2}, \\
 Y(0) = Y_0,
 \end{gathered}
 $$
-where $g = 9.81 m/s^2$ and $R_E = 6.4 \times 10^6 m$ is the radius of the Earth.
+where $g = 9.81 \mathrm{m} \; \mathrm{s}^{-2}$ and $R_E = 6.4 \times 10^6 \mathrm{m}$ is the radius of the Earth.
 
 1. Non-dimensionalise the equation using arbitary length and time scales. 
 
 2. Identify the non-dimensional constants, $\Pi_i$.
 
 3. Choose a length scale of $L = Y_0$ and time scale of $T = (L/g)^{1/2}$. Discuss the resultant equation and the interpretation of choosing these scales. 
-
 4. Does your above choice allow you to easily study the limit of $R_E \to \infty$? If the limit can be taken, reduce the governing system to a simpler equation. 
 
-5. Does your choice in 3. allow you to easily study the limit of $Y_0 \to 0$? If not, choose an alternative choice of length and time scales and in that case, reduce the set of equations. 
+5. Does your choice in Q3 allow you to easily study the limit of $Y_0 \to 0$? If not, choose an alternative choice of length and time scales and in that case, reduce the set of equations. 
 
 ## Terminal velocity 
 
-A ball of radius $R$ (in m) and uniform density $\rho$ (in kg/m<sup>3</sup>) falls in a viscous fluid. The fluid has density $\rho_f$ (in kg/m<sup>3</sup>) and viscosity (a measure of friction or resistance) $\mu$ (in kg/(m s)). 
+A ball of radius $R$ (in $\mathrm{m}$) and uniform density $\rho$ (in $\mathrm{kg} \, \mathrm{m}^{-3}$) falls in a viscous fluid. The fluid has density $\rho_f$ (in $\mathrm{kg} \, \mathrm{m}^{-3}$) and viscosity (a measure of friction or resistance) $\mu$ (in $\mathrm{kg} \, \mathrm{m}^{-1} \, \mathrm{s}^{-1}$)). 
 The equation that governs the velocity is 
 $$
 \begin{gathered}
@@ -66,69 +65,87 @@ $$
 
 3. Comment on the two limits of $St \to 0$ and $St \to \infty$. Can the problem be reduced in these two limits? If so, reduce and solve.
 
-## Navier-Stokes equations
-
-
-:::{.callout-tip}
-WA to trim and correct for notation.
-:::
+## Navier-Stokes Equations
 
 Consider the Navier-Stokes equations (which is a set of equations that dictates fluid flow):
-$$\frac{\partial \boldsymbol{u}}{\partial t}+\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\frac{1}{\rho}\nabla p+\nu \nabla^2 \boldsymbol{u}$$
-where:
+$$\frac{\partial \boldsymbol{u}}{\partial t}+\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\frac{1}{\rho}\nabla p+\nu \nabla^2 \boldsymbol{u}.$$
+The parameters and variables are as follows:
 
-* $\boldsymbol{x}=(x, y, z)^{\mathrm{T}}$ is the direction field (each with dimensions $m$)
-* $\boldsymbol{u}=(u, v, w)^{\mathrm{T}}$ is the velocity field where $u$ is the movement along the $x$-direction, $v$ is the movement along the $y$-direction and $w$ is the movement along the $z$-direction (each with dimensions $m \, s^{-1}$)
-* $t$ is time (dimension s)
-* $\rho$ is the fluid density (dimension $kg \, m^{-3}$)
-* $\nu$ is the dynamic viscosity, which represents the resistance to flow due to gravity (with dimensions $m^2 \, s^{-1}$)
-* $p$ is the internal pressure of the fluid (with dimension $kg \, m^{-1} \, s^{-2}$)
-* $\nabla=\left( \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z} \right)^{\mathrm{T}}$ is the gradient operator (each with the with effective dimension $m^{-1}$).
-* $\frac{\partial}{\partial t}$ is the partial time derivative (with effective dimension $s^{-1}$)
-* $\nabla^2=\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}$ is the Laplacaian operator (with effective dimension $m^{-2}$).
+* $\boldsymbol{x}=(x, y, z)^{\mathrm{T}}$ is the direction field (each with dimension $\mathrm{m}$)
+* $\boldsymbol{u}=(u, v, w)^{\mathrm{T}}$ is the velocity field where $u$ is the movement along the $x$-direction, $v$ is the movement along the $y$-direction and $w$ is the movement along the $z$-direction (each with dimension $\mathrm{m} \, \mathrm{s}^{-1}$)
+* $t$ is time (dimension $\mathrm{s}$)
+* $\rho$ is the fluid density (dimension $\mathrm{kg} \, \mathrm{m}^{-3}$)
+* $\nu$ is the dynamic viscosity, which represents the resistance to flow due to gravity (with dimension $\mathrm{m}^2 \, \mathrm{s}^{-1}$)
+* $p$ is the internal pressure of the fluid (dimension $\mathrm{kg} \, \mathrm{m}^{-1} \, \mathrm{s}^{-2}$)
+* $\nabla=\left( \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z} \right)^{\mathrm{T}}$ is the gradient operator (each with the with effective dimension $\mathrm{m}^{-1}$).
+* $\frac{\partial}{\partial t}$ is the partial time derivative (with effective dimension $\mathrm{s}^{-1}$)
+* $\nabla^2=\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}$ is the Laplacaian operator (with effective dimension $\mathrm{m}^{-2}$).
 
+1.  Non-dimensionalise the equation using arbitrary length, time, speed and pressure scales.
+
+:::{.callout-note collapse="true"}
+
+# Non-dimensionalisation
 Consider the following arbitrary non-dimensionalisation:
-$$\boldsymbol{x}=L\tilde{\boldsymbol{x}}, \quad \boldsymbol{u}=U\tilde{\boldsymbol{u}}, \quad t=T\tilde{t}, \quad p=P\tilde{p}$$
-where $[\tilde{x}]=[\tilde{u}]=[\tilde{t}]=[\tilde{p}]=1$ are the new non-dimensional quantities whereas $[L]=m, [U]=m \, s^{-1}, [T]=s$ and $[P]=kg \, m^{-3}$.
+$$\boldsymbol{x}=[x]\boldsymbol{x}', \quad \boldsymbol{u}=[u]\boldsymbol{u}', \quad t=[t]t', \quad p=[p]p'$$
+where $[x']=[u']=[t']=[p']=1$ are the new non-dimensional quantities whereas $[x]=\mathrm{m}, [u]=\mathrm{m} \, \mathrm{s}^{-1}, [t]=\mathrm{s}$ and $[p]=\mathrm{kg} \, \mathrm{m}^{-3}$.
 
 Replacing these into the Navier-Stokes equation gives
-$$\frac{U}{T}\frac{\partial \boldsymbol{\tilde{u}}}{\partial \tilde{t}}+\frac{U^2}{L}\left( \tilde{\boldsymbol{u}} \cdot \tilde{\nabla} \right)\tilde{\boldsymbol{u}}=-\frac{P}{L\rho}\tilde{\nabla} \tilde{p}+\frac{\nu U}{L^2} \tilde{\nabla}^2 \tilde{\boldsymbol{u}}$$
-where $\tilde{\nabla}$ is the gradient operator in the new coordinate space $(\tilde{x}, \tilde{y}, \tilde{z})$.  The tildas will be dropped henceforth.  Rearranging to make the coefficient of the time derivative 1 gives
-$$\frac{\partial \boldsymbol{u}}{\partial t}+\frac{UT}{L}\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\frac{PT}{U L \rho}\nabla p+\frac{\nu T}{L^2} \nabla^2 \boldsymbol{u}.$$
+$$\frac{[u]}{[t]}\frac{\partial \boldsymbol{u'}}{\partial t'}+\frac{[u]^2}{[x]}\left( \boldsymbol{u}' \cdot \nabla' \right)\boldsymbol{u}'=-\frac{[p]}{[x]\rho}\nabla' p'+\frac{\nu [u]}{[x]^2} \nabla'^2 \boldsymbol{u}'$$
+where $\nabla'$ is the gradient operator in the new coordinate space $(x', y', z')$, i.e. $\nabla'=\left( \frac{\partial}{\partial x'}, \frac{\partial}{\partial y'}, \frac{\partial}{\partial z'} \right)^{\mathrm{T}}$.  Similarly, the operator $\nabla'^2$ is the Laplacian in the new coordinate space, i.e. $\nabla'^2=\frac{\partial^2}{\partial x'^2}+\frac{\partial^2}{\partial y'^2}+\frac{\partial^2}{\partial z'^2}$.
+:::
 
-The most convenient term to eliminate is the coefficient of the pressure.  Therefore, suppose the choice of the non-dimensionalisation parameters needs to be chosen such that
-$$\frac{PT}{\rho L U}=1.$$
-This means that the term $P$ can be written as
-$$P=\frac{\rho U L}{T}.$$
+2.  Rearrange the equation so that the coefficient of the time derivative is equal to 1.
+
+:::{.callout-note collapse="true"}
+# Time Derivative Coefficient
+
+The dashes will be dropped henceforth for ease of notation.  Rearranging to make the coefficient of the time derivative 1 gives
+$$\frac{\partial \boldsymbol{u}}{\partial t}+\frac{[u][t]}{[x]}\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\frac{[p][t]}{[u] [x] \rho}\nabla p+\frac{\nu [t]}{[x]^2} \nabla^2 \boldsymbol{u}.$$
+:::
+
+3.  Choose an appropriate time scale so that the coefficient of the pressure derivative is 1, then rearrange until only one term in the equation has a coefficient.
+
+:::{.callout-note collapse="true"}
+
+# Pressure Derivative
+In order to eliminate the coefficient of the pressure derivative, suppose that the choice of the non-dimensionalisation is
+$$\frac{[p][t]}{\rho [x] [u]}=1.$$
+This means that the term $[p]$ can be written as
+$$P=\frac{\rho [u] [x]}{[t]}.$$
 
 > Checking the dimensions:
-$$[P]=\left[ \frac{\rho U L }{T} \right]=[\rho][U][L][T]^{-1}=kg \, m^{-3} \, m \, s^{-1} \, m \, s^{-1}=kg \, m^{-1} \, s^{-2}$$
+$$[P]=[\rho] [u] [x] [t]^{-1}=\left(\mathrm{kg} \, \mathrm{m}^{-3} \right) \, \left( \mathrm{m} \, \mathrm{s}^{-1} \right) \, \left( \mathrm{m} \right) \, \left(\mathrm{s}\right)^{-1}=\mathrm{kg} \, \mathrm{m}^{-1} \, \mathrm{s}^{-2}$$
 which is indeed the dimension for pressure.
 
-### Reynolds Number
-
-Suppose that the term $\frac{U T}{L}$ should also be equal to 1, then this would mean that the time non-dimensionalisation can be done by having $T=\frac{L}{U}$.
+Suppose that the term $\frac{[u] [t]}{[x]}$ should also be equal to 1, then this would mean that the time non-dimensionalisation can be done by having $[t]=\frac{[x]}{[u]}$.
 
 > Checking the dimensions:
-$$[T]=\left[ \frac{L}{U} \right]=[L][U]^{-1}=m \, m^{-1} \, s=s$$
+$$[t]=[x][u]^{-1}=\left( \mathrm{m} \right) \, \left( \mathrm{m} \, \mathrm{s}^{-1} \right)^{-1}=\mathrm{s}$$
 which is indeed the dimension for time.
 
-Therefore, with these choices of $T$ and $P$, the Navier-Stokes equation becomes
-$$\frac{\partial \boldsymbol{u}}{\partial t}+\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\nabla p+\frac{\nu}{U L} \nabla^2 \boldsymbol{u}.$$
+Therefore, with these choices of $[t]$ and $[p]$, the Navier-Stokes equation becomes
+$$\frac{\partial \boldsymbol{u}}{\partial t}+\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\nabla p+\frac{\nu}{[u] [x]} \nabla^2 \boldsymbol{u}.$$
+:::
 
-The term $\frac{L U}{\nu}$ is known as the Reynolds number, denoted $Re$ which is a non-dimensional quantity.
+4.  Let $\mathrm{Re}=\frac{[x] [u]}{\nu}$, known as the **Reynolds number**.  Show that $\mathrm{Re}$ is dimensionless and hence, write the final form of the differential equation using the Reynolds number.
 
-> Check the dimension of the Reynolds number:
-$$[Re]=\left[ \frac{L U}{\nu} \right]=[L][U][\nu]^{-1}=m \, m \, s^{-1} \, m^2 \, s=1$$
-meaning that the Reynolds number is dimensionless.
+:::{.callout-note collapse="true"}
+# Non-dimensionality of the Reynolds Number
+
+$$[\mathrm{Re}]=\frac{[x] [u]}{[\nu]}=\left( \mathrm{m} \right) \, \left( \mathrm{m} \, \mathrm{s}^{-1} \right) \, \left(\mathrm{m}^{-2} \, \mathrm{s}^{-1} \right)^{-1}=1$$
 
 Therefore, this gives the non-dimensional Navier-Stokes equation for fluid flow
-$$\frac{\partial \boldsymbol{u}}{\partial t}+\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\nabla p+\frac{1}{Re} \nabla^2 \boldsymbol{u}.$$
+$$\frac{\partial \boldsymbol{u}}{\partial t}+\left( \boldsymbol{u} \cdot \nabla \right)\boldsymbol{u}=-\nabla p+\frac{1}{\mathrm{Re}} \nabla^2 \boldsymbol{u}.$$
+:::
 
-The Reynolds number $Re$ gives a measure for the effect of viscosity for fluid flow or for the movement through a fluid.  As $Re$ gets larger, the fluid becomes less viscous hence reducing the effect of viscosity on the movement and the inertial forces dominate. (The case when $Re \to \infty$ is called inviscid flow where there is no viscosity.)  As $Re$ decreases, the viscosity increases, making the movement depend on the viscous forces more than the inertial forces.
+5.  Give an interpretation of the Reynolds number and what happens as $\mathrm{Re} \to \infty$ and $\mathrm{Re} \to 0$.
+
+
+:::{.callout-note collapse="true"}
+# The Reynolds Number
+
+The Reynolds number $\mathrm{Re}$ gives a measure for the effect of viscosity for fluid flow or for the movement through a fluid.  As $\mathrm{Re}$ gets larger, the fluid becomes less viscous hence reducing the effect of viscosity on the movement and the inertial forces dominate. (The case when $\mathrm{Re} \to \infty$ is called inviscid flow where there is no viscosity.)  As $\mathrm{Re}$ decreases, the viscosity increases, making the movement depend on the viscous forces more than the inertial forces.
 
 The Reynolds number is important in modelling since when length and speed scales change from full-sized objects to smaller models (like models of cars and buildings for testing purposes), the same environment cannot be translated from one to the other (since a full sized building in 20mph winds will not move whereas 20mph winds on a small scale of model of the building will be affected much more).  However, if the Reynolds number is fixed in both cases, the model can be made more realistic.
-
-
-
-
+:::

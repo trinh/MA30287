@@ -107,7 +107,7 @@ $$
 Now we see that the final equation is beautifully simple:
 $$
 \begin{aligned}
-\frac{\partial T'}{\partial t'} &= \frac{\partial^2 T}{\partial x^2} \\
+\frac{\partial T'}{\partial t'} &= \frac{\partial^2 T'}{\partial x'^2} \\
 T'(x', 0) &= 1 \\
 T'(0, t') &= \frac{T_a}{T_\text{init}} \equiv A, \\
 T'(1, t') &= \frac{T_b}{T_\text{init}} \equiv B.
