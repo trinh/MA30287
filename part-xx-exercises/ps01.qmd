@@ -1,9 +1,9 @@
 # Problem set 1 {#sec-PS1}
 
-:::{.callout-tip}
-## Note
-This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.
-:::
+<!-- :::{.callout-tip} -->
+<!-- ## Note -->
+<!-- This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced. -->
+<!-- ::: -->
 
 The intention of this problem set is to practice concepts from material related to conservation laws and non-dimensionalisation. Although these concepts seem quite separate from "Maths of Planet Earth", actually, they form important pillars of mathematical modelling. 
 
@@ -19,7 +19,7 @@ If $\int_a^b g(x) \, \mathrm{d}x = 0$ for all $a$ and $b \in [0, 1]$, then $g(x)
 
 Consider the same heat experiment discused in @sec-intro-PDEs but now consider a bar that has an internal source or sink generating or removing heat, such as the case of a boiler with an internal heating element. By adapting a similar derivation to the one presented, explain why the modified conservation of heat equation is 
 $$
-\frac{\mathrm{\partial}}{\mathrm{\partial}t} \int_a^b \rho c T \, \mathrm{d}x = {\color{blue}q(x = a, t) - q(x = b, t)} + \int_a^b R(x, t) \, \mathrm{d}x.
+\frac{\mathrm{\partial}}{\mathrm{\partial}t} \int_a^b \rho c T \, \mathrm{d}x = q(x = a, t) - q(x = b, t) + \int_a^b R(x, t) \, \mathrm{d}x.
 $$
 
 In addition:
