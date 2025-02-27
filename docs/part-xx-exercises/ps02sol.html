@@ -564,19 +564,10 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.</p>
-</div>
-</div>
+<!-- :::{.callout-tip} -->
+<!-- ## Note -->
+<!-- This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced. -->
+<!-- ::: -->
 <section id="getting-started-with-jupyter" class="level2" data-number="31.1">
 <h2 data-number="31.1" class="anchored" data-anchor-id="getting-started-with-jupyter"><span class="header-section-number">31.1</span> Getting started with Jupyter</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -622,7 +613,7 @@ x = x_0 + \epsilon x_1 + \epsilon^2 x_2 + \ldots
 \]</span></li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -631,7 +622,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Substitution into the cubic gives <span class="math display">\[
 \epsilon (x_0^3 + 3 x_0 x_1 + \ldots) - (x_0 + \epsilon x_1 + \epsilon^2 x_2) + 1 = 0.
@@ -649,7 +640,7 @@ x \sim 1 + \epsilon + 3 \epsilon^2.
 <li>Fill out the following table.</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -658,7 +649,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <pre><code>| $\epsilon$ | $x_{\text{exact}}$ | $x_{\text{exact}} - x_0$ |
 | -----------| -------------------|--------------------------|
@@ -699,7 +690,7 @@ Figure&nbsp;31.2: Python image
 <li>By rescaling <span class="math inline">\(x\)</span> appropriately in terms of <span class="math inline">\(\epsilon\)</span>, derive the first three terms of the asymptotic approximations of the remaining roots.</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -708,7 +699,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We expect the critical scaling to balance <span class="math inline">\(\epsilon x^3\)</span> with <span class="math inline">\(x\)</span> since these two will be dominant when <span class="math inline">\(x\)</span> is large. So we set <span class="math display">\[
 x = \frac{X}{\sqrt{\epsilon}}
@@ -743,7 +734,7 @@ y'(0) = 1.
 <li>Begin by assuming that <span class="math inline">\(\alpha\)</span> is a fixed number and consider the limit where <span class="math inline">\(\epsilon \ll 1\)</span>. Find a one-term asymptotic expansion of the solution for small <span class="math inline">\(\epsilon\)</span>.</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -752,7 +743,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>First, note that <span class="math display">\[
 (1 + \epsilon y)^{\alpha} = 1 + \alpha (\epsilon y) + O(\epsilon y)^2.
@@ -783,7 +774,7 @@ y(t) \sim \left(\frac{1}{\alpha^2} + \frac{1}{\alpha}\right) - \left(\frac{1}{\a
 <li>(<strong>Challenging</strong>) Is the effect of the air resistance to increase or decrease the flight time? Justify based on your analytical solution.</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -792,7 +783,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The above solution seems quite strange. After all, when <span class="math inline">\(\alpha = 0\)</span>, we know that parabolic motion is expected. We found previously that <span class="math display">\[
 y_{\alpha = 0}(t) \sim -\frac{1}{2}t^2 + t.
@@ -825,6 +816,25 @@ Figure&nbsp;31.3: With (solid) and without damping (dashed)
 <li>Modify the script shown in <a href="../part-05-techniques/asymptotics02.html#sec-asym2-num" class="quarto-xref"><span>Section 6.2</span></a> in order to solve the equation from the previous question at a prescribed value of <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\alpha\)</span>.</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This is found in <code>problemsets/sol02_solutions.ipynb</code>.</p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Using <strong>a pocket calculator</strong> (or your phone calculator) apply Euler’s method with <span class="math inline">\(\Delta t = 0.2\)</span>, <span class="math inline">\(\epsilon = 0.2\)</span>, and <span class="math inline">\(\alpha = 1\)</span> to determine the position of the projectile at <span class="math inline">\(t = 0.6\)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -835,25 +845,6 @@ Solution
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>This is found in <code>problemsets/sol02_solutions.ipynb</code>.</p>
-</div>
-</div>
-</div>
-<ol start="2" type="1">
-<li>Using <strong>a pocket calculator</strong> (or your phone calculator) apply Euler’s method with <span class="math inline">\(\Delta t = 0.2\)</span>, <span class="math inline">\(\epsilon = 0.2\)</span>, and <span class="math inline">\(\alpha = 1\)</span> to determine the position of the projectile at <span class="math inline">\(t = 0.6\)</span>.</li>
-</ol>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Euler’s method is simply <span class="math display">\[
 Y_{n+1} = Y_n + F(t_n, y_n)\Delta t.
@@ -913,7 +904,7 @@ y' \\
 <li>Compare your hand calculation with the result from the Python output, as well as with your asymptotic approximations.</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -922,7 +913,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We have (rounded to two digits) <span class="math display">\[
 \begin{aligned}

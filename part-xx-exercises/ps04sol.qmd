@@ -1,9 +1,9 @@
 # Problem set 4 solutions
 
-:::{.callout-tip}
-## Note
-This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.
-:::
+<!-- :::{.callout-tip} -->
+<!-- ## Note -->
+<!-- This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced. -->
+<!-- ::: -->
 
 ## Q1. The wine cellar problem I {.unnumbered} 
 

@@ -563,19 +563,10 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.</p>
-</div>
-</div>
+<!-- :::{.callout-tip} -->
+<!-- ## Note -->
+<!-- This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced. -->
+<!-- ::: -->
 <!-- ## Q1. Non-dimensionalisation of the ocean model {.unnumbered} -->
 <!---->
 <!-- Take the ocean model from (@eq-ocean-final-dimensional). Re-scale the salinity and time via -->
@@ -690,7 +681,7 @@ f(x, y; R, \lambda) = \frac{1}{\lambda}(Rx - y),
 \]</span></p>
 <p>Provide a brief description of the physical interpretations of the parameters <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(\delta\)</span>, and <span class="math inline">\(R\)</span>.</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -699,7 +690,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The non-dimensionalisation procedure was done in the lecture notes and lectures.</p>
 <p>The final parameters were established by <span class="math display">\[
@@ -716,7 +707,7 @@ Solution
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
 <p>Using the script available on Noteable investigate the behaviour of the Stommel box model under changing values of <span class="math inline">\(R\)</span> and fixed values of the other parameters. Based on your intuition, what do you expect to be the features of the bifurcation diagram, as shown in the <span class="math inline">\((R, f)\)</span>-plane?</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -725,7 +716,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Remember that the steady states are found by examining the intersections of the curves <span class="math inline">\(\lambda f = \phi\)</span>. From (<a href="../part-03-box/stommel.html#eq-stommel-phi" class="quarto-xref">Equation&nbsp;<span>21.5</span></a>), we have <span class="math display">\[
 \phi(f^*) = \frac{\delta R}{\delta + |f^*|} - \frac{1}{1 + |f^*|}.
@@ -772,7 +763,7 @@ x = [x] s, \qquad y = [y] \theta, \qquad t = [t] t',
 q = \kappa(-\theta + \tilde{R}s).
 \]</span> In addition to the choice of scalings, you will need to describe how the new parameters, <span class="math inline">\(\epsilon\)</span>, <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\kappa\)</span>, and <span class="math inline">\(\tilde{R}\)</span>, are related to the older parameters.</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -781,7 +772,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Putting in the scalings, <span class="math display">\[
 \begin{aligned}
@@ -815,7 +806,7 @@ q = \kappa(-\theta + \tilde{R}s).
 <h2 class="unnumbered anchored" data-anchor-id="q4.-box-models-for-flooding">Q4. Box models for flooding</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -824,7 +815,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Solution shown in lectures.</p>
 </div>

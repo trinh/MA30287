@@ -565,19 +565,10 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.</p>
-</div>
-</div>
+<!-- :::{.callout-tip} -->
+<!-- ## Note -->
+<!-- This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced. -->
+<!-- ::: -->
 <p><span class="math display">\[
 \begin{aligned}
 \epsilon T'' + 2T' + T &amp;= 0, \\
@@ -590,7 +581,7 @@ T(1) &amp;= 1.
 <h2 data-number="32.1" class="anchored" data-anchor-id="conversion-to-first-order-system"><span class="header-section-number">32.1</span> Conversion to first-order system</h2>
 <p>By using the procedure reviewed in <a href="../part-05-techniques/asymptotics02.html#sec-asym2-num" class="quarto-xref"><span>Section 6.2</span></a>, convert (<a href="ps03.html#eq-ps3-sys" class="quarto-xref">Equation&nbsp;<span>25.1</span></a>) to a first-order system of equations.</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -599,7 +590,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Introduce <span class="math inline">\(u(z) = T(z)\)</span> and <span class="math inline">\(v(z) = T'(z)\)</span>. Then <span class="math display">\[
 \frac{\mathrm{d}}{\mathrm{d}z}\begin{pmatrix}
@@ -619,7 +610,7 @@ v \\
 <h2 data-number="32.2" class="anchored" data-anchor-id="numerical-solutions"><span class="header-section-number">32.2</span> Numerical solutions</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -628,7 +619,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>A script can be found in <code>problemsets/ps03_solutions.ipynb</code></p>
 </div>
@@ -675,7 +666,7 @@ print(ep, z[ind], Y[0, ind])</code></pre>
 </table>
 <p>Create a plot of <span class="math inline">\((\epsilon, x_m)\)</span> and discuss the observed trend and its implications.</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -684,7 +675,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="fig-" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -712,7 +703,7 @@ T_0 &amp;= e^{1/2} e^{-z/2}, \\
 T_1 &amp;= -\frac{1}{8} e^{1/2} e^{-z/2} (z - 1).
 \end{align}\]</span></p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -721,7 +712,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Remember</strong>: as you solve the outer solution, you impose the boundary condition of <span class="math inline">\(T(1) = 1\)</span>.</p>
 <p><strong>Leading-order</strong>: at leading order, we get the problem <span class="math inline">\(2T_0' + T_0 = 0\)</span> subject to <span class="math inline">\(T_0(1) = 1\)</span>. This is solved either by separation of variables or by integrating factor. Using the technique of solving first-order linear equations, (see <a href="../part-05-techniques/odes.html" class="quarto-xref"><span>Chapter 41</span></a>) we divide, <span class="math display">\[
@@ -748,7 +739,7 @@ T_1(z) = -\frac{e^{1/2}}{8}(z - 1) e^{-z/2}.
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
 <p>There will be a boundary layer near <span class="math inline">\(z = 0\)</span>. Set <span class="math inline">\(z = \epsilon^{\alpha} s\)</span> and <span class="math inline">\(T(z) = U(s)\)</span>. Follow the same procedure, as in <a href="../part-05-techniques/asymptotics03.html" class="quarto-xref"><span>Chapter 8</span></a> in order to determine the correct choice of <span class="math inline">\(\alpha\)</span> for the inner region. This choice should balance the two terms <span class="math inline">\(\epsilon T''\)</span> and <span class="math inline">\(2T'\)</span>.</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -757,7 +748,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We re-scale <span class="math inline">\(z = \epsilon^\alpha s\)</span> and let <span class="math inline">\(T(s) = U(s)\)</span>. Then the ODE becomes <span class="math display">\[
 \epsilon^{1 - 2\alpha} U'' + 2 \epsilon^{-\alpha} U' + U = 0.
@@ -780,7 +771,7 @@ U_0(0) = 0.
 \lim_{s \to \infty} U_0(s) = \lim_{z \to 0} T_0(z),
 \]</span> which imposes that the inner solution, as it leaves the boundary layer, matches the outer solution, it tends into the inner region.</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -789,7 +780,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Solve for <span class="math inline">\(U_0\)</span>.</p>
 <p>We thus expand <span class="math inline">\(U = U_0 + \epsilon U_1 + \ldots\)</span>. To leading order, we have <span class="math display">\[

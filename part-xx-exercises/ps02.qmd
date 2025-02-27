@@ -1,9 +1,9 @@
 # Problem set 2 {#sec-ps2}
 
-:::{.callout-tip}
-## Note
-This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.
-:::
+<!-- :::{.callout-tip} -->
+<!-- ## Note -->
+<!-- This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced. -->
+<!-- ::: -->
 
 The intention of this problem set is to practice concepts from @sec-asymptotics01 (asymptotic approximations of algebraic equations) to @sec-euler (Euler's method and numerical solutions of differential equations). These techniques form some of the most powerful techniques at your disposal in applied maths.
 

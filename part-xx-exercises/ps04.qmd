@@ -1,9 +1,9 @@
 # Problem set 4 {#sec-ps4}
 
-:::{.callout-tip}
-## Note
-This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.
-:::
+<!-- :::{.callout-tip} -->
+<!-- ## Note -->
+<!-- This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced. -->
+<!-- ::: -->
 
 This problem set focuses on EBMs.
 

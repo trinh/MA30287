@@ -599,19 +599,10 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.</p>
-</div>
-</div>
+<!-- :::{.callout-tip} -->
+<!-- ## Note -->
+<!-- This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced. -->
+<!-- ::: -->
 <p>This problem set focuses on EBMs.</p>
 <section id="q1.-budykos-model" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q1.-budykos-model">Q1. Budyko’s model</h2>
@@ -650,7 +641,7 @@ Q(1 - a) = A + BT
 <p>Consider the energy balance equation <span id="eq-ps4-main"><span class="math display">\[
 C \frac{\mathrm{d}T}{\mathrm{d}t} = Q(1 - a(T)) - \sigma \gamma T^4 \equiv G(T).
 \tag{26.1}\]</span></span> with <span class="math inline">\(a\)</span> given by (<a href="../part-03-box/box-energy-model.html#eq-albedokaper" class="quarto-xref">Equation&nbsp;<span>11.2</span></a>). Because the differential equation is autonomous, we can apply phase-line analysis in order to qualitatively understand the evolution. Below is a plot of the function <span class="math inline">\(G\)</span>:</p>
-<div id="73307329" class="cell" data-execution_count="1">
+<div id="47a2fcfd" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>

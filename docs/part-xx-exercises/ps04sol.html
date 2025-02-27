@@ -563,23 +563,14 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.</p>
-</div>
-</div>
+<!-- :::{.callout-tip} -->
+<!-- ## Note -->
+<!-- This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced. -->
+<!-- ::: -->
 <section id="q1.-the-wine-cellar-problem-i" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="q1.-the-wine-cellar-problem-i">Q1. The wine cellar problem I</h2>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -588,7 +579,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Separation of variables leads to the equation <span class="math display">\[
 \frac{G'}{G} = \kappa \frac{H''}{H} = \lambda.
@@ -623,7 +614,7 @@ T(x, t) = A e^{-\sqrt{\omega/2} x} \cos\left(-\sqrt{\omega/2\kappa} x + \omega t
 <h2 class="unnumbered anchored" data-anchor-id="q2.-the-wine-cellar-problem-ii">Q2. The wine cellar problem II</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -632,7 +623,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Solution script can be found on the solutions/ folder of the Noteable Python website.</p>
 <p>The numerical solution is tricky for two reasons. First, you must consider the right range of parameters. Second, the numerical algorithm suffers from instability, so you must consider the right spatial and time discretisation.</p>
@@ -660,6 +651,27 @@ Solution
 <li>Regarding the resultant variation on the Earth’s mean surface.</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The variation seems to be very small. Ignoring units, we have <span class="math display">\[
+T = \left(\frac{1-a}{\sigma \gamma}\right)^{1/4} Q^{1/4} \approx 67.3505 \times Q^{1/4}.
+\]</span> Substituting the values of <span class="math inline">\(Q\)</span> given this gives a temperature that ranges from <span class="math inline">\(T = 289.499 \, \mathrm{K}\)</span> to <span class="math inline">\(289.580 \, \mathrm{K}\)</span>. Converting this to Celsius gives <span class="math inline">\(16.35 \, {}^\circ \mathrm{C}\)</span> to <span class="math inline">\(16.43 \, {}^\circ \mathrm{C}\)</span> i.e.&nbsp;a fraction of a degree.</p>
+</div>
+</div>
+</div>
+<ol start="2" type="a">
+<li>Regarding the variation using the Budyko model.</li>
+</ol>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -671,14 +683,12 @@ Solution
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The variation seems to be very small. Ignoring units, we have <span class="math display">\[
-T = \left(\frac{1-a}{\sigma \gamma}\right)^{1/4} Q^{1/4} \approx 67.3505 \times Q^{1/4}.
-\]</span> Substituting the values of <span class="math inline">\(Q\)</span> given this gives a temperature that ranges from <span class="math inline">\(T = 289.499 \, \mathrm{K}\)</span> to <span class="math inline">\(289.580 \, \mathrm{K}\)</span>. Converting this to Celsius gives <span class="math inline">\(16.35 \, {}^\circ \mathrm{C}\)</span> to <span class="math inline">\(16.43 \, {}^\circ \mathrm{C}\)</span> i.e.&nbsp;a fraction of a degree.</p>
+<p>We obtain the range of approximately <span class="math inline">\(T = 17.06 \, {}^\circ \mathrm{C}\)</span> to <span class="math inline">\(17.19 \, {}^\circ \mathrm{C}\)</span>.</p>
 </div>
 </div>
 </div>
-<ol start="2" type="a">
-<li>Regarding the variation using the Budyko model.</li>
+<ol start="3" type="a">
+<li>Regarding why the disparity between actual surface measurements.</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
@@ -692,25 +702,6 @@ Solution
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>We obtain the range of approximately <span class="math inline">\(T = 17.06 \, {}^\circ \mathrm{C}\)</span> to <span class="math inline">\(17.19 \, {}^\circ \mathrm{C}\)</span>.</p>
-</div>
-</div>
-</div>
-<ol start="3" type="a">
-<li>Regarding why the disparity between actual surface measurements.</li>
-</ol>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
 <p>There are many ways to respond, but one major factor is the oceans, which are ignored in our model. The oceans provide a massive energy sink for the planet, and so we would expect that the minor variations of <span class="math inline">\(Q\)</span> due to the 11-year cycle would be smoothed out by the effects of the oceans.</p>
 </div>
 </div>
@@ -723,7 +714,7 @@ Solution
 <li>Sketch the solution <span class="math inline">\(T(t)\)</span> of this equation for <span class="math inline">\(t &gt; 0\)</span> if <span class="math inline">\(T(0) = 230, 240, 260, 270\)</span> and <span class="math inline">\(300\)</span>.</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -732,7 +723,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You should be able to do this question by hand, but the following graph is generated via the accompanying Jupyter script in the solutions folder. The point is that once the steady-state solutions are known (dashed) then each solution given by the different initial condition can be approximated by whether it tends towards or away from the nearest fixed point.</p>
 <div id="fig-q3a" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -752,7 +743,7 @@ Figure&nbsp;33.1: Graphical solution for Q3a
 <li>Sketch the solution <span class="math inline">\(T(t)\)</span> of this equation for <span class="math inline">\(t &gt; 0\)</span> if <span class="math inline">\(T(0) = 285\)</span>. Then sketch the solution of this equation with the same initial data in the same coordinate system if <span class="math inline">\(C\)</span> is twice as large. Explain your answer.</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -761,7 +752,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The below numerical solution shows blue for <span class="math inline">\(C = 1\)</span> and orange for <span class="math inline">\(C = 4\)</span>. Notice that increasing <span class="math inline">\(C\)</span> seems to decrease the rate of change of the evolution. Indeed, since <span class="math display">\[
 \frac{\mathrm{\partial}T}{\mathrm{\partial}t} \propto \frac{1}{C},
@@ -779,7 +770,7 @@ Solution
 <li>If <span class="math inline">\(\gamma\)</span> is decreased due to the increased greenhouse effect, the entire curve is shifted upwards. Sketch the solution if <span class="math inline">\(T(0) = 280\)</span>. Sketch the solution with the same initial data if <span class="math inline">\(\gamma\)</span> is decreased. Explain your answer.</li>
 </ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -788,7 +779,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Decreasing <span class="math inline">\(\gamma\)</span> has the effect of shifting the curve upwards. The hottest steady state <span class="math inline">\(T_3\)</span> is consequently increased. There are two main effects. First, the steady-state is much hotter, so the system will tend towards a much hotter state. Second, because decreasing $ $ will increase the rate of change of <span class="math inline">\(T\)</span> (since we are subtracting less via the factor <span class="math inline">\(-\gamma T^4\)</span>), then the evolution towards the hotter state is initially much faster.</p>
 <p>You see that in the following diagram.</p>

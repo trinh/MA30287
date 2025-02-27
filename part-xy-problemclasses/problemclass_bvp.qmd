@@ -7,7 +7,9 @@ $$
 T(0) = 0 \quad \text{and} \quad T(1) = 1.
 \end{gathered}
 $$
-The associated Python note is in `lectures/lecture12-SolvingBVPs`. You will gain an appreciation for some of the unique elements that are introduced when looking at $\epsilon \to 0$ in boundary-value problems. 
+During the problem class, you will study both the solution of the above problem using stock routines in Python, and also in coding your own routine. The analysis of the above problem using asymptotics was done in Lecture 8. 
+
+<!-- The associated Python note is in `lectures/lecture12-SolvingBVPs`. You will gain an appreciation for some of the unique elements that are introduced when looking at $\epsilon \to 0$ in boundary-value problems.  -->
 
 <!-- ::: {.callout} -->
 <!---->

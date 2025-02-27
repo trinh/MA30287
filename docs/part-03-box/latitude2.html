@@ -656,7 +656,7 @@ T = T(t, y) = G(y; A, b, k, C, Q, a_i, a_w).
 <p>We return to (<a href="#eq-Tstar" class="quarto-xref">Equation&nbsp;<span>13.6</span></a>) and consider inverting the formulation. For each given ice line location, <span class="math inline">\(y_s \in (0, 1)\)</span>, we solve for the <span class="math inline">\(Q\)</span> value. This gives <span id="eq-Qfunc"><span class="math display">\[
 Q = K(y_s) \equiv \frac{\left(T_C + \frac{A}{B}\right)(B + k)}{s(y_s)[1 - \frac{1}{2}(a_i + a_w)] + \frac{k}{B}(1 - \bar{a})}.
 \tag{13.7}\]</span></span> Above, we have used the fact that <span class="math inline">\(a(y_s) = \frac{1}{2}(a_i + a_w)\)</span>. This can now be plotted in Python, either in the notebook written during lectures, or via the code below.</p>
-<div id="d78d3518" class="cell" data-execution_count="1">
+<div id="e1270b0c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">202</span> <span class="co"># outgoing radiation</span></span>
@@ -707,7 +707,7 @@ T_\infty(y) = \frac{Q(1 - a_i)}{B + k}\left[s(y) + \frac{k}{B}\right] - \frac{A}
 \]</span> This time, there is a maximal condition on <span class="math inline">\(Q\)</span> such that any higher value would require an ice line somewhere within the domain, i.e.&nbsp;<span class="math inline">\(y &gt; 0\)</span>. Thus <span class="math display">\[
 Q &lt; \frac{(B + k)(T_C + A/B)}{(1 - a_i)[s(0) + k/B]} \approx 441 \mathrm{W} \, \mathrm{m}^{-2}.
 \]</span> Again we may verify that this corresponds to a mean temperature of <span class="math inline">\(-38\)</span> degrees Celsius.</p>
-<div id="9a1cb6d4" class="cell" data-execution_count="2">
+<div id="513f2d7c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">202</span> <span class="co"># outgoing radiation</span></span>

@@ -192,3 +192,12 @@ Let us summarise the procedure of matched asymptotics.
 
 You will get more practice of this procedure in the problem sets.
 
+### An additional problem 
+
+In Lecture 8 (26 Feb 2025), problem class, and associated problem set, we studied the example of 
+\begin{gather}
+\epsilon T'' + 2T' + T = 0, \qquad t \in [0, 1], \\
+T(0) = 0, \qquad T(1) = 1.
+\end{gather}
+
+This is an example where the inner solution, near $t = 0$, requires the solution of a second-order differential equation that requires matching to the outer solution. You can follow the matching procedure via the visualiser notes (and it is further touched-upon in the problem set). 

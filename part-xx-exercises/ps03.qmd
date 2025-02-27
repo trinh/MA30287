@@ -1,9 +1,9 @@
 # Problem set 3 {#sec-ps3}
 
-:::{.callout-tip}
-## Note
-This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced.
-:::
+<!-- :::{.callout-tip} -->
+<!-- ## Note -->
+<!-- This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced. -->
+<!-- ::: -->
 
 In @sec-asymptotics03 we discussed how the zero-dimensional energy equation occurs in the form of
 $$
