@@ -1,13 +1,80 @@
 # Problem set 4 {#sec-ps4}
 
-<!-- :::{.callout-tip} -->
-<!-- ## Note -->
-<!-- This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced. -->
-<!-- ::: -->
+:::{.callout-tip}
+## Note
+Note that Q1 and Q4 are new to complement the coverage on numerical solutions of PDEs.`
+:::
 
-This problem set focuses on EBMs.
+## Q1. Finite difference formulae {.unnumbered}
 
-## Q1. Budyko's model {.unnumbered} 
+The finite-difference formulae used in our numerical ODE and PDE schemes can be derived using Taylor series approximations. Consider a function $U$ that can be expanded as a Taylor series. 
+
+a. Show that 
+$$
+\begin{gathered}
+U(x + h) = U(x) + hU'(x) + \frac{h^2}{2}U''(x) + \frac{h^3}{6}U'''(x) + \cdots, \\
+U(x - h) = U(x) - hU'(x) + \frac{h^2}{2}U''(x) - \frac{h^3}{6}U'''(x) + \cdots.
+\end{gathered}
+$$
+
+b. By subtracting the two equations above, derive the centred difference formula used for the first-derivatives in our algorithms:
+$$
+U'(x) = \frac{U(x + h) - U(x - h)}{2h} + O(h^2).
+$$
+This is what's known as the centred difference formula for the derivative.
+
+c. By adding the two Taylor series equations above, derive the centred difference formula used for the second-derivatives in our algorithms: 
+$$
+U''(x) = \frac{U(x + h) - 2U(x) + U(x - h)}{h^2} + O(h^2).
+$$
+
+d. The centered difference formula for $U'(x)$ will not immediately work if it is applied to find the derivative at the first mesh point in a discretisation, e.g. $x = x_0$. Show that the forward difference formula at $x = x_0$ can be derived as 
+$$
+U'(x_0) = \frac{-3U(x_0) + 4U(x_1) - U(x_2)}{2h} + O(h^2).
+$$
+
+Hint: consider as well the Taylor series for $U(x + 2h)$ and then combine the expansions for $U(x + h)$ and $U(x + 2h)$ to derive the result.
+
+## Q2. The wine cellar problem I {.unnumbered} 
+
+From @sec-wine-cellar, we have the heat system:
+$$
+\begin{gathered}
+\frac{\partial T}{\partial t} = \kappa \frac{\partial^2 T}{\partial x^2}, \\
+T(x = 0, t) = A \cos(\omega t), \\
+|T(x, t)| \text{ is bounded as $x \to \infty$}.
+\end{gathered}
+$$
+for $x \geq 0$. The initial condition can be ignored.
+
+The solution was sought in the form of $T(x, t) = G(t) H(x)$ using a separation of variables procedure leading to $\frac{G'}{G} = \kappa \frac{H''}{H} = \lambda$. Go through an argument that the cases of $lambda = 0$ and $\lambda$ real lead to incompatible solutions. Review the calculation that $\lambda = i\omega$ leads to the desired solution given in the lecture notes. 
+
+## Q3. The wine cellar problem II {.unnumbered} 
+
+Review the code written on the Noteable repository that implements the explicit Euler scheme for the wine cellar problem.
+
+* Verify how well the numerical solution matches the exact analytical solution by overlaying the numerical solution with the analytical solution.
+* Investigate the solutions under different choices of parameters and time-stepping tolerances until you are confident you know how the numerical algorithm works.
+
+## Q4. von Neumann analysis {.unnumbered}
+
+Use von Neumann analysis to determine the stability of the explicit Euler scheme for the 4th order diffusion equation: 
+$$
+u_t = -u_{xxxx}.
+$$
+You may use the fact that the centred difference approximation of the fourth derivative is: 
+$$
+u_{xxxx}(x_j) \approx \frac{u_{j-2} - 4u_{j-1} + 6u_j - 4u_{j+1} + u_{j+2}}{\Delta x^4}.
+$$
+
+The stability criterion should be 
+$$
+\Delta t \leq \frac{\Delta x^4}{8}.
+$$
+
+
+<!-- 
+## Q5. Budyko's model {.unnumbered} 
 
 Previously we derived the energy for outgoing radiation as:
 $$
@@ -32,8 +99,9 @@ $$
 Q(1 - a(T_0 + \bar{T})) = A + B \bar{T}.
 $$ 
 where $Q = 342 \, \mathrm{W}/\mathrm{m}^2$ and $a(T)$ is given from (@eq-albedokaper). Where are the equilibrium solutions, $\bar{T^*}$, and how do they compare with those obtained previously using the Stefan-Boltzmann relation?
+-->
 
-## Q2. Variable Sun output {.unnumbered}
+## Q5. Variable Sun output {.unnumbered}
 
 Satellite data indicates that $Q$, varies roughly between 341.37 W/m<sup>2</sup> and 341.75 W/m<sup>2</sup>, with a period of about 11 years.
 
@@ -51,7 +119,7 @@ with $A = 203.3 \, \mathrm{W} \mathrm{m}^{-2}$ and $B = 2.09 \, \mathrm{W}/(\mat
 
 c. The actual variation in surface temperature is in fact less than what you computed above. Why might this be? 
 
-## Q3. Phase line analysis {.unnumbered}
+## Q6. Phase line analysis {.unnumbered}
 
 Consider the energy balance equation 
 $$
@@ -83,6 +151,7 @@ b. Sketch the solution $T(t)$ of this equation for $t > 0$ if $T(0) = 285$. Then
 
 c. If $\gamma$ is decreased due to the increased greenhouse effect, the entire curve is shifted upwards. Sketch the solution if $T(0) = 280$. Sketch the solution with the same initial data if $\gamma$ is decreased. Explain your answer.
 
+<!--
 ## Q4. Evolution {.unnumbered}
 
 Consider again (@eq-ps4-main). Let $T^*$ be a steady-state solution and set $T = T^* + u(t)$ where $u(t)$ is a small perturbation from the steady state.
@@ -137,4 +206,4 @@ $$ {#eq-ps4-Tbar}
 as a function of the ice line location, $y_s \in [0, 1]$. 
 
 c. In the numerical code designed in lectures `ma30287/notebooks/lecture17-latitudeebm_newton.ipynb` we used numerical quadratic to determine $\bar{T}$. Experiment with a modest number of mesh points and verify how well the integration scheme compares with the exact solution shown above.
-
+-->

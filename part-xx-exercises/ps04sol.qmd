@@ -1,11 +1,13 @@
 # Problem set 4 solutions
 
-<!-- :::{.callout-tip} -->
-<!-- ## Note -->
-<!-- This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced. -->
-<!-- ::: -->
+:::{.callout-tip}
+## Note
+Note that Q1 and Q4 are new to complement the coverage on numerical solutions of PDEs. 
+:::
 
-## Q1. The wine cellar problem I {.unnumbered} 
+## Q1. Finite difference formulae {.unnumbered}
+
+## Q2. The wine cellar problem I {.unnumbered} 
 
 :::{.callout-important collapse=true}
 ## Solution
@@ -59,7 +61,7 @@ $$
 You can double check that the above solution satisfies all the required conditions, including the condition at $x = 0$ (forcing us to choose the prefactor $A$). 
 :::
 
-## Q2. The wine cellar problem II {.unnumbered} 
+## Q3. The wine cellar problem II {.unnumbered} 
 
 :::{.callout-important collapse=true}
 ## Solution
@@ -68,7 +70,7 @@ Solution script can be found on the solutions/ folder of the Noteable Python web
 
 The numerical solution is tricky for two reasons. First, you must consider the right range of parameters. Second, the numerical algorithm suffers from instability, so you must consider the right spatial and time discretisation. 
 
-To begin, from the notes @sec-pclass3, you are given that typical parameters are
+To begin, from the notes @sec-wine-cellar, you are given that typical parameters are
 $$
 \omega = \frac{2\pi}{3.15 \times 10^7 \mathrm{s}}.
 $$ 
@@ -95,7 +97,9 @@ When distributing the typical mesh in the $x$ direction, we want to make sure we
 The script is given in the solutions folder.
 :::
 
-## Q3. EBMs and variable sun output {.unnumbered}
+## Q4. von Neumann analysis {.unnumbered}
+
+## Q5. EBMs and variable sun output {.unnumbered}
 
 (a) Regarding the resultant variation on the Earth's mean surface.
 
@@ -126,7 +130,7 @@ There are many ways to respond, but one major factor is the oceans, which are ig
 :::
 
 
-## Q4. Phase line analysis {.unnumbered}
+## Q6. Phase line analysis {.unnumbered}
 
 a. Sketch the solution $T(t)$ of this equation for $t > 0$ if $T(0) = 230, 240, 260, 270$ and $300$. 
 

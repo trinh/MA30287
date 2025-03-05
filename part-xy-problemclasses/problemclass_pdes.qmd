@@ -1,109 +1,50 @@
-# Problem class 4: on PDEs {#sec-pclass-pde}
+# Problem class on PDEs and the CFL condition
 
-This problem class, we will study an example of a PDE model for heat transport, and then use it to inform ourselves on a typical physical problem. 
+During the introduction to numerical methods on PDEs, it was mentioned that the first-order explicit Euler scheme is not well-suited for certain problems, such as the heat equation. In this chapter, we provide a brief note on deriving the famous CFL stability condition, which informs us of the timestep size required for a stable solution.
 
-We are interested in finding the optimal depth for a storage cellar that might be used to house wine. Based on our previous discussions, if we assume that the temperature beneath the ground is given by $T(x, t)$, with $x \geq 0$ below the surface, then the temperature is governed by 
-$$
-\frac{\partial T}{\partial t} = \kappa \frac{\partial^2 T}{\partial x^2}, 
-$$ 
-for $x \geq 0$. This is a highly averaged model, where we assume there is no transport of heat into the horizontal plane. 
+The following analysis is known as von Neumann analysis; it was originally derived in 1947 by Crank and Nicolson, and then later made rigorous by Charney *et al.* in 1950 (of which the third author was John von Neumann). You can read about the procedure [here](https://en.wikipedia.org/wiki/Von_Neumann_stability_analysis).
 
-We shall also assume that the surface temperature is modelled by an oscillatory function. On the assumption that the temperature has been normalised so that $T = 0$ corresponds to the mean temperature of the surface, then we have 
+Consider the finite-difference formulation of the heat equation, as applied to a regularly spaced grid with spatial discretisation size $\Delta x$ and temporal discretisation size $\Delta t$:
 $$
-T(x = 0, t) = A \cos(\omega t).
-$$ 
-The wavelength is then $2\pi/\omega$ which we can set to one year. So $\omega = 1/(2\pi) \text{ yr}^{-1}$. 
+\frac{u^{n+1}_j - u^n_j}{\Delta t} = D \frac{u^n_{j+1} - 2u^n_j + u^n_{j-1}}{\Delta x^2}.
+$$
+For ease of symbol manipulation, we have replaced the usual thermal diffusivity parameter with $D$. Manipulation then gives 
+$$
+u^{n+1}_j = u^n_j + \frac{Dk}{h^2} (u^n_{j+1} - 2u^n_j + u^n_{j-1}),
+$$
+where we have replaced $\Delta t$ with $k$ and $\Delta x$ with $h$. 
 
-In addition, we expect that the temperature should not be singular far beneath (in particular we expect it to get colder as we go further underground), at least on a scale where we are not approaching the centre of the Earth! Thus it is sensible that 
+The basic idea of von Neumann analysis is to examine the growth rate when the solution is assumed to consist of sinusoidals. Let us assume that the solution at a mesh point is given by
 $$
-|T(x, t)| \text{ is bounded as $x \to \infty$}.
-$$ 
+u_k^n = G^n e^{i k x_j} = G^n e^{i\xi jh}
+$$
+where for simplicity we have assumed that the spatial points are given by $x_j = jh$. The above is related to a sinusoidal wave with a wavenumber of $\xi$ (assumed unspecified for now). The theory of Fourier series tells us that many functions can be considered as sums of the above sinusoidal waves, over many different values of $\xi$. So our task is to understand the effect of one such wave, and to examine the growth rate $G$. 
 
-You will not require an initial condition of the discussions below. 
-
-## Numerical solutions
-
-An example code that uses first-order explicit Euler timestepping is given in `lecture15-winecellar` on the lectures coding folder. A typical numerical output is given here: 
-
-![Numerical solution of the wine cellar problem](figures/winecellar.png)
-
-## Analytical solution 
-
-Before we begin, it is useful for the purposes of manipulation to write the boundary condition as 
+Substitution into the finite-difference equation gives
 $$
-T(0, t) = A \Re (e^{i\omega t}) = A\Re(\cos (\omega t) + i \sin(\omega t)) = A\cos(\omega t).
-$$ 
-This has the advantage that we can manipulate exponentials much more easily. 
-
-To solve the problem analytically, we attempt a solution method called separation of variables. Let 
+G^{n+1} e^{i\xi jh} = G^n e^{i\xi jh} + \frac{Dk}{h^2} (G^n e^{i\xi (j+1)h} - 2G^n e^{i\xi jh} + G^n e^{i\xi (j-1)h}),
 $$
-T(x, t) = G(t) H(x). 
-$$ 
-Substitution into the PDE gives 
+or alternatively 
 $$
-G'(t) H(x) = \kappa G(t) H''(x),
-$$ 
-and we attempt to separate the functions of $t$ to one side and the functions of $x$ to the other. 
+\frac{G^{n+1}}{G^n} = 1 + \frac{Dk}{h^2} (e^{i\xi h} - 2 + e^{-i\xi h}).
 $$
-\frac{G'(t)}{G'(t)} = \kappa \frac{H''(x)}{H(x)} 
-$$ 
-Now in order for two completely different functions dependent on two completely different independent variables to be equal in this way, then this implies that both sides must be equal to a constant. So we have 
+However, we can use the fact that 
 $$
-\begin{aligned}
-G' &= \lambda G \\
-H''  &= \lambda \kappa H.
-\end{aligned}
-$$ 
-Therefore $G = \mathrm{const} \times e^{\lambda t}$. Because of the boundary conditions that would require $T = A e^{i\omega t}$, you can check that $\lambda = 0$ and $\lambda$ real are both impossible. The only way to satisfy the boundary conditions is if $\lambda = i\omega$. So we conclude that 
+\cos(\xi h) = \frac{e^{i\xi h} + e^{-i\xi h}}{2},
 $$
-G(t) = \mathrm{const.} \times e^{i\omega t}. 
-$$ 
-To solve 
+and therefore
 $$
-H'' = (i\omega/\kappa) H, 
-$$ 
-you can attempt the substitution $H(x) = e^{rx}$ and solve the resultant equation for the characteristic polynomial in $r$. You will do this in the problem set, and obtain 
+\frac{G^{n+1}}{G^n} = 1 + 2\frac{Dk}{h^2} (\cos(\xi h) - 1).
 $$
-r = \pm \sqrt{i} \sqrt{\omega/\kappa} = \pm \sqrt{\omega/\kappa} \frac{1 + i}{\sqrt{2}}.
-$$ 
-Therefore 
+Moreover, using another trigonometric identity, we can write
 $$
-H(x) = C_1 e^{\sqrt{\omega/(2\kappa)}x}e^{\sqrt{\omega/(2\kappa)}ix}+ C_2 e^{-\sqrt{\omega/(2\kappa)}x}e^{-\sqrt{\omega/(2\kappa)}ix}.
+\frac{G^{n+1}}{G^n} = 1 - 4\frac{Dk}{h^2} \sin^2(\xi h/2) \equiv g(\xi, h, k). 
 $$
-The first solution should be discarded since it blows up as $x \to \infty$. 
-
-Finally, we conclude that the solution is given by 
+This is essentially a typical recurrence relation for $G^n$ with a growth factor $g(\xi, h, k)$. In order for the scheme to stable over all possible wavenumbers $\xi$, we must then require that $|g| < 1$ (otherwise $G^n \to \infty$ as $n \to \infty$). Thus we require that 
 $$
-T = e^{i\omega t} e^{-\sqrt{\omega/(2\kappa)}x}e^{-\sqrt{\omega/(2\kappa)}ix}.
-$$ 
-Move the imaginary arguments together: 
+|1 - 4\frac{Dk}{h^2}| < 1.
 $$
-T = \text{const.} \times  e^{-\sqrt{\omega/(2\kappa)}x}e^{i(-\sqrt{\omega/(2\kappa)}x + \omega t)}.
-$$ 
-Now we take the real part, giving 
+or 
 $$
-T = A e^{-\sqrt{\omega/(2\kappa)}x} \cos\left(-\sqrt{\omega/(2\kappa)}x + \omega t\right), 
-$$ {#eq-wine-sol}
-and we see that having set the constant to $A$ the solution indeed satisfies $T(0, t) = A\cos(\omega t)$. 
-
-## Selection of optimal depth 
-
-The optimal depth of the wine cellar is selected by taking the depth to be such that the cosine is completely out of phase with the surface solution. This means that 
+k < \frac{h^2}{2D} \Longrightarrow \Delta t < \frac{\Delta x^2}{2D}.
 $$
--\sqrt{\omega/(2\kappa)}x + \omega t + \pi = \omega t.
-$$
-You can substitute other multiples of $\pi$. Thus we have 
-$$
-x = \pi \sqrt{\frac{2\kappa}{\omega}}. 
-$$ 
-We can estimate the numbers as follows. Converting from 1 year to seconds yields 
-$$
-\omega = \frac{2\pi}{3.15 \times 10^7 \mathrm{s}}.
-$$ 
-Also, the $\kappa$ for dry soil is around $0.002 \mathrm{cm}^2/\mathrm{s}$. 
-
-Putting these numbers in yields 
-$$
-x \approx 445 \mathrm{cm} = 4.45 \mathrm{m}. 
-$$ 
-
