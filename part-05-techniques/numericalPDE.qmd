@@ -51,4 +51,6 @@ $$
 u_0^k = 1 \quad \text{and} \quad u_{N+1}^k = 2, \quad \text{for all $k \geq 0$}.
 $$ 
 
-During the lectures, we will examine script `Chap10-SolvingPDEs.ipynb` on the course scripts to see an example implementation. A similar application is applied in `Chap10-winecellar.ipynb` to solve a heat equation. 
+# An example of a wine cellar problem
+
+In the lecture (Lecture 10 in 2025), we will introduce a classic example of modelling heat flow in the ground. This will accompany the Python file `Chapter10-winecellar.ipynb` which you will be able to find on the Noteable website. We will walk you through the explicit time solver using Python, and then also the analytical solution. 
