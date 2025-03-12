@@ -1,4 +1,4 @@
-# Problem class on PDEs and the CFL condition
+# Problem class 4: PDEs and numerical stability
 
 During the introduction to numerical methods on PDEs, it was mentioned that the first-order explicit Euler scheme is not well-suited for certain problems, such as the heat equation. In this chapter, we provide a brief note on deriving the famous CFL stability condition, which informs us of the timestep size required for a stable solution.
 
@@ -16,7 +16,7 @@ where we have replaced $\Delta t$ with $k$ and $\Delta x$ with $h$.
 
 The basic idea of von Neumann analysis is to examine the growth rate when the solution is assumed to consist of sinusoidals. Let us assume that the solution at a mesh point is given by
 $$
-u_k^n = G^n e^{i k x_j} = G^n e^{i\xi jh}
+u_j^n = G^n e^{i \xi x_j} = G^n e^{i\xi jh}
 $$
 where for simplicity we have assumed that the spatial points are given by $x_j = jh$. The above is related to a sinusoidal wave with a wavenumber of $\xi$ (assumed unspecified for now). The theory of Fourier series tells us that many functions can be considered as sums of the above sinusoidal waves, over many different values of $\xi$. So our task is to understand the effect of one such wave, and to examine the growth rate $G$. 
 

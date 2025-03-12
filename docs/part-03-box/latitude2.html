@@ -500,7 +500,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-xy-problemclasses/problemclass_pdes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Problem class on PDEs and the CFL condition</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Problem class 4: PDEs and numerical stability</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xy-problemclasses/problemclass05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Problem class 5</span></span></a>
   </div>
 </li>
       </ul>
@@ -517,43 +523,43 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/chatgpt-goes-wrong.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -635,11 +641,11 @@ T_\infty(y) = \Phi(T_\infty) = \frac{k\bar{T}_\infty + Qs(y)(1 - a(y)) - A}{B + 
 <section id="development-of-an-equation-for-the-ice-line" class="level2" data-number="14.1">
 <h2 data-number="14.1" class="anchored" data-anchor-id="development-of-an-equation-for-the-ice-line"><span class="header-section-number">14.1</span> Development of an equation for the ice line</h2>
 <p>It turns out to be possible to develop an equation for the ice line. First, note from your problem set in <a href="../part-xx-exercises/ps05.html" class="quarto-xref"><span>Chapter 28</span></a>, you find that it is possible to solve for the steady-state mean temperature, which we write as <span class="math inline">\(\bar{T}_\infty\)</span>. In your problem set, you will develop the following equation by integrating over (<a href="#eq-EBMlat2" class="quarto-xref">Equation&nbsp;<span>14.1</span></a>) from <span class="math inline">\(y = 0\)</span> to <span class="math inline">\(y = 1\)</span>.</p>
-<p>Taking the steady-state limit of (<a href="../part-xx-exercises/ps05.html#eq-meanT-evo-ps" class="quarto-xref">Equation&nbsp;<span>28.1</span></a>) this yields <!-- (given by (@eq-ps4-Tbar)):  --> <span id="eq-meanT-again"><span class="math display">\[
+<p>Taking the steady-state limit of (<a href="../part-xx-exercises/ps05sol.html#eq-meanT-evo-ps" class="quarto-xref">Equation&nbsp;<span>35.1</span></a>) this yields <!-- (given by (@eq-ps4-Tbar)):  --> <span id="eq-meanT-again"><span class="math display">\[
 \bar{T}_\infty = \frac{Q(1 - \bar{a}) - A}{B}.
 \tag{14.4}\]</span></span> The quantity <span class="math inline">\(\bar{a}\)</span> is given by integrating the albedo as follows: <span id="eq-abar-again"><span class="math display">\[
 \bar{a} = \int_0^1 s(y) a(y) \, \mathrm{d}y = a_i + (a_w - a_i)y_s[1 - 0.241 (y_s^2 - 1)],
-\tag{14.5}\]</span></span> which is given by (<a href="../part-xx-exercises/ps05.html#eq-ps4-abar" class="quarto-xref">Equation&nbsp;<span>28.2</span></a>). You may check that the above formula has the right signs by considering either the complete ice case (ice line at the equator <span class="math inline">\(y_s = 0\)</span>) or the complete water/land case (ice line at <span class="math inline">\(y_s = 1\)</span>).</p>
+\tag{14.5}\]</span></span> which is given by (<a href="../part-xx-exercises/ps05sol.html#eq-ps4-abar" class="quarto-xref">Equation&nbsp;<span>35.2</span></a>). You may check that the above formula has the right signs by considering either the complete ice case (ice line at the equator <span class="math inline">\(y_s = 0\)</span>) or the complete water/land case (ice line at <span class="math inline">\(y_s = 1\)</span>).</p>
 <p>Now we return to the implicit equation for the temperature, which is given by (<a href="#eq-latitude2-Phieq" class="quarto-xref">Equation&nbsp;<span>14.3</span></a>) and repeated here: <span class="math display">\[
 T_\infty(y) = \Phi(T_\infty) = \frac{k\bar{T}_\infty + Qs(y)(1 - a(y)) - A}{B + k}.
 \]</span> Substitute the mean temperature in, and this now yields <span id="eq-Tstar"><span class="math display">\[
@@ -662,7 +668,7 @@ T = T(t, y) = G(y; A, b, k, C, Q, a_i, a_w).
 <p>We return to (<a href="#eq-Tstar" class="quarto-xref">Equation&nbsp;<span>14.6</span></a>) and consider inverting the formulation. For each given ice line location, <span class="math inline">\(y_s \in (0, 1)\)</span>, we solve for the <span class="math inline">\(Q\)</span> value. This gives <span id="eq-Qfunc"><span class="math display">\[
 Q = K(y_s) \equiv \frac{\left(T_C + \frac{A}{B}\right)(B + k)}{s(y_s)[1 - \frac{1}{2}(a_i + a_w)] + \frac{k}{B}(1 - \bar{a})}.
 \tag{14.7}\]</span></span> Above, we have used the fact that <span class="math inline">\(a(y_s) = \frac{1}{2}(a_i + a_w)\)</span>. This can now be plotted in Python, either in the notebook written during lectures, or via the code below.</p>
-<div id="0691d53a" class="cell" data-execution_count="1">
+<div id="697bce5f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">202</span> <span class="co"># outgoing radiation</span></span>
@@ -713,7 +719,7 @@ T_\infty(y) = \frac{Q(1 - a_i)}{B + k}\left[s(y) + \frac{k}{B}\right] - \frac{A}
 \]</span> This time, there is a maximal condition on <span class="math inline">\(Q\)</span> such that any higher value would require an ice line somewhere within the domain, i.e.&nbsp;<span class="math inline">\(y &gt; 0\)</span>. Thus <span class="math display">\[
 Q &lt; \frac{(B + k)(T_C + A/B)}{(1 - a_i)[s(0) + k/B]} \approx 441 \mathrm{W} \, \mathrm{m}^{-2}.
 \]</span> Again we may verify that this corresponds to a mean temperature of <span class="math inline">\(-38\)</span> degrees Celsius.</p>
-<div id="a5bad62a" class="cell" data-execution_count="2">
+<div id="7ca241e3" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">202</span> <span class="co"># outgoing radiation</span></span>

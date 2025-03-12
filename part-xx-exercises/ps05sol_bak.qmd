@@ -1,0 +1,348 @@
+# Problem set 5 solutions {#sec-ps5sol}
+
+<!-- :::{.callout-tip} -->
+<!-- ## Note -->
+<!-- This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced. -->
+<!-- ::: -->
+
+## Q1. Sensitivity of the climate {.unnumbered}
+
+a. Consider a perturbation of the solar radiation, say $Q = Q_0 + \delta$ where $\delta$ is small in comparison to $Q_0$. Expand now the temperature into a series:
+$$
+T = T_0 + \delta T_1  + \ldots
+$$
+Show that at $O(\delta)$, the perturbation is governed by
+$$
+C \frac{\mathrm{d}T_1}{\mathrm{d}t} = (1 - a(T_0)) - B(T_0) T_1 - A'(T_0) T_1 - T_0 B'(T_0) T_1 - Q_0 a'(T_0) T_1.
+$$
+
+:::{.callout-note}
+## Solution
+
+Each of the functions should be expanded in the usual way. For example, from Taylor series we have
+$$
+A(T) = A(T_0) + A'(T_0)(T - T_0) + O(T - T_0)^2.
+$$
+Then using $T = T_0 + \delta T_1 + \ldots$, we have
+$$
+A(T) = A(T_0) + \delta A'(T_0) T_1 + O(\delta)^2.
+$$
+Do the same for both $a(T)$ and $B(T)$. Then substituting into the equation gives (remember to drop bars):
+$$
+\text{LHS} = \delta C \frac{\mathrm{d}T_1}{\mathrm{d}t} + O(\delta^2)
+$$
+while for the right hand-side
+
+\begin{align}
+\text{RHS} &= Q_0(1 - a(T_0)) - (A(T_0) + B(T_0) T_0) \\
+& \quad + \delta \left[(1 - a(T_0)) - Q_0 a'(T_0)T_1  - A'(T_0)T_1 - B'(T_0)T_0 T_1 - B(T_0) T_1\right] + O(\delta)^2.
+\end{align}
+
+Now the first, $O(1)$, grouping of terms above is zero by assumption that $T_0$ is steady-state. So considering only those terms that are multiplied by $\delta$, we have
+$$
+C \frac{\mathrm{d}T_1}{\mathrm{d}t} = (1 - a(T_0)) - B(T_0) T_1 - A'(T_0) T_1 - T_0 B'(T_0) T_1 - Q_0 a'(T_0) T_1.
+$$
+:::
+
+
+b. Consequently, show that the temperature perturbation can be written as
+$$
+B(T_0) \tau \frac{\mathrm{\partial}T_1}{\mathrm{\partial}t} = [1 - a(T_0)]  - \frac{B(T_0)}{g} T_1.
+$$
+
+:::{.callout-note}
+## Solution
+
+There is nothing tricky about this, but it just requires keeping track of bookwork. On the right hand-side, separate those terms proportional to $T_1$ and write it in the desired form. Refer to the lecture videos where we completed this (modulo a possible sign!)
+:::
+
+
+c. Consider (@eq-T1eqpertb) at steady state, so therefore the perturbed equilibrium temperature is equal to
+$$
+\delta T_1 =  \frac{[1 - a(T_0)] \delta g}{B(T_0)}.
+$$
+If the CO~2~ level in the atmosphere doubles, then the radiative forcing might be adjusted as:
+$$
+(1 - a(T_0)) \delta = 3.7 \,  \mathrm{W} \cdot \mathrm{m}^{-2}.
+$$
+Assuming that the climate gain is $g = 3$ and $B(T_0) = 1.9 \mathrm{W} \cdot \mathrm{m}^{-2} \cdot ({}^\circ \mathrm{C})^{-1}$, what is the expected increase in temperature?
+
+:::{.callout-note}
+## Solution
+
+So we know that $(1 - a)\delta = 3.7 W/m^2$. So according to the equation, we have the fact that
+$$
+\delta T_1 = 3.7 \frac{3}{1.9} \approx 5.8^\circ C.
+$$
+So this is the expected increase in temperature. <span style="color:red;">Note that if a climate gain factor of $g = 1$ is used then this gives an expected increase of 1.9 degrees instead.</span>.  The range of current model predictions, in fact, is about 1.5 to 4.5 degrees so this is not bad.
+
+:::
+
+
+## Q2. A van der Pol equation {.unnumbered}
+
+a. Determine $f(x)$ so that this equation can be written as a Liénard phase plane system in the form
+
+\begin{align}
+\epsilon \dot{x} &= f(x) + 4y, \\
+\dot{y} &= -x.
+\end{align}
+
+
+:::{.callout-note}
+## Solution
+
+Start from the ODE and re-write
+$$
+\frac{\mathrm{d}}{\mathrm{d}t} \left[\epsilon \dot{x} + (x^3 - 3x^2 - 9x)\right] = - 4x.
+$$ 
+Double check that the derivative of the LHS returns the original problem. Now set the quantity in brackets equal to one unknown: 
+$$
+\tilde{y} = \epsilon \dot{x} + (x^3 - 3x^2 - 9x),
+$$ 
+and solve for the derivative:
+$$
+\epsilon \dot{x} = \tilde{y} - (x^3 - 3x^2 - 9x).
+$$ 
+The remaining equation is 
+$$
+\dot{\tilde{y}} = -4x.
+$$ 
+
+Now in this question, we have chosen a slightly different choice to eliminate the factor of $4$. Set $\tilde{y} = 4y$ to get the system 
+
+\begin{align}
+\epsilon \dot{x} &= f(x) + 4y, \\
+\dot{y} &= -x.
+\end{align}
+
+It doesn't really matter which choice you select. So here we see $f(x) = -x^3 + 9x + 3 x^2$. What we often call the slow manifold in lectures is then 
+$$
+y = -f(x)/4 = \frac{x^3 - 3 x^2 - 9x}{4} \equiv S(x).
+$$ 
+:::
+
+
+b. For fixed $\epsilon > 0$, find the equilibrium point(s) in the phase plane, find their eigenvalues, and classify their linear stability.
+
+:::{.callout-note}
+## Solution
+
+The only equilibrium point is $(x_*, y_*) = (0,0)$. Because the equilibrium point is at the origin, we can obtain the linear matrix by ignoring the higher-order powers in the differential equations. The matrix is
+$$
+A = \begin{pmatrix}
+\frac{9}{\epsilon} & \frac{4}{\epsilon} \\
+-1 & 0
+\end{pmatrix}.
+$$ 
+Subtract $\lambda$ from the diagonal elements and solve the resultant quadratic equation $\lambda(\lambda - 9/\epsilon) + 4/\epsilon = 0$ to see that the eigenvalues are $\lambda = (9 \pm \sqrt{81 - 16\epsilon}/(2\epsilon) > 0$, so the point is an unstable node.
+:::
+
+
+c. Use the expansions $x(t) = x_0(t) + \epsilon x_1(t) + O(\epsilon^2)$ to determine the equations for the leading-order slow solution. Sketch the slow manifold, indicate the directions motion on each part, and identify the two attracting points on the curve.
+
+:::{.callout-note}
+## Solution
+
+As usual expand the solutions into a series in powers of $\epsilon$. The slow manifold is $y_0(x_0) = S(x_0) = (x_0^3 - 3 x_0^2 - 9 x_0)/4$. In image of the slow manifold is shown below in blue. Notice that for $x < 0$, $y$ is increasing and for $x > 0$, $y$ is decreasing (due to the second differential equation). 
+
+![Illustration of slow manifold](img/2023-05-09-16-31-49.png){#fig-ps05sol-mani}
+
+:::
+
+
+d. Use the expansions $x(t) = X_0(T) + \epsilon X_1(T) + O(\epsilon^2)$ and $y(t) = Y_0(T) + \epsilon Y_1(T) + O(\epsilon^2)$ with $T = t/\epsilon$ to obtain the leading-order fast solution.
+
+:::{.callout-important}
+## Solution
+
+Rescale $t = \epsilon T$ and re-write $x = X(T)$ and $y = Y(T)$. We get 
+\begin{align}
+\frac{\mathrm{d}X}{\mathrm{d}T} &= f(X) + 4Y \\
+\frac{\mathrm{d}Y}{\mathrm{d}T} &= -\epsilon X.
+\end{align}
+Now expand into powers of $\epsilon$ and take the leading-order:
+\begin{align}
+\frac{\mathrm{d}X_0}{\mathrm{d}T} &= f(X_0) + 4Y_0 \\
+\frac{\mathrm{d}Y_0}{\mathrm{d}T} &= 0.
+\end{align}
+
+The second equation indicates that $Y_0$ is constant. Its value, found in part (e) is either $5/4$ or $27/4$. The remaining equation for $X_0$ is nonlinear and there is not much you can do with it. The important item of understanding is to examine its form: 
+$$
+\frac{\mathrm{d}X_0}{\mathrm{d}T} = f(X_0) + 4 Y_0.
+$$ 
+Now on the upper branch of the picture shown above $f(X_0) = 4 Y_0 > 0$ and therefore the solution increases its value in $X_0$ until it intersects with the blue slow manifold, at which point its rate of change is zero and it descends the slow manifold. A similar behaviour occurs on the lower branch of the fast evolution.
+:::
+
+
+e. Use the phase plane to determine the maximum and minimum values of $x(t)$ during an oscillation. Sketch $x(t)$ as a function of time.
+
+:::{.callout-note}
+## Solution
+
+By checking the derivatives, we can see that the slow manifold has local extrema at $(-1, 5/4)$ and $(3, 27/4)$. In the fast evolution stages, $y$ is constant and $x$ evolves from one extrema value to the other on the slow manifold, satisfying $y = S(x)$.
+
+Here is a plot of the key points.
+
+![](img/2023-04-18-08-35-23.png)
+:::
+
+
+f. Using the time required for the slow motions in part c (neglecting the short times for the fast solutions in part d), determine the leading-order estimate for the period $P$  of oscillation for the limit cycle.
+
+:::{.callout-note}
+## Solution
+
+In essence, we approximate the period only using the time during the slow phases. Begin from the slow manifold,
+$$
+y = S(x)
+$$
+and remembering that both $x$ and $y$ are functions of time, we differentiate in $t$. This gives (we drop the subscripts of zero):
+$$
+4\dot{y} = \dot{x}(3 x^2 - 6x - 9).
+$$
+From the second equation, we know $\dot{y} \sim -x$. Inserting and solving now yields
+$$
+\dot{x} = g(x) \equiv - \frac{4x}{4x^2 - 6x - 9}.
+$$
+This is effectively a single differential equation for $x = x(t)$.
+
+Now we can solve for time by separating and integrating. We get
+$$
+t = \int^x \frac{dx'}{g(x')}
+$$
+
+Therefore, to estimate the time spent during different phases, we only need to substitute in initial and final values of $x$ in the above integral and integrate. The first slow phase starts at $x = 5$ and ends at $x = 3$. Thus
+$$
+T_1 = \frac{1}{4} \int_{5}^3 \left(\frac{9}{x} + 6 - 3x\right) dx = 3 + \frac{9}{4}\log(3/5).
+$$
+The second slow phase starts at $x = -3$ and ends at $x = -1$. Thus
+$$
+T_2 = \frac{1}{4} \int_{-3}^-1 \left(\frac{9}{x} + 6 - 3x\right) dx = 6 - \frac{9}{4}\log(3).
+$$
+Adding the two gives that the period is approximately $P \sim 9 - (9/4) \log 5 \approx 5.38$.
+
+:::
+
+## Q3. Fast-slow dynamics with three variables {.unnumbered}
+
+
+a. For the system
+$$
+\begin{aligned}[c]
+\dot{x} &= 2 - y, \\
+\dot{y} &= x-z, \\
+\epsilon\dot{z} &= y - y^2 + \frac{1}{3}y^3 - z,
+\end{aligned}
+$$
+with the initial conditions of $x(0) = 1$, $y(0) = 3$, and $z(0) = 0$.
+
+Identify the surface $z = S(x, y)$ that defines the slow manifold. Find the equilibrium point of the leading=order slow phase plane system and show that it is asymptotically stable for $t \to \infty$. Also determine the form of the initial layer that describes the transition from the initial conditions to the slow manifold.
+
+:::{.callout-note}
+## Solution
+
+Setting $\epsilon = 0$ we see that the slwo manifold is $z = S(y) = y - y^2 + y^3/3$. The leading-order slow system is
+
+\begin{align}
+\frac{\mathrm{d}x_0}{\mathrm{d}t} &= 2 - y_0 \\
+\frac{\mathrm{d}y_0}{\mathrm{d}t} &= x_0 - y_0 + y_0^2 - y_0^3/3.
+\end{align}
+The only equilibrium point is $(x^*, y^*) = (2/3, 2)$. Linearisation gives eigenvalues of $\lambda = 1/2(-1 \pm 3i)$ so the point is a stable spiral. Consequently the $t \to \infty$ solution will be $(x, y, z) = (2/3, 2, 2/3)$. Note also that $2/3 = S(2)$.
+
+Near the initial condition there is a boundary layer, found by setting
+$$
+t = \epsilon T,
+$$
+and transforming $x = X(T)$, $y = Y(T)$, $z = Z(T)$. We get at leading order,
+
+\begin{align}
+\frac{\mathrm{d}X_0}{\mathrm{d}T} &= 0 \\
+\frac{\mathrm{d}T_0}{\mathrm{d}T} &= 0 \\
+\frac{\mathrm{d}Z_0}{\mathrm{d}T} &= Y_0 - Y_0^2 + Y_0^3/3 - Z_0.
+\end{align}
+
+The initial condition sets $X_0 = 1$ and $Y_0 = 3$. We can finally solve the equation for $Z_0$ to get
+$$
+Z_0 = 3(1 - e^{-T}).
+$$
+
+:::
+
+
+b. For the system
+$$
+\begin{aligned}[c]
+\dot{x} &= 2 - y, \\
+\epsilon\dot{y} &= x-z, \\
+\dot{z} &= y - y^2 + \frac{1}{3}y^3 - z,
+\end{aligned}
+$$
+with the initial conditions of $x(0) = 0$, $y(0) = 3$, and $z(0) = 1$.
+
+Show that the slow manifold reduces to a curve that could be written in parametric form as $x = x(z), y = y(z), z = z$. Determine the asymptotic solution for $t \to \infty$. Also determine the form of the initial layer that describes the transition from initial conditions to the slow manifold.
+
+:::{.callout-note}
+## Solution
+
+Setting $\epsilon = 0$, we see that the second equation gives $x = z$. Now if you use this result in the first equation you obtain $\dot{z} = 2 - y$. This is now equated with the third equation which yields an algebraic equation:
+$$
+2 - y = y - y^2 + \frac{y^3}{3} - z \Longrightarrow z = \frac{y^3}{3} - y^2 + 2y - 2.
+$$ {#eq-PS5-Q3-tmp}
+Therefore we conclude that $z = z(y)$. We can verify that this equation is monotonically increasing in $y$, so we can invert without issue, yielding $y = y(z)$. Similarly, we obtain $x = z$. So the slow manifold is given by
+$$
+(x, y, z) = (z, y(z), z),
+$$
+which is a curve in 3D.
+
+In order to determine what happens as $t\to\infty$, differentiate
+$$
+\frac{\mathrm{d}y}{\mathrm{d}t} = \frac{\mathrm{d}y}{\mathrm{d}z} \frac{\mathrm{d}z}{\mathrm{d}t} = \frac{2 - y}{2 - 2y + y^2},
+$$
+which follows from using the first equation of the system of ODEs and also the $z$ derivative of (@eq-PS5-Q3-tmp). In particular, note that we do not have to invert this latter equation and we can take the $y$-derivative of (eq-PS5-Q3-tmp) and use
+$$
+\frac{1}{\frac{\mathrm{d}z}{\mathrm{d}y}} = \frac{1}{2 - 2y + y^2}.
+$$
+
+Take $dy/dt = 0$ for the steady state gives
+$$
+y^* = 2,
+$$
+as the only fixed point. At this value of $y$, notice that $z^* = 2/3$ from (@eq-PS5-Q3-tmp). So the fixed point is
+$$
+(x^*, y^*, z^*) = (2/3, 2, 2/3).
+$$
+
+The procedure for the initial layer is the same as in part (a). This time, the fast system satisfies at leading order,
+
+\begin{align}
+\frac{\mathrm{d}X_0}{\mathrm{d}T} &= 0 \\
+\frac{\mathrm{d}Y_0}{\mathrm{d}T} &= X - Z \\
+\frac{\mathrm{d}Z_0}{\mathrm{d}T} &= 0.
+\end{align}
+
+So we obtain $X_0 = 0$ and $Z_0 = 1$ using the initial condition. Solving for the final equation for $Y_0$ with $Y_0(0) = 3$ gives
+$$
+Y_0 = -T  + 3.
+$$
+:::
+
+
+
+<!--
+1. Derive the advection-diffusion equation
+
+2. Wine problem?
+
+
+1. Develop asymptotic approximations of the steady state temperatures (three roots) in the limits of large and small $k$ in @eq-albedokaper.
+
+ This problem set is on Stommel's box model and Zonal energy budget
+
+
+* Verify the calculation of $A$, $D$, and $T$ in the stability calculation.
+* Study the phase plane classification in order to classify the fixed points
+* Implement a Newton-solving routine to study the bifurcation behaviour
+* Implement an arclength continuation routine to study the bifurcation behavour
+* Use perturbation theory in order to reduce the analysis
+-->

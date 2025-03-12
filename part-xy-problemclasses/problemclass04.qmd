@@ -1,5 +1,0 @@
-# Problem class 4 {#sec-pc4}
-
-This problem class will be devoted to getting started on problems from Problem Set 4 @sec-ps4.
-
-

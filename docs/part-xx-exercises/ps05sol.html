@@ -466,7 +466,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-xy-problemclasses/problemclass_pdes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Problem class on PDEs and the CFL condition</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Problem class 4: PDEs and numerical stability</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xy-problemclasses/problemclass05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Problem class 5</span></span></a>
   </div>
 </li>
       </ul>
@@ -483,43 +489,43 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/chatgpt-goes-wrong.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -540,9 +546,10 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#q1.-sensitivity-of-the-climate" id="toc-q1.-sensitivity-of-the-climate" class="nav-link active" data-scroll-target="#q1.-sensitivity-of-the-climate">Q1. Sensitivity of the climate</a></li>
-  <li><a href="#q2.-a-van-der-pol-equation" id="toc-q2.-a-van-der-pol-equation" class="nav-link" data-scroll-target="#q2.-a-van-der-pol-equation">Q2. A van der Pol equation</a></li>
-  <li><a href="#q3.-fast-slow-dynamics-with-three-variables" id="toc-q3.-fast-slow-dynamics-with-three-variables" class="nav-link" data-scroll-target="#q3.-fast-slow-dynamics-with-three-variables">Q3. Fast-slow dynamics with three variables</a></li>
+  <li><a href="#q1.-evolution" id="toc-q1.-evolution" class="nav-link active" data-scroll-target="#q1.-evolution">Q1. Evolution</a></li>
+  <li><a href="#q2.-integral-of-energy-over-the-planet" id="toc-q2.-integral-of-energy-over-the-planet" class="nav-link" data-scroll-target="#q2.-integral-of-energy-over-the-planet">Q2. Integral of energy over the planet</a></li>
+  <li><a href="#q3.-mean-temperature-in-the-latitude-dependent-ebm" id="toc-q3.-mean-temperature-in-the-latitude-dependent-ebm" class="nav-link" data-scroll-target="#q3.-mean-temperature-in-the-latitude-dependent-ebm">Q3. Mean temperature in the latitude-dependent EBM</a></li>
+  <li><a href="#q4.-sensitivity-of-the-climate" id="toc-q4.-sensitivity-of-the-climate" class="nav-link" data-scroll-target="#q4.-sensitivity-of-the-climate">Q4. Sensitivity of the climate</a></li>
   </ul>
 </nav>
     </div>
@@ -572,8 +579,164 @@ window.Quarto = {
 <!-- ## Note -->
 <!-- This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced. -->
 <!-- ::: -->
-<section id="q1.-sensitivity-of-the-climate" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="q1.-sensitivity-of-the-climate">Q1. Sensitivity of the climate</h2>
+<section id="q1.-evolution" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q1.-evolution">Q1. Evolution</h2>
+<p>Consider again the basic time-dependent EBM given in (<a href="ps04.html#eq-ps4-main" class="quarto-xref">Equation&nbsp;<span>27.1</span></a>). Let <span class="math inline">\(T^*\)</span> be a steady-state solution and set <span class="math inline">\(T = T^* + u(t)\)</span> where <span class="math inline">\(u(t)\)</span> is a small perturbation from the steady state.</p>
+<ol type="a">
+<li>Show that the perturbation satisfies <span class="math display">\[
+C \dot{u} = -D u + O(u^2).
+\]</span> and hence solve for the general solution of the leading-order perturbation (ignoring quadratic terms). What are the conditions on <span class="math inline">\(T^*\)</span> so that the steady state is linearly stable?</li>
+</ol>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/PS5_Q1a.png" class="img-fluid figure-img"></p>
+<figcaption>Graphical solution</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="a">
+<li>Assuming <span class="math inline">\(T^*\)</span> is linearly stable, find the typical response time to a perturbation. For instance, what is the time it takes for the perturbation to reach the value <span class="math inline">\(u(t) = 0\)</span> if <span class="math inline">\(u(0) = 1\)</span>? How does this response time change with <span class="math inline">\(C\)</span>? What is the physical interpretation of this regarding the climate?</li>
+</ol>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/PS5_Q1b.png" class="img-fluid figure-img"></p>
+<figcaption>Graphical solution</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="q2.-integral-of-energy-over-the-planet" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q2.-integral-of-energy-over-the-planet">Q2. Integral of energy over the planet</h2>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<p>Ignoring the effects of albedo, the total radiation absorbed over the surface of the planet (per unit time) is given by <span class="math display">\[
+\iint_{\text{planet}} Qs(y=\sin\varphi) \, \mathrm{d}S.
+\]</span> This is what is known as a surface integral (<a href="../part-05-techniques/vector-calculus.html#sec-appendix-surfaceintegral" class="quarto-xref"><span>Section 45.1</span></a>). In the case of the spherical coordinate system, this is calculated by <span class="math display">\[
+\int_{\theta=0}^{2\pi} \int_{\varphi = -\pi/2}^{\pi/2} Qs(y = \sin\varphi) R_E^2 \cos\varphi \, \mathrm{d}\varphi \mathrm{d}\theta.
+\]</span> Use the properties of <span class="math inline">\(s(y)\)</span> in (<a href="../part-03-box/box-energy-model2.html#eq-EBM-s" class="quarto-xref">Equation&nbsp;<span>13.3</span></a>) to conclude that the total radiation absorbed is <span class="math inline">\(4\pi R_E^2 Q\)</span>.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/PS5_Q2.png" class="img-fluid figure-img"></p>
+<figcaption>Graphical solution</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="q3.-mean-temperature-in-the-latitude-dependent-ebm" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q3.-mean-temperature-in-the-latitude-dependent-ebm">Q3. Mean temperature in the latitude-dependent EBM</h2>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<p>Consider now the latitude-dependent EBM <span class="math display">\[
+C \frac{\mathrm{\partial}T}{\mathrm{\partial}t} = Qs(y)[1 - a(y)] - (A + BT) + k(\bar{T} - T).
+\]</span> Recall the albedo is given by <span class="math inline">\(a = a_i\)</span> for <span class="math inline">\(y &gt; y_s\)</span> and <span class="math inline">\(a = a_w\)</span> for <span class="math inline">\(y &lt; y_s\)</span>.</p>
+<ol type="a">
+<li>By integrating the above equation over <span class="math inline">\(y \in [0, 1]\)</span>, show that the mean temperature is given by <span id="eq-meanT-evo-ps"><span class="math display">\[
+C \frac{\mathrm{d}\bar{T}}{\mathrm{d}t} = Q(1 - \bar{a}) - (A + B\bar{T}),
+\tag{35.1}\]</span></span> where <span class="math display">\[
+\bar{a} = \int_0^1 s(y) a(y) \, \mathrm{d}y = \alpha_w \int_0^{y_s} s(y) \, \mathrm{d}y + a_i \int_{y_s}^1 s(y) \, \mathrm{d}y.
+\]</span></li>
+</ol>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/PS5_Q3a.png" class="img-fluid figure-img"></p>
+<figcaption>Graphical solution</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="a">
+<li>In the case that <span class="math inline">\(s\)</span> is given by (<a href="../part-03-box/box-energy-model2.html#eq-EBM-s" class="quarto-xref">Equation&nbsp;<span>13.3</span></a>), show that <span id="eq-ps4-abar"><span class="math display">\[
+\bar{a} = a_i + (a_w - a_i) y_s[1 - 0.241(y_s^2 - 1)].
+\tag{35.2}\]</span></span> What is <span class="math inline">\(\bar{a}\)</span> in the two situations of a completely ice-covered world and an ice-free world?</li>
+</ol>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/PS5_Q3b.png" class="img-fluid figure-img"></p>
+<figcaption>Graphical solution</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<!-- c. Using Python, plot a graph of the steady-state temperature, $T^*$, which satisfies -->
+<!-- $$ -->
+<!-- \bar{T}^* = \frac{Q(1 - \bar{a}) - A}{B}, -->
+<!-- $$ {#eq-ps4-Tbar} -->
+<!-- as a function of the ice line location, $y_s \in [0, 1]$.  -->
+<!-- c. In the numerical code designed in lectures `ma30287/notebooks/lecture17-latitudeebm_newton.ipynb` we used numerical quadratic to determine $\bar{T}$. Experiment with a modest number of mesh points and verify how well the integration scheme compares with the exact solution shown above. -->
+</section>
+<section id="q4.-sensitivity-of-the-climate" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q4.-sensitivity-of-the-climate">Q4. Sensitivity of the climate</h2>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<p>Consider the equation for the global average temperature given in (<a href="#eq-meanT-evo-ps" class="quarto-xref">Equation&nbsp;<span>35.1</span></a>): <span class="math display">\[
+C \frac{\mathrm{d}\bar{T}}{\mathrm{d}t} = Q(1 - \bar{a}) - (A + B\bar{T}).
+\]</span> We would like to understand how the climate behaves under a small perturbation in the solar forcing. In general, though, the ‘constants’, <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(\bar{a}\)</span> will depend on <span class="math inline">\(T\)</span>. For example, their values may have been calibrated under a static situation. Therefore, let <span class="math inline">\(A = A(T)\)</span>, <span class="math inline">\(B = B(T)\)</span>, and <span class="math inline">\(\bar{a} = \bar{a}(T)\)</span>.</p>
+<p>Below, we drop all bars for convenience.</p>
 <ol type="a">
 <li>Consider a perturbation of the solar radiation, say <span class="math inline">\(Q = Q_0 + \delta\)</span> where <span class="math inline">\(\delta\)</span> is small in comparison to <span class="math inline">\(Q_0\)</span>. Expand now the temperature into a series: <span class="math display">\[
 T = T_0 + \delta T_1  + \ldots
@@ -581,15 +744,17 @@ T = T_0 + \delta T_1  + \ldots
 C \frac{\mathrm{d}T_1}{\mathrm{d}t} = (1 - a(T_0)) - B(T_0) T_1 - A'(T_0) T_1 - T_0 B'(T_0) T_1 - Q_0 a'(T_0) T_1.
 \]</span></li>
 </ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Each of the functions should be expanded in the usual way. For example, from Taylor series we have <span class="math display">\[
 A(T) = A(T_0) + A'(T_0)(T - T_0) + O(T - T_0)^2.
@@ -607,311 +772,63 @@ C \frac{\mathrm{d}T_1}{\mathrm{d}t} = (1 - a(T_0)) - B(T_0) T_1 - A'(T_0) T_1 - 
 \]</span></p>
 </div>
 </div>
+</div>
 <ol start="2" type="a">
-<li>Consequently, show that the temperature perturbation can be written as <span class="math display">\[
-B(T_0) \tau \frac{\mathrm{\partial}T_1}{\mathrm{\partial}t} = [1 - a(T_0)]  - \frac{B(T_0)}{g} T_1.
-\]</span></li>
+<li>Consequently, show that the temperature perturbation can be written as <span id="eq-T1eqpertb"><span class="math display">\[
+B(T_0) \tau \frac{\mathrm{\partial}T_1}{\mathrm{\partial}t} = [1 - a(T_0)]  - \frac{B(T_0)}{g} T_1,
+\tag{35.3}\]</span></span> where</li>
 </ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
+<p><span class="math display">\[
+\begin{aligned}
+\tau &amp;= \frac{C}{B(T_0)} \\
+g &amp;= \frac{1}{1-f} \\
+f &amp;= f_1 + f_2 \\
+f_1 &amp;= \frac{1}{B(T_0)} \left(-T_0 B'(T_0) - A'(T_0)\right),\\
+f_2 &amp;= \frac{1}{B(T_0)} \left(-Q_0 a'(T_0)\right)
+\end{aligned}
+\]</span></p>
+<p>The parameter <span class="math inline">\(\tau\)</span> measures the time scale of the climate system’s thermal inertia. It involves the thermal inertia of the atmosphere and also the much larger inertia of the oceans. The factor <span class="math inline">\(g\)</span> is the climate gain; it amplifies any response to the radiative perturbation by a factor of <span class="math inline">\(g\)</span>. Also <span class="math inline">\(f_1\)</span> incorporates the effect of water-vapor feedback and <span class="math inline">\(f_2\)</span> that of ice and snow albedo feedback.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>There is nothing tricky about this, but it just requires keeping track of bookwork. On the right hand-side, separate those terms proportional to <span class="math inline">\(T_1\)</span> and write it in the desired form. Refer to the lecture videos where we completed this (modulo a possible sign!)</p>
 </div>
 </div>
+</div>
 <ol start="3" type="a">
-<li>Consider (<a href="ps05.html#eq-T1eqpertb" class="quarto-xref">Equation&nbsp;<span>28.3</span></a>) at steady state, so therefore the perturbed equilibrium temperature is equal to <span class="math display">\[
+<li>Consider (<a href="#eq-T1eqpertb" class="quarto-xref">Equation&nbsp;<span>35.3</span></a>) at steady state, so therefore the perturbed equilibrium temperature is equal to <span class="math display">\[
 \delta T_1 =  \frac{[1 - a(T_0)] \delta g}{B(T_0)}.
 \]</span> If the CO<sub>2</sub> level in the atmosphere doubles, then the radiative forcing might be adjusted as: <span class="math display">\[
 (1 - a(T_0)) \delta = 3.7 \,  \mathrm{W} \cdot \mathrm{m}^{-2}.
 \]</span> Assuming that the climate gain is <span class="math inline">\(g = 3\)</span> and <span class="math inline">\(B(T_0) = 1.9 \mathrm{W} \cdot \mathrm{m}^{-2} \cdot ({}^\circ \mathrm{C})^{-1}\)</span>, what is the expected increase in temperature?</li>
 </ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>So we know that <span class="math inline">\((1 - a)\delta = 3.7 W/m^2\)</span>. So according to the equation, we have the fact that <span class="math display">\[
 \delta T_1 = 3.7 \frac{3}{1.9} \approx 5.8^\circ C.
 \]</span> So this is the expected increase in temperature. <span style="color:red;">Note that if a climate gain factor of <span class="math inline">\(g = 1\)</span> is used then this gives an expected increase of 1.9 degrees instead.</span>. The range of current model predictions, in fact, is about 1.5 to 4.5 degrees so this is not bad.</p>
 </div>
 </div>
-</section>
-<section id="q2.-a-van-der-pol-equation" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="q2.-a-van-der-pol-equation">Q2. A van der Pol equation</h2>
-<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<ol type="a">
-<li>Determine <span class="math inline">\(f(x)\)</span> so that this equation can be written as a Liénard phase plane system in the form</li>
-</ol>
-<p><span class="math display">\[\begin{align}
-\epsilon \dot{x} &amp;= f(x) + 4y, \\
-\dot{y} &amp;= -x.
-\end{align}\]</span></p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Start from the ODE and re-write <span class="math display">\[
-\frac{\mathrm{d}}{\mathrm{d}t} \left[\epsilon \dot{x} + (x^3 - 3x^2 - 9x)\right] = - 4x.
-\]</span> Double check that the derivative of the LHS returns the original problem. Now set the quantity in brackets equal to one unknown: <span class="math display">\[
-\tilde{y} = \epsilon \dot{x} + (x^3 - 3x^2 - 9x),
-\]</span> and solve for the derivative: <span class="math display">\[
-\epsilon \dot{x} = \tilde{y} - (x^3 - 3x^2 - 9x).
-\]</span> The remaining equation is <span class="math display">\[
-\dot{\tilde{y}} = -4x.
-\]</span></p>
-<p>Now in this question, we have chosen a slightly different choice to eliminate the factor of <span class="math inline">\(4\)</span>. Set <span class="math inline">\(\tilde{y} = 4y\)</span> to get the system</p>
-<p><span class="math display">\[\begin{align}
-\epsilon \dot{x} &amp;= f(x) + 4y, \\
-\dot{y} &amp;= -x.
-\end{align}\]</span></p>
-<p>It doesn’t really matter which choice you select. So here we see <span class="math inline">\(f(x) = -x^3 + 9x + 3 x^2\)</span>. What we often call the slow manifold in lectures is then <span class="math display">\[
-y = -f(x)/4 = \frac{x^3 - 3 x^2 - 9x}{4} \equiv S(x).
-\]</span></p>
-</div>
-</div>
-<ol start="2" type="a">
-<li>For fixed <span class="math inline">\(\epsilon &gt; 0\)</span>, find the equilibrium point(s) in the phase plane, find their eigenvalues, and classify their linear stability.</li>
-</ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The only equilibrium point is <span class="math inline">\((x_*, y_*) = (0,0)\)</span>. Because the equilibrium point is at the origin, we can obtain the linear matrix by ignoring the higher-order powers in the differential equations. The matrix is <span class="math display">\[
-A = \begin{pmatrix}
-\frac{9}{\epsilon} &amp; \frac{4}{\epsilon} \\
--1 &amp; 0
-\end{pmatrix}.
-\]</span> Subtract <span class="math inline">\(\lambda\)</span> from the diagonal elements and solve the resultant quadratic equation <span class="math inline">\(\lambda(\lambda - 9/\epsilon) + 4/\epsilon = 0\)</span> to see that the eigenvalues are <span class="math inline">\(\lambda = (9 \pm \sqrt{81 - 16\epsilon}/(2\epsilon) &gt; 0\)</span>, so the point is an unstable node.</p>
-</div>
-</div>
-<ol start="3" type="a">
-<li>Use the expansions <span class="math inline">\(x(t) = x_0(t) + \epsilon x_1(t) + O(\epsilon^2)\)</span> to determine the equations for the leading-order slow solution. Sketch the slow manifold, indicate the directions motion on each part, and identify the two attracting points on the curve.</li>
-</ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>As usual expand the solutions into a series in powers of <span class="math inline">\(\epsilon\)</span>. The slow manifold is <span class="math inline">\(y_0(x_0) = S(x_0) = (x_0^3 - 3 x_0^2 - 9 x_0)/4\)</span>. In image of the slow manifold is shown below in blue. Notice that for <span class="math inline">\(x &lt; 0\)</span>, <span class="math inline">\(y\)</span> is increasing and for <span class="math inline">\(x &gt; 0\)</span>, <span class="math inline">\(y\)</span> is decreasing (due to the second differential equation).</p>
-<div id="fig-ps05sol-mani" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-ps05sol-mani-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="img/2023-05-09-16-31-49.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ps05sol-mani-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;35.1: Illustration of slow manifold
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<ol start="4" type="a">
-<li>Use the expansions <span class="math inline">\(x(t) = X_0(T) + \epsilon X_1(T) + O(\epsilon^2)\)</span> and <span class="math inline">\(y(t) = Y_0(T) + \epsilon Y_1(T) + O(\epsilon^2)\)</span> with <span class="math inline">\(T = t/\epsilon\)</span> to obtain the leading-order fast solution.</li>
-</ol>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Rescale <span class="math inline">\(t = \epsilon T\)</span> and re-write <span class="math inline">\(x = X(T)\)</span> and <span class="math inline">\(y = Y(T)\)</span>. We get <span class="math display">\[\begin{align}
-\frac{\mathrm{d}X}{\mathrm{d}T} &amp;= f(X) + 4Y \\
-\frac{\mathrm{d}Y}{\mathrm{d}T} &amp;= -\epsilon X.
-\end{align}\]</span> Now expand into powers of <span class="math inline">\(\epsilon\)</span> and take the leading-order: <span class="math display">\[\begin{align}
-\frac{\mathrm{d}X_0}{\mathrm{d}T} &amp;= f(X_0) + 4Y_0 \\
-\frac{\mathrm{d}Y_0}{\mathrm{d}T} &amp;= 0.
-\end{align}\]</span></p>
-<p>The second equation indicates that <span class="math inline">\(Y_0\)</span> is constant. Its value, found in part (e) is either <span class="math inline">\(5/4\)</span> or <span class="math inline">\(27/4\)</span>. The remaining equation for <span class="math inline">\(X_0\)</span> is nonlinear and there is not much you can do with it. The important item of understanding is to examine its form: <span class="math display">\[
-\frac{\mathrm{d}X_0}{\mathrm{d}T} = f(X_0) + 4 Y_0.
-\]</span> Now on the upper branch of the picture shown above <span class="math inline">\(f(X_0) = 4 Y_0 &gt; 0\)</span> and therefore the solution increases its value in <span class="math inline">\(X_0\)</span> until it intersects with the blue slow manifold, at which point its rate of change is zero and it descends the slow manifold. A similar behaviour occurs on the lower branch of the fast evolution.</p>
-</div>
-</div>
-<ol start="5" type="a">
-<li>Use the phase plane to determine the maximum and minimum values of <span class="math inline">\(x(t)\)</span> during an oscillation. Sketch <span class="math inline">\(x(t)\)</span> as a function of time.</li>
-</ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>By checking the derivatives, we can see that the slow manifold has local extrema at <span class="math inline">\((-1, 5/4)\)</span> and <span class="math inline">\((3, 27/4)\)</span>. In the fast evolution stages, <span class="math inline">\(y\)</span> is constant and <span class="math inline">\(x\)</span> evolves from one extrema value to the other on the slow manifold, satisfying <span class="math inline">\(y = S(x)\)</span>.</p>
-<p>Here is a plot of the key points.</p>
-<p><img src="img/2023-04-18-08-35-23.png" class="img-fluid"></p>
-</div>
-</div>
-<ol start="6" type="a">
-<li>Using the time required for the slow motions in part c (neglecting the short times for the fast solutions in part d), determine the leading-order estimate for the period <span class="math inline">\(P\)</span> of oscillation for the limit cycle.</li>
-</ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In essence, we approximate the period only using the time during the slow phases. Begin from the slow manifold, <span class="math display">\[
-y = S(x)
-\]</span> and remembering that both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are functions of time, we differentiate in <span class="math inline">\(t\)</span>. This gives (we drop the subscripts of zero): <span class="math display">\[
-4\dot{y} = \dot{x}(3 x^2 - 6x - 9).
-\]</span> From the second equation, we know <span class="math inline">\(\dot{y} \sim -x\)</span>. Inserting and solving now yields <span class="math display">\[
-\dot{x} = g(x) \equiv - \frac{4x}{4x^2 - 6x - 9}.
-\]</span> This is effectively a single differential equation for <span class="math inline">\(x = x(t)\)</span>.</p>
-<p>Now we can solve for time by separating and integrating. We get <span class="math display">\[
-t = \int^x \frac{dx'}{g(x')}
-\]</span></p>
-<p>Therefore, to estimate the time spent during different phases, we only need to substitute in initial and final values of <span class="math inline">\(x\)</span> in the above integral and integrate. The first slow phase starts at <span class="math inline">\(x = 5\)</span> and ends at <span class="math inline">\(x = 3\)</span>. Thus <span class="math display">\[
-T_1 = \frac{1}{4} \int_{5}^3 \left(\frac{9}{x} + 6 - 3x\right) dx = 3 + \frac{9}{4}\log(3/5).
-\]</span> The second slow phase starts at <span class="math inline">\(x = -3\)</span> and ends at <span class="math inline">\(x = -1\)</span>. Thus <span class="math display">\[
-T_2 = \frac{1}{4} \int_{-3}^-1 \left(\frac{9}{x} + 6 - 3x\right) dx = 6 - \frac{9}{4}\log(3).
-\]</span> Adding the two gives that the period is approximately <span class="math inline">\(P \sim 9 - (9/4) \log 5 \approx 5.38\)</span>.</p>
-</div>
-</div>
-</section>
-<section id="q3.-fast-slow-dynamics-with-three-variables" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="q3.-fast-slow-dynamics-with-three-variables">Q3. Fast-slow dynamics with three variables</h2>
-<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
-<ol type="a">
-<li>For the system <span class="math display">\[
-\begin{aligned}[c]
-\dot{x} &amp;= 2 - y, \\
-\dot{y} &amp;= x-z, \\
-\epsilon\dot{z} &amp;= y - y^2 + \frac{1}{3}y^3 - z,
-\end{aligned}
-\]</span> with the initial conditions of <span class="math inline">\(x(0) = 1\)</span>, <span class="math inline">\(y(0) = 3\)</span>, and <span class="math inline">\(z(0) = 0\)</span>.</li>
-</ol>
-<p>Identify the surface <span class="math inline">\(z = S(x, y)\)</span> that defines the slow manifold. Find the equilibrium point of the leading=order slow phase plane system and show that it is asymptotically stable for <span class="math inline">\(t \to \infty\)</span>. Also determine the form of the initial layer that describes the transition from the initial conditions to the slow manifold.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Setting <span class="math inline">\(\epsilon = 0\)</span> we see that the slwo manifold is <span class="math inline">\(z = S(y) = y - y^2 + y^3/3\)</span>. The leading-order slow system is</p>
-<p><span class="math display">\[\begin{align}
-\frac{\mathrm{d}x_0}{\mathrm{d}t} &amp;= 2 - y_0 \\
-\frac{\mathrm{d}y_0}{\mathrm{d}t} &amp;= x_0 - y_0 + y_0^2 - y_0^3/3.
-\end{align}\]</span> The only equilibrium point is <span class="math inline">\((x^*, y^*) = (2/3, 2)\)</span>. Linearisation gives eigenvalues of <span class="math inline">\(\lambda = 1/2(-1 \pm 3i)\)</span> so the point is a stable spiral. Consequently the <span class="math inline">\(t \to \infty\)</span> solution will be <span class="math inline">\((x, y, z) = (2/3, 2, 2/3)\)</span>. Note also that <span class="math inline">\(2/3 = S(2)\)</span>.</p>
-<p>Near the initial condition there is a boundary layer, found by setting <span class="math display">\[
-t = \epsilon T,
-\]</span> and transforming <span class="math inline">\(x = X(T)\)</span>, <span class="math inline">\(y = Y(T)\)</span>, <span class="math inline">\(z = Z(T)\)</span>. We get at leading order,</p>
-<p><span class="math display">\[\begin{align}
-\frac{\mathrm{d}X_0}{\mathrm{d}T} &amp;= 0 \\
-\frac{\mathrm{d}T_0}{\mathrm{d}T} &amp;= 0 \\
-\frac{\mathrm{d}Z_0}{\mathrm{d}T} &amp;= Y_0 - Y_0^2 + Y_0^3/3 - Z_0.
-\end{align}\]</span></p>
-<p>The initial condition sets <span class="math inline">\(X_0 = 1\)</span> and <span class="math inline">\(Y_0 = 3\)</span>. We can finally solve the equation for <span class="math inline">\(Z_0\)</span> to get <span class="math display">\[
-Z_0 = 3(1 - e^{-T}).
-\]</span></p>
-</div>
-</div>
-<ol start="2" type="a">
-<li>For the system <span class="math display">\[
-\begin{aligned}[c]
-\dot{x} &amp;= 2 - y, \\
-\epsilon\dot{y} &amp;= x-z, \\
-\dot{z} &amp;= y - y^2 + \frac{1}{3}y^3 - z,
-\end{aligned}
-\]</span> with the initial conditions of <span class="math inline">\(x(0) = 0\)</span>, <span class="math inline">\(y(0) = 3\)</span>, and <span class="math inline">\(z(0) = 1\)</span>.</li>
-</ol>
-<p>Show that the slow manifold reduces to a curve that could be written in parametric form as <span class="math inline">\(x = x(z), y = y(z), z = z\)</span>. Determine the asymptotic solution for <span class="math inline">\(t \to \infty\)</span>. Also determine the form of the initial layer that describes the transition from initial conditions to the slow manifold.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Setting <span class="math inline">\(\epsilon = 0\)</span>, we see that the second equation gives <span class="math inline">\(x = z\)</span>. Now if you use this result in the first equation you obtain <span class="math inline">\(\dot{z} = 2 - y\)</span>. This is now equated with the third equation which yields an algebraic equation: <span id="eq-PS5-Q3-tmp"><span class="math display">\[
-2 - y = y - y^2 + \frac{y^3}{3} - z \Longrightarrow z = \frac{y^3}{3} - y^2 + 2y - 2.
-\tag{35.1}\]</span></span> Therefore we conclude that <span class="math inline">\(z = z(y)\)</span>. We can verify that this equation is monotonically increasing in <span class="math inline">\(y\)</span>, so we can invert without issue, yielding <span class="math inline">\(y = y(z)\)</span>. Similarly, we obtain <span class="math inline">\(x = z\)</span>. So the slow manifold is given by <span class="math display">\[
-(x, y, z) = (z, y(z), z),
-\]</span> which is a curve in 3D.</p>
-<p>In order to determine what happens as <span class="math inline">\(t\to\infty\)</span>, differentiate <span class="math display">\[
-\frac{\mathrm{d}y}{\mathrm{d}t} = \frac{\mathrm{d}y}{\mathrm{d}z} \frac{\mathrm{d}z}{\mathrm{d}t} = \frac{2 - y}{2 - 2y + y^2},
-\]</span> which follows from using the first equation of the system of ODEs and also the <span class="math inline">\(z\)</span> derivative of (<a href="ps06sol.html#eq-PS5-Q3-tmp" class="quarto-xref">Equation&nbsp;<span>36.1</span></a>). In particular, note that we do not have to invert this latter equation and we can take the <span class="math inline">\(y\)</span>-derivative of (eq-PS5-Q3-tmp) and use <span class="math display">\[
-\frac{1}{\frac{\mathrm{d}z}{\mathrm{d}y}} = \frac{1}{2 - 2y + y^2}.
-\]</span></p>
-<p>Take <span class="math inline">\(dy/dt = 0\)</span> for the steady state gives <span class="math display">\[
-y^* = 2,
-\]</span> as the only fixed point. At this value of <span class="math inline">\(y\)</span>, notice that <span class="math inline">\(z^* = 2/3\)</span> from (<a href="ps06sol.html#eq-PS5-Q3-tmp" class="quarto-xref">Equation&nbsp;<span>36.1</span></a>). So the fixed point is <span class="math display">\[
-(x^*, y^*, z^*) = (2/3, 2, 2/3).
-\]</span></p>
-<p>The procedure for the initial layer is the same as in part (a). This time, the fast system satisfies at leading order,</p>
-<p><span class="math display">\[\begin{align}
-\frac{\mathrm{d}X_0}{\mathrm{d}T} &amp;= 0 \\
-\frac{\mathrm{d}Y_0}{\mathrm{d}T} &amp;= X - Z \\
-\frac{\mathrm{d}Z_0}{\mathrm{d}T} &amp;= 0.
-\end{align}\]</span></p>
-<p>So we obtain <span class="math inline">\(X_0 = 0\)</span> and <span class="math inline">\(Z_0 = 1\)</span> using the initial condition. Solving for the final equation for <span class="math inline">\(Y_0\)</span> with <span class="math inline">\(Y_0(0) = 3\)</span> gives <span class="math display">\[
-Y_0 = -T  + 3.
-\]</span></p>
-</div>
-</div>
-<!--
-1. Derive the advection-diffusion equation
-
-2. Wine problem?
-
-
-1. Develop asymptotic approximations of the steady state temperatures (three roots) in the limits of large and small $k$ in @eq-albedokaper.
-
- This problem set is on Stommel's box model and Zonal energy budget
-
-
-* Verify the calculation of $A$, $D$, and $T$ in the stability calculation.
-* Study the phase plane classification in order to classify the fixed points
-* Implement a Newton-solving routine to study the bifurcation behaviour
-* Implement an arclength continuation routine to study the bifurcation behavour
-* Use perturbation theory in order to reduce the analysis
--->
 
 
 </section>

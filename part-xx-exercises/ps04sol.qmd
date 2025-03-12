@@ -7,6 +7,87 @@ Note that Q1 and Q4 are new to complement the coverage on numerical solutions of
 
 ## Q1. Finite difference formulae {.unnumbered}
 
+:::{.callout-important collapse=true}
+## Solution a)
+
+a. Show that 
+$$
+\begin{gathered}
+U(x + h) = U(x) + hU'(x) + \frac{h^2}{2}U''(x) + \frac{h^3}{6}U'''(x) + \cdots, \\
+U(x - h) = U(x) - hU'(x) + \frac{h^2}{2}U''(x) - \frac{h^3}{6}U'''(x) + \cdots.
+\end{gathered}
+$$
+
+This is straightforwards and by definition of Taylor's theorem.
+:::
+
+:::{.callout-important collapse=true}
+## Solution b)
+b. By subtracting the two equations above, derive the centred difference formula used for the first-derivatives in our algorithms:
+$$
+U'(x) = \frac{U(x + h) - U(x - h)}{2h} + O(h^2).
+$$
+This is what's known as the centred difference formula for the derivative.
+
+Again this is immediate by subtracting the given formulae.
+:::
+
+:::{.callout-important collapse=true}
+## Solution c)
+
+c. By adding the two Taylor series equations above, derive the centred difference formula used for the second-derivatives in our algorithms: 
+$$
+U''(x) = \frac{U(x + h) - 2U(x) + U(x - h)}{h^2} + O(h^2).
+$$
+
+This part is also immediate. Adding the two equations gives
+$$
+U(x + h) + U(x - h) = 2U(x) + h^2 U''(x) + O(h^3),
+$$
+and simplify.
+:::
+
+:::{.callout-important collapse=true}
+## Solution d)
+
+d. The centered difference formula for $U'(x)$ will not immediately work if it is applied to find the derivative at the first mesh point in a discretisation, e.g. $x = x_0$. Show that the forward difference formula at $x = x_0$ can be derived as 
+$$
+U'(x_0) = \frac{-3U(x_0) + 4U(x_1) - U(x_2)}{2h} + O(h^2).
+$$
+
+Hint: consider as well the Taylor series for $U(x + 2h)$ and then combine the expansions for $U(x + h)$ and $U(x + 2h)$ to derive the result.
+
+This is a bit more involved. Let us explain firstly why the standard approach doesn't work: 
+$$
+\begin{gathered}
+U(x + 2h) = U(x) + 2h U'(x) + 2h^2 U''(x) + \frac{4}{3} h^3 U'''(x) + \cdots \\
+U(x + h) = U(x) + h U'(x) + \frac{h^2}{2} U''(x) + \frac{h^3}{6} U'''(x) + \cdots.
+\end{gathered}
+$$
+
+Now adding gives
+$$
+U(x + 2h) + U(x + h) = 2U(x) + 3h U'(x) + \frac{5h^2}{2} U''(x) + \ldots
+$$
+
+However, if we isolate $U'(x)$ we obtain a formula where the error term is $O(h U''(x))$ instead of $O(h^2)$. 
+
+The solution is to consider a linear combination: 
+$$
+U'(x) = a U(x) + b U(x + h) + c U(x + 2h), 
+$$
+and insert the above formulae. Keeping track of the term multiplying the second derivative, $U''(x)$, we then need:
+$$
+b/2 + 2c = 0 \Longrightarrow b = -4c.
+$$
+The remaining two equations are:
+$$
+a + b + c = 0, \qquad bh + 2ch = 1.
+$$
+
+The second yields $c = -1/(2h)$ and hence $b = 2/h$. The first equation then gives $a = -3/(2h)$.
+:::
+
 ## Q2. The wine cellar problem I {.unnumbered} 
 
 :::{.callout-important collapse=true}
@@ -98,6 +179,8 @@ The script is given in the solutions folder.
 :::
 
 ## Q4. von Neumann analysis {.unnumbered}
+
+This note should be filled in soon. The analysis is similar to the analysis for the heat equation as done in the problem class. 
 
 ## Q5. EBMs and variable sun output {.unnumbered}
 

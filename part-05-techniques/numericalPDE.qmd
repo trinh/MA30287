@@ -30,7 +30,7 @@ $$
 \left(\frac{\partial u}{\partial t}\right)_j^k \approx \frac{u_j^{k+1} - u_j^k}{\Delta t}, \qquad \text{for $0 \leq j \leq N+1$, $k \geq 0$}.
 $$ 
 
-In order to approximate the second-order derivative, Hwe will use 
+In order to approximate the second-order derivative, we will use 
 $$
 \left(\frac{\partial^2 u}{\partial x^2}\right)_j^k \approx \frac{u_{j+1}^k - 2 u_j^k + u_{j-1}^k}{(\Delta x)^2}, \qquad \text{$1 \leq j \leq N$, $k \geq 0$}.
 $$ 

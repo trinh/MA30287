@@ -466,7 +466,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-xy-problemclasses/problemclass_pdes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Problem class on PDEs and the CFL condition</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Problem class 4: PDEs and numerical stability</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-xy-problemclasses/problemclass05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Problem class 5</span></span></a>
   </div>
 </li>
       </ul>
@@ -483,43 +489,43 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/odes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Differential equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/dynamical-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Dynamical systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/vector-calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Vector calculus</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Modelling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/finitedifference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Finite difference approximations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/coding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Coding</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-techniques/chatgpt-goes-wrong.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">An example of ChatGPT going wrong</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -607,7 +613,7 @@ Figure&nbsp;15.2: Mean temperature
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
 <p>So far, we have only discussed the steady-state solutions of the latitude-dependent EBM, repeated below: <span class="math display">\[
 C \frac{\mathrm{\partial}T}{\mathrm{\partial}t} = Qs(y)[1 - a(y)] - (A + BT) + k(\bar{T} - T).
-\]</span> In this section, we investigate the stability analysis for the mean temperature, <span class="math inline">\(\bar{T}\)</span>. This was given in <a href="../part-xx-exercises/ps05.html#eq-meanT-evo-ps" class="quarto-xref">Equation&nbsp;<span>28.1</span></a> and repeated below: <span id="eq-meanT-evo"><span class="math display">\[
+\]</span> In this section, we investigate the stability analysis for the mean temperature, <span class="math inline">\(\bar{T}\)</span>. This was given in <a href="../part-xx-exercises/ps05sol.html#eq-meanT-evo-ps" class="quarto-xref">Equation&nbsp;<span>35.1</span></a> and repeated below: <span id="eq-meanT-evo"><span class="math display">\[
 C \frac{\mathrm{d}\bar{T}}{\mathrm{d}t} = G(\bar{T}) \equiv Q(1 - \bar{a}) - (A + B\bar{T}),
 \tag{15.1}\]</span></span> The following linearisation argument was presented by <a href="https://moodle.bath.ac.uk/pluginfile.php/2213909/mod_resource/content/0/Cahalan_North_1979.pdf">Cahalan and North (1979)</a>, with some additional details to avoid confusion. Let us linearise this about a steady-state solution, writing <span class="math display">\[
 \bar{T} = \bar{T}^* + u(t),
