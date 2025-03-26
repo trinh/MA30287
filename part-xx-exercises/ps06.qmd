@@ -1,9 +1,10 @@
 # Problem set 6 {#sec-ps6}
 
-<!-- :::{.callout-tip} -->
-<!-- ## Note -->
-<!-- This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced. -->
-<!-- ::: -->
+:::{.callout-tip}
+## Note
+
+Note that the material for PS6 will not be covered until after the Easter break; both PS6 and PS7 are the last problem sets of the term!
+:::
 
 ## Q1. A van der Pol equation {.unnumbered}
 Consider the van der Pol equation for $x(t)$ with $0 < \epsilon \ll 1$: 

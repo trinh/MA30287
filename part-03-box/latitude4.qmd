@@ -1,3 +1,138 @@
 # EBM with latitude IV {#sec-latitude4}
 
-This chapter is currently kept free.
+:::{.callout-tip}
+## Note
+
+This material has been added and will be covered in problem class on 27 Mar 2025.
+:::
+
+It is possible to solve the latitude-dependent EBM (steady-state) in a slightly more direct way (one that does not require making algebraic simplifications). We can do this by using a nonlinear solver such as Newton's method. In essence, we are seeking the solution to: 
+\begin{equation*}
+T = \Phi(T) = \frac{Q s(y)[1 - a(T)] - A + k\bar{T}}{B + k}
+\end{equation*}
+where in the above, $T(y)$ replaces $T_\infty(y)$. 
+
+In your problem class, you will go through the design of the following Python code, which is also found in the code repository. 
+
+First, the appropriate constants are defined. 
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import fsolve
+
+A = 202 # outgoing radiation
+B = 1.9 # outgoing radiation
+k = 1.6*B # transport parameter
+s = lambda y: 1 - 0.482*(3*y**2 - 1)/2 # solar weighting
+aw = 0.32 # water albedo
+ai = 0.62 # ice albedo
+Tc = -10.0 # critical temperature for ice formation
+Q = 342.0 # solar constant (1380 W/m^2 divided by 4)
+```
+ 
+Here we define the albedo function $a(y)$ and also the function that we would seek to solve by Newton's method
+
+
+```{python}
+def afunc(y, ys): 
+    # Non-smooth albedo function
+    # We want to make 'a' same dimensions as 'y'. Occasionally there are issues if we send in a vector vs. scalar
+    y = np.array(y, ndmin=1)  # Converts scalars to arrays but keeps arrays unchanged
+    a = np.zeros_like(y)  # Same shape as y
+    
+    a = 0*y
+    for i, yy in enumerate(y):
+        if yy > ys:
+            aa = ai
+        elif yy < ys:
+            aa = aw
+        else:
+            aa = (ai+aw)/2
+        a[i] = aa
+    return a    
+
+def myF(X):
+    # Total number of unknowns is N+1
+    N = len(X)-1    
+    T =  X[0:N] # Be careful! Python list does not include last
+    ys = X[N]   # This is the N+1th element!
+
+    # abar from eqn (14.5) of the notes
+    abar = ai + (aw - ai)*ys*(1 - 0.241*(ys**2-1))
+    # Tbar_inf from eqn (14.4) of the notes
+    Tb = (Q*(1-abar) - A)/B
+
+    # For the given T values, compute Phi at each y
+    Phi = (k*Tb + Q*s(y)*(1 - afunc(y, ys)) - A)/(B+k)  
+    
+    F = np.zeros(N+1)
+    F[0:N] = T - Phi
+    
+    # Need one extra equation 
+    PhiC = (k*Tb + Q*s(ys)*(1 - (ai+aw)/2) - A)/(B+k)     
+    # Phi only has one entry
+    # PhiC = PhiC[0]
+    F[N] = PhiC - Tc
+    
+    return F
+```
+ We should create an initial guess of the temperature profile. Here is a 'random' guess that goes from high to low. 
+
+```{python}
+# Initialise the mesh with N points
+N = 100
+y = np.linspace(0, 1, N)
+
+# Iterative scheme
+# Form an initial guess 
+# Try this one for the fake solution
+Tequator = 20; Tpole = -12;
+T0 = Tequator + (Tpole - Tequator)*y
+
+plt.plot(y, T0)
+plt.grid(1)
+plt.title("Initial guess of temperature")
+```
+
+ Now we attempt to solve the system twice, once with an initial guess of the ice line for small $y$ and one with an initial guess with larger $y$. We should play around with parameters to make sure the solutions are robust, and also examine the residuals. 
+
+```{python}
+# We also need a guess of the ice line position 
+ysguess = 0.3
+# Form a system of N+1 unknowns 
+guess = np.append(T0, ysguess)
+
+# Run the solver
+fwd = lambda X: myF(X)
+sol, info, ier, msg = fsolve(fwd, guess, full_output=1)
+print(msg)
+
+T = sol[0:N]
+ys1 = sol[N]
+y = np.linspace(0, 1, N)
+
+plt.plot(y, T, '-o')
+plt.plot([ys1, ys1], [-20, 20], '--')
+plt.grid(1)
+plt.title("Ice line, ys1 = %1.3f" % ys1);
+
+# Solve it again with a higher ice line position
+ysguess = 0.9
+# Form a system of N+1 unknowns 
+guess = np.append(T0, ysguess)
+
+# Run the solver
+fwd = lambda X: myF(X)
+sol, info, ier, msg = fsolve(fwd, guess, full_output=1)
+print(msg)
+
+T = sol[0:N]
+ys2 = sol[N]
+y = np.linspace(0, 1, N)
+
+plt.plot(y, T, '-o')
+plt.plot([ys2, ys2], [-20, 20], '--')
+plt.grid(1)
+plt.title("Ice line, ys1 = %1.3f" % ys1);
+```
