@@ -1,9 +1,10 @@
 # Problem set 7 {#sec-ps7}
 
-<!-- :::{.callout-tip} -->
-<!-- ## Note -->
-<!-- This material has not yet been finalised and is still under construction. Once it is covered in lectures, this banner will be replaced. -->
-<!-- ::: -->
+:::{.callout-tip}
+## Note
+
+2024-25: note that Q4 below was added in Week 11.
+:::
 
 <!-- ## Q1. Non-dimensionalisation of the ocean model {.unnumbered} -->
 <!---->
@@ -89,17 +90,26 @@ In addition to the choice of scalings, you will need to describe how the new par
 
 ## Q4. Box models for flooding 1 {.unnumbered}
 
+a. In @sec-flood, two models for flooding were proposed. These models are conceptual models (or so-called box models), like the ones used previously in our study of the ocean. Create a diagram of the two box models, using arrows to indicate inputs and outputs. Label annotations related to precipitation, evapotranspiration, and runoff. 
+
+b. The analysis of the flood models contains numerous interesting complexities that seem very different than what you may have observed in your undergraduate courses on dynamical systems and differential equations (it is a shame this comes nearly at the last possible week in your studies!). Examining the form of the associated differential equations, name several reasons why the analysis of such equations is difficult and beyond what you may have studied in Year 2 differential equations (and beyond). 
+
+## Q5. Box models for flooding 2 {.unnumbered}
+
+The intention of this question is to show you that, despite its apparent simplicity, the ODE models used here have some oddities because of the non-smooth nature of the Heaviside function. 
+
 Consider the basic flooding model given in (@eq-basicflood), and repeated below:
 $$
 \frac{\mathrm{d}S}{\mathrm{d}t} = P(t) - P(t)H(S - S_{\text{max}}) - E_p(t) \frac{S}{S_{\text{max}}}.
 $$ 
-Consider the initial condition of $S(0) = S_0 \geq 0$, and a constant rainfall $P(t) = P$ and constant potential evapotranspiration $E_p(t) = E_p$. Describe, using analysis, the evolution of the system. 
+Consider the initial condition of $S(0) = 0$, and a constant rainfall $P(t) = P$ and constant potential evapotranspiration $E_p(t) = E_p$. 
 
-Draw graphs of the storage, $S$, and saturation excess runoff $Q_{se}$ (the second term of the above equation). 
+a. Let's use the power of scaling and non-dimensionalisation. Show that the problem can be re-scaled to:
+$$
+x(T) = 1 - H(x - x_m) - x.
+$$
+Explain how to choose $x$ and $T$. 
 
-<!-- ## Q5. Box models for flooding 2 {.unnumbered} -->
-<!---->
-<!-- :::{.callout-note} -->
-<!---->
-<!-- To add following lectures in Week 11 -->
-<!-- ::: -->
+b. We drop all tildes below. Consider firstly the evolution from the initial condition at $t = 0$. Solve the problem analytically. Distinguish between the two cases of $x_m > 1$ and $x_m < 1$. 
+
+c. The situation for $x_m < 1$ is unusually tricky. Attempt to develop an analytical solution. What do you think happens? 

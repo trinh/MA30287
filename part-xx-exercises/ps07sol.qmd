@@ -232,12 +232,97 @@ $$
 :::
 
 
-## Q4. Box models for flooding {.unnumbered}
+## Q4. Box models for flooding 1 {.unnumbered}
+
+a. In @sec-flood, two models for flooding were proposed. These models are conceptual models (or so-called box models), like the ones used previously in our study of the ocean. Create a diagram of the two box models, using arrows to indicate inputs and outputs. Label annotations related to precipitation, evapotranspiration, and runoff. 
+
 
 :::{.callout-important collapse=true}
 ## Solution
 
-Solution shown in lectures.
+A box diagram of the model where only a surface flow is modelled with a threshold $S_m$ is given as: 
+
+![One-flux model box diagram](ps07sol-img/2025-04-28-at-15-29-34.png)
+
+A box diagram of the model where both a surface and subsurface flow is modelled is given as: 
+
+![Two-flux model box diagram](ps07sol-img/2025-04-28-at-15-35-22.png)
+
+The second model also has additional evapotranspiration modelled for vegetative cover and bare soil. 
+
 :::
 
+b. The analysis of the flood models contains numerous interesting complexities that seem very different than what you may have observed in your undergraduate courses on dynamical systems and differential equations (it is a shame this comes nearly at the last possible week in your studies!). Examining the form of the associated differential equations, name several reasons why the analysis of such equations is difficult and beyond what you may have studied in Year 2 differential equations (and beyond). 
+
+
+:::{.callout-important collapse=true}
+## Solution
+
+Here are a few possible complexities: 
+
+(i) The flood models may seem linear, but in fact the presence of the switching functions, $\sigma(S - S_0) = H(S - S_0)$ (the step functions or similar) are functions of $S$ themselves. Therefore, the equations are nonlinear. Conventional techniques are not immediately applicable. 
+(ii) The function like the precipitation, $P(t)$, is unspecified and typically found by data analysis. It is not clear that this function is smooth and well-defined (and in fact, we typically think of it as stochastic). It is not obvious that we can attempt to perform analysis making simplified assumptions on $P(t)$ (say that it is constant or sinusoidal). 
+(iii) If $P$ is non-smooth, what does this mean about numerical computation? Are we justified in using typical numerical techniques (like Euler's method)? 
+(iv) The differential equations are accompanied by potentially many parameters. It is not immediately clear how complicated the space of solutions is; is the calibration of such parameters even a well-posed endeavour?
+(v) The equations are non-autonomous. So your conventional analysis by phase planes or phase lines is immediately more difficult. 
+
+It is good to end the course on such an example, and in order to appreciate that despite the fact you have learned much mathematics and differential equations theory, even apparently simple models conventionally used by hydrologists are, on the surface, `beyond' your traditional analysis. 
+:::
+
+## Q5. Box models for flooding 2 {.unnumbered}
+
+The intention of this question is to show you that, despite its apparent simplicity, the ODE models used here have some oddities because of the non-smooth nature of the Heaviside function. 
+
+Consider the basic flooding model given in (@eq-basicflood), and repeated below:
+$$
+\frac{\mathrm{d}S}{\mathrm{d}t} = P(t) - P(t)H(S - S_{\text{max}}) - E_p(t) \frac{S}{S_{\text{max}}}.
+$$ 
+Consider the initial condition of $S(0) = 0$, and a constant rainfall $P(t) = P$ and constant potential evapotranspiration $E_p(t) = E_p$. 
+
+a. Let's use the power of scaling and non-dimensionalisation. Show that the problem can be re-scaled to:
+$$
+x(T) = 1 - H(x - x_m) - x.
+$$
+Explain how to choose $x$ and $T$. 
+
+b. We drop all tildes below. Consider firstly the evolution from the initial condition at $t = 0$. Solve the problem analytically. Distinguish between the two cases of $x_m > 1$ and $x_m < 1$. 
+
+c. The situation for $x_m < 1$ is unusually tricky. Attempt to develop an analytical solution. What do you think happens? 
+
+:::{.callout-important collapse=true}
+## Solution
+
+a. Set $t = [t]T$ where $[t] = E_p/S_m$. Then $S = P [t] x$. This thus transforms the equation to the one given with $x_m$ defined as $S_m/(P [t])$. So now we only need to study:
+$$
+x(T) = 1 - H(x - x_m) - x, \qquad x(0) = 0.
+$$
+
+b. Initially, $x(0) = 0$ so the Heaviside function returns zero. The differential equations is then $x'(T) = 1 - x$. Solving with the initial condition yields 
+$$
+x(T) = 1 - e^{-t}
+$$
+This is simply a function that begins from $x = 0$ and asymptotes to the level $1$. During this phase, the surface runoff is simply $Q = 0$. 
+
+Now if $x_m > 1$, then the above solution applies for all time. The storage simply increases monotonically as $T$ increases and asymptotes to $1$. However, if the storage threshold is $x < 1$, then our previous statement about the Heaviside function no longer applies. 
+
+c. Consider now the case where $x_m < 1$, so there will exist some moment in time when $x(T^*) = x_m$. If we take the Heaviside function to be equal to one when this occurs then we have the differential equation: 
+$$
+x'(T) = -x, \qquad x(T^*) = x_m. 
+$$
+But then the solution is given by 
+$$
+x(T) = x_m e^{-(t - T^*)}.
+$$
+But this is a solution that decreases. However if the solution decreases, then do we not need to now consider the Heaviside function being zero? 
+
+It seems then that we are stuck in a scenario where the solution is `pinned' at $x = x_m$ despite the fact that this value is not a fixed point of the differential equation!
+
+One way to resolve this is to insert a smooth function instead. For example, we can use 
+$$
+H \mapsto \frac{1}{\pi} [\tan^{-1}[k(x - x_m)] + \pi/2]. 
+$$
+
+This is a function that looks much like $H$ in the limit that $k \to \infty$. 
+:::
+                                                                        n                                                                                f
 
