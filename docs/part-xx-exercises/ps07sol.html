@@ -555,7 +555,8 @@ window.Quarto = {
   <li><a href="#q1.-non-dimensionalisation-of-the-stommel-box-model" id="toc-q1.-non-dimensionalisation-of-the-stommel-box-model" class="nav-link active" data-scroll-target="#q1.-non-dimensionalisation-of-the-stommel-box-model">Q1. Non-dimensionalisation of the Stommel box model</a></li>
   <li><a href="#q2.-investigations-for-r" id="toc-q2.-investigations-for-r" class="nav-link" data-scroll-target="#q2.-investigations-for-r">Q2. Investigations for <span class="math inline">\(R\)</span></a></li>
   <li><a href="#q3.-alternative-scalings-of-the-stommel-box-model" id="toc-q3.-alternative-scalings-of-the-stommel-box-model" class="nav-link" data-scroll-target="#q3.-alternative-scalings-of-the-stommel-box-model">Q3. Alternative scalings of the Stommel box model</a></li>
-  <li><a href="#q4.-box-models-for-flooding" id="toc-q4.-box-models-for-flooding" class="nav-link" data-scroll-target="#q4.-box-models-for-flooding">Q4. Box models for flooding</a></li>
+  <li><a href="#q4.-box-models-for-flooding-1" id="toc-q4.-box-models-for-flooding-1" class="nav-link" data-scroll-target="#q4.-box-models-for-flooding-1">Q4. Box models for flooding 1</a></li>
+  <li><a href="#q5.-box-models-for-flooding-2" id="toc-q5.-box-models-for-flooding-2" class="nav-link" data-scroll-target="#q5.-box-models-for-flooding-2">Q5. Box models for flooding 2</a></li>
   </ul>
 </nav>
     </div>
@@ -820,9 +821,12 @@ q = \kappa(-\theta + \tilde{R}s).
 </div>
 </div>
 </section>
-<section id="q4.-box-models-for-flooding" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="q4.-box-models-for-flooding">Q4. Box models for flooding</h2>
+<section id="q4.-box-models-for-flooding-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q4.-box-models-for-flooding-1">Q4. Box models for flooding 1</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<ol type="a">
+<li>In <a href="../part-03-box/flood.html" class="quarto-xref"><span>Chapter 23</span></a>, two models for flooding were proposed. These models are conceptual models (or so-called box models), like the ones used previously in our study of the ocean. Create a diagram of the two box models, using arrows to indicate inputs and outputs. Label annotations related to precipitation, evapotranspiration, and runoff.</li>
+</ol>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -835,10 +839,103 @@ Solution
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Solution shown in lectures.</p>
+<p>A box diagram of the model where only a surface flow is modelled with a threshold <span class="math inline">\(S_m\)</span> is given as:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ps07sol-img/2025-04-28-at-15-29-34.png" class="img-fluid figure-img"></p>
+<figcaption>One-flux model box diagram</figcaption>
+</figure>
+</div>
+<p>A box diagram of the model where both a surface and subsurface flow is modelled is given as:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ps07sol-img/2025-04-28-at-15-35-22.png" class="img-fluid figure-img"></p>
+<figcaption>Two-flux model box diagram</figcaption>
+</figure>
+</div>
+<p>The second model also has additional evapotranspiration modelled for vegetative cover and bare soil.</p>
 </div>
 </div>
 </div>
+<ol start="2" type="a">
+<li>The analysis of the flood models contains numerous interesting complexities that seem very different than what you may have observed in your undergraduate courses on dynamical systems and differential equations (it is a shame this comes nearly at the last possible week in your studies!). Examining the form of the associated differential equations, name several reasons why the analysis of such equations is difficult and beyond what you may have studied in Year 2 differential equations (and beyond).</li>
+</ol>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Here are a few possible complexities:</p>
+<ol type="i">
+<li>The flood models may seem linear, but in fact the presence of the switching functions, <span class="math inline">\(\sigma(S - S_0) = H(S - S_0)\)</span> (the step functions or similar) are functions of <span class="math inline">\(S\)</span> themselves. Therefore, the equations are nonlinear. Conventional techniques are not immediately applicable.</li>
+<li>The function like the precipitation, <span class="math inline">\(P(t)\)</span>, is unspecified and typically found by data analysis. It is not clear that this function is smooth and well-defined (and in fact, we typically think of it as stochastic). It is not obvious that we can attempt to perform analysis making simplified assumptions on <span class="math inline">\(P(t)\)</span> (say that it is constant or sinusoidal).</li>
+<li>If <span class="math inline">\(P\)</span> is non-smooth, what does this mean about numerical computation? Are we justified in using typical numerical techniques (like Euler’s method)?</li>
+<li>The differential equations are accompanied by potentially many parameters. It is not immediately clear how complicated the space of solutions is; is the calibration of such parameters even a well-posed endeavour?</li>
+<li>The equations are non-autonomous. So your conventional analysis by phase planes or phase lines is immediately more difficult.</li>
+</ol>
+<p>It is good to end the course on such an example, and in order to appreciate that despite the fact you have learned much mathematics and differential equations theory, even apparently simple models conventionally used by hydrologists are, on the surface, `beyond’ your traditional analysis.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="q5.-box-models-for-flooding-2" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q5.-box-models-for-flooding-2">Q5. Box models for flooding 2</h2>
+<div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
+<p>The intention of this question is to show you that, despite its apparent simplicity, the ODE models used here have some oddities because of the non-smooth nature of the Heaviside function.</p>
+<p>Consider the basic flooding model given in (<a href="../part-03-box/flood.html#eq-basicflood" class="quarto-xref">Equation&nbsp;<span>23.1</span></a>), and repeated below: <span class="math display">\[
+\frac{\mathrm{d}S}{\mathrm{d}t} = P(t) - P(t)H(S - S_{\text{max}}) - E_p(t) \frac{S}{S_{\text{max}}}.
+\]</span> Consider the initial condition of <span class="math inline">\(S(0) = 0\)</span>, and a constant rainfall <span class="math inline">\(P(t) = P\)</span> and constant potential evapotranspiration <span class="math inline">\(E_p(t) = E_p\)</span>.</p>
+<ol type="a">
+<li><p>Let’s use the power of scaling and non-dimensionalisation. Show that the problem can be re-scaled to: <span class="math display">\[
+x(T) = 1 - H(x - x_m) - x.
+\]</span> Explain how to choose <span class="math inline">\(x\)</span> and <span class="math inline">\(T\)</span>.</p></li>
+<li><p>We drop all tildes below. Consider firstly the evolution from the initial condition at <span class="math inline">\(t = 0\)</span>. Solve the problem analytically. Distinguish between the two cases of <span class="math inline">\(x_m &gt; 1\)</span> and <span class="math inline">\(x_m &lt; 1\)</span>.</p></li>
+<li><p>The situation for <span class="math inline">\(x_m &lt; 1\)</span> is unusually tricky. Attempt to develop an analytical solution. What do you think happens?</p></li>
+</ol>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>Set <span class="math inline">\(t = [t]T\)</span> where <span class="math inline">\([t] = E_p/S_m\)</span>. Then <span class="math inline">\(S = P [t] x\)</span>. This thus transforms the equation to the one given with <span class="math inline">\(x_m\)</span> defined as <span class="math inline">\(S_m/(P [t])\)</span>. So now we only need to study: <span class="math display">\[
+x(T) = 1 - H(x - x_m) - x, \qquad x(0) = 0.
+\]</span></p></li>
+<li><p>Initially, <span class="math inline">\(x(0) = 0\)</span> so the Heaviside function returns zero. The differential equations is then <span class="math inline">\(x'(T) = 1 - x\)</span>. Solving with the initial condition yields <span class="math display">\[
+x(T) = 1 - e^{-t}
+\]</span> This is simply a function that begins from <span class="math inline">\(x = 0\)</span> and asymptotes to the level <span class="math inline">\(1\)</span>. During this phase, the surface runoff is simply <span class="math inline">\(Q = 0\)</span>.</p></li>
+</ol>
+<p>Now if <span class="math inline">\(x_m &gt; 1\)</span>, then the above solution applies for all time. The storage simply increases monotonically as <span class="math inline">\(T\)</span> increases and asymptotes to <span class="math inline">\(1\)</span>. However, if the storage threshold is <span class="math inline">\(x &lt; 1\)</span>, then our previous statement about the Heaviside function no longer applies.</p>
+<ol start="3" type="a">
+<li>Consider now the case where <span class="math inline">\(x_m &lt; 1\)</span>, so there will exist some moment in time when <span class="math inline">\(x(T^*) = x_m\)</span>. If we take the Heaviside function to be equal to one when this occurs then we have the differential equation: <span class="math display">\[
+x'(T) = -x, \qquad x(T^*) = x_m.
+\]</span> But then the solution is given by <span class="math display">\[
+x(T) = x_m e^{-(t - T^*)}.
+\]</span> But this is a solution that decreases. However if the solution decreases, then do we not need to now consider the Heaviside function being zero?</li>
+</ol>
+<p>It seems then that we are stuck in a scenario where the solution is `pinned’ at <span class="math inline">\(x = x_m\)</span> despite the fact that this value is not a fixed point of the differential equation!</p>
+<p>One way to resolve this is to insert a smooth function instead. For example, we can use <span class="math display">\[
+H \mapsto \frac{1}{\pi} [\tan^{-1}[k(x - x_m)] + \pi/2].
+\]</span></p>
+<p>This is a function that looks much like <span class="math inline">\(H\)</span> in the limit that <span class="math inline">\(k \to \infty\)</span>.</p>
+</div>
+</div>
+</div>
+<pre><code>                                                                    n                                                                                f</code></pre>
 
 
 </section>

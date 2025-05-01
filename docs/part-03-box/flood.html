@@ -571,7 +571,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-03-box/part-ocean.html">Box models of the ocean and environment</a></li><li class="breadcrumb-item"><a href="../part-03-box/flood.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Box models for flood estimation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Box models for flood estimation</span></h1>
+<h1 class="title"><span id="sec-flood" class="quarto-section-identifier"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Box models for flood estimation</span></span></h1>
 </div>
 
 
@@ -618,12 +618,31 @@ window.Quarto = {
 <p>The term <span class="math inline">\(Q_{se}\)</span> measures the saturation excess overland flow. This is essentially the quantity that arises when the soil cannot support additional moisture, and produces runoff. We can consider it modelled as: <span class="math display">\[
 Q_{se}(T) = P(t) \sigma(S - S_\text{max}),
 \]</span> where <span class="math inline">\(\sigma\)</span> is the sigmoid or activation function. For instance, we might take <span class="math display">\[
-\sigma(S - S_\text{max}) = H(S - S_{\text{max}} = \begin{cases}
+\sigma(S - S_\text{max}) \equiv H(S - S_{\text{max}}) = \begin{cases}
 1 &amp; S &gt; S_{\text{max}} \\
 0 &amp; S &lt; S_{\text{max}} \\
 1/2 &amp; S = S_{\text{max}},
 \end{cases}
-\]</span> where <span class="math inline">\(H\)</span> is the Heaviside step function, which for convenience takes the midpoint value when evaluated at zero.</p>
+\]</span> where <span class="math inline">\(H\)</span> is the Heaviside step function, which for convenience takes the midpoint value when evaluated at zero:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Heaviside function
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Heaviside function <span class="math inline">\(H\)</span> is defined by <span class="math display">\[
+H(x) = \begin{cases}
+1 &amp; x &gt; 0 \\
+0 &amp; x &lt; 0 \\
+1/2 &amp; x = 0.
+\end{cases}
+\]</span></p>
+</div>
+</div>
 <p>The above model for <span class="math inline">\(Q_{se}\)</span> makes some sense. If the soil has not exceed some ‘maximum soil moisture storage’ value <span class="math inline">\(S_\text{max}\)</span>, then there is no saturation excess and the total runoff is zero. However, once this threshold is exceed, the precipitation is routed directly to the runoff.</p>
 <p>The actual evaporation (or more accurately evapotranspiration) includes interception loss from plant canopies at the land surface, and combined evaporation and transpiration taken out of the soil water. We take it to be written in a fashion proportional to the total soil moisture: <span class="math display">\[
 E_a(t) = \frac{E_p(t)}{S_\text{max}} S(t).
@@ -634,12 +653,19 @@ E_a(t) = \frac{E_p(t)}{S_\text{max}} S(t).
 \text{runoff} = Q_{se}(t).
 \]</span></p>
 <p>In summary, the above model consists of a single store and a single parameter (<span class="math inline">\(S_\text{max}\)</span>). In theory, you would obtain time-series data of streamflow or runoff, and then attempt to calibrate the parameter.</p>
+<p>A schematic appears in your problem set of the box model:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/box1.png" class="img-fluid figure-img"></p>
+<figcaption>One-flux model box diagram</figcaption>
+</figure>
+</div>
 </section>
 <section id="a-flood-model-with-slow-and-fast-flows" class="level2" data-number="23.3">
 <h2 data-number="23.3" class="anchored" data-anchor-id="a-flood-model-with-slow-and-fast-flows"><span class="header-section-number">23.3</span> A flood model with slow and fast flows</h2>
 <div style="display:none"><span class="math inline">\(\nextSection\)</span></div>
 <p>If the above model is tested on real data, we would typically observe that it performs well in predicting long-time runoffs, but that it does not cope very well with inter-annual variations. Indeed, it fails to capture a key mechanism of water transfer, which suggests that runoff should be separated into two components: a delayed subsurface runoff, <span class="math inline">\(Q_{ss}(t)\)</span>, when soil moisture storage in the bucket exceeds some field capacity threshold (think of this as groundwater flow); and the previous saturation excess (think of this as overland flow).</p>
-<p>In addition, we might want to separate the evopotranspiration as <span class="math display">\[
+<p>In addition, we might want to separate the evapotranspiration as <span class="math display">\[
 E_a = E_b + E_v,
 \]</span> where <span class="math inline">\(E_b\)</span> measures the bare soil evaporation while <span class="math inline">\(E_v\)</span> measures the transpiration due to vegetation. In theory, this would allow us to partition land into soil-covered or vegetation-covered.</p>
 <p>The model is then <span class="math display">\[
@@ -661,6 +687,13 @@ M E_p &amp; S &gt; S_{fc}, \\
 <p>Again, the runoff is calculated via <span class="math display">\[
 Q = Q_{se} + Q_{ss}.
 \]</span> This model has one store and 4 parameters: <span class="math inline">\(S_\text{max}\)</span> (mm), <span class="math inline">\(S_{fc}\)</span> (mm), <span class="math inline">\(a\)</span> (1/day), and <span class="math inline">\(0 &lt; M &lt; 1\)</span>. Like all other models, you can attempt to train the model by processing known data and fitting the parameters.</p>
+<p>A schematic appears in your problem set of the box model:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/box2.png" class="img-fluid figure-img"></p>
+<figcaption>Two-flux model box diagram</figcaption>
+</figure>
+</div>
 </section>
 <section id="calibration-and-analaysis" class="level2" data-number="23.4">
 <h2 data-number="23.4" class="anchored" data-anchor-id="calibration-and-analaysis"><span class="header-section-number">23.4</span> Calibration and analaysis</h2>

@@ -1,5 +1,3 @@
 # Problem class 6 {#sec-pc6}
 
 This problem class will be devoted to the study of a Newton solver for the latitude-dependent EBM, which makes up @sec-latitude4, and then also reviewing any outstanding problem set questions.
-
-

@@ -1,4 +1,4 @@
-# Box models for flood estimation
+# Box models for flood estimation {#sec-flood}
 
 So far, we have focused primarily (though not exclusively) on mathematical models of climate, which concerns long-term averages of weather over many years. We have focused primarily (though not exclusively) on simplified box or conceptual models. For instance, in the last few chapters, we have studied box models of the ocean, where temperatures and salinity are lumped together into different categories/regions (or boxes), with exchanges of quantities between such boxes. These can also be considered phenomenological models or process-driven models.
 
@@ -32,13 +32,26 @@ Q_{se}(T) = P(t) \sigma(S - S_\text{max}),
 $$
 where $\sigma$ is the sigmoid or activation function. For instance, we might take 
 $$
-\sigma(S - S_\text{max}) = H(S - S_{\text{max}} = \begin{cases}
+\sigma(S - S_\text{max}) \equiv H(S - S_{\text{max}}) = \begin{cases}
 1 & S > S_{\text{max}} \\
 0 & S < S_{\text{max}} \\
 1/2 & S = S_{\text{max}},
 \end{cases}
 $$ 
-where $H$ is the Heaviside step function, which for convenience takes the midpoint value when evaluated at zero. 
+where $H$ is the Heaviside step function, which for convenience takes the midpoint value when evaluated at zero:
+
+:::{.callout-note}
+## Heaviside function 
+
+The Heaviside function $H$ is defined by 
+$$
+H(x) = \begin{cases}
+1 & x > 0 \\
+0 & x < 0 \\
+1/2 & x = 0.
+\end{cases}
+$$
+:::
 
 The above model for $Q_{se}$ makes some sense. If the soil has not exceed some ‘maximum soil moisture storage’ value $S_\text{max}$, then there is no saturation excess and the total runoff is zero. However, once this threshold is exceed, the precipitation is routed directly to the runoff.
 
@@ -59,11 +72,16 @@ $$
 
 In summary, the above model consists of a single store and a single parameter ($S_\text{max}$). In theory, you would obtain time-series data of streamflow or runoff, and then attempt to calibrate the parameter.
 
+A schematic appears in your problem set of the box model: 
+
+![One-flux model box diagram](img/box1.png)
+
+
 ## A flood model with slow and fast flows 
 
 If the above model is tested on real data, we would typically observe that it performs well in predicting long-time runoffs, but that it does not cope very well with inter-annual variations. Indeed, it fails to capture a key mechanism of water transfer, which suggests that runoff should be separated into two components: a delayed subsurface runoff, $Q_{ss}(t)$, when soil moisture storage in the bucket exceeds some field capacity threshold (think of this as groundwater flow); and the previous saturation excess (think of this as overland flow).
 
-In addition, we might want to separate the evopotranspiration as
+In addition, we might want to separate the evapotranspiration as
 $$
 E_a = E_b + E_v,
 $$ 
@@ -103,6 +121,11 @@ $$
 Q = Q_{se} + Q_{ss}.
 $$ 
 This model has one store and 4 parameters: $S_\text{max}$ (mm), $S_{fc}$ (mm), $a$ (1/day), and $0 < M < 1$. Like all other models, you can attempt to train the model by processing known data and fitting the parameters.
+
+
+A schematic appears in your problem set of the box model: 
+
+![Two-flux model box diagram](img/box2.png)
 
 ## Calibration and analaysis 
 
