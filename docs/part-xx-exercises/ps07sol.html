@@ -912,12 +912,17 @@ Solution
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
-<li><p>Set <span class="math inline">\(t = [t]T\)</span> where <span class="math inline">\([t] = E_p/S_m\)</span>. Then <span class="math inline">\(S = P [t] x\)</span>. This thus transforms the equation to the one given with <span class="math inline">\(x_m\)</span> defined as <span class="math inline">\(S_m/(P [t])\)</span>. So now we only need to study: <span class="math display">\[
+<li>Set <span class="math inline">\(t = [t]T\)</span> where <span class="math inline">\([t] = S_m/E_p\)</span> (this has been chosen so that the last term on the RHS is then normalised).</li>
+</ol>
+<p>Then we should select the scaling on the main unknown, <span class="math inline">\(S = [S]x = P [t] x\)</span>, so that the remaining terms on the RHS are appropriately normalised as well.</p>
+<p>This thus transforms the equation to the one given with <span class="math inline">\(x_m\)</span> defined as <span class="math inline">\(S_m/(P [t])\)</span>. So now we only need to study: <span class="math display">\[
 x(T) = 1 - H(x - x_m) - x, \qquad x(0) = 0.
-\]</span></p></li>
-<li><p>Initially, <span class="math inline">\(x(0) = 0\)</span> so the Heaviside function returns zero. The differential equations is then <span class="math inline">\(x'(T) = 1 - x\)</span>. Solving with the initial condition yields <span class="math display">\[
+\]</span></p>
+<p>Remember that the old unscaled Heaviside function is <span class="math inline">\(H(S - S_m)\)</span>. So under the transformation, with <span class="math inline">\(S = [S]x\)</span> (and <span class="math inline">\([S]\)</span> chosen as above) this becomes <span class="math inline">\(H([S](x - x_m))\)</span>. However, the scaling constant in front is irrelevant because of the behaviour of the Heaviside. Thus it is simply replaced with <span class="math inline">\(H(x - x_m)\)</span>.</p>
+<ol start="2" type="a">
+<li>Initially, <span class="math inline">\(x(0) = 0\)</span> so the Heaviside function returns zero. The differential equations is then <span class="math inline">\(x'(T) = 1 - x\)</span>. Solving with the initial condition yields <span class="math display">\[
 x(T) = 1 - e^{-t}
-\]</span> This is simply a function that begins from <span class="math inline">\(x = 0\)</span> and asymptotes to the level <span class="math inline">\(1\)</span>. During this phase, the surface runoff is simply <span class="math inline">\(Q = 0\)</span>.</p></li>
+\]</span> This is simply a function that begins from <span class="math inline">\(x = 0\)</span> and asymptotes to the level <span class="math inline">\(1\)</span>. During this phase, the surface runoff is simply <span class="math inline">\(Q = 0\)</span>.</li>
 </ol>
 <p>Now if <span class="math inline">\(x_m &gt; 1\)</span>, then the above solution applies for all time. The storage simply increases monotonically as <span class="math inline">\(T\)</span> increases and asymptotes to <span class="math inline">\(1\)</span>. However, if the storage threshold is <span class="math inline">\(x &lt; 1\)</span>, then our previous statement about the Heaviside function no longer applies.</p>
 <ol start="3" type="a">

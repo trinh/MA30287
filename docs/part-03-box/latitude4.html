@@ -624,7 +624,7 @@ T = \Phi(T) = \frac{Q s(y)[1 - a(T)] - A + k\bar{T}}{B + k}
 \end{equation*}\]</span> where in the above, <span class="math inline">\(T(y)\)</span> replaces <span class="math inline">\(T_\infty(y)\)</span>.</p>
 <p>In your problem class, you will go through the design of the following Python code, which is also found in the code repository.</p>
 <p>First, the appropriate constants are defined.</p>
-<div id="23036a70" class="cell" data-execution_count="1">
+<div id="e419e184" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> fsolve</span>
@@ -639,7 +639,7 @@ T = \Phi(T) = \frac{Q s(y)[1 - a(T)] - A + k\bar{T}}{B + k}
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Q <span class="op">=</span> <span class="fl">342.0</span> <span class="co"># solar constant (1380 W/m^2 divided by 4)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Here we define the albedo function <span class="math inline">\(a(y)\)</span> and also the function that we would seek to solve by Newton’s method</p>
-<div id="694b7d9a" class="cell" data-execution_count="2">
+<div id="67c5f240" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> afunc(y, ys): </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Non-smooth albedo function</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># We want to make 'a' same dimensions as 'y'. Occasionally there are issues if we send in a vector vs. scalar</span></span>
@@ -683,7 +683,7 @@ T = \Phi(T) = \frac{Q s(y)[1 - a(T)] - A + k\bar{T}}{B + k}
 <span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> F</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We should create an initial guess of the temperature profile. Here is a ‘random’ guess that goes from high to low.</p>
-<div id="3d6cafb5" class="cell" data-execution_count="3">
+<div id="e4afdf2f" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialise the mesh with N points</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, N)</span>
@@ -709,7 +709,7 @@ T = \Phi(T) = \frac{Q s(y)[1 - a(T)] - A + k\bar{T}}{B + k}
 </div>
 </div>
 <p>Now we attempt to solve the system twice, once with an initial guess of the ice line for small <span class="math inline">\(y\)</span> and one with an initial guess with larger <span class="math inline">\(y\)</span>. We should play around with parameters to make sure the solutions are robust, and also examine the residuals.</p>
-<div id="9897fda8" class="cell" data-execution_count="4">
+<div id="33a5ed1f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We also need a guess of the ice line position </span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ysguess <span class="op">=</span> <span class="fl">0.3</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Form a system of N+1 unknowns </span></span>

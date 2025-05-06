@@ -292,10 +292,16 @@ c. The situation for $x_m < 1$ is unusually tricky. Attempt to develop an analyt
 :::{.callout-important collapse=true}
 ## Solution
 
-a. Set $t = [t]T$ where $[t] = E_p/S_m$. Then $S = P [t] x$. This thus transforms the equation to the one given with $x_m$ defined as $S_m/(P [t])$. So now we only need to study:
+a. Set $t = [t]T$ where $[t] = S_m/E_p$ (this has been chosen so that the last term on the RHS is then normalised). 
+
+Then we should select the scaling on the main unknown, $S = [S]x = P [t] x$, so that the remaining terms on the RHS are appropriately normalised as well.
+
+This thus transforms the equation to the one given with $x_m$ defined as $S_m/(P [t])$. So now we only need to study:
 $$
 x(T) = 1 - H(x - x_m) - x, \qquad x(0) = 0.
 $$
+
+Remember that the old unscaled Heaviside function is $H(S - S_m)$. So under the transformation, with $S = [S]x$ (and $[S]$ chosen as above) this becomes $H([S](x - x_m))$. However, the scaling constant in front is irrelevant because of the behaviour of the Heaviside. Thus it is simply replaced with $H(x - x_m)$. 
 
 b. Initially, $x(0) = 0$ so the Heaviside function returns zero. The differential equations is then $x'(T) = 1 - x$. Solving with the initial condition yields 
 $$
